@@ -43,6 +43,8 @@
 
 #include <sofa/core/visual/DrawToolGL.h>
 #include <sofa/helper/gl/Utilities.h>
+#include <sofa/helper/gl/glText.h>
+#include <sofa/helper/gl/glText.inl>
 
 namespace sofa
 {
@@ -352,10 +354,6 @@ void GLFWGUI::initializeGL(void)
         m_texLogo = new helper::gl::Texture(new helper::io::ImageBMP( sofa::helper::system::DataRepository.getFile("textures/SOFA_logo.bmp")));
         m_texLogo->init();
 
-#ifndef PS3
-        glEnableClientState(GL_VERTEX_ARRAY);
-        glEnableClientState(GL_NORMAL_ARRAY);
-#endif
         // Turn on our light and enable color along with the light
         //glEnable(GL_LIGHTING);
         glEnable(GL_LIGHT0);
@@ -382,62 +380,42 @@ void GLFWGUI::initializeGL(void)
 void GLFWGUI::drawAxis(double xpos, double ypos, double zpos,
         double arrowSize)
 {
-//    float fontScale = (float) (arrowSize * 0.25);
+    float fontScale = (float) (arrowSize * 0.25);
 
-//    glEnable(GL_DEPTH_TEST);
-//    glEnable(GL_LIGHTING);
-//    glEnable(GL_COLOR_MATERIAL);
+    drawTool->saveLastState();
+    drawTool->setLightingEnabled(false);
 
-//    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-//    glShadeModel(GL_SMOOTH);
+    glDisable(GL_DEPTH_TEST);
 
-//    // --- Draw the "X" axis in red
-//    glPushMatrix();
-//    glColor3f(1.0, 0.0, 0.0);
-//    glTranslated(xpos, ypos, zpos);
-//    glRotatef(90.0f, 0.0, 1.0, 0.0);
-//    gluCylinder(_tube, arrowSize / 50.0, arrowSize / 50.0, arrowSize, 10, 10);
-//    glTranslated(0.0, 0.0, arrowSize);
-//    gluCylinder(_arrow, arrowSize / 15.0, 0.0, arrowSize / 5.0, 10, 10);
-//    // ---- Display a "X" near the tip of the arrow
-//    glTranslated(-0.5 * fontScale, arrowSize / 15.0, arrowSize / 5.0);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    glShadeModel(GL_SMOOTH);
 
-//    helper::gl::GlText::draw('X', sofa::defaulttype::Vector3(0.0, 0.0, 0.0), fontScale);
+    sofa::defaulttype::Vector3 centerPos(xpos, ypos, zpos);
 
-//    // --- Undo transforms
-//    glTranslated(-xpos, -ypos, -zpos);
-//    glPopMatrix();
+    sofa::defaulttype::Vector3 endXPos(xpos + arrowSize, ypos, zpos);
+    sofa::defaulttype::Vector3 endYPos(xpos, ypos + arrowSize, zpos);
+    sofa::defaulttype::Vector3 endZPos(xpos, ypos, zpos + arrowSize);
+    sofa::defaulttype::Vector3 endXCharPos = endXPos + sofa::defaulttype::Vector3(-0.5 * fontScale, arrowSize / 15.0, arrowSize / 5.0);
+    sofa::defaulttype::Vector3 endYCharPos = endYPos + sofa::defaulttype::Vector3(-0.5 * fontScale, arrowSize / 15.0, arrowSize / 5.0);
+    sofa::defaulttype::Vector3 endZCharPos = endZPos + sofa::defaulttype::Vector3(-0.5 * fontScale, arrowSize / 15.0, arrowSize / 5.0);
+    Vec4f xcolor(1.0,0.0,0.0,1.0);
+    Vec4f ycolor(0.0,1.0,0.0,1.0);
+    Vec4f zcolor(0.0,0.0,1.0,1.0);
 
-//    // --- Draw the "Y" axis in green
-//    glPushMatrix();
-//    glColor3f(0.0, 1.0, 0.0);
-//    glTranslated(xpos, ypos, zpos);
-//    glRotatef(-90.0f, 1.0, 0.0, 0.0);
-//    gluCylinder(_tube, arrowSize / 50.0, arrowSize / 50.0, arrowSize, 10, 10);
-//    glTranslated(0.0, 0.0, arrowSize);
-//    gluCylinder(_arrow, arrowSize / 15.0, 0.0, arrowSize / 5.0, 10, 10);
-//    // ---- Display a "Y" near the tip of the arrow
-//    glTranslated(-0.5 * fontScale, arrowSize / 15.0, arrowSize / 5.0);
-//    helper::gl::GlText::draw('Y', sofa::defaulttype::Vector3(0.0, 0.0, 0.0), fontScale);
-//    // --- Undo transforms
-//    glTranslated(-xpos, -ypos, -zpos);
-//    glPopMatrix();
+    //Arrows
+    drawTool->drawArrow(centerPos, endXPos, arrowSize / 50.0, xcolor);
+    drawTool->drawArrow(centerPos, endYPos, arrowSize / 50.0, ycolor);
+    drawTool->drawArrow(centerPos, endZPos, arrowSize / 50.0, zcolor);
 
-//    // --- Draw the "Z" axis in blue
-//    glPushMatrix();
-//    glColor3f(0.0, 0.0, 1.0);
-//    glTranslated(xpos, ypos, zpos);
-//    glRotatef(0.0f, 1.0, 0.0, 0.0);
-//    gluCylinder(_tube, arrowSize / 50.0, arrowSize / 50.0, arrowSize, 10, 10);
-//    glTranslated(0.0, 0.0, arrowSize);
-//    gluCylinder(_arrow, arrowSize / 15.0, 0.0, arrowSize / 5.0, 10, 10);
-//    // ---- Display a "Z" near the tip of the arrow
-//    glTranslated(-0.5 * fontScale, arrowSize / 15.0, arrowSize / 5.0);
-//    helper::gl::GlText::draw('Z', sofa::defaulttype::Vector3(0.0, 0.0, 0.0), fontScale);
-//    // --- Undo transforms
-//    glTranslated(-xpos, -ypos, -zpos);
-//    glPopMatrix();
+    //Letters
+    drawTool->setMaterial(xcolor);
+    helper::gl::GlText::draw('X', endXCharPos, fontScale);
+    drawTool->setMaterial(ycolor);
+    helper::gl::GlText::draw('Y', endYCharPos, fontScale);
+    drawTool->setMaterial(zcolor);
+    helper::gl::GlText::draw('Z', endZCharPos, fontScale);
 
+    drawTool->restoreLastState();
 }
 
 // ---------------------------------------------------
@@ -447,63 +425,66 @@ void GLFWGUI::drawAxis(double xpos, double ypos, double zpos,
 void GLFWGUI::drawBox(SReal* minBBox, SReal* maxBBox, double r)
 {
     //std::cout << "box = < " << minBBox[0] << ' ' << minBBox[1] << ' ' << minBBox[2] << " >-< " << maxBBox[0] << ' ' << maxBBox[1] << ' ' << maxBBox[2] << " >"<< std::endl;
-//    if (r==0.0)
-//        r = (Vector3(maxBBox) - Vector3(minBBox)).norm() / 500;
+    if (r==0.0)
+        r = (Vector3(maxBBox) - Vector3(minBBox)).norm() / 500;
 
-//    glEnable(GL_DEPTH_TEST);
-//    glEnable(GL_LIGHTING);
-//    glEnable(GL_COLOR_MATERIAL);
+    drawTool->saveLastState();
+    drawTool->setLightingEnabled(false);
 
-//    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-//    glShadeModel(GL_SMOOTH);
+    glEnable(GL_DEPTH_TEST);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    glShadeModel(GL_SMOOTH);
 
-//    // --- Draw the corners
-//    glColor3f(0.0, 1.0, 1.0);
-//    for (int corner=0; corner<8; ++corner)
-//    {
-//        glPushMatrix();
-//        glTranslated((corner&1)?minBBox[0]:maxBBox[0],
-//                (corner&2)?minBBox[1]:maxBBox[1],
-//                (corner&4)?minBBox[2]:maxBBox[2]);
-//        gluSphere(_sphere,2*r,20,10);
-//        glPopMatrix();
-//    }
 
-//    glColor3f(1.0, 1.0, 0.0);
-//    // --- Draw the X edges
-//    for (int corner=0; corner<4; ++corner)
-//    {
-//        glPushMatrix();
-//        glTranslated(           minBBox[0]           ,
-//                (corner&1)?minBBox[1]:maxBBox[1],
-//                (corner&2)?minBBox[2]:maxBBox[2]);
-//        glRotatef(90,0,1,0);
-//        gluCylinder(_tube, r, r, maxBBox[0] - minBBox[0], 10, 10);
-//        glPopMatrix();
-//    }
+    // --- Draw the corners
+    drawTool->setMaterial(sofa::defaulttype::Vec4f(0.0, 1.0, 1.0, 1.0));
+    for (int corner=0; corner<8; ++corner)
+    {
+        sofa::defaulttype::Vector3 pos((corner&1)?minBBox[0]:maxBBox[0],
+                (corner&2)?minBBox[1]:maxBBox[1],
+                (corner&4)?minBBox[2]:maxBBox[2]);
+        drawTool->drawSphere(pos,2*r);
+    }
 
-//    // --- Draw the Y edges
-//    for (int corner=0; corner<4; ++corner)
-//    {
-//        glPushMatrix();
-//        glTranslated((corner&1)?minBBox[0]:maxBBox[0],
-//                minBBox[1]           ,
-//                (corner&2)?minBBox[2]:maxBBox[2]);
-//        glRotatef(-90,1,0,0);
-//        gluCylinder(_tube, r, r, maxBBox[1] - minBBox[1], 10, 10);
-//        glPopMatrix();
-//    }
+    sofa::defaulttype::Vec4f color(1.0, 1.0, 0.0, 1.0);
+    drawTool->setMaterial(color);
+
+    // --- Draw the X edges
+    for (int corner=0; corner<4; ++corner)
+    {
+        double height = maxBBox[0] - minBBox[0];
+        sofa::defaulttype::Vector3 pos1(minBBox[0],
+                (corner&1)?minBBox[1]:maxBBox[1],
+                (corner&2)?minBBox[2]:maxBBox[2]);
+        sofa::defaulttype::Vector3 pos2(pos1[0] + height, pos1[1], pos1[2]);
+
+        drawTool->drawCylinder(pos1, pos2, r, color);
+    }
+
+    // --- Draw the Y edges
+    for (int corner=0; corner<4; ++corner)
+    {
+        double height = maxBBox[1] - minBBox[1];
+        sofa::defaulttype::Vector3 pos1((corner&1)?minBBox[0]:maxBBox[0],
+                minBBox[1]           ,
+                (corner&2)?minBBox[2]:maxBBox[2]);
+        sofa::defaulttype::Vector3 pos2(pos1[0], pos1[1] + height,pos1[2]);
+
+        drawTool->drawCylinder(pos1, pos2, r, color);
+    }
 
 //    // --- Draw the Z edges
-//    for (int corner=0; corner<4; ++corner)
-//    {
-//        glPushMatrix();
-//        glTranslated((corner&1)?minBBox[0]:maxBBox[0],
-//                (corner&2)?minBBox[1]:maxBBox[1],
-//                minBBox[2]           );
-//        gluCylinder(_tube, r, r, maxBBox[2] - minBBox[2], 10, 10);
-//        glPopMatrix();
-//    }
+    for (int corner=0; corner<4; ++corner)
+    {
+        double height = maxBBox[2] - minBBox[2];
+        sofa::defaulttype::Vector3 pos1((corner&1)?minBBox[0]:maxBBox[0],
+                (corner&2)?minBBox[1]:maxBBox[1],
+                minBBox[2]);
+        sofa::defaulttype::Vector3 pos2(pos1[0], pos1[1],pos1[2] + height);
+
+        drawTool->drawCylinder(pos1, pos2, r, color);
+    }
+    drawTool->restoreLastState();
 
 }
 
@@ -603,25 +584,26 @@ void GLFWGUI::displayOBJs()
 // -------------------------------------------------------
 // ---
 // -------------------------------------------------------
+//TODO: Display Commands ?
 void GLFWGUI::displayMenu(void)
 {
-    glDisable(GL_LIGHTING);
+//    glDisable(GL_LIGHTING);
 
-    glMatrixMode(GL_PROJECTION);
-    glPushMatrix();
-    glLoadIdentity();
-    glOrtho(-0.5, _W, -0.5, _H, -1.0, 1.0);
-    glMatrixMode(GL_MODELVIEW);
-    glPushMatrix();
-    glLoadIdentity();
+//    glMatrixMode(GL_PROJECTION);
+//    glPushMatrix();
+//    glLoadIdentity();
+//    glOrtho(-0.5, _W, -0.5, _H, -1.0, 1.0);
+//    glMatrixMode(GL_MODELVIEW);
+//    glPushMatrix();
+//    glLoadIdentity();
 
-    glColor3f(0.3f, 0.7f, 0.95f);
-    glRasterPos2i(_W / 2 - 5, _H - 15);
+//    glColor3f(0.3f, 0.7f, 0.95f);
+//    glRasterPos2i(_W / 2 - 5, _H - 15);
 
-    glMatrixMode(GL_PROJECTION);
-    glPopMatrix();
-    glMatrixMode(GL_MODELVIEW);
-    glPopMatrix();
+//    glMatrixMode(GL_PROJECTION);
+//    glPopMatrix();
+//    glMatrixMode(GL_MODELVIEW);
+//    glPopMatrix();
 }
 
 // ---------------------------------------------------------
@@ -659,8 +641,6 @@ void GLFWGUI::drawScene(void)
         glLightfv(GL_LIGHT0, GL_POSITION, _lightPosition);
         glPopMatrix();
         glEnable(GL_LIGHT0);
-
-        glColor3f(0.5f, 0.5f, 0.6f);
 
         displayOBJs();
 
