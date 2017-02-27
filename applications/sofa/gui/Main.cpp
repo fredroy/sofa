@@ -24,13 +24,16 @@
 #include "GUIManager.h"
 
 #include "BatchGUI.h"
+
 #ifdef SOFA_GUI_QT
 #include "qt/RealGUI.h"
 #endif
 #ifdef SOFA_GUI_GLUT
 #include "glut/SimpleGUI.h"
 #endif
-
+#ifdef SOFA_GUI_GLFW
+#include "glfw/GLFWGUI.h"
+#endif
 #ifdef SOFA_GUI_GLUT
 #ifdef SOFA_HAVE_BOOST
 #include "glut/MultithreadGUI.h"
@@ -70,6 +73,10 @@ int QGLViewerGUIClass = GUIManager::RegisterGUI ( "qglviewer", &qt::RealGUI::Cre
 
 #ifdef SOFA_GUI_QTVIEWER
 int QtGUIClass = GUIManager::RegisterGUI ( "qt", &qt::RealGUI::CreateGUI, &qt::RealGUI::InitGUI, 2 );
+#endif
+
+#ifdef SOFA_GUI_GLFW
+int GLFWGUIClass = GUIManager::RegisterGUI ( "glfw", &glfw::GLFWGUI::CreateGUI, &glfw::GLFWGUI::InitGUI, 4 );
 #endif
 
 } // namespace gui

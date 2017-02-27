@@ -27,6 +27,9 @@
 // Glut GUI
 #cmakedefine SOFA_GUI_GLUT
 
+// GLFW GUI
+#cmakedefine SOFA_GUI_GLFW
+
 // Qt GUI
 #cmakedefine SOFA_GUI_QT
 #cmakedefine SOFA_GUI_QGLVIEWER

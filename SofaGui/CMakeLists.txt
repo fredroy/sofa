@@ -73,6 +73,17 @@ list(APPEND SOFAGUI_TARGETS SofaGuiCommon)
 
 ## OpenGL-based GUIs
 if(NOT SOFA_NO_OPENGL)
+    ## GLFW GUI
+    option(SOFA_ENABLE_GLFW "Compile the GLFW framework" ON)
+    if(SOFA_ENABLE_GLFW)
+        option(SOFAGUI_GLFW "Compile the GLFW GUI" ON)
+        if(SOFAGUI_GLFW)
+            set(SOFA_GUI_GLFW 1) # cmakedefine
+            list(APPEND SOFAGUI_TARGETS SofaGuiGLFW)
+            add_subdirectory(../applications/sofa/gui/glfw ${CMAKE_CURRENT_BINARY_DIR}/SofaGuiGLFW)
+        endif()
+    endif()
+
     ## Glut GUI
     if(SOFA_HAVE_GLUT)
         option(SOFAGUI_GLUT "Compile the Glut GUI" OFF)
