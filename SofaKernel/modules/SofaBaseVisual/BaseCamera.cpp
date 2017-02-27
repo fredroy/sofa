@@ -25,6 +25,7 @@
 #include <sofa/defaulttype/Mat.h>
 #include <sofa/defaulttype/SolidTypes.h>
 #include <sofa/helper/gl/Axis.h>
+#include <sofa/helper/gl/Utilities.h>
 #include <sofa/simulation/AnimateBeginEvent.h>
 
 #include <tinyxml.h>
@@ -222,38 +223,6 @@ BaseCamera::Vec3 BaseCamera::worldToCameraTransform(const Vec3& v)
     return p_orientation.getValue().inverseRotate(v);
 }
 
-// TODO: move to helper
-// https://www.opengl.org/wiki/GluProject_and_gluUnProject_code
-template<class Real>
-bool glhUnProjectf(Real winx, Real winy, Real winz, Real *modelview, Real *projection, const core::visual::VisualParams::Viewport& viewport, Real *objectCoordinate)
-{
-    //Transformation matrices
-    sofa::defaulttype::Mat<4,4, Real> matModelview(modelview);
-    sofa::defaulttype::Mat<4, 4, Real> matProjection(projection);
-
-    sofa::defaulttype::Mat<4, 4, Real> m, A;
-    sofa::defaulttype::Vec<4, Real> in, out;
-
-    A = matProjection * matModelview ;
-    sofa::defaulttype::invertMatrix(m, A);
-
-    //Transformation of normalized coordinates between -1 and 1
-    in[0] = (winx - (Real)viewport[0]) / (Real)viewport[2] * 2.0 - 1.0;
-    in[1] = (winy - (Real)viewport[1]) / (Real)viewport[3] * 2.0 - 1.0;
-    in[2] = 2.0*winz - 1.0;
-    in[3] = 1.0;
-    //Objects coordinates
-    out = m * in;
-
-    if (out[3] == 0.0)
-        return false;
-    out[3] = 1.0 / out[3];
-    objectCoordinate[0] = out[0] * out[3];
-    objectCoordinate[1] = out[1] * out[3];
-    objectCoordinate[2] = out[2] * out[3];
-    return true;
-}
-
 BaseCamera::Vec3 BaseCamera::screenToWorldCoordinates(int x, int y)
 {
     const sofa::core::visual::VisualParams* vp = sofa::core::visual::VisualParams::defaultInstance();
@@ -274,7 +243,8 @@ BaseCamera::Vec3 BaseCamera::screenToWorldCoordinates(int x, int y)
     vp->drawTool()->readPixels(x, int(winY), 1, 1, NULL, &fwinZ);
 
     double winZ = (double)fwinZ;
-    glhUnProjectf<double>(winX, winY, winZ, modelview, projection, viewport, pos);
+    //glhUnProjectf<double>(winX, winY, winZ, modelview, projection, viewport, pos);
+    helper::gl::Utilities::glhUnProject<double>(winX, winY, winZ, modelview, projection, &(viewport[0]), pos);
 
     return Vec3(pos[0], pos[1], pos[2]);
 }

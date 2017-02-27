@@ -44,6 +44,8 @@ set(HEADER_FILES
     hash.h
     gl/Trackball.h
     gl/Transformation.h
+    gl/Utilities.h
+    gl/Utilities.inl
     helper.h
     init.h
     integer_id.h
@@ -149,6 +151,7 @@ set(SOURCE_FILES
     decompose.cpp
     gl/Trackball.cpp
     gl/Transformation.cpp
+    gl/Utilities.cpp
     init.cpp
     io/BaseFileAccess.cpp
     io/FileAccess.cpp
