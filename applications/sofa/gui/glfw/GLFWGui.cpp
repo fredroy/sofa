@@ -715,12 +715,6 @@ void GLFWGUI::calcProjection()
 {
     int width = _W;
     int height = _H;
-    double xNear, yNear/*, xOrtho, yOrtho*/;
-    double xFactor = 1.0, yFactor = 1.0;
-    double offset;
-    double xForeground, yForeground, zForeground, xBackground, yBackground,
-           zBackground;
-    Vector3 center;
 
     /// Camera part
     if (!currentCamera)
@@ -732,114 +726,26 @@ void GLFWGUI::calcProjection()
         currentCamera->setBoundingBox(vparams->sceneBBox().minBBox(), vparams->sceneBBox().maxBBox());
     }
     currentCamera->computeZ();
+    currentCamera->p_widthViewport.setValue(width);
+    currentCamera->p_heightViewport.setValue(height);
 
-    vparams->zNear() = currentCamera->getZNear();
-    vparams->zFar() = currentCamera->getZFar();
-    ///
+    GLdouble projectionMatrix[16];
+    currentCamera->getOpenGLProjectionMatrix(projectionMatrix);
 
-    xNear = 0.35 * vparams->zNear();
-    yNear = 0.35 * vparams->zNear();
-    offset = 0.001 * vparams->zNear(); // for foreground and background planes
-
-    if ((height != 0) && (width != 0))
-    {
-        if (height > width)
-        {
-            xFactor = 1.0;
-            yFactor = (double) height / (double) width;
-        }
-        else
-        {
-            xFactor = (double) width / (double) height;
-            yFactor = 1.0;
-        }
-    }
-    vparams->viewport() = sofa::helper::make_array(0,0,width,height);
-
-    float pixelRatio = getWindowPixelSizeRatio();
-    glViewport(0, 0, width*pixelRatio, height*pixelRatio);
-
+    glViewport(0, 0, width, height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-
-    xFactor *= 0.01;
-    yFactor *= 0.01;
-
-    //std::cout << xNear << " " << yNear << std::endl;
-
-    zForeground = -vparams->zNear() - offset;
-    zBackground = -vparams->zFar() + offset;
-
-    if (currentCamera->getCameraType() == core::visual::VisualParams::PERSPECTIVE_TYPE)
-    {
-        //gluPerspective(currentCamera->getFieldOfView(), (double) width / (double) height, vparams->zNear(), vparams->zFar());
-        double projectionMatrix [16];
-
-        float aspectRatio = float(width)/float(height);
-        GLfloat znear = vparams->zNear();
-        GLfloat zfar = vparams->zFar();
-        float ymax, xmax;
-        float temp, temp2, temp3, temp4;
-        ymax = znear * tanf(currentCamera->getFieldOfView() * M_PI / 360.0);
-        //ymin = -ymax;
-        //xmin = -ymax * aspectRatio;
-        xmax = ymax * aspectRatio;
-
-        float left = -xmax;
-        float right = xmax;
-        float bottom = -ymax;
-        float top = ymax;
-
-        temp = 2.0 * znear;
-        temp2 = right - left;
-        temp3 = top - bottom;
-        temp4 = zfar - znear;
-        projectionMatrix[0] = temp / temp2;
-        projectionMatrix[1] = 0.0;
-        projectionMatrix[2] = 0.0;
-        projectionMatrix[3] = 0.0;
-        projectionMatrix[4] = 0.0;
-        projectionMatrix[5] = temp / temp3;
-        projectionMatrix[6] = 0.0;
-        projectionMatrix[7] = 0.0;
-        projectionMatrix[8] = (right + left) / temp2;
-        projectionMatrix[9] = (top + bottom) / temp3;
-        projectionMatrix[10] = (-zfar - znear) / temp4;
-        projectionMatrix[11] = -1.0;
-        projectionMatrix[12] = 0.0;
-        projectionMatrix[13] = 0.0;
-        projectionMatrix[14] = (-temp * zfar) / temp4;
-        projectionMatrix[15] = 0.0;
-
-        sofa::core::visual::VisualParams::defaultInstance()->setProjectionMatrix(&projectionMatrix[0]);
-
-    }
-    else
-    {
-        float ratio = (float)( vparams->zFar() / (vparams->zNear() * 20) );
-        Vector3 tcenter = vparams->sceneTransform() * center;
-        if (tcenter[2] < 0.0)
-        {
-            ratio = (float)( -300 * (tcenter.norm2()) / tcenter[2] );
-        }
-        glOrtho((-xNear * xFactor) * ratio, (xNear * xFactor) * ratio, (-yNear
-                * yFactor) * ratio, (yNear * yFactor) * ratio,
-                vparams->zNear(), vparams->zFar());
-    }
-
-    xForeground = -zForeground * xNear / vparams->zNear();
-    yForeground = -zForeground * yNear / vparams->zNear();
-    xBackground = -zBackground * xNear / vparams->zNear();
-    yBackground = -zBackground * yNear / vparams->zNear();
-
-    xForeground *= xFactor;
-    yForeground *= yFactor;
-    xBackground *= xFactor;
-    yBackground *= yFactor;
+    glMultMatrixd(projectionMatrix);
 
     glMatrixMode(GL_MODELVIEW);
-}
+    glGetDoublev(GL_PROJECTION_MATRIX, lastProjectionMatrix);
 
+    //Update vparams
+    vparams->zNear() = currentCamera->getZNear();
+    vparams->zFar() = currentCamera->getZFar();
+    vparams->viewport() = sofa::helper::make_array(0, 0, width, height);
+    vparams->setProjectionMatrix(projectionMatrix);
+}
 // ---------------------------------------------------------
 // ---
 // ---------------------------------------------------------
