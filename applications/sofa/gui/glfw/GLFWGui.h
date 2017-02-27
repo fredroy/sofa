@@ -42,6 +42,7 @@
 #include <sofa/defaulttype/Quat.h>
 #include <sofa/helper/system/thread/CTime.h>
 #include <sofa/core/visual/VisualParams.h>
+#include <sofa/helper/gl/Texture.h>
 #include <SofaBaseVisual/InteractiveCamera.h>
 
 
@@ -248,6 +249,8 @@ protected:
     VisualParams* vparams;
     core::visual::DrawTool*   drawTool;
     GLFWwindow* m_window;
+
+    sofa::helper::gl::Texture* m_texLogo;
 };
 
 } // namespace glfw
