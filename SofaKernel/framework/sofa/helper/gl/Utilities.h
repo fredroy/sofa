@@ -47,20 +47,20 @@ public:
     static void computeNormalMatrix(Real* modelviewMatrix, Real* normalMatrix);
 };
 
-extern template
+extern template SOFA_HELPER_API
 int Utilities::glhUnProject<float>(float winx, float winy, float winz,
     float *modelview, float *projection, const int *viewport,
     float *objectCoordinate);
 
-extern template
+extern template SOFA_HELPER_API
 int Utilities::glhUnProject<double>(double winx, double winy, double winz,
     double *modelview, double *projection, const int *viewport,
     double *objectCoordinate);
 
-extern template
+extern template SOFA_HELPER_API
 void Utilities::computeNormalMatrix<float>(float* modelviewMatrix, float* normalMatrix);
 
-extern template
+extern template SOFA_HELPER_API
 void Utilities::computeNormalMatrix<double>(double* modelviewMatrix, double* normalMatrix);
 
 } // namespace gl
