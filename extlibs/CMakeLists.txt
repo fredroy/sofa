@@ -16,11 +16,6 @@ add_subdirectory(${SOFA_KERNEL_SOURCE_DIR}/extlibs/json json)
 
 
 ## Optional ones
-if (SOFA_ENABLE_GLFW)
-    add_subdirectory(glfw)
-    list(APPEND EXTLIBS_TARGETS glfw)
-endif()
-
 if (SOFAGUI_ENABLE_QWT)
     message("Qwt activated")
     add_subdirectory(qwt-6.1.2/src qwt)

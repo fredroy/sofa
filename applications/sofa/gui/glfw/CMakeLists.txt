@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8.12)
 project(SofaGuiGLFW)
 
+add_subdirectory(glfw)
+
 set(HEADER_FILES
     GLFWGui.h)
 
