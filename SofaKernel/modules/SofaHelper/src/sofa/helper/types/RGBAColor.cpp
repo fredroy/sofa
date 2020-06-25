@@ -79,7 +79,7 @@ static void extractValidatedHexaString(std::istream& in, std::string& s)
 }
 
 
-RGBAColor::RGBAColor() : fixed_array<float, 4>(1,1,1,1)
+RGBAColor::RGBAColor() : fixed_array<float, 4>{ 1,1,1,1 }
 {
 }
 
@@ -110,10 +110,10 @@ bool RGBAColor::read(const std::string& str, RGBAColor& color)
 
 void RGBAColor::set(float r, float g, float b, float a)
 {
-    this->elems[0]=r;
-    this->elems[1]=g;
-    this->elems[2]=b;
-    this->elems[3]=a;
+    this->at(0)=r;
+    this->at(1)=g;
+    this->at(2)=b;
+    this->at(3)=a;
 }
 
 

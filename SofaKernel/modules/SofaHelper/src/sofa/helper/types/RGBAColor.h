@@ -72,33 +72,33 @@ public:
     /// @brief enlight a color by a given factor.
     static RGBAColor lighten(const RGBAColor& in, const SReal factor);
 
-    inline float& r(){ return this->elems[0] ; }
-    inline float& g(){ return this->elems[1] ; }
-    inline float& b(){ return this->elems[2] ; }
-    inline float& a(){ return this->elems[3] ; }
-    inline const float& r() const { return this->elems[0] ; }
-    inline const float& g() const { return this->elems[1] ; }
-    inline const float& b() const { return this->elems[2] ; }
-    inline const float& a() const { return this->elems[3] ; }
+    inline float& r(){ return this->at(0) ; }
+    inline float& g(){ return this->at(1); }
+    inline float& b(){ return this->at(2); }
+    inline float& a(){ return this->at(3); }
+    inline const float& r() const { return this->at(0) ; }
+    inline const float& g() const { return this->at(1) ; }
+    inline const float& b() const { return this->at(2) ; }
+    inline const float& a() const { return this->at(3) ; }
 
-    inline void r(const float r){ this->elems[0]=r; }
-    inline void g(const float g){ this->elems[1]=g; }
-    inline void b(const float b){ this->elems[2]=b; }
-    inline void a(const float a){ this->elems[3]=a; }
+    inline void r(const float r){ this->at(0)=r; }
+    inline void g(const float g){ this->at(1)=g; }
+    inline void b(const float b){ this->at(2)=b; }
+    inline void a(const float a){ this->at(3)=a; }
 
     void set(float r, float g, float b, float a) ;
 
     bool operator==(const fixed_array<float,4>& b) const
     {
         for (int i=0; i<4; i++)
-            if ( fabs( this->elems[i] - b[i] ) > RGBACOLOR_EQUALITY_THRESHOLD ) return false;
+            if ( fabs( this->at(i) - b[i] ) > RGBACOLOR_EQUALITY_THRESHOLD ) return false;
         return true;
     }
 
     bool operator!=(const fixed_array<float,4>& b) const
     {
         for (int i=0; i<4; i++)
-            if ( fabs( this->elems[i] - b[i] ) > RGBACOLOR_EQUALITY_THRESHOLD ) return true;
+            if ( fabs( this->at(i) - b[i] ) > RGBACOLOR_EQUALITY_THRESHOLD ) return true;
         return false;
     }
 
