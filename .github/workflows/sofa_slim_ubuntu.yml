@@ -1,0 +1,173 @@
+name: C/C++ CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - master
+      - fredroy-init-actions 
+  pull_request:
+    branches-ignore:
+      - fredroy-init-actions
+jobs:
+  build:
+
+    name: Building on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-2019]
+        
+    env:
+      VCPKG_DEFAULT_TRIPLET: x64-windows
+      WINDOWS_BOOST_ROOT: ${{github.workspace}}/3rdparty/boost
+      WINDOWS_BOOST_URL: "https://sourceforge.net/projects/boost/files/boost/1.72.0/boost_1_72_0.tar.bz2/download"
+      WINDOWS_WINDEPPACK_ROOT: ${{github.workspace}}/3rdparty/windeppack
+      WINDOWS_WINDEPPACK_URL: "https://www.sofa-framework.org/download/WinDepPack/VS-2017/latest"
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ilammy/msvc-dev-cmd@v1
+    
+    - name: Checkout source code (repo fredroy/sofa , branch ${{ github.ref }} )
+      uses: actions/checkout@v2
+      with:
+          repository:  fredroy/sofa
+          ref: ${{ github.ref }}
+          path: sofa-src
+          
+    - name: Install requirements
+      shell: bash
+      run: |
+         if [ "$RUNNER_OS" == "Linux" ]; then
+            sudo apt install -qq ccache ninja-build libeigen3-dev libboost-dev
+         elif [ "$RUNNER_OS" == "Windows" ]; then
+            # choco install eigen ninja
+            vcpkg install zlib eigen3
+         elif [ "$RUNNER_OS" == "macOS" ]; then
+            brew install ccache ninja eigen boost
+         fi
+         
+    - name: Install Boost (Windows)
+      if: steps.cache-boost.outputs.cache-hit != 'true' &&  matrix.os == 'windows-2019'
+      shell: bash
+      run: |
+        if [ "$RUNNER_OS" == "Windows" ]; then
+          mkdir -p $WINDOWS_BOOST_ROOT
+          curl --progress-bar --location --output $WINDOWS_BOOST_ROOT/download.tar.bz2 $WINDOWS_BOOST_URL
+          7z -o$WINDOWS_BOOST_ROOT x $WINDOWS_BOOST_ROOT/download.tar.bz2 -y -bd
+          7z -o$WINDOWS_BOOST_ROOT x $WINDOWS_BOOST_ROOT/download.tar -y -bd
+          cd $WINDOWS_BOOST_ROOT && cp -r boost_*/* .
+          rm -rf boost_*/* download.tar.bz2 download.tar
+        fi
+
+    - name: Install WinDepPack (Windows)
+      if: steps.cache-windeppack.outputs.cache-hit != 'true' &&  matrix.os == 'windows-2019'
+      shell: bash
+      run: |
+        if [ "$RUNNER_OS" == "Windows" ]; then
+          mkdir -p $WINDOWS_WINDEPPACK_ROOT
+          curl --progress-bar --location --output $WINDOWS_WINDEPPACK_ROOT/download.zip $WINDOWS_WINDEPPACK_URL
+          7z -o$WINDOWS_WINDEPPACK_ROOT x $WINDOWS_WINDEPPACK_ROOT/download.zip -y -bd
+          cd $WINDOWS_WINDEPPACK_ROOT && cp -r SOFA_WinDepPack_*/* .
+          rm -rf download.zip SOFA_WinDepPack_*
+        fi
+        
+    - name: Get Time
+      id: time
+      uses: nanzm/get-time-action@v1.0
+      with:
+        timeZone: 8
+        format: 'YYYY-MM-DD-HH-mm-ss'
+
+    - name: ccache cache files (Linux/Mac)
+      uses: actions/cache@v2
+      if: matrix.os != 'windows-2019'
+      with:
+        path: .ccache
+        key: ${{ matrix.os }}-ccache-${{ steps.time.outputs.time }}
+        restore-keys: |
+          ${{ matrix.os }}-ccache-
+          
+    - name: Restore Boost cache (Windows)
+      uses: actions/cache@v2
+      id: cache-boost
+      if: matrix.os == 'windows-2019'
+      with:
+        path: ${{env.WINDOWS_BOOST_ROOT}}
+        key: fredroy-boost
+
+    - name: Restore WinDepPack cache (Windows)
+      uses: actions/cache@v2
+      id: cache-windeppack
+      if: matrix.os == 'windows-2019'
+      with:
+        path: ${{env.WINDOWS_WINDEPPACK_ROOT}}
+        key: fredroy-windeppack
+        
+    - name: Restore previous build cache (ALL)
+      uses: actions/cache@v2
+      id: cache-sofa-build
+      with:
+        path: ${{github.workspace}}/sofa-build
+        key: ${{ matrix.os }}-fredroy-cache-sofa-build
+    
+    - name: Build
+      env:
+        CCACHE_COMPRESS: true
+        CCACHE_COMPRESSLEVEL: 6
+        CCACHE_MAXSIZE: "1G"
+      shell: bash
+      run: |
+        if [ "$RUNNER_OS" == "Windows" ]; then
+          # "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
+          cp -rf $WINDOWS_WINDEPPACK_ROOT/include .
+          cp -rf $WINDOWS_WINDEPPACK_ROOT/lib .
+          mkdir -p sofa-build
+          cd sofa-build
+          cmake \
+              -DCMAKE_TOOLCHAIN_FILE="$VCPKG_INSTALLATION_ROOT/scripts/buildsystems/vcpkg.cmake" \
+              -DCMAKE_BUILD_TYPE=Release \
+              -DCMAKE_INSTALL_PREFIX="${GITHUB_WORKSPACE}/sofa-install"  \
+              -DBOOST_ROOT="$WINDOWS_BOOST_ROOT"  \
+              -DAPPLICATION_MODELER=OFF \
+              -DSOFAGUI_QT=OFF \
+              -DSOFA_WITH_OPENGL=OFF \
+              -DSOFA_BUILD_SCENECREATOR=OFF \
+              -DSOFA_BUILD_TESTS=OFF \
+              -DSOFA_FLOATING_POINT_TYPE=double \
+              -DSOFA_WITH_DEPRECATED_COMPONENTS=OFF \
+              -DPLUGIN_SOFAMATRIX=OFF \
+              ..
+          cmake --build . --target install --config Release
+        #elif [ "$RUNNER_OS" == "macOS" || "$RUNNER_OS" == "Linux"]; then
+        #  export CCACHE_BASEDIR=$GITHUB_WORKSPACE
+        #  && export CCACHE_DIR=$GITHUB_WORKSPACE/.ccache
+        #  && ccache -z
+        #  && mkdir build
+        #  && cd build
+        #  && cmake 
+        #      -GNinja
+        #      -DCMAKE_C_COMPILER_LAUNCHER=ccache
+        #      -DCMAKE_CXX_COMPILER_LAUNCHER=ccache
+        #      -DCMAKE_BUILD_TYPE=Release
+        #      -DAPPLICATION_MODELER=OFF
+        #      -DSOFAGUI_BUILD=OFF
+        #      -DSOFAGUI_QT=OFF
+        #      -DSOFA_WITH_OPENGL=OFF
+        #      -DSOFA_BUILD_SCENECREATOR=OFF
+        #      -DSOFA_BUILD_TESTS=ON
+        #      -DSOFAGUI_BUILD_TESTS=OFF
+        #      -DSOFA_FLOATING_POINT_TYPE=double
+        #      -DSOFA_WITH_DEPRECATED_COMPONENTS=OFF
+        #      -DPLUGIN_SOFAMATRIX=OFF
+        #      ..
+        #  && ninja 
+        #  && ninja install
+        #  && ccache -s
+        fi
+    - name: Archive production
+      uses: actions/upload-artifact@v2
+      with:
+        name: sofa-slim-${{ matrix.os }}
+        path: ${{github.workspace}}/sofa-install
