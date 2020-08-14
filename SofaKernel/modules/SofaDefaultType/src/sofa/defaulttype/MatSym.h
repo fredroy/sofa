@@ -38,11 +38,9 @@ namespace defaulttype
 
 template <int D,class real=float>
 class MatSym : public VecNoInit<D*(D+1)/2,real>
-//class Mat : public Vec<L,Vec<C,real> >
 {
 public:
-
-    // enum { N = L*C };
+    
 
     typedef real Real;
     typedef Vec<D,Real> Coord;
@@ -59,12 +57,12 @@ public:
     /// Constructor from 6 elements
     explicit MatSym(const real& v1,const real& v2,const real& v3,const real& v4,const real& v5,const real& v6)
     {
-        this->elems[0] = v1;
-        this->elems[1] = v2;
-        this->elems[2] = v3;
-        this->elems[3] = v4;
-        this->elems[4] = v5;
-        this->elems[5] = v6;
+        (*this)[0] = v1;
+        (*this)[1] = v2;
+        (*this)[2] = v3;
+        (*this)[3] = v4;
+        (*this)[4] = v5;
+        (*this)[5] = v6;
     }
 
 
@@ -72,7 +70,7 @@ public:
     explicit MatSym(const int sizeM,const real& v)
     {
         for( int i=0; i<sizeM*(sizeM+1)/2; i++ )
-            this->elems[i] = v;
+            (*this)[i] = v;
     }
 
     /// Constructor from another matrix
@@ -94,32 +92,32 @@ public:
     void clear()
     {
         for (int i=0; i<D*(D+1)/2; i++)
-            this->elems[i]=0;
+            (*this)[i]=0;
     }
 
     /// Sets each element to r.
     void fill(real r)
     {
         for (int i=0; i<D*(D+1)/2; i++)
-            this->elems[i].fill(r);
+            (*this)[i].fill(r);
     }
 
     /// Write access to element (i,j).
     inline real& operator()(int i, int j)
     {
         if(i>=j)
-        {  return this->elems[(i*(i+1))/2+j];}
+        {  return (*this)[(i*(i+1))/2+j];}
         else
-        {return this->elems[(j*(j+1))/2+i];}
+        {return (*this)[(j*(j+1))/2+i];}
     }
 
     /// Read-only access to element (i,j).
     inline const real& operator()(int i, int j) const
     {
         if(i>=j)
-        {  return this->elems[(i*(i+1))/2+j];}
+        {  return (*this)[(i*(i+1))/2+j];}
         else
-        {return this->elems[(j*(j+1))/2+i];}
+        {return (*this)[(j*(j+1))/2+i];}
     }
 
     //convert matrix to sym
@@ -138,12 +136,12 @@ public:
         Vec<D*(D+1)/2 ,real> result;
         if (D==2)
         {
-            result[0] = this->elems[0]; result[1] = this->elems[2]; result[2] = 2*this->elems[1];
+            result[0] = (*this)[0]; result[1] = (*this)[2]; result[2] = 2*(*this)[1];
         }
         else
         {
-            result[0] = this->elems[0]; result[1] = this->elems[2]; result[2] = this->elems[5];
-            result[3]=2*this->elems[4]; result[4]=2*this->elems[3]; result[5]=2*this->elems[1];
+            result[0] = (*this)[0]; result[1] = (*this)[2]; result[2] = (*this)[5];
+            result[3]=2*(*this)[4]; result[4]=2*(*this)[3]; result[5]=2*(*this)[1];
         }
         return result;
 
@@ -168,10 +166,10 @@ public:
     {
         for (int i=0; i<D; i++)
         {
-            this->elems[i*(i+1)/2+i]=1;
+            (*this)[i*(i+1)/2+i]=1;
             for (int j=i+1; j<D; j++)
             {
-                this->elems[i*(i+1)/2+j]=0;
+                (*this)[i*(i+1)/2+j]=0;
             }
         }
     }
@@ -182,14 +180,14 @@ public:
     bool operator==(const MatSym<D,real>& b) const
     {
         for (int i=0; i<D*(D+1)/2; i++)
-            if (!(this->elems[i]==b[i])) return false;
+            if (!((*this)[i]==b[i])) return false;
         return true;
     }
 
     bool operator!=(const MatSym< D,real>& b) const
     {
         for (int i=0; i<D*(D+1)/2; i++)
-            if (this->elems[i]!=b[i]) return true;
+            if ((*this)[i]!=b[i]) return true;
         return false;
     }
 
@@ -349,21 +347,21 @@ public:
     void operator *=(real r)
     {
         for(int i=0; i<D*(D+1)/2; i++)
-            this->elems[i]*=r;
+            (*this)[i]*=r;
     }
 
     /// Scalar division assignment operator.
     void operator /=(real r)
     {
         for(int i=0; i<D*(D+1)/2; i++)
-            this->elems[i]/=r;
+            (*this)[i]/=r;
     }
 
     /// Addition assignment operator.
     void operator +=(const MatSym< D,real>& m)
     {
         for(int i=0; i<D*(D+1)/2; i++)
-            this->elems[i]+=m[i];
+            (*this)[i]+=m[i];
     }
 
 
@@ -372,7 +370,7 @@ public:
     void operator -=(const MatSym< D,real>& m)
     {
         for(int i=0; i<D*(D+1)/2; i++)
-            this->elems[i]-=m[i];
+            (*this)[i]-=m[i];
     }
 
     /// Invert matrix m

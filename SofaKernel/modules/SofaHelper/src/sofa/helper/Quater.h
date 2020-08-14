@@ -36,10 +36,9 @@ namespace helper
 {
 
 template<class Real>
-class SOFA_HELPER_API Quater
+class SOFA_HELPER_API Quater : public sofa::helper::fixed_array<Real, 4>
 {
 private:
-    Real _q[4];
 
 public:
 
@@ -50,9 +49,9 @@ public:
     ~Quater();
     Quater(Real x, Real y, Real z, Real w);
     template<class Real2>
-    Quater(const Real2 q[]) { for (int i=0; i<4; i++) _q[i] = Real(q[i]); }
+    Quater(const Real2 q[]) { for (int i=0; i<4; i++) (*this)[i] = Real(q[i]); }
     template<class Real2>
-    Quater(const Quater<Real2>& q) { for (int i=0; i<4; i++) _q[i] = Real(q[i]); }
+    Quater(const Quater<Real2>& q) { for (int i=0; i<4; i++) (*this)[i] = Real(q[i]); }
     Quater( const defaulttype::Vec<3,Real>& axis, Real angle );
 
     /** Sets this quaternion to the rotation required to rotate direction vector vFrom to direction vector vTo.        
@@ -68,23 +67,23 @@ public:
 
     void set(Real x, Real y, Real z, Real w)
     {
-        _q[0] = x;
-        _q[1] = y;
-        _q[2] = z;
-        _q[3] = w;
+        (*this)[0] = x;
+        (*this)[1] = y;
+        (*this)[2] = z;
+        (*this)[3] = w;
     }
 
 
     /// Cast into a standard C array of elements.
     const Real* ptr() const
     {
-        return this->_q;
+        return this->data();
     }
 
     /// Cast into a standard C array of elements.
     Real* ptr()
     {
-        return this->_q;
+        return this->data();
     }
 
     /// Returns true if norm of Quaternion is one, false otherwise.
@@ -95,10 +94,10 @@ public:
 
     void clear()
     {
-        _q[0]=0.0;
-        _q[1]=0.0;
-        _q[2]=0.0;
-        _q[3]=1.0;
+        (*this)[0]=0.0;
+        (*this)[1]=0.0;
+        (*this)[2]=0.0;
+        (*this)[3]=1.0;
     }
 
     void fromFrame(defaulttype::Vec<3,Real>& x, defaulttype::Vec<3,Real>&y, defaulttype::Vec<3,Real>&z);
@@ -109,6 +108,8 @@ public:
     template<class Mat33>
     void toMatrix(Mat33 &m) const
     {
+        auto _q = this->data();
+
         m[0][0] = typename Mat33::Real (1 - 2 * (_q[1] * _q[1] + _q[2] * _q[2]));
         m[0][1] = typename Mat33::Real (2 * (_q[0] * _q[1] - _q[2] * _q[3]));
         m[0][2] = typename Mat33::Real (2 * (_q[2] * _q[0] + _q[1] * _q[3]));
@@ -126,6 +127,8 @@ public:
     template<class Vec>
     Vec rotate( const Vec& v ) const
     {
+        auto _q = this->data();
+
         return Vec(
                 typename Vec::value_type((1.0f - 2.0f * (_q[1] * _q[1] + _q[2] * _q[2]))*v[0] + (2.0f * (_q[0] * _q[1] - _q[2] * _q[3])) * v[1] + (2.0f * (_q[2] * _q[0] + _q[1] * _q[3])) * v[2]),
                 typename Vec::value_type((2.0f * (_q[0] * _q[1] + _q[2] * _q[3]))*v[0] + (1.0f - 2.0f * (_q[2] * _q[2] + _q[0] * _q[0]))*v[1] + (2.0f * (_q[1] * _q[2] - _q[0] * _q[3]))*v[2]),
@@ -138,6 +141,8 @@ public:
     template<class Vec>
     Vec inverseRotate( const Vec& v ) const
     {
+        auto _q = this->data();
+
         return Vec(
                 typename Vec::value_type((1.0f - 2.0f * (_q[1] * _q[1] + _q[2] * _q[2]))*v[0] + (2.0f * (_q[0] * _q[1] + _q[2] * _q[3])) * v[1] + (2.0f * (_q[2] * _q[0] - _q[1] * _q[3])) * v[2]),
                 typename Vec::value_type((2.0f * (_q[0] * _q[1] - _q[2] * _q[3]))*v[0] + (1.0f - 2.0f * (_q[2] * _q[2] + _q[0] * _q[0]))*v[1] + (2.0f * (_q[1] * _q[2] + _q[0] * _q[3]))*v[2]),
@@ -166,14 +171,12 @@ public:
 
     Real& operator[](int index)
     {
-        assert(index >= 0 && index < 4);
-        return _q[index];
+        return this->at(index);
     }
 
     const Real& operator[](int index) const
     {
-        assert(index >= 0 && index < 4);
-        return _q[index];
+        return this->at(index);
     }
 
     Quater inverse() const;
@@ -235,13 +238,13 @@ public:
     {
         Real quat[4];
 
-        Real c1 = cos( v.elems[0] / 2 );
-        Real c2 = cos( v.elems[1] / 2 );
-        Real c3 = cos( v.elems[2] / 2 );
+        Real c1 = cos( v[0] / 2 );
+        Real c2 = cos( v[1] / 2 );
+        Real c3 = cos( v[2] / 2 );
 
-        Real s1 = sin( v.elems[0] / 2 );
-        Real s2 = sin( v.elems[1] / 2 );
-        Real s3 = sin( v.elems[2] / 2 );
+        Real s1 = sin( v[0] / 2 );
+        Real s2 = sin( v[1] / 2 );
+        Real s3 = sin( v[2] / 2 );
 
         switch(order)
         {
@@ -358,28 +361,28 @@ public:
     bool operator==(const Quater& q) const
     {
         for (int i=0; i<4; i++)
-            if ( std::abs( _q[i] - q._q[i] ) > EQUALITY_THRESHOLD ) return false;
+            if ( std::abs( (*this)[i] - q[i] ) > EQUALITY_THRESHOLD ) return false;
         return true;
     }
 
     bool operator!=(const Quater& q) const
     {
         for (int i=0; i<4; i++)
-            if ( std::abs( _q[i] - q._q[i] ) > EQUALITY_THRESHOLD ) return true;
+            if ( std::abs((*this)[i] - q[i] ) > EQUALITY_THRESHOLD ) return true;
         return false;
     }
 
     /// write to an output stream
     inline friend std::ostream& operator << ( std::ostream& out, const Quater& v )
     {
-        out<<v._q[0]<<" "<<v._q[1]<<" "<<v._q[2]<<" "<<v._q[3];
+        out<<v[0]<<" "<<v[1]<<" "<<v[2]<<" "<<v[3];
         return out;
     }
 
     /// read from an input stream
     inline friend std::istream& operator >> ( std::istream& in, Quater& v )
     {
-        in>>v._q[0]>>v._q[1]>>v._q[2]>>v._q[3];
+        in>>v[0]>>v[1]>>v[2]>>v[3];
         return in;
     }
 

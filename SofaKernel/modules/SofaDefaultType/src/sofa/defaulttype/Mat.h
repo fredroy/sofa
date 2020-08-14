@@ -37,6 +37,7 @@ class Mat : public helper::fixed_array<VecNoInit<C,real>,L>
     //class Mat : public Vec<L,Vec<C,real> >
 {
 public:
+    using Inherit = helper::fixed_array<VecNoInit<C, real>, L>;
 
     enum { N = L*C };
 
@@ -66,27 +67,27 @@ public:
     Mat(Line r1, Line r2)
     {
         static_assert(L == 2, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
+        (*this)[0]=r1;
+        (*this)[1]=r2;
     }
 
     /// Specific constructor with 3 lines.
     Mat(Line r1, Line r2, Line r3)
     {
         static_assert(L == 3, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
+        (*this)[0]=r1;
+        (*this)[1]=r2;
+        (*this)[2]=r3;
     }
 
     /// Specific constructor with 4 lines.
     Mat(Line r1, Line r2, Line r3, Line r4)
     {
         static_assert(L == 4, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
-        this->elems[3]=r4;
+        (*this)[0]=r1;
+        (*this)[1]=r2;
+        (*this)[2]=r3;
+        (*this)[3]=r4;
     }
 
     /// Constructor from an element
@@ -94,7 +95,7 @@ public:
     {
         for( int i=0; i<L; i++ )
             for( int j=0; j<C; j++ )
-                this->elems[i][j] = v;
+                (*this)[i][j] = v;
     }
 
     /// Constructor from another matrix
@@ -114,14 +115,14 @@ public:
         for( int l=0 ; l<maxL ; ++l )
         {
             for( int c=0 ; c<maxC ; ++c )
-                this->elems[l][c] = (real)m[l][c];
+                (*this)[l][c] = (real)m[l][c];
             for( int c=maxC ; c<C ; ++c )
-                this->elems[l][c] = 0;
+                (*this)[l][c] = 0;
         }
 
         for( int l=maxL ; l<L ; ++l )
             for( int c=0 ; c<C ; ++c )
-                this->elems[l][c] = 0;
+                (*this)[l][c] = 0;
     }
 
     /// Constructor from an array of elements (stored per line).
@@ -166,14 +167,14 @@ public:
     {
         for (int i=0; i<L2; i++)
             for (int j=0; j<C2; j++)
-                m[i][j] = this->elems[i+L0][j+C0];
+                m[i][j] = (*this)[i+L0][j+C0];
     }
 
     template<int L2, int C2> void setsub(int L0, int C0, const Mat<L2,C2,real>& m)
     {
         for (int i=0; i<L2; i++)
             for (int j=0; j<C2; j++)
-                this->elems[i+L0][j+C0] = m[i][j];
+                (*this)[i+L0][j+C0] = m[i][j];
     }
 
     template<int L2> void setsub(int L0, int C0, const Vec<L2,real>& v)
@@ -181,7 +182,7 @@ public:
         assert( C0<C );
         assert( L0+L2-1<L );
         for (int i=0; i<L2; i++)
-            this->elems[i+L0][C0] = v[i];
+            (*this)[i+L0][C0] = v[i];
     }
 
 
@@ -189,20 +190,20 @@ public:
     void clear()
     {
         for (int i=0; i<L; i++)
-            this->elems[i].clear();
+            (*this)[i].clear();
     }
 
     /// Sets each element to r.
     void fill(real r)
     {
         for (int i=0; i<L; i++)
-            this->elems[i].fill(r);
+            (*this)[i].fill(r);
     }
 
     /// Read-only access to line i.
     const Line& line(int i) const
     {
-        return this->elems[i];
+        return (*this)[i];
     }
 
     /// Copy of column j.
@@ -210,87 +211,87 @@ public:
     {
         Col c;
         for (int i=0; i<L; i++)
-            c[i]=this->elems[i][j];
+            c[i]=(*this)[i][j];
         return c;
     }
 
     /// Write acess to line i.
     LineNoInit& operator[](int i)
     {
-        return this->elems[i];
+        return Inherit::operator[](i);
     }
 
     /// Read-only access to line i.
     const LineNoInit& operator[](int i) const
     {
-        return this->elems[i];
+        return Inherit::operator[](i);
     }
 
     /// Write acess to line i.
     LineNoInit& operator()(int i)
     {
-        return this->elems[i];
+        return (*this)[i];
     }
 
     /// Read-only access to line i.
     const LineNoInit& operator()(int i) const
     {
-        return this->elems[i];
+        return (*this)[i];
     }
 
     /// Write access to element (i,j).
     real& operator()(int i, int j)
     {
-        return this->elems[i][j];
+        return (*this)[i][j];
     }
 
     /// Read-only access to element (i,j).
     const real& operator()(int i, int j) const
     {
-        return this->elems[i][j];
+        return (*this)[i][j];
     }
 
     /// Cast into a standard C array of lines (read-only).
     const Line* lptr() const
     {
-        return this->elems;
+        return (*this);
     }
 
     /// Cast into a standard C array of lines.
     Line* lptr()
     {
-        return this->elems;
+        return (*this);
     }
 
     /// Cast into a standard C array of elements (stored per line) (read-only).
     const real* ptr() const
     {
-        return this->elems[0].ptr();;
+        return (*this)[0].ptr();;
     }
 
     /// Cast into a standard C array of elements (stored per line).
     real* ptr()
     {
-        return this->elems[0].ptr();
+        return (*this)[0].ptr();
     }
 
     /// Special access to first line.
-    Line& x() { static_assert(L >= 1, ""); return this->elems[0]; }
+    Line& x() { static_assert(L >= 1, ""); return (*this)[0]; }
     /// Special access to second line.
-    Line& y() { static_assert(L >= 2, ""); return this->elems[1]; }
+    Line& y() { static_assert(L >= 2, ""); return (*this)[1]; }
     /// Special access to third line.
-    Line& z() { static_assert(L >= 3, ""); return this->elems[2]; }
+    Line& z() { static_assert(L >= 3, ""); return (*this)[2]; }
     /// Special access to fourth line.
-    Line& w() { static_assert(L >= 4, ""); return this->elems[3]; }
+    Line& w() { static_assert(L >= 4, ""); return (*this)[3]; }
 
     /// Special access to first line (read-only).
-    const Line& x() const { static_assert(L >= 1, ""); return this->elems[0]; }
+    const Line& x() const { static_assert(L >= 1, ""); return (*this)[0]; }
     /// Special access to second line (read-only).
-    const Line& y() const { static_assert(L >= 2, ""); return this->elems[1]; }
+    const Line& y() const { static_assert(L >= 2, ""); return (*this)[1]; }
     /// Special access to thrid line (read-only).
-    const Line& z() const { static_assert(L >= 3, ""); return this->elems[2]; }
+    const Line& z() const { static_assert(L >= 3, ""); return (*this)[2]; }
     /// Special access to fourth line (read-only).
-    const Line& w() const { static_assert(L >= 4, ""); return this->elems[3]; }
+    const Line& w() const { static_assert(L >= 4, ""); return (*this)[3]; }
 
     /// Set matrix to identity.
     void identity()
@@ -298,7 +299,7 @@ public:
         static_assert(L == C, "");
         clear();
         for (int i=0; i<L; i++)
-            this->elems[i][i]=1;
+            (*this)[i][i]=1;
     }
 
     /// precomputed identity matrix of size (L,L)
@@ -336,7 +337,7 @@ public:
             {
                 for (int j=i+1; j<C; j++)
                 {
-                    std::swap(this->elems[i][j], this->elems[j][i]);
+                    std::swap((*this)[i][j], (*this)[j][i]);
                 }
             }
         }
@@ -344,7 +345,7 @@ public:
         {
             for (int i=0; i<L; i++)
                 for (int j=0; j<C; j++)
-                    this->elems[i][j]=m[j][i];
+                    (*this)[i][j]=m[j][i];
         }
     }
 
@@ -354,7 +355,7 @@ public:
         Mat<C,L,real> m(NOINIT);
         for (int i=0; i<L; i++)
             for (int j=0; j<C; j++)
-                m[j][i]=this->elems[i][j];
+                m[j][i]=(*this)[i][j];
         return m;
     }
 
@@ -366,7 +367,7 @@ public:
         {
             for (int j=i+1; j<C; j++)
             {
-                std::swap(this->elems[i][j], this->elems[j][i]);
+                std::swap((*this)[i][j], (*this)[j][i]);
             }
         }
     }
@@ -377,14 +378,14 @@ public:
     bool operator==(const Mat<L,C,real>& b) const
     {
         for (int i=0; i<L; i++)
-            if (!(this->elems[i]==b[i])) return false;
+            if (!((*this)[i]==b[i])) return false;
         return true;
     }
 
     bool operator!=(const Mat<L,C,real>& b) const
     {
         for (int i=0; i<L; i++)
-            if (this->elems[i]!=b[i]) return true;
+            if ((*this)[i]!=b[i]) return true;
         return false;
     }
 
@@ -393,7 +394,7 @@ public:
     {
         for (int i=0; i<L; i++)
             for (int j=i+1; j<C; j++)
-                if( fabs( this->elems[i][j] - this->elems[j][i] ) > EQUALITY_THRESHOLD ) return false;
+                if( fabs( (*this)[i][j] - (*this)[j][i] ) > EQUALITY_THRESHOLD ) return false;
         return true;
     }
 
@@ -402,9 +403,9 @@ public:
         for (int i=0; i<L; i++)
         {
             for (int j=0; j<i-1; j++)
-                if( helper::rabs( this->elems[i][j] ) > EQUALITY_THRESHOLD ) return false;
+                if( helper::rabs( (*this)[i][j] ) > EQUALITY_THRESHOLD ) return false;
             for (int j=i+1; j<C; j++)
-                if( helper::rabs( this->elems[i][j] ) > EQUALITY_THRESHOLD ) return false;
+                if( helper::rabs( (*this)[i][j] ) > EQUALITY_THRESHOLD ) return false;
         }
         return true;
     }
@@ -575,21 +576,21 @@ public:
     void operator *=(real r)
     {
         for(int i=0; i<L; i++)
-            this->elems[i]*=r;
+            (*this)[i]*=r;
     }
 
     /// Scalar division assignment operator.
     void operator /=(real r)
     {
         for(int i=0; i<L; i++)
-            this->elems[i]/=r;
+            (*this)[i]/=r;
     }
 
     /// Addition assignment operator.
     void operator +=(const Mat<L,C,real>& m)
     {
         for(int i=0; i<L; i++)
-            this->elems[i]+=m[i];
+            (*this)[i]+=m[i];
     }
 
     /// Addition of the transposed of m
@@ -612,7 +613,7 @@ public:
     void operator -=(const Mat<L,C,real>& m)
     {
         for(int i=0; i<L; i++)
-            this->elems[i]-=m[i];
+            (*this)[i]-=m[i];
     }
 
 
@@ -643,7 +644,7 @@ public:
         Mat<L,C,real> m;
         m.identity();
         for (int i=0; i<C-1; ++i)
-            m.elems[i][C-1] = t[i];
+            m[i][C-1] = t[i];
         return m;
     }
 
@@ -652,7 +653,7 @@ public:
         Mat<L,C,real> m;
         m.identity();
         for (int i=0; i<C-1; ++i)
-            m.elems[i][i] = s;
+            m[i][i] = s;
         return m;
     }
 
@@ -661,7 +662,7 @@ public:
         Mat<L,C,real> m;
         m.identity();
         for (int i=0; i<C-1; ++i)
-            m.elems[i][i] = s[i];
+            m[i][i] = s[i];
         return m;
     }
 
@@ -713,7 +714,7 @@ public:
         static_assert( C == L, "" );
         for(int l=0; l<L; l++)
             for(int c=l+1; c<C; c++)
-                this->elems[l][c] = this->elems[c][l] = ( this->elems[l][c] + this->elems[c][l] ) * 0.5f;
+                (*this)[l][c] = (*this)[c][l] = ( (*this)[l][c] + (*this)[c][l] ) * 0.5f;
     }
 
 };

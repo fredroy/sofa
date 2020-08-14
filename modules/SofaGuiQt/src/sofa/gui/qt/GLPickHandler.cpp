@@ -119,10 +119,10 @@ component::collision::BodyPicked GLPickHandler::findCollisionUsingColourCoding(c
     if(renderCallback)
     {
         renderCallback->render(ColourPickingVisitor::ENCODE_COLLISIONELEMENT );
-        glReadPixels(x,y,1,1,_fboParams.colorFormat,_fboParams.colorType,color.elems);
+        glReadPixels(x,y,1,1,_fboParams.colorFormat,_fboParams.colorType,color.data());
         decodeCollisionElement(color,result);
         renderCallback->render(ColourPickingVisitor::ENCODE_RELATIVEPOSITION );
-        glReadPixels(x,y,1,1,_fboParams.colorFormat,_fboParams.colorType,color.elems);
+        glReadPixels(x,y,1,1,_fboParams.colorFormat,_fboParams.colorType,color.data());
         if( ( tmodel = dynamic_cast<TriangleCollisionModel<defaulttype::Vec3Types>*>(result.body) ) != nullptr )
         {
             decodePosition(result,color,tmodel,result.indexCollisionElement);

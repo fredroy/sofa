@@ -118,22 +118,22 @@ BoundingBox::operator bbox_t() const
 
 SReal* BoundingBox::minBBoxPtr()
 {
-    return bbox.first.elems;
+    return bbox.first.data();
 }
 
 SReal* BoundingBox::maxBBoxPtr()
 {
-    return bbox.second.elems;
+    return bbox.second.data();
 }
 
 const SReal* BoundingBox::minBBoxPtr() const
 {
-    return bbox.first.elems;
+    return bbox.first.data();
 }
 
 const SReal* BoundingBox::maxBBoxPtr() const
 {
-    return bbox.second.elems;
+    return bbox.second.data();
 }
 
 const Vector3& BoundingBox::minBBox() const
@@ -364,22 +364,22 @@ BoundingBox2D::operator bbox_t() const
 
 SReal* BoundingBox2D::minBBoxPtr()
 {
-    return bbox.first.elems;
+    return bbox.first.data();
 }
 
 SReal* BoundingBox2D::maxBBoxPtr()
 {
-    return bbox.second.elems;
+    return bbox.second.data();
 }
 
 const SReal* BoundingBox2D::minBBoxPtr() const
 {
-    return bbox.first.elems;
+    return bbox.first.data();
 }
 
 const SReal* BoundingBox2D::maxBBoxPtr() const
 {
-    return bbox.second.elems;
+    return bbox.second.data();
 }
 
 const Vector2& BoundingBox2D::minBBox() const

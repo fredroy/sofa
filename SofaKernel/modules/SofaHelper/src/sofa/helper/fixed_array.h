@@ -57,6 +57,7 @@
 #include <cmath>
 #include <cassert>
 #include <iostream>
+#include <array>
 
 namespace sofa
 {
@@ -65,34 +66,22 @@ namespace helper
 {
 
 template<class T, std::size_t N>
-class fixed_array
+class fixed_array : public std::array<T, N>
 {
 public:
-    T elems[N];    // fixed-size array of elements of type T
-
-    typedef T Array[N]; ///< name the array type
+    using Inherit = std::array<T, N>;
 
 public:
-    // type definitions
-    typedef T              value_type;
-    typedef T*             iterator;
-    typedef const T*       const_iterator;
-    typedef T&             reference;
-    typedef const T&       const_reference;
-    typedef std::size_t    size_type;
-    typedef std::ptrdiff_t difference_type;
-
     fixed_array()
     {
     }
-
 
     /// Specific constructor for 1-element vectors.
     template<int NN = N, typename std::enable_if<NN==1,int>::type = 0>
     explicit fixed_array(value_type r1)
     {
-        static_assert(N==1, "");
-        this->elems[0]=r1;
+        static_assert(N == 1, "");
+        (*this)[0] = r1;
     }
 
     /// Specific constructor for 2-elements vectors.
@@ -100,8 +89,8 @@ public:
     fixed_array(value_type r1, value_type r2)
     {
         static_assert(N == 2, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
+        (*this)[0] = r1;
+        (*this)[1] = r2;
     }
 
     /// Specific constructor for 3-elements vectors.
@@ -109,9 +98,9 @@ public:
     fixed_array(value_type r1, value_type r2, value_type r3)
     {
         static_assert(N == 3, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
+        (*this)[0] = r1;
+        (*this)[1] = r2;
+        (*this)[2] = r3;
     }
 
     /// Specific constructor for 4-elements vectors.
@@ -119,10 +108,10 @@ public:
     fixed_array(value_type r1, value_type r2, value_type r3, value_type r4)
     {
         static_assert(N == 4, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
-        this->elems[3]=r4;
+        (*this)[0] = r1;
+        (*this)[1] = r2;
+        (*this)[2] = r3;
+        (*this)[3] = r4;
     }
 
     /// Specific constructor for 5-elements vectors.
@@ -130,11 +119,11 @@ public:
     fixed_array(value_type r1, value_type r2, value_type r3, value_type r4, value_type r5)
     {
         static_assert(N == 5, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
-        this->elems[3]=r4;
-        this->elems[4]=r5;
+        (*this)[0] = r1;
+        (*this)[1] = r2;
+        (*this)[2] = r3;
+        (*this)[3] = r4;
+        (*this)[4] = r5;
     }
 
     /// Specific constructor for 6-elements vectors.
@@ -142,12 +131,12 @@ public:
     fixed_array(value_type r1, value_type r2, value_type r3, value_type r4, value_type r5, value_type r6)
     {
         static_assert(N == 6, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
-        this->elems[3]=r4;
-        this->elems[4]=r5;
-        this->elems[5]=r6;
+        (*this)[0] = r1;
+        (*this)[1] = r2;
+        (*this)[2] = r3;
+        (*this)[3] = r4;
+        (*this)[4] = r5;
+        (*this)[5] = r6;
     }
 
     /// Specific constructor for 7-elements vectors.
@@ -155,13 +144,13 @@ public:
     fixed_array(value_type r1, value_type r2, value_type r3, value_type r4, value_type r5, value_type r6, value_type r7)
     {
         static_assert(N == 7, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
-        this->elems[3]=r4;
-        this->elems[4]=r5;
-        this->elems[5]=r6;
-        this->elems[6]=r7;
+        (*this)[0] = r1;
+        (*this)[1] = r2;
+        (*this)[2] = r3;
+        (*this)[3] = r4;
+        (*this)[4] = r5;
+        (*this)[5] = r6;
+        (*this)[6] = r7;
     }
 
     /// Specific constructor for 8-elements vectors.
@@ -169,14 +158,14 @@ public:
     fixed_array(value_type r1, value_type r2, value_type r3, value_type r4, value_type r5, value_type r6, value_type r7, value_type r8)
     {
         static_assert(N == 8, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
-        this->elems[3]=r4;
-        this->elems[4]=r5;
-        this->elems[5]=r6;
-        this->elems[6]=r7;
-        this->elems[7]=r8;
+        (*this)[0] = r1;
+        (*this)[1] = r2;
+        (*this)[2] = r3;
+        (*this)[3] = r4;
+        (*this)[4] = r5;
+        (*this)[5] = r6;
+        (*this)[6] = r7;
+        (*this)[7] = r8;
     }
 
     /// Specific constructor for 9-elements vectors.
@@ -184,15 +173,15 @@ public:
     fixed_array(value_type r1, value_type r2, value_type r3, value_type r4, value_type r5, value_type r6, value_type r7, value_type r8, value_type r9)
     {
         static_assert(N == 9, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
-        this->elems[3]=r4;
-        this->elems[4]=r5;
-        this->elems[5]=r6;
-        this->elems[6]=r7;
-        this->elems[7]=r8;
-        this->elems[8]=r9;
+        (*this)[0] = r1;
+        (*this)[1] = r2;
+        (*this)[2] = r3;
+        (*this)[3] = r4;
+        (*this)[4] = r5;
+        (*this)[5] = r6;
+        (*this)[6] = r7;
+        (*this)[7] = r8;
+        (*this)[8] = r9;
     }
 
     /// Specific constructor for 10-elements vectors.
@@ -200,35 +189,35 @@ public:
     fixed_array(value_type r1, value_type r2, value_type r3, value_type r4, value_type r5, value_type r6, value_type r7, value_type r8, value_type r9, value_type r10)
     {
         static_assert(N == 10, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
-        this->elems[3]=r4;
-        this->elems[4]=r5;
-        this->elems[5]=r6;
-        this->elems[6]=r7;
-        this->elems[7]=r8;
-        this->elems[8]=r9;
-        this->elems[9]=r10;
+        (*this)[0] = r1;
+        (*this)[1] = r2;
+        (*this)[2] = r3;
+        (*this)[3] = r4;
+        (*this)[4] = r5;
+        (*this)[5] = r6;
+        (*this)[6] = r7;
+        (*this)[7] = r8;
+        (*this)[8] = r9;
+        (*this)[8] = r10;
     }
 
 
     // iterator support
     iterator begin()
     {
-        return elems;
+        return Inherit::begin();
     }
     const_iterator begin() const
     {
-        return elems;
+        return Inherit::cbegin();
     }
     iterator end()
     {
-        return elems+N;
+        return Inherit::end();
     }
     const_iterator end() const
     {
-        return elems+N;
+        return Inherit::cend();
     }
 
     // operator[]
@@ -237,83 +226,76 @@ public:
 #ifndef NDEBUG
         assert(i<N && "index in fixed_array must be smaller than size");
 #endif
-        return elems[i];
+        return Inherit::operator[](i);
     }
     const_reference operator[](size_type i) const
     {
 #ifndef NDEBUG
         assert(i<N && "index in fixed_array must be smaller than size");
 #endif
-        return elems[i];
+        return Inherit::operator[](i);
     }
 
     // at() with range check
     reference at(size_type i)
     {
-        rangecheck(i);
-        return elems[i];
+        return Inherit::at(i);
     }
     const_reference at(size_type i) const
     {
-        rangecheck(i);
-        return elems[i];
+        return Inherit::at(i);
     }
 
     // front() and back()
     reference front()
     {
-        return elems[0];
+        return Inherit::front();
     }
     const_reference front() const
     {
-        return elems[0];
+        return Inherit::front();
     }
     reference back()
     {
-        return elems[N-1];
+        return Inherit::back();
     }
     const_reference back() const
     {
-        return elems[N-1];
+        return Inherit::back();
     }
 
     // size is constant
-    static size_type size()
+    constexpr size_type size() const noexcept
     {
-        return N;
+        return Inherit::size();
     }
-    static bool empty()
+
+    constexpr bool empty() const noexcept
     {
-        return false;
+        return Inherit::empty();
     }
-    static size_type max_size()
+
+    size_type max_size()
     {
-        return N;
+        return Inherit::max_size();
     }
-    enum { static_size = N };
 
     // swap (note: linear complexity)
     void swap (fixed_array<T,N>& y)
     {
-        std::swap_ranges(begin(),end(),y.begin());
+        Inherit::swap(y);
     }
 
     // direct access to data
-    const T* data() const
+    constexpr T* data() noexcept
     {
-        return elems;
+        return Inherit::data();
     }
 
-    /// direct access to array
-    const Array& array() const
+    // direct access to data
+    constexpr const T* data() const noexcept
     {
-        return elems;
-    }
-
-    /// direct access to array
-    Array& array()
-    {
-        return elems;
+        return Inherit::data();
     }
 
     // assignment with type conversion
@@ -322,7 +304,7 @@ public:
     {
         //std::copy(rhs.begin(),rhs.end(), begin());
         for (size_type i=0; i<N; i++)
-            elems[i] = rhs[i];
+            (*this)[i] = rhs[i];
         return *this;
     }
 
@@ -331,7 +313,7 @@ public:
     {
         //std::fill_n(begin(),size(),value);
         for (size_type i=0; i<N; i++)
-            elems[i] = value;
+            (*this)[i] = value;
     }
 
     //template<int NN = N, typename std::enable_if<NN>0,int>::type = 0>
@@ -339,15 +321,15 @@ public:
     {
         static_assert(N>0, "Cannot create a zero size arrays") ;
         for( size_type i=0; i<N-1; i++ )
-            out << a.elems[i]<<" ";
-        out << a.elems[N-1];
+            out << a[i]<<" ";
+        out << a[N-1];
         return out;
     }
 
     inline friend std::istream& operator >> (std::istream& in, fixed_array<T,N>& a)
     {
         for( size_type i=0; i<N; i++ )
-            in>>a.elems[i];
+            in>>a[i];
         return in;
     }
 
@@ -355,24 +337,20 @@ public:
     {
         for( size_type i=0; i<N; i++ )
         {
-            if( elems[i]<v[i] )
+            if((*this)[i]<v[i] )
                 return true;  // (*this)<v
-            else if( elems[i]>v[i] )
+            else if((*this)[i]>v[i] )
                 return false; // (*this)>v
         }
         return false; // (*this)==v
     }
 
+    // not defined in std::array
+    //static const size_type static_size = N;
+    //static constexpr size_type static_size() { return N; };
+
 private:
 
-    // check range (may be private because it is static)
-    static void rangecheck (size_type i)
-    {
-        if (i >= size())
-        {
-            throw std::range_error("fixed_array");
-        }
-    }
 };
 
 template<class T>

@@ -690,7 +690,7 @@ struct TextTypeInfo
     }
 };
 
-template<class TDataType, int static_size = TDataType::static_size>
+template<class TDataType, size_t static_size = std::tuple_size<typename TDataType::array>::value >
 struct FixedArrayTypeInfo
 {
     typedef TDataType DataType;
@@ -714,7 +714,7 @@ struct FixedArrayTypeInfo
     enum { Size = static_size * BaseTypeInfo::Size };
     static size_t size()
     {
-        return DataType::size() * BaseTypeInfo::size();
+        return static_size * BaseTypeInfo::size();
     }
 
     static size_t byteSize()
@@ -729,7 +729,7 @@ struct FixedArrayTypeInfo
         else
         {
             size_t s = 0;
-            for (size_t i=0; i<DataType::size(); ++i)
+            for (size_t i=0; i< static_size; ++i)
                 s+= BaseTypeInfo::size(data[(size_type)i]);
             return s;
         }
@@ -739,8 +739,8 @@ struct FixedArrayTypeInfo
     {
         if (!FixedSize)
         {
-            size /= DataType::size();
-            for (size_t i=0; i<DataType::size(); ++i)
+            size /= static_size;
+            for (size_t i=0; i< static_size; ++i)
                 if( !BaseTypeInfo::setSize(data[(size_type)i], size) ) return false;
             return true;
         }
@@ -761,7 +761,7 @@ struct FixedArrayTypeInfo
         else
         {
             size_t s = 0;
-            for (size_t i=0; i<DataType::size(); ++i)
+            for (size_t i=0; i< static_size; ++i)
             {
                 size_t n = BaseTypeInfo::size(data[(size_type)i]);
                 if (index < s+n)
@@ -788,7 +788,7 @@ struct FixedArrayTypeInfo
         else
         {
             size_t s = 0;
-            for (size_t i=0; i<DataType::size(); ++i)
+            for (size_t i=0; i< static_size; ++i)
             {
                 size_t n = BaseTypeInfo::size(data[(size_type)i]);
                 if (index < s+n)
@@ -814,7 +814,7 @@ struct FixedArrayTypeInfo
         else
         {
             size_t s = 0;
-            for (size_t i=0; i<DataType::size(); ++i)
+            for (size_t i=0; i< static_size; ++i)
             {
                 size_t n = BaseTypeInfo::size(data[(size_type)i]);
                 if (index < s+n)
@@ -840,7 +840,7 @@ struct FixedArrayTypeInfo
         else
         {
             size_t s = 0;
-            for (size_t i=0; i<DataType::size(); ++i)
+            for (size_t i=0; i< static_size; ++i)
             {
                 size_t n = BaseTypeInfo::size(data[(size_type)i]);
                 if (index < s+n)

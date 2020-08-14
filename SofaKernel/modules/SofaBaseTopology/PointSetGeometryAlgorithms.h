@@ -53,7 +53,7 @@ public:
     typedef typename DataTypes::Deriv Deriv;
     typedef typename DataTypes::VecDeriv VecDeriv;
     typedef typename DataTypes::CPos CPos;
-    enum { NC = CPos::static_size };
+    enum { NC = CPos::size() };
 
     enum Angle {ACUTE, RIGHT, OBTUSE};
 

@@ -233,7 +233,7 @@ public:
     {
         Vec3r1 r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i] = this->elems[i]*(real)f;
+            r[i] = (*this)[i]*(real)f;
         return r;
     }
 
@@ -242,7 +242,7 @@ public:
     void operator*=(real2 f)
     {
         for (int i=0; i<N; i++)
-            this->elems[i]*=(real)f;
+            (*this)[i]*=(real)f;
     }
 
     template<class real2>
@@ -250,7 +250,7 @@ public:
     {
         Vec3r1 r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i] = this->elems[i]/(real)f;
+            r[i] = (*this)[i]/(real)f;
         return r;
     }
 
@@ -259,16 +259,16 @@ public:
     void operator/=(real2 f)
     {
         for (int i=0; i<N; i++)
-            this->elems[i]/=(real)f;
+            (*this)[i]/=(real)f;
     }
 
     /// Dot product.
     template<class real2>
     real operator*(const Vec<N,real2>& v) const
     {
-        real r = (real)(this->elems[0]*v[0]);
+        real r = (real)((*this)[0]*v[0]);
         for (int i=1; i<N; i++)
-            r += (real)(this->elems[i]*v[i]);
+            r += (real)((*this)[i]*v[i]);
         return r;
     }
 
@@ -287,9 +287,9 @@ public:
     /// Dot product.
     real operator*(const Vec3r1& v) const
     {
-        real r = (real)(this->elems[0]*v[0]);
+        real r = (real)((*this)[0]*v[0]);
         for (int i=1; i<N; i++)
-            r += (real)(this->elems[i]*v[i]);
+            r += (real)((*this)[i]*v[i]);
         return r;
     }
 
@@ -299,7 +299,7 @@ public:
     {
         Vec3r1 r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i]=this->elems[i]*(real)v[i];
+            r[i]=(*this)[i]*(real)v[i];
         return r;
     }
 
@@ -308,7 +308,7 @@ public:
     {
         Vec3r1 r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i]=this->elems[i]*(real)v[i];
+            r[i]=(*this)[i]*(real)v[i];
         return r;
     }
 
@@ -318,7 +318,7 @@ public:
     {
         Vec3r1 r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i]=this->elems[i]+(real)v[i];
+            r[i]=(*this)[i]+(real)v[i];
         return r;
     }
 
@@ -327,7 +327,7 @@ public:
     {
         Vec3r1 r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i]=this->elems[i]+(real)v[i];
+            r[i]=(*this)[i]+(real)v[i];
         return r;
     }
 
@@ -336,14 +336,14 @@ public:
     void operator+=(const Vec<N,real2>& v)
     {
         for (int i=0; i<N; i++)
-            this->elems[i]+=(real)v[i];
+            (*this)[i]+=(real)v[i];
     }
 
     /// On-place vector addition.
     void operator+=(const Vec3r1& v)
     {
         for (int i=0; i<N; i++)
-            this->elems[i]+=(real)v[i];
+            (*this)[i]+=(real)v[i];
     }
 
     /// Vector subtraction.
@@ -352,7 +352,7 @@ public:
     {
         Vec3r1 r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i]=this->elems[i]-(real)v[i];
+            r[i]=(*this)[i]-(real)v[i];
         return r;
     }
 
@@ -361,7 +361,7 @@ public:
     {
         Vec3r1 r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i]=this->elems[i]-(real)v[i];
+            r[i]=(*this)[i]-(real)v[i];
         return r;
     }
 
@@ -370,14 +370,14 @@ public:
     void operator-=(const Vec<N,real2>& v)
     {
         for (int i=0; i<N; i++)
-            this->elems[i]-=(real)v[i];
+            (*this)[i]-=(real)v[i];
     }
 
     /// On-place vector subtraction.
     void operator-=(const Vec3r1& v)
     {
         for (int i=0; i<N; i++)
-            this->elems[i]-=(real)v[i];
+            (*this)[i]-=(real)v[i];
     }
 
     /// Vector negation.
@@ -385,7 +385,7 @@ public:
     {
         Vec3r1 r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i]=-this->elems[i];
+            r[i]=-(*this)[i];
         return r;
     }
 

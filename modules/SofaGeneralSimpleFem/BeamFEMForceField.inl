@@ -624,13 +624,13 @@ void BeamFEMForceField<DataTypes>::addKToMatrix(const sofa::core::MechanicalPara
 
                             for (int i=0; i<3; i++)
                                 for (int j=0; j<3; j++) {
-                                    K.elems[i+x1][j+y1] += m[i][j];
-                                    K.elems[j+y1][i+x1] += m[i][j];
+                                    K[i+x1][j+y1] += m[i][j];
+                                    K[j+y1][i+x1] += m[i][j];
                                 }
                             if (x1 == y1)
                                 for (int i=0; i<3; i++)
                                     for (int j=0; j<3; j++)
-                                        K.elems[i+x1][j+y1] *= double(0.5);
+                                        K[i+x1][j+y1] *= double(0.5);
 
                         }
                     }

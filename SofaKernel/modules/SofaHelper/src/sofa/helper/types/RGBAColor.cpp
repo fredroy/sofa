@@ -110,10 +110,10 @@ bool RGBAColor::read(const std::string& str, RGBAColor& color)
 
 void RGBAColor::set(float r, float g, float b, float a)
 {
-    this->elems[0]=r;
-    this->elems[1]=g;
-    this->elems[2]=b;
-    this->elems[3]=a;
+    (*this)[0]=r;
+    (*this)[1]=g;
+    (*this)[2]=b;
+    (*this)[3]=a;
 }
 
 

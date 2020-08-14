@@ -143,7 +143,7 @@ inline void glTexCoordNv<1>(const double* p)
 template<class Coord>
 inline void glTexCoordT(const Coord& c)
 {
-    glTexCoordNv<Coord::static_size>(c.ptr());
+    glTexCoordNv<std::tuple_size<typename Coord::array>::value>(c.ptr());
 }
 
 template<>
@@ -201,7 +201,7 @@ inline void glNormalNv<1>(const double* p)
 template<class Coord>
 inline void glNormalT(const Coord& c)
 {
-    glNormalNv<Coord::static_size>(c.ptr());
+    glNormalNv<std::tuple_size<typename Coord::array>::value>(c.ptr());
 }
 
 template<>
@@ -267,7 +267,7 @@ inline void glTranslateT(const Coord& c)
 {
 	//
     //glTranslateNv<Coord::spatial_dimensions>(c.ptr());
-	glTranslateNv<Coord::static_size>(c.data());
+	glTranslateNv<std::tuple_size<typename Coord::array>::value>(c.data());
 }
 
 template<>

@@ -64,6 +64,11 @@ public:
     {
     }
 
+    static constexpr size_t size()
+    {
+        return N;
+    }
+
     /// Specific constructor for 1-element vectors.
     template<int NN = N, typename std::enable_if<NN==1,int>::type = 0>
     explicit Vec(real r1)
@@ -153,7 +158,7 @@ public:
     void set(real r1)
     {
         static_assert(N==1, "");
-        this->elems[0]=r1;
+        (*this)[0]=r1;
     }
 
     /// Specific set for 2-elements vectors.
@@ -161,8 +166,8 @@ public:
     void set(real r1, real r2)
     {
         static_assert(N == 2, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
+        (*this)[0]=r1;
+        (*this)[1]=r2;
     }
 
     /// Specific set for 3-elements vectors.
@@ -170,9 +175,9 @@ public:
     void set(real r1, real r2, real r3)
     {
         static_assert(N == 3, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
+        (*this)[0]=r1;
+        (*this)[1]=r2;
+        (*this)[2]=r3;
     }
 
     /// Specific set for 4-elements vectors.
@@ -180,10 +185,10 @@ public:
     void set(real r1, real r2, real r3, real r4)
     {
         static_assert(N == 4, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
-        this->elems[3]=r4;
+        (*this)[0]=r1;
+        (*this)[1]=r2;
+        (*this)[2]=r3;
+        (*this)[3]=r4;
     }
 
     /// Specific set for 5-elements vectors.
@@ -191,11 +196,11 @@ public:
     void set(real r1, real r2, real r3, real r4, real r5)
     {
         static_assert(N == 5, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
-        this->elems[3]=r4;
-        this->elems[4]=r5;
+        (*this)[0]=r1;
+        (*this)[1]=r2;
+        (*this)[2]=r3;
+        (*this)[3]=r4;
+        (*this)[4]=r5;
     }
 
     /// Specific set for 6-elements vectors.
@@ -203,12 +208,12 @@ public:
     void set(real r1, real r2, real r3, real r4, real r5, real r6)
     {
         static_assert(N == 6, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
-        this->elems[3]=r4;
-        this->elems[4]=r5;
-        this->elems[5]=r6;
+        (*this)[0]=r1;
+        (*this)[1]=r2;
+        (*this)[2]=r3;
+        (*this)[3]=r4;
+        (*this)[4]=r5;
+        (*this)[5]=r6;
     }
 
     /// Specific constructor for 7-elements vectors.
@@ -216,13 +221,13 @@ public:
     void set(real r1, real r2, real r3, real r4, real r5, real r6, real r7)
     {
         static_assert(N == 7, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
-        this->elems[3]=r4;
-        this->elems[4]=r5;
-        this->elems[5]=r6;
-        this->elems[6]=r7;
+        (*this)[0]=r1;
+        (*this)[1]=r2;
+        (*this)[2]=r3;
+        (*this)[3]=r4;
+        (*this)[4]=r5;
+        (*this)[5]=r6;
+        (*this)[6]=r7;
     }
 
     /// Specific set for 8-elements vectors.
@@ -230,14 +235,14 @@ public:
     void set(real r1, real r2, real r3, real r4, real r5, real r6, real r7, real r8)
     {
         static_assert(N == 8, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
-        this->elems[3]=r4;
-        this->elems[4]=r5;
-        this->elems[5]=r6;
-        this->elems[6]=r7;
-        this->elems[7]=r8;
+        (*this)[0]=r1;
+        (*this)[1]=r2;
+        (*this)[2]=r3;
+        (*this)[3]=r4;
+        (*this)[4]=r5;
+        (*this)[5]=r6;
+        (*this)[6]=r7;
+        (*this)[7]=r8;
     }
 
     /// Specific set for 9-elements vectors.
@@ -245,15 +250,15 @@ public:
     void set(real r1, real r2, real r3, real r4, real r5, real r6, real r7, real r8, real r9)
     {
         static_assert(N == 9, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
-        this->elems[3]=r4;
-        this->elems[4]=r5;
-        this->elems[5]=r6;
-        this->elems[6]=r7;
-        this->elems[7]=r8;
-        this->elems[8]=r9;
+        (*this)[0]=r1;
+        (*this)[1]=r2;
+        (*this)[2]=r3;
+        (*this)[3]=r4;
+        (*this)[4]=r5;
+        (*this)[5]=r6;
+        (*this)[6]=r7;
+        (*this)[7]=r8;
+        (*this)[8]=r9;
     }
 
     /// Specific set for 12-elements vectors.
@@ -261,18 +266,18 @@ public:
     void set(real r1, real r2, real r3, real r4, real r5, real r6, real r7, real r8, real r9, real r10, real r11, real r12)
     {
         static_assert(N == 12, "");
-        this->elems[0]=r1;
-        this->elems[1]=r2;
-        this->elems[2]=r3;
-        this->elems[3]=r4;
-        this->elems[4]=r5;
-        this->elems[5]=r6;
-        this->elems[6]=r7;
-        this->elems[7]=r8;
-        this->elems[8]=r9;
-        this->elems[9]=r10;
-        this->elems[10]=r11;
-        this->elems[11]=r12;
+        (*this)[0]=r1;
+        (*this)[1]=r2;
+        (*this)[2]=r3;
+        (*this)[3]=r4;
+        (*this)[4]=r5;
+        (*this)[5]=r6;
+        (*this)[6]=r7;
+        (*this)[7]=r8;
+        (*this)[8]=r9;
+        (*this)[9]=r10;
+        (*this)[10]=r11;
+        (*this)[11]=r12;
     }
 
     /// Specific set from a different size vector (given default value and ignored outside entries)
@@ -281,9 +286,9 @@ public:
     {
         int maxN = std::min( N, N2 );
         for(int i=0; i<maxN; i++)
-            this->elems[i] = (real)v[i];
+            (*this)[i] = (real)v[i];
         for(int i=maxN; i<N ; i++)
-            this->elems[i] = defaultvalue;
+            (*this)[i] = defaultvalue;
     }
 
 
@@ -298,7 +303,7 @@ public:
     Vec(const helper::fixed_array<real, N>& p)
     {
         for(int i=0; i<N; i++)
-            this->elems[i] = p[i];
+            (*this)[i] = p[i];
     }
 
     /// Constructor from a different size vector (null default value and ignoring outside entries)
@@ -313,7 +318,7 @@ public:
     {
         //std::copy(p.begin(), p.end(), this->begin());
         for(int i=0; i<N; i++)
-            this->elems[i] = (real)p(i);
+            (*this)[i] = (real)p(i);
     }
 
     /// Constructor from an array of values.
@@ -322,7 +327,7 @@ public:
     {
         //std::copy(p, p+N, this->begin());
         for(int i=0; i<N; i++)
-            this->elems[i] = (real)p[i];
+            (*this)[i] = (real)p[i];
     }
 
     /// Special access to first element.
@@ -330,28 +335,28 @@ public:
     real& x()
     {
         static_assert(N >= 1, "");
-        return this->elems[0];
+        return (*this)[0];
     }
     /// Special access to second element.
     template<int NN = N, typename std::enable_if<(NN>=2),int>::type = 0>
     real& y()
     {
         static_assert(N >= 2, "");
-        return this->elems[1];
+        return (*this)[1];
     }
     /// Special access to third element.
     template<int NN = N, typename std::enable_if<(NN>=3),int>::type = 0>
     real& z()
     {
         static_assert(N >= 3, "");
-        return this->elems[2];
+        return (*this)[2];
     }
     /// Special access to fourth element.
     template<int NN = N, typename std::enable_if<(NN>=4),int>::type = 0>
     real& w()
     {
         static_assert(N >= 4, "");
-        return this->elems[3];
+        return (*this)[3];
     }
 
     /// Special const access to first element.
@@ -359,28 +364,28 @@ public:
     const real& x() const
     {
         static_assert(N >= 1, "");
-        return this->elems[0];
+        return (*this)[0];
     }
     /// Special const access to second element.
     template<int NN = N, typename std::enable_if<(NN>=2),int>::type = 0>
     const real& y() const
     {
         static_assert(N >= 2, "");
-        return this->elems[1];
+        return (*this)[1];
     }
     /// Special const access to third element.
     template<int NN = N, typename std::enable_if<(NN>=3),int>::type = 0>
     const real& z() const
     {
         static_assert(N >= 3, "");
-        return this->elems[2];
+        return (*this)[2];
     }
     /// Special const access to fourth element.
     template<int NN = N, typename std::enable_if<(NN>=4),int>::type = 0>
     const real& w() const
     {
         static_assert(N >= 4, "");
-        return this->elems[3];
+        return (*this)[3];
     }
 
     /// Assignment operator from an array of values.
@@ -389,7 +394,7 @@ public:
     {
         //std::copy(p, p+N, this->begin());
         for(int i=0; i<N; i++)
-            this->elems[i] = (real)p[i];
+            (*this)[i] = (real)p[i];
     }
 
     /// Assignment from a vector with different dimensions.
@@ -398,7 +403,7 @@ public:
     {
         //std::copy(v.begin(), v.begin()+(N>M?M:N), this->begin());
         for(int i=0; i<(N>M?M:N); i++)
-            this->elems[i] = (real)v(i);
+            (*this)[i] = (real)v(i);
     }
 
     /// Sets every element to 0.
@@ -413,57 +418,28 @@ public:
         this->assign(r);
     }
 
-    // Access to i-th element.
-    // Already in fixed_array
-    //real& operator[](int i)
-    //{
-    //    return this->elems[i];
-    //}
-
-    // Access to i-th element.
-    // Already in fixed_array
-    /// Const access to i-th element.
-    //const real& operator[](int i) const
-    //{
-    //    return this->elems[i];
-    //}
-
     /// Access to i-th element.
     real& operator()(int i)
     {
-        return this->elems[i];
+        return (*this)[i];
     }
 
     /// Const access to i-th element.
     const real& operator()(int i) const
     {
-        return this->elems[i];
+        return (*this)[i];
     }
-
-    /// Cast into a const array of values.
-    /// CHANGE(Jeremie A.): removed it as it confuses some compilers. Use ptr() or data() instead
-    //operator const real*() const
-    //{
-    //    return this->elems;
-    //}
-
-    /// Cast into an array of values.
-    /// CHANGE(Jeremie A.): removed it as it confuses some compilers. Use ptr() or data() instead
-    //operator real*()
-    //{
-    //    return this->elems;
-    //}
 
     /// Cast into a const array of values.
     const real* ptr() const
     {
-        return this->elems;
+        return this->data();
     }
 
     /// Cast into an array of values.
     real* ptr()
     {
-        return this->elems;
+        return this->data();
     }
 
     // LINEAR ALGEBRA
@@ -480,7 +456,7 @@ public:
         static_assert(DataTypeInfo<real2>::ValidInfo && DataTypeInfo<real2>::Size==1, "");
         Vec<N,real> r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i] = this->elems[i]*(real)f;
+            r[i] = (*this)[i]*(real)f;
         return r;
     }
 
@@ -499,7 +475,7 @@ public:
     {
         static_assert(DataTypeInfo<real2>::ValidInfo && DataTypeInfo<real2>::Size==1, "");
         for (int i=0; i<N; i++)
-            this->elems[i]*=(real)f;
+            (*this)[i]*=(real)f;
     }
 
     void operator*=(         float     f) {  eqmulscalar(f);  }
@@ -518,7 +494,7 @@ public:
         static_assert(DataTypeInfo<real2>::ValidInfo && DataTypeInfo<real2>::Size==1, "");
         Vec<N,real> r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i] = this->elems[i]/(real)f;
+            r[i] = (*this)[i]/(real)f;
         return r;
     }
 
@@ -537,7 +513,7 @@ public:
     {
         static_assert(DataTypeInfo<real2>::ValidInfo && DataTypeInfo<real2>::Size==1, "");
         for (int i=0; i<N; i++)
-            this->elems[i]/=(real)f;
+            (*this)[i]/=(real)f;
     }
 
     void operator/=(         float     f) {  eqdivscalar(f);  }
@@ -553,9 +529,9 @@ public:
     template<class real2>
     real operator*(const Vec<N,real2>& v) const
     {
-        real r = (real)(this->elems[0]*v[0]);
+        real r = (real)((*this)[0]*v[0]);
         for (int i=1; i<N; i++)
-            r += (real)(this->elems[i]*v[i]);
+            r += (real)((*this)[i]*v[i]);
         return r;
     }
 
@@ -565,7 +541,7 @@ public:
     {
         Vec<N,real> r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i]=this->elems[i]*(real)v[i];
+            r[i]=(*this)[i]*(real)v[i];
         return r;
     }
 
@@ -576,7 +552,7 @@ public:
     {
         Vec<N,real> r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i]=this->elems[i]/(real)v[i];
+            r[i]=(*this)[i]/(real)v[i];
         return r;
     }
 
@@ -586,7 +562,7 @@ public:
     {
         Vec<N,real> r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i]=this->elems[i]+(real)v[i];
+            r[i]=(*this)[i]+(real)v[i];
         return r;
     }
 
@@ -595,7 +571,7 @@ public:
     void operator+=(const Vec<N,real2>& v)
     {
         for (int i=0; i<N; i++)
-            this->elems[i]+=(real)v[i];
+            (*this)[i]+=(real)v[i];
     }
 
     /// Vector subtraction.
@@ -604,7 +580,7 @@ public:
     {
         Vec<N,real> r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i]=this->elems[i]-(real)v[i];
+            r[i]=(*this)[i]-(real)v[i];
         return r;
     }
 
@@ -613,7 +589,7 @@ public:
     void operator-=(const Vec<N,real2>& v)
     {
         for (int i=0; i<N; i++)
-            this->elems[i]-=(real)v[i];
+            (*this)[i]-=(real)v[i];
     }
 
     /// Vector negation.
@@ -621,16 +597,16 @@ public:
     {
         Vec<N,real> r(NOINIT);
         for (int i=0; i<N; i++)
-            r[i]=-this->elems[i];
+            r[i]=-(*this)[i];
         return r;
     }
 
     /// Squared norm.
     real norm2() const
     {
-        real r = this->elems[0]*this->elems[0];
+        real r = (*this)[0]*(*this)[0];
         for (int i=1; i<N; i++)
-            r += this->elems[i]*this->elems[i];
+            r += (*this)[i]*(*this)[i];
         return r;
     }
 
@@ -651,7 +627,7 @@ public:
             real n=0;
             for( int i=0; i<N; i++ )
             {
-                real a = helper::rabs( this->elems[i] );
+                real a = helper::rabs( (*this)[i] );
                 if( a>n ) n=a;
             }
             return n;
@@ -661,7 +637,7 @@ public:
             real n=0;
             for( int i=0; i<N; i++ )
             {
-                n += helper::rabs( this->elems[i] );
+                n += helper::rabs( (*this)[i] );
             }
             return n;
         }
@@ -669,14 +645,14 @@ public:
         {
             real n=0;
             for( int i=0; i<N; i++ )
-                if( this->elems[i] ) n+=1;
+                if( (*this)[i] ) n+=1;
             return n;
         }
         else // generic implementation
         {
             real n = 0;
             for( int i=0; i<N; i++ )
-                n += pow( helper::rabs( this->elems[i] ), l );
+                n += pow( helper::rabs( (*this)[i] ), l );
             return pow( n, real(1.0)/(real)l );
         }
     }
@@ -689,7 +665,7 @@ public:
         if (norm>threshold)
         {
             for (int i=0; i<N; i++)
-                this->elems[i]/=norm;
+                (*this)[i]/=norm;
             return true;
         }
         else
@@ -739,7 +715,7 @@ public:
     {
         real sum = 0.0;
         for (int i=0; i<N; i++)
-            sum += this->elems[i];
+            sum += (*this)[i];
         return sum;
     }
 
@@ -750,14 +726,14 @@ public:
     bool operator==(const Vec& b) const
     {
         for (int i=0; i<N; i++)
-            if ( fabs( (float)(this->elems[i] - b[i]) ) > EQUALITY_THRESHOLD ) return false;
+            if ( fabs( (float)((*this)[i] - b[i]) ) > EQUALITY_THRESHOLD ) return false;
         return true;
     }
 
     bool operator!=(const Vec& b) const
     {
         for (int i=0; i<N; i++)
-            if ( fabs( (float)(this->elems[i] - b[i]) ) > EQUALITY_THRESHOLD ) return true;
+            if ( fabs( (float)((*this)[i] - b[i]) ) > EQUALITY_THRESHOLD ) return true;
         return false;
     }
 

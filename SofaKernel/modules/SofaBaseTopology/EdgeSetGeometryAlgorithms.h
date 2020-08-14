@@ -72,7 +72,6 @@ public:
     typedef typename DataTypes::Coord Coord;
     typedef typename DataTypes::Deriv Deriv;
     typedef typename DataTypes::CPos CPos;
-    enum { NC = CPos::static_size };
 
 protected:
     bool initializedEdgeCubatureTables;

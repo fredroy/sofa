@@ -78,36 +78,36 @@ template<class Real>
 //Quater<Real> operator+(Quater<Real> q1, Quater<Real> q2) const
 Quater<Real> Quater<Real>::operator+(const Quater<Real> &q1) const
 {
-//    static int	count	= 0;
+    auto _q = this->data();
 
     Real		t1[4], t2[4], t3[4];
     Real		tf[4];
     Quater<Real>	ret;
 
-    t1[0] = _q[0] * q1._q[3];
-    t1[1] = _q[1] * q1._q[3];
-    t1[2] = _q[2] * q1._q[3];
+    t1[0] = _q[0] * q1[3];
+    t1[1] = _q[1] * q1[3];
+    t1[2] = _q[2] * q1[3];
 
-    t2[0] = q1._q[0] * _q[3];
-    t2[1] = q1._q[1] * _q[3];
-    t2[2] = q1._q[2] * _q[3];
+    t2[0] = q1[0] * _q[3];
+    t2[1] = q1[1] * _q[3];
+    t2[2] = q1[2] * _q[3];
 
     // cross product t3 = q2 x q1
-    t3[0] = (q1._q[1] * _q[2]) - (q1._q[2] * _q[1]);
-    t3[1] = (q1._q[2] * _q[0]) - (q1._q[0] * _q[2]);
-    t3[2] = (q1._q[0] * _q[1]) - (q1._q[1] * _q[0]);
+    t3[0] = (q1[1] * _q[2]) - (q1[2] * _q[1]);
+    t3[1] = (q1[2] * _q[0]) - (q1[0] * _q[2]);
+    t3[2] = (q1[0] * _q[1]) - (q1[1] * _q[0]);
     // end cross product
 
     tf[0] = t1[0] + t2[0] + t3[0];
     tf[1] = t1[1] + t2[1] + t3[1];
     tf[2] = t1[2] + t2[2] + t3[2];
-    tf[3] = _q[3] * q1._q[3] -
-            (_q[0] * q1._q[0] + _q[1] * q1._q[1] + _q[2] * q1._q[2]);
+    tf[3] = _q[3] * q1[3] -
+            (_q[0] * q1[0] + _q[1] * q1[1] + _q[2] * q1[2]);
 
-    ret._q[0] = tf[0];
-    ret._q[1] = tf[1];
-    ret._q[2] = tf[2];
-    ret._q[3] = tf[3];
+    ret[0] = tf[0];
+    ret[1] = tf[1];
+    ret[2] = tf[2];
+    ret[3] = tf[3];
 
 /*    if (++count > RENORMCOUNT)
     {
@@ -124,24 +124,26 @@ template<class Real>
 //Quater<Real> operator*(const Quater<Real>& q1, const Quater<Real>& q2) const
 Quater<Real> Quater<Real>::operator*(const Quater<Real>& q1) const
 {
+    auto _q = this->data();
+
     Quater<Real>	ret;
 
-    ret._q[3] = _q[3] * q1._q[3] -
-            (_q[0] * q1._q[0] +
-                    _q[1] * q1._q[1] +
-                    _q[2] * q1._q[2]);
-    ret._q[0] = _q[3] * q1._q[0] +
-            _q[0] * q1._q[3] +
-            _q[1] * q1._q[2] -
-            _q[2] * q1._q[1];
-    ret._q[1] = _q[3] * q1._q[1] +
-            _q[1] * q1._q[3] +
-            _q[2] * q1._q[0] -
-            _q[0] * q1._q[2];
-    ret._q[2] = _q[3] * q1._q[2] +
-            _q[2] * q1._q[3] +
-            _q[0] * q1._q[1] -
-            _q[1] * q1._q[0];
+    ret[3] = _q[3] * q1[3] -
+            (_q[0] * q1[0] +
+                    _q[1] * q1[1] +
+                    _q[2] * q1[2]);
+    ret[0] = _q[3] * q1[0] +
+            _q[0] * q1[3] +
+            _q[1] * q1[2] -
+            _q[2] * q1[1];
+    ret[1] = _q[3] * q1[1] +
+            _q[1] * q1[3] +
+            _q[2] * q1[0] -
+            _q[0] * q1[2];
+    ret[2] = _q[3] * q1[2] +
+            _q[2] * q1[3] +
+            _q[0] * q1[1] -
+            _q[1] * q1[0];
 
     return ret;
 }
@@ -149,6 +151,8 @@ Quater<Real> Quater<Real>::operator*(const Quater<Real>& q1) const
 template<class Real>
 Quater<Real> Quater<Real>::operator*(const Real& r) const
 {
+    auto _q = this->data();
+
     Quater<Real>  ret;
     ret[0] = _q[0] * r;
     ret[1] = _q[1] * r;
@@ -161,6 +165,8 @@ Quater<Real> Quater<Real>::operator*(const Real& r) const
 template<class Real>
 Quater<Real> Quater<Real>::operator/(const Real& r) const
 {
+    auto _q = this->data();
+
     Quater<Real>  ret;
     ret[0] = _q[0] / r;
     ret[1] = _q[1] / r;
@@ -172,6 +178,8 @@ Quater<Real> Quater<Real>::operator/(const Real& r) const
 template<class Real>
 void Quater<Real>::operator*=(const Real& r)
 {
+    auto _q = this->data();
+
     Quater<Real>  ret;
     _q[0] *= r;
     _q[1] *= r;
@@ -183,6 +191,8 @@ void Quater<Real>::operator*=(const Real& r)
 template<class Real>
 void Quater<Real>::operator/=(const Real& r)
 {
+    auto _q = this->data();
+
     Quater<Real>  ret;
     _q[0] /= r;
     _q[1] /= r;
@@ -194,12 +204,14 @@ void Quater<Real>::operator/=(const Real& r)
 template<class Real>
 Quater<Real> Quater<Real>::quatVectMult(const defaulttype::Vec<3,Real>& vect)
 {
+    auto _q = this->data();
+
     Quater<Real>	ret;
 
-    ret._q[3] = (Real) (-(_q[0] * vect[0] + _q[1] * vect[1] + _q[2] * vect[2]));
-    ret._q[0] = (Real) (_q[3] * vect[0] + _q[1] * vect[2] - _q[2] * vect[1]);
-    ret._q[1] = (Real) (_q[3] * vect[1] + _q[2] * vect[0] - _q[0] * vect[2]);
-    ret._q[2] = (Real) (_q[3] * vect[2] + _q[0] * vect[1] - _q[1] * vect[0]);
+    ret[3] = (Real) (-(_q[0] * vect[0] + _q[1] * vect[1] + _q[2] * vect[2]));
+    ret[0] = (Real) (_q[3] * vect[0] + _q[1] * vect[2] - _q[2] * vect[1]);
+    ret[1] = (Real) (_q[3] * vect[1] + _q[2] * vect[0] - _q[0] * vect[2]);
+    ret[2] = (Real) (_q[3] * vect[2] + _q[0] * vect[1] - _q[1] * vect[0]);
 
     return ret;
 }
@@ -207,6 +219,8 @@ Quater<Real> Quater<Real>::quatVectMult(const defaulttype::Vec<3,Real>& vect)
 template<class Real>
 Quater<Real> Quater<Real>::vectQuatMult(const defaulttype::Vec<3,Real>& vect)
 {
+    auto _q = this->data();
+
     Quater<Real>	ret;
 
     ret[3] = (Real) (-(vect[0] * _q[0] + vect[1] * _q[1] + vect[2] * _q[2]));
@@ -220,6 +234,8 @@ Quater<Real> Quater<Real>::vectQuatMult(const defaulttype::Vec<3,Real>& vect)
 template<class Real>
 Quater<Real> Quater<Real>::inverse() const
 {
+    auto _q = this->data();
+
     Quater<Real>	ret;
 
     Real		norm	= sqrt(_q[0] * _q[0] +
@@ -230,17 +246,17 @@ Quater<Real> Quater<Real>::inverse() const
     if (norm != 0.0f)
     {
         norm = 1.0f / norm;
-        ret._q[3] = _q[3] * norm;
+        ret[3] = _q[3] * norm;
         for (int i = 0; i < 3; i++)
         {
-            ret._q[i] = -_q[i] * norm;
+            ret[i] = -_q[i] * norm;
         }
     }
     else
     {
         for (int i = 0; i < 4; i++)
         {
-            ret._q[i] = 0.0;
+            ret[i] = 0.0;
         }
     }
 
@@ -251,6 +267,8 @@ Quater<Real> Quater<Real>::inverse() const
 template<class Real>
 bool Quater<Real>::isNormalized()
 {
+    auto _q = this->data();
+
     Real mag = (_q[0] * _q[0] + _q[1] * _q[1] + _q[2] * _q[2] + _q[3] * _q[3]);
     Real epsilon = std::numeric_limits<Real>::epsilon();
     return (std::abs(mag - 1.0) < epsilon);
@@ -263,6 +281,8 @@ bool Quater<Real>::isNormalized()
 template<class Real>
 void Quater<Real>::normalize()
 {
+    auto _q = this->data();
+
     Real mag = (_q[0] * _q[0] + _q[1] * _q[1] + _q[2] * _q[2] + _q[3] * _q[3]);
     double epsilon = 1.0e-10;
     if (std::abs(mag - 1.0) > epsilon)
@@ -296,6 +316,8 @@ void Quater<Real>::fromFrame(defaulttype::Vec<3,Real>& x, defaulttype::Vec<3,Rea
 template<class Real>
 void Quater<Real>::fromMatrix(const defaulttype::Matrix3 &m)
 {
+    auto _q = this->data();
+
     Real tr, s;
 
     tr = (Real)(m.x().x() + m.y().y() + m.z().z());
@@ -354,26 +376,12 @@ void Quater<Real>::fromMatrix(const defaulttype::Matrix3 &m)
     }
 }
 
-// template<class Real> template<class Mat33>
-//     void Quater<Real>::toMatrix(Mat33 &m) const
-// {
-// 	m[0][0] = (1.0 - 2.0 * (_q[1] * _q[1] + _q[2] * _q[2]));
-// 	m[0][1] = (2.0 * (_q[0] * _q[1] - _q[2] * _q[3]));
-// 	m[0][2] = (2.0 * (_q[2] * _q[0] + _q[1] * _q[3]));
-//
-// 	m[1][0] = (2.0 * (_q[0] * _q[1] + _q[2] * _q[3]));
-// 	m[1][1] = (1.0 - 2.0 * (_q[2] * _q[2] + _q[0] * _q[0]));
-// 	m[1][2] = (float) (2.0 * (_q[1] * _q[2] - _q[0] * _q[3]));
-//
-// 	m[2][0] = (float) (2.0 * (_q[2] * _q[0] - _q[1] * _q[3]));
-// 	m[2][1] = (float) (2.0 * (_q[1] * _q[2] + _q[0] * _q[3]));
-// 	m[2][2] = (float) (1.0 - 2.0 * (_q[1] * _q[1] + _q[0] * _q[0]));
-// }
-
 /// Build a rotation matrix, given a quaternion rotation.
 template<class Real>
 void Quater<Real>::buildRotationMatrix(Real m[4][4]) const
 {
+    auto _q = this->data();
+
     m[0][0] = (1 - 2 * (_q[1] * _q[1] + _q[2] * _q[2]));
     m[0][1] = (2 * (_q[0] * _q[1] - _q[2] * _q[3]));
     m[0][2] = (2 * (_q[2] * _q[0] + _q[1] * _q[3]));
@@ -394,35 +402,13 @@ void Quater<Real>::buildRotationMatrix(Real m[4][4]) const
     m[3][2] = 0;
     m[3][3] = 1;
 }
-/// Write an OpenGL rotation matrix
-/*template<class Real>
-void Quater<Real>::writeOpenGlMatrix(double *m) const
-{
-    m[0*4+0] = (1.0 - 2.0 * (_q[1] * _q[1] + _q[2] * _q[2]));
-    m[0*4+1] = (2.0 * (_q[0] * _q[1] - _q[2] * _q[3]));
-    m[0*4+2] = (2.0 * (_q[2] * _q[0] + _q[1] * _q[3]));
-    m[0*4+3] = 0.0f;
 
-    m[1*4+0] = (2.0 * (_q[0] * _q[1] + _q[2] * _q[3]));
-    m[1*4+1] = (1.0 - 2.0 * (_q[2] * _q[2] + _q[0] * _q[0]));
-    m[1*4+2] = (float) (2.0 * (_q[1] * _q[2] - _q[0] * _q[3]));
-    m[1*4+3] = 0.0f;
-
-    m[2*4+0] = (float) (2.0 * (_q[2] * _q[0] - _q[1] * _q[3]));
-    m[2*4+1] = (float) (2.0 * (_q[1] * _q[2] + _q[0] * _q[3]));
-    m[2*4+2] = (float) (1.0 - 2.0 * (_q[1] * _q[1] + _q[0] * _q[0]));
-    m[2*4+3] = 0.0f;
-
-    m[3*4+0] = 0.0f;
-    m[3*4+1] = 0.0f;
-    m[3*4+2] = 0.0f;
-    m[3*4+3] = 1.0f;
-}
-*/
 /// Write an OpenGL rotation matrix
 template<class Real>
 void Quater<Real>::writeOpenGlMatrix(double *m) const
 {
+    auto _q = this->data();
+
     m[0*4+0] = (1.0 - 2.0 * (_q[1] * _q[1] + _q[2] * _q[2]));
     m[1*4+0] = (2.0 * (_q[0] * _q[1] - _q[2] * _q[3]));
     m[2*4+0] = (2.0 * (_q[2] * _q[0] + _q[1] * _q[3]));
@@ -448,6 +434,8 @@ void Quater<Real>::writeOpenGlMatrix(double *m) const
 template<class Real>
 void Quater<Real>::writeOpenGlMatrix(float *m) const
 {
+    auto _q = this->data();
+
     m[0*4+0] = (float) (1.0f - 2.0f * (_q[1] * _q[1] + _q[2] * _q[2]));
     m[1*4+0] = (float) (2.0f * (_q[0] * _q[1] - _q[2] * _q[3]));
     m[2*4+0] = (float) (2.0f * (_q[2] * _q[0] + _q[1] * _q[3]));
@@ -473,6 +461,8 @@ void Quater<Real>::writeOpenGlMatrix(float *m) const
 template<class Real>
 Quater<Real> Quater<Real>::axisToQuat(defaulttype::Vec<3,Real> a, Real phi)
 {
+    auto _q = this->data();
+
     if( a.norm() < std::numeric_limits<Real>::epsilon() )
     {
 //		std::cout << "zero norm quaternion" << std::endl;
@@ -595,6 +585,8 @@ defaulttype::Vec<3,Real> Quater<Real>::toEulerVector() const
 template<class Real>
 void Quater<Real>::slerp(const Quater& a, const Quater& b, Real t, bool allowFlip)
 {
+    auto _q = this->data();
+
     Real cosAngle =  (Real)(a[0]*b[0] + a[1]*b[1] + a[2]*b[2] + a[3]*b[3]);
 
     Real c1, c2;
@@ -623,17 +615,11 @@ void Quater<Real>::slerp(const Quater& a, const Quater& b, Real t, bool allowFli
     _q[3] = c1*a[3] + c2*b[3];
 }
 
-///// Output quaternion
-//template<class Real>
-//    std::ostream& operator<<(std::ostream& out, Quater<Real> Q)
-//{
-//	return (out << "(" << Q._q[0] << "," << Q._q[1] << "," << Q._q[2] << ","
-//				<< Q._q[3] << ")");
-//}
-
 template<class Real>
 Quater<Real> Quater<Real>::slerp(Quater<Real> &q1, Real t)
 {
+    auto _q = this->data();
+
     Quater<Real> q0_1;
     for (unsigned int i = 0 ; i<3 ; i++)
         q0_1[i] = -_q[i];
@@ -660,6 +646,8 @@ Quater<Real> Quater<Real>::slerp(Quater<Real> &q1, Real t)
 template<class Real>
 Quater<Real> Quater<Real>::slerp2(Quater<Real> &q1, Real t)
 {
+    auto _q = this->data();
+
     // quaternion to return
     Quater<Real> qm;
 
@@ -714,6 +702,8 @@ Quater<Real> Quater<Real>::createQuaterFromFrame(const defaulttype::Vec<3, Real>
 template<class Real>
 inline void Quater<Real>::setFromUnitVectors(const defaulttype::Vec<3, Real>& vFrom, const defaulttype::Vec<3, Real>& vTo)
 {
+    auto _q = this->data();
+
     sofa::defaulttype::Vec<3, Real> v1;
     Real epsilon = 0.0001;
     
@@ -743,35 +733,37 @@ inline void Quater<Real>::setFromUnitVectors(const defaulttype::Vec<3, Real>& vF
 template<class Real>
 void Quater<Real>::print()
 {
+    auto _q = this->data();
+
     printf("(%f, %f ,%f, %f)\n", _q[0], _q[1], _q[2], _q[3]);
 }
 
 template<class Real>
 void Quater<Real>::operator+=(const Quater<Real>& q2)
 {
-//    static int	count	= 0;
+    auto _q = this->data();
 
     Real t1[4], t2[4], t3[4];
     Quater<Real> q1 = (*this);
-    t1[0] = q1._q[0] * q2._q[3];
-    t1[1] = q1._q[1] * q2._q[3];
-    t1[2] = q1._q[2] * q2._q[3];
+    t1[0] = q1[0] * q2[3];
+    t1[1] = q1[1] * q2[3];
+    t1[2] = q1[2] * q2[3];
 
-    t2[0] = q2._q[0] * q1._q[3];
-    t2[1] = q2._q[1] * q1._q[3];
-    t2[2] = q2._q[2] * q1._q[3];
+    t2[0] = q2[0] * q1[3];
+    t2[1] = q2[1] * q1[3];
+    t2[2] = q2[2] * q1[3];
 
     // cross product t3 = q2 x q1
-    t3[0] = (q2._q[1] * q1._q[2]) - (q2._q[2] * q1._q[1]);
-    t3[1] = (q2._q[2] * q1._q[0]) - (q2._q[0] * q1._q[2]);
-    t3[2] = (q2._q[0] * q1._q[1]) - (q2._q[1] * q1._q[0]);
+    t3[0] = (q2[1] * q1[2]) - (q2[2] * q1[1]);
+    t3[1] = (q2[2] * q1[0]) - (q2[0] * q1[2]);
+    t3[2] = (q2[0] * q1[1]) - (q2[1] * q1[0]);
     // end cross product
 
     _q[0] = t1[0] + t2[0] + t3[0];
     _q[1] = t1[1] + t2[1] + t3[1];
     _q[2] = t1[2] + t2[2] + t3[2];
-    _q[3] = q1._q[3] * q2._q[3] -
-            (q1._q[0] * q2._q[0] + q1._q[1] * q2._q[1] + q1._q[2] * q2._q[2]);
+    _q[3] = q1[3] * q2[3] -
+            (q1[0] * q2[0] + q1[1] * q2[1] + q1[2] * q2[2]);
 
 /*    if (++count > RENORMCOUNT)
     {
@@ -785,23 +777,25 @@ void Quater<Real>::operator+=(const Quater<Real>& q2)
 template<class Real>
 void Quater<Real>::operator*=(const Quater<Real>& q1)
 {
+    auto _q = this->data();
+
     Quater<Real> q2 = *this;
-    _q[3] = q2._q[3] * q1._q[3] -
-            (q2._q[0] * q1._q[0] +
-                    q2._q[1] * q1._q[1] +
-                    q2._q[2] * q1._q[2]);
-    _q[0] = q2._q[3] * q1._q[0] +
-            q2._q[0] * q1._q[3] +
-            q2._q[1] * q1._q[2] -
-            q2._q[2] * q1._q[1];
-    _q[1] = q2._q[3] * q1._q[1] +
-            q2._q[1] * q1._q[3] +
-            q2._q[2] * q1._q[0] -
-            q2._q[0] * q1._q[2];
-    _q[2] = q2._q[3] * q1._q[2] +
-            q2._q[2] * q1._q[3] +
-            q2._q[0] * q1._q[1] -
-            q2._q[1] * q1._q[0];
+    _q[3] = q2[3] * q1[3] -
+            (q2[0] * q1[0] +
+                    q2[1] * q1[1] +
+                    q2[2] * q1[2]);
+    _q[0] = q2[3] * q1[0] +
+            q2[0] * q1[3] +
+            q2[1] * q1[2] -
+            q2[2] * q1[1];
+    _q[1] = q2[3] * q1[1] +
+            q2[1] * q1[3] +
+            q2[2] * q1[0] -
+            q2[0] * q1[2];
+    _q[2] = q2[3] * q1[2] +
+            q2[2] * q1[3] +
+            q2[0] * q1[1] -
+            q2[1] * q1[0];
 }
 
 } // namespace helper
