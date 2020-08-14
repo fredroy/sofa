@@ -73,6 +73,8 @@ public:
     typedef typename DataTypes::Deriv Deriv;
     typedef typename DataTypes::CPos CPos;
 
+    enum { NC = CPos::size() };
+
 protected:
     bool initializedEdgeCubatureTables;
     EdgeSetGeometryAlgorithms()

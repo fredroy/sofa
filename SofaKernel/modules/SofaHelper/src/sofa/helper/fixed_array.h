@@ -71,6 +71,13 @@ class fixed_array : public std::array<T, N>
 public:
     using Inherit = std::array<T, N>;
 
+    typedef typename Inherit::value_type value_type;
+    typedef typename Inherit::size_type size_type;
+    typedef typename Inherit::reference reference;
+    typedef typename Inherit::const_reference const_reference;
+    typedef typename Inherit::iterator iterator;
+    typedef typename Inherit::const_iterator const_iterator;
+
 public:
     fixed_array()
     {

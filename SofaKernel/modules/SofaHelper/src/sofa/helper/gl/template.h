@@ -26,6 +26,7 @@
 
 #include <sofa/helper/system/gl.h>
 #include <sofa/helper/config.h>
+#include <array>
 
 namespace sofa
 {
