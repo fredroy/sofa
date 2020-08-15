@@ -96,7 +96,7 @@ protected:
     class TContact
     {
     public:
-        helper::fixed_array<unsigned int,3> index;
+        std::array<unsigned int,3> index;
         Coord normal,B,C;
         Real fact;
 
@@ -119,7 +119,7 @@ protected:
     class VContact
     {
     public:
-        helper::fixed_array<unsigned int,4> index;
+        std::array<unsigned int,4> index;
         Coord A,B,C;
         Real fact;
 
@@ -146,7 +146,7 @@ public:
     // Input data parameters
     sofa::core::objectmodel::DataFileName fileDistanceGrid; ///< load distance grid from specified file
     Data< double > scale; ///< scaling factor for input file
-    Data< helper::fixed_array<DistanceGrid::Coord,2> > box; ///< Field bounding box defined by xmin,ymin,zmin, xmax,ymax,zmax
+    Data< std::array<DistanceGrid::Coord,2> > box; ///< Field bounding box defined by xmin,ymin,zmin, xmax,ymax,zmax
     Data< int > nx; ///< number of values on X axis
     Data< int > ny; ///< number of values on Y axis
     Data< int > nz; ///< number of values on Z axis

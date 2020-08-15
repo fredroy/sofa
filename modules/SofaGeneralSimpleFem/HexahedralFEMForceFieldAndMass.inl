@@ -165,7 +165,7 @@ void HexahedralFEMForceFieldAndMass<DataTypes>::computeElementMasses(  )
 
 template<class DataTypes>
 void HexahedralFEMForceFieldAndMass<DataTypes>::computeElementMass( ElementMass &Mass, Real& totalMass,
-        const helper::fixed_array<Coord,8> &nodes)
+        const std::array<Coord,8> &nodes)
 {
     // volume of a element
     Real volume = (nodes[1]-nodes[0]).norm()*(nodes[3]-nodes[0]).norm()*(nodes[4]-nodes[0]).norm();

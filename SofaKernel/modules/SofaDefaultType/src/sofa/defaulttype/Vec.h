@@ -39,7 +39,7 @@ namespace defaulttype
 enum NoInit { NOINIT }; ///< use when calling Vec or Mat constructor to skip initialization of values to 0
 
 template <int N, typename real=float>
-class Vec : public helper::fixed_array<real,N>
+class Vec : public std::array<real,N>
 {
 
     static_assert( N > 0, "" );
@@ -300,7 +300,7 @@ public:
         set( v, r1 );
     }
 
-    Vec(const helper::fixed_array<real, N>& p)
+    Vec(const std::array<real, N>& p)
     {
         for(int i=0; i<N; i++)
             (*this)[i] = p[i];

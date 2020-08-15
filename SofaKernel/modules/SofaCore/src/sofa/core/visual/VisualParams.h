@@ -61,7 +61,7 @@ enum
 class SOFA_CORE_API VisualParams : public ExecParams
 {
 public:
-	typedef sofa::helper::fixed_array<int, 4> Viewport;
+	typedef std::array<int, 4> Viewport;
 
     /// The enumeration used to describe each step of the rendering.
     enum Pass

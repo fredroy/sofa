@@ -101,13 +101,13 @@ public:
 
 
     // Tab of 2D elements composition
-    Data< helper::vector< helper::fixed_array <unsigned int,2> > > edges;
-    Data< helper::vector< helper::fixed_array <unsigned int,3> > > triangles;
-    Data< helper::vector< helper::fixed_array <unsigned int,4> > > quads;
+    Data< helper::vector< std::array <unsigned int,2> > > edges;
+    Data< helper::vector< std::array <unsigned int,3> > > triangles;
+    Data< helper::vector< std::array <unsigned int,4> > > quads;
 
     // Tab of 3D elements composition
-    Data< helper::vector< helper::fixed_array<unsigned int,4> > > tetrahedra;
-    Data< helper::vector< helper::fixed_array<unsigned int,8> > > hexahedra;
+    Data< helper::vector< std::array<unsigned int,4> > > tetrahedra;
+    Data< helper::vector< std::array<unsigned int,8> > > hexahedra;
 
 
 };

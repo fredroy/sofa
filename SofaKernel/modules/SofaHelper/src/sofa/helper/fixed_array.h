@@ -358,168 +358,189 @@ public:
 private:
 
 };
-
-template <typename T, size_t N>
-inline std::ostream& operator << (std::ostream& out, const fixed_array<T,N>& a)
-{
-    static_assert(N>0, "Cannot create a zero size arrays") ;
-    for( auto i=0; i<N-1; i++ )
-        out << a[i]<<" ";
-    out << a[N-1];
-    return out;
-}
-
-template <typename T, size_t N>
-inline std::istream& operator >> (std::istream& in, fixed_array<T,N>& a)
-{
-    for( auto i=0; i<N; i++ )
-        in>>a[i];
-    return in;
-}
-
-template<class T>
-inline fixed_array<T, 2> make_array(const T& v0, const T& v1)
-{
-    fixed_array<T, 2> v;
-    v[0] = v0;
-    v[1] = v1;
-    return v;
-}
-
-template<class T>
-inline fixed_array<T, 3> make_array(const T& v0, const T& v1, const T& v2)
-{
-    fixed_array<T, 3> v;
-    v[0] = v0;
-    v[1] = v1;
-    v[2] = v2;
-    return v;
-}
-
-template<class T>
-inline fixed_array<T, 4> make_array(const T& v0, const T& v1, const T& v2, const T& v3)
-{
-    fixed_array<T, 4> v;
-    v[0] = v0;
-    v[1] = v1;
-    v[2] = v2;
-    v[3] = v3;
-    return v;
-}
-
-template<class T>
-inline fixed_array<T, 5> make_array(const T& v0, const T& v1, const T& v2, const T& v3, const T& v4)
-{
-    fixed_array<T, 5> v;
-    v[0] = v0;
-    v[1] = v1;
-    v[2] = v2;
-    v[3] = v3;
-    v[4] = v4;
-    return v;
-}
-
-template<class T>
-inline fixed_array<T, 6> make_array(const T& v0, const T& v1, const T& v2, const T& v3, const T& v4, const T& v5)
-{
-    fixed_array<T, 6> v;
-    v[0] = v0;
-    v[1] = v1;
-    v[2] = v2;
-    v[3] = v3;
-    v[4] = v4;
-    v[5] = v5;
-    return v;
-}
-
-template<class T>
-inline fixed_array<T, 7> make_array(const T& v0, const T& v1, const T& v2, const T& v3, const T& v4, const T& v5, const T& v6)
-{
-    fixed_array<T, 7> v;
-    v[0] = v0;
-    v[1] = v1;
-    v[2] = v2;
-    v[3] = v3;
-    v[4] = v4;
-    v[5] = v5;
-    v[6] = v6;
-    return v;
-}
-
-template<class T>
-inline fixed_array<T, 8> make_array(const T& v0, const T& v1, const T& v2, const T& v3, const T& v4, const T& v5, const T& v6, const T& v7)
-{
-    fixed_array<T, 8> v;
-    v[0] = v0;
-    v[1] = v1;
-    v[2] = v2;
-    v[3] = v3;
-    v[4] = v4;
-    v[5] = v5;
-    v[6] = v6;
-    v[7] = v7;
-    return v;
-}
-
-template<class T>
-inline fixed_array<T, 9> make_array(const T& v0, const T& v1, const T& v2, const T& v3, const T& v4, const T& v5, const T& v6, const T& v7, const T& v8)
-{
-    fixed_array<T, 9> v;
-    v[0] = v0;
-    v[1] = v1;
-    v[2] = v2;
-    v[3] = v3;
-    v[4] = v4;
-    v[5] = v5;
-    v[6] = v6;
-    v[7] = v7;
-    v[8] = v8;
-    return v;
-}
-
-template<class T>
-inline fixed_array<T, 10> make_array(const T& v0, const T& v1, const T& v2, const T& v3, const T& v4, const T& v5, const T& v6, const T& v7, const T& v8, const T& v9)
-{
-    fixed_array<T, 10> v;
-    v[0] = v0;
-    v[1] = v1;
-    v[2] = v2;
-    v[3] = v3;
-    v[4] = v4;
-    v[5] = v5;
-    v[6] = v6;
-    v[7] = v7;
-    v[8] = v8;
-    v[9] = v9;
-    return v;
-}
+//
+//template <typename T, size_t N>
+//inline std::ostream& operator << (std::ostream& out, const fixed_array<T,N>& a)
+//{
+//    static_assert(N>0, "Cannot create a zero size arrays") ;
+//    for( auto i=0; i<N-1; i++ )
+//        out << a[i]<<" ";
+//    out << a[N-1];
+//    return out;
+//}
+//
+//template <typename T, size_t N>
+//inline std::istream& operator >> (std::istream& in, fixed_array<T,N>& a)
+//{
+//    for( auto i=0; i<N; i++ )
+//        in>>a[i];
+//    return in;
+//}
+//
+//template<class T>
+//inline fixed_array<T, 2> make_array(const T& v0, const T& v1)
+//{
+//    fixed_array<T, 2> v;
+//    v[0] = v0;
+//    v[1] = v1;
+//    return v;
+//}
+//
+//template<class T>
+//inline fixed_array<T, 3> make_array(const T& v0, const T& v1, const T& v2)
+//{
+//    fixed_array<T, 3> v;
+//    v[0] = v0;
+//    v[1] = v1;
+//    v[2] = v2;
+//    return v;
+//}
+//
+//template<class T>
+//inline fixed_array<T, 4> make_array(const T& v0, const T& v1, const T& v2, const T& v3)
+//{
+//    fixed_array<T, 4> v;
+//    v[0] = v0;
+//    v[1] = v1;
+//    v[2] = v2;
+//    v[3] = v3;
+//    return v;
+//}
+//
+//template<class T>
+//inline fixed_array<T, 5> make_array(const T& v0, const T& v1, const T& v2, const T& v3, const T& v4)
+//{
+//    fixed_array<T, 5> v;
+//    v[0] = v0;
+//    v[1] = v1;
+//    v[2] = v2;
+//    v[3] = v3;
+//    v[4] = v4;
+//    return v;
+//}
+//
+//template<class T>
+//inline fixed_array<T, 6> make_array(const T& v0, const T& v1, const T& v2, const T& v3, const T& v4, const T& v5)
+//{
+//    fixed_array<T, 6> v;
+//    v[0] = v0;
+//    v[1] = v1;
+//    v[2] = v2;
+//    v[3] = v3;
+//    v[4] = v4;
+//    v[5] = v5;
+//    return v;
+//}
+//
+//template<class T>
+//inline fixed_array<T, 7> make_array(const T& v0, const T& v1, const T& v2, const T& v3, const T& v4, const T& v5, const T& v6)
+//{
+//    fixed_array<T, 7> v;
+//    v[0] = v0;
+//    v[1] = v1;
+//    v[2] = v2;
+//    v[3] = v3;
+//    v[4] = v4;
+//    v[5] = v5;
+//    v[6] = v6;
+//    return v;
+//}
+//
+//template<class T>
+//inline fixed_array<T, 8> make_array(const T& v0, const T& v1, const T& v2, const T& v3, const T& v4, const T& v5, const T& v6, const T& v7)
+//{
+//    fixed_array<T, 8> v;
+//    v[0] = v0;
+//    v[1] = v1;
+//    v[2] = v2;
+//    v[3] = v3;
+//    v[4] = v4;
+//    v[5] = v5;
+//    v[6] = v6;
+//    v[7] = v7;
+//    return v;
+//}
+//
+//template<class T>
+//inline fixed_array<T, 9> make_array(const T& v0, const T& v1, const T& v2, const T& v3, const T& v4, const T& v5, const T& v6, const T& v7, const T& v8)
+//{
+//    fixed_array<T, 9> v;
+//    v[0] = v0;
+//    v[1] = v1;
+//    v[2] = v2;
+//    v[3] = v3;
+//    v[4] = v4;
+//    v[5] = v5;
+//    v[6] = v6;
+//    v[7] = v7;
+//    v[8] = v8;
+//    return v;
+//}
+//
+//template<class T>
+//inline fixed_array<T, 10> make_array(const T& v0, const T& v1, const T& v2, const T& v3, const T& v4, const T& v5, const T& v6, const T& v7, const T& v8, const T& v9)
+//{
+//    fixed_array<T, 10> v;
+//    v[0] = v0;
+//    v[1] = v1;
+//    v[2] = v2;
+//    v[3] = v3;
+//    v[4] = v4;
+//    v[5] = v5;
+//    v[6] = v6;
+//    v[7] = v7;
+//    v[8] = v8;
+//    v[9] = v9;
+//    return v;
+//}
 
 #ifndef FIXED_ARRAY_CPP
 
 //extern template class SOFA_HELPER_API fixed_array<float, 1>;
 //extern template class SOFA_HELPER_API fixed_array<double, 1>;
 
-extern template class SOFA_HELPER_API fixed_array<float, 2>;
-extern template class SOFA_HELPER_API fixed_array<double, 2>;
+extern template class SOFA_HELPER_API std::array<float, 2>;
+extern template class SOFA_HELPER_API std::array<double, 2>;
 
-extern template class SOFA_HELPER_API fixed_array<float, 3>;
-extern template class SOFA_HELPER_API fixed_array<double, 3>;
+extern template class SOFA_HELPER_API std::array<float, 3>;
+extern template class SOFA_HELPER_API std::array<double, 3>;
 
-extern template class SOFA_HELPER_API fixed_array<float, 4>;
-extern template class SOFA_HELPER_API fixed_array<double, 4>;
+extern template class SOFA_HELPER_API std::array<float, 4>;
+extern template class SOFA_HELPER_API std::array<double, 4>;
 
-extern template class SOFA_HELPER_API fixed_array<float, 5>;
-extern template class SOFA_HELPER_API fixed_array<double, 5>;
+extern template class SOFA_HELPER_API std::array<float, 5>;
+extern template class SOFA_HELPER_API std::array<double, 5>;
 
-extern template class SOFA_HELPER_API fixed_array<float, 6>;
-extern template class SOFA_HELPER_API fixed_array<double, 6>;
+extern template class SOFA_HELPER_API std::array<float, 6>;
+extern template class SOFA_HELPER_API std::array<double, 6>;
 
-extern template class SOFA_HELPER_API fixed_array<float, 7>;
-extern template class SOFA_HELPER_API fixed_array<double, 7>;
+extern template class SOFA_HELPER_API std::array<float, 7>;
+extern template class SOFA_HELPER_API std::array<double, 7>;
 #endif //
 
 } // namespace helper
 
 } // namespace sofa
+
+namespace std
+{
+    template <typename T, size_t N>
+    std::ostream& operator << (std::ostream& out, const std::array<T, N>& a)
+    {
+        static_assert(N > 0, "Cannot create a zero size arrays");
+        for (auto i = 0; i < N - 1; i++)
+            out << a[i] << " ";
+        out << a[N - 1];
+        return out;
+    }
+
+    template <typename T, size_t N>
+    std::istream& operator >> (std::istream& in, std::array<T, N>& a)
+    {
+        for (auto i = 0; i < N; i++)
+            in >> a[i];
+        return in;
+    }
+} // namespace std
 
 #endif

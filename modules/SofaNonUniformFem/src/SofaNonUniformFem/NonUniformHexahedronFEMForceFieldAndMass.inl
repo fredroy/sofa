@@ -243,7 +243,7 @@ void NonUniformHexahedronFEMForceFieldAndMass<T>::computeMechanicalMatricesByCon
         computeClassicalMechanicalMatrices(K,M,elementIndice,this->_sparseGrid->getNbVirtualFinerLevels()-level);
     else
     {
-        helper::fixed_array<int,8> finerChildren;
+        std::array<int,8> finerChildren;
         if (level == 0)
         {
             finerChildren = this->_sparseGrid->_hierarchicalCubeMap[elementIndice];
@@ -274,9 +274,9 @@ template<class T>
 void NonUniformHexahedronFEMForceFieldAndMass<T>::computeClassicalMechanicalMatrices( ElementStiffness &K, ElementMass &M, const int elementIndice, int level)
 {
     //Get the 8 indices of the coarser Hexa
-    const helper::fixed_array<unsigned int,8>& points = this->_sparseGrid->_virtualFinerLevels[level]->getHexahedra()[elementIndice];
+    const std::array<unsigned int,8>& points = this->_sparseGrid->_virtualFinerLevels[level]->getHexahedra()[elementIndice];
     //Get the 8 points of the coarser Hexa
-    helper::fixed_array<Coord,8> nodes;
+    std::array<Coord,8> nodes;
 
     //           for (unsigned int k=0;k<8;++k) nodes[k] =  this->_sparseGrid->_virtualFinerLevels[level]->getPointPos(points[k]);
     for (unsigned int k=0; k<8; ++k) nodes[k] =  this->_sparseGrid->_virtualFinerLevels[level]->getPointPos(points[k]).linearProduct(this->mstate->getScale());

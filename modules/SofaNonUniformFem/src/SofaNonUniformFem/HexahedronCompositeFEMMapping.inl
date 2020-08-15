@@ -119,7 +119,7 @@ void HexahedronCompositeFEMMapping<BasicMapping>::init()
 
             if (elementIdx != -1)
             {
-                helper::fixed_array<Real, 8> baryCoefs;
+                std::array<Real, 8> baryCoefs;
                 baryCoefs[0] = (Real)((1 - coefs[0]) * (1 - coefs[1]) * (1 - coefs[2]));
                 baryCoefs[1] = (Real)((coefs[0]) * (1 - coefs[1]) * (1 - coefs[2]));
                 baryCoefs[2] = (Real)((coefs[0]) * (coefs[1]) * (1 - coefs[2]));
@@ -129,7 +129,7 @@ void HexahedronCompositeFEMMapping<BasicMapping>::init()
                 baryCoefs[6] = (Real)((coefs[0]) * (coefs[1]) * (coefs[2]));
                 baryCoefs[7] = (Real)((1 - coefs[0]) * (coefs[1]) * (coefs[2]));
 
-                _finestBarycentricCoord[i] = std::pair<int, helper::fixed_array<Real, 8> >(elementIdx, baryCoefs);
+                _finestBarycentricCoord[i] = std::pair<int, std::array<Real, 8> >(elementIdx, baryCoefs);
             }
             else
                 msg_error() << "HexahedronCompositeFEMMapping::init()   error finding the corresponding finest cube of vertex " << _p0[i];

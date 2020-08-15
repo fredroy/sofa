@@ -35,7 +35,7 @@ namespace qt
 {
 
 using sofa::helper::Creator;
-using sofa::helper::fixed_array;
+using std::array;
 using namespace sofa::defaulttype;
 
 Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<int>, TABLE_HORIZONTAL > > DWClass_vectori("default",true);
@@ -77,34 +77,34 @@ Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<Vec<6,double> >
 Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<Vec<8,int> > > > DWClass_vectorVec8i("default",true);
 Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<Vec<8,unsigned int> > > > DWClass_vectorVec8u("default",true);
 
-Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<fixed_array<int,1> > > > DWClass_vectorA1i("default",true);
-Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<fixed_array<unsigned int,1> > > > DWClass_vectorA1u("default",true);
-Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<fixed_array<int,2> > > > DWClass_vectorA2i("default",true);
-Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<fixed_array<unsigned int,2> > > > DWClass_vectorA2u("default",true);
-Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<fixed_array<int,3> > > > DWClass_vectorA3i("default",true);
-Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<fixed_array<unsigned int,3> > > > DWClass_vectorA3u("default",true);
-Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<fixed_array<float,3> > > > DWClass_vectorA3f("default",true);
-Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<fixed_array<double,3> > > > DWClass_vectorA3d("default",true);
-Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<fixed_array<int,4> > > > DWClass_vectorA4i("default",true);
-Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<fixed_array<unsigned int,4> > > > DWClass_vectorA4u("default",true);
-Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<fixed_array<int,6> > > > DWClass_vectorA6i("default",true);
-Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<fixed_array<unsigned int,6> > > > DWClass_vectorA6u("default",true);
-Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<fixed_array<int,8> > > > DWClass_vectorA8i("default",true);
-Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<fixed_array<unsigned int,8> > > > DWClass_vectorA8u("default",true);
+Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<std::array<int,1> > > > DWClass_vectorA1i("default",true);
+Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<std::array<unsigned int,1> > > > DWClass_vectorA1u("default",true);
+Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<std::array<int,2> > > > DWClass_vectorA2i("default",true);
+Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<std::array<unsigned int,2> > > > DWClass_vectorA2u("default",true);
+Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<std::array<int,3> > > > DWClass_vectorA3i("default",true);
+Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<std::array<unsigned int,3> > > > DWClass_vectorA3u("default",true);
+Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<std::array<float,3> > > > DWClass_vectorA3f("default",true);
+Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<std::array<double,3> > > > DWClass_vectorA3d("default",true);
+Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<std::array<int,4> > > > DWClass_vectorA4i("default",true);
+Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<std::array<unsigned int,4> > > > DWClass_vectorA4u("default",true);
+Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<std::array<int,6> > > > DWClass_vectorA6i("default",true);
+Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<std::array<unsigned int,6> > > > DWClass_vectorA6u("default",true);
+Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<std::array<int,8> > > > DWClass_vectorA8i("default",true);
+Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<std::array<unsigned int,8> > > > DWClass_vectorA8u("default",true);
 
 #if !defined(_MSC_VER) && !defined(__clang__)
-Creator<DataWidgetFactory, TableDataWidget< std::vector<fixed_array<int,1> > > > DWClass_stdvectorA1i("default",true);
-Creator<DataWidgetFactory, TableDataWidget< std::vector<fixed_array<unsigned int,1> > > > DWClass_stdvectorA1u("default",true);
-Creator<DataWidgetFactory, TableDataWidget< std::vector<fixed_array<int,2> > > > DWClass_stdvectorA2i("default",true);
-Creator<DataWidgetFactory, TableDataWidget< std::vector<fixed_array<unsigned int,2> > > > DWClass_stdvectorA2u("default",true);
-Creator<DataWidgetFactory, TableDataWidget< std::vector<fixed_array<int,3> > > > DWClass_stdvectorA3i("default",true);
-Creator<DataWidgetFactory, TableDataWidget< std::vector<fixed_array<unsigned int,3> > > > DWClass_stdvectorA3u("default",true);
-Creator<DataWidgetFactory, TableDataWidget< std::vector<fixed_array<int,4> > > > DWClass_stdvectorA4i("default",true);
-Creator<DataWidgetFactory, TableDataWidget< std::vector<fixed_array<unsigned int,4> > > > DWClass_stdvectorA4u("default",true);
-Creator<DataWidgetFactory, TableDataWidget< std::vector<fixed_array<int,6> > > > DWClass_stdvectorA6i("default",true);
-Creator<DataWidgetFactory, TableDataWidget< std::vector<fixed_array<unsigned int,6> > > > DWClass_stdvectorA6u("default",true);
-Creator<DataWidgetFactory, TableDataWidget< std::vector<fixed_array<int,8> > > > DWClass_stdvectorA8i("default",true);
-Creator<DataWidgetFactory, TableDataWidget< std::vector<fixed_array<unsigned int,8> > > > DWClass_stdvectorA8u("default",true);
+Creator<DataWidgetFactory, TableDataWidget< std::vector<std::array<int,1> > > > DWClass_stdvectorA1i("default",true);
+Creator<DataWidgetFactory, TableDataWidget< std::vector<std::array<unsigned int,1> > > > DWClass_stdvectorA1u("default",true);
+Creator<DataWidgetFactory, TableDataWidget< std::vector<std::array<int,2> > > > DWClass_stdvectorA2i("default",true);
+Creator<DataWidgetFactory, TableDataWidget< std::vector<std::array<unsigned int,2> > > > DWClass_stdvectorA2u("default",true);
+Creator<DataWidgetFactory, TableDataWidget< std::vector<std::array<int,3> > > > DWClass_stdvectorA3i("default",true);
+Creator<DataWidgetFactory, TableDataWidget< std::vector<std::array<unsigned int,3> > > > DWClass_stdvectorA3u("default",true);
+Creator<DataWidgetFactory, TableDataWidget< std::vector<std::array<int,4> > > > DWClass_stdvectorA4i("default",true);
+Creator<DataWidgetFactory, TableDataWidget< std::vector<std::array<unsigned int,4> > > > DWClass_stdvectorA4u("default",true);
+Creator<DataWidgetFactory, TableDataWidget< std::vector<std::array<int,6> > > > DWClass_stdvectorA6i("default",true);
+Creator<DataWidgetFactory, TableDataWidget< std::vector<std::array<unsigned int,6> > > > DWClass_stdvectorA6u("default",true);
+Creator<DataWidgetFactory, TableDataWidget< std::vector<std::array<int,8> > > > DWClass_stdvectorA8i("default",true);
+Creator<DataWidgetFactory, TableDataWidget< std::vector<std::array<unsigned int,8> > > > DWClass_stdvectorA8u("default",true);
 #endif
 
 Creator<DataWidgetFactory, TableDataWidget< sofa::helper::vector<sofa::helper::Quater<float> > > > DWClass_vectorQuatf("default",true);

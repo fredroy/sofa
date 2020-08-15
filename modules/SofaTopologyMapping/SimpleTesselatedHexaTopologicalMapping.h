@@ -90,8 +90,8 @@ public:
      */
 protected:
     helper::vector<index_type> pointMappedFromPoint;
-    std::map<helper::fixed_array<index_type,2>, int> pointMappedFromEdge;
-    std::map<helper::fixed_array<index_type,4>, int> pointMappedFromFacet;
+    std::map<std::array<index_type,2>, int> pointMappedFromEdge;
+    std::map<std::array<index_type,4>, int> pointMappedFromFacet;
     helper::vector<index_type> pointMappedFromHexa;
 };
 

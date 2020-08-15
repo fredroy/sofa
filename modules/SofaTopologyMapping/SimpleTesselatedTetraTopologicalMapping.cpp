@@ -44,7 +44,7 @@ namespace topology
 using namespace sofa::defaulttype;
 using namespace sofa::component::topology;
 using namespace sofa::core::topology;
-using sofa::helper::fixed_array;
+using std::array;
 
 // Register in the Factory
 int SimpleTesselatedTetraTopologicalMappingClass = core::RegisterObject ( "Special case of mapping where TetrahedronSetTopology is converted into a finer TetrahedronSetTopology" )
@@ -74,7 +74,7 @@ void SimpleTesselatedTetraTopologicalMapping::init()
             helper::WriteAccessor< Data< sofa::helper::vector<int> > > pointMappedFromPointData = d_pointMappedFromPoint;
             helper::WriteAccessor< Data< sofa::helper::vector<int> > > pointMappedFromEdgeData = d_pointMappedFromEdge;
 
-            sofa::helper::vector<helper::fixed_array<int, 8> >& tetrahedraMappedFromTetraData = *(tetrahedraMappedFromTetra.beginEdit());
+            sofa::helper::vector<std::array<int, 8> >& tetrahedraMappedFromTetraData = *(tetrahedraMappedFromTetra.beginEdit());
             helper::vector<int>& tetraSourceData = *(tetraSource.beginEdit());
 
             TetrahedronSetTopologyContainer *to_tstc;
@@ -115,7 +115,7 @@ void SimpleTesselatedTetraTopologicalMapping::init()
                 newPointIndex++;
             }
 
-            fixed_array <int, 8> newTetrahedraIndices;
+            std::array <int, 8> newTetrahedraIndices;
             unsigned int newTetraIndex = (unsigned int)to_tstc->getNbTetrahedra();
 
             tetraSourceData.resize(8*from_tstc->getNbTetrahedra());
@@ -304,7 +304,7 @@ void SimpleTesselatedTetraTopologicalMapping::swapOutputTetrahedra(int i1, int i
     tetraSourceData[i1] = i2Source;
     tetraSourceData[i2] = i1Source;
 
-    helper::vector< fixed_array<int, 8> >& tetrahedraMappedFromTetraData = *(tetrahedraMappedFromTetra.beginEdit());
+    helper::vector< std::array<int, 8> >& tetrahedraMappedFromTetraData = *(tetrahedraMappedFromTetra.beginEdit());
 
     if (i1Source != -1)
         for (int j=0; j<8; ++j)
@@ -327,7 +327,7 @@ void SimpleTesselatedTetraTopologicalMapping::swapOutputTetrahedra(int i1, int i
 void SimpleTesselatedTetraTopologicalMapping::removeOutputTetrahedra( const sofa::helper::vector<unsigned int>& index )
 {
 
-    helper::vector< fixed_array<int, 8> >& tetrahedraMappedFromTetraData = *(tetrahedraMappedFromTetra.beginEdit());
+    helper::vector< std::array<int, 8> >& tetrahedraMappedFromTetraData = *(tetrahedraMappedFromTetra.beginEdit());
     helper::vector<int>& tetraSourceData = *(tetraSource.beginEdit());
 
     int last = (int)tetraSourceData.size() -1;
@@ -533,11 +533,11 @@ void SimpleTesselatedTetraTopologicalMapping::removeInputEdges( const sofa::help
 
 void SimpleTesselatedTetraTopologicalMapping::swapInputTetrahedra(int i1, int i2)
 {
-    helper::vector< fixed_array<int, 8> >& tetrahedraMappedFromTetraData = *(tetrahedraMappedFromTetra.beginEdit());
+    helper::vector< std::array<int, 8> >& tetrahedraMappedFromTetraData = *(tetrahedraMappedFromTetra.beginEdit());
     helper::vector<int>& tetraSourceData = *(tetraSource.beginEdit());
 
-    fixed_array<int, 8> i1Map = tetrahedraMappedFromTetraData[i1];
-    fixed_array<int, 8> i2Map = tetrahedraMappedFromTetraData[i2];
+    std::array<int, 8> i1Map = tetrahedraMappedFromTetraData[i1];
+    std::array<int, 8> i2Map = tetrahedraMappedFromTetraData[i2];
     tetrahedraMappedFromTetraData[i1] = i2Map;
     for (int j=0; j<8; ++j)
         if (i2Map[j] != -1) tetraSourceData[i2Map[j]] = i1;
@@ -552,7 +552,7 @@ void SimpleTesselatedTetraTopologicalMapping::swapInputTetrahedra(int i1, int i2
 
 void SimpleTesselatedTetraTopologicalMapping::removeInputTetrahedra( const sofa::helper::vector<unsigned int>& index )
 {
-    helper::vector< fixed_array<int, 8> >& tetrahedraMappedFromTetraData = *(tetrahedraMappedFromTetra.beginEdit());
+    helper::vector< std::array<int, 8> >& tetrahedraMappedFromTetraData = *(tetrahedraMappedFromTetra.beginEdit());
     helper::vector<int>& tetraSourceData = *(tetraSource.beginEdit());
 
     int last = (int)tetrahedraMappedFromTetraData.size() -1;
@@ -560,7 +560,7 @@ void SimpleTesselatedTetraTopologicalMapping::removeInputTetrahedra( const sofa:
     for (unsigned int i = 0; i < index.size(); ++i)
     {
         swapInputTetrahedra( index[i], last );
-        fixed_array<int, 8> map = tetrahedraMappedFromTetraData[last];
+        std::array<int, 8> map = tetrahedraMappedFromTetraData[last];
         for (int j=0; j<8; ++j)
             if (map[j] != -1)
                 tetraSourceData[map[j]] = -1;

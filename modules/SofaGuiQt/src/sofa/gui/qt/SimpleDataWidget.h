@@ -576,14 +576,14 @@ public:
 };
 
 ////////////////////////////////////////////////////////////////
-/// sofa::helper::fixed_array support
+/// std::array support
 ////////////////////////////////////////////////////////////////
 
 template<class T, std::size_t N>
-class vector_data_trait < sofa::helper::fixed_array<T, N> >
+class vector_data_trait < std::array<T, N> >
 {
 public:
-    typedef sofa::helper::fixed_array<T, N> data_type;
+    typedef std::array<T, N> data_type;
     typedef T value_type;
     enum { NDIM = 1 };
     enum { SIZE = N };
@@ -608,7 +608,7 @@ public:
 };
 
 template<class T, std::size_t N>
-class data_widget_container < sofa::helper::fixed_array<T, N> > : public fixed_vector_data_widget_container < sofa::helper::fixed_array<T, N> >
+class data_widget_container < std::array<T, N> > : public fixed_vector_data_widget_container < std::array<T, N> >
 {};
 
 
@@ -618,7 +618,7 @@ class data_widget_container < sofa::helper::fixed_array<T, N> > : public fixed_v
 
 template<>
 class vector_data_trait < sofa::core::topology::Topology::Edge >
-    : public vector_data_trait < sofa::helper::fixed_array < sofa::core::topology::Topology::PointID, 2 > >
+    : public vector_data_trait < std::array < sofa::core::topology::Topology::PointID, 2 > >
 {
 };
 
@@ -628,7 +628,7 @@ class data_widget_container < sofa::core::topology::Topology::Edge > : public fi
 
 template<>
 class vector_data_trait < sofa::core::topology::Topology::Triangle >
-    : public vector_data_trait < sofa::helper::fixed_array < sofa::core::topology::Topology::PointID, 3 > >
+    : public vector_data_trait < std::array < sofa::core::topology::Topology::PointID, 3 > >
 {
 };
 
@@ -638,7 +638,7 @@ class data_widget_container < sofa::core::topology::Topology::Triangle > : publi
 
 template<>
 class vector_data_trait < sofa::core::topology::Topology::Quad >
-    : public vector_data_trait < sofa::helper::fixed_array < sofa::core::topology::Topology::PointID, 4 > >
+    : public vector_data_trait < std::array < sofa::core::topology::Topology::PointID, 4 > >
 {
 };
 
@@ -648,7 +648,7 @@ class data_widget_container < sofa::core::topology::Topology::Quad > : public fi
 
 template<>
 class vector_data_trait < sofa::core::topology::Topology::Tetrahedron >
-    : public vector_data_trait < sofa::helper::fixed_array < sofa::core::topology::Topology::PointID, 4 > >
+    : public vector_data_trait < std::array < sofa::core::topology::Topology::PointID, 4 > >
 {
 };
 
@@ -658,7 +658,7 @@ class data_widget_container < sofa::core::topology::Topology::Tetrahedron > : pu
 
 template<>
 class vector_data_trait < sofa::core::topology::Topology::Hexahedron >
-    : public vector_data_trait < sofa::helper::fixed_array < sofa::core::topology::Topology::PointID, 8 > >
+    : public vector_data_trait < std::array < sofa::core::topology::Topology::PointID, 8 > >
 {
 };
 

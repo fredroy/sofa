@@ -36,7 +36,7 @@ namespace helper
 {
 
 template<class Real>
-class SOFA_HELPER_API Quater : public sofa::helper::fixed_array<Real, 4>
+class SOFA_HELPER_API Quater : public std::array<Real, 4>
 {
 private:
 

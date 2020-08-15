@@ -335,8 +335,8 @@ void VisualModelImpl::setMesh(helper::io::Mesh &objLoader, bool tex)
         // compute the edge / triangle / quad index corresponding to each facet
         // convert the groups info
         enum { NBE = 0, NBT = 1, NBQ = 2 };
-        helper::fixed_array<int, 3> nbf{ 0,0,0 };
-        helper::vector< helper::fixed_array<int, 3> > facet2tq;
+        std::array<int, 3> nbf{ 0,0,0 };
+        helper::vector< std::array<int, 3> > facet2tq;
         facet2tq.resize(facetsImport.size()+1);
         for (unsigned int i = 0; i < facetsImport.size(); i++)
         {

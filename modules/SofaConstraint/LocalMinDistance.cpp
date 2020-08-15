@@ -1243,7 +1243,7 @@ bool LocalMinDistance::testValidity(Point &p, const Vector3 &PQ)
     for (unsigned int i=0; i<trianglesAroundVertex.size(); i++)
     {
         unsigned int t = trianglesAroundVertex[i];
-        const fixed_array<unsigned int,3>& ptr = topology->getTriangle(t);
+        const std::array<unsigned int,3>& ptr = topology->getTriangle(t);
         Vector3 nCur = (x[ptr[1]]-x[ptr[0]]).cross(x[ptr[2]]-x[ptr[0]]);
         nCur.normalize();
         nMean += nCur;
@@ -1254,7 +1254,7 @@ bool LocalMinDistance::testValidity(Point &p, const Vector3 &PQ)
         for (unsigned int i=0; i<edgesAroundVertex.size(); i++)
         {
             unsigned int e = edgesAroundVertex[i];
-            const fixed_array<unsigned int,2>& ped = topology->getEdge(e);
+            const std::array<unsigned int,2>& ped = topology->getEdge(e);
             Vector3 l = (pt - x[ped[0]]) + (pt - x[ped[1]]);
             l.normalize();
             nMean += l;
@@ -1278,7 +1278,7 @@ bool LocalMinDistance::testValidity(Point &p, const Vector3 &PQ)
     for (unsigned int i=0; i<edgesAroundVertex.size(); i++)
     {
         unsigned int e = edgesAroundVertex[i];
-        const fixed_array<unsigned int,2>& ped = topology->getEdge(e);
+        const std::array<unsigned int,2>& ped = topology->getEdge(e);
         Vector3 l = (pt - x[ped[0]]) + (pt - x[ped[1]]);
         l.normalize();
         double computedAngleCone = dot(nMean , l) * coneFactor.getValue();

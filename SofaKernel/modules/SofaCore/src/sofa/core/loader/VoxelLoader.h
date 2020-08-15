@@ -42,7 +42,7 @@ public:
 
     typedef defaulttype::Vec<3, int> Vec3i;
     typedef defaulttype::Vec<6, int> Vec6i;
-    typedef helper::fixed_array<unsigned int,8> Hexahedron;
+    typedef std::array<unsigned int,8> Hexahedron;
 protected:
     VoxelLoader();
     ~VoxelLoader() override;
@@ -52,7 +52,7 @@ public:
     Data< helper::vector<Hexahedron > > hexahedra; ///< Hexahedra loaded
 
 
-    void addHexahedron(helper::vector< Hexahedron >* pHexahedra, const helper::fixed_array<unsigned int,8> &p);
+    void addHexahedron(helper::vector< Hexahedron >* pHexahedra, const std::array<unsigned int,8> &p);
     void addHexahedron(helper::vector< Hexahedron >* pHexahedra,
             unsigned int p0, unsigned int p1, unsigned int p2, unsigned int p3,
             unsigned int p4, unsigned int p5, unsigned int p6, unsigned int p7);

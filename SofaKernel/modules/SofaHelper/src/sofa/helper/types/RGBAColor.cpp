@@ -79,12 +79,12 @@ static void extractValidatedHexaString(std::istream& in, std::string& s)
 }
 
 
-RGBAColor::RGBAColor() : fixed_array<float, 4>{ 1.0f, 1.0f, 1.0f,1.0f }
+RGBAColor::RGBAColor() : std::array<float, 4>{ 1.0f, 1.0f, 1.0f,1.0f }
 {
 }
 
 
-RGBAColor::RGBAColor(const fixed_array<float, 4>& c) : fixed_array<float, 4>(c)
+RGBAColor::RGBAColor(const std::array<float, 4>& c) : std::array<float, 4>(c)
 {
 }
 
@@ -133,13 +133,13 @@ RGBAColor RGBAColor::fromFloat(const float r, const float g, const float b, cons
 }
 
 
-RGBAColor RGBAColor::fromVec4(const fixed_array<float, 4>& color)
+RGBAColor RGBAColor::fromVec4(const std::array<float, 4>& color)
 {
     return RGBAColor(color) ;
 }
 
 
-RGBAColor RGBAColor::fromVec4(const fixed_array<double, 4>& color)
+RGBAColor RGBAColor::fromVec4(const std::array<double, 4>& color)
 {
     return RGBAColor(float(color[0]), float(color[1]), float(color[2]), float(color[3]));
 }

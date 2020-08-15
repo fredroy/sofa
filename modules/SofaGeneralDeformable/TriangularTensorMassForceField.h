@@ -57,7 +57,7 @@ public:
     typedef core::objectmodel::Data<VecDeriv>    DataVecDeriv;
     typedef core::objectmodel::Data<VecCoord>    DataVecCoord;
 
-    class Mat3 : public sofa::helper::fixed_array<Deriv,3>
+    class Mat3 : public std::array<Deriv,3>
     {
     public:
         Deriv operator*(const Deriv& v)

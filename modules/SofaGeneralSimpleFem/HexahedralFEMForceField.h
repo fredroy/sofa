@@ -123,7 +123,7 @@ protected:
         MaterialStiffness materialMatrix;
 
         // large displacement method
-        helper::fixed_array<Coord,8> rotatedInitialElements;
+        std::array<Coord,8> rotatedInitialElements;
 
         Transformation rotation;
         ElementStiffness stiffness;

@@ -97,7 +97,7 @@ struct FixedSize
         static int maxCapacity() { return N; }
 
     private:
-        helper::fixed_array<T, N> array;
+        std::array<T, N> array;
     };
 };
 
@@ -121,7 +121,7 @@ struct FixedPower2Size
         enum { MaxSize = N };
         enum { MaxCapacity = AlignPow2<MaxSize>::val };
 
-        helper::fixed_array<T, MaxCapacity> array;
+        std::array<T, MaxCapacity> array;
     };
 };
 

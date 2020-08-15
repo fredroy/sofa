@@ -35,7 +35,7 @@ namespace topology
 
 using namespace sofa::defaulttype;
 using helper::vector;
-using helper::fixed_array;
+using std::array;
 
 
 BaseMeshTopology::EdgesInTriangle BaseMeshTopology::InvalidEdgesInTriangles;

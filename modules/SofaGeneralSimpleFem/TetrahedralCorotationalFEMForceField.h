@@ -106,7 +106,7 @@ protected:
         /// the strain-displacement matrices vector
         StrainDisplacementTransposed strainDisplacementTransposedMatrix;
         /// large displacement method
-        helper::fixed_array<Coord,4> rotatedInitialElements;
+        std::array<Coord,4> rotatedInitialElements;
         Transformation rotation;
         /// polar method
         Transformation initialTransformation;

@@ -32,10 +32,10 @@ namespace helper
 namespace gl
 {
 
-template class SOFA_HELPER_API BasicShapesGL_Sphere<helper::fixed_array< float, 3 > >;
-template class SOFA_HELPER_API BasicShapesGL_Sphere<helper::fixed_array< double, 3 > >;
-template class SOFA_HELPER_API BasicShapesGL_FakeSphere<helper::fixed_array< float, 3 > >;
-template class SOFA_HELPER_API BasicShapesGL_FakeSphere<helper::fixed_array< double, 3 > >;
+template class SOFA_HELPER_API BasicShapesGL_Sphere<std::array< float, 3 > >;
+template class SOFA_HELPER_API BasicShapesGL_Sphere<std::array< double, 3 > >;
+template class SOFA_HELPER_API BasicShapesGL_FakeSphere<std::array< float, 3 > >;
+template class SOFA_HELPER_API BasicShapesGL_FakeSphere<std::array< double, 3 > >;
 
 } //gl
 } //helper

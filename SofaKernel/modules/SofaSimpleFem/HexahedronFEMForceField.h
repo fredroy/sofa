@@ -203,7 +203,7 @@ protected:
     inline const VecElement *getIndexedElements(){ return & (m_topology->getHexahedra()); }
 
     virtual void computeElementStiffness( ElementStiffness &K, const MaterialStiffness &M,
-                                          const helper::fixed_array<Coord,8> &nodes, const int elementIndice,
+                                          const std::array<Coord,8> &nodes, const int elementIndice,
                                           double stiffnessFactor=1.0);
     Mat33 integrateStiffness( int signx0, int signy0, int signz0, int signx1, int signy1, int signz1,
                               const Real u, const Real v, const Real w, const Mat33& J_1  );
@@ -214,7 +214,7 @@ protected:
 
 
     ////////////// large displacements method
-    helper::vector<helper::fixed_array<Coord,8> > _rotatedInitialElements;   ///< The initials positions in its frame
+    helper::vector<std::array<Coord,8> > _rotatedInitialElements;   ///< The initials positions in its frame
     helper::vector<Transformation> _rotations;
     helper::vector<Transformation> _initialrotations;
     void initLarge(int i, const Element&elem);

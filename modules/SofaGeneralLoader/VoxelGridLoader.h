@@ -43,7 +43,7 @@ public:
 
     typedef defaulttype::Vec<3, int> Vec3i;
     typedef defaulttype::Vec<6, int> Vec6i;
-    typedef helper::fixed_array<unsigned int,8> Hexahedron;
+    typedef std::array<unsigned int,8> Hexahedron;
 protected:
     VoxelGridLoader();
     ~VoxelGridLoader() override;

@@ -246,7 +246,7 @@ void MeshLoader::updateElements()
         for (size_t i = 0; i < hexahedra.size(); ++i)
         {
             Hexahedron h = hexahedra[i];
-            helper::fixed_array< Quad, 6 > e;
+            std::array< Quad, 6 > e;
             e[0] = Quad(h[0], h[3], h[2], h[1]);
             e[1] = Quad(h[4], h[5], h[6], h[7]);
             e[2] = Quad(h[0], h[1], h[5], h[4]);

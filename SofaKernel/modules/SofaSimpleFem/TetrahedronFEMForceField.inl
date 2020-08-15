@@ -233,7 +233,7 @@ inline void TetrahedronFEMForceField<DataTypes>::getElementStiffnessMatrix(Real*
 
     MaterialStiffness	materialMatrix;
     StrainDisplacement	strainMatrix;
-    helper::fixed_array<Coord,4> rotatedInitialElements;
+    std::array<Coord,4> rotatedInitialElements;
 
     rotatedInitialElements[0] = R_0_1*(X0)[a];
     rotatedInitialElements[1] = R_0_1*(X0)[b];
@@ -954,7 +954,7 @@ inline void TetrahedronFEMForceField<DataTypes>::accumulateForceLarge( Vector& f
     rotations[elementIndex].transpose(R_0_2);
 
     // positions of the deformed and displaced Tetrahedron in its frame
-    helper::fixed_array<Coord,4> deforme;
+    std::array<Coord,4> deforme;
     for(int i=0; i<4; ++i)
         deforme[i] = R_0_2*p[index[i]];
 
@@ -1112,7 +1112,7 @@ inline void TetrahedronFEMForceField<DataTypes>::accumulateForcePolar( Vector& f
     rotations[elementIndex].transpose( R_0_2 );
 
     // positions of the deformed and displaced Tetrahedre in its frame
-    helper::fixed_array<Coord, 4>  deforme;
+    std::array<Coord, 4>  deforme;
     for(int i=0; i<4; ++i)
         deforme[i] = R_0_2 * p[index[i]];
 
@@ -1224,7 +1224,7 @@ inline void TetrahedronFEMForceField<DataTypes>::accumulateForceSVD( Vector& f, 
     rotations[elementIndex].transpose( R_0_2 );
 
     // positions of the deformed and displaced tetrahedron in its frame
-    helper::fixed_array<Coord, 4>  deforme;
+    std::array<Coord, 4>  deforme;
     for(int i=0; i<4; ++i)
         deforme[i] = R_0_2 * p[index[i]];
 
@@ -2471,7 +2471,7 @@ void TetrahedronFEMForceField<DataTypes>::computeVonMisesStress()
                 rotations[elementIndex].transpose(R_0_2);
 
                 // positions of the deformed and displaced Tetrahedron in its frame
-                helper::fixed_array<Coord,4> deforme;
+                std::array<Coord,4> deforme;
                 for(int i=0; i<4; ++i)
                     deforme[i] = R_0_2*X[index[i]];
 
@@ -2506,7 +2506,7 @@ void TetrahedronFEMForceField<DataTypes>::computeVonMisesStress()
                 rotations[elementIndex].transpose(R_0_2);
 
                 // positions of the deformed and displaced Tetrahedron in its frame
-                helper::fixed_array<Coord,4> deforme;
+                std::array<Coord,4> deforme;
                 for(int i=0; i<4; ++i)
                     deforme[i] = R_0_2*X[index[i]];
 

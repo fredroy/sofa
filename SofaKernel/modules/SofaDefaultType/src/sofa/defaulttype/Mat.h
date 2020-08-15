@@ -33,11 +33,11 @@ namespace defaulttype
 {
 
 template <int L, int C, class real=float>
-class Mat : public helper::fixed_array<VecNoInit<C,real>,L>
+class Mat : public std::array<VecNoInit<C,real>,L>
     //class Mat : public Vec<L,Vec<C,real> >
 {
 public:
-    using Inherit = helper::fixed_array<VecNoInit<C, real>, L>;
+    using Inherit = std::array<VecNoInit<C, real>, L>;
 
     enum { N = L*C };
 

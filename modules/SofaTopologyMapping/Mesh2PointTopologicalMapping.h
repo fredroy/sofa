@@ -134,7 +134,7 @@ protected:
     Data< bool > copyTriangles; ///< Activate mapping of input triangles into the output topology (requires at least one item in pointBaryCoords)
 	Data< bool > copyTetrahedra; ///< Activate mapping of input tetrahedras into the output topology (requires at least one item in pointBaryCoords)
 
-    helper::fixed_array< helper::vector< helper::vector<int> >, NB_ELEMENTS > pointsMappedFrom; ///< Points mapped from the differents elements (see the enum Element declared before)
+    std::array< helper::vector< helper::vector<int> >, NB_ELEMENTS > pointsMappedFrom; ///< Points mapped from the differents elements (see the enum Element declared before)
 
     helper::vector< std::pair<Element,int> > pointSource; ///< Correspondance between the points mapped and the elements from which are mapped
 
@@ -153,11 +153,11 @@ protected:
     void removeOutputPoints( const sofa::helper::vector<unsigned int>& tab );
 
 protected:
-    bool internalCheck(const char* step, const helper::fixed_array <size_t, NB_ELEMENTS >& nbInputRemoved);
+    bool internalCheck(const char* step, const std::array <size_t, NB_ELEMENTS >& nbInputRemoved);
     
     bool internalCheck(const char* step)
     {
-        helper::fixed_array <size_t, NB_ELEMENTS > nbInputRemoved;
+        std::array <size_t, NB_ELEMENTS > nbInputRemoved;
         std::fill(nbInputRemoved.begin(), nbInputRemoved.end(), 0);
         return internalCheck(step, nbInputRemoved);
     }

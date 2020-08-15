@@ -79,7 +79,7 @@ void DistanceGridForceField<DataTypes>::init()
             pOnBorder.resize(p1.size(), false);
             for (unsigned int ti = 0; ti < triangles.size(); ++ti)
             {
-                helper::fixed_array<unsigned int,3> t = triangles[ti];
+                std::array<unsigned int,3> t = triangles[ti];
                 Coord B = p1[t[1]]-p1[t[0]];
                 Coord C = p1[t[2]]-p1[t[0]];
                 Coord tN = cross(B, C);
@@ -110,7 +110,7 @@ void DistanceGridForceField<DataTypes>::init()
             const VecCoord& p1 = this->mstate->read(core::ConstVecCoordId::restPosition())->getValue();
             for (unsigned int ti = 0; ti < tetrahedra.size(); ++ti)
             {
-                helper::fixed_array<unsigned int,4> t = tetrahedra[ti];
+                std::array<unsigned int,4> t = tetrahedra[ti];
                 Coord A = p1[t[1]]-p1[t[0]];
                 Coord B = p1[t[2]]-p1[t[0]];
                 Coord C = p1[t[3]]-p1[t[0]];
@@ -208,7 +208,7 @@ void DistanceGridForceField<DataTypes>::addForce(const sofa::core::MechanicalPar
             const core::topology::BaseMeshTopology::SeqTriangles& triangles = topology->getTriangles();
             for (unsigned int ti = 0; ti < triangles.size(); ++ti)
             {
-                helper::fixed_array<unsigned int,3> t = triangles[ti];
+                std::array<unsigned int,3> t = triangles[ti];
                 Coord B = p1[t[1]]-p1[t[0]];
                 Coord C = p1[t[2]]-p1[t[0]];
                 Coord tN = cross(B, C);
@@ -263,7 +263,7 @@ void DistanceGridForceField<DataTypes>::addForce(const sofa::core::MechanicalPar
             const Real v1_6 = (Real)(1.0/6.0);
             for (unsigned int ti = 0; ti < tetrahedra.size(); ++ti)
             {
-                helper::fixed_array<unsigned int,4> t = tetrahedra[ti];
+                std::array<unsigned int,4> t = tetrahedra[ti];
                 Coord A = p1[t[1]]-p1[t[0]];
                 Coord B = p1[t[2]]-p1[t[0]];
                 Coord C = p1[t[3]]-p1[t[0]];
@@ -338,7 +338,7 @@ void DistanceGridForceField<DataTypes>::addDForce(const sofa::core::MechanicalPa
     for (unsigned int i=0; i<tcontacts.size(); i++)
     {
         const TContact& c = (this->tcontacts.getValue())[i];
-        const helper::fixed_array<unsigned int,3>& t = c.index;
+        const std::array<unsigned int,3>& t = c.index;
         Coord dB = dx1[t[1]]-dx1[t[0]];
         Coord dC = dx1[t[2]]-dx1[t[0]];
 
@@ -360,7 +360,7 @@ void DistanceGridForceField<DataTypes>::addDForce(const sofa::core::MechanicalPa
     {
         const Real v1_6 = (Real)(1.0/6.0);
         const VContact& c = (this->vcontacts.getValue())[i];
-        const helper::fixed_array<unsigned int,4>& t = c.index;
+        const std::array<unsigned int,4>& t = c.index;
         Coord dA = dx1[t[1]]-dx1[t[0]];
         Coord dB = dx1[t[2]]-dx1[t[0]];
         Coord dC = dx1[t[3]]-dx1[t[0]];
@@ -503,7 +503,7 @@ void DistanceGridForceField<DataTypes>::drawDistanceGrid(const core::visual::Vis
         for (unsigned int i=0; i<vcontacts.size(); i++)
         {
             const VContact& c = (this->vcontacts.getValue())[i];
-            const helper::fixed_array<unsigned int,4>& t = c.index;
+            const std::array<unsigned int,4>& t = c.index;
             defaulttype::Vector3 p[4];
             Coord pc = (p1[t[0]]+p1[t[1]]+p1[t[2]]+p1[t[3]])*0.25f;
             for (int j=0; j<4; ++j)

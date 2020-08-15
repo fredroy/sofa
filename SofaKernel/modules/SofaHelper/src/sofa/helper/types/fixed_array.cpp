@@ -30,23 +30,23 @@ namespace helper
 //template class SOFA_HELPER_API fixed_array<float, 1>;
 //template class SOFA_HELPER_API fixed_array<double, 1>;
 
-template class SOFA_HELPER_API fixed_array<float, 2>;
-template class SOFA_HELPER_API fixed_array<double, 2>;
+template class SOFA_HELPER_API std::array<float, 2>;
+template class SOFA_HELPER_API std::array<double, 2>;
 
-template class SOFA_HELPER_API fixed_array<float, 3>;
-template class SOFA_HELPER_API fixed_array<double, 3>;
+template class SOFA_HELPER_API std::array<float, 3>;
+template class SOFA_HELPER_API std::array<double, 3>;
 
-template class SOFA_HELPER_API fixed_array<float, 4>;
-template class SOFA_HELPER_API fixed_array<double, 4>;
+template class SOFA_HELPER_API std::array<float, 4>;
+template class SOFA_HELPER_API std::array<double, 4>;
 
-template class SOFA_HELPER_API fixed_array<float, 5>;
-template class SOFA_HELPER_API fixed_array<double, 5>;
+template class SOFA_HELPER_API std::array<float, 5>;
+template class SOFA_HELPER_API std::array<double, 5>;
 
-template class SOFA_HELPER_API fixed_array<float, 6>;
-template class SOFA_HELPER_API fixed_array<double, 6>;
+template class SOFA_HELPER_API std::array<float, 6>;
+template class SOFA_HELPER_API std::array<double, 6>;
 
-template class SOFA_HELPER_API fixed_array<float, 7>;
-template class SOFA_HELPER_API fixed_array<double, 7>;
+template class SOFA_HELPER_API std::array<float, 7>;
+template class SOFA_HELPER_API std::array<double, 7>;
 
 } // namespace helper
 } // namespace sofa

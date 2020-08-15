@@ -365,7 +365,7 @@ void SparseGridRamificationTopology::buildRamifiedFinestLevel()
     }
 
     // saving incident hexahedra for each points in order to be able to link or not vertices
-    helper::vector< helper::vector< helper::fixed_array<unsigned,3> > > hexahedraConnectedToThePoint(nbPoints);
+    helper::vector< helper::vector< std::array<unsigned,3> > > hexahedraConnectedToThePoint(nbPoints);
     unsigned c=0;
     for(unsigned i=0 ; i<_connexions.size(); ++i)
     {
@@ -373,7 +373,7 @@ void SparseGridRamificationTopology::buildRamifiedFinestLevel()
         {
             for(unsigned p=0; p<8; ++p)
             {
-                hexahedraConnectedToThePoint[hexahedra[c][p]].push_back(helper::fixed_array<unsigned, 3>  {c, p, i});
+                hexahedraConnectedToThePoint[hexahedra[c][p]].push_back(std::array<unsigned, 3>  {c, p, i});
             }
             c++;
         }
@@ -452,7 +452,7 @@ void SparseGridRamificationTopology::buildFromFiner()
                 int y = 2*j;
                 int z = 2*k;
 
-                helper::fixed_array<int,8> fineIndices;
+                std::array<int,8> fineIndices;
                 for(int idx=0; idx<8; ++idx)
                 {
                     const int idxX = x + (idx & 1);
@@ -519,7 +519,7 @@ void SparseGridRamificationTopology::buildFromFiner()
         helper::vector< unsigned > allFineConnexionsPlace;
 
 
-        helper::fixed_array<int,8>& children = nonRamifiedHierarchicalCubeMap[idx]; // the child hexa
+        std::array<int,8>& children = nonRamifiedHierarchicalCubeMap[idx]; // the child hexa
 
         for( int child = 0; child < 8 ; child ++)
         {
@@ -702,7 +702,7 @@ void SparseGridRamificationTopology::buildFromFiner()
     }
 
     // saving incident hexahedra for each points in order to be able to link or not vertices
-    helper::vector< helper::vector< helper::fixed_array<unsigned,3> > > hexahedraConnectedToThePoint(nbPoints);
+    helper::vector< helper::vector< std::array<unsigned,3> > > hexahedraConnectedToThePoint(nbPoints);
     unsigned c=0;
     for(unsigned i=0 ; i<_connexions.size(); ++i)
     {
@@ -710,7 +710,7 @@ void SparseGridRamificationTopology::buildFromFiner()
         {
             for(unsigned p=0; p<8; ++p)
             {
-                hexahedraConnectedToThePoint[hexahedra[c][p]].push_back(helper::fixed_array<unsigned, 3>  {c, p, i});
+                hexahedraConnectedToThePoint[hexahedra[c][p]].push_back(std::array<unsigned, 3>  {c, p, i});
             }
             c++;
         }
@@ -741,7 +741,7 @@ void SparseGridRamificationTopology::buildFromFiner()
 
     for(unsigned i=0 ; i<_connexions.size(); ++i)
     {
-        helper::fixed_array<int,8> nonRamifiedFineIndices = nonRamifiedHierarchicalCubeMap[ i ];
+        std::array<int,8> nonRamifiedFineIndices = nonRamifiedHierarchicalCubeMap[ i ];
 
         if( _connexions[i].size()==1 ) // 1 seule connexion pour l'element ==> element normal non ramifi� ==> meme enfants
         {
@@ -753,7 +753,7 @@ void SparseGridRamificationTopology::buildFromFiner()
 
             for( helper::vector<Connexion*>::iterator it = _connexions[i].begin(); it != _connexions[i].end() ; ++it)
             {
-                helper::fixed_array<int,8> fineIndices;
+                std::array<int,8> fineIndices;
 
                 for( std::list<Connexion::Children>::iterator child=(*it)->_children.begin(); child!=(*it)->_children.end(); ++child)
                 {
@@ -788,7 +788,7 @@ void SparseGridRamificationTopology::buildFromFiner()
     _massCoefs.resize( this->getNbHexahedra() );
     for(size_t i=0; i<this->getNbHexahedra(); ++i)
     {
-        helper::fixed_array<int,8> finerChildren = this->_hierarchicalCubeMap[i];
+        std::array<int,8> finerChildren = this->_hierarchicalCubeMap[i];
         unsigned nbchildren = 0;
         for(int w=0; w<8; ++w)
         {

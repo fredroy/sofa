@@ -157,7 +157,7 @@ protected :
     void applyStiffnessSmall( VecCoord& f, Real h, const VecCoord& x, const SReal &kFactor );
 
     ////////////// large displacements method
-    sofa::helper::vector< helper::fixed_array <Coord, 3> > _rotatedInitialElements;   ///< The initials positions in its frame
+    sofa::helper::vector< std::array <Coord, 3> > _rotatedInitialElements;   ///< The initials positions in its frame
     sofa::helper::vector< Transformation > _rotations;
     void initLarge();
     void computeRotationLarge( Transformation &r, const VecCoord &p, const Index &a, const Index &b, const Index &c);

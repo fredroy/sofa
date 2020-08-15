@@ -123,7 +123,7 @@ public:
         Stiffness stiffness;
         Real area;
         // large displacement method
-        helper::fixed_array<Coord,3> rotatedInitialElements;
+        std::array<Coord,3> rotatedInitialElements;
         Transformation rotation;
         // strain vector
         defaulttype::Vec<3,Real> strain;
@@ -306,7 +306,7 @@ public:
     Data<Real> f_damping; ///< Ratio damping/stiffness
 
     /// Initial strain parameters (if FEM is initialised with predefine values)
-    Data< sofa::helper::vector <helper::fixed_array<Coord,3> > > m_rotatedInitialElements;
+    Data< sofa::helper::vector <std::array<Coord,3> > > m_rotatedInitialElements;
     Data< sofa::helper::vector <Transformation> > m_initialTransformation; ///< Flag activating rendering of stress directions within each triangle
 
     /// Fracture parameters

@@ -63,7 +63,7 @@ public:
     typedef typename Inherit::OutDeriv  OutDeriv;
     typedef typename Inherit::InDeriv  InDeriv;
     typedef typename Inherit::MappingData3D MappingData;
-    typedef helper::fixed_array<MappingData,3> MappingOrientData;
+    typedef std::array<MappingData,3> MappingOrientData;
 
     typedef typename In::VecCoord VecCoord;
     typedef typename In::VecDeriv VecDeriv;

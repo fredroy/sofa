@@ -37,21 +37,18 @@ namespace helper
 namespace types
 {
 
-using sofa::helper::fixed_array ;
-
-
 #define RGBACOLOR_EQUALITY_THRESHOLD 1e-6
 
 /**
  *  \brief encode a 4 RGBA component color
  */
-class SOFA_HELPER_API RGBAColor : public fixed_array<float, 4>
+class SOFA_HELPER_API RGBAColor : public std::array<float, 4>
 {
 public:
     static RGBAColor fromString(const std::string& str) ;
     static RGBAColor fromFloat(const float r, const float g, const float b, const float a) ;
-    static RGBAColor fromVec4(const fixed_array<float, 4>& color) ;
-    static RGBAColor fromVec4(const fixed_array<double, 4>& color) ;
+    static RGBAColor fromVec4(const std::array<float, 4>& color) ;
+    static RGBAColor fromVec4(const std::array<double, 4>& color) ;
 
     static RGBAColor fromHSVA(float h, float s, float v, float a) ;
 
@@ -88,14 +85,14 @@ public:
 
     void set(float r, float g, float b, float a) ;
 
-    bool operator==(const fixed_array<float,4>& b) const
+    bool operator==(const std::array<float,4>& b) const
     {
         for (int i=0; i<4; i++)
             if ( fabs( (*this)[i] - b[i] ) > RGBACOLOR_EQUALITY_THRESHOLD ) return false;
         return true;
     }
 
-    bool operator!=(const fixed_array<float,4>& b) const
+    bool operator!=(const std::array<float,4>& b) const
     {
         for (int i=0; i<4; i++)
             if ( fabs( (*this)[i] - b[i] ) > RGBACOLOR_EQUALITY_THRESHOLD ) return true;
@@ -107,7 +104,7 @@ public:
 
 public:
     RGBAColor() ;
-    RGBAColor(const fixed_array<float, 4>&) ;
+    RGBAColor(const std::array<float, 4>&) ;
     RGBAColor(const float r, const float g, const float b, const float a) ;
 
 };

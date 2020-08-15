@@ -55,8 +55,8 @@ namespace gl
 class SOFA_HELPER_API GlText
 {
 public:
-    typedef sofa::helper::fixed_array<float, 3> Vector3;
-    typedef sofa::helper::fixed_array<float, 2> Vector2;
+    typedef std::array<float, 3> Vector3;
+    typedef std::array<float, 2> Vector2;
 
     /// Constructor
     GlText ();

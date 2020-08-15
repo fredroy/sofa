@@ -64,8 +64,8 @@ public:
     void doUpdate() override;
 
     Data< VecCoord > position; ///< Vertices of the mesh
-    Data< helper::vector< helper::fixed_array <unsigned int,3> > > triangles; ///< Triangles of the mesh
-    Data< helper::vector< helper::fixed_array <unsigned int,4> > > quads; ///< Quads of the mesh
+    Data< helper::vector< std::array <unsigned int,3> > > triangles; ///< Triangles of the mesh
+    Data< helper::vector< std::array <unsigned int,4> > > quads; ///< Quads of the mesh
     Data< VecCoord > normals;       ///< result
     Data<bool> invertNormals; ///< Swap normals
     Data<bool> useAngles; ///< Use incident angles to weight faces normal contributions at each vertex

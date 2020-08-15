@@ -174,13 +174,13 @@ struct ElemAncestorElem
     ElemAncestorElem()
     {}
 
-    ElemAncestorElem(const helper::fixed_array<PointAncestorElem,NV>& _pointSrcElems,
+    ElemAncestorElem(const std::array<PointAncestorElem,NV>& _pointSrcElems,
         const helper::vector<TopologyElemID>& _srcElems)
         : pointSrcElems(_pointSrcElems)
         , srcElems(_srcElems)
     {}
     
-    ElemAncestorElem(const helper::fixed_array<PointAncestorElem,NV>& _pointSrcElems,
+    ElemAncestorElem(const std::array<PointAncestorElem,NV>& _pointSrcElems,
         const TopologyElemID& _srcElem)
         : pointSrcElems(_pointSrcElems)
         , srcElems()
@@ -188,7 +188,7 @@ struct ElemAncestorElem
         srcElems.push_back(_srcElem);
     }
     
-    helper::fixed_array<PointAncestorElem,NV> pointSrcElems;
+    std::array<PointAncestorElem,NV> pointSrcElems;
     helper::vector<TopologyElemID> srcElems;
 };
 

@@ -887,7 +887,7 @@ inline void TetrahedralCorotationalFEMForceField<DataTypes>::getElementStiffness
 
     MaterialStiffness	materialMatrix;
     StrainDisplacementTransposed	strainMatrix;
-    helper::fixed_array<Coord,4> rotatedInitialElements;
+    std::array<Coord,4> rotatedInitialElements;
 
     rotatedInitialElements[0] = R_0_1*(X0)[a];
     rotatedInitialElements[1] = R_0_1*(X0)[b];
@@ -960,7 +960,7 @@ void TetrahedralCorotationalFEMForceField<DataTypes>::accumulateForceLarge( Vect
     tetrahedronInf[elementIndex].rotation.transpose(R_0_2);
 
     // positions of the deformed and displaced Tetrahedron in its frame
-    helper::fixed_array<Coord,4> deforme;
+    std::array<Coord,4> deforme;
     for(int i=0; i<4; ++i)
         deforme[i] = R_0_2*p[t[i]];
 
@@ -1155,7 +1155,7 @@ void TetrahedralCorotationalFEMForceField<DataTypes>::accumulateForcePolar( Vect
     tetrahedronInf[elementIndex].rotation.transpose( R_0_2 );
 
     // positions of the deformed and displaced Tetrahedre in its frame
-    helper::fixed_array<Coord, 4>  deforme;
+    std::array<Coord, 4>  deforme;
     for(int i=0; i<4; ++i)
         deforme[i] = R_0_2 * p[t[i]];
 

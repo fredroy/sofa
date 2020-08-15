@@ -1265,7 +1265,7 @@ struct DataTypeInfo<std::string> : public TextTypeInfo<std::string>
 };
 
 template<class T, std::size_t N>
-struct DataTypeInfo< sofa::helper::fixed_array<T,N> > : public FixedArrayTypeInfo<sofa::helper::fixed_array<T,N> >
+struct DataTypeInfo< std::array<T,N> > : public FixedArrayTypeInfo<std::array<T,N> >
 {
     static std::string name() { std::ostringstream o; o << "fixed_array<" << DataTypeName<T>::name() << "," << N << ">"; return o.str(); }
 };
@@ -1334,7 +1334,7 @@ struct DataTypeInfo< std::set<T,Compare,Alloc> > : public SetTypeInfo<std::set<T
 };
 
 template<>
-struct DataTypeInfo< sofa::helper::types::RGBAColor > : public FixedArrayTypeInfo<sofa::helper::fixed_array<float,4>>
+struct DataTypeInfo< sofa::helper::types::RGBAColor > : public FixedArrayTypeInfo<std::array<float,4>>
 {
     static std::string name() { return "RGBAColor"; }
 };

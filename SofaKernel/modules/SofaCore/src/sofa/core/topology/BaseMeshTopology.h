@@ -56,12 +56,12 @@ public:
 
     /// fixed-size neighbors arrays
     /// @{
-    typedef sofa::helper::fixed_array<EdgeID,3>		EdgesInTriangle;
-    typedef sofa::helper::fixed_array<EdgeID,4>		EdgesInQuad;
-    typedef sofa::helper::fixed_array<TriangleID,4>	TrianglesInTetrahedron;
-    typedef sofa::helper::fixed_array<EdgeID,6>		EdgesInTetrahedron;
-    typedef sofa::helper::fixed_array<QuadID,6>		QuadsInHexahedron;
-    typedef sofa::helper::fixed_array<EdgeID,12>    EdgesInHexahedron;
+    typedef std::array<EdgeID,3>		EdgesInTriangle;
+    typedef std::array<EdgeID,4>		EdgesInQuad;
+    typedef std::array<TriangleID,4>	TrianglesInTetrahedron;
+    typedef std::array<EdgeID,6>		EdgesInTetrahedron;
+    typedef std::array<QuadID,6>		QuadsInHexahedron;
+    typedef std::array<EdgeID,12>    EdgesInHexahedron;
 
     static EdgesInTriangle        InvalidEdgesInTriangles;
     static EdgesInQuad            InvalidEdgesInQuad;

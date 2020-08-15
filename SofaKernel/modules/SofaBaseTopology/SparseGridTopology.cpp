@@ -1040,7 +1040,7 @@ void SparseGridTopology::buildFromFiner()
                 int y = 2*j;
                 int z = 2*k;
 
-                fixed_array<int,8> fineIndices;
+                std::array<int,8> fineIndices;
                 for(int idx=0; idx<8; ++idx)
                 {
                     const int idxX = x + (idx & 1);
@@ -1129,7 +1129,7 @@ void SparseGridTopology::buildFromFiner()
 
     for( unsigned w=0; w<seqHexahedra.getValue().size(); ++w)
     {
-        const fixed_array<int, 8>& child = _hierarchicalCubeMap[w];
+        const std::array<int, 8>& child = _hierarchicalCubeMap[w];
 
         helper::vector<int> fineCorners(27);
         fineCorners.fill(-1);
@@ -1198,7 +1198,7 @@ void SparseGridTopology::buildFromFiner()
     _massCoefs.resize( this->getNbHexahedra() );
     for(size_t i=0; i<this->getNbHexahedra(); ++i)
     {
-        helper::fixed_array<int,8> finerChildren = this->_hierarchicalCubeMap[i];
+        std::array<int,8> finerChildren = this->_hierarchicalCubeMap[i];
         unsigned nbchildren = 0;
         for(int w=0; w<8; ++w)
         {
@@ -1328,11 +1328,11 @@ int SparseGridTopology::findNearestCube(const Vector3& pos, SReal& fx, SReal &fy
 }
 
 
-helper::fixed_array<int,6> SparseGridTopology::findneighboorCubes( int indice )
+std::array<int,6> SparseGridTopology::findneighboorCubes( int indice )
 {
     dmsg_info()<<"SparseGridTopology::findneighboorCubes : "<<indice<<" -> "<<_indicesOfCubeinRegularGrid[indice];
     dmsg_info()<<_indicesOfRegularCubeInSparseGrid[ _indicesOfCubeinRegularGrid[indice] ] ;
-    helper::fixed_array<int,6> result;
+    std::array<int,6> result;
     Vector3 c = _regularGrid->getCubeCoordinate( _indicesOfCubeinRegularGrid[indice] );
     dmsg_info()<<c;
     result[0] = c[0]<=0 ? -1 : _indicesOfRegularCubeInSparseGrid[ _regularGrid->getCubeIndex( (int)c[0]-1,(int)c[1],(int)c[2] )];
@@ -1398,11 +1398,11 @@ void SparseGridTopology::updateEdges()
 
 void SparseGridTopology::updateQuads()
 {
-    std::map<fixed_array<int,4>,bool> quadsMap;
+    std::map<std::array<int,4>,bool> quadsMap;
     for(unsigned i=0; i<seqHexahedra.getValue().size(); ++i)
     {
         Hexa c = seqHexahedra.getValue()[i];
-        fixed_array<int,4> v;
+        std::array<int,4> v;
 
         v[0]=c[0]; v[1]=c[1]; v[2]=c[2]; v[3]=c[3];
         quadsMap[v]=0;
@@ -1420,7 +1420,7 @@ void SparseGridTopology::updateQuads()
     SeqQuads& quads = *seqQuads.beginEdit();
     quads.clear();
     quads.reserve(quadsMap.size());
-    for( std::map<fixed_array<int,4>,bool>::iterator it=quadsMap.begin(); it!=quadsMap.end(); ++it)
+    for( std::map<std::array<int,4>,bool>::iterator it=quadsMap.begin(); it!=quadsMap.end(); ++it)
         quads.push_back( Quad( (*it).first[0],  (*it).first[1],(*it).first[2],(*it).first[3] ));
     seqQuads.endEdit();
 }

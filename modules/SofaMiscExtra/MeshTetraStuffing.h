@@ -73,7 +73,7 @@ public:
 
     void draw(const core::visual::VisualParams* vparams) override;
 
-    Data< helper::fixed_array<Point,2> > vbbox; ///< BBox to restrict the volume to
+    Data< std::array<Point,2> > vbbox; ///< BBox to restrict the volume to
     Data< Real > size; ///< Size of the generate tetrahedra. If negative, number of grid cells in the largest bbox dimension
     Data<SeqPoints> inputPoints; ///< Input surface mesh points
     Data<SeqTriangles> inputTriangles; ///< Input surface mesh triangles
@@ -100,7 +100,7 @@ public:
     Point getEdgeDir(int e);
 
     helper::vector<int> pInside;
-    helper::vector< helper::fixed_array<Real,EDGESHELL> > eBDist;
+    helper::vector< std::array<Real,EDGESHELL> > eBDist;
     std::map<std::pair<int,int>, int> splitPoints;
 
     SeqPoints rays;

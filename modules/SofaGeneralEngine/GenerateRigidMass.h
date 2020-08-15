@@ -57,8 +57,8 @@ public:
 protected:
 
     typedef defaulttype::Vector3 Vector3;
-    typedef helper::fixed_array <unsigned int,3> MTriangle;
-    typedef helper::fixed_array <unsigned int,4> MQuad;
+    typedef std::array <unsigned int,3> MTriangle;
+    typedef std::array <unsigned int,4> MQuad;
     typedef helper::vector <unsigned int> MPolygon;
 
     typedef typename DataTypes::Real Real;
@@ -94,7 +94,7 @@ protected:
     /// generates the RigidMass from the mesh integral
     void generateRigid();
 
-    helper::fixed_array<SReal,10> afIntegral;
+    std::array<SReal,10> afIntegral;
 
 public:
     /// Implementing the GetCustomTemplateName is mandatory to have a custom template name paremters

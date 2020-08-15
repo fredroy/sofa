@@ -55,7 +55,7 @@ public:
     SOFA_CLASS(SparseGridTopology,MeshTopology);
     typedef sofa::defaulttype::Vector3 Vector3;
     typedef sofa::defaulttype::Vec3i   Vec3i;
-    typedef sofa::helper::fixed_array<Vector3,8> CubeCorners;
+    typedef std::array<Vector3,8> CubeCorners;
     typedef sofa::defaulttype::BoundingBox BoundingBox;
     typedef enum {OUTSIDE,INSIDE,BOUNDARY} Type; ///< each cube has a type depending on its filling ratio
 protected:
@@ -81,7 +81,7 @@ public:
     typedef std::map<Vector3,int> MapBetweenCornerPositionAndIndice;///< a vertex indice for a given vertex position in space
 
     /// connexion between several coarsened levels
-    typedef std::vector<helper::fixed_array<int,8> > HierarchicalCubeMap; ///< a cube indice -> corresponding 8 child indices on the potential _finerSparseGrid
+    typedef std::vector<std::array<int,8> > HierarchicalCubeMap; ///< a cube indice -> corresponding 8 child indices on the potential _finerSparseGrid
     HierarchicalCubeMap _hierarchicalCubeMap;
     typedef helper::vector<int> InverseHierarchicalCubeMap; ///< a fine cube indice -> corresponding coarser cube indice
     InverseHierarchicalCubeMap _inverseHierarchicalCubeMap;
@@ -97,7 +97,7 @@ public:
 
 
     enum {UP,DOWN,RIGHT,LEFT,BEFORE,BEHIND,NUM_CONNECTED_NODES};
-    typedef helper::vector< helper::fixed_array<int,NUM_CONNECTED_NODES> > NodeAdjacency; ///< a node -> its 6 neighboors
+    typedef helper::vector< std::array<int,NUM_CONNECTED_NODES> > NodeAdjacency; ///< a node -> its 6 neighboors
     NodeAdjacency _nodeAdjacency;
     typedef helper::vector< helper::vector<int> >NodeCubesAdjacency; ///< a node -> its 8 neighboor cells
     NodeCubesAdjacency _nodeCubesAdjacency;
@@ -152,7 +152,7 @@ public:
     virtual int findNearestCube(const Vector3& pos, SReal& fx, SReal &fy, SReal &fz);
 
     /// return indices of 6 neighboor cubes
-    virtual helper::fixed_array<int,6> findneighboorCubes( int indice );
+    virtual std::array<int,6> findneighboorCubes( int indice );
 
     /// return the type of the i-th cube
     virtual Type getType( int i );

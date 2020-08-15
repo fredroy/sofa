@@ -78,57 +78,57 @@ public:
 
     typedef PointID                             Point;
     // in the following types, we use wrapper classes to have different types for each element, otherwise Quad and Tetrahedron would be the same
-    class Edge : public sofa::helper::fixed_array<PointID,2>
+    class Edge : public std::array<PointID,2>
     {
     public:
-        Edge() : sofa::helper::fixed_array<PointID, 2>{ Topology::InvalidID, Topology::InvalidID } {}
-        Edge(PointID a, PointID b) : sofa::helper::fixed_array<PointID, 2>{ a,b } {}
+        Edge() : std::array<PointID, 2>{ Topology::InvalidID, Topology::InvalidID } {}
+        Edge(PointID a, PointID b) : std::array<PointID, 2>{ a,b } {}
     };
 
-    class Triangle : public sofa::helper::fixed_array<PointID,3>
+    class Triangle : public std::array<PointID,3>
     {
     public:
-        Triangle() : sofa::helper::fixed_array<PointID, 3>{ Topology::InvalidID, Topology::InvalidID, Topology::InvalidID } {}
-        Triangle(PointID a, PointID b, PointID c) : sofa::helper::fixed_array<PointID, 3>{ a,b,c } {}
+        Triangle() : std::array<PointID, 3>{ Topology::InvalidID, Topology::InvalidID, Topology::InvalidID } {}
+        Triangle(PointID a, PointID b, PointID c) : std::array<PointID, 3>{ a,b,c } {}
     };
 
-    class Quad : public sofa::helper::fixed_array<PointID,4>
+    class Quad : public std::array<PointID,4>
     {
     public:
-        Quad() : sofa::helper::fixed_array<PointID, 4>{ Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID } {}
-        Quad(PointID a, PointID b, PointID c, PointID d) : sofa::helper::fixed_array<PointID, 4>{ a,b,c,d } {}
+        Quad() : std::array<PointID, 4>{ Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID } {}
+        Quad(PointID a, PointID b, PointID c, PointID d) : std::array<PointID, 4>{ a,b,c,d } {}
     };
 
-    class Tetrahedron : public sofa::helper::fixed_array<PointID,4>
+    class Tetrahedron : public std::array<PointID,4>
     {
     public:
-        Tetrahedron() : sofa::helper::fixed_array<PointID, 4>{ Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID } {}
-        Tetrahedron(PointID a, PointID b, PointID c, PointID d) : sofa::helper::fixed_array<PointID, 4>{ a,b,c,d } {}
+        Tetrahedron() : std::array<PointID, 4>{ Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID } {}
+        Tetrahedron(PointID a, PointID b, PointID c, PointID d) : std::array<PointID, 4>{ a,b,c,d } {}
     };
     typedef Tetrahedron                         Tetra;
 
-    class Pyramid : public sofa::helper::fixed_array<PointID,5>
+    class Pyramid : public std::array<PointID,5>
     {
     public:
-        Pyramid() : sofa::helper::fixed_array<PointID, 5>{ Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID } {}
-        Pyramid(PointID a, PointID b, PointID c, PointID d, PointID e) : sofa::helper::fixed_array<PointID, 5>{ a,b,c,d,e } {}
+        Pyramid() : std::array<PointID, 5>{ Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID } {}
+        Pyramid(PointID a, PointID b, PointID c, PointID d, PointID e) : std::array<PointID, 5>{ a,b,c,d,e } {}
     };
 
-    class Pentahedron : public sofa::helper::fixed_array<PointID,6>
+    class Pentahedron : public std::array<PointID,6>
     {
     public:
-        Pentahedron() : sofa::helper::fixed_array<PointID, 6>{ Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID } {}
-        Pentahedron(PointID a, PointID b, PointID c, PointID d, PointID e, PointID f) : sofa::helper::fixed_array<PointID, 6>{ a,b,c,d,e,f } {}
+        Pentahedron() : std::array<PointID, 6>{ Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID } {}
+        Pentahedron(PointID a, PointID b, PointID c, PointID d, PointID e, PointID f) : std::array<PointID, 6>{ a,b,c,d,e,f } {}
     };
     typedef Pentahedron                          Penta;
 
-    class Hexahedron : public sofa::helper::fixed_array<PointID,8>
+    class Hexahedron : public std::array<PointID,8>
     {
     public:
-        Hexahedron() : sofa::helper::fixed_array<PointID, 8>{ Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID,
+        Hexahedron() : std::array<PointID, 8>{ Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID,
                                                            Topology::InvalidID, Topology::InvalidID, Topology::InvalidID, Topology::InvalidID } {}
         Hexahedron(PointID a, PointID b, PointID c, PointID d,
-            PointID e, PointID f, PointID g, PointID h) : sofa::helper::fixed_array<PointID, 8>{ a,b,c,d,e,f,g,h } {}
+            PointID e, PointID f, PointID g, PointID h) : std::array<PointID, 8>{ a,b,c,d,e,f,g,h } {}
     };
     typedef Hexahedron                          Hexa;
 
@@ -244,43 +244,43 @@ namespace defaulttype
 {
 
 template<>
-struct DataTypeInfo< sofa::core::topology::Topology::Edge > : public FixedArrayTypeInfo<sofa::helper::fixed_array<unsigned int,2> >
+struct DataTypeInfo< sofa::core::topology::Topology::Edge > : public FixedArrayTypeInfo<std::array<unsigned int,2> >
 {
     static std::string name() { return "Edge"; }
 };
 
 template<>
-struct DataTypeInfo< sofa::core::topology::Topology::Triangle > : public FixedArrayTypeInfo<sofa::helper::fixed_array<unsigned int,3> >
+struct DataTypeInfo< sofa::core::topology::Topology::Triangle > : public FixedArrayTypeInfo<std::array<unsigned int,3> >
 {
     static std::string name() { return "Triangle"; }
 };
 
 template<>
-struct DataTypeInfo< sofa::core::topology::Topology::Quad > : public FixedArrayTypeInfo<sofa::helper::fixed_array<unsigned int,4> >
+struct DataTypeInfo< sofa::core::topology::Topology::Quad > : public FixedArrayTypeInfo<std::array<unsigned int,4> >
 {
     static std::string name() { return "Quad"; }
 };
 
 template<>
-struct DataTypeInfo< sofa::core::topology::Topology::Tetrahedron > : public FixedArrayTypeInfo<sofa::helper::fixed_array<unsigned int,4> >
+struct DataTypeInfo< sofa::core::topology::Topology::Tetrahedron > : public FixedArrayTypeInfo<std::array<unsigned int,4> >
 {
     static std::string name() { return "Tetrahedron"; }
 };
 
 template<>
-struct DataTypeInfo< sofa::core::topology::Topology::Pyramid > : public FixedArrayTypeInfo<sofa::helper::fixed_array<unsigned int,5> >
+struct DataTypeInfo< sofa::core::topology::Topology::Pyramid > : public FixedArrayTypeInfo<std::array<unsigned int,5> >
 {
     static std::string name() { return "Pyramid"; }
 };
 
 template<>
-struct DataTypeInfo< sofa::core::topology::Topology::Pentahedron > : public FixedArrayTypeInfo<sofa::helper::fixed_array<unsigned int,6> >
+struct DataTypeInfo< sofa::core::topology::Topology::Pentahedron > : public FixedArrayTypeInfo<std::array<unsigned int,6> >
 {
     static std::string name() { return "Pentahedron"; }
 };
 
 template<>
-struct DataTypeInfo< sofa::core::topology::Topology::Hexahedron > : public FixedArrayTypeInfo<sofa::helper::fixed_array<unsigned int,8> >
+struct DataTypeInfo< sofa::core::topology::Topology::Hexahedron > : public FixedArrayTypeInfo<std::array<unsigned int,8> >
 {
     static std::string name() { return "Hexahedron"; }
 };

@@ -211,7 +211,7 @@ class LinkTraitsContainer<TDestType, TDestPtr, TValueType, false>
 {
 public:
     typedef SinglePtr<TDestType, TValueType> T;
-    //typedef helper::fixed_array<TValueType,1> T;
+    //typedef std::array<TValueType,1> T;
     static void clear(T& c)
     {
         c.clear();

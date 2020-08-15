@@ -143,7 +143,7 @@ protected:
 
 
     //NONE is the number of Operations in use.
-    helper::fixed_array< Operation*,NONE > operations;
+    std::array< Operation*,NONE > operations;
 
     helper::vector< CallBackPicker* > callbacks;
 

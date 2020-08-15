@@ -85,7 +85,7 @@ void IndicesFromValues<T>::doUpdate()
             for (unsigned int j=0; j<global.size(); j++)
             {
                 //if (global[j] == v)
-                /// @todo: add operator== to helper::fixed_array and defaulttype::RididCoord/Deriv
+                /// @todo: add operator== to std::array and defaulttype::RididCoord/Deriv
                 if (!(global[j] < v) && !(v < global[j]))
                 {
                     index = j;
@@ -107,7 +107,7 @@ void IndicesFromValues<T>::doUpdate()
             for (unsigned int j=0; j<global.size(); ++j)
             {
                 //if (global[j] == v)
-                /// @todo: add operator== to helper::fixed_array and defaulttype::RididCoord/Deriv
+                /// @todo: add operator== to std::array and defaulttype::RididCoord/Deriv
                 if (!(global[j] < v) && !(v < global[j]))
                 {
                     index = j;
