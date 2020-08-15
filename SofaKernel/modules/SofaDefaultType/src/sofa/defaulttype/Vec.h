@@ -409,13 +409,13 @@ public:
     /// Sets every element to 0.
     inline void clear()
     {
-        this->assign(real());
+        std::fill(begin(), end(), real(0));
     }
 
     /// Sets every element to r.
     inline void fill(real r)
     {
-        this->assign(r);
+        std::fill(begin(), end(), r);
     }
 
     /// Access to i-th element.
