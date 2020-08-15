@@ -674,7 +674,7 @@ void HexahedralFEMForceField<DataTypes>::draw(const core::visual::VisualParams* 
         Coord p6 = x[g]-(x[g]-center)*percentage;
         Coord p7 = x[h]-(x[h]-center)*percentage;
 
-        sofa::helper::fixed_array<float, 4> color = sofa::helper::fixed_array<float, 4>(0.7f, 0.7f, 0.1f, 1.0f);
+        sofa::helper::fixed_array<float, 4> color = sofa::helper::fixed_array<float, 4>{ 0.7f, 0.7f, 0.1f, 1.0f };
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
@@ -684,7 +684,7 @@ void HexahedralFEMForceField<DataTypes>::draw(const core::visual::VisualParams* 
         vertices.push_back(DataTypes::getCPos(p3));
         vertices.push_back(DataTypes::getCPos(p7));
 
-        color = sofa::helper::fixed_array<float, 4>(0.7f, 0.0f, 0.0f, 1.0f);
+        color = sofa::helper::fixed_array<float, 4>{ 0.7f, 0.0f, 0.0f, 1.0f };
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
@@ -694,7 +694,7 @@ void HexahedralFEMForceField<DataTypes>::draw(const core::visual::VisualParams* 
         vertices.push_back(DataTypes::getCPos(p2));
         vertices.push_back(DataTypes::getCPos(p3));
 
-        color = sofa::helper::fixed_array<float, 4>(0.0f, 0.7f, 0.0f, 1.0f);
+        color = sofa::helper::fixed_array<float, 4>{ 0.0f, 0.7f, 0.0f, 1.0f };
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
@@ -704,7 +704,7 @@ void HexahedralFEMForceField<DataTypes>::draw(const core::visual::VisualParams* 
         vertices.push_back(DataTypes::getCPos(p6));
         vertices.push_back(DataTypes::getCPos(p2));
 
-        color = sofa::helper::fixed_array<float, 4>(0.0f, 0.0f, 0.7f, 1.0f);
+        color = sofa::helper::fixed_array<float, 4>{ 0.0f, 0.0f, 0.7f, 1.0f };
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
@@ -714,7 +714,7 @@ void HexahedralFEMForceField<DataTypes>::draw(const core::visual::VisualParams* 
         vertices.push_back(DataTypes::getCPos(p7));
         vertices.push_back(DataTypes::getCPos(p6));
 
-        color = sofa::helper::fixed_array<float, 4>(0.1f, 0.7f, 0.7f, 1.0f);
+        color = sofa::helper::fixed_array<float, 4>{ 0.1f, 0.7f, 0.7f, 1.0f };
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
@@ -724,7 +724,7 @@ void HexahedralFEMForceField<DataTypes>::draw(const core::visual::VisualParams* 
         vertices.push_back(DataTypes::getCPos(p2));
         vertices.push_back(DataTypes::getCPos(p6));
 
-        color = sofa::helper::fixed_array<float, 4>(0.7f, 0.1f, 0.7f, 1.0f);
+        color = sofa::helper::fixed_array<float, 4>{ 0.7f, 0.1f, 0.7f, 1.0f };
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));
         colorVector.push_back(sofa::defaulttype::RGBAColor(color));

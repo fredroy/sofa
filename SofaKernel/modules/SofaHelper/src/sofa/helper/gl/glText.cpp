@@ -137,10 +137,10 @@ void GlText::textureDraw_Overlay(const char* text, const double scale)
 
     for (unsigned int j = 0; j < length; j++)
     {
-        Vector3 vertex_up_left = Vector3(j*worldWidth, worldHeight, 0.0);
-        Vector3 vertex_up_right = Vector3(j*worldWidth + worldWidth, worldHeight, 0.0);
-        Vector3 vertex_down_right = Vector3(j*worldWidth + worldWidth, 0.0, 0.0);
-        Vector3 vertex_down_left = Vector3(j*worldWidth, 0.0, 0.0);
+        Vector3 vertex_up_left = Vector3{j*worldWidth, worldHeight, 0.0 };
+        Vector3 vertex_up_right = Vector3{ j*worldWidth + worldWidth, worldHeight, 0.0 };
+        Vector3 vertex_down_right = Vector3{ j*worldWidth + worldWidth, 0.0, 0.0 };
+        Vector3 vertex_down_left = Vector3{ j * worldWidth, 0.0, 0.0 };
 
         vertices.push_back(vertex_up_left);
         vertices.push_back(vertex_down_left);
@@ -152,10 +152,10 @@ void GlText::textureDraw_Overlay(const char* text, const double scale)
         float uv_x = (character % nb_char_width) / (float)nb_char_width;
         float uv_y = 1.0f - ((character / nb_char_height) / (float)nb_char_height);
 
-        Vector2 uv_up_left = Vector2(uv_x, (uv_y - (1.0f / (float)nb_char_height)));
-        Vector2 uv_up_right = Vector2(uv_x + (1.0f / (float)nb_char_width), (uv_y - (1.0f / (float)nb_char_height)));
-        Vector2 uv_down_right = Vector2(uv_x + (1.0f / (float)nb_char_width), uv_y);
-        Vector2 uv_down_left = Vector2(uv_x, uv_y);
+        Vector2 uv_up_left = Vector2{ uv_x, (uv_y - (1.0f / (float)nb_char_height)) };
+        Vector2 uv_up_right = Vector2{ uv_x + (1.0f / (float)nb_char_width), (uv_y - (1.0f / (float)nb_char_height)) };
+        Vector2 uv_down_right = Vector2{ uv_x + (1.0f / (float)nb_char_width), uv_y };
+        Vector2 uv_down_left = Vector2{ uv_x, uv_y };
 
         UVs.push_back(uv_up_left);
         UVs.push_back(uv_down_left);
@@ -230,10 +230,10 @@ void GlText::textureDraw_Indices(const helper::vector<defaulttype::Vector3>& pos
         glRotatef(180.0, 1, 0, 0);
         for (unsigned int j = 0; j < length; j++)
         {
-            Vector3 vertex_up_left = Vector3(j*worldWidth, worldHeight, 0.0f);
-            Vector3 vertex_up_right = Vector3(j*worldWidth + worldWidth, worldHeight, 0.0f);
-            Vector3 vertex_down_right = Vector3(j*worldWidth + worldWidth, 0.0f, 0.0f);
-            Vector3 vertex_down_left = Vector3(j*worldWidth, 0.0f, 0.0f);
+            Vector3 vertex_up_left = Vector3{ j * worldWidth, worldHeight, 0.0f };
+            Vector3 vertex_up_right = Vector3{ j * worldWidth + worldWidth, worldHeight, 0.0f };
+            Vector3 vertex_down_right = Vector3{ j * worldWidth + worldWidth, 0.0f, 0.0f };
+            Vector3 vertex_down_left = Vector3{ j * worldWidth, 0.0f, 0.0f };
 
             vertices.push_back(vertex_up_left);
             vertices.push_back(vertex_down_left);
@@ -245,10 +245,10 @@ void GlText::textureDraw_Indices(const helper::vector<defaulttype::Vector3>& pos
             float uv_x = (character % nb_char_width) / (float)nb_char_width;
             float uv_y = 1.0f - ((character / nb_char_height) / (float)nb_char_height);
 
-            Vector2 uv_up_left = Vector2(uv_x, (uv_y - (1.0f / (float)nb_char_height)));
-            Vector2 uv_up_right = Vector2(uv_x + (1.0f / (float)nb_char_width), (uv_y - (1.0f / (float)nb_char_height)));
-            Vector2 uv_down_right = Vector2(uv_x + (1.0f / (float)nb_char_width), uv_y);
-            Vector2 uv_down_left = Vector2(uv_x, uv_y);
+            Vector2 uv_up_left = Vector2{ uv_x, (uv_y - (1.0f / (float)nb_char_height)) };
+            Vector2 uv_up_right = Vector2{ uv_x + (1.0f / (float)nb_char_width), (uv_y - (1.0f / (float)nb_char_height)) };
+            Vector2 uv_down_right = Vector2{ uv_x + (1.0f / (float)nb_char_width), uv_y };
+            Vector2 uv_down_left = Vector2{ uv_x, uv_y };
 
             UVs.push_back(uv_up_left);
             UVs.push_back(uv_down_left);

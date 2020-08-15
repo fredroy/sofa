@@ -55,6 +55,9 @@ class SimpleTesselatedHexaTopologicalMapping : public sofa::core::topology::Topo
 {
 public:
     SOFA_CLASS(SimpleTesselatedHexaTopologicalMapping,sofa::core::topology::TopologicalMapping);
+
+    using index_type = core::topology::BaseMeshTopology::index_type;
+
 protected:
     /** \brief Constructor.
      *
@@ -86,10 +89,10 @@ public:
      *
      */
 protected:
-    helper::vector<int> pointMappedFromPoint;
-    std::map<helper::fixed_array<int,2>, int> pointMappedFromEdge;
-    std::map<helper::fixed_array<int,4>, int> pointMappedFromFacet;
-    helper::vector<int> pointMappedFromHexa;
+    helper::vector<index_type> pointMappedFromPoint;
+    std::map<helper::fixed_array<index_type,2>, int> pointMappedFromEdge;
+    std::map<helper::fixed_array<index_type,4>, int> pointMappedFromFacet;
+    helper::vector<index_type> pointMappedFromHexa;
 };
 
 } // namespace topology

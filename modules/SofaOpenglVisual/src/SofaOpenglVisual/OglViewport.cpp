@@ -350,7 +350,7 @@ void OglViewport::renderToViewport(core::visual::VisualParams* vp)
 
         //gluLookAt(cameraPosition[0], cameraPosition[1], cameraPosition[2],0 ,0 ,0, cameraDirection[0], cameraDirection[1], cameraDirection[2]);
     }
-    vp->viewport() = Viewport(x0,y0,screenSize[0],screenSize[1]);
+    vp->viewport() = Viewport{ x0,y0, int(screenSize[0]), int(screenSize[1]) };
     vp->pass() = core::visual::VisualParams::Std;
     simulation::VisualDrawVisitor vdv( vp );
     vdv.setTags(this->getTags());
