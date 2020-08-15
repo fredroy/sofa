@@ -323,34 +323,33 @@ public:
 //            (*this)[i] = value;
 //    }
 
-    //template<int NN = N, typename std::enable_if<NN>0,int>::type = 0>
-    inline friend std::ostream& operator << (std::ostream& out, const fixed_array<T,N>& a)
-    {
-        static_assert(N>0, "Cannot create a zero size arrays") ;
-        for( size_type i=0; i<N-1; i++ )
-            out << a[i]<<" ";
-        out << a[N-1];
-        return out;
-    }
+    //inline friend std::ostream& operator << (std::ostream& out, const fixed_array<T,N>& a)
+    //{
+    //    static_assert(N>0, "Cannot create a zero size arrays") ;
+    //    for( size_type i=0; i<N-1; i++ )
+    //        out << a[i]<<" ";
+    //    out << a[N-1];
+    //    return out;
+    //}
 
-    inline friend std::istream& operator >> (std::istream& in, fixed_array<T,N>& a)
-    {
-        for( size_type i=0; i<N; i++ )
-            in>>a[i];
-        return in;
-    }
+    //inline friend std::istream& operator >> (std::istream& in, fixed_array<T,N>& a)
+    //{
+    //    for( size_type i=0; i<N; i++ )
+    //        in>>a[i];
+    //    return in;
+    //}
 
-    inline bool operator < (const fixed_array& v ) const
-    {
-        for( size_type i=0; i<N; i++ )
-        {
-            if((*this)[i]<v[i] )
-                return true;  // (*this)<v
-            else if((*this)[i]>v[i] )
-                return false; // (*this)>v
-        }
-        return false; // (*this)==v
-    }
+    //inline bool operator < (const fixed_array& v ) const
+    //{
+    //    for( size_type i=0; i<N; i++ )
+    //    {
+    //        if((*this)[i]<v[i] )
+    //            return true;  // (*this)<v
+    //        else if((*this)[i]>v[i] )
+    //            return false; // (*this)>v
+    //    }
+    //    return false; // (*this)==v
+    //}
 
     // not defined in std::array
     //static const size_type static_size = N;
@@ -359,6 +358,24 @@ public:
 private:
 
 };
+
+template <typename T, size_t N>
+inline std::ostream& operator << (std::ostream& out, const fixed_array<T,N>& a)
+{
+    static_assert(N>0, "Cannot create a zero size arrays") ;
+    for( auto i=0; i<N-1; i++ )
+        out << a[i]<<" ";
+    out << a[N-1];
+    return out;
+}
+
+template <typename T, size_t N>
+inline std::istream& operator >> (std::istream& in, fixed_array<T,N>& a)
+{
+    for( auto i=0; i<N; i++ )
+        in>>a[i];
+    return in;
+}
 
 template<class T>
 inline fixed_array<T, 2> make_array(const T& v0, const T& v1)
