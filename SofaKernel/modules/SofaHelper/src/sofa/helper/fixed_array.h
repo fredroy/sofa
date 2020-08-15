@@ -227,7 +227,7 @@ public:
 //        return Inherit::cend();
 //    }
 //
-//    // operator[]
+    // operator[]
 //    reference operator[](size_type i)
 //    {
 //#ifndef NDEBUG
@@ -478,6 +478,10 @@ inline fixed_array<T, 10> make_array(const T& v0, const T& v1, const T& v2, cons
 }
 
 #ifndef FIXED_ARRAY_CPP
+
+//extern template class SOFA_HELPER_API fixed_array<float, 1>;
+//extern template class SOFA_HELPER_API fixed_array<double, 1>;
+
 extern template class SOFA_HELPER_API fixed_array<float, 2>;
 extern template class SOFA_HELPER_API fixed_array<double, 2>;
 

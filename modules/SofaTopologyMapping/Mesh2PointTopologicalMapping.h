@@ -158,7 +158,7 @@ protected:
     bool internalCheck(const char* step)
     {
         helper::fixed_array <size_t, NB_ELEMENTS > nbInputRemoved;
-        nbInputRemoved.assign(0);
+        std::fill(nbInputRemoved.begin(), nbInputRemoved.end(), 0);
         return internalCheck(step, nbInputRemoved);
     }
     bool initDone;

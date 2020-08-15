@@ -27,6 +27,9 @@ namespace sofa
 namespace helper
 {
 
+//template class SOFA_HELPER_API fixed_array<float, 1>;
+//template class SOFA_HELPER_API fixed_array<double, 1>;
+
 template class SOFA_HELPER_API fixed_array<float, 2>;
 template class SOFA_HELPER_API fixed_array<double, 2>;
 

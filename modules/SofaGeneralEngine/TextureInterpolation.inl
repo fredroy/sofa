@@ -300,8 +300,8 @@ void TextureInterpolation<DataTypes>::draw(const core::visual::VisualParams* vpa
 
         if (sceneMinBBox[0] > 10000000) // hack when BB is not found
         {
-            sceneMaxBBox.assign(1);
-            sceneMinBBox.assign(0);
+            std::fill(sceneMaxBBox.begin(), sceneMaxBBox.end(), 1.0);
+            std::fill(sceneMinBBox.begin(), sceneMinBBox.end(), 0.0);
         }
 
         // Recompute, in case Box has moved.
