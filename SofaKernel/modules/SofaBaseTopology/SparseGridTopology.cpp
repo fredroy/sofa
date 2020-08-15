@@ -141,7 +141,9 @@ void SparseGridTopology::init()
 
     _nodeAdjacency.resize(seqPoints.getValue().size() );
     for(unsigned i=0; i<seqPoints.getValue().size(); ++i)
-        _nodeAdjacency[i].assign(-1);
+    {
+        std::fill(_nodeAdjacency[i].begin(), _nodeAdjacency[i].end(), -1);
+    }
 
     for(unsigned i=0; i<seqHexahedra.getValue().size(); ++i)
     {
