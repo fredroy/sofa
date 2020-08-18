@@ -38,15 +38,16 @@ namespace defaulttype
 
 enum NoInit { NOINIT }; ///< use when calling Vec or Mat constructor to skip initialization of values to 0
 
-template <int N, typename real=float>
+template <size_t N, typename real=float>
 class Vec : public std::array<real,N>
 {
 
     static_assert( N > 0, "" );
 
 public:
-    // Type inconsistency workaround, see Mat.h
-    typedef int size_type;
+    typedef typename std::array<real, N>::size_type size_type;
+    typedef typename std::array<real, N>::reference reference;
+    typedef typename std::array<real, N>::const_reference const_reference;
 
     /// Compile-time constant specifying the number of scalars within this vector (equivalent to static_size and size() method)
     enum { total_size = N };
@@ -70,230 +71,230 @@ public:
     }
 
     /// Specific constructor for 1-element vectors.
-    template<int NN = N, typename std::enable_if<NN==1,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==1,size_t>::type = 0>
     explicit Vec(real r1)
     {
         set( r1 );
     }
 
     /// Specific constructor for 1-element vectors.
-    template<int NN = N, typename std::enable_if<NN==1,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==1,size_t>::type = 0>
     void operator=(real r1)
     {
         set( r1 );
     }
 
     /// Specific constructor for 2-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==2,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==2,size_t>::type = 0>
     Vec(real r1, real r2)
     {
         set( r1, r2 );
     }
 
     /// Specific constructor for 3-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==3,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==3,size_t>::type = 0>
     Vec(real r1, real r2, real r3)
     {
         set( r1, r2, r3 );
     }
 
     /// Specific constructor for 4-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==4,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==4,size_t>::type = 0>
     Vec(real r1, real r2, real r3, real r4)
     {
         set( r1, r2, r3, r4 );
     }
 
     /// Specific constructor for 5-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==5,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==5,size_t>::type = 0>
     Vec(real r1, real r2, real r3, real r4, real r5)
     {
         set( r1, r2, r3, r4, r5 );
     }
 
     /// Specific constructor for 6-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==6,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==6,size_t>::type = 0>
     Vec(real r1, real r2, real r3, real r4, real r5, real r6)
     {
         set( r1, r2, r3, r4, r5, r6 );
     }
 
     /// Specific constructor for 6-elements vectors.
-    template<typename R, typename T, int NN=N, typename std::enable_if<NN==6,int>::type = 0 >
+    template<typename R, typename T, size_t NN=N, typename std::enable_if<NN==6,size_t>::type = 0 >
     Vec( const Vec<3,R>& a , const Vec<3,T>& b )
     {
         set( a[0], a[1], a[2], b[0], b[1], b[2] );
     }
 
     /// Specific constructor for 7-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==7,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==7,size_t>::type = 0>
     Vec(real r1, real r2, real r3, real r4, real r5, real r6, real r7)
     {
         set( r1, r2, r3, r4, r5, r6, r7 );
     }
 
     /// Specific constructor for 8-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==8,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==8,size_t>::type = 0>
     Vec(real r1, real r2, real r3, real r4, real r5, real r6, real r7, real r8)
     {
         set( r1, r2, r3, r4, r5, r6, r7, r8 );
     }
 
     /// Specific constructor for 9-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==9,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==9,size_t>::type = 0>
     Vec(real r1, real r2, real r3, real r4, real r5, real r6, real r7, real r8, real r9)
     {
         set( r1, r2, r3, r4, r5, r6, r7, r8, r9 );
     }
 
     /// Specific constructor for 12-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==12,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==12,size_t>::type = 0>
     Vec(real r1, real r2, real r3, real r4, real r5, real r6, real r7, real r8, real r9, real r10, real r11, real r12)
     {
         set( r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12 );
     }
 
     /// Specific set for 1-element vectors.
-    template<int NN = N, typename std::enable_if<NN==1,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==1,size_t>::type = 0>
     void set(real r1)
     {
         static_assert(N==1, "");
-        (*this)[0]=r1;
+        this->_Elems[0]=r1;
     }
 
     /// Specific set for 2-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==2,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==2,size_t>::type = 0>
     void set(real r1, real r2)
     {
         static_assert(N == 2, "");
-        (*this)[0]=r1;
-        (*this)[1]=r2;
+        this->_Elems[0]=r1;
+        this->_Elems[1]=r2;
     }
 
     /// Specific set for 3-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==3,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==3,size_t>::type = 0>
     void set(real r1, real r2, real r3)
     {
         static_assert(N == 3, "");
-        (*this)[0]=r1;
-        (*this)[1]=r2;
-        (*this)[2]=r3;
+        this->_Elems[0]=r1;
+        this->_Elems[1]=r2;
+        this->_Elems[2]=r3;
     }
 
     /// Specific set for 4-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==4,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==4,size_t>::type = 0>
     void set(real r1, real r2, real r3, real r4)
     {
         static_assert(N == 4, "");
-        (*this)[0]=r1;
-        (*this)[1]=r2;
-        (*this)[2]=r3;
-        (*this)[3]=r4;
+        this->_Elems[0]=r1;
+        this->_Elems[1]=r2;
+        this->_Elems[2]=r3;
+        this->_Elems[3]=r4;
     }
 
     /// Specific set for 5-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==5,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==5,size_t>::type = 0>
     void set(real r1, real r2, real r3, real r4, real r5)
     {
         static_assert(N == 5, "");
-        (*this)[0]=r1;
-        (*this)[1]=r2;
-        (*this)[2]=r3;
-        (*this)[3]=r4;
-        (*this)[4]=r5;
+        this->_Elems[0]=r1;
+        this->_Elems[1]=r2;
+        this->_Elems[2]=r3;
+        this->_Elems[3]=r4;
+        this->_Elems[4]=r5;
     }
 
     /// Specific set for 6-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==6,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==6,size_t>::type = 0>
     void set(real r1, real r2, real r3, real r4, real r5, real r6)
     {
         static_assert(N == 6, "");
-        (*this)[0]=r1;
-        (*this)[1]=r2;
-        (*this)[2]=r3;
-        (*this)[3]=r4;
-        (*this)[4]=r5;
-        (*this)[5]=r6;
+        this->_Elems[0]=r1;
+        this->_Elems[1]=r2;
+        this->_Elems[2]=r3;
+        this->_Elems[3]=r4;
+        this->_Elems[4]=r5;
+        this->_Elems[5]=r6;
     }
 
     /// Specific constructor for 7-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==7,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==7,size_t>::type = 0>
     void set(real r1, real r2, real r3, real r4, real r5, real r6, real r7)
     {
         static_assert(N == 7, "");
-        (*this)[0]=r1;
-        (*this)[1]=r2;
-        (*this)[2]=r3;
-        (*this)[3]=r4;
-        (*this)[4]=r5;
-        (*this)[5]=r6;
-        (*this)[6]=r7;
+        this->_Elems[0]=r1;
+        this->_Elems[1]=r2;
+        this->_Elems[2]=r3;
+        this->_Elems[3]=r4;
+        this->_Elems[4]=r5;
+        this->_Elems[5]=r6;
+        this->_Elems[6]=r7;
     }
 
     /// Specific set for 8-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==8,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==8,size_t>::type = 0>
     void set(real r1, real r2, real r3, real r4, real r5, real r6, real r7, real r8)
     {
         static_assert(N == 8, "");
-        (*this)[0]=r1;
-        (*this)[1]=r2;
-        (*this)[2]=r3;
-        (*this)[3]=r4;
-        (*this)[4]=r5;
-        (*this)[5]=r6;
-        (*this)[6]=r7;
-        (*this)[7]=r8;
+        this->_Elems[0]=r1;
+        this->_Elems[1]=r2;
+        this->_Elems[2]=r3;
+        this->_Elems[3]=r4;
+        this->_Elems[4]=r5;
+        this->_Elems[5]=r6;
+        this->_Elems[6]=r7;
+        this->_Elems[7]=r8;
     }
 
     /// Specific set for 9-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==9,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==9,size_t>::type = 0>
     void set(real r1, real r2, real r3, real r4, real r5, real r6, real r7, real r8, real r9)
     {
         static_assert(N == 9, "");
-        (*this)[0]=r1;
-        (*this)[1]=r2;
-        (*this)[2]=r3;
-        (*this)[3]=r4;
-        (*this)[4]=r5;
-        (*this)[5]=r6;
-        (*this)[6]=r7;
-        (*this)[7]=r8;
-        (*this)[8]=r9;
+        this->_Elems[0]=r1;
+        this->_Elems[1]=r2;
+        this->_Elems[2]=r3;
+        this->_Elems[3]=r4;
+        this->_Elems[4]=r5;
+        this->_Elems[5]=r6;
+        this->_Elems[6]=r7;
+        this->_Elems[7]=r8;
+        this->_Elems[8]=r9;
     }
 
     /// Specific set for 12-elements vectors.
-    template<int NN = N, typename std::enable_if<NN==12,int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<NN==12,size_t>::type = 0>
     void set(real r1, real r2, real r3, real r4, real r5, real r6, real r7, real r8, real r9, real r10, real r11, real r12)
     {
         static_assert(N == 12, "");
-        (*this)[0]=r1;
-        (*this)[1]=r2;
-        (*this)[2]=r3;
-        (*this)[3]=r4;
-        (*this)[4]=r5;
-        (*this)[5]=r6;
-        (*this)[6]=r7;
-        (*this)[7]=r8;
-        (*this)[8]=r9;
-        (*this)[9]=r10;
-        (*this)[10]=r11;
-        (*this)[11]=r12;
+        this->_Elems[0]=r1;
+        this->_Elems[1]=r2;
+        this->_Elems[2]=r3;
+        this->_Elems[3]=r4;
+        this->_Elems[4]=r5;
+        this->_Elems[5]=r6;
+        this->_Elems[6]=r7;
+        this->_Elems[7]=r8;
+        this->_Elems[8]=r9;
+        this->_Elems[9]=r10;
+        this->_Elems[10]=r11;
+        this->_Elems[11]=r12;
     }
 
     /// Specific set from a different size vector (given default value and ignored outside entries)
-    template<int N2, class real2>
+    template<size_t N2, class real2>
     void set(const Vec<N2,real2>& v, real defaultvalue=0)
     {
-        int maxN = std::min( N, N2 );
-        for(int i=0; i<maxN; i++)
-            (*this)[i] = (real)v[i];
-        for(int i=maxN; i<N ; i++)
-            (*this)[i] = defaultvalue;
+        size_t maxN = std::min( N, N2 );
+        for(size_t i=0; i<maxN; i++)
+            this->_Elems[i] = (real)v[i];
+        for(size_t i=maxN; i<N ; i++)
+            this->_Elems[i] = defaultvalue;
     }
 
 
     /// Constructor from an N-1 elements vector and an additional value (added at the end).
-    //template<int NN = N, typename std::enable_if<(NN>1),int>::type = 0>
+    //template<size_t NN = N, typename std::enable_if<(NN>1),size_t>::type = 0>
     Vec(const Vec<N-1,real>& v, real r1)
     {
         static_assert(N > 1, "");
@@ -302,12 +303,12 @@ public:
 
     Vec(const std::array<real, N>& p)
     {
-        for(int i=0; i<N; i++)
-            (*this)[i] = p[i];
+        for(size_t i=0; i<N; i++)
+            this->_Elems[i] = p[i];
     }
 
     /// Constructor from a different size vector (null default value and ignoring outside entries)
-    template<int N2, typename real2>
+    template<size_t N2, typename real2>
     explicit Vec(const Vec<N2,real2>& v)
     {
         set( v, 0 );
@@ -317,8 +318,8 @@ public:
     Vec(const Vec<N, real2>& p)
     {
         //std::copy(p.begin(), p.end(), this->begin());
-        for(int i=0; i<N; i++)
-            (*this)[i] = (real)p(i);
+        for(size_t i=0; i<N; i++)
+            this->_Elems[i] = (real)p(i);
     }
 
     /// Constructor from an array of values.
@@ -326,66 +327,66 @@ public:
     explicit Vec(const real2* p)
     {
         //std::copy(p, p+N, this->begin());
-        for(int i=0; i<N; i++)
-            (*this)[i] = (real)p[i];
+        for(size_t i=0; i<N; i++)
+            this->_Elems[i] = (real)p[i];
     }
 
     /// Special access to first element.
-    template<int NN = N, typename std::enable_if<(NN>=1),int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<(NN>=1),size_t>::type = 0>
     real& x()
     {
         static_assert(N >= 1, "");
-        return (*this)[0];
+        return this->_Elems[0];
     }
     /// Special access to second element.
-    template<int NN = N, typename std::enable_if<(NN>=2),int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<(NN>=2),size_t>::type = 0>
     real& y()
     {
         static_assert(N >= 2, "");
-        return (*this)[1];
+        return this->_Elems[1];
     }
     /// Special access to third element.
-    template<int NN = N, typename std::enable_if<(NN>=3),int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<(NN>=3),size_t>::type = 0>
     real& z()
     {
         static_assert(N >= 3, "");
-        return (*this)[2];
+        return this->_Elems[2];
     }
     /// Special access to fourth element.
-    template<int NN = N, typename std::enable_if<(NN>=4),int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<(NN>=4),size_t>::type = 0>
     real& w()
     {
         static_assert(N >= 4, "");
-        return (*this)[3];
+        return this->_Elems[3];
     }
 
     /// Special const access to first element.
-    template<int NN = N, typename std::enable_if<(NN>=1),int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<(NN>=1),size_t>::type = 0>
     const real& x() const
     {
         static_assert(N >= 1, "");
-        return (*this)[0];
+        return this->_Elems[0];
     }
     /// Special const access to second element.
-    template<int NN = N, typename std::enable_if<(NN>=2),int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<(NN>=2),size_t>::type = 0>
     const real& y() const
     {
         static_assert(N >= 2, "");
-        return (*this)[1];
+        return this->_Elems[1];
     }
     /// Special const access to third element.
-    template<int NN = N, typename std::enable_if<(NN>=3),int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<(NN>=3),size_t>::type = 0>
     const real& z() const
     {
         static_assert(N >= 3, "");
-        return (*this)[2];
+        return this->_Elems[2];
     }
     /// Special const access to fourth element.
-    template<int NN = N, typename std::enable_if<(NN>=4),int>::type = 0>
+    template<size_t NN = N, typename std::enable_if<(NN>=4),size_t>::type = 0>
     const real& w() const
     {
         static_assert(N >= 4, "");
-        return (*this)[3];
+        return this->_Elems[3];
     }
 
     /// Assignment operator from an array of values.
@@ -393,17 +394,17 @@ public:
     void operator=(const real2* p)
     {
         //std::copy(p, p+N, this->begin());
-        for(int i=0; i<N; i++)
-            (*this)[i] = (real)p[i];
+        for(size_t i=0; i<N; i++)
+            this->_Elems[i] = (real)p[i];
     }
 
     /// Assignment from a vector with different dimensions.
-    template<int M, typename real2>
+    template<size_t M, typename real2>
     void operator=(const Vec<M,real2>& v)
     {
         //std::copy(v.begin(), v.begin()+(N>M?M:N), this->begin());
-        for(int i=0; i<(N>M?M:N); i++)
-            (*this)[i] = (real)v(i);
+        for(size_t i=0; i<(N>M?M:N); i++)
+            this->_Elems[i] = (real)v(i);
     }
 
     /// Sets every element to 0.
@@ -418,16 +419,32 @@ public:
         std::fill(this->begin(),this-> end(), r);
     }
 
-    /// Access to i-th element.
-    real& operator()(int i)
+    //operator[]
+    reference operator[](size_type i)
     {
-        return (*this)[i];
+#ifndef NDEBUG
+        assert(i<N && "index in fixed_array must be smaller than size");
+#endif
+        return this->_Elems[i];
+    }
+    const_reference operator[](size_type i) const
+    {
+#ifndef NDEBUG
+        assert(i<N && "index in fixed_array must be smaller than size");
+#endif
+        return this->_Elems[i];
+    }
+
+    /// Access to i-th element.
+    real& operator()(size_type i)
+    {
+        return this->_Elems[i];
     }
 
     /// Const access to i-th element.
-    const real& operator()(int i) const
+    const real& operator()(size_type i) const
     {
-        return (*this)[i];
+        return this->_Elems[i];
     }
 
     /// Cast into a const array of values.
@@ -455,8 +472,8 @@ public:
     {
         static_assert(DataTypeInfo<real2>::ValidInfo && DataTypeInfo<real2>::Size==1, "");
         Vec<N,real> r(NOINIT);
-        for (int i=0; i<N; i++)
-            r[i] = (*this)[i]*(real)f;
+        for (size_t i=0; i<N; i++)
+            r[i] = this->_Elems[i]*(real)f;
         return r;
     }
 
@@ -474,8 +491,8 @@ public:
     void eqmulscalar(real2 f)
     {
         static_assert(DataTypeInfo<real2>::ValidInfo && DataTypeInfo<real2>::Size==1, "");
-        for (int i=0; i<N; i++)
-            (*this)[i]*=(real)f;
+        for (size_t i=0; i<N; i++)
+            this->_Elems[i]*=(real)f;
     }
 
     void operator*=(         float     f) {  eqmulscalar(f);  }
@@ -493,8 +510,8 @@ public:
     {
         static_assert(DataTypeInfo<real2>::ValidInfo && DataTypeInfo<real2>::Size==1, "");
         Vec<N,real> r(NOINIT);
-        for (int i=0; i<N; i++)
-            r[i] = (*this)[i]/(real)f;
+        for (size_t i=0; i<N; i++)
+            r[i] = this->_Elems[i]/(real)f;
         return r;
     }
 
@@ -512,8 +529,8 @@ public:
     void eqdivscalar(real2 f)
     {
         static_assert(DataTypeInfo<real2>::ValidInfo && DataTypeInfo<real2>::Size==1, "");
-        for (int i=0; i<N; i++)
-            (*this)[i]/=(real)f;
+        for (size_t i=0; i<N; i++)
+            this->_Elems[i]/=(real)f;
     }
 
     void operator/=(         float     f) {  eqdivscalar(f);  }
@@ -529,9 +546,9 @@ public:
     template<class real2>
     real operator*(const Vec<N,real2>& v) const
     {
-        real r = (real)((*this)[0]*v[0]);
-        for (int i=1; i<N; i++)
-            r += (real)((*this)[i]*v[i]);
+        real r = (real)(this->_Elems[0]*v[0]);
+        for (size_t i=1; i<N; i++)
+            r += (real)(this->_Elems[i]*v[i]);
         return r;
     }
 
@@ -540,8 +557,8 @@ public:
     Vec<N,real> linearProduct(const Vec<N,real2>& v) const
     {
         Vec<N,real> r(NOINIT);
-        for (int i=0; i<N; i++)
-            r[i]=(*this)[i]*(real)v[i];
+        for (size_t i=0; i<N; i++)
+            r[i]=this->_Elems[i]*(real)v[i];
         return r;
     }
 
@@ -551,8 +568,8 @@ public:
     Vec<N,real> linearDivision(const Vec<N,real2>& v) const
     {
         Vec<N,real> r(NOINIT);
-        for (int i=0; i<N; i++)
-            r[i]=(*this)[i]/(real)v[i];
+        for (size_t i=0; i<N; i++)
+            r[i]=this->_Elems[i]/(real)v[i];
         return r;
     }
 
@@ -561,8 +578,8 @@ public:
     Vec<N,real> operator+(const Vec<N,real2>& v) const
     {
         Vec<N,real> r(NOINIT);
-        for (int i=0; i<N; i++)
-            r[i]=(*this)[i]+(real)v[i];
+        for (size_t i=0; i<N; i++)
+            r[i]=this->_Elems[i]+(real)v[i];
         return r;
     }
 
@@ -570,8 +587,8 @@ public:
     template<class real2>
     void operator+=(const Vec<N,real2>& v)
     {
-        for (int i=0; i<N; i++)
-            (*this)[i]+=(real)v[i];
+        for (size_type i=0; i<N; i++)
+            this->_Elems[i]+=(real)v[i];
     }
 
     /// Vector subtraction.
@@ -579,8 +596,8 @@ public:
     Vec<N,real> operator-(const Vec<N,real2>& v) const
     {
         Vec<N,real> r(NOINIT);
-        for (int i=0; i<N; i++)
-            r[i]=(*this)[i]-(real)v[i];
+        for (size_t i=0; i<N; i++)
+            r[i]=this->_Elems[i]-(real)v[i];
         return r;
     }
 
@@ -588,25 +605,25 @@ public:
     template<class real2>
     void operator-=(const Vec<N,real2>& v)
     {
-        for (int i=0; i<N; i++)
-            (*this)[i]-=(real)v[i];
+        for (size_t i=0; i<N; i++)
+            this->_Elems[i]-=(real)v[i];
     }
 
     /// Vector negation.
     Vec<N,real> operator-() const
     {
         Vec<N,real> r(NOINIT);
-        for (int i=0; i<N; i++)
-            r[i]=-(*this)[i];
+        for (size_t i=0; i<N; i++)
+            r[i]=-this->_Elems[i];
         return r;
     }
 
     /// Squared norm.
     real norm2() const
     {
-        real r = (*this)[0]*(*this)[0];
-        for (int i=1; i<N; i++)
-            r += (*this)[i]*(*this)[i];
+        real r = this->_Elems[0]*this->_Elems[0];
+        for (size_t i=1; i<N; i++)
+            r += this->_Elems[i]*this->_Elems[i];
         return r;
     }
 
@@ -625,9 +642,9 @@ public:
         else if( l<0 ) // infinite norm
         {
             real n=0;
-            for( int i=0; i<N; i++ )
+            for(size_type i=0; i<N; i++ )
             {
-                real a = helper::rabs( (*this)[i] );
+                real a = helper::rabs( this->_Elems[i] );
                 if( a>n ) n=a;
             }
             return n;
@@ -635,24 +652,24 @@ public:
         else if( l==1 ) // Manhattan norm
         {
             real n=0;
-            for( int i=0; i<N; i++ )
+            for(size_type i=0; i<N; i++ )
             {
-                n += helper::rabs( (*this)[i] );
+                n += helper::rabs( this->_Elems[i] );
             }
             return n;
         }
         else if( l==0 ) // counting not null
         {
             real n=0;
-            for( int i=0; i<N; i++ )
-                if( (*this)[i] ) n+=1;
+            for(size_type i=0; i<N; i++ )
+                if( this->_Elems[i] ) n+=1;
             return n;
         }
         else // generic implementation
         {
             real n = 0;
-            for( int i=0; i<N; i++ )
-                n += pow( helper::rabs( (*this)[i] ), l );
+            for(size_type i=0; i<N; i++ )
+                n += pow( helper::rabs( this->_Elems[i] ), l );
             return pow( n, real(1.0)/(real)l );
         }
     }
@@ -664,8 +681,8 @@ public:
     {
         if (norm>threshold)
         {
-            for (int i=0; i<N; i++)
-                (*this)[i]/=norm;
+            for (size_t i=0; i<N; i++)
+                this->_Elems[i]/=norm;
             return true;
         }
         else
@@ -690,7 +707,7 @@ public:
     /// @warning 'this' is not normalized.
     Vec<N,real> normalized() const
     {
-        Vec<N,real> r(*this);
+        Vec<N,real> r(this->_Elems);
         r.normalize();
         return r;
     }
@@ -698,14 +715,14 @@ public:
     /// return true iff norm()==1
     bool isNormalized( real threshold=std::numeric_limits<real>::epsilon()*(real)10 ) const { return helper::rabs<real>( norm2()-(real)1 ) <= threshold; }
 
-    template<typename R,int NN = N, typename std::enable_if<(NN==3),int>::type = 0>
+    template<typename R,size_t NN = N, typename std::enable_if<(NN==3),size_t>::type = 0>
     Vec cross( const Vec<3,R>& b ) const
     {
         static_assert(N == 3, "");
         return Vec(
-                (real)((*this)[1]*b[2] - (*this)[2]*b[1]),
-                (real)((*this)[2]*b[0] - (*this)[0]*b[2]),
-                (real)((*this)[0]*b[1] - (*this)[1]*b[0])
+                (real)(this->_Elems[1]*b[2] - this->_Elems[2]*b[1]),
+                (real)(this->_Elems[2]*b[0] - this->_Elems[0]*b[2]),
+                (real)(this->_Elems[0]*b[1] - this->_Elems[1]*b[0])
                 );
     }
 
@@ -714,8 +731,8 @@ public:
     real sum() const
     {
         real sum = 0.0;
-        for (int i=0; i<N; i++)
-            sum += (*this)[i];
+        for (size_t i=0; i<N; i++)
+            sum += this->_Elems[i];
         return sum;
     }
 
@@ -725,15 +742,15 @@ public:
 
     bool operator==(const Vec& b) const
     {
-        for (int i=0; i<N; i++)
-            if ( fabs( (float)((*this)[i] - b[i]) ) > EQUALITY_THRESHOLD ) return false;
+        for (size_t i=0; i<N; i++)
+            if ( fabs( (float)(this->_Elems[i] - b[i]) ) > EQUALITY_THRESHOLD ) return false;
         return true;
     }
 
     bool operator!=(const Vec& b) const
     {
-        for (int i=0; i<N; i++)
-            if ( fabs( (float)((*this)[i] - b[i]) ) > EQUALITY_THRESHOLD ) return true;
+        for (size_t i=0; i<N; i++)
+            if ( fabs( (float)(this->_Elems[i] - b[i]) ) > EQUALITY_THRESHOLD ) return true;
         return false;
     }
 
@@ -742,7 +759,7 @@ public:
 
 
 /// Same as Vec except the values are not initialized by default
-template <int N, typename real=float>
+template <size_t N, typename real=float>
 class VecNoInit : public Vec<N,real>
 {
 public:
@@ -759,7 +776,7 @@ public:
     }
 
     /// Assignment from a vector with different dimensions.
-    template<int M, typename real2>
+    template<size_t M, typename real2>
     void operator=(const Vec<M,real2>& v)
     {
         this->Vec<N,real>::operator=(v);
@@ -773,19 +790,19 @@ public:
 };
 
 /// Read from an input stream
-template<int N,typename Real>
+template<size_t N,typename Real>
 std::istream& operator >> ( std::istream& in, Vec<N,Real>& v )
 {
-    for( int i=0; i<N; ++i )
+    for(size_t i=0; i<N; ++i )
         in>>v[i];
     return in;
 }
 
 /// Write to an output stream
-template<int N,typename Real>
+template<size_t N,typename Real>
 std::ostream& operator << ( std::ostream& out, const Vec<N,Real>& v )
 {
-    for( int i=0; i<N-1; ++i )
+    for(size_t i=0; i<N-1; ++i )
         out<<v[i]<<" ";
     out<<v[N-1];
     return out;
@@ -808,21 +825,21 @@ real1 cross(const defaulttype::Vec<2,real1>& a, const defaulttype::Vec<2,real2>&
 }
 
 /// Dot product (alias for operator*)
-template<int N,typename real>
+template<size_t N,typename real>
 inline real dot(const Vec<N,real>& a, const Vec<N,real>& b)
 {
     return a*b;
 }
 
 ///// multiplication with a scalar \returns a*V
-template <int N, typename real>
+template <size_t N, typename real>
 Vec<N,real> operator*(const double& a, const Vec<N,real>& V)
 {
     return V * a;
 }
 
 ///// multiplication with a scalar \returns a*V
-template <int N, typename real>
+template <size_t N, typename real>
 Vec<N,real> operator*(const float& a, const Vec<N,real>& V)
 {
     return V * a;
@@ -836,25 +853,25 @@ typedef Vec<1,SReal> Vec1;
 
 typedef Vec<2,float> Vec2f;
 typedef Vec<2,double> Vec2d;
-typedef Vec<2,int> Vec2i;
+typedef Vec<2, int> Vec2i;
 typedef Vec<2,unsigned> Vec2u;
 typedef Vec<2,SReal> Vec2;
 
 typedef Vec<3,float> Vec3f;
 typedef Vec<3,double> Vec3d;
-typedef Vec<3,int> Vec3i;
+typedef Vec<3, int> Vec3i;
 typedef Vec<3,unsigned> Vec3u;
 typedef Vec<3,SReal> Vec3;
 
 typedef Vec<4,float> Vec4f;
 typedef Vec<4,double> Vec4d;
-typedef Vec<4,int> Vec4i;
+typedef Vec<4, int> Vec4i;
 typedef Vec<4,unsigned> Vec4u;
 typedef Vec<4,SReal> Vec4;
 
 typedef Vec<6,float> Vec6f;
 typedef Vec<6,double> Vec6d;
-typedef Vec<6,int> Vec6i;
+typedef Vec<6, int> Vec6i;
 typedef Vec<6,unsigned> Vec6u;
 typedef Vec<6,SReal> Vec6;
 
@@ -876,13 +893,13 @@ namespace sofa
 namespace defaulttype
 {
 
-template<int N, typename real>
+template<size_t N, typename real>
 struct DataTypeInfo< sofa::defaulttype::Vec<N,real> > : public FixedArrayTypeInfo<sofa::defaulttype::Vec<N,real> >
 {
     static std::string name() { std::ostringstream o; o << "Vec<" << N << "," << DataTypeName<real>::name() << ">"; return o.str(); }
 };
 
-template<int N, typename real>
+template<size_t N, typename real>
 struct DataTypeInfo< sofa::defaulttype::VecNoInit<N,real> > : public FixedArrayTypeInfo<sofa::defaulttype::VecNoInit<N,real> >
 {
     static std::string name() { std::ostringstream o; o << "VecNoInit<" << N << "," << DataTypeName<real>::name() << ">"; return o.str(); }
@@ -894,12 +911,12 @@ struct DataTypeInfo< sofa::defaulttype::VecNoInit<N,real> > : public FixedArrayT
 /// \cond TEMPLATE_OVERRIDES
 
 #define DataTypeInfoName(type,suffix)\
-template<int N>\
+template<size_t N>\
 struct DataTypeInfo< sofa::defaulttype::Vec<N,type> > : public FixedArrayTypeInfo<sofa::defaulttype::Vec<N,type> >\
 {\
     static std::string name() { std::ostringstream o; o << "Vec" << N << suffix; return o.str(); }\
 };\
-template<int N>\
+template<size_t N>\
 struct DataTypeInfo< sofa::defaulttype::VecNoInit<N,type> > : public FixedArrayTypeInfo<sofa::defaulttype::VecNoInit<N,type> >\
 {\
     static std::string name() { std::ostringstream o; o << "VecNoInit" << N << suffix; return o.str(); }\
