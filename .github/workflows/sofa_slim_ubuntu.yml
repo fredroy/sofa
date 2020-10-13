@@ -43,10 +43,13 @@ jobs:
         CCACHE_COMPRESSLEVEL: 6
         CCACHE_MAXSIZE: "1G"
       run: 
-        cmake 
+        export CCACHE_BASEDIR=$GITHUB_WORKSPACE
+        && export CCACHE_DIR=$GITHUB_WORKSPACE/.ccache
+        && ccache -z
+        && cmake 
             -GNinja
-            -DCMAKE_C_COMPILER_LAUNCHER=gcc
-            -DCMAKE_CXX_COMPILER_LAUNCHER=g++
+            -DCMAKE_C_COMPILER_LAUNCHER=ccache
+            -DCMAKE_CXX_COMPILER_LAUNCHER=ccache
             -DCMAKE_BUILD_TYPE=Release
             -DAPPLICATION_MODELER=OFF
             -DSOFAGUI_BUILD=OFF
@@ -60,6 +63,7 @@ jobs:
             .
         && ninja 
         && ninja install
+        && ccache -s
     - name: Archive production
       uses: actions/upload-artifact@v2
       with:
