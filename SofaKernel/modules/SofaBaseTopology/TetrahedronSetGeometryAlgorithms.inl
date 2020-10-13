@@ -840,7 +840,7 @@ void TetrahedronSetGeometryAlgorithms<DataTypes>::getIntersectionPointWithPlane(
         for(int i=0; i<4; i++)
         {
             p1=vect_c[ta[i]];
-            fprintf(f1,"%d %f %f %f\n",ta[i],p1[0],p1[1],p1[2]);
+            fprintf(f1,"%lu %f %f %f\n",ta[i],p1[0],p1[1],p1[2]);
         }
         for(size_t i=0; i<intersectedPoint.size(); i++)
         {
@@ -1065,7 +1065,7 @@ void TetrahedronSetGeometryAlgorithms<DataTypes>::writeMSHfile(const char *filen
 template<class DataTypes>
 void TetrahedronSetGeometryAlgorithms<DataTypes>::draw(const core::visual::VisualParams* vparams)
 {
-    if(this->m_componentstate == ComponentState::Invalid)
+    if(this->d_componentState.getValue() == ComponentState::Invalid)
         return;
 
     TriangleSetGeometryAlgorithms<DataTypes>::draw(vparams);

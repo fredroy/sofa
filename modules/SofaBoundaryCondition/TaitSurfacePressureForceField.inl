@@ -120,7 +120,7 @@ void TaitSurfacePressureForceField<DataTypes>::init()
     if (m_topology == nullptr)
     {
         msg_error() << "No topology component found at path: " << l_topology.getLinkedPath() << ", nor in current context: " << this->getContext()->name;
-        sofa::core::objectmodel::BaseObject::d_componentstate.setValue(sofa::core::objectmodel::ComponentState::Invalid);
+        sofa::core::objectmodel::BaseObject::d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
         return;
     }
 
@@ -170,7 +170,7 @@ void TaitSurfacePressureForceField<DataTypes>::handleEvent(core::objectmodel::Ev
                 curInj -= maxInj;
             else if (inj > curInj)
                 curInj += maxInj;
-            sout << "Current Injected Volume = " << curInj << sendl;
+            msg_info() << "Current Injected Volume = " << curInj;
             m_currentInjectedVolume.setValue(curInj);
             updateFromTopology();
         }

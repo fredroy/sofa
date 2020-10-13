@@ -25,7 +25,6 @@
 
 #include "HexahedralFEMForceFieldAndMass.h"
 #include <sofa/core/visual/VisualParams.h>
-#include "HexahedralFEMForceField.inl"
 
 #include <SofaBaseTopology/TopologyData.inl>
 
@@ -62,10 +61,12 @@ void HexahedralFEMForceFieldAndMass<DataTypes>::init( )
     if(this->_topology == nullptr)
     {
         msg_error() << "ERROR(HexahedralFEMForceField): object must have a HexahedronSetTopology.";
+        sofa::core::objectmodel::BaseObject::d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
         return;
     }
 
     this->reinit();
+    sofa::core::objectmodel::BaseObject::d_componentState.setValue(sofa::core::objectmodel::ComponentState::Valid);
 }
 
 template<class DataTypes>
@@ -452,7 +453,7 @@ void HexahedralFEMForceFieldAndMass<DataTypes>::addDForce(const core::Mechanical
 
 
 template<class DataTypes>
-SReal HexahedralFEMForceFieldAndMass<DataTypes>::getElementMass(unsigned int /*index*/) const
+SReal HexahedralFEMForceFieldAndMass<DataTypes>::getElementMass(sofa::defaulttype::index_type /*index*/) const
 {
     msg_error() << "HexahedralFEMForceFieldAndMass<DataTypes>::getElementMass not yet implemented";
     return 0.0;

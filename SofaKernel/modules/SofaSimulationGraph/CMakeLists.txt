@@ -19,7 +19,7 @@ set(SOURCE_FILES
     init.cpp
 )
 
-if(SOFA_BUILD_TESTS)
+if(SOFA_BUILD_TESTS OR SOFA_BUILD_RELEASE_PACKAGE)
     list(APPEND HEADER_FILES testing/BaseSimulationTest.h)
     list(APPEND SOURCE_FILES testing/BaseSimulationTest.cpp)
 endif()
@@ -27,4 +27,7 @@ endif()
 add_library(${PROJECT_NAME} SHARED ${HEADER_FILES} ${SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME} PUBLIC SofaSimulationCommon)
 
-sofa_install_targets(SofaSimulation ${PROJECT_NAME} "SofaSimulation/${PROJECT_NAME}")
+sofa_add_targets_to_package(
+    PACKAGE_NAME SofaSimulation
+    TARGETS ${PROJECT_NAME} AUTO_SET_TARGET_PROPERTIES
+    )

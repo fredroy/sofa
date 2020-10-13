@@ -25,6 +25,7 @@
 #include <SofaDeformable/MeshSpringForceField.h>
 #include <sofa/core/visual/VisualParams.h>
 #include <sofa/core/topology/BaseMeshTopology.h>
+#include <SofaBaseTopology/TopologySubsetData.h>
 #include <iostream>
 
 namespace sofa
@@ -120,7 +121,7 @@ void MeshSpringForceField<DataTypes>::init()
         if (_topology == nullptr)
         {
             msg_error() << "No topology component found at path: " << l_topology.getLinkedPath() << ", nor in current context: " << this->getContext()->name;
-            sofa::core::objectmodel::BaseObject::d_componentstate.setValue(sofa::core::objectmodel::ComponentState::Invalid);
+            sofa::core::objectmodel::BaseObject::d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
             return;
         }
         

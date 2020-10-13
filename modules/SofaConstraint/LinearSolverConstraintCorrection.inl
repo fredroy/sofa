@@ -98,29 +98,29 @@ void LinearSolverConstraintCorrection<DataTypes>::init()
     if (odesolver == nullptr)
     {
         msg_error() << "No OdeSolver found (component is disabled)." ;
-        m_componentstate = ComponentState::Invalid ;
+        d_componentState.setValue(ComponentState::Invalid) ;
         return;
     }
     if (linearsolvers.size()==0)
     {
         msg_error() << "No LinearSolver found (component is disabled)." << tmp.str() ;
-        m_componentstate = ComponentState::Invalid ;
+        d_componentState.setValue(ComponentState::Invalid) ;
         return;
     }
 
     if(mstate==nullptr)
     {
-        m_componentstate = ComponentState::Invalid ;
+        d_componentState.setValue(ComponentState::Invalid) ;
         return;
     }
 
-    m_componentstate = ComponentState::Valid ;
+    d_componentState.setValue(ComponentState::Valid) ;
 }
 
 template<class TDataTypes>
 void LinearSolverConstraintCorrection<TDataTypes>::computeJ(sofa::defaulttype::BaseMatrix* W, const MatrixDeriv& c)
 {
-    if(m_componentstate!=ComponentState::Valid)
+    if(d_componentState.getValue() != ComponentState::Valid)
         return ;
 
     const unsigned int numDOFs = mstate->getSize();
@@ -154,7 +154,7 @@ void LinearSolverConstraintCorrection<TDataTypes>::computeJ(sofa::defaulttype::B
 template<class DataTypes>
 void LinearSolverConstraintCorrection<DataTypes>::addComplianceInConstraintSpace(const sofa::core::ConstraintParams *cparams, sofa::defaulttype::BaseMatrix* W)
 {
-    if(m_componentstate!=ComponentState::Valid)
+    if(d_componentState.getValue() != ComponentState::Valid)
         return ;
 
     // use the OdeSolver to get the position integration factor
@@ -200,7 +200,7 @@ void LinearSolverConstraintCorrection<DataTypes>::rebuildSystem(double massFacto
 template<class DataTypes>
 void LinearSolverConstraintCorrection<DataTypes>::getComplianceMatrix(defaulttype::BaseMatrix* Minv) const
 {
-    if(m_componentstate!=ComponentState::Valid)
+    if(d_componentState.getValue() != ComponentState::Valid)
         return ;
 
     const double factor = odesolver->getPositionIntegrationFactor();
@@ -291,7 +291,7 @@ void LinearSolverConstraintCorrection< DataTypes >::applyVelocityCorrection(cons
 {
     if (mstate)
     {
-        const unsigned int numDOFs = mstate->getSize();
+        const std::size_t numDOFs = mstate->getSize();
 
         auto v  = sofa::helper::write(v_d,cparams);
         auto dv = sofa::helper::write(dv_d, cparams); 
@@ -376,7 +376,6 @@ void LinearSolverConstraintCorrection<DataTypes>::applyContactForce(const defaul
 
     for (unsigned int i=0; i< numDOFs; i++)
     {
-        //sout << "dx("<<i<<")="<<dx[i]<<sendl;
         Deriv dxi = dx[i]*positionFactor;
         Deriv dvi = dx[i]*velocityFactor;
         x[i] = x_free[i] + dxi;
@@ -568,7 +567,7 @@ template<class DataTypes>
 void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(double *d, int begin, int end)
 {
     const MatrixDeriv& constraints = mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
-    const unsigned int derivDim = Deriv::size();
+    const std::size_t derivDim = Deriv::size();
 
     last_disp = begin;
 
@@ -588,10 +587,10 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
 
             for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
             {
-                const unsigned int dof = colIt.index();
+                const std::size_t dof = colIt.index();
                 Deriv disp;
 
-                for(unsigned int j = 0; j < derivDim; j++)
+                for(std::size_t j = 0; j < derivDim; j++)
                 {
                     disp[j] = (Real)(systemLHVector_buf->element(dof * derivDim + j) * odesolver->getPositionIntegrationFactor());
                 }
@@ -639,11 +638,11 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
     }
 
     // course on indices of the dofs involved invoved in the bloc //
-    std::list<int>::const_iterator it_dof(Vec_I_list_dof[last_force].begin()), it_end(Vec_I_list_dof[last_force].end());
+    auto it_dof(Vec_I_list_dof[last_force].cbegin()), it_end(Vec_I_list_dof[last_force].cend());
     for(; it_dof!=it_end; ++it_dof)
     {
-        int dof =(*it_dof) ;
-        for  (unsigned int j=0; j<derivDim; j++)
+        std::size_t dof =(*it_dof) ;
+        for (std::size_t j=0; j<derivDim; j++)
             systemRHVector_buf->set(dof * derivDim + j, constraint_force[dof][j]);
     }
 
@@ -652,7 +651,7 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
 template<class DataTypes>
 void LinearSolverConstraintCorrection<DataTypes>::getBlockDiagonalCompliance(defaulttype::BaseMatrix* W, int begin, int end)
 {
-    if(m_componentstate!=ComponentState::Valid)
+    if(d_componentState.getValue() != ComponentState::Valid)
         return ;
 
     // use the OdeSolver to get the position integration factor
@@ -693,7 +692,7 @@ void LinearSolverConstraintCorrection<DataTypes>::getBlockDiagonalCompliance(def
                 {
                     int test = dof_buf - dof;
                     if (test>2 || test< -2)
-                        sout << "YES !!!! for constraint id1 dof1 = " << dof_buf << " dof2 = " << dof << sendl;
+                        dmsg_info() << "For constraint id1 dof1 = " << dof_buf << " dof2 = " << dof;
                 }
 
                 dof_buf = dof;

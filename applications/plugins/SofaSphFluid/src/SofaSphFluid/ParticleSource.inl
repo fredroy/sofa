@@ -67,7 +67,7 @@ void ParticleSource<DataTypes>::init()
 {
     this->core::behavior::ProjectiveConstraintSet<DataTypes>::init();
     if (!this->mstate) {
-        //sofa::core::objectmodel::ComponentState::d_componentstate.setValue(sofa::core::objectmodel::ComponentState::Invalid);
+        //sofa::core::objectmodel::ComponentState::d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
         return;
     }
 
@@ -257,7 +257,7 @@ void ParticleSource<DataTypes>::animateBegin(double /*dt*/, double time)
                     p[c] += d_radius.getValue()[c] * rrand();
                
                 m_lastpos.push_back(p);
-                _lastparticles.push_back((unsigned int)(i0 + newX.size()));
+                _lastparticles.push_back((index_type)(i0 + newX.size()));
                 newX.push_back(p + v0 * (time - m_lastTime)); // account for particle initial motion
                 newV.push_back(v0);
             }

@@ -23,6 +23,9 @@
 #include <sofa/core/objectmodel/Base.h>
 #include <sofa/helper/Factory.h>
 #include <sofa/core/ObjectFactory.h>
+#include <sofa/core/PathResolver.h>
+using sofa::core::PathResolver;
+
 #include <sofa/helper/logging/Messaging.h>
 using sofa::helper::logging::MessageDispatcher ;
 using sofa::helper::logging::Message ;
@@ -54,13 +57,13 @@ Base::Base()
     , f_printLog(initData(&f_printLog, false, "printLog", "if true, emits extra messages at runtime."))
     , f_tags(initData( &f_tags, "tags", "list of the subsets the objet belongs to"))
     , f_bbox(initData( &f_bbox, "bbox", "this object bounding box"))
-    , d_componentstate(initData(&d_componentstate, ComponentState::Undefined, "componentState", "The state of the component among (Dirty, Valid, Undefined, Loading, Invalid)."))
+    , d_componentState(initData(&d_componentState, ComponentState::Undefined, "componentState", "The state of the component among (Dirty, Valid, Undefined, Loading, Invalid)."))
 {
     name.setOwnerClass("Base");
     name.setAutoLink(false);
-    d_componentstate.setAutoLink(false);
-    d_componentstate.setReadOnly(true);
-    d_componentstate.setOwnerClass("Base");
+    d_componentState.setAutoLink(false);
+    d_componentState.setReadOnly(true);
+    d_componentState.setOwnerClass("Base");
     f_printLog.setOwnerClass("Base");
     f_printLog.setAutoLink(false);
     f_tags.setOwnerClass("Base");
@@ -74,8 +77,8 @@ Base::Base()
     /// name change => component state update
     addUpdateCallback("name", {&name}, [this](const DataTracker&){
         /// Increment the state counter but without changing the state.
-        return m_componentstate.getValue();
-    }, {&m_componentstate});
+        return d_componentState.getValue();
+    }, {&d_componentState});
 }
 
 Base::~Base()
@@ -112,17 +115,25 @@ void Base::addUpdateCallback(const std::string& name,
     engine.addOutputs(outputs);
 
     for(auto& i : engine.getInputs())
-        if( i == &d_componentstate ) {
+        if( i == &d_componentState ) {
             msg_error(this) << "The componentstate cannot be set as an input of a callbackEngine.";
-            engine.delInput(&d_componentstate);
+            engine.delInput(&d_componentState);
         }
-    engine.addOutput(&d_componentstate);
+
+    if(std::find(engine.getOutputs().begin(), engine.getOutputs().end(), &d_componentState) == engine.getOutputs().end())
+        engine.addOutput(&d_componentState);
+
+    for (auto i : inputs)
+        i->cleanDirty();
+    engine.cleanDirty();
+    for (auto o : outputs)
+        o->cleanDirty();
 }
 
-void Base::addOutputToCallback(const std::string& name, BaseData* output)
+void Base::addOutputsToCallback(const std::string& name, std::initializer_list<BaseData*> outputs)
 {
     if (m_internalEngine.find(name) != m_internalEngine.end())
-        m_internalEngine[name].addOutputs({output});
+        m_internalEngine[name].addOutputs(outputs);
 }
 
 
@@ -348,6 +359,7 @@ BaseData* Base::findData( const std::string &name ) const
     else return nullptr;
 }
 
+
 /// Find fields given a name: several can be found as we look into the alias map
 std::vector< BaseData* > Base::findGlobalField( const std::string &name ) const
 {
@@ -436,14 +448,16 @@ bool Base::parseField( const std::string& attribute, const std::string& value)
 
     for (unsigned int d=0; d<dataVec.size(); ++d)
     {
-        // test if data is a link and can be linked
+        /// test if data is a link and can be linked
         if (value.length() > 0 && value[0] == '@' && dataVec[d]->canBeLinked())
         {
             if (!dataVec[d]->setParent(value))
             {
                 BaseData* data = nullptr;
                 BaseLink* bl = nullptr;
-                dataVec[d]->findDataLinkDest(data, value, bl);
+
+                PathResolver::FindBaseDataFromPath(dataVec[d] , value);
+
                 if (data != nullptr && dynamic_cast<EmptyData*>(data) != nullptr)
                 {
                     Base* owner = data->getOwner();

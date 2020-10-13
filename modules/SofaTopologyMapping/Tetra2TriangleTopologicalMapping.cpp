@@ -108,7 +108,7 @@ void Tetra2TriangleTopologicalMapping::init()
 
     if (!modelsOk)
     {
-        this->m_componentstate = sofa::core::objectmodel::ComponentState::Invalid;
+        this->d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
         return;
     }
 
@@ -122,7 +122,7 @@ void Tetra2TriangleTopologicalMapping::init()
 
     // if no init triangle option (set output topology to empty)
     if (noInitialTriangles.getValue()){
-        this->m_componentstate = sofa::core::objectmodel::ComponentState::Valid;
+        this->d_componentState.setValue(sofa::core::objectmodel::ComponentState::Valid);
         return;
     }
 
@@ -153,11 +153,11 @@ void Tetra2TriangleTopologicalMapping::init()
     toModel->init();
 
     Loc2GlobDataVec.endEdit();
-    this->m_componentstate = sofa::core::objectmodel::ComponentState::Valid;
+    this->d_componentState.setValue(sofa::core::objectmodel::ComponentState::Valid);
 }
 
 
-unsigned int Tetra2TriangleTopologicalMapping::getFromIndex(unsigned int ind)
+index_type Tetra2TriangleTopologicalMapping::getFromIndex(index_type ind)
 {
 
     if(fromModel->getTetrahedraAroundTriangle(ind).size()==1)
@@ -172,7 +172,7 @@ unsigned int Tetra2TriangleTopologicalMapping::getFromIndex(unsigned int ind)
 
 void Tetra2TriangleTopologicalMapping::updateTopologicalMappingTopDown()
 {
-    if (this->m_componentstate != sofa::core::objectmodel::ComponentState::Valid)
+    if (this->d_componentState.getValue() != sofa::core::objectmodel::ComponentState::Valid)
         return;
 
     sofa::helper::AdvancedTimer::stepBegin("Update Tetra2TriangleTopologicalMapping");
@@ -180,7 +180,7 @@ void Tetra2TriangleTopologicalMapping::updateTopologicalMappingTopDown()
     auto itBegin=fromModel->beginChange();
     auto itEnd=fromModel->endChange();
 
-    sofa::helper::vector <unsigned int>& Loc2GlobVec = *(Loc2GlobDataVec.beginEdit());
+    sofa::helper::vector <index_type>& Loc2GlobVec = *(Loc2GlobDataVec.beginEdit());
 
     while( itBegin != itEnd )
     {
@@ -200,10 +200,10 @@ void Tetra2TriangleTopologicalMapping::updateTopologicalMappingTopDown()
 
         case core::topology::TRIANGLESREMOVED:
         {
-            const sofa::helper::vector<unsigned int> &triIDtoRemove = ( static_cast< const TrianglesRemoved *>( *itBegin ) )->getArray();
+            const auto &triIDtoRemove = ( static_cast< const TrianglesRemoved *>( *itBegin ) )->getArray();
 
             // search for the list of triangles to remove in mapped topology
-            sofa::helper::vector< unsigned int > triangles_to_remove;
+            sofa::helper::vector< index_type > triangles_to_remove;
 
             for (auto globTriId : triIDtoRemove)
             {
@@ -460,7 +460,7 @@ void Tetra2TriangleTopologicalMapping::updateTopologicalMappingTopDown()
         {
             const auto pointRemoved = ( static_cast< const sofa::component::topology::PointsRemoved * >( *itBegin ) )->getArray();
 
-            sofa::helper::vector<unsigned int> indices;
+            sofa::helper::vector<index_type> indices;
 
             for(unsigned int i = 0; i < pointRemoved.size(); ++i)
             {
@@ -517,7 +517,7 @@ void Tetra2TriangleTopologicalMapping::updateTopologicalMappingTopDown()
 
 bool Tetra2TriangleTopologicalMapping::checkTopologies()
 {
-    if (this->m_componentstate != sofa::core::objectmodel::ComponentState::Valid)
+    if (this->d_componentState.getValue() != sofa::core::objectmodel::ComponentState::Valid)
         return false;
 
     // result of the method to be changed in case of error encountered
@@ -532,7 +532,7 @@ bool Tetra2TriangleTopologicalMapping::checkTopologies()
     dmsg_info() << "Glob2LocMap.size(): " << Glob2LocMap.size();
     dmsg_info() << "Loc2GlobDataVec.size(): " << buffer.size();
 
-    std::map<unsigned int, unsigned int>::iterator itM;
+    std::map<index_type, index_type>::iterator itM;
     for (size_t i=0; i<triangleArray_top.size(); i++)
     {
         const auto & tri = triangleArray_top[i];

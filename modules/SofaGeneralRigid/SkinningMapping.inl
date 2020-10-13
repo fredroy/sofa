@@ -24,7 +24,7 @@
 
 #include <SofaGeneralRigid/SkinningMapping.h>
 #include <sofa/core/visual/VisualParams.h>
-#include <sofa/defaulttype/RGBAColor.h>
+#include <sofa/helper/types/RGBAColor.h>
 #include <SofaBaseTopology/TriangleSetTopologyContainer.h>
 #include <sofa/core/behavior/MechanicalState.h>
 #include <sofa/helper/io/Mesh.h>
@@ -100,7 +100,7 @@ void SkinningMapping<TIn, TOut>::reinit()
     sofa::helper::WriteAccessor<Data<helper::vector<sofa::helper::SVector<InReal> > > > m_weights  ( weight );
     sofa::helper::ReadAccessor<Data<helper::vector<sofa::helper::SVector<unsigned int> > > > index ( this->f_index );
 
-    sout << "reinit : use nbRef with size = " << nbRef.getValue().size() << " - initpos size = " << xto.size() << sendl;
+    msg_info() << "reinit : use nbRef with size = " << nbRef.getValue().size() << " - initpos size = " << xto.size();
 
     // normalize weights
     for (unsigned int i=0; i<xto.size(); i++ )
@@ -140,7 +140,7 @@ void SkinningMapping<TIn, TOut>::reinit()
 template <class TIn, class TOut>
 void SkinningMapping<TIn, TOut>::updateWeights ()
 {
-    sout << "UPDATE WEIGHTS" << sendl;
+    msg_info() << "UPDATE WEIGHTS";
 
     sofa::helper::ReadAccessor<Data<OutVecCoord> > xto (this->f_initPos);
     sofa::helper::ReadAccessor<Data<InVecCoord> > xfrom = *this->fromModel->read(core::ConstVecCoordId::restPosition());
@@ -342,8 +342,8 @@ void SkinningMapping<TIn, TOut>::applyJT ( const sofa::core::ConstraintParams* c
                 parentJacobian.addCol(index[childIndex][j],parentJacobianVec);
             }
         }
-        outData.endEdit();
     }
+    outData.endEdit();
 }
 
 template <class TIn, class TOut>
@@ -385,7 +385,7 @@ void SkinningMapping<TIn, TOut>::draw(const core::visual::VisualParams* vparams)
 
             for ( unsigned int m=0 ; m<nbref && m_weights[i][m]>0.; m++ )
             {
-                colorVector.push_back( sofa::defaulttype::RGBAColor( m_weights[i][m],m_weights[i][m],0,1 ));
+                colorVector.push_back( sofa::helper::types::RGBAColor( m_weights[i][m],m_weights[i][m],0,1 ));
                 vertices.push_back(sofa::defaulttype::Vector3( xfrom[index[i][m]].getCenter() ));
                 vertices.push_back(sofa::defaulttype::Vector3( xto[i] ));
             }
@@ -439,7 +439,7 @@ void SkinningMapping<TIn, TOut>::draw(const core::visual::VisualParams* vparams)
                     if(index[i][m]==showFromIndex.getValue())
                         color = (m_weights[i][m] - minValue) / (maxValue - minValue);
 
-                colorVector.push_back(sofa::defaulttype::RGBAColor( color, 0.0, 0.0, 1.0 ));
+                colorVector.push_back(sofa::helper::types::RGBAColor( color, 0.0, 0.0, 1.0 ));
                 vertices.push_back( sofa::defaulttype::Vector3(xto[i][0], xto[i][1], xto[i][2]));
             }
             vparams->drawTool()->drawPoints(vertices,10,colorVector);

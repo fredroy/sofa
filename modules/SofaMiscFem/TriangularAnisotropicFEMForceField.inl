@@ -24,7 +24,7 @@
 
 #include "TriangularAnisotropicFEMForceField.h"
 #include <sofa/core/visual/VisualParams.h>
-#include <sofa/defaulttype/RGBAColor.h>
+#include <sofa/helper/types/RGBAColor.h>
 #include <sofa/core/ObjectFactory.h>
 #include <sofa/core/topology/BaseMeshTopology.h>
 #include <SofaBaseTopology/TopologyData.inl>
@@ -104,7 +104,7 @@ void TriangularAnisotropicFEMForceField<DataTypes>::init()
     if (m_topology == nullptr)
     {
         msg_error() << "No topology component found at path: " << l_topology.getLinkedPath() << ", nor in current context: " << this->getContext()->name;
-        sofa::core::objectmodel::BaseObject::d_componentstate.setValue(sofa::core::objectmodel::ComponentState::Invalid);
+        sofa::core::objectmodel::BaseObject::d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
         return;
     }
 
@@ -313,7 +313,7 @@ void TriangularAnisotropicFEMForceField<DataTypes>::draw(const core::visual::Vis
     if (showFiber.getValue() && lfd.size() >= (unsigned)m_topology->getNbTriangles())
     {
         vparams->drawTool()->saveLastState();
-        sofa::defaulttype::RGBAColor color(0, 0, 0, 1.0);
+        sofa::helper::types::RGBAColor color(0, 0, 0, 1.0);
         std::vector<sofa::defaulttype::Vector3> vertices;
 
         const VecCoord& x = this->mstate->read(core::ConstVecCoordId::position())->getValue();

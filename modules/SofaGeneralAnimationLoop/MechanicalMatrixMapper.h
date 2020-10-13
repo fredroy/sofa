@@ -39,6 +39,7 @@
 #include <sofa/core/MultiVecId.h>
 #include <sofa/core/BaseMapping.h>
 #include <sofa/defaulttype/BaseMatrix.h>
+#include <Eigen/Sparse>
 
 namespace sofa
 {
@@ -269,7 +270,6 @@ protected:
     using MixedInteractionForceField<TDataTypes1, TDataTypes2>::mstate1 ;
     using MixedInteractionForceField<TDataTypes1, TDataTypes2>::mstate2 ;
     using MixedInteractionForceField<TDataTypes1, TDataTypes2>::getContext ;
-    using BaseObject::m_componentstate ;
     ////////////////////////////////////////////////////////////////////////////
 
 };

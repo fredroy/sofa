@@ -48,7 +48,7 @@ DistanceMapping<TIn, TOut>::DistanceMapping()
     , f_computeDistance(initData(&f_computeDistance, false, "computeDistance", "if 'computeDistance = true', then rest length of each element equal 0, otherwise rest length is the initial lenght of each of them"))
     , f_restLengths(initData(&f_restLengths, "restLengths", "Rest lengths of the connections"))
     , d_showObjectScale(initData(&d_showObjectScale, Real(0), "showObjectScale", "Scale for object display"))
-    , d_color(initData(&d_color,defaulttype::RGBAColor(1,1,0,1), "showColor", "Color for object display. (default=[1.0,1.0,0.0,1.0])"))
+    , d_color(initData(&d_color,sofa::helper::types::RGBAColor(1,1,0,1), "showColor", "Color for object display. (default=[1.0,1.0,0.0,1.0])"))
     , d_geometricStiffness(initData(&d_geometricStiffness, 2u, "geometricStiffness", "0 -> no GS, 1 -> exact GS, 2 -> stabilized GS (default)"))
     , l_topology(initLink("topology", "link to the topology container"))
     , m_edgeContainer(nullptr)
@@ -77,7 +77,7 @@ void DistanceMapping<TIn, TOut>::init()
     if (m_edgeContainer == nullptr)
     {
         msg_error() << "No EdgeSetTopologyContainer component found at path: " << l_topology.getLinkedPath() << ", nor in current context: " << this->getContext()->name;
-        sofa::core::objectmodel::BaseObject::d_componentstate.setValue(sofa::core::objectmodel::ComponentState::Invalid);
+        sofa::core::objectmodel::BaseObject::d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
         return;
     }
 
@@ -351,19 +351,17 @@ template <class TIn, class TOut>
 void DistanceMapping<TIn, TOut>::draw(const core::visual::VisualParams* vparams)
 {
     if( !vparams->displayFlags().getShowMechanicalMappings() ) return;
-#ifndef SOFA_NO_OPENGL
-    glPushAttrib(GL_LIGHTING_BIT);
+
+    vparams->drawTool()->saveLastState();
 
     typename core::behavior::MechanicalState<In>::ReadVecCoord pos = this->getFromModel()->readPositions();
     const SeqEdges& links = m_edgeContainer->getEdges();
 
-
-
     if( d_showObjectScale.getValue() == 0 )
     {
-        glDisable(GL_LIGHTING);
+        vparams->drawTool()->disableLighting();
         helper::vector< defaulttype::Vector3 > points;
-        for(unsigned i=0; i<links.size(); i++ )
+        for(std::size_t i=0; i<links.size(); i++ )
         {
             points.push_back( sofa::defaulttype::Vector3( TIn::getCPos(pos[links[i][0]]) ) );
             points.push_back( sofa::defaulttype::Vector3( TIn::getCPos(pos[links[i][1]]) ));
@@ -372,17 +370,15 @@ void DistanceMapping<TIn, TOut>::draw(const core::visual::VisualParams* vparams)
     }
     else
     {
-        glEnable(GL_LIGHTING);
-        for(unsigned i=0; i<links.size(); i++ )
+        vparams->drawTool()->enableLighting();
+        for(std::size_t i=0; i<links.size(); i++ )
         {
             defaulttype::Vector3 p0 = TIn::getCPos(pos[links[i][0]]);
             defaulttype::Vector3 p1 = TIn::getCPos(pos[links[i][1]]);
             vparams->drawTool()->drawCylinder( p0, p1, (float)d_showObjectScale.getValue(), d_color.getValue() );
         }
     }
-
-    glPopAttrib();
-#endif // SOFA_NO_OPENGL
+    vparams->drawTool()->restoreLastState();
 }
 
 
@@ -417,7 +413,7 @@ DistanceMultiMapping<TIn, TOut>::DistanceMultiMapping()
     , f_computeDistance(initData(&f_computeDistance, false, "computeDistance", "if 'computeDistance = true', then rest length of each element equal 0, otherwise rest length is the initial lenght of each of them"))
     , f_restLengths(initData(&f_restLengths, "restLengths", "Rest lengths of the connections"))
     , d_showObjectScale(initData(&d_showObjectScale, Real(0), "showObjectScale", "Scale for object display"))
-    , d_color(initData(&d_color, defaulttype::RGBAColor(1,1,0,1), "showColor", "Color for object display. (default=[1.0,1.0,0.0,1.0])"))
+    , d_color(initData(&d_color, sofa::helper::types::RGBAColor(1,1,0,1), "showColor", "Color for object display. (default=[1.0,1.0,0.0,1.0])"))
     , d_indexPairs(initData(&d_indexPairs, "indexPairs", "list of couples (parent index + index in the parent)"))
     , d_geometricStiffness(initData(&d_geometricStiffness, (unsigned)2, "geometricStiffness", "0 -> no GS, 1 -> exact GS, 2 -> stabilized GS (default)"))
     , l_topology(initLink("topology", "link to the topology container"))
@@ -476,7 +472,7 @@ void DistanceMultiMapping<TIn, TOut>::init()
     if (m_edgeContainer == nullptr)
     {
         msg_error() << "No EdgeSetTopologyContainer component found at path: " << l_topology.getLinkedPath() << ", nor in current context: " << this->getContext()->name;
-        sofa::core::objectmodel::BaseObject::d_componentstate.setValue(sofa::core::objectmodel::ComponentState::Invalid);
+        sofa::core::objectmodel::BaseObject::d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
         return;
     }
     

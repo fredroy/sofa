@@ -327,26 +327,20 @@ void GridTopology::computeHexaList()
 
 void GridTopology::computeQuadList()
 {
-//    updateQuads();
-//    const SeqQuads seq_quads= this->getQuads();
-//    sout<<"Init: Number of Quads ="<<seq_quads.size()<<sendl;
 }
 
 void GridTopology::computeEdgeList()
 {
-    //updateEdges();
-//    const SeqLines seq_l=this->getLines();
-//    sout<<"Init: Number of Lines ="<<seq_l.size()<<sendl;
 }
 
 void GridTopology::computePointList()
 {
-    int nbPoints= this->getNbPoints();
+    std::size_t nbPoints= this->getNbPoints();
     // put the result in seqPoints
     SeqPoints& seq_P= *(seqPoints.beginWriteOnly());
     seq_P.resize(nbPoints);
 
-    for (int i=0; i<nbPoints; i++)
+    for (std::size_t i=0; i<nbPoints; i++)
     {
         seq_P[i] = this->getPoint(i);
     }
@@ -354,24 +348,24 @@ void GridTopology::computePointList()
     seqPoints.endEdit();
 }
 
-unsigned GridTopology::getIndex( int i, int j, int k ) const
+GridTopology::index_type GridTopology::getIndex( int i, int j, int k ) const
 {
-    return d_n.getValue()[0]* ( d_n.getValue()[1]*k + j ) + i;
+    return index_type(d_n.getValue()[0]* ( d_n.getValue()[1]*k + j ) + i);
 }
 
 
-sofa::defaulttype::Vector3 GridTopology::getPoint(int i) const
+sofa::defaulttype::Vector3 GridTopology::getPoint(index_type i) const
 {
     int x = i%d_n.getValue()[0]; i/=d_n.getValue()[0];
     int y = i%d_n.getValue()[1]; i/=d_n.getValue()[1];
-    int z = i;
+    int z = int(i);
 
     return getPointInGrid(x,y,z);
 }
 
 sofa::defaulttype::Vector3 GridTopology::getPointInGrid(int i, int j, int k) const
 {
-    unsigned int id = this->getIndex(i, j, k);
+    index_type id = this->getIndex(i, j, k);
     if (id < seqPoints.getValue().size())
         return seqPoints.getValue()[id];
     else
@@ -379,11 +373,11 @@ sofa::defaulttype::Vector3 GridTopology::getPointInGrid(int i, int j, int k) con
 }
 
 
-GridTopology::Hexa GridTopology::getHexaCopy(int i)
+GridTopology::Hexa GridTopology::getHexaCopy(index_type i)
 {
     int x = i%(d_n.getValue()[0]-1); i/=(d_n.getValue()[0]-1);
     int y = i%(d_n.getValue()[1]-1); i/=(d_n.getValue()[1]-1);
-    int z = i;
+    int z = int(i);
     return getHexahedron(x,y,z);
 }
 
@@ -396,7 +390,7 @@ GridTopology::Hexa GridTopology::getHexahedron(int x, int y, int z)
             point(x+1,y+1,z+1),point(x  ,y+1,z+1));
 }
 
-GridTopology::Quad GridTopology::getQuadCopy(int i)
+GridTopology::Quad GridTopology::getQuadCopy(index_type i)
 {
     if (d_n.getValue()[0] == 1)
     {

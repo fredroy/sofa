@@ -42,10 +42,10 @@ namespace forcefield
 
 
 template< class DataTypes>
-void FastTetrahedralCorotationalForceField<DataTypes>::FTCFTetrahedronHandler::applyCreateFunction(unsigned int tetrahedronIndex,
+void FastTetrahedralCorotationalForceField<DataTypes>::FTCFTetrahedronHandler::applyCreateFunction(index_type tetrahedronIndex,
         TetrahedronRestInformation &my_tinfo,
         const core::topology::BaseMeshTopology::Tetrahedron &,
-        const sofa::helper::vector<unsigned int> &,
+        const sofa::helper::vector<index_type> &,
         const sofa::helper::vector<double> &)
 {
     if (ff)
@@ -187,7 +187,7 @@ template <class DataTypes> void FastTetrahedralCorotationalForceField<DataTypes>
     if (m_topology == nullptr)
     {
         msg_error() << "No topology component found at path: " << l_topology.getLinkedPath() << ", nor in current context: " << this->getContext()->name;
-        sofa::core::objectmodel::BaseObject::d_componentstate.setValue(sofa::core::objectmodel::ComponentState::Invalid);
+        sofa::core::objectmodel::BaseObject::d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
         return;
     }
 
@@ -240,10 +240,10 @@ template <class DataTypes> void FastTetrahedralCorotationalForceField<DataTypes>
 
 
     /// initialize the data structure associated with each tetrahedron
-    for (size_t i=0; i<m_topology->getNbTetrahedra(); ++i)
+    for (Index i=0; i<m_topology->getNbTetrahedra(); ++i)
     {
         tetrahedronHandler->applyCreateFunction(i,tetrahedronInf[i],m_topology->getTetrahedron(i),
-                (const helper::vector< unsigned int > )0,
+                (const helper::vector< Index > )0,
                 (const helper::vector< double >)0);
     }
     /// set the call back function upon creation of a tetrahedron

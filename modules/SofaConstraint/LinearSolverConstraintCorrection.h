@@ -64,7 +64,7 @@ public:
     typedef typename DataTypes::Coord Coord;
     typedef typename DataTypes::Deriv Deriv;
 
-    typedef std::list<int> ListIndex;
+    typedef std::list<defaulttype::BaseMatrix::Index> ListIndex;
     typedef sofa::core::behavior::ConstraintCorrection< TDataTypes > Inherit;
 protected:
     LinearSolverConstraintCorrection(sofa::core::behavior::MechanicalState<DataTypes> *mm = nullptr);
@@ -134,7 +134,7 @@ protected:
     /// Bring inherited attributes and function in the current lookup context.
     /// otherwise any access to the base::attribute would require
     /// the "this->" approach.
-    using Inherit::m_componentstate ;
+    using Inherit::d_componentState ;
     using Inherit::mstate ;
     ////////////////////////////////////////////////////////////////////////////
 

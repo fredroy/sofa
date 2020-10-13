@@ -25,7 +25,7 @@
 #include <sofa/core/config.h>
 #include <sofa/core/objectmodel/DDGNode.h>
 #include <sofa/core/objectmodel/BaseClass.h>
-#include <sofa/core/objectmodel/Link.h>
+#include <sofa/core/objectmodel/DataLink.h>
 
 namespace sofa
 {
@@ -224,7 +224,7 @@ public:
     /// @}
 
     /// If we use the Data as a link and not as value directly
-    std::string getLinkPath() const { return parentBaseData.getPath(); }
+    virtual std::string getLinkPath() const { return parentData.getPath(); }
     /// Return whether this %Data can be used as a linkPath.
     ///
     /// True by default.
@@ -285,47 +285,15 @@ public:
     /// Check if a given Data can be linked as a parent of this data
     virtual bool validParent(BaseData* parent);
 
-    BaseData* getParent() const { return parentBaseData.get(); }
+    BaseData* getParent() { return parentData.getTarget(); }
 
     /// Update the value of this %Data
     void update() override;
 
-    /// @name Links management
-    /// @{
-
-    typedef std::vector<BaseLink*> VecLink;
-    /// Accessor to the vector containing all the fields of this object
-    const VecLink& getLinks() const { return m_vecLink; }
-
-    virtual bool findDataLinkDest(BaseData*& ptr, const std::string& path, const BaseLink* link);
-
-    template<class DataT>
-    bool findDataLinkDest(DataT*& ptr, const std::string& path, const BaseLink* link)
-    {
-        BaseData* base = nullptr;
-        if (!findDataLinkDest(base, path, link)) return false;
-        ptr = dynamic_cast<DataT*>(base);
-        return (ptr != nullptr);
-    }
-
-    /// Add a link.
-    void addLink(BaseLink* l);
-
 protected:
-
-    BaseLink::InitLink<BaseData>
-    initLink(const std::string& name, const std::string& help)
-    {
-        return BaseLink::InitLink<BaseData>(this, name, help);
-    }
-
-    /// List of links
-    VecLink m_vecLink;
-
     /// @}
 
-    virtual void doSetParent(BaseData* parent);
-
+    /// Delegates from DDGNode.
     void doDelInput(DDGNode* n) override;
 
     /// Update this %Data from the value of its parent
@@ -351,7 +319,7 @@ protected:
     std::string m_name;
 
     /// Parent Data
-    SingleLink<BaseData,BaseData,BaseLink::FLAG_STOREPATH|BaseLink::FLAG_DATALINK|BaseLink::FLAG_DUPLICATE> parentBaseData;
+    DataLink<BaseData> parentData;
 
     /// Helper method to decode the type name to a more readable form if possible
     static std::string decodeTypeName(const std::type_info& t);
@@ -367,16 +335,6 @@ public:
         else
             return decodeTypeName(typeid(T));
     }
-};
-
-template<class Type>
-class LinkTraitsPtrCasts
-{
-public:
-    static sofa::core::objectmodel::Base* getBase(sofa::core::objectmodel::Base* b) { return b; }
-    static sofa::core::objectmodel::Base* getBase(sofa::core::objectmodel::BaseData* d) { return d->getOwner(); }
-    static sofa::core::objectmodel::BaseData* getData(sofa::core::objectmodel::Base* /*b*/) { return nullptr; }
-    static sofa::core::objectmodel::BaseData* getData(sofa::core::objectmodel::BaseData* d) { return d; }
 };
 
 /** A WriteAccessWithRawPtr is a RAII class, holding a reference to a given container

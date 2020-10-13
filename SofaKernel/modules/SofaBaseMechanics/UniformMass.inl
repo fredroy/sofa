@@ -134,7 +134,7 @@ void UniformMass<DataTypes, MassType>::init()
 template <class DataTypes, class MassType>
 void UniformMass<DataTypes, MassType>::initDefaultImpl()
 {
-    this->m_componentstate = core::objectmodel::ComponentState::Valid;
+    this->d_componentState.setValue(sofa::core::objectmodel::ComponentState::Valid);
 
     Mass<DataTypes>::init();
 
@@ -235,12 +235,12 @@ void UniformMass<DataTypes, MassType>::doUpdateInternal()
         if(checkTotalMass())
         {
             initFromTotalMass();
-            this->m_componentstate = core::objectmodel::ComponentState::Valid;
+            this->d_componentState.setValue(sofa::core::objectmodel::ComponentState::Valid);
         }
         else
         {
             msg_error() << "doUpdateInternal: incorrect update from totalMass";
-            this->m_componentstate = core::objectmodel::ComponentState::Invalid;
+            this->d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
         }
     }
     else if(this->hasDataChanged(d_vertexMass))
@@ -248,12 +248,12 @@ void UniformMass<DataTypes, MassType>::doUpdateInternal()
         if(checkVertexMass())
         {
             initFromVertexMass();
-            this->m_componentstate = core::objectmodel::ComponentState::Valid;
+            this->d_componentState.setValue(sofa::core::objectmodel::ComponentState::Valid);
         }
         else
         {
             msg_error() << "doUpdateInternal: incorrect update from vertexMass";
-            this->m_componentstate = core::objectmodel::ComponentState::Invalid;
+            this->d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
         }
     }
 
@@ -316,7 +316,7 @@ void UniformMass<DataTypes, MassType>::checkTotalMassInit()
     {
         msg_warning(this) << "Switching back to default values: totalMass = 1.0\n";
         d_totalMass.setValue(1.0) ;
-        this->m_componentstate = core::objectmodel::ComponentState::Invalid;
+        this->d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
     }
 }
 
@@ -369,7 +369,7 @@ void UniformMass<DataTypes, MassType>::handleTopologyChange()
                 {
                     WriteAccessor<Data<vector<int> > > indices = d_indices;
                     size_t sizeIndices = indices.size();
-                    const sofa::helper::vector< unsigned int >& pointsAdded = ( static_cast< const sofa::core::topology::PointsAdded * >( *it ) )->getIndexArray();
+                    const auto& pointsAdded = ( static_cast< const sofa::core::topology::PointsAdded * >( *it ) )->getIndexArray();
                     size_t nbPointsAdded = pointsAdded.size();
 
                     for(size_t i=0; i<nbPointsAdded; i++)
@@ -398,7 +398,7 @@ void UniformMass<DataTypes, MassType>::handleTopologyChange()
                 {
                     WriteAccessor<Data<vector<int> > > indices = d_indices;
                     size_t sizeIndices = indices.size();
-                    const sofa::helper::vector< unsigned int >& pointsRemoved = ( static_cast< const sofa::core::topology::PointsRemoved * >( *it ) )->getArray();
+                    const auto& pointsRemoved = ( static_cast< const sofa::core::topology::PointsRemoved * >( *it ) )->getArray();
                     size_t nbPointsRemoved = pointsRemoved.size();
 
                     size_t count=0;
@@ -635,14 +635,14 @@ void UniformMass<DataTypes, MassType>::addMToMatrix (const MechanicalParams *mpa
 
 
 template <class DataTypes, class MassType>
-SReal UniformMass<DataTypes, MassType>::getElementMass ( unsigned int ) const
+SReal UniformMass<DataTypes, MassType>::getElementMass (sofa::defaulttype::index_type ) const
 {
     return (SReal ( d_vertexMass.getValue() ));
 }
 
 
 template <class DataTypes, class MassType>
-void UniformMass<DataTypes, MassType>::getElementMass ( unsigned int  index ,
+void UniformMass<DataTypes, MassType>::getElementMass (sofa::defaulttype::index_type  index ,
                                                         BaseMatrix *m ) const
 {
     SOFA_UNUSED(index);
@@ -660,6 +660,9 @@ template <class DataTypes, class MassType>
 void UniformMass<DataTypes, MassType>::draw(const VisualParams* vparams)
 {
     if ( !vparams->displayFlags().getShowBehaviorModels() )
+        return;
+
+    if (!mstate.get())
         return;
 
     ReadAccessor<VecCoord> x = mstate->read(ConstVecCoordId::position())->getValue();

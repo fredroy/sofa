@@ -3,6 +3,8 @@ project(Registration VERSION 0.1)
 
 find_package(SofaGui REQUIRED)
 sofa_find_package(SofaMiscCollision REQUIRED)
+sofa_find_package(SofaOpenglVisual REQUIRED)
+sofa_find_package(SofaExporter REQUIRED)
 sofa_find_package(SofaDistanceGrid QUIET)
 sofa_find_package(image QUIET)
 find_package(Eigen3 REQUIRED)
@@ -73,9 +75,9 @@ if(SofaTest_FOUND)
 endif()
 
 ## Install rules for the library; CMake package configurations files
-sofa_generate_package(
-    NAME ${PROJECT_NAME}
-    TARGETS ${PROJECT_NAME}
-    VERSION ${PROJECT_VERSION}
+sofa_create_package_with_targets(
+    PACKAGE_NAME ${PROJECT_NAME}
+    PACKAGE_VERSION ${PROJECT_VERSION}
+    TARGETS ${PROJECT_NAME} AUTO_SET_TARGET_PROPERTIES
     RELOCATABLE "plugins"
     )

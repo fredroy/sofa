@@ -57,29 +57,29 @@ TriangleOctreeModel::TriangleOctreeModel ()
 
 void TriangleOctreeModel::draw (const core::visual::VisualParams* vparams)
 {
-#ifndef SOFA_NO_OPENGL
+    vparams->drawTool()->saveLastState();
+
     TriangleCollisionModel<sofa::defaulttype::Vec3Types>::draw(vparams);
     if (isActive () && vparams->displayFlags().getShowCollisionModels ())
     {
         if (vparams->displayFlags().getShowWireFrame ())
-            glPolygonMode (GL_FRONT_AND_BACK, GL_LINE);
+            vparams->drawTool()->setPolygonMode(0, true);
 
-        glEnable (GL_LIGHTING); 
-        glMaterialfv (GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, getColor4f());
-        static const float emissive[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
-        static const float specular[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
-        glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, emissive);
-        glMaterialfv (GL_FRONT_AND_BACK, GL_SPECULAR, specular);
-        glMaterialf (GL_FRONT_AND_BACK, GL_SHININESS, 20);
+        vparams->drawTool()->enableLighting();
+        const float* getCol = getColor4f();
+        sofa::defaulttype::Vec4f color;
+        color[0] = getCol[0]; color[1] = getCol[1]; color[2] = getCol[2]; color[3] = getCol[3];
+        vparams->drawTool()->setMaterial(color);
+
         if(octreeRoot)
             octreeRoot->draw(vparams);
 
-        glColor3f (1.0f, 1.0f, 1.0f);
-        glDisable (GL_LIGHTING);
+        vparams->drawTool()->disableLighting();
         if (vparams->displayFlags().getShowWireFrame ())
-            glPolygonMode (GL_FRONT_AND_BACK, GL_FILL);
+            vparams->drawTool()->setPolygonMode(0, false);
     }
-#endif /* SOFA_NO_OPENGL */
+
+    vparams->drawTool()->restoreLastState();
 }
 
 void TriangleOctreeModel::computeBoundingTree(int maxDepth)
@@ -95,9 +95,9 @@ void TriangleOctreeModel::computeBoundingTree(int maxDepth)
     updateFromTopology();
 
     if (!isMoving() && !cubeModel->empty()) return; // No need to recompute BBox if immobile
-    int size2=m_mstate->getSize();
+    std::size_t size2=m_mstate->getSize();
     pNorms.resize(size2);
-    for(int i=0; i<size2; i++)
+    for(std::size_t i=0; i<size2; i++)
     {
         pNorms[i]=defaulttype::Vector3(0,0,0);
     }
@@ -107,7 +107,7 @@ void TriangleOctreeModel::computeBoundingTree(int maxDepth)
     maxElem[2]=minElem[2]=m_mstate->read(core::ConstVecCoordId::position())->getValue()[0][2];
 
     cubeModel->resize(1);  // size = number of triangles
-    for (int i=1; i<size; i++)
+    for (std::size_t i=1; i<size; i++)
     {
         Triangle t(this,i);
         pNorms[tri[i][0]]+=t.n();
@@ -136,7 +136,7 @@ void TriangleOctreeModel::computeBoundingTree(int maxDepth)
 
     cubeModel->setParentOf(0, minElem, maxElem); // define the bounding box of the current triangle
     cubeModel->computeBoundingTree(maxDepth);
-    for(int i=0; i<size2; i++)
+    for(std::size_t i=0; i<size2; i++)
     {
         pNorms[i].normalize();
     }

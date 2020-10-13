@@ -24,7 +24,7 @@
 
 #include "TriangleFEMForceField.h"
 #include <sofa/core/visual/VisualParams.h>
-#include <sofa/defaulttype/RGBAColor.h>
+#include <sofa/helper/types/RGBAColor.h>
 #include <sofa/core/ObjectFactory.h>
 #include <sofa/core/topology/BaseMeshTopology.h>
 #include <fstream> // for reading the file
@@ -89,14 +89,14 @@ void TriangleFEMForceField<DataTypes>::init()
     if (m_topology == nullptr)
     {
         msg_error() << "No topology component found at path: " << l_topology.getLinkedPath() << ", nor in current context: " << this->getContext()->name;
-        sofa::core::objectmodel::BaseObject::d_componentstate.setValue(sofa::core::objectmodel::ComponentState::Invalid);
+        sofa::core::objectmodel::BaseObject::d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
         return;
     }
 
     if (m_topology->getTriangles().empty() && m_topology->getNbQuads() <= 0)
     {
         msg_error() << "Need a MeshTopology with triangles or quads.";
-        sofa::core::objectmodel::BaseObject::d_componentstate.setValue(sofa::core::objectmodel::ComponentState::Invalid);
+        sofa::core::objectmodel::BaseObject::d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
         return;
     }
     else
@@ -689,11 +689,11 @@ void TriangleFEMForceField<DataTypes>::draw(const core::visual::VisualParams* vp
         Index b = (*it)[1];
         Index c = (*it)[2];
 
-        colorVector.push_back(sofa::defaulttype::RGBAColor(0,1,0,1));
+        colorVector.push_back(sofa::helper::types::RGBAColor(0,1,0,1));
         vertices.push_back(sofa::defaulttype::Vector3(x[a]));
-        colorVector.push_back(sofa::defaulttype::RGBAColor(0,0.5,0.5,1));
+        colorVector.push_back(sofa::helper::types::RGBAColor(0,0.5,0.5,1));
         vertices.push_back(sofa::defaulttype::Vector3(x[b]));
-        colorVector.push_back(sofa::defaulttype::RGBAColor(0,0,1,1));
+        colorVector.push_back(sofa::helper::types::RGBAColor(0,0,1,1));
         vertices.push_back(sofa::defaulttype::Vector3(x[c]));
     }
     vparams->drawTool()->drawTriangles(vertices,colorVector);

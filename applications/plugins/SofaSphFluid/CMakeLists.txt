@@ -20,8 +20,6 @@ set(HEADER_FILES
     ${PLUGIN_SPH_SRC_DIR}/SPHFluidSurfaceMapping.inl
     ${PLUGIN_SPH_SRC_DIR}/SpatialGridContainer.h
     ${PLUGIN_SPH_SRC_DIR}/SpatialGridContainer.inl
-    ${PLUGIN_SPH_SRC_DIR}/OglFluidModel.h
-    ${PLUGIN_SPH_SRC_DIR}/OglFluidModel.inl
 )
 
 set(SOURCE_FILES
@@ -32,8 +30,19 @@ set(SOURCE_FILES
     ${PLUGIN_SPH_SRC_DIR}/SPHFluidForceField.cpp
     ${PLUGIN_SPH_SRC_DIR}/SPHFluidSurfaceMapping.cpp
     ${PLUGIN_SPH_SRC_DIR}/SpatialGridContainer.cpp
-    ${PLUGIN_SPH_SRC_DIR}/OglFluidModel.cpp
 )
+
+if(SofaOpenglVisual_FOUND)
+    list(APPEND HEADER_FILES
+            ${PLUGIN_SPH_SRC_DIR}/OglFluidModel.h
+            ${PLUGIN_SPH_SRC_DIR}/OglFluidModel.inl
+        )
+
+    list(APPEND SOURCE_FILES
+            ${PLUGIN_SPH_SRC_DIR}/OglFluidModel.cpp
+        )
+endif()
+
 
 set(README_FILES
     README.md
@@ -54,10 +63,10 @@ endif()
 
 
 
-sofa_generate_package(
-    NAME ${PROJECT_NAME}
-    TARGETS ${PROJECT_NAME}
-    VERSION ${PROJECT_VERSION}
+sofa_create_package_with_targets(
+    PACKAGE_NAME ${PROJECT_NAME}
+    PACKAGE_VERSION ${PROJECT_VERSION}
+    TARGETS ${PROJECT_NAME} AUTO_SET_TARGET_PROPERTIES
     INCLUDE_SOURCE_DIR "src"
     INCLUDE_INSTALL_DIR ${PROJECT_NAME}
     RELOCATABLE "plugins"
