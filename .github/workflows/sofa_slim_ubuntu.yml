@@ -1,7 +1,11 @@
 name: C/C++ CI
 
-on: [push, pull_request, workflow_dispatch]
-
+on:
+  push:
+    branches-ignore:
+      - master
+      - fredroy-init-actions
+  
 jobs:
   build:
 
