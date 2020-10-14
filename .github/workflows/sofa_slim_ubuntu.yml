@@ -4,8 +4,10 @@ on:
   push:
     branches-ignore:
       - master
+      - fredroy-init-actions 
+  pull_request:
+    branches-ignore:
       - fredroy-init-actions
-  
 jobs:
   build:
 
@@ -17,17 +19,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      
-    - name: Getting current SOFA master tag
-      id: sofa_master_tag
-      run: echo "::set-output name=tag::$(git ls-remote https://github.com/sofa-framework/sofa.git HEAD | cut -f1)"
-
-    - name: Checkout source code
+    
+    - name: Checkout source code (repo fredroy/sofa , branch ${GITHUB_REF##*/})
       uses: actions/checkout@v2
-      if: steps.sofa_master_tag.outputs.tag != steps.sofa_built_tag.outputs.tag
       with:
-          repository:  sofa-framework/sofa
-          ref: master
+          repository:  fredroy/sofa
+          ref: ${GITHUB_REF##*/}
       
     - name: install requirements
       run: sudo apt install -qq ccache ninja-build libeigen3-dev libboost-dev libboost-system-dev libboost-filesystem-dev libboost-program-options-dev libboost-thread-dev
