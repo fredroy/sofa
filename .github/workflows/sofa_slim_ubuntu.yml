@@ -20,11 +20,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Checkout source code (repo fredroy/sofa , branch ${GITHUB_REF##*/})
+    - name: Checkout source code (repo fredroy/sofa , branch ${{ github.ref }} )
       uses: actions/checkout@v2
       with:
           repository:  fredroy/sofa
-          ref: ${GITHUB_REF##*/}
+          ref: ${{ github.ref }}
       
     - name: install requirements
       run: sudo apt install -qq ccache ninja-build libeigen3-dev libboost-dev libboost-system-dev libboost-filesystem-dev libboost-program-options-dev libboost-thread-dev
