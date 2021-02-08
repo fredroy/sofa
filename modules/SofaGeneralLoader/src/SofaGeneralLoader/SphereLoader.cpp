@@ -27,6 +27,7 @@
 #include <sofa/core/ObjectFactory.h>
 #include <sstream>
 
+using namespace sofa::helper;
 using namespace sofa::core::loader;
 using namespace sofa::defaulttype;
 

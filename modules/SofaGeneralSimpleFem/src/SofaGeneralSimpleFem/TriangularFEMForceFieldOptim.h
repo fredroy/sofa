@@ -23,7 +23,7 @@
 #include <SofaGeneralSimpleFem/config.h>
 
 
-
+#include <sofa/helper/accessor.h>
 #include <sofa/core/behavior/ForceField.h>
 #include <sofa/core/topology/BaseMeshTopology.h>
 #include <sofa/defaulttype/VecTypes.h>

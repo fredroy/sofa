@@ -22,8 +22,8 @@
 
 #include <sofa/helper/ColorMap.h>
 
+#include <sofa/helper/logging/Messaging.h>
 #include <string>
-#include <iostream>
 
 namespace sofa
 {

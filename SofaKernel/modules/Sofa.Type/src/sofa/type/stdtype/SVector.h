@@ -109,7 +109,7 @@ public:
 
         if ( c != '[' )
         {
-            msg_error("SVector") << "read : Bad begin character : " << c << ", expected  [";
+            //msg_error("SVector") << "read : Bad begin character : " << c << ", expected  [";
             return in;
         }
         std::streampos pos = in.tellg();
@@ -130,7 +130,7 @@ public:
             }
             if ( c != ']' )
             {
-                msg_error("SVector") << "read : Bad end character : " << c << ", expected  ]";
+                //msg_error("SVector") << "read : Bad end character : " << c << ", expected  ]";
                 return in;
             }
         }

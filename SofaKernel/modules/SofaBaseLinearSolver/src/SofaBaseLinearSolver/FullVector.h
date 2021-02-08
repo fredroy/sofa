@@ -25,6 +25,7 @@
 #include <sofa/defaulttype/BaseVector.h>
 #include <sofa/helper/vector.h>
 #include <sofa/helper/rmath.h>
+#include <sofa/helper/logging/Messaging.h>
 
 namespace sofa::component::linearsolver
 {

@@ -48,7 +48,13 @@ unsigned int SOFA_TYPE_API getUnsignedInteger(const std::string& s, std::strings
 template <typename T>
 class CPUMemoryManager;
 
-template <class T, class MemoryManager = CPUMemoryManager<T> >
+template <typename T>
+class TypeInfo
+{
+    using DataType = T;
+};
+
+template <class T, class MemoryManager = CPUMemoryManager<T>, class TypeInfo = TypeInfo<T> >
 class vector;
 
 /// Regular vector
@@ -56,7 +62,7 @@ class vector;
 ///  - string serialization (making it usable in Data)
 ///  - operator[] is checking if the index is within the bounds in debug
 template <class T>
-class SOFA_TYPE_API vector<T, CPUMemoryManager<T> > : public std::vector<T, std::allocator<T> >
+class SOFA_TYPE_API vector<T, CPUMemoryManager<T>, TypeInfo<T> > : public std::vector<T, std::allocator<T> >
 {
 public:
     typedef CPUMemoryManager<T> memory_manager;

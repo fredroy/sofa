@@ -27,7 +27,7 @@
 
 namespace sofa::helper
 {
-    template <class T, class MemoryManager = sofa::type::stdtype::CPUMemoryManager<T> >
-    using vector = sofa::type::stdtype::vector<T, MemoryManager>;
+    template <class T, class MemoryManager = sofa::type::stdtype::CPUMemoryManager<T>, class TypeInfo = sofa::type::stdtype::TypeInfo<T> >
+    using vector = sofa::type::stdtype::vector<T, MemoryManager, TypeInfo>;
 
 } // namespace sofa::helper

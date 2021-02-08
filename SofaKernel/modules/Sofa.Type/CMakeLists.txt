@@ -22,6 +22,7 @@ set(HEADER_FILES
     ${SOFATYPESRC_ROOT}/stdtype/vector_algebra.h
     ${SOFATYPESRC_ROOT}/stdtype/stable_vector.h
     ${SOFATYPESRC_ROOT}/stdtype/SVector.h
+    ${SOFATYPESRC_ROOT}/stdtype/vector_device.h
 )
 
 set(SOURCE_FILES
@@ -55,6 +56,7 @@ set(COMPAT_HEADER_FILES
     ${COMPATSRC_ROOT}/sofa/helper/vector_algebra.h
     ${COMPATSRC_ROOT}/sofa/helper/stable_vector.h
     ${COMPATSRC_ROOT}/sofa/helper/SVector.h
+    ${COMPATSRC_ROOT}/sofa/helper/vector_device.h
 )
 
 add_library(${PROJECT_NAME} SHARED ${HEADER_FILES} ${SOURCE_FILES} ${COMPAT_HEADER_FILES})

@@ -23,6 +23,7 @@
 
 #include <sofa/helper/AdvancedTimer.h>
 #include <sofa/helper/vector.h>
+#include <sofa/helper/logging/Messaging.h>
 #include <json.h>
 
 #include <iomanip>

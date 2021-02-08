@@ -19,11 +19,10 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#ifndef SOFA_HELPER_VECTOR_DEVICE_H
-#define SOFA_HELPER_VECTOR_DEVICE_H
+#pragma once
 
-#include <sofa/helper/vector.h>
-#include <sofa/defaulttype/DataTypeInfo.h>
+#include <sofa/type/stdtype/vector.h>
+//#include <sofa/defaulttype/DataTypeInfo.h>
 
 // maximum number of bytes we allow to increase the size when of a vector in a single step when we reserve on the host or device
 #define SOFA_VECTOR_HOST_STEP_SIZE 32768
@@ -45,17 +44,14 @@
 #define DEBUG_OUT_V(a)
 #endif
 
-namespace sofa
-{
-
-namespace helper
+namespace sofa::type::stdtype
 {
 
 #ifdef DEBUG_OUT_VECTOR
     int cptid = 0;
 #endif
 
-template <class T, class MemoryManager>
+template <class T, class MemoryManager, typename TypeInfoRebound >
 class vector
 {
 public:
@@ -67,11 +63,12 @@ public:
     typedef const T* const_iterator;
     typedef typename MemoryManager::device_pointer device_pointer;
     typedef typename MemoryManager::buffer_id_type buffer_id_type;
+    using TTypeInfoRebound = TypeInfoRebound;
 
     typedef MemoryManager memory_manager;
     template<class T2> struct rebind
     {
-        typedef vector<T2, typename memory_manager::template rebind<T2>::other > other;
+        typedef vector<T2, typename memory_manager::template rebind<T2>::other, typename TTypeInfoRebound::template rebind<T2>::other > other;
     };
 
 protected:
@@ -393,7 +390,7 @@ public:
         DEBUG_OUT_V(SPACEP << "resize " << vectorSize << "->" << s << " (alloc=" << allocSize << ")" << std::endl);
         if ( s > vectorSize )
         {
-            if (sofa::defaulttype::DataTypeInfo<T>::ZeroConstructor )   // can use memset instead of constructors
+            if (TTypeInfoRebound::RealDataTypeInfo::ZeroConstructor )   // can use memset instead of constructors
             {
                 if (hostIsValid)
                 {
@@ -454,7 +451,7 @@ public:
                 }
             }
         }
-        else if (s < vectorSize && !(defaulttype::DataTypeInfo<T>::SimpleCopy))     // need to call destructors
+        else if (s < vectorSize && !(TTypeInfoRebound::RealDataTypeInfo::SimpleCopy))     // need to call destructors
         {
             DEBUG_OUT_V(SPACEN << "SIMPLECOPY " << std::endl);
             copyToHost();
@@ -677,7 +674,7 @@ public:
     }
 
     /// Output stream
-    inline friend std::ostream& operator<< ( std::ostream& os, const vector<T,MemoryManager>& vec )
+    inline friend std::ostream& operator<< ( std::ostream& os, const vector<T,MemoryManager,TTypeInfoRebound>& vec )
     {
         if ( vec.size() >0 )
         {
@@ -688,7 +685,7 @@ public:
     }
 
     /// Input stream
-    inline friend std::istream& operator>> ( std::istream& in, vector<T,MemoryManager>& vec )
+    inline friend std::istream& operator>> ( std::istream& in, vector<T,MemoryManager, TTypeInfoRebound>& vec )
     {
         T t;
         vec.clear();
@@ -920,7 +917,4 @@ protected:
 #undef DEBUG_OUT_V
 #endif
 
-} // namespace helper
-
-} // namespace sofa
-#endif //SOFA_HELPER_VECTOR_DEVICE_H
+} // namespace sofa::type::stdtype

@@ -28,7 +28,7 @@
 #include <sofa/helper/system/gl.h>
 #include <sofa/defaulttype/Vec.h>
 #include <sofa/defaulttype/MapMapSparseMatrix.h>
-#include <sofa/helper/vector.h>
+#include <sofa/type/stdtype/vector.h>
 #include <sofa/helper/accessor.h>
 //#include <sofa/helper/BackTrace.h>
 #include <sofa/core/objectmodel/Base.h>
@@ -37,7 +37,7 @@
 //#include <sofa/defaulttype/SparseConstraintTypes.h>
 #include <iostream>
 #include <sofa/gpu/cuda/CudaMemoryManager.h>
-#include <sofa/helper/vector_device.h>
+#include <sofa/type/stdtype/vector_device.h>
 
 namespace sofa
 {
@@ -48,17 +48,30 @@ namespace gpu
 namespace cuda
 {
 
+
+template<typename T>
+struct DataTypeInfoRebound
+{
+    using RealDataTypeInfo = sofa::defaulttype::DataTypeInfo<T>;
+    template<class T2> struct rebind
+    {
+        typedef DataTypeInfoRebound<T2> other;
+    };
+
+};
+
 template<class T>
-class CudaVector : public helper::vector<T,CudaMemoryManager<T> >
+class CudaVector : public type::stdtype::vector<T,CudaMemoryManager<T>, DataTypeInfoRebound<T> >
 {
 public :
+    using Inherit = type::stdtype::vector<T, CudaMemoryManager<T>, DataTypeInfoRebound<T> >;
     typedef size_t Size;
 
-    CudaVector() : helper::vector<T,CudaMemoryManager<T> >() {}
+    CudaVector() : Inherit() {}
 
-    CudaVector(Size n) : helper::vector<T,CudaMemoryManager<T> >(n) {}
+    CudaVector(Size n) : Inherit(n) {}
 
-    CudaVector(const helper::vector<T,CudaMemoryManager< T > >& v) : helper::vector<T,CudaMemoryManager<T> >(v) {}
+    CudaVector(const Inherit& v) : Inherit(v) {}
 
 };
 
