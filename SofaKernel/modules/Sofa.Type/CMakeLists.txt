@@ -18,6 +18,10 @@ set(HEADER_FILES
     ${SOFATYPESRC_ROOT}/DualQuat.inl
     ${SOFATYPESRC_ROOT}/stdtype/fixed_array.h
     ${SOFATYPESRC_ROOT}/stdtype/fixed_array_algorithms.h
+    ${SOFATYPESRC_ROOT}/stdtype/vector.h
+    ${SOFATYPESRC_ROOT}/stdtype/vector_algebra.h
+    ${SOFATYPESRC_ROOT}/stdtype/stable_vector.h
+    ${SOFATYPESRC_ROOT}/stdtype/SVector.h
 )
 
 set(SOURCE_FILES
@@ -26,6 +30,8 @@ set(SOURCE_FILES
     ${SOFATYPESRC_ROOT}/Quat.cpp
     ${SOFATYPESRC_ROOT}/DualQuat.cpp
     ${SOFATYPESRC_ROOT}/stdtype/fixed_array.cpp
+    ${SOFATYPESRC_ROOT}/stdtype/vector.cpp
+    ${SOFATYPESRC_ROOT}/stdtype/SVector.cpp
 )
 
 # Compatibility files
@@ -45,6 +51,10 @@ set(COMPAT_HEADER_FILES
     ${COMPATSRC_ROOT}/sofa/helper/Quater.inl
     ${COMPATSRC_ROOT}/sofa/helper/DualQuat.h
     ${COMPATSRC_ROOT}/sofa/helper/DualQuat.inl
+    ${COMPATSRC_ROOT}/sofa/helper/vector.h
+    ${COMPATSRC_ROOT}/sofa/helper/vector_algebra.h
+    ${COMPATSRC_ROOT}/sofa/helper/stable_vector.h
+    ${COMPATSRC_ROOT}/sofa/helper/SVector.h
 )
 
 add_library(${PROJECT_NAME} SHARED ${HEADER_FILES} ${SOURCE_FILES} ${COMPAT_HEADER_FILES})

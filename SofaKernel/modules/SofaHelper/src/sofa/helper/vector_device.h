@@ -51,7 +51,9 @@ namespace sofa
 namespace helper
 {
 
-DEBUG_OUT_V(extern SOFA_HELPER_API int cptid;)
+#ifdef DEBUG_OUT_VECTOR
+    int cptid = 0;
+#endif
 
 template <class T, class MemoryManager>
 class vector

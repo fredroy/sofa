@@ -19,21 +19,14 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#ifndef SOFA_HELPER_VECTOR_H
-#define SOFA_HELPER_VECTOR_H
+#pragma once
+
+#include <sofa/type/config.h>
 
 #include <vector>
 #include <string>
-#include <algorithm>
-#include <cassert>
-#include <iostream>
-#include <cstdlib>
-#include <typeinfo>
-#include <cstdio>
+#include <sstream>
 
-#include <sofa/helper/config.h>
-#include <sofa/helper/MemoryManager.h>
-#include <sofa/helper/logging/Messaging.h>
 
 #if !defined(NDEBUG) && !defined(SOFA_NO_VECTOR_ACCESS_FAILURE)
 #if !defined(SOFA_VECTOR_ACCESS_FAILURE)
@@ -41,22 +34,19 @@
 #endif
 #endif
 
-namespace sofa
+namespace sofa::type::stdtype
 {
-
-namespace helper
-{
-
-void SOFA_HELPER_API vector_access_failure(const void* vec, unsigned size, unsigned i, const std::type_info& type);
 
 /// Convert the string 's' into an unsigned int. The error are reported in msg & numErrors
 /// is incremented.
-int SOFA_HELPER_API getInteger(const std::string& s, std::stringstream& msg, unsigned int& numErrors) ;
+int SOFA_TYPE_API getInteger(const std::string& s, std::stringstream& msg, unsigned int& numErrors) ;
 
 /// Convert the string 's' into an unsigned int. The error are reported in msg & numErrors
 /// is incremented.
-unsigned int SOFA_HELPER_API getUnsignedInteger(const std::string& s, std::stringstream& msg, unsigned int& numErrors) ;
+unsigned int SOFA_TYPE_API getUnsignedInteger(const std::string& s, std::stringstream& msg, unsigned int& numErrors) ;
 
+template <typename T>
+class CPUMemoryManager;
 
 template <class T, class MemoryManager = CPUMemoryManager<T> >
 class vector;
@@ -66,7 +56,7 @@ class vector;
 ///  - string serialization (making it usable in Data)
 ///  - operator[] is checking if the index is within the bounds in debug
 template <class T>
-class SOFA_HELPER_API vector<T, CPUMemoryManager<T> > : public std::vector<T, std::allocator<T> >
+class SOFA_TYPE_API vector<T, CPUMemoryManager<T> > : public std::vector<T, std::allocator<T> >
 {
 public:
     typedef CPUMemoryManager<T> memory_manager;
@@ -243,7 +233,7 @@ std::istream& vector<int>::read( std::istream& in )
                 if (tinc == 0)
                 {
                     tinc = (t1<t2) ? 1 : -1;
-                    msg << "- Increment 0 is replaced by "<< tinc << msgendl;
+                    msg << "- Increment 0 is replaced by "<< tinc << "  \n";
                 }
                 if ((t2-t1)*tinc < 0)
                 {
@@ -267,8 +257,8 @@ std::istream& vector<int>::read( std::istream& in )
     if( in.rdstate() & std::ios_base::eofbit ) { in.clear(); }
     if(numErrors!=0)
     {
-        msg_warning("vector<int>") << "Unable to parse vector values:" << msgendl
-                                   << msg.str() ;
+        //msg_warning("vector<int>") << "Unable to parse vector values:" << "  \n"
+        //                           << msg.str() ;
     }
     return in;
 }
@@ -338,8 +328,8 @@ std::istream& vector<unsigned int>::read( std::istream& in )
     if( in.rdstate() & std::ios_base::eofbit ) { in.clear(); }
     if(errcnt!=0)
     {
-        msg_warning("vector<unsigned int>") << "Unable to parse values" << msgendl
-                                            << errmsg.str() ;
+        //msg_warning("vector<unsigned int>") << "Unable to parse values" << "  \n"
+        //                                    << errmsg.str() ;
     }
 
     return in;
@@ -434,7 +424,4 @@ void removeIndex( std::vector<T,TT>& v, size_t index )
 }
 
 
-} // namespace helper
-} // namespace sofa
-
-#endif //SOFA_HELPER_VECTOR_H
+} // namespace sofa::type::stdtype
