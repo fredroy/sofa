@@ -120,9 +120,18 @@ set(HEADER_FILES
     ${SRC_ROOT}/system/FileMonitor.h
     ${SRC_ROOT}/system/FileRepository.h
     ${SRC_ROOT}/vector.h
+    ${SRC_ROOT}/vector_T.h
+    ${SRC_ROOT}/vector_T.inl
+    ${SRC_ROOT}/vector_Real.h
+    ${SRC_ROOT}/vector_Real.inl
+    ${SRC_ROOT}/vector_Integral.h
+    ${SRC_ROOT}/vector_Integral.inl
+    ${SRC_ROOT}/vector_String.h
+    ${SRC_ROOT}/vector_String.inl
     ${SRC_ROOT}/vectorData.h
     ${SRC_ROOT}/vectorLinks.h
     ${SRC_ROOT}/vector_algebra.h
+    ${SRC_ROOT}/vector_algorithm.h
     ${SRC_ROOT}/vector_device.h
     ${SRC_ROOT}/types/RGBAColor.h
     ${SRC_ROOT}/types/RGBAColor_fwd.h
@@ -203,6 +212,9 @@ set(SOURCE_FILES
     ${SRC_ROOT}/system/thread/debug.cpp
     ${SRC_ROOT}/system/FileRepository.cpp
     ${SRC_ROOT}/vector.cpp
+    ${SRC_ROOT}/vector_Real.cpp
+    ${SRC_ROOT}/vector_Integral.cpp
+    ${SRC_ROOT}/vector_String.cpp
     ${SRC_ROOT}/types/RGBAColor.cpp
     ${SRC_ROOT}/types/Material.cpp
     ${SRC_ROOT}/types/PrimitiveGroup.cpp

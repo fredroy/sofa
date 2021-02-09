@@ -20,10 +20,18 @@
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
 #pragma once
+#include <sofa/helper/vector_T.h>
 
-#include "vector_T.h"              ///< Declaration of the class vector       (the interface)
-#include "vector_T.inl"            ///< Definition of the default vector      (the default implementation)
-#include "vector_Integral.h"       ///< Extern declaration for integral types (the specialization)
-#include "vector_String.h"         ///< Extern declaration for string types   (the specialization)
-#include "vector_Real.h"           ///< Extern declaration for real types   (the specialization)
-
+/// All integral types are considered as extern templates.
+namespace sofa::helper
+{
+extern template class vector<bool>;
+extern template class vector<char>;
+extern template class vector<unsigned char>;
+extern template class vector<int>;
+extern template class vector<unsigned int>;
+extern template class vector<long>;
+extern template class vector<unsigned long>;
+extern template class vector<long long>;
+extern template class vector<unsigned long long>;
+}

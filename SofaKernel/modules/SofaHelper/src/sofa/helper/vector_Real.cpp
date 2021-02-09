@@ -19,11 +19,10 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#pragma once
+#include <sofa/helper/vector_T.inl>
 
-#include "vector_T.h"              ///< Declaration of the class vector       (the interface)
-#include "vector_T.inl"            ///< Definition of the default vector      (the default implementation)
-#include "vector_Integral.h"       ///< Extern declaration for integral types (the specialization)
-#include "vector_String.h"         ///< Extern declaration for string types   (the specialization)
-#include "vector_Real.h"           ///< Extern declaration for real types   (the specialization)
-
+namespace sofa::helper
+{
+template class vector<float>;
+template class vector<double>;
+}

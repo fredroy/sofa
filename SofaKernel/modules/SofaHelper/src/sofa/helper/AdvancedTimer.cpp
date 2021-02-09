@@ -21,6 +21,7 @@
 ******************************************************************************/
 #define SOFA_HELPER_ADVANCEDTIMER_CPP
 
+#include <sofa/helper/logging/Messaging.h>
 #include <sofa/helper/AdvancedTimer.h>
 #include <sofa/helper/vector.h>
 #include <json.h>
@@ -32,6 +33,7 @@
 #include <algorithm>
 #include <cctype>
 #include <iostream>
+#include <atomic>
 
 #define DEFAULT_INTERVAL 100
 

@@ -24,6 +24,7 @@
 
 #include <sofa/helper/config.h>
 #include <sofa/helper/vector.h>
+#include <sofa/helper/vector_device.h>
 #include <iostream>
 
 namespace sofa
@@ -286,6 +287,23 @@ public:
     WriteAccessor(container_type& c) : Inherit(c) {}
 };
 
+template<class T, class Alloc>
+class ReadAccessor< helper::vector_device<T,Alloc> > : public ReadAccessorVector< helper::vector_device<T,Alloc> >
+{
+public:
+    typedef ReadAccessorVector< helper::vector_device<T,Alloc> > Inherit;
+    typedef typename Inherit::container_type container_type;
+    ReadAccessor(const container_type& c) : Inherit(c) {}
+};
+
+template<class T, class Alloc>
+class WriteAccessor< helper::vector_device<T,Alloc> > : public WriteAccessorVector< helper::vector_device<T,Alloc> >
+{
+public:
+    typedef WriteAccessorVector< helper::vector_device<T,Alloc> > Inherit;
+    typedef typename Inherit::container_type container_type;
+    WriteAccessor(container_type& c) : Inherit(c) {}
+};
 
 /// Returns a read accessor from the provided Data<>
 /// Example of use:
