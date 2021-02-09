@@ -23,6 +23,7 @@
 
 #include <sofa/type/stdtype/vector.h>
 #include <sstream>
+#include <cstring>
 
 namespace sofa::type::stdtype
 {
