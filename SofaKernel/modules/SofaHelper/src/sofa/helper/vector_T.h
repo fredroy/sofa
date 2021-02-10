@@ -23,6 +23,9 @@
 
 #include <vector>
 #include <string>
+#include <typeinfo>
+#include <istream>
+#include <ostream>
 
 #include <sofa/helper/config.h>
 #include <sofa/helper/MemoryManager.h>
@@ -53,7 +56,7 @@ static constexpr bool isEnabledVectorAccessChecking {SOFA_VECTOR_CHECK_ACCESS};
 ///  - string serialization (making it usable in Data)
 ///  - operator[] is checking if the index is within the bounds in debug
 template <class T, class MemoryManager = CPUMemoryManager<T>>
-class SOFA_HELPER_API vector : public std::vector<T, std::allocator<T> >
+class vector : public std::vector<T, std::allocator<T> >
 {
 public:
     typedef CPUMemoryManager<T> memory_manager;
@@ -97,14 +100,60 @@ public:
 #endif /* __STL_MEMBER_TEMPLATES */
 
     /// Read/write random access
-    reference operator[](Size n);
+    reference operator[](Size n)
+    {
+        if constexpr (sofa::helper::isEnabledVectorAccessChecking)
+        {
+            if (n >= this->size())
+                vector_access_failure(this, this->size(), n, typeid(T));
+        }
+        return *(this->begin() + n);
+    }
 
     /// Read-only random access
-    const_reference operator[](Size n) const;
+    const_reference operator[](Size n) const 
+    {
+        if constexpr (sofa::helper::isEnabledVectorAccessChecking)
+        {
+            if (n >= this->size())
+                vector_access_failure(this, this->size(), n, typeid(T));
+        }
+        return *(this->begin() + n);
+    }
 
-    std::ostream& write(std::ostream& os) const ;
-    std::istream& read(std::istream& in) ;
-    std::istream& readFromSofaRepr(std::istream& in) ;
+    std::ostream& write(std::ostream& os) const 
+    {
+        if (this->size() > 0)
+        {
+            for (Size i = 0; i < this->size() - 1; ++i)
+                os << (*this)[i] << " ";
+            os << (*this)[this->size() - 1];
+        }
+        return os;
+    }
+
+    std::istream& read(std::istream& in)
+    {
+        T t = T();
+        while (in >> t)
+        {
+            this->push_back(t);
+        }
+        if (in.rdstate() & std::ios_base::eofbit) { in.clear(); }
+        return in;
+    }
+
+    std::istream& readFromSofaRepr(std::istream& in) 
+    {
+        std::streampos pos = in.tellg();
+        char c;
+        this->clear();
+        if (!(in >> c) || in.eof())
+            return in; // empty stream
+
+        in.seekg(pos); // coming-back to the previous character
+        return this->readFromSofaRepr(in);
+    }
 
     /// Output stream
     friend std::ostream& operator<< ( std::ostream& os, const vector<T>& vec ) { return vec.write(os); }
@@ -113,11 +162,17 @@ public:
     friend std::istream& operator>> ( std::istream& in, vector<T>& vec ){ return vec.read(in); }
 
     /// Sets every element to 'value'
-    void fill( const T& value );
+    void fill( const T& value ) 
+    {
+        std::fill(this->begin(), this->end(), value);
+    }
 
     /// this function is usefull for vector_device because it resize the vector without device operation (if device is not valid).
     /// Therefore the function is used in asynchronous code to safly resize a vector which is either cuda of helper::vector
-    void fastResize(Size n);
+    void fastResize(Size n)
+    {
+        this->resize(n);
+    }
 };
 
 } /// namespace sofa::helper

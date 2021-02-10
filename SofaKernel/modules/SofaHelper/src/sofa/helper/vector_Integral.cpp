@@ -19,6 +19,8 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
+#define SOFA_HELPER_VECTOR_INTEGRAL_DEFINITION
+
 #include <sofa/helper/vector_T.inl>
 #include <sofa/helper/logging/Messaging.h>
 
@@ -28,7 +30,7 @@ namespace sofa::helper
 /// Input stream
 /// Specialization for reading vectors of int and unsigned int using "A-B" notation for all integers between A and B, optionnally specifying a step using "A-B-step" notation.
 template<>
-std::istream& vector<int>::readFromSofaRepr( std::istream& in )
+SOFA_HELPER_API std::istream& vector<int>::readFromSofaRepr( std::istream& in )
 {
     int t;
     this->clear();
@@ -107,7 +109,7 @@ std::istream& vector<int>::readFromSofaRepr( std::istream& in )
 /// Input stream
 /// Specialization for reading vectors of int and unsigned int using "A-B" notation for all integers between A and B
 template<>
-std::istream& vector<unsigned int>::readFromSofaRepr( std::istream& in )
+SOFA_HELPER_API std::istream& vector<unsigned int>::readFromSofaRepr( std::istream& in )
 {
     std::stringstream errmsg ;
     unsigned int errcnt = 0 ;
@@ -179,7 +181,7 @@ std::istream& vector<unsigned int>::readFromSofaRepr( std::istream& in )
 /// Output stream
 /// Specialization for writing vectors of unsigned char
 template<>
-std::ostream& vector<unsigned char>::write(std::ostream& os) const
+SOFA_HELPER_API std::ostream& vector<unsigned char>::write(std::ostream& os) const
 {
     if( this->size()>0 )
     {
@@ -195,7 +197,7 @@ std::ostream& vector<unsigned char>::write(std::ostream& os) const
 /// Input stream
 /// Specialization for reading vectors of unsigned char
 template<>
-std::istream& vector<unsigned char>::readFromSofaRepr(std::istream& in)
+SOFA_HELPER_API std::istream& vector<unsigned char>::readFromSofaRepr(std::istream& in)
 {
     int t;
     this->clear();
@@ -207,14 +209,14 @@ std::istream& vector<unsigned char>::readFromSofaRepr(std::istream& in)
     return in;
 }
 
-template class vector<bool>;
-template class vector<char>;
-template class vector<unsigned char>;
-template class vector<int>;
-template class vector<unsigned int>;
-template class vector<long>;
-template class vector<unsigned long>;
-template class vector<long long>;
-template class vector<unsigned long long>;
+template class SOFA_HELPER_API sofa::helper::vector<bool>;
+template class SOFA_HELPER_API sofa::helper::vector<char>;
+template class SOFA_HELPER_API sofa::helper::vector<unsigned char>;
+template class SOFA_HELPER_API sofa::helper::vector<int>;
+template class SOFA_HELPER_API sofa::helper::vector<unsigned int>;
+template class SOFA_HELPER_API sofa::helper::vector<long>;
+template class SOFA_HELPER_API sofa::helper::vector<unsigned long>;
+template class SOFA_HELPER_API sofa::helper::vector<long long>;
+template class SOFA_HELPER_API sofa::helper::vector<unsigned long long>;
 
 } /// namespace sofa::helper

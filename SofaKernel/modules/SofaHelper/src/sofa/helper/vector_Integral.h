@@ -22,16 +22,20 @@
 #pragma once
 #include <sofa/helper/vector_T.h>
 
+#ifndef SOFA_HELPER_VECTOR_INTEGRAL_DEFINITION
+
 /// All integral types are considered as extern templates.
 namespace sofa::helper
 {
-extern template class vector<bool>;
-extern template class vector<char>;
-extern template class vector<unsigned char>;
-extern template class vector<int>;
-extern template class vector<unsigned int>;
-extern template class vector<long>;
-extern template class vector<unsigned long>;
-extern template class vector<long long>;
-extern template class vector<unsigned long long>;
+extern template class SOFA_HELPER_API vector<bool>;
+extern template class SOFA_HELPER_API vector<char>;
+extern template class SOFA_HELPER_API vector<unsigned char>;
+extern template class SOFA_HELPER_API vector<int>;
+extern template class SOFA_HELPER_API vector<unsigned int>;
+extern template class SOFA_HELPER_API vector<long>;
+extern template class SOFA_HELPER_API vector<unsigned long>;
+extern template class SOFA_HELPER_API vector<long long>;
+extern template class SOFA_HELPER_API vector<unsigned long long>;
 }
+
+#endif // SOFA_HELPER_VECTOR_INTEGRAL_DEFINITION
