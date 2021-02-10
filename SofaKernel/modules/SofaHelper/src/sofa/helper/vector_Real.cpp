@@ -23,8 +23,6 @@
 
 #include <sofa/helper/vector_T.inl>
 
-namespace sofa::helper
-{
 template class SOFA_HELPER_API sofa::helper::vector<float>;
 template class SOFA_HELPER_API sofa::helper::vector<double>;
-}
+

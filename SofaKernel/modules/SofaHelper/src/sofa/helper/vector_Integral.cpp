@@ -209,6 +209,9 @@ SOFA_HELPER_API std::istream& vector<unsigned char>::readFromSofaRepr(std::istre
     return in;
 }
 
+} /// namespace sofa::helper
+
+
 template class SOFA_HELPER_API sofa::helper::vector<bool>;
 template class SOFA_HELPER_API sofa::helper::vector<char>;
 template class SOFA_HELPER_API sofa::helper::vector<unsigned char>;
@@ -218,5 +221,3 @@ template class SOFA_HELPER_API sofa::helper::vector<long>;
 template class SOFA_HELPER_API sofa::helper::vector<unsigned long>;
 template class SOFA_HELPER_API sofa::helper::vector<long long>;
 template class SOFA_HELPER_API sofa::helper::vector<unsigned long long>;
-
-} /// namespace sofa::helper
