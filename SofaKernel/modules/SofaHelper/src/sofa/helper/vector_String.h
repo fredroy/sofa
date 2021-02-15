@@ -22,8 +22,9 @@
 #pragma once
 #include <sofa/helper/vector_T.h>
 
+#ifndef SOFA_HELPER_VECTOR_STRING_DEFINITION
+
 /// All integral types are considered as extern templates.
-namespace sofa::helper
-{
-    extern template class sofa::helper::vector<std::string>;
-}
+extern template class sofa::helper::vector<std::string>;
+
+#endif // SOFA_HELPER_VECTOR_STRING_DEFINITION

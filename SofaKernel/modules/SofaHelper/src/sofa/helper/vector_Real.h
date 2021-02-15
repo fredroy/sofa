@@ -22,9 +22,10 @@
 #pragma once
 #include <sofa/helper/vector_T.h>
 
+#ifndef SOFA_HELPER_VECTOR_REAL_DEFINITION
+
 /// All integral types are considered as extern templates.
-namespace sofa::helper
-{
-extern template class vector<float>;
-extern template class vector<double>;
-}
+extern template class sofa::helper::vector<float>;
+extern template class sofa::helper::vector<double>;
+
+#endif // #ifndef SOFA_HELPER_VECTOR_REAL_DEFINITION

@@ -19,10 +19,10 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
+#define SOFA_HELPER_VECTOR_REAL_DEFINITION
+
 #include <sofa/helper/vector_T.inl>
 
-namespace sofa::helper
-{
-template class vector<float>;
-template class vector<double>;
-}
+template class SOFA_HELPER_API sofa::helper::vector<float>;
+template class SOFA_HELPER_API sofa::helper::vector<double>;
+
