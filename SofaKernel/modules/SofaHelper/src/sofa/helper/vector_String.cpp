@@ -47,4 +47,4 @@ SOFA_HELPER_API std::ostream& vector<std::string>::write(std::ostream& os) const
 
 } // namespace sofa::helper
 
-template class SOFA_HELPER_API sofa::helper::vector<std::string>;
+//template class SOFA_HELPER_API sofa::helper::vector<std::string>;

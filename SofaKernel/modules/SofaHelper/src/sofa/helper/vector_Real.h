@@ -25,7 +25,7 @@
 #ifndef SOFA_HELPER_VECTOR_REAL_DEFINITION
 
 /// All integral types are considered as extern templates.
-extern template class sofa::helper::vector<float>;
-extern template class sofa::helper::vector<double>;
+//extern template class sofa::helper::vector<float>;
+//extern template class sofa::helper::vector<double>;
 
 #endif // #ifndef SOFA_HELPER_VECTOR_REAL_DEFINITION

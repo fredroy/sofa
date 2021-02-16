@@ -25,14 +25,14 @@
 #ifndef SOFA_HELPER_VECTOR_INTEGRAL_DEFINITION
 
 /// All integral types are considered as extern templates.
-extern template class SOFA_HELPER_API sofa::helper::vector<bool>;
-extern template class SOFA_HELPER_API sofa::helper::vector<char>;
-extern template class SOFA_HELPER_API sofa::helper::vector<unsigned char>;
-extern template class SOFA_HELPER_API sofa::helper::vector<int>;
-extern template class SOFA_HELPER_API sofa::helper::vector<unsigned int>;
-extern template class SOFA_HELPER_API sofa::helper::vector<long>;
-extern template class SOFA_HELPER_API sofa::helper::vector<unsigned long>;
-extern template class SOFA_HELPER_API sofa::helper::vector<long long>;
-extern template class SOFA_HELPER_API sofa::helper::vector<unsigned long long>;
+//extern template class SOFA_HELPER_API sofa::helper::vector<bool>;
+//extern template class SOFA_HELPER_API sofa::helper::vector<char>;
+//extern template class SOFA_HELPER_API sofa::helper::vector<unsigned char>;
+//extern template class SOFA_HELPER_API sofa::helper::vector<int>;
+//extern template class SOFA_HELPER_API sofa::helper::vector<unsigned int>;
+//extern template class SOFA_HELPER_API sofa::helper::vector<long>;
+//extern template class SOFA_HELPER_API sofa::helper::vector<unsigned long>;
+//extern template class SOFA_HELPER_API sofa::helper::vector<long long>;
+//extern template class SOFA_HELPER_API sofa::helper::vector<unsigned long long>;
 
 #endif // SOFA_HELPER_VECTOR_INTEGRAL_DEFINITION
