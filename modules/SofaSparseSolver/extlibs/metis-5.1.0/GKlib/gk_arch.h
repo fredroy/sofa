@@ -41,7 +41,6 @@
 #endif
   #include <inttypes.h>
   #include <sys/types.h>
-  #include <sys/resource.h>
   #include <sys/time.h>
 #endif
 

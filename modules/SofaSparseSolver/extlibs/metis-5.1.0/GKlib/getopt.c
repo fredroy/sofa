@@ -766,10 +766,10 @@ the end of option scanning.
 
 */
 /*************************************************************************/
-int gk_getopt(int argc, char **argv, char *options)
-{
-  return gk_getopt_internal(argc, argv, options, NULL, NULL, 0);
-}
+//int gk_getopt(int argc, char **argv, char *options)
+//{
+//  return gk_getopt_internal(argc, argv, options, NULL, NULL, 0);
+//}
 
 
 /*************************************************************************/
@@ -830,11 +830,11 @@ and leaves in the variable #gk_optind the index in argv of the next
 remaining argument. 
 */
 /*************************************************************************/
-int gk_getopt_long( int argc, char **argv, char *options, 
-       struct gk_option *long_options, int *opt_index)
-{
-  return gk_getopt_internal (argc, argv, options, long_options, opt_index, 0);
-}
+//int gk_getopt_long( int argc, char **argv, char *options, 
+//       struct gk_option *long_options, int *opt_index)
+//{
+//  return gk_getopt_internal (argc, argv, options, long_options, opt_index, 0);
+//}
 
 
 
@@ -846,9 +846,9 @@ If an option that starts with '-' (not '--') doesn't match a long option,
 but does match a short option, it is parsed as a short option instead.  
 */
 /*************************************************************************/
-int gk_getopt_long_only(int argc, char **argv, char *options, 
-       struct gk_option *long_options, int *opt_index)
-{
-  return gk_getopt_internal(argc, argv, options, long_options, opt_index, 1);
-}
+//int gk_getopt_long_only(int argc, char **argv, char *options, 
+//       struct gk_option *long_options, int *opt_index)
+//{
+//  return gk_getopt_internal(argc, argv, options, long_options, opt_index, 1);
+//}
 

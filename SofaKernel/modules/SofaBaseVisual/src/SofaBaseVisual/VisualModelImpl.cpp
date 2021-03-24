@@ -41,6 +41,7 @@
 #include <sofa/helper/system/FileRepository.h>
 #include <sofa/helper/types/Material.h>
 #include <sofa/helper/AdvancedTimer.h>
+#include <sofa/core/topology/TopologyElementHandler.h>
 
 #include <sstream>
 #include <map>
