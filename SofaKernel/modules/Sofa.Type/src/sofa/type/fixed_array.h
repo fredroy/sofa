@@ -101,25 +101,6 @@ public:
         ( (this->elems[i++] = r), ...);
     }
 
-    /// Move Constructors
-    /// 1-element
-    template<size_type NN = N, typename std::enable_if<NN == 1, int>::type = 0>
-    explicit constexpr fixed_array(value_type&& r1) noexcept
-    {
-        this->elems[0] = std::move(r1);
-    }
-
-    /// >1 elements
-    template<typename... ArgsT,
-        typename = std::enable_if_t < (std::is_convertible_v<ArgsT, value_type> && ...)>,
-        typename = std::enable_if_t< (sizeof...(ArgsT) == N && sizeof...(ArgsT) > 1) >
-    >
-        constexpr fixed_array(ArgsT&&... r) noexcept
-    {
-        std::size_t i = 0;
-        ((this->elems[i++] = std::move(r)), ...);
-    }
-
     // iterator support
     constexpr iterator begin() noexcept
     {
@@ -167,33 +148,33 @@ public:
     }
 
     // front() and back()
-    constexpr reference front() noexcept
+    constexpr reference front()
     {
         return this->elems[0];
     }
-    constexpr const_reference front() const noexcept
+    constexpr const_reference front() const
     {
         return this->elems[0];
     }
-    constexpr reference back() noexcept
+    constexpr reference back()
     {
         return this->elems[N-1];
     }
-    constexpr const_reference back() const noexcept
+    constexpr const_reference back() const
     {
         return this->elems[N-1];
     }
 
     // size is constant
-    static size_type size()
+    static size_type size() noexcept
     {
         return N;
     }
-    static bool empty()
+    static bool empty() noexcept
     {
         return false;
     }
-    static size_type max_size()
+    static size_type max_size() noexcept
     {
         return N;
     }
