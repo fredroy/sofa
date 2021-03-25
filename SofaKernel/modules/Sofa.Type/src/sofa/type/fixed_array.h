@@ -82,24 +82,42 @@ public:
 
     fixed_array() noexcept = default;
 
-    /// Specific constructor for 1-element vectors.
+    /// Specific constructor for 1-element array.
     template<size_type NN = N, typename std::enable_if<NN == 1, int>::type = 0>
-    explicit constexpr fixed_array(value_type r1) noexcept
+    explicit constexpr fixed_array(const value_type& r1) noexcept
     {
-        static_assert(N == 1, "");
         this->elems[0] = r1;
     }
 
+    /// Contructor for >1 element array.
     template<typename... ArgsT,
         typename = std::enable_if_t < (std::is_convertible_v<ArgsT, value_type> && ...)>,
         typename = std::enable_if_t< (sizeof...(ArgsT) == N && sizeof...(ArgsT) > 1) >
     >
-    constexpr fixed_array(const ArgsT... r) noexcept
+    constexpr fixed_array(const ArgsT&... r) noexcept
     {
         // this->elems = { r... }; // doable if Array was assignable
         std::size_t i = 0;
         ( (this->elems[i++] = r), ...);
-        
+    }
+
+    /// Move Constructors
+    /// 1-element
+    template<size_type NN = N, typename std::enable_if<NN == 1, int>::type = 0>
+    explicit constexpr fixed_array(value_type&& r1) noexcept
+    {
+        this->elems[0] = std::move(r1);
+    }
+
+    /// >1 elements
+    template<typename... ArgsT,
+        typename = std::enable_if_t < (std::is_convertible_v<ArgsT, value_type> && ...)>,
+        typename = std::enable_if_t< (sizeof...(ArgsT) == N && sizeof...(ArgsT) > 1) >
+    >
+        constexpr fixed_array(ArgsT&&... r) noexcept
+    {
+        std::size_t i = 0;
+        ((this->elems[i++] = std::move(r)), ...);
     }
 
     // iterator support
