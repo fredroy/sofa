@@ -19,8 +19,17 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#ifndef SOFA_GUI_SIMPLE_SIMPLEGUI_H
-#define SOFA_GUI_SIMPLE_SIMPLEGUI_H
+#pragma once
+
+
+
+#include <sofa/config.h>
+
+#ifdef SOFA_BUILD_SOFAGUIGLUT
+#  define SOFA_SOFAGUIGLUT_API SOFA_EXPORT_DYNAMIC_LIBRARY
+#else
+#  define SOFA_SOFAGUIGLUT_API SOFA_IMPORT_DYNAMIC_LIBRARY
+#endif
 
 #include <sofa/gui/BaseGUI.h>
 
@@ -44,13 +53,7 @@
 #include <cstring>
 #include <fstream>
 
-namespace sofa
-{
-
-namespace gui
-{
-
-namespace glut
+namespace sofa::gui::glut
 {
 
 using namespace sofa::defaulttype;
@@ -58,7 +61,7 @@ using namespace sofa::helper::gl;
 using namespace sofa::helper::system::thread;
 using namespace sofa::component::collision;
 
-class SimpleGUI : public sofa::gui::BaseGUI
+class SOFA_SOFAGUIGLUT_API SimpleGUI : public sofa::gui::BaseGUI
 {
 
 public:
@@ -166,7 +169,7 @@ private:
     bool initTexturesDone;
     Capture capture;
 
-    static int _initialW, _initialH;
+
 public:
 
     void step();
@@ -273,10 +276,9 @@ protected:
     DrawToolGL   drawTool;
 };
 
-} // namespace glut
+} // namespace sofa::gui::glut
 
-} // namespace gui
-
-} // namespace sofa
-
-#endif
+namespace sofa::gui
+{
+    void SOFA_SOFAGUIGLUT_API initSofaGuiGlut();
+} // namespace sofa::gui

@@ -43,12 +43,9 @@ using std::vector;
 #include <SofaSimulationGraph/DAGSimulation.h>
 using sofa::simulation::Node;
 
-#include <SofaCommon/initSofaCommon.h>
 #include <SofaBase/initSofaBase.h>
-#include <SofaGeneral/initSofaGeneral.h>
+#include <SofaComponentAll/initSofaComponentAll.h>
 
-#include <SofaGeneralLoader/ReadState.h>
-#include <SofaValidation/CompareState.h>
 #include <sofa/helper/Factory.h>
 #include <sofa/helper/cast.h>
 #include <sofa/helper/BackTrace.h>
@@ -58,7 +55,6 @@ using sofa::simulation::Node;
 #include <sofa/gui/GUIManager.h>
 using sofa::gui::GUIManager;
 
-#include <sofa/gui/Main.h>
 #include <sofa/gui/BaseGUI.h>
 #include <sofa/helper/system/gl.h>
 #include <sofa/helper/system/atomic.h>
@@ -68,9 +64,6 @@ using sofa::core::ExecParams ;
 #include <sofa/helper/system/console.h>
 using sofa::helper::Utils;
 
-using sofa::component::misc::CompareStateCreator;
-using sofa::component::misc::ReadStateActivator;
-using sofa::simulation::tree::TreeSimulation;
 using sofa::simulation::graph::DAGSimulation;
 using sofa::helper::system::SetDirectory;
 using sofa::core::objectmodel::BaseNode ;
@@ -109,9 +102,10 @@ using sofa::helper::logging::ExceptionMessageHandler;
 // ---------------------------------------------------------------------
 int main(int argc, char** argv)
 {
-    sofa::helper::BackTrace::autodump();
+    //force load SofaGuiGlut
+    sofa::gui::initSofaGuiGlut();
 
-    ExecParams::defaultInstance()->setAspectID(0);
+    sofa::helper::BackTrace::autodump();
 
 #ifdef WIN32
     {
@@ -180,8 +174,7 @@ int main(int argc, char** argv)
     // even if everything is ok e.g. asking for help
     sofa::simulation::graph::init();
     sofa::component::initSofaBase();
-    sofa::component::initSofaCommon();
-    sofa::component::initSofaGeneral();
+    sofa::component::initSofaComponentAll();
     
     glutInit(&argc, argv);
 

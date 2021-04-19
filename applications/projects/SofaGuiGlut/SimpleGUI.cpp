@@ -26,6 +26,7 @@
 #include <sofa/simulation/UpdateMappingVisitor.h>
 #include <sofa/core/objectmodel/KeypressedEvent.h>
 #include <sofa/core/objectmodel/KeyreleasedEvent.h>
+#include <sofa/core/objectmodel/MouseEvent.h>
 #include <sofa/helper/system/SetDirectory.h>
 #include <cmath>
 #include <iostream>
@@ -53,13 +54,16 @@
 
 int SimpleGUIClass = sofa::gui::GUIManager::RegisterGUI("glut", &sofa::gui::glut::SimpleGUI::CreateGUI, NULL, 0);
 
-namespace sofa
+namespace sofa::gui
 {
 
-namespace gui
+void initSofaGuiGlut()
 {
+}
 
-namespace glut
+} // namespace sofa::gui
+
+namespace sofa::gui::glut
 {
 
 using std::cout;
@@ -102,7 +106,10 @@ BaseGUI* SimpleGUI::CreateGUI(const char* /*name*/,  sofa::simulation::Node::SPt
 
     glutInitDisplayMode ( GLUT_RGB | GLUT_DEPTH | GLUT_DOUBLE );
 
-    glutInitWindowSize (_initialW, _initialH);
+    const int initialW = 800;
+    const int initialH = 600;
+
+    glutInitWindowSize (initialW, initialH);
     glutCreateWindow ( ":: SOFA ::" );
 
     std::cout << "Window created:"
@@ -386,8 +393,7 @@ void SimpleGUI::initializeGL(void)
         bool imageSupport = helper::io::Image::FactoryImage::getInstance()->hasKey(extension);
         if(!imageSupport)
         {
-            msg_error("SimpleGUI") << "Could not open sofa logo, " << extension  << " image format (no support found)" ;
-            return;
+            msg_warning("SimpleGUI") << "Could not open sofa logo, " << extension  << " image format (no support found)" ;
         } else
         {
 
@@ -1660,20 +1666,10 @@ void SimpleGUI::setExportGnuplot( bool exp )
     }
 }
 
-int SimpleGUI::_initialW = 800;
-int SimpleGUI::_initialH = 600;
-
 void SimpleGUI::setViewerResolution(int width, int height)
 {
     glut_reshape(width, height);
 
 }
 
-
-
-
-} // namespace glut
-
-} // namespace gui
-
-} // namespace sofa
+} // namespace sofa::gui::glut
