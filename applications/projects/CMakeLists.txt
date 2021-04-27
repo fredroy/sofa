@@ -13,3 +13,5 @@ sofa_add_application(runSofa runSofa ON)
 sofa_add_application(sofaOPENCL sofaOPENCL OFF)
 
 sofa_add_subdirectory_external(Regression Regression)
+
+add_subdirectory(SofaGLFW)
