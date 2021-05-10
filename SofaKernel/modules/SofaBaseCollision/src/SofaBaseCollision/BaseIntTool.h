@@ -22,95 +22,112 @@
 #pragma once
 #include <SofaBaseCollision/config.h>
 
+#include <sofa/core/collision/DetectionOutput.h>
 #include <SofaBaseCollision/CubeModel.h>
-#include <SofaBaseCollision/CapsuleIntTool.h>
-#include <SofaBaseCollision/OBBIntTool.h>
+#include <SofaBaseCollision/Sphere.h>
+#include <SofaBaseCollision/CapsuleModel.h>
+#include <SofaBaseCollision/OBBModel.h>
+
 
 namespace sofa::component::collision
 {
 
-class SOFA_SOFABASECOLLISION_API BaseIntTool : public CapsuleIntTool,public OBBIntTool
+template <typename ElementType1, typename ElementType2>
+class SOFA_SOFABASECOLLISION_API BaseIntTool
 {
 public:
     typedef sofa::helper::vector<sofa::core::collision::DetectionOutput> OutputVector;
 
-    template <class Elem1,class Elem2>
-    static bool testIntersection(Elem1&,Elem2&,SReal){
-        msg_info("BaseIntTool")<<"testIntersection should not be used with theese types";
+    static bool testIntersection(ElementType1&, ElementType2&, SReal alarmDist)
+    {
+        SOFA_UNUSED(alarmDist);
+
+        msg_error("BaseIntTool") << "testIntersection not implemented for these elements.";
         return false;
     }
 
-    static bool testIntersection(Cube &cube1, Cube &cube2,SReal alarmDist);
-
-
-    template <class DataTypes1,class DataTypes2>
-    static bool testIntersection(TSphere<DataTypes1>& sph1, TSphere<DataTypes2>& sph2,SReal alarmDist)
+    static int computeIntersection(ElementType1&, ElementType2&, SReal alarmDist, SReal contactDist, OutputVector* contacts)
     {
-        typename TSphere<DataTypes1>::Real r = sph1.r() + sph2.r() + alarmDist;
-        return ( sph1.center() - sph2.center() ).norm2() <= r*r;
-    }
+        SOFA_UNUSED(alarmDist);
+        SOFA_UNUSED(contactDist);
+        SOFA_UNUSED(contacts);
 
-    template <class DataTypes1,class DataTypes2>
-    static int computeIntersection(TSphere<DataTypes1>& sph1, TSphere<DataTypes2>& sph2,SReal alarmDist,SReal contactDist,OutputVector* contacts)
-    {
-        SReal r = sph1.r() + sph2.r();
-        SReal myAlarmDist = alarmDist + r;
-        defaulttype::Vector3 dist = sph2.center() - sph1.center();
-        SReal norm2 = dist.norm2();
-
-        if (norm2 > myAlarmDist*myAlarmDist)
-            return 0;
-
-        contacts->resize(contacts->size()+1);
-        DetectionOutput *detection = &*(contacts->end()-1);
-        SReal distSph1Sph2 = helper::rsqrt(norm2);
-        detection->normal = dist / distSph1Sph2;
-        detection->point[0] = sph1.getContactPointByNormal( -detection->normal );
-        detection->point[1] = sph2.getContactPointByNormal( detection->normal );
-
-        detection->value = distSph1Sph2 - r - contactDist;
-        detection->elem.first = sph1;
-        detection->elem.second = sph2;
-        detection->id = (sph1.getCollisionModel()->getSize() > sph2.getCollisionModel()->getSize()) ? sph1.getIndex() : sph2.getIndex();
-
-        return 1;
-    }
-
-
-
-    template <class DataTypes1,class DataTypes2>
-    inline static int computeIntersection(TCapsule<DataTypes1> &c1, TCapsule<DataTypes2> &c2, SReal alarmDist, SReal contactDist, OutputVector *contacts){
-        return CapsuleIntTool::computeIntersection(c1,c2,alarmDist,contactDist,contacts);
-    }
-
-    template <class DataTypes1,class DataTypes2>
-    inline static int computeIntersection(TCapsule<DataTypes1> &cap, TSphere<DataTypes2> &sph, SReal alarmDist, SReal contactDist, OutputVector *contacts){
-        return CapsuleIntTool::computeIntersection(cap,sph,alarmDist,contactDist,contacts);
-    }
-
-    template <class DataTyes>
-    inline static int computeIntersection(TCapsule<DataTyes> &cap, OBB & obb, SReal alarmDist, SReal contactDist, OutputVector *contacts){
-        return CapsuleIntTool::computeIntersection(cap,obb,alarmDist,contactDist,contacts);
-    }
-
-    inline static int computeIntersection(OBB &obb0, OBB &obb1, SReal alarmDist, SReal contactDist, OutputVector *contacts){
-        return OBBIntTool::computeIntersection(obb0,obb1,alarmDist,contactDist,contacts);
-    }
-
-    template <class DataType>
-    inline static int computeIntersection(TSphere<DataType> &sph, OBB &obb, SReal alarmDist, SReal contactDist, OutputVector *contacts){
-        return OBBIntTool::computeIntersection(sph,obb,alarmDist,contactDist,contacts);
-    }
-
-    inline static int computeIntersection(Cube&, Cube&, SReal, SReal, OutputVector *){
+        msg_error("BaseIntTool") << "computeIntersection not implemented for these elements.";
         return 0;
     }
-
-
 };
 
+template <class DataTypes1, class DataTypes2>
+class SOFA_SOFABASECOLLISION_API BaseIntTool< TSphere<DataTypes1>, TSphere<DataTypes2> >
+{
+public:
+    typedef sofa::helper::vector<sofa::core::collision::DetectionOutput> OutputVector;
 
+    static bool testIntersection(TSphere<DataTypes1>&, TSphere<DataTypes2>&, SReal alarmDist);
+    static int computeIntersection(TSphere<DataTypes1>&, TSphere<DataTypes2>&, SReal alarmDist, SReal contactDist, OutputVector* contacts);
+};
 
+template <class DataTypes1, class DataTypes2>
+class SOFA_SOFABASECOLLISION_API BaseIntTool< TCapsule<DataTypes1>, TCapsule<DataTypes2> >
+{
+public:
+    typedef sofa::helper::vector<sofa::core::collision::DetectionOutput> OutputVector;
 
+    static bool testIntersection(TCapsule<DataTypes1>&, TCapsule<DataTypes2>&, SReal alarmDist);
+    static int computeIntersection(TCapsule<DataTypes1>&, TCapsule<DataTypes2>&, SReal alarmDist, SReal contactDist, OutputVector* contacts);
+};
+
+template <class DataTypes1, class DataTypes2>
+class SOFA_SOFABASECOLLISION_API BaseIntTool< TCapsule<DataTypes1>, TSphere<DataTypes2> >
+{
+public:
+    typedef sofa::helper::vector<sofa::core::collision::DetectionOutput> OutputVector;
+
+    static bool testIntersection(TCapsule<DataTypes1>&, TSphere<DataTypes2>&, SReal alarmDist);
+    static int computeIntersection(TCapsule<DataTypes1>&, TSphere<DataTypes2>&, SReal alarmDist, SReal contactDist, OutputVector* contacts);
+};
+
+template <class DataTypes>
+class SOFA_SOFABASECOLLISION_API BaseIntTool< TCapsule<DataTypes>, OBB >
+{
+public:
+    typedef sofa::helper::vector<sofa::core::collision::DetectionOutput> OutputVector;
+
+    static bool testIntersection(TCapsule<DataTypes>&, OBB&, SReal alarmDist);
+    static int computeIntersection(TCapsule<DataTypes>&, OBB&, SReal alarmDist, SReal contactDist, OutputVector* contacts);
+};
+
+template <class DataTypes>
+class SOFA_SOFABASECOLLISION_API BaseIntTool< TSphere<DataTypes>, OBB >
+{
+public:
+    typedef sofa::helper::vector<sofa::core::collision::DetectionOutput> OutputVector;
+
+    static bool testIntersection(TSphere<DataTypes>&, OBB&, SReal alarmDist);
+    static int computeIntersection(TSphere<DataTypes>&, OBB&, SReal alarmDist, SReal contactDist, OutputVector* contacts);
+};
+
+#ifndef SOFA_SOFABASECOLLISION_BASEINTTOOL_DEFINTION
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<Cube, Cube>;
+extern template bool  SOFA_SOFABASECOLLISION_API BaseIntTool<Cube, Cube>::testIntersection(Cube&, Cube&, SReal alarmDist);
+extern template int   SOFA_SOFABASECOLLISION_API BaseIntTool<Cube, Cube>::computeIntersection(Cube&, Cube&, SReal alarmDist, SReal contactDist, OutputVector* contacts);
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<OBB, OBB>;
+extern template bool  SOFA_SOFABASECOLLISION_API BaseIntTool<OBB, OBB>::testIntersection(OBB&, OBB&, SReal alarmDist);
+extern template int   SOFA_SOFABASECOLLISION_API BaseIntTool<OBB, OBB>::computeIntersection(OBB&, OBB&, SReal alarmDist, SReal contactDist, OutputVector* contacts);
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TSphere<defaulttype::Vec3Types>, TSphere<defaulttype::Vec3Types>>;
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TSphere<defaulttype::Rigid3Types>, TSphere<defaulttype::Rigid3Types>>;
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TSphere<defaulttype::Vec3Types>, TSphere<defaulttype::Rigid3Types>>;
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TCapsule<defaulttype::Vec3Types>, TCapsule<defaulttype::Vec3Types>>;
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TCapsule<defaulttype::Rigid3Types>, TCapsule<defaulttype::Rigid3Types>>;
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TCapsule<defaulttype::Vec3Types>, TCapsule<defaulttype::Rigid3Types>>;
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TCapsule<defaulttype::Vec3Types>, TSphere<defaulttype::Vec3Types>>;
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TCapsule<defaulttype::Rigid3Types>, TSphere<defaulttype::Rigid3Types>>;
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TCapsule<defaulttype::Vec3Types>, TSphere<defaulttype::Rigid3Types>>;
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TCapsule<defaulttype::Rigid3Types>, TSphere<defaulttype::Vec3Types>>;
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TCapsule<defaulttype::Vec3Types>, OBB>;
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TCapsule<defaulttype::Rigid3Types>, OBB>;
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TSphere<defaulttype::Vec3Types>, OBB>;
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TSphere<defaulttype::Rigid3Types>, OBB>;
+#endif // SOFA_SOFABASECOLLISION_BASEINTTOOL_DEFINTION
 
 } // namespace sofa::component::collision

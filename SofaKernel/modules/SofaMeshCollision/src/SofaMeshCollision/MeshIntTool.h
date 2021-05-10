@@ -23,6 +23,7 @@
 #include <SofaMeshCollision/config.h>
 
 #include <sofa/core/collision/Intersection.h>
+#include <SofaBaseCollision/BaseIntTool.h>
 #include <SofaBaseCollision/OBBModel.h>
 #include <SofaBaseCollision/CapsuleModel.h>
 #include <SofaBaseCollision/RigidCapsuleModel.h>

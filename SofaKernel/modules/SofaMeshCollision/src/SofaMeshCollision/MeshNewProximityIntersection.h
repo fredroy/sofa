@@ -42,7 +42,7 @@ public:
 
     template <class T1,class T2>
     bool testIntersection(T1 & e1,T2 & e2){
-        return BaseIntTool::testIntersection(e1,e2,intersection->getAlarmDistance());
+        return BaseIntTool<T1, T2>::testIntersection(e1,e2,intersection->getAlarmDistance());
     }
 
 
