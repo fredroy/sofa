@@ -75,244 +75,219 @@ template <class T>
 bool MeshMinProximityIntersection::testIntersection(Triangle& e2, TSphere<T>& e1)
 {
     const SReal alarmDist = intersection->getAlarmDistance() + e1.r() + e1.getProximity() + e2.getProximity();
-
-    const defaulttype::Vector3 x13 = e2.p1()-e2.p2();
-    const defaulttype::Vector3 x23 = e2.p1()-e2.p3();
-    const defaulttype::Vector3 x03 = e2.p1()-e1.center();
-    defaulttype::Matrix2 A;
-    defaulttype::Vector2 b;
-    A[0][0] = x13*x13;
-    A[1][1] = x23*x23;
-    A[0][1] = A[1][0] = x13*x23;
-    b[0] = x13*x03;
-    b[1] = x23*x03;
-    const SReal det = defaulttype::determinant(A);
-
-    SReal alpha = 0.5;
-    SReal beta = 0.5;
-
-    //if (det < -0.000001 || det > 0.000001)
-    {
-        alpha = (b[0]*A[1][1] - b[1]*A[0][1])/det;
-        beta  = (b[1]*A[0][0] - b[0]*A[1][0])/det;
-        if (alpha < 0.000001 ||
-            beta  < 0.000001 ||
-            alpha + beta  > 0.999999)
-            return false;
-    }
-
-    defaulttype::Vector3 P,Q,PQ;
-    P = e1.center();
-    Q = e2.p1() - x13 * alpha - x23 * beta;
-    PQ = Q-P;
-
-    if (PQ.norm2() < alarmDist*alarmDist)
-    {
-        return true;
-    }
-    else
-        return false;
+    return BaseIntTool<Triangle, TSphere<T>>::testIntersection(e2, e1, alarmDist);
 }
 
 template <class T>
 int MeshMinProximityIntersection::computeIntersection(Triangle& e2, TSphere<T>& e1, OutputVector* contacts)
 {
     const SReal alarmDist = intersection->getAlarmDistance() + e1.r() + e1.getProximity() + e2.getProximity();
-
-    const defaulttype::Vector3 x13 = e2.p1()-e2.p2();
-    const defaulttype::Vector3 x23 = e2.p1()-e2.p3();
-    const defaulttype::Vector3 x03 = e2.p1()-e1.center();
-    defaulttype::Matrix2 A;
-    defaulttype::Vector2 b;
-    A[0][0] = x13*x13;
-    A[1][1] = x23*x23;
-    A[0][1] = A[1][0] = x13*x23;
-    b[0] = x13*x03;
-    b[1] = x23*x03;
-    const SReal det = defaulttype::determinant(A);
-
-    SReal alpha = 0.5;
-    SReal beta = 0.5;
-
-    //if (det < -0.000001 || det > 0.000001)
-    {
-        alpha = (b[0]*A[1][1] - b[1]*A[0][1])/det;
-        beta  = (b[1]*A[0][0] - b[0]*A[1][0])/det;
-        if (alpha < 0.000001 ||
-            beta  < 0.000001 ||
-            alpha + beta  > 0.999999)
-            return 0;
-    }
-
-    defaulttype::Vector3 P = e1.center();
-    defaulttype::Vector3 Q = e2.p1() - x13 * alpha - x23 * beta;
-    defaulttype::Vector3 QP = P-Q;
-    //Vector3 PQ = Q-P;
-
-    if (QP.norm2() >= alarmDist*alarmDist)
-        return 0;
-
     const SReal contactDist = intersection->getContactDistance() + e1.r() + e1.getProximity() + e2.getProximity();
 
-    contacts->resize(contacts->size()+1);
-    sofa::core::collision::DetectionOutput *detection = &*(contacts->end()-1);
-    detection->elem = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>(e2, e1);
-    detection->id = e1.getIndex();
-    detection->normal=QP;
-    detection->value = detection->normal.norm();
-    if(detection->value>1e-15)
-    {
-        detection->normal /= detection->value;
-    }
-    else
-    {
-        msg_warning(intersection) << "Null distance between contact detected";
-        detection->normal= defaulttype::Vector3(1,0,0);
-    }
-    detection->value -= contactDist;
-    detection->point[0]=Q;
-    detection->point[1]=e1.getContactPointByNormal( detection->normal );
-    return 1;
+    return BaseIntTool<Triangle, TSphere<T>>::computeIntersection(e2, e1, alarmDist, contactDist, contacts);
+
+    //const defaulttype::Vector3 x13 = e2.p1()-e2.p2();
+    //const defaulttype::Vector3 x23 = e2.p1()-e2.p3();
+    //const defaulttype::Vector3 x03 = e2.p1()-e1.center();
+    //defaulttype::Matrix2 A;
+    //defaulttype::Vector2 b;
+    //A[0][0] = x13*x13;
+    //A[1][1] = x23*x23;
+    //A[0][1] = A[1][0] = x13*x23;
+    //b[0] = x13*x03;
+    //b[1] = x23*x03;
+    //const SReal det = defaulttype::determinant(A);
+
+    //SReal alpha = 0.5;
+    //SReal beta = 0.5;
+
+    ////if (det < -0.000001 || det > 0.000001)
+    //{
+    //    alpha = (b[0]*A[1][1] - b[1]*A[0][1])/det;
+    //    beta  = (b[1]*A[0][0] - b[0]*A[1][0])/det;
+    //    if (alpha < 0.000001 ||
+    //        beta  < 0.000001 ||
+    //        alpha + beta  > 0.999999)
+    //        return 0;
+    //}
+
+    //defaulttype::Vector3 P = e1.center();
+    //defaulttype::Vector3 Q = e2.p1() - x13 * alpha - x23 * beta;
+    //defaulttype::Vector3 QP = P-Q;
+    ////Vector3 PQ = Q-P;
+
+    //if (QP.norm2() >= alarmDist*alarmDist)
+    //    return 0;
+
+    //const SReal contactDist = intersection->getContactDistance() + e1.r() + e1.getProximity() + e2.getProximity();
+
+    //contacts->resize(contacts->size()+1);
+    //sofa::core::collision::DetectionOutput *detection = &*(contacts->end()-1);
+    //detection->elem = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>(e2, e1);
+    //detection->id = e1.getIndex();
+    //detection->normal=QP;
+    //detection->value = detection->normal.norm();
+    //if(detection->value>1e-15)
+    //{
+    //    detection->normal /= detection->value;
+    //}
+    //else
+    //{
+    //    msg_warning(intersection) << "Null distance between contact detected";
+    //    detection->normal= defaulttype::Vector3(1,0,0);
+    //}
+    //detection->value -= contactDist;
+    //detection->point[0]=Q;
+    //detection->point[1]=e1.getContactPointByNormal( detection->normal );
+    //return 1;
 }
 
 template <class T>
 bool MeshMinProximityIntersection::testIntersection(Line& e2, TSphere<T>& e1)
 {
     const SReal alarmDist = intersection->getAlarmDistance() + e1.r() + e1.getProximity() + e2.getProximity();
+    return BaseIntTool<Line, TSphere<T>>::testIntersection(e2, e1, alarmDist);
 
-    const defaulttype::Vector3 x32 = e2.p1()-e2.p2();
-    const defaulttype::Vector3 x31 = e1.center()-e2.p2();
-    SReal A;
-    SReal b;
-    A = x32*x32;
-    b = x32*x31;
+    //const defaulttype::Vector3 x32 = e2.p1()-e2.p2();
+    //const defaulttype::Vector3 x31 = e1.center()-e2.p2();
+    //SReal A;
+    //SReal b;
+    //A = x32*x32;
+    //b = x32*x31;
 
-    SReal alpha = 0.5;
+    //SReal alpha = 0.5;
 
-    //if (A < -0.000001 || A > 0.000001)
-    {
-        alpha = b/A;
-        if (alpha < 0.000001 || alpha > 0.999999)
-            return false;
-    }
+    ////if (A < -0.000001 || A > 0.000001)
+    //{
+    //    alpha = b/A;
+    //    if (alpha < 0.000001 || alpha > 0.999999)
+    //        return false;
+    //}
 
-    defaulttype::Vector3 P,Q,PQ;
-    P = e1.center();
-    Q = e2.p1() - x32 * alpha;
-    PQ = Q-P;
+    //defaulttype::Vector3 P,Q,PQ;
+    //P = e1.center();
+    //Q = e2.p1() - x32 * alpha;
+    //PQ = Q-P;
 
-    if (PQ.norm2() < alarmDist*alarmDist)
-    {
-        return true;
-    }
-    else
-        return false;
+    //if (PQ.norm2() < alarmDist*alarmDist)
+    //{
+    //    return true;
+    //}
+    //else
+    //    return false;
 }
 
 template <class T>
 int MeshMinProximityIntersection::computeIntersection(Line& e2, TSphere<T>& e1, OutputVector* contacts)
 {
     const SReal alarmDist = intersection->getAlarmDistance() + e1.r() + e1.getProximity() + e2.getProximity();
-
-    const defaulttype::Vector3 x32 = e2.p1()-e2.p2();
-    const defaulttype::Vector3 x31 = e1.center()-e2.p2();
-    SReal A;
-    SReal b;
-    A = x32*x32;
-    b = x32*x31;
-
-    SReal alpha = 0.5;
-
-    //if (A < -0.000001 || A > 0.000001)
-    {
-        alpha = b/A;
-        if (alpha < 0.000001 || alpha > 0.999999)
-            return 0;
-    }
-
-    defaulttype::Vector3 P = e1.center();
-    defaulttype::Vector3 Q = e2.p1() - x32 * alpha;
-    defaulttype::Vector3 QP = P-Q;
-    //Vector3 PQ = Q-P;
-
-    if (QP.norm2() >= alarmDist*alarmDist)
-        return 0;
-
     const SReal contactDist = intersection->getContactDistance() + e1.r() + e1.getProximity() + e2.getProximity();
 
-    contacts->resize(contacts->size()+1);
-    sofa::core::collision::DetectionOutput *detection = &*(contacts->end()-1);
-    detection->elem = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>(e2, e1);
-    detection->id = e1.getIndex();
-    detection->normal=QP;
-    detection->value = detection->normal.norm();
-    if(detection->value>1e-15)
-    {
-        detection->normal /= detection->value;
-    }
-    else
-    {
-        msg_warning(intersection) << "Null distance between contact detected";
-        detection->normal= defaulttype::Vector3(1,0,0);
-    }
-    detection->point[0]=Q;
-    detection->point[1]=e1.getContactPointByNormal( detection->normal );
-    detection->value -= contactDist;
-    return 1;
+    return BaseIntTool<Line, TSphere<T>>::computeIntersection(e2, e1, alarmDist, contactDist, contacts);
+
+    //const defaulttype::Vector3 x32 = e2.p1()-e2.p2();
+    //const defaulttype::Vector3 x31 = e1.center()-e2.p2();
+    //SReal A;
+    //SReal b;
+    //A = x32*x32;
+    //b = x32*x31;
+
+    //SReal alpha = 0.5;
+
+    ////if (A < -0.000001 || A > 0.000001)
+    //{
+    //    alpha = b/A;
+    //    if (alpha < 0.000001 || alpha > 0.999999)
+    //        return 0;
+    //}
+
+    //defaulttype::Vector3 P = e1.center();
+    //defaulttype::Vector3 Q = e2.p1() - x32 * alpha;
+    //defaulttype::Vector3 QP = P-Q;
+    ////Vector3 PQ = Q-P;
+
+    //if (QP.norm2() >= alarmDist*alarmDist)
+    //    return 0;
+
+    //const SReal contactDist = intersection->getContactDistance() + e1.r() + e1.getProximity() + e2.getProximity();
+
+    //contacts->resize(contacts->size()+1);
+    //sofa::core::collision::DetectionOutput *detection = &*(contacts->end()-1);
+    //detection->elem = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>(e2, e1);
+    //detection->id = e1.getIndex();
+    //detection->normal=QP;
+    //detection->value = detection->normal.norm();
+    //if(detection->value>1e-15)
+    //{
+    //    detection->normal /= detection->value;
+    //}
+    //else
+    //{
+    //    msg_warning(intersection) << "Null distance between contact detected";
+    //    detection->normal= defaulttype::Vector3(1,0,0);
+    //}
+    //detection->point[0]=Q;
+    //detection->point[1]=e1.getContactPointByNormal( detection->normal );
+    //detection->value -= contactDist;
+    //return 1;
 }
 
 template <class T>
 bool MeshMinProximityIntersection::testIntersection(TSphere<T>& e1, Point& e2)
 {
-    const SReal alarmDist = intersection->getAlarmDistance() + e1.r() + e1.getProximity() + e2.getProximity();
+    const SReal alarmDist = intersection->getAlarmDistance() + e1.r() + e1.getProximity() + e2.getProximity();    
+    return BaseIntTool<Point, TSphere<T>>::testIntersection(e2, e1, alarmDist);
 
-    defaulttype::Vector3 P,Q,PQ;
-    P = e1.center();
-    Q = e2.p();
-    PQ = Q-P;
+    //defaulttype::Vector3 P,Q,PQ;
+    //P = e1.center();
+    //Q = e2.p();
+    //PQ = Q-P;
 
-    if (PQ.norm2() < alarmDist*alarmDist)
-    {
-        return true;
-    }
-    else
-        return false;
+    //if (PQ.norm2() < alarmDist*alarmDist)
+    //{
+    //    return true;
+    //}
+    //else
+    //    return false;
 }
 
 template <class T>
 int MeshMinProximityIntersection::computeIntersection(TSphere<T>& e1, Point& e2, OutputVector* contacts)
 {
     const SReal alarmDist = intersection->getAlarmDistance() + e1.r() + e1.getProximity() + e2.getProximity();
-
-    defaulttype::Vector3 P,Q,PQ;
-    P = e1.center();
-    Q = e2.p();
-    PQ = Q-P;
-    if (PQ.norm2() >= alarmDist*alarmDist)
-        return 0;
-
     const SReal contactDist = intersection->getContactDistance() + e1.r() + e1.getProximity() + e2.getProximity();
 
-    contacts->resize(contacts->size()+1);
-    sofa::core::collision::DetectionOutput *detection = &*(contacts->end()-1);
-    detection->elem = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>(e1, e2);
-    //detection->id = (e1.getCollisionModel()->getSize() > e2.getCollisionModel()->getSize()) ? e1.getIndex() : e2.getIndex();
-    detection->id = e1.getIndex();
-    detection->normal=PQ;
-    detection->value = detection->normal.norm();
-    if(detection->value>1e-15)
-    {
-        detection->normal /= detection->value;
-    }
-    else
-    {
-        msg_warning(intersection) << "Null distance between contact detected";
-        detection->normal= defaulttype::Vector3(1,0,0);
-    }
-    detection->value -= contactDist;
-    detection->point[0]=e1.getContactPointByNormal( -detection->normal );
-    detection->point[1]=Q;
-    return 1;
+    return BaseIntTool<TSphere<T>, Point>::computeIntersection(e1, e2, alarmDist, contactDist, contacts);
+
+    //defaulttype::Vector3 P,Q,PQ;
+    //P = e1.center();
+    //Q = e2.p();
+    //PQ = Q-P;
+    //if (PQ.norm2() >= alarmDist*alarmDist)
+    //    return 0;
+
+    //const SReal contactDist = intersection->getContactDistance() + e1.r() + e1.getProximity() + e2.getProximity();
+
+    //contacts->resize(contacts->size()+1);
+    //sofa::core::collision::DetectionOutput *detection = &*(contacts->end()-1);
+    //detection->elem = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>(e1, e2);
+    ////detection->id = (e1.getCollisionModel()->getSize() > e2.getCollisionModel()->getSize()) ? e1.getIndex() : e2.getIndex();
+    //detection->id = e1.getIndex();
+    //detection->normal=PQ;
+    //detection->value = detection->normal.norm();
+    //if(detection->value>1e-15)
+    //{
+    //    detection->normal /= detection->value;
+    //}
+    //else
+    //{
+    //    msg_warning(intersection) << "Null distance between contact detected";
+    //    detection->normal= defaulttype::Vector3(1,0,0);
+    //}
+    //detection->value -= contactDist;
+    //detection->point[0]=e1.getContactPointByNormal( -detection->normal );
+    //detection->point[1]=Q;
+    //return 1;
 }
 
 } // namespace sofa::component::collision

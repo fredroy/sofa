@@ -25,9 +25,9 @@
 #include <SofaBaseCollision/NewProximityIntersection.h>
 #include <SofaMeshCollision/TriangleModel.h>
 #include <SofaMeshCollision/LineModel.h>
+#include <SofaBaseCollision/BaseIntTool.h>
 #include <SofaMeshCollision/MeshIntTool.h>
 #include <SofaBaseCollision/IntrUtility3.h>
-#include <SofaBaseCollision/BaseIntTool.h>
 
 namespace sofa::component::collision
 {
@@ -60,7 +60,7 @@ public:
 
     template <class T1,class T2>
     int computeIntersection(T1 & e1,T2 & e2,OutputVector* contacts){
-        return MeshIntTool::computeIntersection(e1,e2,e1.getProximity() + e2.getProximity() + intersection->getAlarmDistance(),e1.getProximity() + e2.getProximity() + intersection->getContactDistance(),contacts);
+        return BaseIntTool<T1,T2>::computeIntersection(e1,e2,e1.getProximity() + e2.getProximity() + intersection->getAlarmDistance(),e1.getProximity() + e2.getProximity() + intersection->getContactDistance(),contacts);
     }
 
     static inline int doIntersectionLineLine(SReal dist2, const defaulttype::Vector3& p1, const defaulttype::Vector3& p2, const defaulttype::Vector3& q1, const defaulttype::Vector3& q2, OutputVector* contacts, int id, const defaulttype::Vector3& n=defaulttype::Vector3(), bool useNormal=false);

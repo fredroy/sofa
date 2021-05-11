@@ -107,7 +107,7 @@ public:
     static int computeIntersection(TSphere<DataTypes>&, OBB&, SReal alarmDist, SReal contactDist, OutputVector* contacts);
 };
 
-#ifndef SOFA_SOFABASECOLLISION_BASEINTTOOL_DEFINTION
+#ifndef SOFA_SOFABASECOLLISION_BASEINTTOOL_DEFINITION
 extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<Cube, Cube>;
 extern template bool  SOFA_SOFABASECOLLISION_API BaseIntTool<Cube, Cube>::testIntersection(Cube&, Cube&, SReal alarmDist);
 extern template int   SOFA_SOFABASECOLLISION_API BaseIntTool<Cube, Cube>::computeIntersection(Cube&, Cube&, SReal alarmDist, SReal contactDist, OutputVector* contacts);

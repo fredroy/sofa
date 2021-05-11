@@ -19,7 +19,7 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#define SOFA_SOFABASECOLLISION_BASEINTTOOL_DEFINTION
+#define SOFA_SOFABASECOLLISION_BASEINTTOOL_DEFINITION
 
 #include <SofaBaseCollision/BaseIntTool.h>
 #include <SofaBaseCollision/CapsuleIntTool.h>

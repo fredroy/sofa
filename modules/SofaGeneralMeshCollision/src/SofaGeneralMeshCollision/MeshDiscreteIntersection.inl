@@ -87,71 +87,75 @@ bool MeshDiscreteIntersection::testIntersection( TSphere<T>& sph, Triangle& tria
 template<class T>
 int MeshDiscreteIntersection::computeIntersection( TSphere<T>& sph, Triangle& triangle, OutputVector* contacts)
 {
-    double EPSILON = 0.00001;
-    //Vertices of the triangle:
-    defaulttype::Vector3 p0 = triangle.p1();
-    defaulttype::Vector3 p1 = triangle.p2();
-    defaulttype::Vector3 p2 = triangle.p3();
+    const auto alarmDist = sph.getProximity() + triangle.getProximity() + intersection->getAlarmDistance();
+    const auto contactDist = sph.getProximity() + triangle.getProximity() + intersection->getContactDistance();
 
-    // Center of the sphere
-    const defaulttype::Vector3 sphCenter(sph.center());
-    // Radius of the sphere
-    const double r = sph.r();
-
-    //Normal to the plane (plane spanned by tree points of the triangle)
-    defaulttype::Vector3 normal = cross( (p1 - p0), (p2 - p0) );
-    normal.normalize();
-
-    //Distance from the center of the sphere to the plane.
-    double distance = sphCenter*normal - normal*p0;
-
-    //Projection of the center of the sphere onto the plane
-    defaulttype::Vector3 projPoint = sphCenter - normal*distance;
-
-    //Distance correction in case is negative.
-    if (distance < 0.0)
-        distance = -distance;
-
-    //Distance to the sphere:
-    distance -= r;
-
-    //If the distance is positive, the point has been proyected outside
-    //the sphere and hence the plane does not intersect the sphere
-    //and so the triangle (that spanned the plane) cannot be inside the sphere.
-    if (distance  > EPSILON)
-    {
-        return 0;
-    }
-
-    //However, if the plane has intersected the sphere, then it is
-    //neccesary to check if the proyected point "projPoint" is inside
-    //the triangle.
-#define SAMESIDE(ap1,ap2,ap3,ap4) (((cross((ap4-ap3),(ap1-ap3))) * (cross((ap4-ap3),(ap2-ap3)))) >= 0)
-    if ( (SAMESIDE(projPoint,p0,p1,p2) && SAMESIDE(projPoint,p1,p0,p2) && SAMESIDE(projPoint,p2,p0,p1)))
-    {
-        contacts->resize(contacts->size()+1);
-        core::collision::DetectionOutput *detection = &*(contacts->end()-1);
-        detection->normal = -normal;
-        detection->point[1] = projPoint;
-        detection->point[0] = sph.getContactPointByNormal( detection->normal );
-        detection->value = -distance;
-        detection->elem.first = sph;
-        detection->elem.second = triangle;
-        detection->id = sph.getIndex();
-        return 1;
-    }
-#undef SAMESIDE
-
-    return 0; // No intersection: passed all tests for intersections !
+    return BaseIntTool<Triangle, TSphere<T>>::computeIntersection(triangle, sph, alarmDist, contactDist, contacts);
+//    double EPSILON = 0.00001;
+//    //Vertices of the triangle:
+//    defaulttype::Vector3 p0 = triangle.p1();
+//    defaulttype::Vector3 p1 = triangle.p2();
+//    defaulttype::Vector3 p2 = triangle.p3();
+//
+//    // Center of the sphere
+//    const defaulttype::Vector3 sphCenter(sph.center());
+//    // Radius of the sphere
+//    const double r = sph.r();
+//
+//    //Normal to the plane (plane spanned by tree points of the triangle)
+//    defaulttype::Vector3 normal = cross( (p1 - p0), (p2 - p0) );
+//    normal.normalize();
+//
+//    //Distance from the center of the sphere to the plane.
+//    double distance = sphCenter*normal - normal*p0;
+//
+//    //Projection of the center of the sphere onto the plane
+//    defaulttype::Vector3 projPoint = sphCenter - normal*distance;
+//
+//    //Distance correction in case is negative.
+//    if (distance < 0.0)
+//        distance = -distance;
+//
+//    //Distance to the sphere:
+//    distance -= r;
+//
+//    //If the distance is positive, the point has been proyected outside
+//    //the sphere and hence the plane does not intersect the sphere
+//    //and so the triangle (that spanned the plane) cannot be inside the sphere.
+//    if (distance  > EPSILON)
+//    {
+//        return 0;
+//    }
+//
+//    //However, if the plane has intersected the sphere, then it is
+//    //neccesary to check if the proyected point "projPoint" is inside
+//    //the triangle.
+//#define SAMESIDE(ap1,ap2,ap3,ap4) (((cross((ap4-ap3),(ap1-ap3))) * (cross((ap4-ap3),(ap2-ap3)))) >= 0)
+//    if ( (SAMESIDE(projPoint,p0,p1,p2) && SAMESIDE(projPoint,p1,p0,p2) && SAMESIDE(projPoint,p2,p0,p1)))
+//    {
+//        contacts->resize(contacts->size()+1);
+//        core::collision::DetectionOutput *detection = &*(contacts->end()-1);
+//        detection->normal = -normal;
+//        detection->point[1] = projPoint;
+//        detection->point[0] = sph.getContactPointByNormal( detection->normal );
+//        detection->value = -distance;
+//        detection->elem.first = sph;
+//        detection->elem.second = triangle;
+//        detection->id = sph.getIndex();
+//        return 1;
+//    }
+//#undef SAMESIDE
+//
+//    return 0; // No intersection: passed all tests for intersections !
 }
 
 
 inline int MeshDiscreteIntersection::computeIntersection(Capsule & cap,Triangle & tri,OutputVector* contacts){
-    return MeshIntTool::computeIntersection(cap,tri,intersection->getAlarmDistance(),intersection->getContactDistance(),contacts);
+    return BaseIntTool<Capsule, Triangle>::computeIntersection(cap,tri,intersection->getAlarmDistance(),intersection->getContactDistance(),contacts);
 }
 
 inline int MeshDiscreteIntersection::computeIntersection(Capsule & cap,Line & lin,OutputVector* contacts){
-    return MeshIntTool::computeIntersection(cap,lin,intersection->getAlarmDistance(),intersection->getContactDistance(),contacts);
+    return BaseIntTool<Capsule, Line>::computeIntersection(cap,lin,intersection->getAlarmDistance(),intersection->getContactDistance(),contacts);
 }
 
 } // namespace sofa::component::collision

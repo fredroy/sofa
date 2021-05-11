@@ -493,19 +493,19 @@ int MeshMinProximityIntersection::computeIntersection(Point& e1, Point& e2, Outp
 
 
 int MeshMinProximityIntersection::computeIntersection(Capsule & cap,Triangle & tri,OutputVector* contacts){
-    return MeshIntTool::computeIntersection(cap,tri,intersection->getAlarmDistance(),intersection->getContactDistance(),contacts);
+    return BaseIntTool<Capsule, Triangle>::computeIntersection(cap,tri,intersection->getAlarmDistance(),intersection->getContactDistance(),contacts);
 }
 
 int MeshMinProximityIntersection::computeIntersection(Capsule & cap,Line & lin,OutputVector* contacts){
-    return MeshIntTool::computeIntersection(cap,lin,intersection->getAlarmDistance(),intersection->getContactDistance(),contacts);
+    return BaseIntTool<Capsule, Line>::computeIntersection(cap,lin,intersection->getAlarmDistance(),intersection->getContactDistance(),contacts);
 }
 
-bool MeshMinProximityIntersection::testIntersection(Capsule&,Triangle&){
-    return true;
+bool MeshMinProximityIntersection::testIntersection(Capsule& cap,Triangle& tri){
+    return BaseIntTool<Capsule, Triangle>::testIntersection(cap, tri, intersection->getAlarmDistance());
 }
 
-bool MeshMinProximityIntersection::testIntersection(Capsule&,Line&){
-    return true;
+bool MeshMinProximityIntersection::testIntersection(Capsule& cap,Line& lin){
+    return BaseIntTool<Capsule, Line>::testIntersection(cap, lin, intersection->getAlarmDistance());
 }
 
 } // namespace sofa::component::collision

@@ -19,28 +19,340 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#define SOFA_COMPONENT_COLLISION_MESHINTTOOL_CPP
+#define SOFA_SOFAMESHCOLLISION_MESHINTTOOL_DEFINITION
 #include <SofaMeshCollision/MeshIntTool.inl>
 
 namespace sofa::component::collision
 {
+
 using namespace sofa::defaulttype;
 using namespace sofa::core::collision;
 
+template<> SOFA_SOFAMESHCOLLISION_API
+bool BaseIntTool<Triangle, OBB>::testIntersection(Triangle& tri, OBB& obb, SReal alarmDist)
+{
+    SOFA_UNUSED(tri);
+    SOFA_UNUSED(obb);
+    SOFA_UNUSED(alarmDist);
 
-template SOFA_SOFAMESHCOLLISION_API int MeshIntTool::computeIntersection(TCapsule<Vec3Types>& cap, Point& pnt,SReal alarmDist,SReal contactDist,OutputVector* contacts);
-template SOFA_SOFAMESHCOLLISION_API int MeshIntTool::doCapPointInt(TCapsule<Vec3Types>& cap, const Vector3& q,SReal alarmDist,SReal contactDist,OutputVector* contacts);
-template SOFA_SOFAMESHCOLLISION_API int MeshIntTool::computeIntersection(TCapsule<Vec3Types>& cap, Line& lin,SReal alarmDist,SReal contactDist,OutputVector* contacts);
-template SOFA_SOFAMESHCOLLISION_API int MeshIntTool::doCapLineInt(TCapsule<Vec3Types>& cap,const Vector3 & q1,const Vector3 & q2,SReal alarmDist,SReal contactDist,OutputVector* contacts,bool ignore_p1,bool ignore_p2);
-template SOFA_SOFAMESHCOLLISION_API int MeshIntTool::computeIntersection(TCapsule<Vec3Types>& cap, Triangle& tri,SReal alarmDist,SReal contactDist,OutputVector* contacts);
+    return false;
+}
 
-template SOFA_SOFAMESHCOLLISION_API int MeshIntTool::computeIntersection(TCapsule<Rigid3Types>& cap, Point& pnt,SReal alarmDist,SReal contactDist,OutputVector* contacts);
-template SOFA_SOFAMESHCOLLISION_API int MeshIntTool::doCapPointInt(TCapsule<Rigid3Types>& cap, const Vector3& q,SReal alarmDist,SReal contactDist,OutputVector* contacts);
-template SOFA_SOFAMESHCOLLISION_API int MeshIntTool::computeIntersection(TCapsule<Rigid3Types>& cap, Line& lin,SReal alarmDist,SReal contactDist,OutputVector* contacts);
-template SOFA_SOFAMESHCOLLISION_API int MeshIntTool::doCapLineInt(TCapsule<Rigid3Types>& cap,const Vector3 & q1,const Vector3 & q2,SReal alarmDist,SReal contactDist,OutputVector* contacts,bool ignore_p1,bool ignore_p2);
-template SOFA_SOFAMESHCOLLISION_API int MeshIntTool::computeIntersection(TCapsule<Rigid3Types>& cap, Triangle& tri,SReal alarmDist,SReal contactDist,OutputVector* contacts);
+template <> SOFA_SOFAMESHCOLLISION_API
+int BaseIntTool<Triangle, OBB>::computeIntersection(Triangle& tri, OBB& obb, SReal alarmDist, SReal contactDist, OutputVector* contacts)
+{
+    return MeshIntToolUtil::computeIntersection(tri, tri.flags(), obb, alarmDist, contactDist, contacts);
+}
 
-int MeshIntTool::doCapLineInt(const Vector3 & p1,const Vector3 & p2,SReal cap_rad,
+template <class DataTypes>
+bool BaseIntTool<TCapsule<DataTypes>, Point>::testIntersection(TCapsule<DataTypes>& cap, Point& pnt, SReal alarmDist)
+{
+    SOFA_UNUSED(cap);
+    SOFA_UNUSED(pnt);
+    SOFA_UNUSED(alarmDist);
+
+    return false;
+}
+
+template <class DataTypes>
+int BaseIntTool<TCapsule<DataTypes>, Point>::computeIntersection(TCapsule<DataTypes>& cap, Point& pnt, SReal alarmDist, SReal contactDist, OutputVector* contacts)
+{
+    if (MeshIntToolUtil::doCapPointInt(cap, pnt.p(), alarmDist, contactDist, contacts)) 
+    {
+        DetectionOutput* detection = &*(contacts->end() - 1);
+
+        detection->elem = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>(cap, pnt);
+
+        return 1;
+    }
+
+    return 0;
+}
+
+template <class DataTypes>
+bool BaseIntTool<TCapsule<DataTypes>, Line>::testIntersection(TCapsule<DataTypes>& cap, Line& lin, SReal alarmDist)
+{
+    SOFA_UNUSED(cap);
+    SOFA_UNUSED(lin);
+    SOFA_UNUSED(alarmDist);
+
+    return true;
+}
+
+template <class DataTypes>
+int BaseIntTool<TCapsule<DataTypes>, Line>::computeIntersection(TCapsule<DataTypes>& cap, Line& lin, SReal alarmDist, SReal contactDist, OutputVector* contacts)
+{
+    SReal cap_rad = cap.radius();
+    const defaulttype::Vector3 p1 = cap.point1();
+    const defaulttype::Vector3 p2 = cap.point2();
+    const defaulttype::Vector3 q1 = lin.p1();
+    const defaulttype::Vector3 q2 = lin.p2();
+
+    if (MeshIntToolUtil::doCapLineInt(p1, p2, cap_rad, q1, q2, alarmDist, contactDist, contacts)) {
+        OutputVector::iterator detection = contacts->end() - 1;
+        //detection->id = cap.getCollisionModel()->getSize() > lin.getCollisionModel()->getSize() ? cap.getIndex() : lin.getIndex();
+        detection->id = cap.getIndex();
+        detection->elem = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>(cap, lin);
+        return 1;
+    }
+
+    return 0;
+}
+
+template <class DataTypes>
+bool BaseIntTool<TCapsule<DataTypes>, Triangle>::testIntersection(TCapsule<DataTypes>& cap, Triangle& tri, SReal alarmDist)
+{
+    SOFA_UNUSED(cap);
+    SOFA_UNUSED(tri);
+    SOFA_UNUSED(alarmDist);
+
+    return true;
+}
+
+template <class DataTypes>
+int BaseIntTool<TCapsule<DataTypes>, Triangle>::computeIntersection(TCapsule<DataTypes>& cap, Triangle& tri, SReal alarmDist, SReal contactDist, OutputVector* contacts)
+{
+    const int tri_flg = tri.flags();
+
+    int id = cap.getIndex();
+    int n = 0;
+
+    const defaulttype::Vector3 cap_p1 = cap.point1();
+    const defaulttype::Vector3 cap_p2 = cap.point2();
+    SReal cap_rad = cap.radius();
+    SReal dist2 = (alarmDist + cap_rad) * (alarmDist + cap_rad);
+
+    const defaulttype::Vector3 tri_p1 = tri.p1();
+    const defaulttype::Vector3 tri_p2 = tri.p2();
+    const defaulttype::Vector3 tri_p3 = tri.p3();
+
+    SReal substract_dist = contactDist + cap_rad;
+    n += MeshIntToolUtil::doIntersectionTrianglePoint(dist2, tri_flg, tri_p1, tri_p2, tri_p3, cap_p1, contacts, true);
+    n += MeshIntToolUtil::doIntersectionTrianglePoint(dist2, tri_flg, tri_p1, tri_p2, tri_p3, cap_p2, contacts, true);
+
+    if (n == 2) {
+        OutputVector::iterator detection1 = contacts->end() - 2;
+        OutputVector::iterator detection2 = contacts->end() - 1;
+
+        if (detection1->value > detection2->value - 1e-15 && detection1->value < detection2->value + 1e-15) {
+            detection1->point[0] = (detection1->point[0] + detection2->point[0]) / 2.0;
+            detection1->point[1] = (detection1->point[1] + detection2->point[1]) / 2.0;
+            detection1->normal = (detection1->normal + detection2->normal) / 2.0;
+            detection1->value = (detection1->value + detection2->value) / 2.0 - substract_dist;
+            detection1->elem = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>(cap, tri);
+
+            contacts->pop_back();
+            n = 1;
+        }
+        else {
+            for (OutputVector::iterator detection = contacts->end() - n; detection != contacts->end(); ++detection) {
+                detection->value -= substract_dist;
+                detection->elem = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>(cap, tri);
+                detection->id = id;
+            }
+        }
+    }
+    else {
+        for (OutputVector::iterator detection = contacts->end() - n; detection != contacts->end(); ++detection) {
+            detection->value -= substract_dist;
+            detection->elem = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>(cap, tri);
+            detection->id = id;
+        }
+    }
+
+    int old_n = n;
+    n = 0;
+
+    if (tri_flg & TriangleCollisionModel<sofa::defaulttype::Vec3Types>::FLAG_E12)
+        n += MeshIntToolUtil::doCapLineInt(cap_p1, cap_p2, cap_rad, tri_p1, tri_p2, alarmDist, contactDist, contacts, !(tri_flg & TriangleCollisionModel<sofa::defaulttype::Vec3Types>::FLAG_P1), !(tri_flg & TriangleCollisionModel<sofa::defaulttype::Vec3Types>::FLAG_P2));
+    if (tri_flg & TriangleCollisionModel<sofa::defaulttype::Vec3Types>::FLAG_E23)
+        n += MeshIntToolUtil::doCapLineInt(cap_p1, cap_p2, cap_rad, tri_p2, tri_p3, alarmDist, contactDist, contacts, !(tri_flg & TriangleCollisionModel<sofa::defaulttype::Vec3Types>::FLAG_P2), !(tri_flg & TriangleCollisionModel<sofa::defaulttype::Vec3Types>::FLAG_P3));
+    if (tri_flg & TriangleCollisionModel<sofa::defaulttype::Vec3Types>::FLAG_E31)
+        n += MeshIntToolUtil::doCapLineInt(cap_p1, cap_p2, cap_rad, tri_p3, tri_p1, alarmDist, contactDist, contacts, !(tri_flg & TriangleCollisionModel<sofa::defaulttype::Vec3Types>::FLAG_P3), !(tri_flg & TriangleCollisionModel<sofa::defaulttype::Vec3Types>::FLAG_P1));
+
+    for (OutputVector::iterator detection = contacts->end() - n; detection != contacts->end(); ++detection) {
+        detection->elem = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>(cap, tri);
+        detection->id = id;
+    }
+
+    return n + old_n;
+}
+
+template <class DataTypes>
+bool BaseIntTool<TSphere<DataTypes>, Point>::testIntersection(TSphere<DataTypes>& sph, Point& pnt, SReal alarmDist)
+{
+    SOFA_UNUSED(sph);
+    SOFA_UNUSED(pnt);
+    SOFA_UNUSED(alarmDist);
+
+    return false;
+}
+
+template <class DataTypes>
+int BaseIntTool<TSphere<DataTypes>, Point>::computeIntersection(TSphere<DataTypes>& sph, Point& pnt, SReal alarmDist, SReal contactDist, OutputVector* contacts)
+{
+    const typename DataTypes::Real myAlarmDist = alarmDist + sph.r();
+
+    const auto& P = sph.center();
+    const auto& Q = pnt.p();
+    auto PQ = Q - P;
+    if (PQ.norm2() >= myAlarmDist * myAlarmDist)
+        return 0;
+
+    const auto myContactDist = contactDist + sph.r();
+
+    contacts->resize(contacts->size() + 1);
+    DetectionOutput* detection = &*(contacts->end() - 1);
+    detection->elem = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>(sph, pnt);
+    detection->id = (sph.getCollisionModel()->getSize() > pnt.getCollisionModel()->getSize()) ? sph.getIndex() : pnt.getIndex();
+    detection->point[1] = Q;
+    detection->normal = PQ;
+    detection->value = detection->normal.norm();
+    if (detection->value > 1e-15)
+    {
+        detection->normal /= detection->value;
+    }
+    else
+    {
+        detection->normal = typename DataTypes::CPos(1, 0, 0);
+    }
+    detection->point[0] = sph.getContactPointByNormal(-detection->normal);
+
+    detection->value -= myContactDist;
+    return 1;
+}
+
+template <class DataTypes>
+bool BaseIntTool<Line, TSphere<DataTypes>>::testIntersection(Line& lin, TSphere<DataTypes>& sph, SReal alarmDist)
+{
+    SOFA_UNUSED(sph);
+    SOFA_UNUSED(lin);
+    SOFA_UNUSED(alarmDist);
+
+    return false;
+}
+
+template <class DataTypes>
+int BaseIntTool<Line, TSphere<DataTypes >>::computeIntersection(Line& lin, TSphere<DataTypes>& sph, SReal alarmDist, SReal contactDist, OutputVector* contacts)
+{
+    const typename DataTypes::Real myAlarmDist = alarmDist + sph.r();
+
+    const auto x32 = lin.p1() - lin.p2();
+    const auto x31 = sph.center() - lin.p2();
+
+    typename DataTypes::Real A;
+    typename DataTypes::Real b;
+    A = x32 * x32;
+    b = x32 * x31;
+
+    typename DataTypes::Real alpha = 0.5;
+    auto Q = lin.p1() - x32 * alpha;
+
+    if (alpha <= 0) {
+        Q = lin.p1();
+    }
+    else if (alpha >= 1) {
+        Q = lin.p2();
+    }
+
+    const auto& P = sph.center();
+    const auto& QP = P - Q;
+
+    if (QP.norm2() >= myAlarmDist * myAlarmDist)
+        return 0;
+
+    const typename DataTypes::Real myContactDist = contactDist + sph.r();
+
+    contacts->resize(contacts->size() + 1);
+    DetectionOutput* detection = &*(contacts->end() - 1);
+    detection->elem = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>(lin, sph);
+    detection->id = sph.getIndex();
+    detection->point[0] = Q;
+    detection->normal = QP;
+    detection->value = detection->normal.norm();
+    if (detection->value > 1e-15)
+    {
+        detection->normal /= detection->value;
+    }
+    else
+    {
+        detection->normal = typename DataTypes::CPos(1, 0, 0);
+    }
+    detection->point[1] = sph.getContactPointByNormal(detection->normal);
+    detection->value -= myContactDist;
+    return 1;
+}
+
+template <class DataTypes>
+bool BaseIntTool<Triangle, TSphere<DataTypes>>::testIntersection(Triangle& tri, TSphere<DataTypes>& sph, SReal alarmDist)
+{
+    const auto x13 = tri.p1() - tri.p2();
+    const auto x23 = tri.p1() - tri.p3();
+    const auto x03 = tri.p1() - sph.center();
+    defaulttype::Matrix2 A;
+    defaulttype::Vector2 b;
+    A[0][0] = x13 * x13;
+    A[1][1] = x23 * x23;
+    A[0][1] = A[1][0] = x13 * x23;
+    b[0] = x13 * x03;
+    b[1] = x23 * x03;
+    const SReal det = defaulttype::determinant(A);
+
+    SReal alpha = 0.5;
+    SReal beta = 0.5;
+
+    //if (det < -0.000001 || det > 0.000001)
+    {
+        alpha = (b[0] * A[1][1] - b[1] * A[0][1]) / det;
+        beta = (b[1] * A[0][0] - b[0] * A[1][0]) / det;
+        if (alpha < 0.000001 ||
+            beta < 0.000001 ||
+            alpha + beta  > 0.999999)
+            return false;
+    }
+
+    defaulttype::Vector3 P, Q, PQ;
+    P = sph.center();
+    Q = tri.p1() - x13 * alpha - x23 * beta;
+    PQ = Q - P;
+
+    if (PQ.norm2() < alarmDist * alarmDist)
+    {
+        return true;
+    }
+    else
+        return false;
+}
+
+template <class DataTypes>
+int BaseIntTool<Triangle, TSphere<DataTypes >>::computeIntersection(Triangle& tri, TSphere<DataTypes>& sph, SReal alarmDist, SReal contactDist, OutputVector* contacts)
+{
+    const auto& sph_center = sph.p();
+    auto proj_p = sph_center;
+    if (MeshIntToolUtil::projectPointOnTriangle(tri.flags(), tri.p1(), tri.p2(), tri.p3(), proj_p)) {
+
+        const auto proj_p_sph_center = sph_center - proj_p;
+        typename DataTypes::Real myAlarmDist = alarmDist + sph.r();
+        if (proj_p_sph_center.norm2() >= myAlarmDist * myAlarmDist)
+            return 0;
+
+        contacts->resize(contacts->size() + 1);
+        DetectionOutput* detection = &*(contacts->end() - 1);
+        detection->elem = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>(tri, sph);
+        detection->id = sph.getIndex();
+        detection->point[0] = proj_p;
+        detection->normal = proj_p_sph_center;
+        detection->value = detection->normal.norm();
+        detection->normal /= detection->value;
+        detection->point[1] = sph.getContactPointByNormal(detection->normal);
+        detection->value -= (contactDist + sph.r());
+    }
+    else {
+        return 0;
+    }
+}
+
+int MeshIntToolUtil::doCapLineInt(const Vector3 & p1,const Vector3 & p2,SReal cap_rad,
                          const Vector3 & q1, const Vector3 & q2,SReal alarmDist,SReal contactDist,OutputVector *contacts, bool ignore_p1, bool ignore_p2){
     const Vector3 AB = p2-p1;//capsule segment
     const Vector3 CD = q2-q1;//line segment
@@ -187,7 +499,7 @@ int MeshIntTool::doCapLineInt(const Vector3 & p1,const Vector3 & p2,SReal cap_ra
 }
 
 
-int MeshIntTool::doIntersectionTrianglePoint(SReal dist2, int flags, const Vector3& p1, const Vector3& p2, const Vector3& p3,const Vector3& q, OutputVector* contacts,bool swapElems)
+int MeshIntToolUtil::doIntersectionTrianglePoint(SReal dist2, int flags, const Vector3& p1, const Vector3& p2, const Vector3& p3,const Vector3& q, OutputVector* contacts,bool swapElems)
 {
     const Vector3 AB = p2-p1;
     const Vector3 AC = p3-p1;
@@ -291,38 +603,7 @@ int MeshIntTool::doIntersectionTrianglePoint(SReal dist2, int flags, const Vecto
     return 1;
 }
 
-
-int MeshIntTool::computeIntersection(Triangle& tri,int flags,OBB & obb,SReal alarmDist,SReal contactDist,OutputVector* contacts){
-    IntrTriangleOBB intr(tri,obb);
-    if(intr.Find(alarmDist,flags)){
-        OBB::Real dist2 = (intr.pointOnFirst() - intr.pointOnSecond()).norm2();
-        if((!intr.colliding()) && dist2 > alarmDist * alarmDist)
-            return 0;
-
-        contacts->resize(contacts->size()+1);
-        DetectionOutput *detection = &*(contacts->end()-1);
-
-        detection->normal = intr.separatingAxis();
-        detection->point[0] = intr.pointOnFirst();
-        detection->point[1] = intr.pointOnSecond();
-
-        if(intr.colliding())
-            detection->value = -helper::rsqrt(dist2) - contactDist;
-        else
-            detection->value = helper::rsqrt(dist2) - contactDist;
-
-        detection->elem.first = tri;
-        detection->elem.second = obb;
-        //detection->id = (tri.getCollisionModel()->getSize() > obb.getCollisionModel()->getSize()) ? tri.getIndex() : obb.getIndex();
-        detection->id = tri.getIndex();
-
-        return 1;
-    }
-
-    return 0;
-}
-
-int MeshIntTool::projectPointOnTriangle(int flags, const Vector3& p1, const Vector3& p2, const Vector3& p3, Vector3 & to_be_projected)
+int MeshIntToolUtil::projectPointOnTriangle(int flags, const Vector3& p1, const Vector3& p2, const Vector3& p3, Vector3 & to_be_projected)
 {
     const Vector3 AB = p2-p1;
     const Vector3 AC = p3-p1;
@@ -403,7 +684,7 @@ int MeshIntTool::projectPointOnTriangle(int flags, const Vector3& p1, const Vect
     return 1;
 }
 
-void MeshIntTool::triangleBaryCoords(const Vector3& to_be_projected,const Vector3& p1, const Vector3& p2, const Vector3& p3,SReal & alpha,SReal & beta){
+void MeshIntToolUtil::triangleBaryCoords(const Vector3& to_be_projected,const Vector3& p1, const Vector3& p2, const Vector3& p3,SReal & alpha,SReal & beta){
     const Vector3 AB = p2-p1;
     const Vector3 AC = p3-p1;
     const Vector3 AQ = to_be_projected -p1;
@@ -473,6 +754,56 @@ void MeshIntTool::triangleBaryCoords(const Vector3& to_be_projected,const Vector
     }
 }
 
-class SOFA_SOFAMESHCOLLISION_API MeshIntTool;
+
+
+int MeshIntToolUtil::computeIntersection(Triangle& tri, int flags, OBB& obb, SReal alarmDist, SReal contactDist, OutputVector* contacts) {
+    IntrTriangleOBB intr(tri, obb);
+    if (intr.Find(alarmDist, flags)) {
+        OBB::Real dist2 = (intr.pointOnFirst() - intr.pointOnSecond()).norm2();
+        if ((!intr.colliding()) && dist2 > alarmDist * alarmDist)
+            return 0;
+
+        contacts->resize(contacts->size() + 1);
+        DetectionOutput* detection = &*(contacts->end() - 1);
+
+        detection->normal = intr.separatingAxis();
+        detection->point[0] = intr.pointOnFirst();
+        detection->point[1] = intr.pointOnSecond();
+
+        if (intr.colliding())
+            detection->value = -helper::rsqrt(dist2) - contactDist;
+        else
+            detection->value = helper::rsqrt(dist2) - contactDist;
+
+        detection->elem.first = tri;
+        detection->elem.second = obb;
+        //detection->id = (tri.getCollisionModel()->getSize() > obb.getCollisionModel()->getSize()) ? tri.getIndex() : obb.getIndex();
+        detection->id = tri.getIndex();
+
+        return 1;
+    }
+
+    return 0;
+}
+
+
+template SOFA_SOFAMESHCOLLISION_API int MeshIntToolUtil::doCapPointInt(TCapsule<Vec3Types>& cap, const Vector3& q, SReal alarmDist, SReal contactDist, OutputVector* contacts);
+template SOFA_SOFAMESHCOLLISION_API int MeshIntToolUtil::doCapLineInt(TCapsule<Vec3Types>& cap, const Vector3& q1, const Vector3& q2, SReal alarmDist, SReal contactDist, OutputVector* contacts, bool ignore_p1, bool ignore_p2);
+template SOFA_SOFAMESHCOLLISION_API int MeshIntToolUtil::doCapPointInt(TCapsule<Rigid3Types>& cap, const Vector3& q, SReal alarmDist, SReal contactDist, OutputVector* contacts);
+template SOFA_SOFAMESHCOLLISION_API int MeshIntToolUtil::doCapLineInt(TCapsule<Rigid3Types>& cap, const Vector3& q1, const Vector3& q2, SReal alarmDist, SReal contactDist, OutputVector* contacts, bool ignore_p1, bool ignore_p2);
+
+template class SOFA_SOFAMESHCOLLISION_API BaseIntTool<TCapsule<sofa::defaulttype::Vec3Types>, Point>;
+template class SOFA_SOFAMESHCOLLISION_API BaseIntTool<TCapsule<sofa::defaulttype::Vec3Types>, Line>;
+template class SOFA_SOFAMESHCOLLISION_API BaseIntTool<TCapsule<sofa::defaulttype::Vec3Types>, Triangle>;
+template class SOFA_SOFAMESHCOLLISION_API BaseIntTool<TCapsule<sofa::defaulttype::Rigid3Types>, Point>;
+template class SOFA_SOFAMESHCOLLISION_API BaseIntTool<TCapsule<sofa::defaulttype::Rigid3Types>, Line>;
+template class SOFA_SOFAMESHCOLLISION_API BaseIntTool<TCapsule<sofa::defaulttype::Rigid3Types>, Triangle>;
+
+template class SOFA_SOFAMESHCOLLISION_API BaseIntTool<TSphere<sofa::defaulttype::Vec3Types>, Point>;
+template class SOFA_SOFAMESHCOLLISION_API BaseIntTool<Line, TSphere<sofa::defaulttype::Vec3Types>>;
+template class SOFA_SOFAMESHCOLLISION_API BaseIntTool<Triangle, TSphere<sofa::defaulttype::Vec3Types>>;
+template class SOFA_SOFAMESHCOLLISION_API BaseIntTool<TSphere<sofa::defaulttype::Rigid3Types>, Point>;
+template class SOFA_SOFAMESHCOLLISION_API BaseIntTool<Line, TSphere<sofa::defaulttype::Rigid3Types>>;
+template class SOFA_SOFAMESHCOLLISION_API BaseIntTool<Triangle, TSphere<sofa::defaulttype::Rigid3Types>>;
 
 } // namespace sofa::component::collision
