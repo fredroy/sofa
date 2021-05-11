@@ -22,6 +22,7 @@
 #include <sofa/config.h>
 #include <cmath>
 
+#include <SofaBaseCollision/BaseIntTool.h>
 
 #include <vector>
 using std::vector;
@@ -124,7 +125,7 @@ bool TestSphere::rigidRigid1(){
     sofa::helper::vector<DetectionOutput> detectionOUTPUT;
 
     //loooking for an intersection
-    if(!BaseIntTool::computeIntersection(sph1,sph2,1.0,1.0,&detectionOUTPUT))
+    if(!BaseIntTool<RigidSphere,RigidSphere>::computeIntersection(sph1,sph2,1.0,1.0,&detectionOUTPUT))
         return false;
 
     //the intersection point of cap (detectionOUTPUT[0].point[1]) should be (0,0,0.01)
@@ -180,7 +181,7 @@ bool TestSphere::rigidRigid2(){
     sofa::helper::vector<DetectionOutput> detectionOUTPUT;
 
     //loooking for an intersection
-    if(!BaseIntTool::computeIntersection(sph1,sph2,1.0,1.0,&detectionOUTPUT))
+    if(!BaseIntTool<RigidSphere,RigidSphere>::computeIntersection(sph1,sph2,1.0,1.0,&detectionOUTPUT))
         return false;
 
     //the intersection point of cap (detectionOUTPUT[0].point[1]) should be (0,0,0.01)
@@ -227,7 +228,7 @@ bool TestSphere::rigidSoft2(){
     sofa::helper::vector<DetectionOutput> detectionOUTPUT;
 
     //loooking for an intersection
-    if(!BaseIntTool::computeIntersection(sph1,sph2,1.0,1.0,&detectionOUTPUT))
+    if(!BaseIntTool<RigidSphere,Sphere>::computeIntersection(sph1,sph2,1.0,1.0,&detectionOUTPUT))
         return false;
 
     //the intersection point of cap (detectionOUTPUT[0].point[1]) should be (0,0,0.01)
@@ -274,7 +275,7 @@ bool TestSphere::rigidSoft1(){
     sofa::helper::vector<DetectionOutput> detectionOUTPUT;
 
     //loooking for an intersection
-    if(!BaseIntTool::computeIntersection(sph1,sph2,1.0,1.0,&detectionOUTPUT))
+    if(!BaseIntTool<RigidSphere,Sphere>::computeIntersection(sph1,sph2,1.0,1.0,&detectionOUTPUT))
         return false;
 
     //the intersection point of cap (detectionOUTPUT[0].point[1]) should be (0,0,0.01)
@@ -322,7 +323,7 @@ bool TestSphere::rigidSoft3(){
     sofa::helper::vector<DetectionOutput> detectionOUTPUT;
 
     //loooking for an intersection
-    if(!BaseIntTool::computeIntersection(sph2,sph1,1.0,1.0,&detectionOUTPUT))
+    if(!BaseIntTool<Sphere,RigidSphere>::computeIntersection(sph2,sph1,1.0,1.0,&detectionOUTPUT))
         return false;
 
     //the intersection point of cap (detectionOUTPUT[0].point[1]) should be (0,0,0.01)
@@ -369,7 +370,7 @@ bool TestSphere::rigidSoft4(){
     sofa::helper::vector<DetectionOutput> detectionOUTPUT;
 
     //loooking for an intersection
-    if(!BaseIntTool::computeIntersection(sph2,sph1,1.0,1.0,&detectionOUTPUT))
+    if(!BaseIntTool<Sphere,RigidSphere>::computeIntersection(sph2,sph1,1.0,1.0,&detectionOUTPUT))
         return false;
 
     //the intersection point of cap (detectionOUTPUT[0].point[1]) should be (0,0,0.01)
@@ -491,7 +492,7 @@ bool TestSphere::softSoft1(){
     sofa::helper::vector<DetectionOutput> detectionOUTPUT;
 
     //loooking for an intersection
-    if(!BaseIntTool::computeIntersection(sph1,sph2,1.0,1.0,&detectionOUTPUT))
+    if(!BaseIntTool<Sphere,Sphere>::computeIntersection(sph1,sph2,1.0,1.0,&detectionOUTPUT))
         return false;
 
     //the intersection point of cap (detectionOUTPUT[0].point[1]) should be (0,0,0.01)

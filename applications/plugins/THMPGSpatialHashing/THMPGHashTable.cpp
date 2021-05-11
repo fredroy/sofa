@@ -92,7 +92,7 @@ void THMPGHashTable::doCollision(THMPGHashTable & me,THMPGHashTable & other,sofa
 
                 for(int j = 0 ; j < size1 ; ++j){
                     for(int k = 0 ; k < size2 ; ++k){
-                        if(!checkIfCollisionIsDone(vec_elems2[k].getIndex(),vec_elems1[j].getIndex(),done_collisions) && BaseIntTool::testIntersection(vec_elems2[k],vec_elems1[j],_alarmDist)){
+                        if(!checkIfCollisionIsDone(vec_elems2[k].getIndex(),vec_elems1[j].getIndex(),done_collisions) && BaseIntTool<Cube,Cube>::testIntersection(vec_elems2[k],vec_elems1[j],_alarmDist)){
                             ei->intersect(vec_elems2[k].getExternalChildren().first,vec_elems1[j].getExternalChildren().first,output);
 
                             done_collisions[vec_elems2[k].getIndex()].push_back(vec_elems1[j].getIndex());
@@ -120,7 +120,7 @@ void THMPGHashTable::doCollision(THMPGHashTable & me,THMPGHashTable & other,sofa
 
                 for(int j = 0 ; j < size1 ; ++j){
                     for(int k = 0 ; k < size2 ; ++k){
-                        if((!checkIfCollisionIsDone(vec_elems1[j].getIndex(),vec_elems2[k].getIndex(),done_collisions)) && BaseIntTool::testIntersection(vec_elems1[j],vec_elems2[k],_alarmDist)){
+                        if((!checkIfCollisionIsDone(vec_elems1[j].getIndex(),vec_elems2[k].getIndex(),done_collisions)) && BaseIntTool<Cube,Cube>::testIntersection(vec_elems1[j],vec_elems2[k],_alarmDist)){
                             ei->intersect(vec_elems1[j].getExternalChildren().first,vec_elems2[k].getExternalChildren().first,output);
 
                             done_collisions[vec_elems1[j].getIndex()].push_back(vec_elems2[k].getIndex());
@@ -155,7 +155,7 @@ void THMPGHashTable::autoCollide(core::collision::NarrowPhaseDetection * phase,s
 
             for(int j = 0 ; j < sizem1 ; ++j){
                 for(int k = j + 1 ; k < size ; ++k){
-                    if(!checkIfCollisionIsDone(vec_elems[j].getIndex(),vec_elems[k].getIndex(),done_collisions) && BaseIntTool::testIntersection(vec_elems[j],vec_elems[k],_alarmDist)){
+                    if(!checkIfCollisionIsDone(vec_elems[j].getIndex(),vec_elems[k].getIndex(),done_collisions) && BaseIntTool<Cube,Cube>::testIntersection(vec_elems[j],vec_elems[k],_alarmDist)){
                         ei->intersect(vec_elems[j].getExternalChildren().first,vec_elems[k].getExternalChildren().first,output);
 
                         done_collisions[vec_elems[j].getIndex()].push_back(vec_elems[k].getIndex());

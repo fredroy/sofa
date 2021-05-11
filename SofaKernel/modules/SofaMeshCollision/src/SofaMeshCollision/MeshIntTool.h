@@ -127,37 +127,6 @@ public:
     static int computeIntersection(Triangle&, TSphere<DataTypes>&, SReal alarmDist, SReal contactDist, OutputVector* contacts);
 };
 
-template <class TReal>
-class SOFA_SOFAMESHCOLLISION_API BaseIntTool< TSphere<defaulttype::StdVectorTypes<defaulttype::Vec<3, TReal>, defaulttype::Vec<3, TReal>, TReal> >, Point >
-{
-public:
-    typedef sofa::helper::vector<sofa::core::collision::DetectionOutput> OutputVector;
-
-    static bool testIntersection(TSphere<defaulttype::StdVectorTypes<defaulttype::Vec<3, TReal>, defaulttype::Vec<3, TReal>, TReal> >&, Point&, SReal alarmDist);
-    static int computeIntersection(TSphere<defaulttype::StdVectorTypes<defaulttype::Vec<3, TReal>, defaulttype::Vec<3, TReal>, TReal> >&, Point&, SReal alarmDist, SReal contactDist, OutputVector* contacts);
-};
-
-template <class TReal>
-class SOFA_SOFAMESHCOLLISION_API BaseIntTool< Line, TSphere<defaulttype::StdVectorTypes<defaulttype::Vec<3, TReal>, defaulttype::Vec<3, TReal>, TReal> > >
-{
-public:
-    typedef sofa::helper::vector<sofa::core::collision::DetectionOutput> OutputVector;
-
-    static bool testIntersection(Line&, TSphere<defaulttype::StdVectorTypes<defaulttype::Vec<3, TReal>, defaulttype::Vec<3, TReal>, TReal> >&, SReal alarmDist);
-    static int computeIntersection(Line&, TSphere<defaulttype::StdVectorTypes<defaulttype::Vec<3, TReal>, defaulttype::Vec<3, TReal>, TReal> >&, SReal alarmDist, SReal contactDist, OutputVector* contacts);
-};
-
-template <class TReal>
-class SOFA_SOFAMESHCOLLISION_API BaseIntTool< Triangle, TSphere<defaulttype::StdVectorTypes<defaulttype::Vec<3, TReal>, defaulttype::Vec<3, TReal>, TReal> > >
-{
-public:
-    typedef sofa::helper::vector<sofa::core::collision::DetectionOutput> OutputVector;
-
-    static bool testIntersection(Triangle&, TSphere<defaulttype::StdVectorTypes<defaulttype::Vec<3, TReal>, defaulttype::Vec<3, TReal>, TReal> >&, SReal alarmDist);
-    static int computeIntersection(Triangle&, TSphere<defaulttype::StdVectorTypes<defaulttype::Vec<3, TReal>, defaulttype::Vec<3, TReal>, TReal> >&, SReal alarmDist, SReal contactDist, OutputVector* contacts);
-};
-
-
 #if  !defined(SOFA_SOFAMESHCOLLISION_MESHINTTOOL_DEFINITION)
 extern template SOFA_SOFAMESHCOLLISION_API int MeshIntToolUtil::doCapPointInt(TCapsule<sofa::defaulttype::Vec3Types>& cap, const sofa::defaulttype::Vector3& q,SReal alarmDist,SReal contactDist,OutputVector* contacts);
 extern template SOFA_SOFAMESHCOLLISION_API int MeshIntToolUtil::doCapLineInt(TCapsule<sofa::defaulttype::Vec3Types>& cap, const sofa::defaulttype::Vector3& q1, const sofa::defaulttype::Vector3& q2, SReal alarmDist, SReal contactDist, OutputVector* contacts, bool ignore_p1, bool ignore_p2);
@@ -166,7 +135,7 @@ extern template SOFA_SOFAMESHCOLLISION_API int MeshIntToolUtil::doCapLineInt(TCa
 
 
 extern template SOFA_SOFAMESHCOLLISION_API bool BaseIntTool<Triangle, OBB>::testIntersection(Triangle& tri, OBB& obb, SReal alarmDist);
-extern template SOFA_SOFAMESHCOLLISION_API int BaseIntTool<Triangle, OBB>::computeIntersection(Triangle& tri, OBB& obb, SReal alarmDist, SReal contactDist, OutputVector* contacts);
+extern template SOFA_SOFAMESHCOLLISION_API int  BaseIntTool<Triangle, OBB>::computeIntersection(Triangle& tri, OBB& obb, SReal alarmDist, SReal contactDist, OutputVector* contacts);
 
 extern template class SOFA_SOFAMESHCOLLISION_API BaseIntTool<TCapsule<sofa::defaulttype::Vec3Types>, Point>;
 extern template class SOFA_SOFAMESHCOLLISION_API BaseIntTool<TCapsule<sofa::defaulttype::Vec3Types>, Line>;

@@ -33,7 +33,7 @@ namespace sofa::component::collision
 {
 
 template <typename ElementType1, typename ElementType2>
-class SOFA_SOFABASECOLLISION_API BaseIntTool
+class BaseIntTool
 {
 public:
     typedef sofa::helper::vector<sofa::core::collision::DetectionOutput> OutputVector;
@@ -117,6 +117,7 @@ extern template int   SOFA_SOFABASECOLLISION_API BaseIntTool<OBB, OBB>::computeI
 extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TSphere<defaulttype::Vec3Types>, TSphere<defaulttype::Vec3Types>>;
 extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TSphere<defaulttype::Rigid3Types>, TSphere<defaulttype::Rigid3Types>>;
 extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TSphere<defaulttype::Vec3Types>, TSphere<defaulttype::Rigid3Types>>;
+extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TSphere<defaulttype::Rigid3Types>, TSphere<defaulttype::Vec3Types>>;
 extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TCapsule<defaulttype::Vec3Types>, TCapsule<defaulttype::Vec3Types>>;
 extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TCapsule<defaulttype::Rigid3Types>, TCapsule<defaulttype::Rigid3Types>>;
 extern template class SOFA_SOFABASECOLLISION_API BaseIntTool<TCapsule<defaulttype::Vec3Types>, TCapsule<defaulttype::Rigid3Types>>;

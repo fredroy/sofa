@@ -183,6 +183,7 @@ template class SOFA_SOFABASECOLLISION_API BaseIntTool<OBB, OBB>;
 template class SOFA_SOFABASECOLLISION_API BaseIntTool<TSphere<defaulttype::Vec3Types>, TSphere<defaulttype::Vec3Types>>;
 template class SOFA_SOFABASECOLLISION_API BaseIntTool<TSphere<defaulttype::Rigid3Types>, TSphere<defaulttype::Rigid3Types>>;
 template class SOFA_SOFABASECOLLISION_API BaseIntTool<TSphere<defaulttype::Vec3Types>, TSphere<defaulttype::Rigid3Types>>;
+template class SOFA_SOFABASECOLLISION_API BaseIntTool<TSphere<defaulttype::Rigid3Types>, TSphere<defaulttype::Vec3Types>>;
 template class SOFA_SOFABASECOLLISION_API BaseIntTool<TCapsule<defaulttype::Vec3Types>, TCapsule<defaulttype::Vec3Types>>;
 template class SOFA_SOFABASECOLLISION_API BaseIntTool<TCapsule<defaulttype::Rigid3Types>, TCapsule<defaulttype::Rigid3Types>>;
 template class SOFA_SOFABASECOLLISION_API BaseIntTool<TCapsule<defaulttype::Vec3Types>, TCapsule<defaulttype::Rigid3Types>>;

@@ -838,7 +838,7 @@ bool TestTriOBB::faceFace(){
 
     sofa::helper::vector<sofa::core::collision::DetectionOutput> detectionOUTPUT;
 
-    if(!sofa::component::collision::MeshIntTool::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
+    if(!sofa::component::collision::MeshIntToolUtil::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
         return false;
 
     if((detectionOUTPUT[0].point[0] - Vec3(0,0,0.01)).norm() > 1e-6)
@@ -868,7 +868,7 @@ bool TestTriOBB::faceVertex_out(){
 
     sofa::helper::vector<sofa::core::collision::DetectionOutput> detectionOUTPUT;
 
-    if(!sofa::component::collision::MeshIntTool::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
+    if(!sofa::component::collision::MeshIntToolUtil::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
         return false;
 
     std::cout<<"detectionOUTPUT[0].point[0] "<<detectionOUTPUT[0].point[0]<<std::endl;
@@ -903,7 +903,7 @@ bool TestTriOBB::faceVertex_out2(){
 
     sofa::helper::vector<sofa::core::collision::DetectionOutput> detectionOUTPUT;
 
-    if(!sofa::component::collision::MeshIntTool::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
+    if(!sofa::component::collision::MeshIntToolUtil::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
         return false;
 
     std::cout<<"detectionOUTPUT[0].point[0] "<<detectionOUTPUT[0].point[0]<<std::endl;
@@ -938,7 +938,7 @@ bool TestTriOBB::faceEdge(){
 
     sofa::helper::vector<sofa::core::collision::DetectionOutput> detectionOUTPUT;
 
-    if(!sofa::component::collision::MeshIntTool::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
+    if(!sofa::component::collision::MeshIntToolUtil::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
         return false;
 
     if((detectionOUTPUT[0].point[0] - Vec3(0,0,0.01)).norm() > 1e-6)
@@ -968,7 +968,7 @@ bool TestTriOBB::faceVertex(){
 
     sofa::helper::vector<sofa::core::collision::DetectionOutput> detectionOUTPUT;
 
-    if(!sofa::component::collision::MeshIntTool::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
+    if(!sofa::component::collision::MeshIntToolUtil::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
         return false;
 
     if((detectionOUTPUT[0].point[0] - Vec3(0,0,0.01)).norm() > 1e-6)
@@ -1005,7 +1005,7 @@ bool TestTriOBB::edgeFace(){
 
     sofa::helper::vector<sofa::core::collision::DetectionOutput> detectionOUTPUT;
 
-    if(!sofa::component::collision::MeshIntTool::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
+    if(!sofa::component::collision::MeshIntToolUtil::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
         return false;
 
     if((detectionOUTPUT[0].point[0] - Vec3(0,0,0.01)).norm() > 1e-6)
@@ -1042,7 +1042,7 @@ bool TestTriOBB::edgeEdge(){
 
     sofa::helper::vector<sofa::core::collision::DetectionOutput> detectionOUTPUT;
 
-    if(!sofa::component::collision::MeshIntTool::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
+    if(!sofa::component::collision::MeshIntToolUtil::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
         return false;
 
     if((detectionOUTPUT[0].point[0] - Vec3(0,0,0.01)).norm() > 1e-6)
@@ -1079,7 +1079,7 @@ bool TestTriOBB::edgeEdge2(){
 
     sofa::helper::vector<sofa::core::collision::DetectionOutput> detectionOUTPUT;
 
-    if(!sofa::component::collision::MeshIntTool::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
+    if(!sofa::component::collision::MeshIntToolUtil::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
         return false;
 
     if((detectionOUTPUT[0].point[0] - Vec3(0,0,0.01)).norm() > 1e-6 && (detectionOUTPUT[0].point[0] - Vec3(1,0,0.01)).norm() > 1e-6 && (detectionOUTPUT[0].point[0] - Vec3(-1,0,0.01)).norm() > 1e-6)
@@ -1115,7 +1115,7 @@ bool TestTriOBB::edgeVertex(){
 
     sofa::helper::vector<sofa::core::collision::DetectionOutput> detectionOUTPUT;
 
-    if(!sofa::component::collision::MeshIntTool::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
+    if(!sofa::component::collision::MeshIntToolUtil::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
         return false;
 
     if((detectionOUTPUT[0].point[0] - Vec3(0,0,0.01)).norm() > 1e-6 && (detectionOUTPUT[0].point[0] - Vec3(1,0,0.01)).norm() > 1e-6 && (detectionOUTPUT[0].point[0] - Vec3(-1,0,0.01)).norm() > 1e-6)
@@ -1152,7 +1152,7 @@ bool TestTriOBB::vertexFace(){
 
     sofa::helper::vector<sofa::core::collision::DetectionOutput> detectionOUTPUT;
 
-    if(!sofa::component::collision::MeshIntTool::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
+    if(!sofa::component::collision::MeshIntToolUtil::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
         return false;
 
     if((detectionOUTPUT[0].point[0] - Vec3(0,0,0.01)).norm() > 1e-6 && (detectionOUTPUT[0].point[0] - Vec3(1,0,0.01)).norm() > 1e-6 && (detectionOUTPUT[0].point[0] - Vec3(-1,0,0.01)).norm() > 1e-6)
@@ -1189,7 +1189,7 @@ bool TestTriOBB::vertexEdge(){
 
     sofa::helper::vector<sofa::core::collision::DetectionOutput> detectionOUTPUT;
 
-    if(!sofa::component::collision::MeshIntTool::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
+    if(!sofa::component::collision::MeshIntToolUtil::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
         return false;
 
     if((detectionOUTPUT[0].point[0] - Vec3(0,0,0.01)).norm() > 1e-6 && (detectionOUTPUT[0].point[0] - Vec3(1,0,0.01)).norm() > 1e-6 && (detectionOUTPUT[0].point[0] - Vec3(-1,0,0.01)).norm() > 1e-6)
@@ -1226,7 +1226,7 @@ bool TestTriOBB::vertexVertex(){
 
     sofa::helper::vector<sofa::core::collision::DetectionOutput> detectionOUTPUT;
 
-    if(!sofa::component::collision::MeshIntTool::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
+    if(!sofa::component::collision::MeshIntToolUtil::computeIntersection(tri,tri_flg,obb,1.0,1.0,&detectionOUTPUT))
         return false;
 
     if((detectionOUTPUT[0].point[0] - Vec3(0,0,0.01)).norm() > 1e-6)
