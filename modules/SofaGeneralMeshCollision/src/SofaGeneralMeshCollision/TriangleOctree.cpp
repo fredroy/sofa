@@ -19,16 +19,11 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#include <SofaMeshCollision/TriangleModel.inl>
 #include <SofaGeneralMeshCollision/TriangleOctree.h>
 #include <sofa/core/visual/VisualParams.h>
-#include <SofaMeshCollision/RayTriangleIntersection.h>
 
 namespace sofa::component::collision
 {
-
-using sofa::helper::system::thread::CTime;
-using sofa::helper::system::thread::ctime_t;
 
 TriangleOctree::~TriangleOctree()
 {
@@ -116,7 +111,6 @@ int TriangleOctree::nearestTriangle (int minIndex,
         const defaulttype::Vector3 & origin,
         const defaulttype::Vector3 & direction, traceResult &result)
 {
-    static RayTriangleIntersection intersectionSolver;
     defaulttype::Vector3 P;
     const TriangleOctreeRoot::VecCoord& pos = *tm->octreePos;
     //Triangle t1 (tm, minIndex);
@@ -124,7 +118,7 @@ int TriangleOctree::nearestTriangle (int minIndex,
     double minDist;
     SReal t, u, v;
     //if (intersectionSolver.NewComputation (&t1, origin, direction, t, u, v))
-    if (intersectionSolver.NewComputation (pos[t1[0]], pos[t1[1]], pos[t1[2]], origin, direction, t, u, v))
+    if (sofa::geometry::Triangle::computeTriangleRayIntersection(pos[t1[0]], pos[t1[1]], pos[t1[2]], origin, direction, t, u, v))
     {
         result.u = u;
         result.v = v;
@@ -140,8 +134,7 @@ int TriangleOctree::nearestTriangle (int minIndex,
     {
         //Triangle t2 (tm, objects[i]);
         TriangleOctreeRoot::Tri t2 = (*tm->octreeTriangles)[objects[i]];
-        if (!intersectionSolver.
-            NewComputation (pos[t2[0]], pos[t2[1]], pos[t2[2]], origin, direction, t, u, v))
+        if (!sofa::geometry::Triangle::computeTriangleRayIntersection(pos[t2[0]], pos[t2[1]], pos[t2[2]], origin, direction, t, u, v))
             continue;
 
         if (t < minDist)
@@ -483,15 +476,13 @@ void TriangleOctree::allTriangles (const defaulttype::Vector3 & origin,
         const defaulttype::Vector3 & direction,
         helper::vector<traceResult>& results)
 {
-    static RayTriangleIntersection intersectionSolver;
     defaulttype::Vector3 P;
     const TriangleOctreeRoot::VecCoord& pos = *tm->octreePos;
     SReal t, u, v;
     for (unsigned int i = 0; i < objects.size (); i++)
     {
         TriangleOctreeRoot::Tri t2 = (*tm->octreeTriangles)[objects[i]];
-        if (intersectionSolver.
-            NewComputation (pos[t2[0]], pos[t2[1]], pos[t2[2]], origin, direction, t, u, v))
+        if (sofa::geometry::Triangle::computeTriangleRayIntersection(pos[t2[0]], pos[t2[1]], pos[t2[2]], origin, direction, t, u, v))
         {
             traceResult result;
             result.u = u;
