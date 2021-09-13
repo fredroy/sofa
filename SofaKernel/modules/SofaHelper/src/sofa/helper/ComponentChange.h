@@ -111,8 +111,8 @@ public:
     }
 };
 
-extern SOFA_HELPER_API std::map< std::string, Deprecated > deprecatedComponents;
-extern SOFA_HELPER_API std::map< std::string, ComponentChange > uncreatableComponents;
+extern SOFA_IMPORT_DYNAMIC_LIBRARY_EXPLICIT std::map< std::string, Deprecated > deprecatedComponents;
+extern SOFA_IMPORT_DYNAMIC_LIBRARY_EXPLICIT std::map< std::string, ComponentChange > uncreatableComponents;
 
 } // namespace lifecycle
 } // namespace helper

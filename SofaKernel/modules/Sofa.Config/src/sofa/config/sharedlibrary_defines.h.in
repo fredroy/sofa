@@ -25,9 +25,13 @@
 #ifndef WIN32
 #	define SOFA_EXPORT_DYNAMIC_LIBRARY __attribute__ ((visibility ("default")))
 #   define SOFA_IMPORT_DYNAMIC_LIBRARY
+#   define SOFA_EXPORT_DYNAMIC_LIBRARY_EXPLICIT
+#   define SOFA_IMPORT_DYNAMIC_LIBRARY_EXPLICIT
 #else
-#	define SOFA_EXPORT_DYNAMIC_LIBRARY __declspec( dllexport )
-#   define SOFA_IMPORT_DYNAMIC_LIBRARY __declspec( dllimport )
+#	define SOFA_EXPORT_DYNAMIC_LIBRARY 
+#   define SOFA_IMPORT_DYNAMIC_LIBRARY 
+#   define SOFA_EXPORT_DYNAMIC_LIBRARY_EXPLICIT __declspec( dllexport )
+#   define SOFA_IMPORT_DYNAMIC_LIBRARY_EXPLICIT __declspec( dllimport )
 #   ifdef _MSC_VER
 #       pragma warning(disable : 4231)
 #       pragma warning(disable : 4910)

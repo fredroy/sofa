@@ -30,7 +30,7 @@ namespace sofa::type
 ///
 /// Note this is a quick&dirty implementation and it could be improved
 template<>
-SOFA_TYPE_API std::istream& SVector<std::string>::read( std::istream& in )
+SOFA_EXPORT_DYNAMIC_LIBRARY_EXPLICIT std::istream& SVector<std::string>::read( std::istream& in )
 {
     this->clear();
 
@@ -118,7 +118,7 @@ SOFA_TYPE_API std::istream& SVector<std::string>::read( std::istream& in )
 }
 
 template<>
-SOFA_TYPE_API std::ostream& SVector<std::string>::write( std::ostream& os ) const
+SOFA_EXPORT_DYNAMIC_LIBRARY_EXPLICIT std::ostream& SVector<std::string>::write( std::ostream& os ) const
 {
     if ( !this->empty() )
     {

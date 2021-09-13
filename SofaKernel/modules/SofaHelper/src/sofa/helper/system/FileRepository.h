@@ -191,8 +191,8 @@ protected:
     static bool findFileIn(std::string& filename, const std::string& path);
 };
 
-extern SOFA_HELPER_API FileRepository DataRepository; ///< Default repository
-extern SOFA_HELPER_API FileRepository PluginRepository; ///< Default repository
+extern SOFA_IMPORT_DYNAMIC_LIBRARY_EXPLICIT FileRepository DataRepository; ///< Default repository
+extern SOFA_IMPORT_DYNAMIC_LIBRARY_EXPLICIT FileRepository PluginRepository; ///< Default repository
 
 } // namespace system
 

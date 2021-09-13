@@ -33,7 +33,7 @@ namespace objectmodel
 {
 
 
-size_t Event::s_lastEventTypeIndex = 0;
+SOFA_CORE_API_EXPLICIT size_t Event::s_lastEventTypeIndex = 0;
 
 Event::Event()
 {

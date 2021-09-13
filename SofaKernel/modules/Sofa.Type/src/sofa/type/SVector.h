@@ -159,9 +159,9 @@ public:
 /// string elements must be delimited by ' or " (like a list of strings in python).
 /// example: ['string1' ,  "string 2 ",'etc...' ]
 template<>
-std::istream& SVector<std::string>::read( std::istream& in );
+SOFA_IMPORT_DYNAMIC_LIBRARY_EXPLICIT std::istream& SVector<std::string>::read( std::istream& in );
 template<>
-std::ostream& SVector<std::string>::write( std::ostream& os ) const;
+SOFA_IMPORT_DYNAMIC_LIBRARY_EXPLICIT std::ostream& SVector<std::string>::write( std::ostream& os ) const;
 
 
 } // namespace sofa::type

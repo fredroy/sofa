@@ -92,7 +92,7 @@ protected:
     bool m_handled;
 
 
-    static size_t s_lastEventTypeIndex; ///< storing the last given id
+    SOFA_CORE_API_EXPLICIT static size_t s_lastEventTypeIndex; ///< storing the last given id
 };
 
 } // namespace objectmodel
