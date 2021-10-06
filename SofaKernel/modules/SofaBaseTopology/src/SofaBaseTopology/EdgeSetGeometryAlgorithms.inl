@@ -251,8 +251,8 @@ typename DataTypes::Real EdgeSetGeometryAlgorithms< DataTypes >::computeEdgeLeng
 {
     const Edge &e = this->m_topology->getEdge(i);
     const VecCoord& p =(this->object->read(core::ConstVecCoordId::position())->getValue());
-    const Real length = (DataTypes::getCPos(p[e[0]])-DataTypes::getCPos(p[e[1]])).norm();
-    return length;
+
+    return sofa::geometry::Edge::computeLength(DataTypes::getCPos(p[e[0]]), DataTypes::getCPos(p[e[1]]));
 }
 
 
@@ -263,8 +263,8 @@ typename DataTypes::Real EdgeSetGeometryAlgorithms< DataTypes >::computeRestEdge
 {
     const Edge &e = this->m_topology->getEdge(i);
     const VecCoord& p = (this->object->read(core::ConstVecCoordId::restPosition())->getValue());
-    const Real length = (DataTypes::getCPos(p[e[0]])-DataTypes::getCPos(p[e[1]])).norm();
-    return length;
+
+    return sofa::geometry::Edge::computeLength(DataTypes::getCPos(p[e[0]]), DataTypes::getCPos(p[e[1]]));
 }
 
 template< class DataTypes>
@@ -272,8 +272,8 @@ typename DataTypes::Real EdgeSetGeometryAlgorithms< DataTypes >::computeRestSqua
 {
     const Edge &e = this->m_topology->getEdge(i);
     const VecCoord& p = (this->object->read(core::ConstVecCoordId::restPosition())->getValue());
-    const Real length = (DataTypes::getCPos(p[e[0]])-DataTypes::getCPos(p[e[1]])).norm2();
-    return length;
+
+    return sofa::geometry::Edge::computeSquaredLength(DataTypes::getCPos(p[e[0]]), DataTypes::getCPos(p[e[1]]));
 }
 
 /// computes the edge length of all edges are store in the array interface
@@ -286,7 +286,7 @@ void EdgeSetGeometryAlgorithms<DataTypes>::computeEdgeLength( BasicArrayInterfac
     for (Index i=0; i<ea.size(); ++i)
     {
         const Edge &e = ea[i];
-        ai[i] = (DataTypes::getCPos(p[e[0]])-DataTypes::getCPos(p[e[1]])).norm();
+        ai[i] = sofa::geometry::Edge::computeLength(DataTypes::getCPos(p[e[0]]), DataTypes::getCPos(p[e[1]]));
     }
 }
 

@@ -22,15 +22,35 @@
 #pragma once
 
 #include <sofa/geometry/config.h>
+#include <cmath>
+#include <numeric>
 
 namespace sofa::geometry
 {
 
 struct Edge
 {
-    static const sofa::Size NumberOfNodes = 2;
+    static constexpr sofa::Size NumberOfNodes = 2;
 
     Edge() = default;
+
+    template<typename Node,
+        typename T = std::decay_t<decltype(*std::begin(std::declval<Node>()))>,
+        typename = std::enable_if_t<std::is_scalar_v<T>>>
+    static constexpr auto computeSquaredLength(const Node& n0, const Node& n1)
+    {
+        const auto v = n1 - n0;
+        return std::inner_product(std::begin(v), std::end(v), std::begin(v), 0);
+    }
+
+    template<typename Node,
+        typename T = std::decay_t<decltype(*std::begin(std::declval<Node>()))>,
+        typename = std::enable_if_t<std::is_scalar_v<T>>>
+    static constexpr auto computeLength(const Node& n0, const Node& n1)
+    {
+        return std::sqrt(computeSquaredLength(n0,n1));
+    }
+
 };
 
 } // namespace sofa::geometry
