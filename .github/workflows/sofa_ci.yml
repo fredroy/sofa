@@ -16,7 +16,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-2019]
+        os: [ubuntu-20.04, macos-10.15, windows-2019]
         
     env:
       VCPKG_DEFAULT_TRIPLET: x64-windows
@@ -39,12 +39,12 @@ jobs:
     - name: Install requirements
       shell: bash
       run: |
-         if [ "$RUNNER_OS" == "Linux" ]; then
+         if [[ "$RUNNER_OS" == "Linux" ]]; then
             sudo apt install -qq ccache ninja-build libeigen3-dev libboost-dev
-         elif [ "$RUNNER_OS" == "Windows" ]; then
+         elif [[ "$RUNNER_OS" == "Windows" ]]; then
             # choco install eigen ninja
             vcpkg install zlib eigen3
-         elif [ "$RUNNER_OS" == "macOS" ]; then
+         elif [[ "$RUNNER_OS" == "macOS" ]]; then
             brew install ccache ninja eigen boost
          fi
          
@@ -52,7 +52,7 @@ jobs:
       if: steps.cache-boost.outputs.cache-hit != 'true' &&  matrix.os == 'windows-2019'
       shell: bash
       run: |
-        if [ "$RUNNER_OS" == "Windows" ]; then
+        if [[ "$RUNNER_OS" == "Windows" ]]; then
           mkdir -p $WINDOWS_BOOST_ROOT
           curl --progress-bar --location --output $WINDOWS_BOOST_ROOT/download.tar.bz2 $WINDOWS_BOOST_URL
           7z -o$WINDOWS_BOOST_ROOT x $WINDOWS_BOOST_ROOT/download.tar.bz2 -y -bd
@@ -65,7 +65,7 @@ jobs:
       if: steps.cache-windeppack.outputs.cache-hit != 'true' &&  matrix.os == 'windows-2019'
       shell: bash
       run: |
-        if [ "$RUNNER_OS" == "Windows" ]; then
+        if [[ "$RUNNER_OS" == "Windows" ]]; then
           mkdir -p $WINDOWS_WINDEPPACK_ROOT
           curl --progress-bar --location --output $WINDOWS_WINDEPPACK_ROOT/download.zip $WINDOWS_WINDEPPACK_URL
           7z -o$WINDOWS_WINDEPPACK_ROOT x $WINDOWS_WINDEPPACK_ROOT/download.zip -y -bd
@@ -119,10 +119,11 @@ jobs:
         CCACHE_MAXSIZE: "1G"
       shell: bash
       run: |
-        if [ "$RUNNER_OS" == "Windows" ]; then
+        if [[ "$RUNNER_OS" == "Windows" ]]; then
           # "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
           cp -rf $WINDOWS_WINDEPPACK_ROOT/include .
           cp -rf $WINDOWS_WINDEPPACK_ROOT/lib .
+          cp -rf $WINDOWS_WINDEPPACK_ROOT/licenses .
           mkdir -p sofa-build
           cd sofa-build
           cmake \
@@ -140,31 +141,32 @@ jobs:
               -DPLUGIN_SOFAMATRIX=OFF \
               ..
           cmake --build . --target install --config Release
-        #elif [ "$RUNNER_OS" == "macOS" || "$RUNNER_OS" == "Linux"]; then
-        #  export CCACHE_BASEDIR=$GITHUB_WORKSPACE
-        #  && export CCACHE_DIR=$GITHUB_WORKSPACE/.ccache
-        #  && ccache -z
-        #  && mkdir build
-        #  && cd build
-        #  && cmake 
-        #      -GNinja
-        #      -DCMAKE_C_COMPILER_LAUNCHER=ccache
-        #      -DCMAKE_CXX_COMPILER_LAUNCHER=ccache
-        #      -DCMAKE_BUILD_TYPE=Release
-        #      -DAPPLICATION_MODELER=OFF
-        #      -DSOFAGUI_BUILD=OFF
-        #      -DSOFAGUI_QT=OFF
-        #      -DSOFA_WITH_OPENGL=OFF
-        #      -DSOFA_BUILD_SCENECREATOR=OFF
-        #      -DSOFA_BUILD_TESTS=ON
-        #      -DSOFAGUI_BUILD_TESTS=OFF
-        #      -DSOFA_FLOATING_POINT_TYPE=double
-        #      -DSOFA_WITH_DEPRECATED_COMPONENTS=OFF
-        #      -DPLUGIN_SOFAMATRIX=OFF
-        #      ..
-        #  && ninja 
-        #  && ninja install
-        #  && ccache -s
+        elif [[ "$RUNNER_OS" == "macOS" || "$RUNNER_OS" == "Linux" ]]; then
+          export CCACHE_BASEDIR=$GITHUB_WORKSPACE
+          export CCACHE_DIR=$GITHUB_WORKSPACE/.ccache
+          ccache -z
+          mkdir sofa-build
+          cd sofa-build
+          cmake \
+             -GNinja \
+             -DCMAKE_C_COMPILER_LAUNCHER=ccache \
+             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
+             -DCMAKE_BUILD_TYPE=Release \
+             -DCMAKE_INSTALL_PREFIX="${GITHUB_WORKSPACE}/sofa-install"  \
+             -DAPPLICATION_MODELER=OFF \
+             -DSOFAGUI_BUILD=OFF \
+             -DSOFAGUI_QT=OFF \
+             -DSOFA_WITH_OPENGL=OFF \
+             -DSOFA_BUILD_SCENECREATOR=OFF \
+             -DSOFA_BUILD_TESTS=OFF \
+             -DSOFAGUI_BUILD_TESTS=OFF \
+             -DSOFA_FLOATING_POINT_TYPE=double \
+             -DSOFA_WITH_DEPRECATED_COMPONENTS=OFF \
+             -DPLUGIN_SOFAMATRIX=OFF \
+             ..
+          ninja 
+          ninja install
+          ccache -s
         fi
     - name: Archive production
       uses: actions/upload-artifact@v2
