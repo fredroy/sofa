@@ -38,15 +38,17 @@
 namespace sofa::component::mass
 {
 
-template <class DataTypes>
-
+template <class DataTypes, typename TStubMassType = void>
 class UniformMass : public core::behavior::Mass<DataTypes>
 {
 public:
-    SOFA_CLASS(SOFA_TEMPLATE(UniformMass,DataTypes),
+    SOFA_CLASS(SOFA_TEMPLATE2(UniformMass,DataTypes, TStubMassType),
                SOFA_TEMPLATE(core::behavior::Mass,DataTypes));
 
     using TMassType = typename sofa::component::mass::MassTypes<DataTypes>::type;
+
+    using MassType = TMassType;
+    using StubMassType = TStubMassType;
     
     typedef core::behavior::Mass<DataTypes> Inherited;
     typedef typename DataTypes::VecCoord VecCoord;
@@ -89,7 +91,7 @@ public:
     ////////////////////////////////////////////////////////////////////////////
 
     /// Link to be set to the topology container in the component graph.
-    SingleLink <UniformMass<DataTypes>, sofa::core::topology::BaseMeshTopology, BaseLink::FLAG_STOREPATH | BaseLink::FLAG_STRONGLINK> l_topology;
+    SingleLink <UniformMass<DataTypes, TStubMassType>, sofa::core::topology::BaseMeshTopology, BaseLink::FLAG_STOREPATH | BaseLink::FLAG_STRONGLINK> l_topology;
 
 protected:
     UniformMass();
@@ -165,9 +167,9 @@ private:
     template<class T>
     void drawVec6Impl(const core::visual::VisualParams* vparams) ;
 
-    template<class T>
-    SReal getPotentialEnergyRigidImpl(const core::MechanicalParams* mparams,
-                                      const DataVecCoord& x) const;   ///< Mgx potential in a uniform gravity field, null at origin
+    //template<class T>
+    //SReal getPotentialEnergyRigidImpl(const core::MechanicalParams* mparams,
+    //                                  const DataVecCoord& x) const;   ///< Mgx potential in a uniform gravity field, null at origin
 
 
 
@@ -200,10 +202,6 @@ template <>
 void UniformMass<defaulttype::Rigid3Types>::draw(const core::visual::VisualParams* vparams);
 template <>
 void UniformMass<defaulttype::Rigid2Types>::draw(const core::visual::VisualParams* vparams);
-template <>
-SReal UniformMass<defaulttype::Rigid3Types>::getPotentialEnergy ( const core::MechanicalParams*, const DataVecCoord& x ) const;
-template <>
-SReal UniformMass<defaulttype::Rigid2Types>::getPotentialEnergy ( const core::MechanicalParams*, const DataVecCoord& x ) const;
 template <>
 void UniformMass<defaulttype::Vec6Types>::draw(const core::visual::VisualParams* vparams);
 

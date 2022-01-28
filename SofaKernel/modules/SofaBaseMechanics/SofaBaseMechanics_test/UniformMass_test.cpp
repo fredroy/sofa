@@ -19,7 +19,7 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#include <SofaBaseMechanics/UniformMass.h>
+#include <SofaBaseMechanics/UniformMass.inl>
 
 #include <string>
 using std::string ;
@@ -519,4 +519,58 @@ TYPED_TEST(UniformMassTest, checkRigidAttribute) {
 
 TYPED_TEST(UniformMassTest, reinitTest) {
     //ASSERT_NO_THROW(this->reinitTest()) ;
+}
+
+template<typename DataTypes>
+struct UniformMassTemplate_test : public BaseTest
+{
+    sofa::simulation::Node::SPtr root;
+    void SetUp() override
+    {
+        sofa::simulation::Simulation* simulation;
+        sofa::simulation::setSimulation(simulation = new sofa::simulation::graph::DAGSimulation());
+
+        /// Scene creation
+        root = simulation->createNewGraph("root");
+
+        /// Add mechanicalObject
+        auto dofs = sofa::core::objectmodel::New<sofa::component::container::MechanicalObject<DataTypes>>();
+        root->addObject(dofs);
+    }
+
+    void testNoMassTypeTemplate()
+    {
+        EXPECT_MSG_NOEMIT(Warning);
+        auto mass = sofa::core::objectmodel::New<sofa::component::mass::UniformMass<DataTypes>>();
+        root->addObject(mass);
+
+    }
+
+    void testMassTypeTemplate()
+    {
+        EXPECT_MSG_EMIT(Warning);
+        auto mass = sofa::core::objectmodel::New<sofa::component::mass::UniformMass<DataTypes, double>>();
+        root->addObject(mass);
+    }
+};
+
+// Define the list of DataTypes to instanciate
+using ::testing::Types;
+typedef Types<Vec3dTypes, Vec2dTypes, Rigid3dTypes, Rigid2dTypes
+    //
+> TestDataTypes; // the types to instanciate.
+
+// Test suite for all the instanciations
+TYPED_TEST_SUITE(UniformMassTemplate_test, TestDataTypes);
+
+// first test case
+TYPED_TEST(UniformMassTemplate_test, testNoMassTypeTemplate)
+{
+    this->testNoMassTypeTemplate();
+}
+
+// second test case
+TYPED_TEST(UniformMassTemplate_test, testMassTypeTemplate)
+{
+    this->testMassTypeTemplate();
 }

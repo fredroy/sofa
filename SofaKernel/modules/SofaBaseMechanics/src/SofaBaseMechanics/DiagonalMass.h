@@ -52,13 +52,16 @@ public :
     typedef sofa::defaulttype::StdVectorTypes< Vec3, Vec3, Real > GeometricalTypes ; /// assumes the geometry object type is 3D
 };
 
-template <class DataTypes>
+template <class DataTypes, typename TStubMassType = void>
 class DiagonalMass : public core::behavior::Mass<DataTypes>
 {
 public:
-    SOFA_CLASS(SOFA_TEMPLATE(DiagonalMass,DataTypes), SOFA_TEMPLATE(core::behavior::Mass,DataTypes));
+    SOFA_CLASS(SOFA_TEMPLATE2(DiagonalMass,DataTypes, TStubMassType), SOFA_TEMPLATE(core::behavior::Mass,DataTypes));
 
     using TMassType = typename sofa::component::mass::MassTypes<DataTypes>::type;
+
+    using MassType = TMassType;
+    using StubMassType = TStubMassType;
 
     typedef core::behavior::Mass<DataTypes> Inherited;
     typedef typename DataTypes::VecCoord VecCoord;
@@ -108,7 +111,7 @@ public:
     int m_initializationProcess;
 
     /// Link to be set to the topology container in the component graph. 
-    SingleLink<DiagonalMass<DataTypes>, sofa::core::topology::BaseMeshTopology, BaseLink::FLAG_STOREPATH | BaseLink::FLAG_STRONGLINK> l_topology;
+    SingleLink<DiagonalMass<DataTypes, TStubMassType>, sofa::core::topology::BaseMeshTopology, BaseLink::FLAG_STOREPATH | BaseLink::FLAG_STRONGLINK> l_topology;
 
 protected:
     ////////////////////////// Inherited attributes ////////////////////////////
@@ -356,10 +359,10 @@ private:
 
 
 // Specialization for rigids
-template <>
-SReal DiagonalMass<defaulttype::Rigid3Types>::getPotentialEnergy( const core::MechanicalParams* mparams, const DataVecCoord& x) const;
-template <>
-SReal DiagonalMass<defaulttype::Rigid2Types>::getPotentialEnergy( const core::MechanicalParams* mparams, const DataVecCoord& x) const;
+//template <>
+//SReal DiagonalMass<defaulttype::Rigid3Types>::getPotentialEnergy( const core::MechanicalParams* mparams, const DataVecCoord& x) const;
+//template <>
+//SReal DiagonalMass<defaulttype::Rigid2Types>::getPotentialEnergy( const core::MechanicalParams* mparams, const DataVecCoord& x) const;
 template <>
 void DiagonalMass<defaulttype::Rigid3Types>::draw(const core::visual::VisualParams* vparams);
 template <>

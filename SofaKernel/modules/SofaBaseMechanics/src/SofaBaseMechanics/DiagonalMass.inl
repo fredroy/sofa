@@ -37,8 +37,8 @@ namespace sofa::component::mass
 using sofa::core::objectmodel::ComponentState;
 using namespace sofa::core::topology;
 
-template <class DataTypes>
-DiagonalMass<DataTypes>::DiagonalMass()
+template <class DataTypes, typename StubMassType>
+DiagonalMass<DataTypes, StubMassType>::DiagonalMass()
     : d_vertexMass( initData(&d_vertexMass, "vertexMass", "Specify a vector giving the mass of each vertex. \n"
                                                           "If unspecified or wrongly set, the massDensity or totalMass information is used.") )
     , d_massDensity( initData(&d_massDensity, Real(1.0),"massDensity","Specify one single real and positive value for the mass density. \n"
@@ -54,17 +54,23 @@ DiagonalMass<DataTypes>::DiagonalMass()
     , m_topology(nullptr)
 {
     this->addAlias(&d_fileMass,"fileMass");
+
+    if (!std::is_same_v<StubMassType, void>)
+    {
+        msg_warning() << "MassType is not required anymore and the template is deprecated, please remove it before its removal from the code." << msgendl
+            << "As your mass is templated on " << DataTypes::Name() << ", MassType is defined as " << sofa::helper::NameDecoder::getTypeName<MassType>() << " .";
+    }
 }
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::applyPointCreation(PointID, MassType &m, const Point &, const sofa::type::vector<PointID> &, const sofa::type::vector<SReal> &)
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::applyPointCreation(PointID, MassType &m, const Point &, const sofa::type::vector<PointID> &, const sofa::type::vector<SReal> &)
 {
     m=0;
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::applyPointDestruction(Index id, MassType& VertexMass)
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::applyPointDestruction(Index id, MassType& VertexMass)
 {
     SOFA_UNUSED(id);
     helper::WriteAccessor<Data<Real> > totalMass(d_totalMass);
@@ -73,8 +79,8 @@ void DiagonalMass<DataTypes>::applyPointDestruction(Index id, MassType& VertexMa
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::applyEdgeCreation(const sofa::type::vector< EdgeID >& edgeAdded,
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::applyEdgeCreation(const sofa::type::vector< EdgeID >& edgeAdded,
         const sofa::type::vector< Edge >& /*elems*/,
         const sofa::type::vector< sofa::type::vector< EdgeID > >& /*ancestors*/,
         const sofa::type::vector< sofa::type::vector< SReal > >& /*coefs*/)
@@ -113,8 +119,8 @@ void DiagonalMass<DataTypes>::applyEdgeCreation(const sofa::type::vector< EdgeID
     }
 }
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::applyEdgeDestruction(const sofa::type::vector<EdgeID> & edgeRemoved)
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::applyEdgeDestruction(const sofa::type::vector<EdgeID> & edgeRemoved)
 {
     if (this->getMassTopologyType() == sofa::geometry::ElementType::EDGE)
     {
@@ -151,9 +157,9 @@ void DiagonalMass<DataTypes>::applyEdgeDestruction(const sofa::type::vector<Edge
 }
 
 
-template <class DataTypes>
+template <class DataTypes, typename StubMassType>
 template <typename T, typename std::enable_if_t<T::spatial_dimensions >= 2, int > >
-void DiagonalMass<DataTypes>::applyTriangleCreation(const sofa::type::vector< TriangleID >& triangleAdded,
+void DiagonalMass<DataTypes, StubMassType>::applyTriangleCreation(const sofa::type::vector< TriangleID >& triangleAdded,
         const sofa::type::vector< Triangle >& /*elems*/,
         const sofa::type::vector< sofa::type::vector< TriangleID > >& /*ancestors*/,
         const sofa::type::vector< sofa::type::vector< SReal > >& /*coefs*/)
@@ -194,9 +200,9 @@ void DiagonalMass<DataTypes>::applyTriangleCreation(const sofa::type::vector< Tr
     }
 }
 
-template <class DataTypes>
+template <class DataTypes, typename StubMassType>
 template <typename T, typename std::enable_if_t<T::spatial_dimensions >= 2, int > >
-void DiagonalMass<DataTypes>::applyTriangleDestruction(const sofa::type::vector<TriangleID > & triangleRemoved)
+void DiagonalMass<DataTypes, StubMassType>::applyTriangleDestruction(const sofa::type::vector<TriangleID > & triangleRemoved)
 {
 
     if (this->getMassTopologyType() == sofa::geometry::ElementType::TRIANGLE)
@@ -237,9 +243,9 @@ void DiagonalMass<DataTypes>::applyTriangleDestruction(const sofa::type::vector<
 }
 
 
-template <class DataTypes>
+template <class DataTypes, typename StubMassType>
 template <typename T, typename std::enable_if_t<T::spatial_dimensions >= 2, int > >
-void DiagonalMass<DataTypes>::applyQuadCreation(const sofa::type::vector< QuadID >& quadAdded,
+void DiagonalMass<DataTypes, StubMassType>::applyQuadCreation(const sofa::type::vector< QuadID >& quadAdded,
     const sofa::type::vector< Quad >& /*elems*/,
     const sofa::type::vector< sofa::type::vector< QuadID > >& /*ancestors*/,
     const sofa::type::vector< sofa::type::vector< SReal > >& /*coefs*/)
@@ -283,9 +289,9 @@ void DiagonalMass<DataTypes>::applyQuadCreation(const sofa::type::vector< QuadID
     }
 }
 
-template <class DataTypes>
+template <class DataTypes, typename StubMassType>
 template <typename T, typename std::enable_if_t<T::spatial_dimensions >= 2, int > >
-void DiagonalMass<DataTypes>::applyQuadDestruction(const sofa::type::vector<QuadID >& quadRemoved)
+void DiagonalMass<DataTypes, StubMassType>::applyQuadDestruction(const sofa::type::vector<QuadID >& quadRemoved)
 {
     if (this->getMassTopologyType() == sofa::geometry::ElementType::QUAD)
     {
@@ -327,9 +333,9 @@ void DiagonalMass<DataTypes>::applyQuadDestruction(const sofa::type::vector<Quad
 }
 
 
-template <class DataTypes>
+template <class DataTypes, typename StubMassType>
 template <typename T, typename std::enable_if_t<T::spatial_dimensions >= 3, int > >
-void DiagonalMass<DataTypes>::applyTetrahedronCreation(const sofa::type::vector< TetrahedronID >& tetrahedronAdded,
+void DiagonalMass<DataTypes, StubMassType>::applyTetrahedronCreation(const sofa::type::vector< TetrahedronID >& tetrahedronAdded,
         const sofa::type::vector< Tetrahedron >& /*elems*/,
         const sofa::type::vector< sofa::type::vector< TetrahedronID > >& /*ancestors*/,
         const sofa::type::vector< sofa::type::vector< SReal > >& /*coefs*/)
@@ -373,9 +379,9 @@ void DiagonalMass<DataTypes>::applyTetrahedronCreation(const sofa::type::vector<
     }
 }
 
-template <class DataTypes>
+template <class DataTypes, typename StubMassType>
 template <typename T, typename std::enable_if_t<T::spatial_dimensions >= 3, int > >
-void DiagonalMass<DataTypes>::applyTetrahedronDestruction(const sofa::type::vector<TetrahedronID> & tetrahedronRemoved)
+void DiagonalMass<DataTypes, StubMassType>::applyTetrahedronDestruction(const sofa::type::vector<TetrahedronID> & tetrahedronRemoved)
 {
     if (this->getMassTopologyType() == sofa::geometry::ElementType::TETRAHEDRON)
     {
@@ -417,9 +423,9 @@ void DiagonalMass<DataTypes>::applyTetrahedronDestruction(const sofa::type::vect
 }
 
 
-template <class DataTypes>
+template <class DataTypes, typename StubMassType>
 template <typename T, typename std::enable_if_t<T::spatial_dimensions >= 3, int > >
-void DiagonalMass<DataTypes>::applyHexahedronCreation(const sofa::type::vector< HexahedronID >& hexahedronAdded,
+void DiagonalMass<DataTypes, StubMassType>::applyHexahedronCreation(const sofa::type::vector< HexahedronID >& hexahedronAdded,
         const sofa::type::vector< Hexahedron >& /*elems*/,
         const sofa::type::vector< sofa::type::vector< HexahedronID > >& /*ancestors*/,
         const sofa::type::vector< sofa::type::vector< SReal > >& /*coefs*/)
@@ -464,9 +470,9 @@ void DiagonalMass<DataTypes>::applyHexahedronCreation(const sofa::type::vector< 
     }
 }
 
-template <class DataTypes>
+template <class DataTypes, typename StubMassType>
 template <typename T, typename std::enable_if_t<T::spatial_dimensions >= 3, int > >
-void DiagonalMass<DataTypes>::applyHexahedronDestruction(const sofa::type::vector<HexahedronID> & hexahedronRemoved)
+void DiagonalMass<DataTypes, StubMassType>::applyHexahedronDestruction(const sofa::type::vector<HexahedronID> & hexahedronRemoved)
 {
     if (this->getMassTopologyType() == sofa::geometry::ElementType::HEXAHEDRON)
     {
@@ -510,30 +516,30 @@ void DiagonalMass<DataTypes>::applyHexahedronDestruction(const sofa::type::vecto
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::clear()
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::clear()
 {
     helper::WriteAccessor<Data<MassVector> > masses = d_vertexMass;
     masses.clear();
 }
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::addMass(const MassType& m)
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::addMass(const MassType& m)
 {
     helper::WriteAccessor<Data<MassVector> > masses = d_vertexMass;
     masses.push_back(m);
 }
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::resize(int vsize)
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::resize(int vsize)
 {
     helper::WriteAccessor<Data<MassVector> > masses = d_vertexMass;
     masses.resize(vsize);
 }
 
 // -- Mass interface
-template <class DataTypes>
-void DiagonalMass<DataTypes>::addMDx(const core::MechanicalParams* /*mparams*/, DataVecDeriv& res, const DataVecDeriv& dx, SReal factor)
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::addMDx(const core::MechanicalParams* /*mparams*/, DataVecDeriv& res, const DataVecDeriv& dx, SReal factor)
 {
     const MassVector &masses= d_vertexMass.getValue();
     helper::WriteOnlyAccessor< DataVecDeriv > _res = res;
@@ -560,8 +566,8 @@ void DiagonalMass<DataTypes>::addMDx(const core::MechanicalParams* /*mparams*/, 
 
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::accFromF(const core::MechanicalParams* /*mparams*/, DataVecDeriv& a, const DataVecDeriv& f)
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::accFromF(const core::MechanicalParams* /*mparams*/, DataVecDeriv& a, const DataVecDeriv& f)
 {
 
     const MassVector &masses= d_vertexMass.getValue();
@@ -574,8 +580,8 @@ void DiagonalMass<DataTypes>::accFromF(const core::MechanicalParams* /*mparams*/
     }
 }
 
-template <class DataTypes>
-SReal DiagonalMass<DataTypes>::getKineticEnergy( const core::MechanicalParams* /*mparams*/, const DataVecDeriv& v ) const
+template <class DataTypes, typename StubMassType>
+SReal DiagonalMass<DataTypes, StubMassType>::getKineticEnergy( const core::MechanicalParams* /*mparams*/, const DataVecDeriv& v ) const
 {
 
     const MassVector &masses= d_vertexMass.getValue();
@@ -588,8 +594,8 @@ SReal DiagonalMass<DataTypes>::getKineticEnergy( const core::MechanicalParams* /
     return e/2;
 }
 
-template <class DataTypes>
-SReal DiagonalMass<DataTypes>::getPotentialEnergy( const core::MechanicalParams* /*mparams*/, const DataVecCoord& x ) const
+template <class DataTypes, typename StubMassType>
+SReal DiagonalMass<DataTypes, StubMassType>::getPotentialEnergy( const core::MechanicalParams* /*mparams*/, const DataVecCoord& x ) const
 {
 
     const MassVector &masses= d_vertexMass.getValue();
@@ -599,23 +605,36 @@ SReal DiagonalMass<DataTypes>::getPotentialEnergy( const core::MechanicalParams*
     type::Vec3d g ( this->getContext()->getGravity() );
     Deriv theGravity;
     DataTypes::set ( theGravity, g[0], g[1], g[2]);
-    for (unsigned int i=0; i<masses.size(); i++)
+
+    //Rigid Version
+    if constexpr (std::is_same_v<DataTypes, sofa::defaulttype::StdRigidTypes<DataTypes::spatial_dimensions, typename DataTypes::Real > >)
     {
-        e -= theGravity*masses[i]*_x[i];
+        for (unsigned int i=0; i<_x.size(); i++)
+        {
+            e -= getVCenter(theGravity) * masses[i].mass * _x[i].getCenter();
+        }
     }
+    else // Vector version
+    {
+        for (unsigned int i = 0; i < masses.size(); i++)
+        {
+            e -= theGravity * masses[i] * _x[i];
+        }
+    }
+
     return e;
 }
 
 // does nothing by default, need to be specialized in .cpp
-template <class DataTypes>
+template <class DataTypes, typename StubMassType>
 type::Vector6
-DiagonalMass<DataTypes>::getMomentum ( const core::MechanicalParams*, const DataVecCoord& /*vx*/, const DataVecDeriv& /*vv*/  ) const
+DiagonalMass<DataTypes, StubMassType>::getMomentum ( const core::MechanicalParams*, const DataVecCoord& /*vx*/, const DataVecDeriv& /*vv*/  ) const
 {
     return type::Vector6();
 }
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::addMToMatrix(const core::MechanicalParams *mparams, const sofa::core::behavior::MultiMatrixAccessor* matrix)
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::addMToMatrix(const core::MechanicalParams *mparams, const sofa::core::behavior::MultiMatrixAccessor* matrix)
 {
     const MassVector &masses= d_vertexMass.getValue();
     const auto N = defaulttype::DataTypeInfo<Deriv>::size();
@@ -627,16 +646,16 @@ void DiagonalMass<DataTypes>::addMToMatrix(const core::MechanicalParams *mparams
 }
 
 
-template <class DataTypes>
-SReal DiagonalMass<DataTypes>::getElementMass(sofa::Index index) const
+template <class DataTypes, typename StubMassType>
+SReal DiagonalMass<DataTypes, StubMassType>::getElementMass(sofa::Index index) const
 {
     return SReal(d_vertexMass.getValue()[index]);
 }
 
 
 //TODO: special case for Rigid Mass
-template <class DataTypes>
-void DiagonalMass<DataTypes>::getElementMass(sofa::Index index, linearalgebra::BaseMatrix *m) const
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::getElementMass(sofa::Index index, linearalgebra::BaseMatrix *m) const
 {
     static const linearalgebra::BaseMatrix::Index dimension = linearalgebra::BaseMatrix::Index(defaulttype::DataTypeInfo<Deriv>::size());
     if (m->rowSize() != dimension || m->colSize() != dimension) m->resize(dimension,dimension);
@@ -645,15 +664,15 @@ void DiagonalMass<DataTypes>::getElementMass(sofa::Index index, linearalgebra::B
     AddMToMatrixFunctor<Deriv,MassType>()(m, d_vertexMass.getValue()[index], 0, 1);
 }
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::reinit()
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::reinit()
 {
     // Now update is handled through the doUpdateInternal mechanism
     // called at each begin of step through the UpdateInternalDataVisitor
 }
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::initTopologyHandlers()
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::initTopologyHandlers()
 {
     // add the functions to handle topology changes.
     d_vertexMass.createTopologyHandler(m_topology);
@@ -739,8 +758,8 @@ void DiagonalMass<DataTypes>::initTopologyHandlers()
     }
 }
 
-template <class DataTypes>
-bool DiagonalMass<DataTypes>::checkTopology()
+template <class DataTypes, typename StubMassType>
+bool DiagonalMass<DataTypes, StubMassType>::checkTopology()
 {
     if (l_topology.empty())
     {
@@ -803,8 +822,8 @@ bool DiagonalMass<DataTypes>::checkTopology()
     }
 }
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::init()
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::init()
 {
     this->d_componentState.setValue(ComponentState::Valid);
 
@@ -850,8 +869,8 @@ void DiagonalMass<DataTypes>::init()
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::massInitialization()
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::massInitialization()
 {
     //Mass initialization process
     if(d_vertexMass.isSet() || d_massDensity.isSet() || d_totalMass.isSet() )
@@ -913,8 +932,8 @@ void DiagonalMass<DataTypes>::massInitialization()
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::printMass()
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::printMass()
 {
     if (this->f_printLog.getValue() == false)
         return;
@@ -944,8 +963,8 @@ void DiagonalMass<DataTypes>::printMass()
                << "mean vertexMass [min,max] = " << average_vertex << " [" << min_vertex << "," <<  max_vertex <<"]";
 }
 
-template <class DataTypes>
-typename DiagonalMass<DataTypes>::Real DiagonalMass<DataTypes>::computeVertexMass(Real density)
+template <class DataTypes, typename StubMassType>
+typename DiagonalMass<DataTypes, StubMassType>::Real DiagonalMass<DataTypes, StubMassType>::computeVertexMass(Real density)
 {
     Real total_mass = Real(0);
 
@@ -1086,8 +1105,8 @@ typename DiagonalMass<DataTypes>::Real DiagonalMass<DataTypes>::computeVertexMas
     return total_mass;
 }
 
-template <class DataTypes>
-bool DiagonalMass<DataTypes>::checkTotalMass()
+template <class DataTypes, typename StubMassType>
+bool DiagonalMass<DataTypes, StubMassType>::checkTotalMass()
 {
     //Check for negative or null value, if wrongly set use the default value totalMass = 1.0
     if(d_totalMass.getValue() < 0.0)
@@ -1103,8 +1122,8 @@ bool DiagonalMass<DataTypes>::checkTotalMass()
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::checkTotalMassInit()
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::checkTotalMassInit()
 {
     //Check for negative or null value, if wrongly set use the default value totalMass = 1.0
     if(!checkTotalMass())
@@ -1116,8 +1135,8 @@ void DiagonalMass<DataTypes>::checkTotalMassInit()
 }
 
 
-template <class DataTypes>
-bool DiagonalMass<DataTypes>::checkVertexMass()
+template <class DataTypes, typename StubMassType>
+bool DiagonalMass<DataTypes, StubMassType>::checkVertexMass()
 {
     const MassVector &vertexMass = d_vertexMass.getValue();
 
@@ -1143,8 +1162,8 @@ bool DiagonalMass<DataTypes>::checkVertexMass()
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::initFromVertexMass()
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::initFromVertexMass()
 {
     msg_info() << "vertexMass information is used";
 
@@ -1173,8 +1192,8 @@ void DiagonalMass<DataTypes>::initFromVertexMass()
 }
 
 
-template <class DataTypes>
-bool DiagonalMass<DataTypes>::checkMassDensity()
+template <class DataTypes, typename StubMassType>
+bool DiagonalMass<DataTypes, StubMassType>::checkMassDensity()
 {
     const Real &massDensity = d_massDensity.getValue();
 
@@ -1191,8 +1210,8 @@ bool DiagonalMass<DataTypes>::checkMassDensity()
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::initFromMassDensity()
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::initFromMassDensity()
 {
     msg_info() << "massDensity information is used";
 
@@ -1205,8 +1224,8 @@ void DiagonalMass<DataTypes>::initFromMassDensity()
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::initFromTotalMass()
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::initFromTotalMass()
 {
     msg_info() << "totalMass information is used";
 
@@ -1231,8 +1250,8 @@ void DiagonalMass<DataTypes>::initFromTotalMass()
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::setVertexMass(sofa::type::vector< Real > vertexMass)
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::setVertexMass(sofa::type::vector< Real > vertexMass)
 {
     const MassVector currentVertexMass = d_vertexMass.getValue();
     helper::WriteAccessor<Data<MassVector> > vertexMassWrite = d_vertexMass;
@@ -1251,8 +1270,8 @@ void DiagonalMass<DataTypes>::setVertexMass(sofa::type::vector< Real > vertexMas
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::setMassDensity(Real massDensityValue)
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::setMassDensity(Real massDensityValue)
 {
     const Real currentMassDensity = d_massDensity.getValue();
     d_massDensity.setValue(massDensityValue);
@@ -1265,8 +1284,8 @@ void DiagonalMass<DataTypes>::setMassDensity(Real massDensityValue)
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::setTotalMass(Real totalMass)
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::setTotalMass(Real totalMass)
 {
     const Real currentTotalMass = d_totalMass.getValue();
     d_totalMass.setValue(totalMass);
@@ -1279,22 +1298,22 @@ void DiagonalMass<DataTypes>::setTotalMass(Real totalMass)
 }
 
 
-template <class DataTypes>
-const typename DiagonalMass<DataTypes>::Real &DiagonalMass<DataTypes>::getMassDensity()
+template <class DataTypes, typename StubMassType>
+const typename DiagonalMass<DataTypes, StubMassType>::Real &DiagonalMass<DataTypes, StubMassType>::getMassDensity()
 {
     return d_massDensity.getValue();
 }
 
 
-template <class DataTypes>
-const typename DiagonalMass<DataTypes>::Real &DiagonalMass<DataTypes>::getTotalMass()
+template <class DataTypes, typename StubMassType>
+const typename DiagonalMass<DataTypes, StubMassType>::Real &DiagonalMass<DataTypes, StubMassType>::getTotalMass()
 {
     return d_totalMass.getValue();
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::doUpdateInternal()
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::doUpdateInternal()
 {
     if (this->hasDataChanged(d_totalMass))
     {
@@ -1342,8 +1361,8 @@ void DiagonalMass<DataTypes>::doUpdateInternal()
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::addGravityToV(const core::MechanicalParams* mparams, DataVecDeriv& d_v)
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::addGravityToV(const core::MechanicalParams* mparams, DataVecDeriv& d_v)
 {
     if(mparams)
     {
@@ -1363,8 +1382,8 @@ void DiagonalMass<DataTypes>::addGravityToV(const core::MechanicalParams* mparam
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::addForce(const core::MechanicalParams* /*mparams*/, DataVecDeriv& f, const DataVecCoord& , const DataVecDeriv& )
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::addForce(const core::MechanicalParams* /*mparams*/, DataVecDeriv& f, const DataVecCoord& , const DataVecDeriv& )
 {
     //if gravity was added separately (in solver's "solve" method), then nothing to do here
     if(this->m_separateGravity.getValue())
@@ -1386,8 +1405,8 @@ void DiagonalMass<DataTypes>::addForce(const core::MechanicalParams* /*mparams*/
     }
 }
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::draw(const core::visual::VisualParams* vparams)
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::draw(const core::visual::VisualParams* vparams)
 {
     if (!vparams->displayFlags().getShowBehaviorModels())
         return;
@@ -1427,20 +1446,20 @@ void DiagonalMass<DataTypes>::draw(const core::visual::VisualParams* vparams)
     }
 }
 
-template <class DataTypes>
-class DiagonalMass<DataTypes>::Loader : public helper::io::XspLoaderDataHook
+template <class DataTypes, typename StubMassType>
+class DiagonalMass<DataTypes, StubMassType>::Loader : public helper::io::XspLoaderDataHook
 {
 public:
-    DiagonalMass<DataTypes>* dest;
-    Loader(DiagonalMass<DataTypes>* dest) : dest(dest) {}
+    DiagonalMass<DataTypes, StubMassType>* dest;
+    Loader(DiagonalMass<DataTypes, StubMassType>* dest) : dest(dest) {}
     void addMass(SReal /*px*/, SReal /*py*/, SReal /*pz*/, SReal /*vx*/, SReal /*vy*/, SReal /*vz*/, SReal mass, SReal /*elastic*/, bool /*fixed*/, bool /*surface*/) override
     {
         dest->addMass(MassType(Real(mass)));
     }
 };
 
-template <class DataTypes>
-bool DiagonalMass<DataTypes>::load(const char *filename)
+template <class DataTypes, typename StubMassType>
+bool DiagonalMass<DataTypes, StubMassType>::load(const char *filename)
 {
     clear();
     if (filename!=nullptr && filename[0]!='\0')
@@ -1452,8 +1471,8 @@ bool DiagonalMass<DataTypes>::load(const char *filename)
 }
 
 
-template <class DataTypes>
-void DiagonalMass<DataTypes>::handleEvent(sofa::core::objectmodel::Event *event)
+template <class DataTypes, typename StubMassType>
+void DiagonalMass<DataTypes, StubMassType>::handleEvent(sofa::core::objectmodel::Event *event)
 {
      SOFA_UNUSED(event);
 }

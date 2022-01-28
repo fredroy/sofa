@@ -19,7 +19,7 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#include <SofaMiscForceField/MeshMatrixMass.h>
+#include <SofaMiscForceField/MeshMatrixMass.inl>
 using sofa::core::execparams::defaultInstance; 
 
 #include <sofa/testing/BaseSimulationTest.h>
@@ -81,7 +81,6 @@ namespace sofa {
 // the mass.
 template <class TDataTypes, class TMassType>
 class MeshMatrixMass_test : public BaseTest
-
 {
 public:
     typedef TDataTypes DataTypes;
@@ -2234,5 +2233,58 @@ TEST_F(MeshMatrixMass3_test, checkTopologicalChanges_Edge_lumped) {
     checkTopologicalChanges_Edge(true);
 }
 
+template<typename DataTypes>
+struct MeshMatrixMassTemplate_test : public BaseTest
+{
+    simulation::Node::SPtr root;
+    void SetUp() override
+    {
+        simulation::Simulation* simulation;
+        sofa::simulation::setSimulation(simulation = new sofa::simulation::graph::DAGSimulation());
+
+        /// Scene creation
+        root = simulation->createNewGraph("root");
+
+        /// Add mechanicalObject
+        auto dofs = sofa::core::objectmodel::New<sofa::component::container::MechanicalObject<DataTypes>>();
+        root->addObject(dofs);
+    }
+
+    void testNoMassTypeTemplate()
+    {
+        EXPECT_MSG_NOEMIT(Warning);
+        auto mass = sofa::core::objectmodel::New<sofa::component::mass::MeshMatrixMass<DataTypes>>();
+        root->addObject(mass);
+        
+    }
+
+    void testMassTypeTemplate()
+    {
+        EXPECT_MSG_EMIT(Warning);
+        auto mass = sofa::core::objectmodel::New<sofa::component::mass::MeshMatrixMass<DataTypes, double>>();
+        root->addObject(mass);
+    }
+};
+
+// Define the list of DataTypes to instanciate
+using ::testing::Types;
+typedef Types<Vec3dTypes, Vec2dTypes
+    //
+> DataTypes; // the types to instanciate.
+
+// Test suite for all the instanciations
+TYPED_TEST_SUITE(MeshMatrixMassTemplate_test, DataTypes);
+
+// first test case
+TYPED_TEST(MeshMatrixMassTemplate_test, testNoMassTypeTemplate)
+{
+    this->testNoMassTypeTemplate();
+}
+
+// second test case
+TYPED_TEST(MeshMatrixMassTemplate_test, testMassTypeTemplate)
+{
+    this->testMassTypeTemplate();
+}
 
 } // namespace sofa

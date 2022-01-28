@@ -54,14 +54,16 @@ public:
     typedef defaulttype::StdVectorTypes< Vec3, Vec3, Real > GeometricalTypes;
 };
 
-
-template <class DataTypes>
+template <class DataTypes, typename TStubMassType = void>
 class MeshMatrixMass : public core::behavior::Mass<DataTypes>
 {
 public:
-    SOFA_CLASS(SOFA_TEMPLATE(MeshMatrixMass,DataTypes), SOFA_TEMPLATE(core::behavior::Mass,DataTypes));
+    SOFA_CLASS(SOFA_TEMPLATE2(MeshMatrixMass,DataTypes, TStubMassType), SOFA_TEMPLATE(core::behavior::Mass,DataTypes));
 
     using TMassType = typename sofa::component::mass::MassTypes<DataTypes>::type;
+
+    using MassType = TMassType;
+    using StubMassType = TStubMassType;
 
     typedef core::behavior::Mass<DataTypes> Inherited;
     typedef typename DataTypes::VecCoord                    VecCoord;
@@ -71,7 +73,6 @@ public:
     typedef typename DataTypes::Real                        Real;
     typedef core::objectmodel::Data<VecCoord>               DataVecCoord;
     typedef core::objectmodel::Data<VecDeriv>               DataVecDeriv;
-    typedef TMassType                                       MassType;
     typedef type::vector<MassType>                        MassVector;
     typedef type::vector<MassVector>                      MassVectorVector;
 
@@ -106,7 +107,7 @@ public:
     Data< std::map < std::string, sofa::type::vector<double> > > f_graph; ///< Graph of the controlled potential
 
     /// Link to be set to the topology container in the component graph.
-    SingleLink<MeshMatrixMass<DataTypes>, sofa::core::topology::BaseMeshTopology, BaseLink::FLAG_STOREPATH | BaseLink::FLAG_STRONGLINK> l_topology;
+    SingleLink<MeshMatrixMass<DataTypes, TStubMassType>, sofa::core::topology::BaseMeshTopology, BaseLink::FLAG_STOREPATH | BaseLink::FLAG_STRONGLINK> l_topology;
 
 protected:
 
@@ -221,7 +222,6 @@ public:
 
     /// Answer wether mass matrix is lumped or not
     bool isLumped() const { return d_lumping.getValue(); }
-
 
 protected:
     /** Method to initialize @sa MassType when a new Point is created to compute mass coefficient matrix.
@@ -382,6 +382,7 @@ protected:
 
 
     sofa::core::topology::BaseMeshTopology* m_topology;
+
 };
 
 #if  !defined(SOFA_COMPONENT_MASS_MESHMATRIXMASS_CPP)

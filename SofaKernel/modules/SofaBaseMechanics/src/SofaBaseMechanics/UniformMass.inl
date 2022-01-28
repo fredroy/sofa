@@ -56,8 +56,8 @@ using type::Vec3d;
 using defaulttype::DataTypeInfo;
 using linearalgebra::BaseMatrix;
 
-template <class DataTypes>
-UniformMass<DataTypes>::UniformMass()
+template <class DataTypes, typename StubMassType>
+UniformMass<DataTypes, StubMassType>::UniformMass()
     : d_vertexMass ( initData ( &d_vertexMass, MassType ( 1.0f ), "vertexMass", "Specify one single, positive, real value for the mass of each particle. \n"
                                                                                 "If unspecified or wrongly set, the totalMass information is used." ) )
     , d_totalMass ( initData ( &d_totalMass, SReal(1.0), "totalMass", "Specify the total mass resulting from all particles. \n"
@@ -76,14 +76,20 @@ UniformMass<DataTypes>::UniformMass()
     , l_topology(initLink("topology", "link to the topology container"))
 {
     constructor_message();
+
+    if (!std::is_same_v<StubMassType, void>)
+    {
+        msg_warning() << "MassType is not required anymore and the template is deprecated, please remove it before its removal from the code." << msgendl
+            << "As your mass is templated on " << DataTypes::Name() << ", MassType is defined as " << sofa::helper::NameDecoder::getTypeName<MassType>() << " .";
+    }
 }
 
-template <class DataTypes>
-UniformMass<DataTypes>::~UniformMass()
+template <class DataTypes, typename StubMassType>
+UniformMass<DataTypes, StubMassType>::~UniformMass()
 {}
 
-template <class DataTypes>
-void UniformMass<DataTypes>::constructor_message()
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::constructor_message()
 {
     d_filenameMass.setDisplayed(true) ;
     d_filenameMass.setReadOnly(true) ;
@@ -91,8 +97,8 @@ void UniformMass<DataTypes>::constructor_message()
     d_filenameMass.setHelp("File storing the mass parameters [rigid objects only].");
 }
 
-template <class DataTypes>
-void UniformMass<DataTypes>::setMass ( const MassType& m )
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::setMass ( const MassType& m )
 {
     const MassType& currentVertexMass = d_vertexMass.getValue();
     d_vertexMass.setValue( m );
@@ -104,8 +110,8 @@ void UniformMass<DataTypes>::setMass ( const MassType& m )
     }
 }
 
-template <class DataTypes>
-void UniformMass<DataTypes>::setTotalMass ( SReal m )
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::setTotalMass ( SReal m )
 {
     Real currentTotalMass = d_totalMass.getValue();
     d_totalMass.setValue( m );
@@ -118,15 +124,15 @@ void UniformMass<DataTypes>::setTotalMass ( SReal m )
 }
 
 
-template <class DataTypes>
-void UniformMass<DataTypes>::init()
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::init()
 {
     initDefaultImpl();
 }
 
 
-template <class DataTypes>
-void UniformMass<DataTypes>::initDefaultImpl()
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::initDefaultImpl()
 {
     this->d_componentState.setValue(sofa::core::objectmodel::ComponentState::Valid);
 
@@ -229,16 +235,16 @@ void UniformMass<DataTypes>::initDefaultImpl()
 }
 
 
-template <class DataTypes>
-void UniformMass<DataTypes>::reinit()
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::reinit()
 {
     // Now update is handled through the doUpdateInternal mechanism
     // called at each begin of step through the UpdateInternalDataVisitor
 }
 
 
-template <class DataTypes>
-void UniformMass<DataTypes>::doUpdateInternal()
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::doUpdateInternal()
 {
     if (this->hasDataChanged(d_totalMass))
     {
@@ -273,8 +279,8 @@ void UniformMass<DataTypes>::doUpdateInternal()
 }
 
 
-template <class DataTypes>
-bool UniformMass<DataTypes>::checkVertexMass()
+template <class DataTypes, typename StubMassType>
+bool UniformMass<DataTypes, StubMassType>::checkVertexMass()
 {
     if(d_vertexMass.getValue() < 0.0 )
     {
@@ -289,8 +295,8 @@ bool UniformMass<DataTypes>::checkVertexMass()
 }
 
 
-template <class DataTypes>
-void UniformMass<DataTypes>::initFromVertexMass()
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::initFromVertexMass()
 {
     //If the vertexMass attribute is set then the totalMass is computed from it
     //using the following formula: totalMass = vertexMass * number of particules
@@ -302,8 +308,8 @@ void UniformMass<DataTypes>::initFromVertexMass()
 }
 
 
-template <class DataTypes>
-bool UniformMass<DataTypes>::checkTotalMass()
+template <class DataTypes, typename StubMassType>
+bool UniformMass<DataTypes, StubMassType>::checkTotalMass()
 {
     if(d_totalMass.getValue() < 0.0)
     {
@@ -318,8 +324,8 @@ bool UniformMass<DataTypes>::checkTotalMass()
 }
 
 
-template <class DataTypes>
-void UniformMass<DataTypes>::checkTotalMassInit()
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::checkTotalMassInit()
 {
     //Check for negative or null value, if wrongly set use the default value totalMass = 1.0
     if(!checkTotalMass())
@@ -331,8 +337,8 @@ void UniformMass<DataTypes>::checkTotalMassInit()
 }
 
 
-template <class DataTypes>
-void UniformMass<DataTypes>::initFromTotalMass()
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::initFromTotalMass()
 {
     //If the totalMass attribute is set then the vertexMass is computed from it
     //using the following formula: vertexMass = totalMass / number of particules
@@ -352,8 +358,8 @@ void UniformMass<DataTypes>::initFromTotalMass()
 }
 
 
-template <class DataTypes>
-void UniformMass<DataTypes>::updateMassOnResize(sofa::Size newSize)
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::updateMassOnResize(sofa::Size newSize)
 {
     if (newSize == 0)
     {
@@ -375,8 +381,8 @@ void UniformMass<DataTypes>::updateMassOnResize(sofa::Size newSize)
 
 
 // -- Mass interface
-template <class DataTypes>
-void UniformMass<DataTypes>::addMDx ( const core::MechanicalParams*,
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::addMDx ( const core::MechanicalParams*,
                                                 DataVecDeriv& vres,
                                                 const DataVecDeriv& vdx,
                                                 SReal factor)
@@ -395,8 +401,8 @@ void UniformMass<DataTypes>::addMDx ( const core::MechanicalParams*,
 }
 
 
-template <class DataTypes>
-void UniformMass<DataTypes>::accFromF ( const core::MechanicalParams*,
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::accFromF ( const core::MechanicalParams*,
                                                   DataVecDeriv& va,
                                                   const DataVecDeriv& vf )
 {
@@ -411,8 +417,8 @@ void UniformMass<DataTypes>::accFromF ( const core::MechanicalParams*,
 }
 
 
-template <class DataTypes>
-void UniformMass<DataTypes>::addMDxToVector ( BaseVector * resVect,
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::addMDxToVector ( BaseVector * resVect,
                                                         const VecDeriv* dx,
                                                         SReal mFact,
                                                         unsigned int& offset )
@@ -424,8 +430,8 @@ void UniformMass<DataTypes>::addMDxToVector ( BaseVector * resVect,
 }
 
 
-template <class DataTypes>
-void UniformMass<DataTypes>::addGravityToV(const MechanicalParams* mparams,
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::addGravityToV(const MechanicalParams* mparams,
                                                      DataVecDeriv& d_v)
 {
     if (mparams)
@@ -448,8 +454,8 @@ void UniformMass<DataTypes>::addGravityToV(const MechanicalParams* mparams,
     }
 }
 
-template <class DataTypes>
-void UniformMass<DataTypes>::addForce ( const core::MechanicalParams*, DataVecDeriv& vf, const DataVecCoord& /*x*/, const DataVecDeriv& /*v*/ )
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::addForce ( const core::MechanicalParams*, DataVecDeriv& vf, const DataVecCoord& /*x*/, const DataVecDeriv& /*v*/ )
 {
     //if gravity was added separately (in solver's "solve" method), then nothing to do here
     if ( this->m_separateGravity.getValue() )
@@ -481,8 +487,8 @@ void UniformMass<DataTypes>::addForce ( const core::MechanicalParams*, DataVecDe
     }
 }
 
-template <class DataTypes>
-SReal UniformMass<DataTypes>::getKineticEnergy ( const MechanicalParams* params,
+template <class DataTypes, typename StubMassType>
+SReal UniformMass<DataTypes, StubMassType>::getKineticEnergy ( const MechanicalParams* params,
                                                            const DataVecDeriv& d_v  ) const
 {
     SOFA_UNUSED(params);
@@ -499,8 +505,8 @@ SReal UniformMass<DataTypes>::getKineticEnergy ( const MechanicalParams* params,
     return e/2;
 }
 
-template <class DataTypes>
-SReal UniformMass<DataTypes>::getPotentialEnergy ( const MechanicalParams* params,
+template <class DataTypes, typename StubMassType>
+SReal UniformMass<DataTypes, StubMassType>::getPotentialEnergy ( const MechanicalParams* params,
                                                              const DataVecCoord& d_x  ) const
 {
     SOFA_UNUSED(params);
@@ -510,23 +516,32 @@ SReal UniformMass<DataTypes>::getPotentialEnergy ( const MechanicalParams* param
     SReal e = 0;
     const MassType& m = d_vertexMass.getValue();
 
-    Vec3d g( getContext()->getGravity());
-    Deriv gravity;
-    DataTypes::set(gravity, g[0], g[1], g[2]);
+    //Rigid Version
+    if constexpr (std::is_same_v<DataTypes, sofa::defaulttype::StdRigidTypes<DataTypes::spatial_dimensions, typename DataTypes::Real > >)
+    {
+        typename Coord::Pos g(getContext()->getGravity());
+        for (unsigned int i = 0; i < indices.size(); i++)
+            e -= g * m.mass * x[indices[i]].getCenter();
+    }
+    else // Vector version
+    {
+        Vec3d g(getContext()->getGravity());
+        Deriv gravity;
+        DataTypes::set(gravity, g[0], g[1], g[2]);
 
-    Deriv mg = gravity * m;
-
-    for ( unsigned int i=0; i<indices.size(); i++ )
-        e -= mg*x[indices[i]];
+        Deriv mg = gravity * m;
+        for (unsigned int i = 0; i < indices.size(); i++)
+            e -= mg * x[indices[i]];
+    }
 
     return e;
 }
 
 
 // does nothing by default, need to be specialized in .cpp
-template <class DataTypes>
+template <class DataTypes, typename StubMassType>
 type::Vector6
-UniformMass<DataTypes>::getMomentum ( const core::MechanicalParams* params,
+UniformMass<DataTypes, StubMassType>::getMomentum ( const core::MechanicalParams* params,
                                                 const DataVecCoord& d_x,
                                                 const DataVecDeriv& d_v  ) const
 {
@@ -542,8 +557,8 @@ UniformMass<DataTypes>::getMomentum ( const core::MechanicalParams* params,
 
 
 /// Add Mass contribution to global Matrix assembling
-template <class DataTypes>
-void UniformMass<DataTypes>::addMToMatrix (const MechanicalParams *mparams,
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::addMToMatrix (const MechanicalParams *mparams,
                                                      const MultiMatrixAccessor* matrix)
 {
     const MassType& m = d_vertexMass.getValue();
@@ -561,15 +576,15 @@ void UniformMass<DataTypes>::addMToMatrix (const MechanicalParams *mparams,
 }
 
 
-template <class DataTypes>
-SReal UniformMass<DataTypes>::getElementMass (sofa::Index ) const
+template <class DataTypes, typename StubMassType>
+SReal UniformMass<DataTypes, StubMassType>::getElementMass (sofa::Index ) const
 {
     return (SReal ( d_vertexMass.getValue() ));
 }
 
 
-template <class DataTypes>
-void UniformMass<DataTypes>::getElementMass (sofa::Index  index ,
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::getElementMass (sofa::Index  index ,
                                                         BaseMatrix *m ) const
 {
     SOFA_UNUSED(index);
@@ -583,8 +598,8 @@ void UniformMass<DataTypes>::getElementMass (sofa::Index  index ,
 }
 
 
-template <class DataTypes>
-void UniformMass<DataTypes>::draw(const VisualParams* vparams)
+template <class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::draw(const VisualParams* vparams)
 {
     if ( !vparams->displayFlags().getShowBehaviorModels() )
         return;
@@ -626,8 +641,8 @@ void UniformMass<DataTypes>::draw(const VisualParams* vparams)
 }
 
 
-template<class DataTypes>
-void UniformMass<DataTypes>::loadRigidMass( const std::string&  filename)
+template<class DataTypes, typename StubMassType>
+void UniformMass<DataTypes, StubMassType>::loadRigidMass( const std::string&  filename)
 {
     msg_warning(this) << "The attribute filename is set to ["<< filename << "] while " << msgendl <<
                          " the current object is not based on a Rigid template. It is thus ignored. " << msgendl <<

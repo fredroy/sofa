@@ -37,31 +37,9 @@ using sofa::core::objectmodel::ComponentState ;
 using namespace sofa::type;
 using namespace sofa::defaulttype;
 
-template <class RigidTypes>
+template <class RigidTypes, typename StubMassType>
 template <class T>
-SReal DiagonalMass<RigidTypes>::getPotentialEnergyRigidImpl( const MechanicalParams* mparams,
-                                                                        const DataVecCoord& x) const
-{
-    SOFA_UNUSED(mparams) ;
-    SReal e = 0;
-    const MassVector &masses= d_vertexMass.getValue();
-    const VecCoord& _x = x.getValue();
-
-    // gravity
-    Vec3d g ( this->getContext()->getGravity() );
-    Deriv theGravity;
-    RigidTypes::set( theGravity, g[0], g[1], g[2]);
-    for (unsigned int i=0; i<_x.size(); i++)
-    {
-        e -= getVCenter(theGravity) * masses[i].mass * _x[i].getCenter();
-    }
-    return e;
-}
-
-
-template <class RigidTypes>
-template <class T>
-void DiagonalMass<RigidTypes>::drawRigid3dImpl(const VisualParams* vparams)
+void DiagonalMass<RigidTypes, StubMassType>::drawRigid3dImpl(const VisualParams* vparams)
 {
     const MassVector &masses= d_vertexMass.getValue();
     if (!vparams->displayFlags().getShowBehaviorModels()) return;
@@ -107,9 +85,9 @@ void DiagonalMass<RigidTypes>::drawRigid3dImpl(const VisualParams* vparams)
 }
 
 
-template <class RigidTypes>
+template <class RigidTypes, typename StubMassType>
 template <class T>
-void DiagonalMass<RigidTypes>::drawRigid2dImpl(const VisualParams* vparams)
+void DiagonalMass<RigidTypes, StubMassType>::drawRigid2dImpl(const VisualParams* vparams)
 {
     const MassVector &masses= d_vertexMass.getValue();
     if (!vparams->displayFlags().getShowBehaviorModels()) return;
@@ -127,9 +105,9 @@ void DiagonalMass<RigidTypes>::drawRigid2dImpl(const VisualParams* vparams)
     }
 }
 
-template <class RigidTypes>
+template <class RigidTypes, typename StubMassType>
 template <class T>
-void DiagonalMass<RigidTypes>::initRigidImpl()
+void DiagonalMass<RigidTypes, StubMassType>::initRigidImpl()
 {
     if(this->getContext()==nullptr){
         dmsg_error(this) << "Calling the initRigidImpl function is only possible if the object has a valid associated context \n" ;
@@ -186,9 +164,9 @@ void DiagonalMass<RigidTypes>::initRigidImpl()
     this->d_componentState.setValue(ComponentState::Valid) ;
 }
 
-template <class RigidTypes>
+template <class RigidTypes, typename StubMassType>
 template <class T>
-type::Vector6 DiagonalMass<RigidTypes>::getMomentumRigid3Impl ( const MechanicalParams*,
+type::Vector6 DiagonalMass<RigidTypes, StubMassType>::getMomentumRigid3Impl ( const MechanicalParams*,
                                                                     const DataVecCoord& vx,
                                                                     const DataVecDeriv& vv ) const
 {
@@ -211,9 +189,9 @@ type::Vector6 DiagonalMass<RigidTypes>::getMomentumRigid3Impl ( const Mechanical
     return momentum;
 }
 
-template <class Vec3Types>
+template <class Vec3Types, typename StubMassType>
 template <class T>
-type::Vector6 DiagonalMass<Vec3Types>::getMomentumVec3Impl( const MechanicalParams*,
+type::Vector6 DiagonalMass<Vec3Types, StubMassType>::getMomentumVec3Impl( const MechanicalParams*,
                                                                 const DataVecCoord& vx,
                                                                 const DataVecDeriv& vv ) const
 {
@@ -234,21 +212,6 @@ type::Vector6 DiagonalMass<Vec3Types>::getMomentumVec3Impl( const MechanicalPara
     }
 
     return momentum;
-}
-
-
-template <>
-SReal DiagonalMass<Rigid3Types>::getPotentialEnergy( const MechanicalParams* mparams,
-                                                                   const DataVecCoord& x) const
-{
-    return getPotentialEnergyRigidImpl<Rigid3Types>(mparams, x) ;
-}
-
-template <>
-SReal DiagonalMass<Rigid2Types>::getPotentialEnergy( const MechanicalParams* mparams,
-                                                                   const DataVecCoord& x) const
-{
-    return getPotentialEnergyRigidImpl<Rigid2Types>(mparams, x) ;
 }
 
 template <>
