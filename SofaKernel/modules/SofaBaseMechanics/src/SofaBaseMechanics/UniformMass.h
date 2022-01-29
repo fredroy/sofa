@@ -60,7 +60,6 @@ public:
     typedef core::objectmodel::Data<VecDeriv> DataVecDeriv;
     typedef type::vector<Index> SetIndexArray;
     typedef sofa::core::topology::TopologySubsetIndices DataSetIndex;
-    typedef TMassType MassType;
 
     Data<MassType> d_vertexMass;   ///< single value defining the mass of each particle
     Data<SReal> d_totalMass;    ///< if >0 : total mass of this body
@@ -153,6 +152,27 @@ public:
     bool isDiagonal() const override {return true;}
 
     void draw(const core::visual::VisualParams* vparams) override;
+
+    static const std::string GetCustomTemplateName()
+    {
+        return DataTypes::Name();
+    }
+
+    void parse(sofa::core::objectmodel::BaseObjectDescription* arg) override
+    {
+        Inherited::parse(arg);
+
+        if (arg->getAttribute("template"))
+        {
+            auto splitTemplates = sofa::helper::split(std::string(arg->getAttribute("template")), ',');
+            if (splitTemplates.size() > 1)
+            {
+                msg_warning() << "MassType is not required anymore and the template is deprecated, please remove it before its removal from your scene." << msgendl
+                    << "As your mass is templated on " << DataTypes::Name() << ", MassType is defined as " << sofa::helper::NameDecoder::getTypeName<MassType>() << " .";
+                msg_warning() << "If you want to set the template, you must write now \"template='" << DataTypes::Name() <<  "'\" ." ;
+            }
+        }
+    }
 
 
 private:

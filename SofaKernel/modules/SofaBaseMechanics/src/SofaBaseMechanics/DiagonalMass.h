@@ -71,7 +71,6 @@ public:
     typedef typename DataTypes::Real Real;
     typedef core::objectmodel::Data<VecCoord> DataVecCoord;
     typedef core::objectmodel::Data<VecDeriv> DataVecDeriv;
-    typedef TMassType MassType;
 
     typedef typename DiagonalMassInternalData<DataTypes,TMassType>::VecMass VecMass;
     typedef typename DiagonalMassInternalData<DataTypes,TMassType>::MassVector MassVector;
@@ -329,7 +328,23 @@ public:
         {
             msg_warning() << "input data 'mass' changed for 'vertexMass', please update your scene (see PR#637)";
         }
+
+        if (arg->getAttribute("template"))
+        {
+            auto splitTemplates = sofa::helper::split(std::string(arg->getAttribute("template")), ',');
+            if (splitTemplates.size() > 1)
+            {
+                msg_warning() << "MassType is not required anymore and the template is deprecated, please remove it before its removal from your scene." << msgendl
+                    << "As your mass is templated on " << DataTypes::Name() << ", MassType is defined as " << sofa::helper::NameDecoder::getTypeName<MassType>() << " .";
+                msg_warning() << "If you want to set the template, you must write now \"template='" << DataTypes::Name() << "'\" .";
+            }
+        }
         Inherited::parse(arg);
+    }
+
+    static const std::string GetCustomTemplateName()
+    {
+        return DataTypes::Name();
     }
 
 private:
@@ -359,10 +374,6 @@ private:
 
 
 // Specialization for rigids
-//template <>
-//SReal DiagonalMass<defaulttype::Rigid3Types>::getPotentialEnergy( const core::MechanicalParams* mparams, const DataVecCoord& x) const;
-//template <>
-//SReal DiagonalMass<defaulttype::Rigid2Types>::getPotentialEnergy( const core::MechanicalParams* mparams, const DataVecCoord& x) const;
 template <>
 void DiagonalMass<defaulttype::Rigid3Types>::draw(const core::visual::VisualParams* vparams);
 template <>

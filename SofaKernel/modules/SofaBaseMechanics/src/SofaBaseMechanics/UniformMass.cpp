@@ -466,24 +466,14 @@ Vector6 UniformMass<Rigid3Types>::getMomentum ( const MechanicalParams* params,
     return getMomentumRigid3DImpl<Rigid3Types>(params, d_x, d_v);
 }
 
-
-
-
-//////////////////////////////////////////// REGISTERING TO FACTORY /////////////////////////////////////////
-/// Registering the component
-/// see: https://www.sofa-framework.org/community/doc/programming-with-sofa/components-api/the-objectfactory/
-/// 1-SOFA_DECL_CLASS(componentName) : Set the class name of the component
-/// 2-RegisterObject("description") + .add<> : Register the component
-/// 3-.add<>(true) : Set default template
 // Register in the Factory
 int UniformMassClass = core::RegisterObject("Define the same mass for all the particles")
-
-        .add< UniformMass<Vec3Types> >()
-        .add< UniformMass<Vec2Types> >()
-        .add< UniformMass<Vec1Types> >()
-        .add< UniformMass<Vec6Types> >()
-        .add< UniformMass<Rigid3Types> >()
-        .add< UniformMass<Rigid2Types> >()
+        .addCreator("UniformMass", "Vec3d", core::ObjectFactory::Creator::SPtr(new core::ObjectCreator<UniformMass<Vec3Types>>))
+        .addCreator("UniformMass", "Vec2d", core::ObjectFactory::Creator::SPtr(new core::ObjectCreator<UniformMass<Vec2Types>>))
+        .addCreator("UniformMass", "Vec1d", core::ObjectFactory::Creator::SPtr(new core::ObjectCreator<UniformMass<Vec1Types>>))
+        .addCreator("UniformMass", "Vec6d", core::ObjectFactory::Creator::SPtr(new core::ObjectCreator<UniformMass<Vec6Types>>))
+        .addCreator("UniformMass", "Rigid2d", core::ObjectFactory::Creator::SPtr(new core::ObjectCreator<UniformMass<Rigid2Types>>))
+        .addCreator("UniformMass", "Rigid3d", core::ObjectFactory::Creator::SPtr(new core::ObjectCreator<UniformMass<Rigid3Types>>));
 
         ;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
