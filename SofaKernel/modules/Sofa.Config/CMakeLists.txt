@@ -59,11 +59,15 @@ option(SOFA_DETECTIONOUTPUT_FREEMOTION "Compile Sofa with the DETECTIONOUTPUT_FR
 option(SOFA_WITH_OPENGL "Compile Sofa with OpenGL support. This will define the SOFA_WITH_OPENGL and SOFA_NO_OPENGL CMake variables." ON)
 option(SOFA_NO_UPDATE_BBOX "Compile Sofa with the SOFA_NO_UPDATE_BBOX macro defined." OFF)
 option(SOFA_DUMP_VISITOR_INFO "Compile Sofa with the SOFA_DUMP_VISITOR_INFO macro defined." OFF)
+option(SOFA_ENABLE_FAST_MATH "Enable floating-point model to fast (theorically faster but can bring unexpected results/bugs)." OFF)
 if(MSVC)
     option(SOFA_VECTORIZE "(deprecated) Enable the use of SSE2 instructions by the compiler (Only available for MSVC)." OFF)
     option(SOFA_ENABLE_AVX "Enable the use of AVX(2) instructions by the compiler if available (Only for MSVC)." OFF)
-    option(SOFA_ENABLE_FAST_MATH "Enable floating-point model to fast (theorically faster but can bring unexpected results/bugs)." OFF)
 endif()
+if(${CMAKE_CXX_COMPILER_ID} MATCHES "GNU" OR ${CMAKE_CXX_COMPILER_ID} MATCHES "Clang")
+    option(SOFA_ENABLE_CPU_OPTIMIZATIONS "Enable the use of march=native flag." OFF)
+endif()
+
 ### Mask
 ### Removed since v21.12
 ### Warn the user if he set the option by himself
@@ -172,6 +176,14 @@ if(${CMAKE_CXX_COMPILER_ID} MATCHES "GNU" OR ${CMAKE_CXX_COMPILER_ID} MATCHES "C
 
     # Silence attribute warnings (for example, ignored already defined external template)
     target_compile_options(${PROJECT_NAME} PUBLIC -Wno-attributes)
+
+    if(SOFA_ENABLE_FAST_MATH)
+        list(APPEND SOFACONFIG_COMPILE_OPTIONS "-ffast-math")
+    endif()
+
+    if(SOFA_ENABLE_CPU_OPTIMIZATIONS)
+        list(APPEND SOFACONFIG_COMPILE_OPTIONS "-march=native")
+    endif()
 endif()
 
 ## Windows-specific
