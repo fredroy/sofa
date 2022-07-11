@@ -31,6 +31,12 @@ using sofa::helper::system::FileSystem;
 #include <fstream>
 #include <array>
 
+#include <codecvt>
+#include <windows.h>
+#include <tchar.h>
+#include <stdio.h>
+#include <psapi.h>
+
 using sofa::helper::Utils;
 
 namespace sofa
@@ -527,6 +533,73 @@ bool PluginManager::checkDuplicatedPlugin(const Plugin& plugin, const std::strin
     }
 
     return false;
+}
+
+
+const std::vector<std::string> PluginManager::getAllLoadedPlugins()
+{
+    
+    DWORD processID = GetCurrentProcessId();// aProcesses[i];
+
+    HMODULE hMods[1024];
+    HANDLE hProcess;
+    DWORD cbNeeded;
+    unsigned int i;
+    std::vector<std::string> allPlugins{};
+
+    // Get a handle to the process.
+
+    hProcess = OpenProcess(PROCESS_QUERY_INFORMATION |
+        PROCESS_VM_READ,
+        FALSE, processID);
+    if (NULL == hProcess)
+        return allPlugins;
+
+    // Get a list of all the modules in this process.
+
+    if (EnumProcessModules(hProcess, hMods, sizeof(hMods), &cbNeeded))
+    {
+        for (i = 0; i < (cbNeeded / sizeof(HMODULE)); i++)
+        {
+            wchar_t szModName[MAX_PATH];
+
+            // Get the full path to the module's file.
+
+            if (GetModuleFileNameExW(hProcess, hMods[i], szModName,
+                sizeof(szModName) / sizeof(wchar_t)))
+            {
+                std::wstring wfilename = szModName;
+
+                void* symbolAddress = ::GetProcAddress(hMods[i], "initExternalModule");
+                if(symbolAddress)
+                {
+                    std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+                    std::string filename = converter.to_bytes(wfilename);
+
+                    allPlugins.push_back(FileSystem::cleanPath(filename));
+                }
+            }
+        }
+    }
+
+    // Release the handle to the process.
+
+    CloseHandle(hProcess);
+    return allPlugins;
+}
+
+void PluginManager::printImplicitPlugins()
+{
+    const auto& allPlugins = getAllLoadedPlugins();
+
+    for (const auto& plugin : allPlugins)
+    {
+        if (!pluginIsLoaded(plugin))
+        {
+            std::cout << plugin << " was implicitly loaded!" << std::endl;
+        }
+    }
+
 }
 
 }

@@ -211,6 +211,9 @@ public:
 
     static std::string GetPluginNameFromPath(const std::string& pluginPath);
 
+    static const std::vector<std::string> getAllLoadedPlugins();
+    void printImplicitPlugins();
+
 private:
     PluginManager();
     ~PluginManager();

@@ -495,6 +495,8 @@ int main(int argc, char** argv)
         sofa::helper::AdvancedTimer::setOutputType("Animate", computationTimeOutputType);
     }
 
+    PluginManager::getInstance().printImplicitPlugins();
+
     //=======================================
     // Run the main loop
     if (int err = GUIManager::MainLoop(groot,fileName.c_str()))

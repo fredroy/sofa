@@ -223,6 +223,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL Darwin)
 elseif(CMAKE_SYSTEM_NAME STREQUAL Windows)
     # Windows library, used in system::FileSystem
     target_link_libraries(${PROJECT_NAME} PRIVATE Shlwapi)
+    set_property(SOURCE ${SRC_ROOT}/system/PluginManager.cpp APPEND PROPERTY COMPILE_DEFINITIONS "PSAPI_VERSION=1" )
 endif()
 
 # Eigen (header only)
