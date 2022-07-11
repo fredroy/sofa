@@ -31,11 +31,18 @@ using sofa::helper::system::FileSystem;
 #include <fstream>
 #include <array>
 
+#ifdef WIN32
 #include <codecvt>
 #include <windows.h>
 #include <tchar.h>
 #include <stdio.h>
 #include <psapi.h>
+#endif // WIN32
+
+#ifdef __linux__
+#include <stdio.h>
+#include <link.h>
+#endif // __linux__
 
 using sofa::helper::Utils;
 
@@ -535,17 +542,33 @@ bool PluginManager::checkDuplicatedPlugin(const Plugin& plugin, const std::strin
     return false;
 }
 
+#ifdef __linux__
+static int
+test_phdr(struct dl_phdr_info *i, size_t size, void *data) {
+//        printf("0x%8.8x %-30.30s 0x%8.8x %d %d %d %d 0x%8.8x\n",
+//        i->dlpi_addr, i->dlpi_name, i->dlpi_phdr, i->dlpi_phnum,
+//        i->dlpi_adds, i->dlpi_subs, i->dlpi_tls_modid,
+//        i->dlpi_tls_data
+//        );
+    std::vector<std::string>* plugins = reinterpret_cast<std::vector<std::string>*>(data);
+    if(!plugins)
+        return 0;
+
+    (*plugins).push_back(std::string{i->dlpi_name});
+    return 0;
+}
+#endif // __linux__
 
 const std::vector<std::string> PluginManager::getAllLoadedPlugins()
 {
-    
+    std::vector<std::string> allPlugins{};
+#ifdef WIN32
     DWORD processID = GetCurrentProcessId();// aProcesses[i];
 
     HMODULE hMods[1024];
     HANDLE hProcess;
     DWORD cbNeeded;
     unsigned int i;
-    std::vector<std::string> allPlugins{};
 
     // Get a handle to the process.
 
@@ -585,6 +608,20 @@ const std::vector<std::string> PluginManager::getAllLoadedPlugins()
     // Release the handle to the process.
 
     CloseHandle(hProcess);
+#elif __linux__
+    std::vector<std::string> allLibraries{};
+    dl_iterate_phdr(test_phdr, &allLibraries);
+    for(const auto& lib : allLibraries)
+    {
+        void *handle = ::dlopen(lib.c_str(), RTLD_NOW | RTLD_NOLOAD);
+        void *symbolAddress = ::dlsym(handle, "initExternalModule");
+        if(symbolAddress)
+        {
+            allPlugins.push_back(FileSystem::cleanPath(lib));
+        }
+    }
+
+#endif // __linux__
     return allPlugins;
 }
 
@@ -594,9 +631,13 @@ void PluginManager::printImplicitPlugins()
 
     for (const auto& plugin : allPlugins)
     {
-        if (!pluginIsLoaded(plugin))
+        const std::string::size_type pos = plugin.rfind("." + DynamicLibrary::extension);
+        //remove version if needed (mainly for linux/mac)
+        const std::string filenameWoVersion = plugin.substr(0, pos + 1 + DynamicLibrary::extension.size());
+
+        if (!pluginIsLoaded(filenameWoVersion))
         {
-            std::cout << plugin << " was implicitly loaded!" << std::endl;
+            std::cout << filenameWoVersion << " was implicitly loaded!" << std::endl;
         }
     }
 
