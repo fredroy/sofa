@@ -925,7 +925,7 @@ void PrecomputedConstraintCorrection<DataTypes>::rotateResponse()
 
 // new API for non building the constraint system during solving process //
 template<class DataTypes>
-void PrecomputedConstraintCorrection<DataTypes>::resetForUnbuiltResolution(double * f, std::list<unsigned int>& /*renumbering*/)
+void PrecomputedConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SReal* f, std::list<unsigned int>& /*renumbering*/)
 {
     constraint_force = f;
     const MatrixDeriv& c = this->mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
@@ -1102,7 +1102,7 @@ bool PrecomputedConstraintCorrection<DataTypes>::hasConstraintNumber(int index)
 
 
 template<class DataTypes>
-void PrecomputedConstraintCorrection<DataTypes>::addConstraintDisplacement(double *d, int begin, int end)
+void PrecomputedConstraintCorrection<DataTypes>::addConstraintDisplacement(SReal*d, int begin, int end)
 {
 #ifdef NEW_METHOD_UNBUILT
 
@@ -1149,11 +1149,7 @@ void PrecomputedConstraintCorrection<DataTypes>::addConstraintDisplacement(doubl
 }
 
 template<class DataTypes>
-#ifdef NEW_METHOD_UNBUILT
-void PrecomputedConstraintCorrection<DataTypes>::setConstraintDForce(double * df, int begin, int end, bool update)
-#else
-void PrecomputedConstraintCorrection<DataTypes>::setConstraintDForce(double * /*df*/, int begin, int end, bool update)
-#endif
+void PrecomputedConstraintCorrection<DataTypes>::setConstraintDForce(SReal* df, int begin, int end, bool update)
 {
 #ifdef NEW_METHOD_UNBUILT
 
@@ -1214,6 +1210,8 @@ void PrecomputedConstraintCorrection<DataTypes>::setConstraintDForce(double * /*
         }
     }
 #else
+    SOFA_UNUSED(df);
+
     if(!update)
         return;
 

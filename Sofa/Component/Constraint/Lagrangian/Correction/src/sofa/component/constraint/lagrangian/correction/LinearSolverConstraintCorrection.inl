@@ -183,7 +183,7 @@ void LinearSolverConstraintCorrection<DataTypes>::addComplianceInConstraintSpace
 
 
 template<class DataTypes>
-void LinearSolverConstraintCorrection<DataTypes>::rebuildSystem(double massFactor, double forceFactor)
+void LinearSolverConstraintCorrection<DataTypes>::rebuildSystem(SReal massFactor, SReal forceFactor)
 {
     for (unsigned i = 0; i < linearsolvers.size(); i++)
     {
@@ -418,7 +418,7 @@ void LinearSolverConstraintCorrection<DataTypes>::verify_constraints()
 }
 
 template<class DataTypes>
-void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(double * f, std::list<unsigned int>& renumbering)
+void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SReal* f, std::list<unsigned int>& renumbering)
 {
     verify_constraints();
 
@@ -560,7 +560,7 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(doub
 }
 
 template<class DataTypes>
-void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(double *d, int begin, int end)
+void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(SReal *d, int begin, int end)
 {
     const MatrixDeriv& constraints = mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
     const auto derivDim = Deriv::size();
@@ -598,7 +598,7 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
 }
 
 template<class DataTypes>
-void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df, int begin, int end, bool update)
+void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(SReal* df, int begin, int end, bool update)
 {
 
 

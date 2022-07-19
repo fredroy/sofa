@@ -25,7 +25,7 @@
 namespace sofa::core::behavior
 {
 
-ConstraintResolution::ConstraintResolution(unsigned int nbLines, double tolerance)
+ConstraintResolution::ConstraintResolution(unsigned int nbLines, SReal tolerance)
     :m_nbLines(nbLines)
     ,m_tolerance(tolerance)
 {
@@ -36,18 +36,18 @@ ConstraintResolution::~ConstraintResolution()
 
 }
 
-void ConstraintResolution::init(int /*line*/, double** /*w*/, double* /*force*/)
+void ConstraintResolution::init(int /*line*/, SReal** /*w*/, SReal* /*force*/)
 {
 
 }
 
-void ConstraintResolution::initForce(int /*line*/, double* /*force*/)
+void ConstraintResolution::initForce(int /*line*/, SReal* /*force*/)
 {
 
 }
 
 /// Resolution of the constraint for one Gauss-Seidel iteration
-void ConstraintResolution::resolution(int line, double** w, double* d, double* force, double * dFree)
+void ConstraintResolution::resolution(int line, SReal** w, SReal* d, SReal* force, SReal* dFree)
 {
     SOFA_UNUSED(line);
     SOFA_UNUSED(w);
@@ -57,7 +57,7 @@ void ConstraintResolution::resolution(int line, double** w, double* d, double* f
     dmsg_error("ConstraintResolution")
             << "resolution(int , double** , double* , double* , double * ) not implemented." ;
 }
-void ConstraintResolution::store(int /*line*/, double* /*force*/, bool /*convergence*/)
+void ConstraintResolution::store(int /*line*/, SReal* /*force*/, bool /*convergence*/)
 {
 
 }

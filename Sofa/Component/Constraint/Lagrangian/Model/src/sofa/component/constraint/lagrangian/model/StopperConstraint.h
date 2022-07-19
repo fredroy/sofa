@@ -33,27 +33,27 @@ namespace sofa::component::constraint::lagrangian::model
 class StopperConstraintResolution1Dof : public core::behavior::ConstraintResolution
 {
 protected:
-    double _invW, _w, _min, _max ;
+    SReal _invW, _w, _min, _max ;
 
 public:
 
-    StopperConstraintResolution1Dof(const double &min, const double &max)
+    StopperConstraintResolution1Dof(const SReal &min, const SReal &max)
         : core::behavior::ConstraintResolution(1)
         , _min(min)
         , _max(max)
     { 
     }
 
-    void init(int line, double** w, double *force) override
+    void init(int line, SReal** w, SReal *force) override
     {
         _w = w[line][line];
         _invW = 1.0/_w;
         force[line  ] = 0.0;
     }
 
-    void resolution(int line, double** /*w*/, double* d, double* force, double*) override
+    void resolution(int line, SReal** /*w*/, SReal* d, SReal* force, SReal*) override
     {
-        double dfree = d[line] - _w * force[line];
+        SReal dfree = d[line] - _w * force[line];
 
         if (dfree > _max)
             force[line] = (_max - dfree) * _invW;
@@ -89,8 +89,8 @@ protected:
     unsigned int cid;
 
     Data<int> index; ///< index of the stop constraint
-    Data<double> min; ///< minimum value accepted
-    Data<double> max; ///< maximum value accepted
+    Data<SReal> min; ///< minimum value accepted
+    Data<SReal> max; ///< maximum value accepted
 
 
 

@@ -148,7 +148,7 @@ void GenericConstraintCorrection::removeConstraintSolver(ConstraintSolver *s)
     constraintsolvers.remove(s);
 }
 
-void GenericConstraintCorrection::rebuildSystem(double massFactor, double forceFactor)
+void GenericConstraintCorrection::rebuildSystem(SReal massFactor, SReal forceFactor)
 {
     for (auto* linearSolver : m_linearSolvers)
         linearSolver->rebuildSystem(massFactor, forceFactor);

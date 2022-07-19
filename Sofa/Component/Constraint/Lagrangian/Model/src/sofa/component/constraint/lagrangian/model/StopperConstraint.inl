@@ -32,8 +32,8 @@ template<class DataTypes>
 StopperConstraint<DataTypes>::StopperConstraint(MechanicalState* object)
     : Inherit(object)
     , index(initData(&index, 0, "index", "index of the stop constraint"))
-    , min(initData(&min, -100.0, "min", "minimum value accepted"))
-    , max(initData(&max, 100.0, "max", "maximum value accepted"))
+    , min(initData(&min, static_cast<SReal>(- 100.0), "min", "minimum value accepted"))
+    , max(initData(&max, static_cast<SReal>(100.0), "max", "maximum value accepted"))
 {
 }
 
