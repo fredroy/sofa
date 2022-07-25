@@ -22,7 +22,6 @@
 #pragma once
 
 #include <sofa/component/solidmechanics/fem/elastic/config.h>
-#include <sofa/component/solidmechanics/fem/elastic/TriangleFEMUtils.h>
 #include <sofa/core/behavior/ForceField.h>
 #include <sofa/core/topology/BaseMeshTopology.h>
 #include <sofa/defaulttype/VecTypes.h>
@@ -288,8 +287,6 @@ public:
 private:
     bool p_computeDrawInfo;
     sofa::helper::ColorMap* p_drawColorMap;
-
-    TriangleFEMUtils<DataTypes> m_triangleUtils;
 };
 
 

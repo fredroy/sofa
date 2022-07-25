@@ -49,22 +49,29 @@ public:
     typedef sofa::core::topology::BaseMeshTopology::Index Index;
 
     ////////////// small displacements method
-    constexpr void computeDisplacementSmall(Displacement& D, const type::fixed_array<Coord, 3>& rotatedInitCoord, const Coord& pAB, const Coord& pAC) const;
+    static void computeDisplacementSmall(Displacement& D, const type::fixed_array<Coord, 3>& rotatedInitCoord, const Coord& pAB, const Coord& pAC);
 
     ////////////// large displacements method
-    constexpr void computeDisplacementLarge(Displacement& D, const Transformation& R_0_2, const type::fixed_array<Coord, 3>& rotatedInitCoord,const Coord& pA, const Coord& pB, const Coord& pC) const;
-    constexpr void computeRotationLarge(Transformation& r, const Coord& pA, const Coord& pB, const Coord& pC) const;
-    constexpr void computeForceLarge(Displacement& F, const StrainDisplacement& J, const type::Vec<3, Real>& stress) const;
+    static void computeDisplacementLarge(Displacement& D, const Transformation& R_0_2, const type::fixed_array<Coord, 3>& rotatedInitCoord,const Coord& pA, const Coord& pB, const Coord& pC);
+    static void computeRotationLarge(Transformation& r, const Coord& pA, const Coord& pB, const Coord& pC);
+    static void computeForceLarge(Displacement& F, const StrainDisplacement& J, const type::Vec<3, Real>& stress);
     
     // in global coordinate
-    constexpr void computeStrainDisplacementGlobal(StrainDisplacement& J, const Coord& pA, const Coord& pB, const Coord& pC) const;
+    static void computeStrainDisplacementGlobal(StrainDisplacement& J, const Coord& pA, const Coord& pB, const Coord& pC);
     // in local coordinate, a = Coord (0, 0, 0)
-    constexpr void computeStrainDisplacementLocal(StrainDisplacement& J, const Coord& pB, const Coord& pC) const;
+    static void computeStrainDisplacementLocal(StrainDisplacement& J, const Coord& pB, const Coord& pC);
 
     // Compute strain, if full is set to true, full matrix multiplication is performed not taking into account potential 0 values
-    constexpr void computeStrain(type::Vec<3, Real>& strain, const StrainDisplacement& J, const Displacement& D, bool fullMethod = false) const;
+    static void computeStrain(type::Vec<3, Real>& strain, const StrainDisplacement& J, const Displacement& D, bool fullMethod = false);
     // Compute stress, if full is set to true, full matrix multiplication is performed not taking into account potential 0 values
-    constexpr void computeStress(type::Vec<3, Real>& stress, const MaterialStiffness& K, const type::Vec<3, Real>& strain, bool fullMethod = false) const;
+    static void computeStress(type::Vec<3, Real>& stress, const MaterialStiffness& K, const type::Vec<3, Real>& strain, bool fullMethod = false);
 };
+
+#if !defined(SOFA_COMPONENT_FORCEFIELD_TRIANGLEFEMUTILS_CPP)
+
+extern template class SOFA_COMPONENT_SOLIDMECHANICS_FEM_ELASTIC_API TriangleFEMUtils<defaulttype::Vec3Types>;
+
+#endif //  !defined(SOFA_COMPONENT_FORCEFIELD_TRIANGLEFEMUTILS_CPP)
+
 
 } //namespace sofa::component::solidmechanics::fem::elastic

@@ -22,7 +22,6 @@
 #pragma once
 
 #include <sofa/component/solidmechanics/fem/elastic/config.h>
-#include <sofa/component/solidmechanics/fem/elastic/TriangleFEMUtils.h>
 
 #include <sofa/core/behavior/ForceField.h>
 #include <sofa/core/topology/BaseMeshTopology.h>
@@ -160,9 +159,6 @@ protected:
     type::Mat<3, 3, Real> InvalidTransform;
     type::fixed_array <Coord, 3> InvalidCoords;
     StrainDisplacement InvalidStrainDisplacement;
-
-    /// Pointer to the utils class which store methods common to TriangleFEMForceField
-    TriangleFEMUtils<DataTypes> m_triangleUtils;
 };
 
 

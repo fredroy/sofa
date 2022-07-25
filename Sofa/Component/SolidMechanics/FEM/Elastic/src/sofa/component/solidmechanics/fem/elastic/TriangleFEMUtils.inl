@@ -37,7 +37,7 @@ namespace sofa::component::solidmechanics::fem::elastic
 //  deforme_c = pB - pA = pAC
 // ---------------------------------------------------------------------------------------------------------------
 template<class DataTypes>
-constexpr void TriangleFEMUtils<DataTypes>::computeDisplacementSmall(Displacement& D, const type::fixed_array<Coord, 3>& rotatedInitCoord, const Coord& pAB, const Coord& pAC) const
+void TriangleFEMUtils<DataTypes>::computeDisplacementSmall(Displacement& D, const type::fixed_array<Coord, 3>& rotatedInitCoord, const Coord& pAB, const Coord& pAC)
 {
     D[0] = 0;
     D[1] = 0;
@@ -58,7 +58,7 @@ constexpr void TriangleFEMUtils<DataTypes>::computeDisplacementSmall(Displacemen
 // third vector orthogonal to first and second
 // ---------------------------------------------------------------------------------------------------------------
 template<class DataTypes>
-constexpr void TriangleFEMUtils<DataTypes>::computeRotationLarge(Transformation& r, const Coord& pA, const Coord& pB, const Coord& pC) const
+void TriangleFEMUtils<DataTypes>::computeRotationLarge(Transformation& r, const Coord& pA, const Coord& pB, const Coord& pC)
 {
     const Coord edgex = (pB - pA).normalized();
     Coord edgey = pC - pA;
@@ -83,7 +83,7 @@ constexpr void TriangleFEMUtils<DataTypes>::computeRotationLarge(Transformation&
 // --- expressed in the co-rotational frame of reference
 // -------------------------------------------------------------------------------------------------------------
 template<class DataTypes>
-constexpr void TriangleFEMUtils<DataTypes>::computeDisplacementLarge(Displacement& D, const Transformation& R_0_2, const type::fixed_array<Coord, 3>& rotatedInitCoord, const Coord& pA, const Coord& pB, const Coord& pC) const
+void TriangleFEMUtils<DataTypes>::computeDisplacementLarge(Displacement& D, const Transformation& R_0_2, const type::fixed_array<Coord, 3>& rotatedInitCoord, const Coord& pA, const Coord& pB, const Coord& pC)
 {
     // positions of the deformed and displaced triangle in its local frame
     const Coord deforme_b = R_0_2 * (pB - pA);
@@ -112,7 +112,7 @@ constexpr void TriangleFEMUtils<DataTypes>::computeDisplacementLarge(Displacemen
 // 5       0     J[5][1]     0
 // --------------------------------------------------------------------------------------
 template<class DataTypes>
-constexpr void TriangleFEMUtils<DataTypes>::computeForceLarge(Displacement& F, const StrainDisplacement& J, const type::Vec<3, Real>& stress) const
+void TriangleFEMUtils<DataTypes>::computeForceLarge(Displacement& F, const StrainDisplacement& J, const type::Vec<3, Real>& stress)
 {
     F[0] = J[0][0] * stress[0] + J[0][2] * stress[2];
     F[1] = J[1][1] * stress[1] + J[1][2] * stress[2];
@@ -128,7 +128,7 @@ constexpr void TriangleFEMUtils<DataTypes>::computeForceLarge(Displacement& F, c
 // --- Compute the strain-displacement matrix where (pA, pB, pC) are the coordinates of the 3 nodes of a triangle
 // ------------------------------------------------------------------------------------------------------------
 template<class DataTypes>
-constexpr void TriangleFEMUtils<DataTypes>::computeStrainDisplacementGlobal(StrainDisplacement& J, const Coord& pA, const Coord& pB, const Coord& pC) const
+void TriangleFEMUtils<DataTypes>::computeStrainDisplacementGlobal(StrainDisplacement& J, const Coord& pA, const Coord& pB, const Coord& pC)
 {
     const Coord ab_cross_ac = cross(pB - pA, pC - pA);
     const Real determinant = ab_cross_ac.norm();
@@ -220,7 +220,7 @@ constexpr void TriangleFEMUtils<DataTypes>::computeStrainDisplacementGlobal(Stra
 //  J[4][2] = J[5][1] = gamma3
 // --------------------------------------------------------------------------------------------------------------------------
 template<class DataTypes>
-constexpr void TriangleFEMUtils<DataTypes>::computeStrainDisplacementLocal(StrainDisplacement& J, const Coord& pB, const Coord& pC) const
+void TriangleFEMUtils<DataTypes>::computeStrainDisplacementLocal(StrainDisplacement& J, const Coord& pB, const Coord& pC)
 {
     // local computation taking into account that a = [0, 0, 0], b = [x, 0, 0], c = [y, y, 0]
     const Real determinant = pB[0] * pC[1];
@@ -252,7 +252,7 @@ constexpr void TriangleFEMUtils<DataTypes>::computeStrainDisplacementLocal(Strai
 // | 2    Jt[2][0] Jt[2][1] Jt[2][2]  Jt[2][3]  Jt[2][4]   0      |
 // --------------------------------------------------------------------------------------------------------
 template<class DataTypes>
-constexpr void TriangleFEMUtils<DataTypes>::computeStrain(type::Vec<3, Real>& strain, const StrainDisplacement& J, const Displacement& D, bool fullMethod) const
+void TriangleFEMUtils<DataTypes>::computeStrain(type::Vec<3, Real>& strain, const StrainDisplacement& J, const Displacement& D, bool fullMethod)
 {    
     if (fullMethod) // _anisotropicMaterial or SMALL case
     {
@@ -278,7 +278,7 @@ constexpr void TriangleFEMUtils<DataTypes>::computeStrain(type::Vec<3, Real>& st
 // | 2       0        0      K[2][2] |
 // --------------------------------------------------------------------------------------------------------
 template <class DataTypes>
-constexpr void TriangleFEMUtils<DataTypes>::computeStress(type::Vec<3, Real>& stress, const MaterialStiffness& K, const type::Vec<3, Real>& strain, bool fullMethod) const
+void TriangleFEMUtils<DataTypes>::computeStress(type::Vec<3, Real>& stress, const MaterialStiffness& K, const type::Vec<3, Real>& strain, bool fullMethod)
 {
     if (fullMethod) // _anisotropicMaterial or SMALL case
     {
