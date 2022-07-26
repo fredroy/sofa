@@ -1,18 +1,5 @@
 var namespacesofa =
 [
-    [ "__sofa__", null, [
-      [ "OuterSimpleClass", "classsofa_1_1____sofa_____1_1_outer_simple_class.html", [
-        [ "InnerSimpleClass", "classsofa_1_1____sofa_____1_1_outer_simple_class_1_1_inner_simple_class.html", null ],
-        [ "InnerSimpleStruct", "classsofa_1_1____sofa_____1_1_outer_simple_class_1_1_inner_simple_struct.html", null ]
-      ] ],
-      [ "OuterTemplateClass", "classsofa_1_1____sofa_____1_1_outer_template_class.html", [
-        [ "Inner_Template_Class", "classsofa_1_1____sofa_____1_1_outer_template_class_1_1_inner___template___class.html", null ]
-      ] ],
-      [ "SimpleClass", "classsofa_1_1____sofa_____1_1_simple_class.html", null ]
-    ] ],
-    [ "another_namespace", null, [
-      [ "EmptyObject", "classsofa_1_1another__namespace_1_1_empty_object.html", "classsofa_1_1another__namespace_1_1_empty_object" ]
-    ] ],
     [ "component", null, [
       [ "_blenderexporter_", null, [
         [ "BlenderExporter", "classsofa_1_1component_1_1__blenderexporter___1_1_blender_exporter.html", "classsofa_1_1component_1_1__blenderexporter___1_1_blender_exporter" ]
@@ -39,9 +26,6 @@ var namespacesofa =
         [ "MechanicalSetConstraint", "classsofa_1_1component_1_1animationloop_1_1_mechanical_set_constraint.html", "classsofa_1_1component_1_1animationloop_1_1_mechanical_set_constraint" ],
         [ "MultiStepAnimationLoop", "classsofa_1_1component_1_1animationloop_1_1_multi_step_animation_loop.html", "classsofa_1_1component_1_1animationloop_1_1_multi_step_animation_loop" ],
         [ "MultiTagAnimationLoop", "classsofa_1_1component_1_1animationloop_1_1_multi_tag_animation_loop.html", "classsofa_1_1component_1_1animationloop_1_1_multi_tag_animation_loop" ]
-      ] ],
-      [ "behaviormodel", null, [
-        [ "MyBehaviorModel", "classsofa_1_1component_1_1behaviormodel_1_1_my_behavior_model.html", "classsofa_1_1component_1_1behaviormodel_1_1_my_behavior_model" ]
       ] ],
       [ "collision", null, [
         [ "detection", null, [
@@ -331,8 +315,7 @@ var namespacesofa =
           [ "TranslateTransformMatrixEngine", "classsofa_1_1component_1_1engine_1_1transform_1_1_translate_transform_matrix_engine.html", "classsofa_1_1component_1_1engine_1_1transform_1_1_translate_transform_matrix_engine" ],
           [ "Translation", "structsofa_1_1component_1_1engine_1_1transform_1_1_translation.html", "structsofa_1_1component_1_1engine_1_1transform_1_1_translation" ],
           [ "Vertex2Frame", "classsofa_1_1component_1_1engine_1_1transform_1_1_vertex2_frame.html", "classsofa_1_1component_1_1engine_1_1transform_1_1_vertex2_frame" ]
-        ] ],
-        [ "TestEngine", "classsofa_1_1component_1_1engine_1_1_test_engine.html", "classsofa_1_1component_1_1engine_1_1_test_engine" ]
+        ] ]
       ] ],
       [ "haptics", null, [
         [ "ForceFeedback", "classsofa_1_1component_1_1haptics_1_1_force_feedback.html", "classsofa_1_1component_1_1haptics_1_1_force_feedback" ],
@@ -766,8 +749,6 @@ var namespacesofa =
         [ "Detection", "classsofa_1_1core_1_1collision_1_1_detection.html", "classsofa_1_1core_1_1collision_1_1_detection" ],
         [ "DetectionOutput", "classsofa_1_1core_1_1collision_1_1_detection_output.html", "classsofa_1_1core_1_1collision_1_1_detection_output" ],
         [ "DetectionOutputVector", "classsofa_1_1core_1_1collision_1_1_detection_output_vector.html", "classsofa_1_1core_1_1collision_1_1_detection_output_vector" ],
-        [ "DummyDetectionOutputVector", "classsofa_1_1core_1_1collision_1_1_dummy_detection_output_vector.html", "classsofa_1_1core_1_1collision_1_1_dummy_detection_output_vector" ],
-        [ "DummyNarrowPhaseDetection", "classsofa_1_1core_1_1collision_1_1_dummy_narrow_phase_detection.html", "classsofa_1_1core_1_1collision_1_1_dummy_narrow_phase_detection" ],
         [ "ElementIntersector", "classsofa_1_1core_1_1collision_1_1_element_intersector.html", "classsofa_1_1core_1_1collision_1_1_element_intersector" ],
         [ "Intersection", "classsofa_1_1core_1_1collision_1_1_intersection.html", "classsofa_1_1core_1_1collision_1_1_intersection" ],
         [ "IntersectorCreator", "classsofa_1_1core_1_1collision_1_1_intersector_creator.html", "classsofa_1_1core_1_1collision_1_1_intersector_creator" ],
@@ -943,7 +924,6 @@ var namespacesofa =
       [ "DataTrackerDDGNode", "classsofa_1_1core_1_1_data_tracker_d_d_g_node.html", "classsofa_1_1core_1_1_data_tracker_d_d_g_node" ],
       [ "DataTrackerFunctor", "classsofa_1_1core_1_1_data_tracker_functor.html", "classsofa_1_1core_1_1_data_tracker_functor" ],
       [ "DevBaseMonitor", "classsofa_1_1core_1_1_dev_base_monitor.html", "classsofa_1_1core_1_1_dev_base_monitor" ],
-      [ "DummyCollisionModel", "classsofa_1_1core_1_1_dummy_collision_model.html", "classsofa_1_1core_1_1_dummy_collision_model" ],
       [ "ExecParams", "classsofa_1_1core_1_1_exec_params.html", "classsofa_1_1core_1_1_exec_params" ],
       [ "Mapping", "classsofa_1_1core_1_1_mapping.html", "classsofa_1_1core_1_1_mapping" ],
       [ "MechanicalParams", "classsofa_1_1core_1_1_mechanical_params.html", "classsofa_1_1core_1_1_mechanical_params" ],
@@ -989,9 +969,6 @@ var namespacesofa =
       [ "DataTypeInfo< int >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01int_01_4.html", null ],
       [ "DataTypeInfo< long >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01long_01_4.html", null ],
       [ "DataTypeInfo< long long >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01long_01long_01_4.html", null ],
-      [ "DataTypeInfo< MyType >", "classsofa_1_1defaulttype_1_1_data_type_info_3_01_my_type_01_4.html", "classsofa_1_1defaulttype_1_1_data_type_info_3_01_my_type_01_4" ],
-      [ "DataTypeInfo< ObjectInTranslationUnit1 >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01_object_in_translation_unit1_01_4.html", null ],
-      [ "DataTypeInfo< ObjectInTranslationUnit2 >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01_object_in_translation_unit2_01_4.html", null ],
       [ "DataTypeInfo< short >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01short_01_4.html", null ],
       [ "DataTypeInfo< sofa::core::objectmodel::Tag >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01sofa_1_1core_1_1objectmodel_1_1_tag_01_4.html", null ],
       [ "DataTypeInfo< sofa::core::objectmodel::TagSet >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01sofa_1_1core_1_1objectmodel_1_1_tag_set_01_4.html", null ],
@@ -1389,12 +1366,6 @@ var namespacesofa =
     [ "meshvtkloader_test", null, [
       [ "MeshVTKLoaderTest", "structsofa_1_1meshvtkloader__test_1_1_mesh_v_t_k_loader_test.html", "structsofa_1_1meshvtkloader__test_1_1_mesh_v_t_k_loader_test" ]
     ] ],
-    [ "numbered_namespace_123", null, [
-      [ "CustomName123", "classsofa_1_1numbered__namespace__123_1_1_custom_name123.html", "classsofa_1_1numbered__namespace__123_1_1_custom_name123" ],
-      [ "CustomNameOldWay", "classsofa_1_1numbered__namespace__123_1_1_custom_name_old_way.html", "classsofa_1_1numbered__namespace__123_1_1_custom_name_old_way" ],
-      [ "NumberedClass123", "classsofa_1_1numbered__namespace__123_1_1_numbered_class123.html", "classsofa_1_1numbered__namespace__123_1_1_numbered_class123" ],
-      [ "NumberedClass456", "classsofa_1_1numbered__namespace__123_1_1_numbered_class456.html", "classsofa_1_1numbered__namespace__123_1_1_numbered_class456" ]
-    ] ],
     [ "simulation", null, [
       [ "_basesimulationexporter_", null, [
         [ "BaseSimulationExporter", "classsofa_1_1simulation_1_1__basesimulationexporter___1_1_base_simulation_exporter.html", "classsofa_1_1simulation_1_1__basesimulationexporter___1_1_base_simulation_exporter" ]
@@ -1562,10 +1533,6 @@ var namespacesofa =
       [ "WriteStateVisitor", "classsofa_1_1simulation_1_1_write_state_visitor.html", "classsofa_1_1simulation_1_1_write_state_visitor" ],
       [ "XMLPrintVisitor", "classsofa_1_1simulation_1_1_x_m_l_print_visitor.html", "classsofa_1_1simulation_1_1_x_m_l_print_visitor" ]
     ] ],
-    [ "test", null, [
-      [ "ComponentA", "classsofa_1_1test_1_1_component_a.html", "classsofa_1_1test_1_1_component_a" ],
-      [ "ComponentB", "classsofa_1_1test_1_1_component_b.html", "classsofa_1_1test_1_1_component_b" ]
-    ] ],
     [ "testing", "namespacesofa_1_1testing.html", "namespacesofa_1_1testing" ],
     [ "topology", null, [
       [ "Element", "structsofa_1_1topology_1_1_element.html", "structsofa_1_1topology_1_1_element" ]
@@ -1582,85 +1549,47 @@ var namespacesofa =
     [ "ComplementaryROI_test", "structsofa_1_1_complementary_r_o_i__test.html", "structsofa_1_1_complementary_r_o_i__test" ],
     [ "CylinderGridTopology_test", "structsofa_1_1_cylinder_grid_topology__test.html", "structsofa_1_1_cylinder_grid_topology__test" ],
     [ "CylinderTractionStruct", "structsofa_1_1_cylinder_traction_struct.html", "structsofa_1_1_cylinder_traction_struct" ],
-    [ "DAG_test", "structsofa_1_1_d_a_g__test.html", "structsofa_1_1_d_a_g__test" ],
-    [ "Data_test", "classsofa_1_1_data__test.html", "classsofa_1_1_data__test" ],
-    [ "DataCallback_test", "structsofa_1_1_data_callback__test.html", [
-      [ "TestObject", "classsofa_1_1_data_callback__test_1_1_test_object.html", "classsofa_1_1_data_callback__test_1_1_test_object" ]
-    ] ],
     [ "DataEngine_test", "structsofa_1_1_data_engine__test.html", "structsofa_1_1_data_engine__test" ],
-    [ "DataFileNameVector_test", "structsofa_1_1_data_file_name_vector__test.html", "structsofa_1_1_data_file_name_vector__test" ],
-    [ "DataTracker_test", "structsofa_1_1_data_tracker__test.html", "structsofa_1_1_data_tracker__test" ],
-    [ "DataTrackerEngine_test", "structsofa_1_1_data_tracker_engine__test.html", "structsofa_1_1_data_tracker_engine__test" ],
-    [ "DataTrackerFunctor_test", "structsofa_1_1_data_tracker_functor__test.html", "structsofa_1_1_data_tracker_functor__test" ],
     [ "DefaultAnimationLoop_test", "structsofa_1_1_default_animation_loop__test.html", "structsofa_1_1_default_animation_loop__test" ],
     [ "DiagonalMass_test", "classsofa_1_1_diagonal_mass__test.html", "classsofa_1_1_diagonal_mass__test" ],
     [ "DifferenceEngine_test", "structsofa_1_1_difference_engine__test.html", "structsofa_1_1_difference_engine__test" ],
     [ "DilateEngine_test", "structsofa_1_1_dilate_engine__test.html", "structsofa_1_1_dilate_engine__test" ],
-    [ "DummyBaseClass", "structsofa_1_1_dummy_base_class.html", "structsofa_1_1_dummy_base_class" ],
-    [ "DummyClassA", "structsofa_1_1_dummy_class_a.html", "structsofa_1_1_dummy_class_a" ],
-    [ "DummyClassB", "structsofa_1_1_dummy_class_b.html", "structsofa_1_1_dummy_class_b" ],
-    [ "DummyClassC", "structsofa_1_1_dummy_class_c.html", "structsofa_1_1_dummy_class_c" ],
-    [ "DummyClassD", "structsofa_1_1_dummy_class_d.html", "structsofa_1_1_dummy_class_d" ],
-    [ "DummyObject", "classsofa_1_1_dummy_object.html", "classsofa_1_1_dummy_object" ],
-    [ "Engine_test", "structsofa_1_1_engine__test.html", "structsofa_1_1_engine__test" ],
     [ "EulerExplicitDynamic_test", "structsofa_1_1_euler_explicit_dynamic__test.html", "structsofa_1_1_euler_explicit_dynamic__test" ],
     [ "EulerImplicit_test_2_particles_in_different_nodes_to_equilibrium", "structsofa_1_1_euler_implicit__test__2__particles__in__different__nodes__to__equilibrium.html", "structsofa_1_1_euler_implicit__test__2__particles__in__different__nodes__to__equilibrium" ],
     [ "EulerImplicit_test_2_particles_to_equilibrium", "structsofa_1_1_euler_implicit__test__2__particles__to__equilibrium.html", "structsofa_1_1_euler_implicit__test__2__particles__to__equilibrium" ],
     [ "EulerImplicitDynamic_test", "structsofa_1_1_euler_implicit_dynamic__test.html", "structsofa_1_1_euler_implicit_dynamic__test" ],
     [ "ExtrudeEdgesAndGenerateQuads_test", "structsofa_1_1_extrude_edges_and_generate_quads__test.html", "structsofa_1_1_extrude_edges_and_generate_quads__test" ],
-    [ "Factory_test", "classsofa_1_1_factory__test.html", "classsofa_1_1_factory__test" ],
-    [ "FibonacciTask", "classsofa_1_1_fibonacci_task.html", "classsofa_1_1_fibonacci_task" ],
     [ "ForceField_test", "structsofa_1_1_force_field__test.html", "structsofa_1_1_force_field__test" ],
-    [ "Geometry2DTriangle_test", "classsofa_1_1_geometry2_d_triangle__test.html", null ],
-    [ "Geometry3DTriangle_test", "classsofa_1_1_geometry3_d_triangle__test.html", null ],
     [ "HexahedronFEMForceField_test", "structsofa_1_1_hexahedron_f_e_m_force_field__test.html", "structsofa_1_1_hexahedron_f_e_m_force_field__test" ],
-    [ "InstrumentedObject", "structsofa_1_1_instrumented_object.html", "structsofa_1_1_instrumented_object" ],
-    [ "IntSumTask", "classsofa_1_1_int_sum_task.html", "classsofa_1_1_int_sum_task" ],
     [ "JoinPoints_test", "classsofa_1_1_join_points__test.html", "classsofa_1_1_join_points__test" ],
-    [ "KdTreeTest", "structsofa_1_1_kd_tree_test.html", "structsofa_1_1_kd_tree_test" ],
     [ "LCPForceFeedback_test", "classsofa_1_1_l_c_p_force_feedback__test.html", "classsofa_1_1_l_c_p_force_feedback__test" ],
     [ "LinearElasticity_test", "structsofa_1_1_linear_elasticity__test.html", "structsofa_1_1_linear_elasticity__test" ],
-    [ "Link_test", "structsofa_1_1_link__test.html", "structsofa_1_1_link__test" ],
-    [ "LoadScene_test", "structsofa_1_1_load_scene__test.html", "structsofa_1_1_load_scene__test" ],
-    [ "Material_test", "classsofa_1_1_material__test.html", "classsofa_1_1_material__test" ],
     [ "MergePoints_test", "structsofa_1_1_merge_points__test.html", "structsofa_1_1_merge_points__test" ],
-    [ "MeshLoader_test", "classsofa_1_1_mesh_loader__test.html", "classsofa_1_1_mesh_loader__test" ],
     [ "MeshMatrixMass_test", "classsofa_1_1_mesh_matrix_mass__test.html", "classsofa_1_1_mesh_matrix_mass__test" ],
     [ "MeshNewProximityIntersectionTest", "structsofa_1_1_mesh_new_proximity_intersection_test.html", "structsofa_1_1_mesh_new_proximity_intersection_test" ],
-    [ "MeshOBJ_test", "classsofa_1_1_mesh_o_b_j__test.html", "classsofa_1_1_mesh_o_b_j__test" ],
     [ "MeshROI_test", "structsofa_1_1_mesh_r_o_i__test.html", "structsofa_1_1_mesh_r_o_i__test" ],
-    [ "MeshTestLoader", "classsofa_1_1_mesh_test_loader.html", "classsofa_1_1_mesh_test_loader" ],
     [ "MultiMapping_test", "structsofa_1_1_multi_mapping__test.html", "structsofa_1_1_multi_mapping__test" ],
     [ "NewmarkImplicitDynamic_test", "structsofa_1_1_newmark_implicit_dynamic__test.html", "structsofa_1_1_newmark_implicit_dynamic__test" ],
-    [ "ParentObject", "structsofa_1_1_parent_object.html", "structsofa_1_1_parent_object" ],
     [ "PatchTestStruct", "structsofa_1_1_patch_test_struct.html", "structsofa_1_1_patch_test_struct" ],
     [ "PlaneROI_test", "structsofa_1_1_plane_r_o_i__test.html", "structsofa_1_1_plane_r_o_i__test" ],
     [ "ProjectToLineConstraint_test", "structsofa_1_1_project_to_line_constraint__test.html", "structsofa_1_1_project_to_line_constraint__test" ],
     [ "ProjectToPlaneConstraint_test", "structsofa_1_1_project_to_plane_constraint__test.html", "structsofa_1_1_project_to_plane_constraint__test" ],
     [ "QuadPressureForceField_test", "structsofa_1_1_quad_pressure_force_field__test.html", "structsofa_1_1_quad_pressure_force_field__test" ],
     [ "RandomPointDistributionInSurface_test", "classsofa_1_1_random_point_distribution_in_surface__test.html", "classsofa_1_1_random_point_distribution_in_surface__test" ],
-    [ "RequiredPlugin_test", "structsofa_1_1_required_plugin__test.html", "structsofa_1_1_required_plugin__test" ],
     [ "RigidTransform", "structsofa_1_1_rigid_transform.html", "structsofa_1_1_rigid_transform" ],
     [ "RungeKutta2ExplicitSolverDynamic_test", "structsofa_1_1_runge_kutta2_explicit_solver_dynamic__test.html", "structsofa_1_1_runge_kutta2_explicit_solver_dynamic__test" ],
     [ "RungeKutta4ExplicitSolverDynamic_test", "structsofa_1_1_runge_kutta4_explicit_solver_dynamic__test.html", "structsofa_1_1_runge_kutta4_explicit_solver_dynamic__test" ],
-    [ "Scene_test", "structsofa_1_1_scene__test.html", "structsofa_1_1_scene__test" ],
     [ "SkeletalMotionConstraint_test", "structsofa_1_1_skeletal_motion_constraint__test.html", "structsofa_1_1_skeletal_motion_constraint__test" ],
     [ "SmoothMeshEngine_test", "structsofa_1_1_smooth_mesh_engine__test.html", "structsofa_1_1_smooth_mesh_engine__test" ],
     [ "SphereGridTopology_test", "structsofa_1_1_sphere_grid_topology__test.html", "structsofa_1_1_sphere_grid_topology__test" ],
     [ "SphereROI_test", "structsofa_1_1_sphere_r_o_i__test.html", "structsofa_1_1_sphere_r_o_i__test" ],
     [ "SpringSolverDynamic_test", "structsofa_1_1_spring_solver_dynamic__test.html", "structsofa_1_1_spring_solver_dynamic__test" ],
-    [ "STBImage_test", "classsofa_1_1_s_t_b_image__test.html", "classsofa_1_1_s_t_b_image__test" ],
     [ "StiffSpringForceField_test", "structsofa_1_1_stiff_spring_force_field__test.html", "structsofa_1_1_stiff_spring_force_field__test" ],
     [ "StubVisualModelImpl", "structsofa_1_1_stub_visual_model_impl.html", null ],
     [ "TemplateAliasTest", "classsofa_1_1_template_alias_test.html", "classsofa_1_1_template_alias_test" ],
     [ "TestDataEngine", "classsofa_1_1_test_data_engine.html", "classsofa_1_1_test_data_engine" ],
-    [ "TestEngine", "classsofa_1_1_test_engine.html", "classsofa_1_1_test_engine" ],
     [ "TestIndexValueMapper", "structsofa_1_1_test_index_value_mapper.html", "structsofa_1_1_test_index_value_mapper" ],
     [ "TestIndicesFromValues", "structsofa_1_1_test_indices_from_values.html", "structsofa_1_1_test_indices_from_values" ],
-    [ "TestObject", "classsofa_1_1_test_object.html", "classsofa_1_1_test_object" ],
-    [ "TestObject2", "classsofa_1_1_test_object2.html", "classsofa_1_1_test_object2" ],
-    [ "TestSparseMatrices", "structsofa_1_1_test_sparse_matrices.html", "structsofa_1_1_test_sparse_matrices" ],
-    [ "TestSparseMatricesTraits", "structsofa_1_1_test_sparse_matrices_traits.html", "structsofa_1_1_test_sparse_matrices_traits" ],
     [ "TestSphere", "structsofa_1_1_test_sphere.html", "structsofa_1_1_test_sphere" ],
     [ "TestTriangle", "structsofa_1_1_test_triangle.html", "structsofa_1_1_test_triangle" ],
     [ "TetrahedronDiffusionFEMForceField_test", "structsofa_1_1_tetrahedron_diffusion_f_e_m_force_field__test.html", "structsofa_1_1_tetrahedron_diffusion_f_e_m_force_field__test" ],
@@ -1678,7 +1607,6 @@ var namespacesofa =
     [ "VariationalSymplecticExplicitSolverDynamic_test", "structsofa_1_1_variational_symplectic_explicit_solver_dynamic__test.html", "structsofa_1_1_variational_symplectic_explicit_solver_dynamic__test" ],
     [ "VariationalSymplecticImplicitSolverDynamic_test", "structsofa_1_1_variational_symplectic_implicit_solver_dynamic__test.html", "structsofa_1_1_variational_symplectic_implicit_solver_dynamic__test" ],
     [ "VariationalSymplecticImplicitSolverNonLinearForceDynamic_test", "structsofa_1_1_variational_symplectic_implicit_solver_non_linear_force_dynamic__test.html", "structsofa_1_1_variational_symplectic_implicit_solver_non_linear_force_dynamic__test" ],
-    [ "VectorData_test", "structsofa_1_1_vector_data__test.html", "structsofa_1_1_vector_data__test" ],
     [ "VisualModelImpl_test", "structsofa_1_1_visual_model_impl__test.html", "structsofa_1_1_visual_model_impl__test" ],
     [ "WriteState_test", "structsofa_1_1_write_state__test.html", "structsofa_1_1_write_state__test" ]
 ];

@@ -24,7 +24,7 @@ var classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangular_f_
     [ "Vector", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangular_f_e_m_force_field_optim.html#a12cbea270a137cfc55c195e2c7ccf3db", null ],
     [ "VecTriangleInfo", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangular_f_e_m_force_field_optim.html#a6013e18f3dfd80afa8d068a87be3efb6", null ],
     [ "VecTriangleState", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangular_f_e_m_force_field_optim.html#a945eb57c92b81a375fdb2d1c8a4700ba", null ],
-    [ "DerivSize", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangular_f_e_m_force_field_optim.html#afb730582952b7ceec73d7dc9bf7bef39a0804c09f549a25d42ed3ebe71d0e1bfd", null ],
+    [ "DerivSize", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangular_f_e_m_force_field_optim.html#af715e26dfffd1f8de1c18449e2770cffa0804c09f549a25d42ed3ebe71d0e1bfd", null ],
     [ "TriangularFEMForceFieldOptim", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangular_f_e_m_force_field_optim.html#a3c9ecb421f33f10723d79ce1114b4b94", null ],
     [ "~TriangularFEMForceFieldOptim", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangular_f_e_m_force_field_optim.html#acd3b2ffd376230fcee4847f9caf09de0", null ],
     [ "addDForce", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangular_f_e_m_force_field_optim.html#ac1f66d533e23fe08eb8f0364396f1f88", null ],

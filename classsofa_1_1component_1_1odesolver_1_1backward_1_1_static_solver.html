@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: StaticSolver Class Reference</title>
+<title>SOFA: StaticSolver Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -636,16 +636,16 @@ template&lt;class T &gt; </td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of a static ODE solver compatible with non-linear materials.</p>
 <p>We are trying to solve to following </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\begin{eqnarray*} \vec{R}(\vec{x}) - \vec{P} = 0 \end{eqnarray*}" src="form_25.png"/>
+<img class="formulaDsp" alt="\begin{eqnarray*} \vec{R}(\vec{x}) - \vec{P} = 0 \end{eqnarray*}" src="form_24.png"/>
 </p>
-<p>Where <img class="formulaInl" alt="$\vec{R}$" src="form_26.png"/> is the (possibly non-linear) internal elastic force residual and <img class="formulaInl" alt="$\vec{P}$" src="form_27.png"/> is the external force vector (for example, gravitation force or surface traction).</p>
+<p>Where <img class="formulaInl" alt="$\vec{R}$" src="form_25.png"/> is the (possibly non-linear) internal elastic force residual and <img class="formulaInl" alt="$\vec{P}$" src="form_26.png"/> is the external force vector (for example, gravitation force or surface traction).</p>
 <p>Following the <a href="https://en.wikipedia.org/wiki/Newton&#39;s_method#Nonlinear_systems_of_equations">Newton-Raphson method</a>, we pose</p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\begin{align*} \vec{F}(\vec{x}_{n+1}) &amp;= \vec{R}(\vec{x}_{n+1}) - \vec{P}_n \\ \mat{J} = \frac{\partial \vec{F}}{\partial \vec{x}_{n+1}} \bigg\rvert_{\vec{x}_{n+1}^i} &amp;= \mat{K}(\vec{x}_{n+1}) \end{align*}" src="form_28.png"/>
+<img class="formulaDsp" alt="\begin{align*} \vec{F}(\vec{x}_{n+1}) &amp;= \vec{R}(\vec{x}_{n+1}) - \vec{P}_n \\ \mat{J} = \frac{\partial \vec{F}}{\partial \vec{x}_{n+1}} \bigg\rvert_{\vec{x}_{n+1}^i} &amp;= \mat{K}(\vec{x}_{n+1}) \end{align*}" src="form_27.png"/>
 </p>
-<p>where <img class="formulaInl" alt="$\vec{x}_{n+1}$" src="form_29.png"/> is the unknown position vector at the <img class="formulaInl" alt="$n$" src="form_30.png"/>th time step. We then iteratively solve</p>
+<p>where <img class="formulaInl" alt="$\vec{x}_{n+1}$" src="form_28.png"/> is the unknown position vector at the <img class="formulaInl" alt="$n$" src="form_29.png"/>th time step. We then iteratively solve</p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\begin{align*} \mat{K}(\vec{x}_{n+1}^i) \left [ \Delta \vec{x}_{n+1}^{i+1} \right ] &amp;= - \vec{F}(\vec{x}_{n+1}^i) \\ \vec{x}_{n+1}^{i+1} &amp;= \vec{x}_{n+1}^{i} + \Delta \vec{x}_{n+1}^{i+1} \end{align*}" src="form_31.png"/>
+<img class="formulaDsp" alt="\begin{align*} \mat{K}(\vec{x}_{n+1}^i) \left [ \Delta \vec{x}_{n+1}^{i+1} \right ] &amp;= - \vec{F}(\vec{x}_{n+1}^i) \\ \vec{x}_{n+1}^{i+1} &amp;= \vec{x}_{n+1}^{i} + \Delta \vec{x}_{n+1}^{i+1} \end{align*}" src="form_30.png"/>
 </p>
  </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac31b74fd3b4abc6f71370e6218ccc541"></a>
@@ -917,7 +917,7 @@ template&lt;class T &gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>component</b></li><li class="navelem"><b>odesolver</b></li><li class="navelem"><b>backward</b></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1odesolver_1_1backward_1_1_static_solver.html">StaticSolver</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 04:53:52 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 06:00:14 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

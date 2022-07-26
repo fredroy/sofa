@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: Mapping&lt; TIn, TOut &gt; Class Template Reference</title>
+<title>SOFA: Mapping&lt; TIn, TOut &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -968,7 +968,7 @@ class sofa::core::Mapping&lt; TIn, TOut &gt;</h3>
 </table>
 </div><div class="memdoc">
 <p>ApplyDJT (Force)/// Apply the change of force due to the nonlinearity of the mapping and the last propagated displacement. Also called geometric stiffness. The default implementation does nothing, assuming a linear mapping.</p>
-<p>This method computes <img class="formulaInl" alt="$ f_p += dJ^t f_c $" src="form_47.png"/>, where <img class="formulaInl" alt="$ f_p $" src="form_48.png"/> is the parent force and <img class="formulaInl" alt="$ f_c $" src="form_49.png"/> is the child force. where J is the tangent operator (the linear approximation) of the mapping The child force is accessed in the child state using mparams-&gt;readF() . This requires that the child force vector is used by the solver to compute the force <img class="formulaInl" alt="$ f(x,v)$" src="form_50.png"/> corresponding to the current positions and velocities, and not to store auxiliary values. The displacement is accessed in the parent state using mparams-&gt;readDx() . This method generally corresponds to a symmetric stiffness matrix, but with rotations (which are not a commutative group) it is not the case. Since some solvers (including the Conjugate Gradient) require symmetric matrices, a flag is set in the <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html" title="Class gathering parameters use by mechanical components methods, and transmitted by mechanical visito...">MechanicalParams</a> to say if symmetric matrices are required. If so, non-symmetric geometric stiffness should not be applied. </p>
+<p>This method computes <img class="formulaInl" alt="$ f_p += dJ^t f_c $" src="form_46.png"/>, where <img class="formulaInl" alt="$ f_p $" src="form_47.png"/> is the parent force and <img class="formulaInl" alt="$ f_c $" src="form_48.png"/> is the child force. where J is the tangent operator (the linear approximation) of the mapping The child force is accessed in the child state using mparams-&gt;readF() . This requires that the child force vector is used by the solver to compute the force <img class="formulaInl" alt="$ f(x,v)$" src="form_49.png"/> corresponding to the current positions and velocities, and not to store auxiliary values. The displacement is accessed in the parent state using mparams-&gt;readDx() . This method generally corresponds to a symmetric stiffness matrix, but with rotations (which are not a commutative group) it is not the case. Since some solvers (including the Conjugate Gradient) require symmetric matrices, a flag is set in the <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html" title="Class gathering parameters use by mechanical components methods, and transmitted by mechanical visito...">MechanicalParams</a> to say if symmetric matrices are required. If so, non-symmetric geometric stiffness should not be applied. </p>
 
 <p>Implements <a class="el" href="classsofa_1_1core_1_1_base_mapping.html#aa675937c08a5e5ae92ef9dd4395913af">BaseMapping</a>.</p>
 
@@ -1153,7 +1153,7 @@ class sofa::core::Mapping&lt; TIn, TOut &gt;</h3>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>computeAccFromMapping Compute the acceleration of the child, based on the acceleration and the velocity of the parent. Let <img class="formulaInl" alt="$ v_c = J v_p $" src="form_51.png"/> be the velocity of the child given the velocity of the parent, then the acceleration is <img class="formulaInl" alt="$ a_c = J a_p + dJ v_p $" src="form_52.png"/>. The second term is null in linear mappings, otherwise it encodes the acceleration due to the change of mapping at constant parent velocity. For instance, in a rigid mapping with angular velocity <img class="formulaInl" alt="$ w $" src="form_53.png"/>, the second term is $ w^(w^rel_pos) $ </p>
+<p>computeAccFromMapping Compute the acceleration of the child, based on the acceleration and the velocity of the parent. Let <img class="formulaInl" alt="$ v_c = J v_p $" src="form_50.png"/> be the velocity of the child given the velocity of the parent, then the acceleration is <img class="formulaInl" alt="$ a_c = J a_p + dJ v_p $" src="form_51.png"/>. The second term is null in linear mappings, otherwise it encodes the acceleration due to the change of mapping at constant parent velocity. For instance, in a rigid mapping with angular velocity <img class="formulaInl" alt="$ w $" src="form_52.png"/>, the second term is $ w^(w^rel_pos) $ </p>
 
 <p>Implements <a class="el" href="classsofa_1_1core_1_1_base_mapping.html">BaseMapping</a>.</p>
 
@@ -1323,7 +1323,7 @@ class sofa::core::Mapping&lt; TIn, TOut &gt;</h3>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>core</b></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1_mapping.html">Mapping</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 04:59:22 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 06:05:12 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

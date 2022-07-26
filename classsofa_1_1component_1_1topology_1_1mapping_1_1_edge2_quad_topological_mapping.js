@@ -7,7 +7,7 @@ var classsofa_1_1component_1_1topology_1_1mapping_1_1_edge2_quad_topological_map
     [ "Real", "classsofa_1_1component_1_1topology_1_1mapping_1_1_edge2_quad_topological_mapping.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1", null ],
     [ "Vec", "classsofa_1_1component_1_1topology_1_1mapping_1_1_edge2_quad_topological_mapping.html#ae73cd4b2c52310dc5d7fafdb0b821141", null ],
     [ "VecIndex", "classsofa_1_1component_1_1topology_1_1mapping_1_1_edge2_quad_topological_mapping.html#aa71d2ca820e135da53d8da0fac0327fd", null ],
-    [ "M", "classsofa_1_1component_1_1topology_1_1mapping_1_1_edge2_quad_topological_mapping.html#ade9ca5088d171ad20b4c237f1c2d6260a51ca6c63d97347ee58cc7da59ab6994b", null ],
+    [ "M", "classsofa_1_1component_1_1topology_1_1mapping_1_1_edge2_quad_topological_mapping.html#a8628933cde20921c453a6d2607bdad62a51ca6c63d97347ee58cc7da59ab6994b", null ],
     [ "Edge2QuadTopologicalMapping", "classsofa_1_1component_1_1topology_1_1mapping_1_1_edge2_quad_topological_mapping.html#a6e08186af49ab5e4dace934fa019e007", null ],
     [ "~Edge2QuadTopologicalMapping", "classsofa_1_1component_1_1topology_1_1mapping_1_1_edge2_quad_topological_mapping.html#ac0fb06d827755bcfafbd9d1f0127e9ff", null ],
     [ "getFromIndex", "classsofa_1_1component_1_1topology_1_1mapping_1_1_edge2_quad_topological_mapping.html#a326184454edf271334f02cc2265f811a", null ],

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: DataTypeInfoDynamicWrapper&lt; Info &gt; Class Template Reference</title>
+<title>SOFA: DataTypeInfoDynamicWrapper&lt; Info &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -222,10 +222,10 @@ Additional Inherited Members</h2></td></tr>
 class sofa::defaulttype::DataTypeInfoDynamicWrapper&lt; Info &gt;</h3>
 
 <p>wrap a <a class="el" href="structsofa_1_1defaulttype_1_1_data_type_info.html">DataTypeInfo</a> type_traits in an <a class="el" href="classsofa_1_1defaulttype_1_1_abstract_type_info.html">AbstractTypeInfo</a> </p>
-<p>Example of use: </p><div class="fragment"><div class="line"><span class="keyword">class </span><a class="code" href="class_my_type.html">MyType</a> {};</div>
+<p>Example of use: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyType {};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><span class="keyword">class </span>DataTypeInfo&lt;<a class="code" href="class_my_type.html">MyType</a>&gt; { }</div>
+<div class="line"><span class="keyword">class </span>DataTypeInfo&lt;MyType&gt; { }</div>
 <div class="line"> </div>
 <div class="line">AbstractTypeInfo* nfo = DataTypeInfoDynamicWrapper&lt;DataTypeInfo&lt;MyType&gt;&gt;();</div>
 <div class="line"> </div>
@@ -672,12 +672,11 @@ class sofa::defaulttype::DataTypeInfoDynamicWrapper&lt; Info &gt;</h3>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclasssofa_1_1defaulttype_1_1_type_info_registry_html_a3e978ff906533c37dd26045f07f0e393"><div class="ttname"><a href="classsofa_1_1defaulttype_1_1_type_info_registry.html#a3e978ff906533c37dd26045f07f0e393">sofa::defaulttype::TypeInfoRegistry::Set</a></div><div class="ttdeci">static int Set(const TypeInfoId &amp;tid, AbstractTypeInfo *info, const std::string &amp;compilationTarget)</div><div class="ttdef"><b>Definition:</b> TypeInfoRegistry.cpp:106</div></div>
-<div class="ttc" id="aclass_my_type_html"><div class="ttname"><a href="class_my_type.html">MyType</a></div><div class="ttdef"><b>Definition:</b> TypeInfoRepository_test.cpp:57</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>defaulttype</b></li><li class="navelem"><a class="el" href="classsofa_1_1defaulttype_1_1_data_type_info_dynamic_wrapper.html">DataTypeInfoDynamicWrapper</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:03:07 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 06:08:15 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

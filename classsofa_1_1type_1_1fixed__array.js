@@ -6,7 +6,7 @@ var classsofa_1_1type_1_1fixed__array =
     [ "reference", "classsofa_1_1type_1_1fixed__array.html#a9b1a63f171d76a7a3995b6858e99f2ea", null ],
     [ "size_type", "classsofa_1_1type_1_1fixed__array.html#ad0948d75f2ae375e8632fb06c98b6001", null ],
     [ "value_type", "classsofa_1_1type_1_1fixed__array.html#a265a253612b46abed17c61b0a5e5ce30", null ],
-    [ "static_size", "classsofa_1_1type_1_1fixed__array.html#a91208fef98a8e6a0f21eddcb9c5a8b78ad4a8f9f8c603d29a20ca6f9c056dd4da", null ],
+    [ "static_size", "classsofa_1_1type_1_1fixed__array.html#aa85e8d66aa325c34334bcaa049300dcdad4a8f9f8c603d29a20ca6f9c056dd4da", null ],
     [ "fixed_array", "classsofa_1_1type_1_1fixed__array.html#a65edf88f3e7be1cb735f08610ab5553d", null ],
     [ "fixed_array", "classsofa_1_1type_1_1fixed__array.html#a4624e0d709a9db05310785acbfe2041a", null ],
     [ "fixed_array", "classsofa_1_1type_1_1fixed__array.html#a2130d3d15d68343567e1055604db39c9", null ],

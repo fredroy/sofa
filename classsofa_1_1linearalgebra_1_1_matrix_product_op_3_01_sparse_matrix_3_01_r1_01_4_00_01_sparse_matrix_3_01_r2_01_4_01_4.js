@@ -3,6 +3,6 @@ var classsofa_1_1linearalgebra_1_1_matrix_product_op_3_01_sparse_matrix_3_01_r1_
     [ "M1", "classsofa_1_1linearalgebra_1_1_matrix_product_op_3_01_sparse_matrix_3_01_r1_01_4_00_01_sparse_matrix_3_01_r2_01_4_01_4.html#a3f310dba1d01bf54616d0a415aa07efc", null ],
     [ "M2", "classsofa_1_1linearalgebra_1_1_matrix_product_op_3_01_sparse_matrix_3_01_r1_01_4_00_01_sparse_matrix_3_01_r2_01_4_01_4.html#a9335cc7671b8155674959930f081a547", null ],
     [ "matrix_type", "classsofa_1_1linearalgebra_1_1_matrix_product_op_3_01_sparse_matrix_3_01_r1_01_4_00_01_sparse_matrix_3_01_r2_01_4_01_4.html#a4e1af3babdd93f3f5e5e8620770c4c6a", null ],
-    [ "category", "classsofa_1_1linearalgebra_1_1_matrix_product_op_3_01_sparse_matrix_3_01_r1_01_4_00_01_sparse_matrix_3_01_r2_01_4_01_4.html#a0341d081395407fd92061819ba76eb96ac8009b23fdaa8489a1e0ac80d90ff887", null ],
+    [ "category", "classsofa_1_1linearalgebra_1_1_matrix_product_op_3_01_sparse_matrix_3_01_r1_01_4_00_01_sparse_matrix_3_01_r2_01_4_01_4.html#aab4d131ba129f519b9e2bd349dc19e3aac8009b23fdaa8489a1e0ac80d90ff887", null ],
     [ "operator()", "classsofa_1_1linearalgebra_1_1_matrix_product_op_3_01_sparse_matrix_3_01_r1_01_4_00_01_sparse_matrix_3_01_r2_01_4_01_4.html#abe291311f7c386c3e3d075078bf0c57a", null ]
 ];

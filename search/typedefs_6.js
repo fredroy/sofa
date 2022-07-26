@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['gk_5fmcore_5ft_16948',['gk_mcore_t',['../gk__struct_8h.html#a5a7bf1e82dc695f84935615c2ef7a526',1,'gk_struct.h']]],
-  ['gk_5fmop_5ft_16949',['gk_mop_t',['../gk__struct_8h.html#ac5205aeeac5b6857488fff68bd0c9b2b',1,'gk_struct.h']]]
+  ['hierarchicalcubemap_15412',['HierarchicalCubeMap',['../classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html#a28af572891da31720efef80ea342e447',1,'sofa::component::topology::container::grid::SparseGridTopology']]],
+  ['hierarchicalcubemapramification_15413',['HierarchicalCubeMapRamification',['../classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_ramification_topology.html#a7391f45b64e81c4198695bc8f0b164ce',1,'sofa::component::topology::container::grid::SparseGridRamificationTopology']]],
+  ['hierarchicalpointmap_15414',['HierarchicalPointMap',['../classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html#a796db0369b1d56ab0ca22a22519bb458',1,'sofa::component::topology::container::grid::SparseGridTopology']]]
 ];

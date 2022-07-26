@@ -7,7 +7,7 @@ var classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geo
     [ "Real", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geometry_algorithms.html#acf523069e5b1497cffac17511dcd3b1e", null ],
     [ "VecCoord", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geometry_algorithms.html#a05882e2e9ba8d707ab531ab94a1f39e0", null ],
     [ "VecDeriv", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geometry_algorithms.html#a83fb2b666b4e514e93d3bb221aa681ef", null ],
-    [ "NC", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geometry_algorithms.html#a531c35e38ede3ea4e5ba5afb24b29493a3dbd1016ea99d087d747530418b89a01", null ],
+    [ "NC", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geometry_algorithms.html#a2f80701c36e79c0640d91c788feee0b3a3dbd1016ea99d087d747530418b89a01", null ],
     [ "Angle", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geometry_algorithms.html#a0200d2d1b3a7930d0be6c50e7c8ae7d1", [
       [ "ACUTE", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geometry_algorithms.html#a0200d2d1b3a7930d0be6c50e7c8ae7d1adabcf92484bc671f4eba8c028dc3f99b", null ],
       [ "RIGHT", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geometry_algorithms.html#a0200d2d1b3a7930d0be6c50e7c8ae7d1aec8379af7490bb9eaaf579cf17876f38", null ],

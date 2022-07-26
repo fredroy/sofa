@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: AxisPlaneConstraint Class Reference</title>
+<title>SOFA: AxisPlaneConstraint Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -180,7 +180,7 @@ Rotation constraint</h2></td></tr>
 <p>New derived classes can use their own extended enum for specific constraints: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyAxisPlaneConstraint : <span class="keyword">public</span> <a class="code" href="classqglviewer_1_1_axis_plane_constraint.html#a1049b4e70e2fc0d46b4cfaf93d167515">AxisPlaneConstraint</a></div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">  <span class="keyword">enum</span> <a class="code" href="class_my_type.html">MyType</a> { FREE, AXIS, PLANE, FORBIDDEN, CUSTOM };</div>
+<div class="line">  <span class="keyword">enum</span> MyType { FREE, AXIS, PLANE, FORBIDDEN, CUSTOM };</div>
 <div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classqglviewer_1_1_axis_plane_constraint.html#ab7d724965c6765209f47c1abe7f7b7b4">constrainTranslation</a>(Vec &amp;translation, Frame *<span class="keyword">const</span> frame)</div>
 <div class="line">  {</div>
 <div class="line">        <span class="comment">// translationConstraintType() is simply an int. CUSTOM Type is</span></div>
@@ -588,12 +588,11 @@ Rotation constraint</h2></td></tr>
 <div class="ttc" id="aclassqglviewer_1_1_axis_plane_constraint_html_a1d1cfd8ffb84e947f82999c682b666a7"><div class="ttname"><a href="classqglviewer_1_1_axis_plane_constraint.html#a1d1cfd8ffb84e947f82999c682b666a7">qglviewer::AxisPlaneConstraint::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> constraint.h:244</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_axis_plane_constraint_html_a1049b4e70e2fc0d46b4cfaf93d167515"><div class="ttname"><a href="classqglviewer_1_1_axis_plane_constraint.html#a1049b4e70e2fc0d46b4cfaf93d167515">qglviewer::AxisPlaneConstraint::AxisPlaneConstraint</a></div><div class="ttdeci">AxisPlaneConstraint()</div><div class="ttdef"><b>Definition:</b> constraint.cpp:40</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_axis_plane_constraint_html_ab7d724965c6765209f47c1abe7f7b7b4"><div class="ttname"><a href="classqglviewer_1_1_axis_plane_constraint.html#ab7d724965c6765209f47c1abe7f7b7b4">qglviewer::AxisPlaneConstraint::constrainTranslation</a></div><div class="ttdeci">virtual void constrainTranslation(Vec &amp;translation, Frame *const frame)</div><div class="ttdef"><b>Definition:</b> constraint.h:249</div></div>
-<div class="ttc" id="aclass_my_type_html"><div class="ttname"><a href="class_my_type.html">MyType</a></div><div class="ttdef"><b>Definition:</b> TypeInfoRepository_test.cpp:57</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>qglviewer</b></li><li class="navelem"><a class="el" href="classqglviewer_1_1_axis_plane_constraint.html">AxisPlaneConstraint</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 04:33:57 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 05:43:28 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

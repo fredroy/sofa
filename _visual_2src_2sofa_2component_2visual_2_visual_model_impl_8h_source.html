@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: Sofa/Component/Visual/src/sofa/component/visual/VisualModelImpl.h Source File</title>
+<title>SOFA: Sofa/Component/Visual/src/sofa/component/visual/VisualModelImpl.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -268,7 +268,7 @@ $(document).ready(function(){initNavTree('_visual_2src_2sofa_2component_2visual_
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        std::string groupName;</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordtype">int</span> materialId;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        FaceGroup() : tri0(0), nbt(0), quad0(0), nbq(0), edge0(0), nbe(0), materialName(<span class="stringliteral">&quot;defaultMaterial&quot;</span>), groupName(<span class="stringliteral">&quot;defaultGroup&quot;</span>), materialId(-1) {}</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="namespacesofa.html#adcecdff57e88230cdda0b72c42307c25">operator &lt;&lt; </a>(std::ostream&amp; out, <span class="keyword">const</span> FaceGroup &amp;g)</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; operator &lt;&lt; (std::ostream&amp; out, <span class="keyword">const</span> FaceGroup &amp;g)</div>
 <div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="classsofa_1_1component_1_1visual_1_1_visual_model_impl_1_1_face_group.html">  210</a></span>&#160;        {</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            out &lt;&lt; g.groupName &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; g.materialName &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; g.materialId &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; g.tri0 &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; g.nbt &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; g.quad0 &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; g.nbq &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; g.edge0 &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; g.nbe;</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            <span class="keywordflow">return</span> out;</div>
@@ -493,7 +493,6 @@ $(document).ready(function(){initNavTree('_visual_2src_2sofa_2component_2visual_
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_data_file_name_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_data_file_name.html">sofa::core::objectmodel::DataFileName</a></div><div class="ttdoc">Data specialized to store filenames, potentially relative to the current directory at the time it was...</div><div class="ttdef"><b>Definition:</b> DataFileName.h:107</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_quat_html"><div class="ttname"><a href="classsofa_1_1type_1_1_quat.html">sofa::type::Quat&lt; SReal &gt;</a></div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1vector_html"><div class="ttname"><a href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a></div><div class="ttdef"><b>Definition:</b> vector_T.h:54</div></div>
-<div class="ttc" id="anamespacesofa_html_adcecdff57e88230cdda0b72c42307c25"><div class="ttname"><a href="namespacesofa.html#adcecdff57e88230cdda0b72c42307c25">sofa::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const DummyEnum &amp;d)</div><div class="ttdoc">Factories require this operator in order to have a custom class as a key.</div><div class="ttdef"><b>Definition:</b> Factory_test.cpp:38</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1visual_1_1_visual_params_html"><div class="ttname"><a href="classsofa_1_1core_1_1visual_1_1_visual_params.html">sofa::core::visual::VisualParams</a></div><div class="ttdoc">Class gathering parameters used by visual components and by the draw method of each component....</div><div class="ttdef"><b>Definition:</b> VisualParams.h:65</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_object_description_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">sofa::core::objectmodel::BaseObjectDescription</a></div><div class="ttdoc">Base Interface for classes containing the description of an object, used to construct it.</div><div class="ttdef"><b>Definition:</b> BaseObjectDescription.h:108</div></div>
 <div class="ttc" id="astructbbox__shape_html"><div class="ttname"><a href="structbbox__shape.html">bbox_shape</a></div><div class="ttdef"><b>Definition:</b> gpc.cpp:276</div></div>
@@ -503,7 +502,7 @@ $(document).ready(function(){initNavTree('_visual_2src_2sofa_2component_2visual_
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_42ede1205723b3b890fa00e138974231.html">Component</a></li><li class="navelem"><a class="el" href="dir_b00c39814947de2df755c2052fc0f20c.html">Visual</a></li><li class="navelem"><a class="el" href="dir_d7e36a09dc7ba5600a3a83ce6635043a.html">src</a></li><li class="navelem"><a class="el" href="dir_aad967361867a8b396385d22e117b064.html">sofa</a></li><li class="navelem"><a class="el" href="dir_643d44e5687087c06cbd16a0e0fd2774.html">component</a></li><li class="navelem"><a class="el" href="dir_a2a7e940369171dab36296713742c608.html">visual</a></li><li class="navelem"><b>VisualModelImpl.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 04:16:08 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 05:29:22 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

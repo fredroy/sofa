@@ -2,6 +2,5 @@ var namespaces_dup =
 [
     [ "Eigen", "namespace_eigen.html", null ],
     [ "sofa", "namespacesofa.html", "namespacesofa" ],
-    [ "std", "namespacestd.html", null ],
-    [ "testing", "namespacetesting.html", null ]
+    [ "std", "namespacestd.html", null ]
 ];

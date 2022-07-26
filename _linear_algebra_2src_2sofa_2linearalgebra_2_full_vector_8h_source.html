@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: Sofa/framework/LinearAlgebra/src/sofa/linearalgebra/FullVector.h Source File</title>
+<title>SOFA: Sofa/framework/LinearAlgebra/src/sofa/linearalgebra/FullVector.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -296,8 +296,8 @@ $(document).ready(function(){initNavTree('_linear_algebra_2src_2sofa_2linearalge
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* Name() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;FullVector&quot;</span>; }</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;};</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;SOFA_LINEARALGEBRA_API std::ostream&amp; <a class="code" href="namespacesofa.html#adcecdff57e88230cdda0b72c42307c25">operator &lt;&lt;</a>(std::ostream&amp; out, <span class="keyword">const</span> FullVector&lt;float&gt;&amp; v);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;SOFA_LINEARALGEBRA_API std::ostream&amp; <a class="code" href="namespacesofa.html#adcecdff57e88230cdda0b72c42307c25">operator &lt;&lt;</a>(std::ostream&amp; out, <span class="keyword">const</span> FullVector&lt;double&gt;&amp; v);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;SOFA_LINEARALGEBRA_API std::ostream&amp; operator &lt;&lt;(std::ostream&amp; out, <span class="keyword">const</span> FullVector&lt;float&gt;&amp; v);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;SOFA_LINEARALGEBRA_API std::ostream&amp; operator &lt;&lt;(std::ostream&amp; out, <span class="keyword">const</span> FullVector&lt;double&gt;&amp; v);</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="preprocessor">#if !defined(SOFABASELINEARSOLVER_FULLMATRIX_DEFINITION)</span></div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span>SOFA_LINEARALGEBRA_API FullVector&lt;float&gt;;</div>
@@ -316,7 +316,6 @@ $(document).ready(function(){initNavTree('_linear_algebra_2src_2sofa_2linearalge
 <div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_full_vector_html_adbeac4b406b78e64460863820679c14f"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_full_vector.html#adbeac4b406b78e64460863820679c14f">sofa::linearalgebra::FullVector::norm</a></div><div class="ttdeci">double norm() const</div><div class="ttdef"><b>Definition:</b> FullVector.inl:64</div></div>
 <div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_full_vector_html_a9167e50f04b250714f2c811b5e85dc7c"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_full_vector.html#a9167e50f04b250714f2c811b5e85dc7c">sofa::linearalgebra::FullVector::dot</a></div><div class="ttdeci">Real dot(const FullVector&lt; Real &gt; &amp;a) const</div><div class="ttdef"><b>Definition:</b> FullVector.inl:200</div></div>
 <div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_base_vector_html"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_base_vector.html">sofa::linearalgebra::BaseVector</a></div><div class="ttdef"><b>Definition:</b> BaseVector.h:54</div></div>
-<div class="ttc" id="anamespacesofa_html_adcecdff57e88230cdda0b72c42307c25"><div class="ttname"><a href="namespacesofa.html#adcecdff57e88230cdda0b72c42307c25">sofa::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const DummyEnum &amp;d)</div><div class="ttdoc">Factories require this operator in order to have a custom class as a key.</div><div class="ttdef"><b>Definition:</b> Factory_test.cpp:38</div></div>
 <div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_full_vector_html_aca1b2e5621fe059fe929095c3af84fd7"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_full_vector.html#aca1b2e5621fe059fe929095c3af84fd7">sofa::linearalgebra::FullVector::element</a></div><div class="ttdeci">SReal element(Index i) const override</div><div class="ttdoc">Read the value of element i.</div><div class="ttdef"><b>Definition:</b> FullVector.h:154</div></div>
 <div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_full_vector_html_ac0af47032970b8e73c378397178c09d5"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_full_vector.html#ac0af47032970b8e73c378397178c09d5">sofa::linearalgebra::FullVector::operator*=</a></div><div class="ttdeci">void operator*=(Real f)</div><div class="ttdoc">v *= f</div><div class="ttdef"><b>Definition:</b> FullVector.inl:192</div></div>
 <div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_full_vector_html"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_full_vector.html">sofa::linearalgebra::FullVector</a></div><div class="ttdef"><b>Definition:</b> FullVector.h:58</div></div>
@@ -329,7 +328,7 @@ $(document).ready(function(){initNavTree('_linear_algebra_2src_2sofa_2linearalge
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_9fb0ceffa9d96cd22e8a42402ee0a204.html">LinearAlgebra</a></li><li class="navelem"><a class="el" href="dir_7a539ff504eba330c8de6b72177c0701.html">src</a></li><li class="navelem"><a class="el" href="dir_7b2a7612d8b68ea3c5f3562ab3e86337.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b525aa2a9c678505be07c2ed6f28d295.html">linearalgebra</a></li><li class="navelem"><b>FullVector.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 04:24:01 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 05:35:56 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

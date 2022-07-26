@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: Sofa/Component/Mapping/Testing/src/sofa/component/mapping/testing/MultiMappingTestCreation.h Source File</title>
+<title>SOFA: Sofa/Component/Mapping/Testing/src/sofa/component/mapping/testing/MultiMappingTestCreation.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -453,7 +453,7 @@ $(document).ready(function(){initNavTree('_multi_mapping_test_creation_8h_source
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;                <span class="comment">// TODO perform a slow conversion with a big warning rather than a failure?</span></div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;            }</div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; </div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;            <span class="keywordflow">if</span>( K-&gt;compressedMatrix.nonZeros() ) K-&gt;mult(Kv,totalvp);</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;            <span class="keywordflow">if</span>( K-&gt;compressedMatrix.nonZeros() ) K-&gt;<a class="code" href="classsofa_1_1linearalgebra_1_1_eigen_sparse_matrix.html#a0bcf3f3be3ec9035acfb12be76687059">mult</a>(Kv,totalvp);</div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        }</div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        <span class="comment">// check that K.vp = dfp</span></div>
@@ -494,6 +494,7 @@ $(document).ready(function(){initNavTree('_multi_mapping_test_creation_8h_source
 <div class="ttc" id="aclasssofa_1_1core_1_1_multi_mapping_html_ac317060c2c72d76c705ca36f93e247b7"><div class="ttname"><a href="classsofa_1_1core_1_1_multi_mapping.html#ac317060c2c72d76c705ca36f93e247b7">sofa::core::MultiMapping::applyJ</a></div><div class="ttdeci">void applyJ(const MechanicalParams *mparams, MultiVecDerivId outVel, ConstMultiVecDerivId inVel) override</div><div class="ttdef"><b>Definition:</b> MultiMapping.inl:150</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_mechanical_params_html_adb523f266a22b0f747071bdd0e521f75"><div class="ttname"><a href="classsofa_1_1core_1_1_mechanical_params.html#adb523f266a22b0f747071bdd0e521f75">sofa::core::MechanicalParams::setSymmetricMatrix</a></div><div class="ttdeci">MechanicalParams &amp; setSymmetricMatrix(bool b)</div><div class="ttdoc">Set the symmetric matrix flag (for implicit schemes), for solvers specialized on symmetric matrices.</div><div class="ttdef"><b>Definition:</b> MechanicalParams.h:224</div></div>
 <div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_eigen_sparse_matrix_html_a7f2932de35c484b7799869ecc994b006"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_eigen_sparse_matrix.html#a7f2932de35c484b7799869ecc994b006">sofa::linearalgebra::EigenSparseMatrix::addMult</a></div><div class="ttdeci">void addMult(OutVecDeriv &amp;result, const InVecDeriv &amp;data) const</div><div class="ttdoc">compute result += A * data</div><div class="ttdef"><b>Definition:</b> EigenSparseMatrix.h:454</div></div>
+<div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_eigen_sparse_matrix_html_a0bcf3f3be3ec9035acfb12be76687059"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_eigen_sparse_matrix.html#a0bcf3f3be3ec9035acfb12be76687059">sofa::linearalgebra::EigenSparseMatrix::mult</a></div><div class="ttdeci">void mult(OutVecDeriv &amp;result, const InVecDeriv &amp;data) const</div><div class="ttdoc">compute result = A * data</div><div class="ttdef"><b>Definition:</b> EigenSparseMatrix.h:449</div></div>
 <div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_eigen_sparse_matrix_html_a729eb0764a1120e0d1b55ada87b9e003"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_eigen_sparse_matrix.html#a729eb0764a1120e0d1b55ada87b9e003">sofa::linearalgebra::EigenSparseMatrix::addMultTranspose</a></div><div class="ttdeci">void addMultTranspose(InVecDeriv &amp;result, const OutVecDeriv &amp;data) const</div><div class="ttdoc">compute result += A^T * data</div><div class="ttdef"><b>Definition:</b> EigenSparseMatrix.h:464</div></div>
 <div class="ttc" id="astructsofa_1_1_multi_mapping__test_html_ac6655d65ecb90b54a1c046685fbff3ec"><div class="ttname"><a href="structsofa_1_1_multi_mapping__test.html#ac6655d65ecb90b54a1c046685fbff3ec">sofa::MultiMapping_test::errorMax</a></div><div class="ttdeci">Real errorMax</div><div class="ttdoc">The test is successfull if the (infinite norm of the) difference is less than maxError * numeric_limi...</div><div class="ttdef"><b>Definition:</b> MultiMappingTestCreation.h:93</div></div>
 <div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_eigen_sparse_matrix_html"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_eigen_sparse_matrix.html">sofa::linearalgebra::EigenSparseMatrix&lt; In, Out &gt;</a></div></div>
@@ -540,7 +541,7 @@ $(document).ready(function(){initNavTree('_multi_mapping_test_creation_8h_source
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_42ede1205723b3b890fa00e138974231.html">Component</a></li><li class="navelem"><a class="el" href="dir_518c9dfd6aa60e6f51df0ba4440359e4.html">Mapping</a></li><li class="navelem"><a class="el" href="dir_76c8f016fb348cb56ad08646969bfd76.html">Testing</a></li><li class="navelem"><a class="el" href="dir_8015a64c27eb8ae64c83d38c59de0293.html">src</a></li><li class="navelem"><a class="el" href="dir_363b65c7e2869d611b50a3e9596e9e5b.html">sofa</a></li><li class="navelem"><a class="el" href="dir_16a44ed51615708bb79632a41b0b9a84.html">component</a></li><li class="navelem"><a class="el" href="dir_10e2c15998a86f5a081a4db2c442f82a.html">mapping</a></li><li class="navelem"><a class="el" href="dir_0e9dc40c43b8e1b3b862254a8a04d409.html">testing</a></li><li class="navelem"><b>MultiMappingTestCreation.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 04:23:29 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 05:35:32 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

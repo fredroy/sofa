@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: TetrahedralCorotationalFEMForceField&lt; DataTypes &gt; Class Template Reference</title>
+<title>SOFA: TetrahedralCorotationalFEMForceField&lt; DataTypes &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -122,11 +122,11 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:af3520ff6d43011872bab77edd27d4de3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_tetrahedral_corotational_f_e_m_force_field.html#af3520ff6d43011872bab77edd27d4de3aea5e596a553757a677cb4da4c8a1f935">SMALL</a> = 0, 
-<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_tetrahedral_corotational_f_e_m_force_field.html#af3520ff6d43011872bab77edd27d4de3a716db5c72140446e5badac4683610310">LARGE</a> = 1, 
-<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_tetrahedral_corotational_f_e_m_force_field.html#af3520ff6d43011872bab77edd27d4de3aa54fd87899b2d83f2a08232393e732fd">POLAR</a> = 2
+<tr class="memitem:a84627a72058502328269676b81780f89"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_tetrahedral_corotational_f_e_m_force_field.html#a84627a72058502328269676b81780f89aea5e596a553757a677cb4da4c8a1f935">SMALL</a> = 0, 
+<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_tetrahedral_corotational_f_e_m_force_field.html#a84627a72058502328269676b81780f89a716db5c72140446e5badac4683610310">LARGE</a> = 1, 
+<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_tetrahedral_corotational_f_e_m_force_field.html#a84627a72058502328269676b81780f89aa54fd87899b2d83f2a08232393e732fd">POLAR</a> = 2
  }</td></tr>
-<tr class="separator:af3520ff6d43011872bab77edd27d4de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a84627a72058502328269676b81780f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05882e2e9ba8d707ab531ab94a1f39e0"><td class="memItemLeft" align="right" valign="top"><a id="a05882e2e9ba8d707ab531ab94a1f39e0"></a>
 typedef <a class="el" href="classsofa_1_1type_1_1vector.html">DataTypes::VecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><b>VecCoord</b></td></tr>
 <tr class="separator:a05882e2e9ba8d707ab531ab94a1f39e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -310,10 +310,10 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addClambda</b
 <tr class="memitem:a15a87109ecca7e0334a8c45f2e80ae14 inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_force_field"><td class="memItemLeft" align="right" valign="top">SReal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_force_field.html#a15a87109ecca7e0334a8c45f2e80ae14">getPotentialEnergy</a> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">MechanicalParams</a> *mparams) const override</td></tr>
 <tr class="separator:a15a87109ecca7e0334a8c45f2e80ae14 inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_force_field"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d60cd22d26adb9b6ee439c20f542463 inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_force_field"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>addKToMatrix</b> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">MechanicalParams</a> *mparams, const <a class="el" href="classsofa_1_1core_1_1behavior_1_1_multi_matrix_accessor.html">sofa::core::behavior::MultiMatrixAccessor</a> *matrix) override</td></tr>
-<tr class="memdesc:a3d60cd22d26adb9b6ee439c20f542463 inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_force_field"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the system matrix corresponding to <img class="formulaInl" alt="$ k K $" src="form_36.png"/>.  <a href="classsofa_1_1core_1_1behavior_1_1_force_field.html#a3d60cd22d26adb9b6ee439c20f542463">More...</a><br /></td></tr>
+<tr class="memdesc:a3d60cd22d26adb9b6ee439c20f542463 inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_force_field"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the system matrix corresponding to <img class="formulaInl" alt="$ k K $" src="form_35.png"/>.  <a href="classsofa_1_1core_1_1behavior_1_1_force_field.html#a3d60cd22d26adb9b6ee439c20f542463">More...</a><br /></td></tr>
 <tr class="separator:a3d60cd22d26adb9b6ee439c20f542463 inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_force_field"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3932cb5d04bf1fdf739ce7412452899e inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_force_field"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>addBToMatrix</b> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">MechanicalParams</a> *mparams, const <a class="el" href="classsofa_1_1core_1_1behavior_1_1_multi_matrix_accessor.html">sofa::core::behavior::MultiMatrixAccessor</a> *matrix) override</td></tr>
-<tr class="memdesc:a3932cb5d04bf1fdf739ce7412452899e inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_force_field"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the system matrix corresponding to <img class="formulaInl" alt="$ b B $" src="form_37.png"/>.  <a href="classsofa_1_1core_1_1behavior_1_1_force_field.html#a3932cb5d04bf1fdf739ce7412452899e">More...</a><br /></td></tr>
+<tr class="memdesc:a3932cb5d04bf1fdf739ce7412452899e inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_force_field"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the system matrix corresponding to <img class="formulaInl" alt="$ b B $" src="form_36.png"/>.  <a href="classsofa_1_1core_1_1behavior_1_1_force_field.html#a3932cb5d04bf1fdf739ce7412452899e">More...</a><br /></td></tr>
 <tr class="separator:a3932cb5d04bf1fdf739ce7412452899e inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_force_field"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabb80dcf30cdab156e272e2144571f36 inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_force_field"><td class="memItemLeft" align="right" valign="top"><a id="aabb80dcf30cdab156e272e2144571f36"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addBToMatrix</b> (<a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html">sofa::linearalgebra::BaseMatrix</a> *matrix, SReal bFact, unsigned int &amp;offset)</td></tr>
@@ -332,7 +332,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addBToMatrix<
 <tr class="memdesc:a1f7af63ee9c1fa27d2b7cf2bec724cc7 inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_base_force_field"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accumulate the contribution of M, B, and/or K matrices multiplied by the dx vector with the given coefficients.  <a href="classsofa_1_1core_1_1behavior_1_1_base_force_field.html#a1f7af63ee9c1fa27d2b7cf2bec724cc7">More...</a><br /></td></tr>
 <tr class="separator:a1f7af63ee9c1fa27d2b7cf2bec724cc7 inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_base_force_field"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade815e0d49705b87699a3bd83afe69aa inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_base_force_field"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_base_force_field.html#ade815e0d49705b87699a3bd83afe69aa">addMBKToMatrix</a> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">MechanicalParams</a> *mparams, const <a class="el" href="classsofa_1_1core_1_1behavior_1_1_multi_matrix_accessor.html">sofa::core::behavior::MultiMatrixAccessor</a> *matrix)</td></tr>
-<tr class="memdesc:ade815e0d49705b87699a3bd83afe69aa inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_base_force_field"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the system matrix corresponding to <img class="formulaInl" alt="$ m M + b B + k K $" src="form_38.png"/>.  <a href="classsofa_1_1core_1_1behavior_1_1_base_force_field.html#ade815e0d49705b87699a3bd83afe69aa">More...</a><br /></td></tr>
+<tr class="memdesc:ade815e0d49705b87699a3bd83afe69aa inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_base_force_field"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the system matrix corresponding to <img class="formulaInl" alt="$ m M + b B + k K $" src="form_37.png"/>.  <a href="classsofa_1_1core_1_1behavior_1_1_base_force_field.html#ade815e0d49705b87699a3bd83afe69aa">More...</a><br /></td></tr>
 <tr class="separator:ade815e0d49705b87699a3bd83afe69aa inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_base_force_field"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed1403c5d89f67e045383b15477ce0e9 inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_base_force_field"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html">sofa::linearalgebra::BaseMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_base_force_field.html#aed1403c5d89f67e045383b15477ce0e9">getComplianceMatrix</a> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">MechanicalParams</a> *)</td></tr>
 <tr class="separator:aed1403c5d89f67e045383b15477ce0e9 inherit pub_methods_classsofa_1_1core_1_1behavior_1_1_base_force_field"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -958,8 +958,8 @@ class sofa::component::solidmechanics::fem::elastic::TetrahedralCorotationalFEMF
 
 <p>Compute Finite Element forces based on tetrahedral elements. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="af3520ff6d43011872bab77edd27d4de3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3520ff6d43011872bab77edd27d4de3">&#9670;&nbsp;</a></span>anonymous enum</h2>
+<a id="a84627a72058502328269676b81780f89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84627a72058502328269676b81780f89">&#9670;&nbsp;</a></span>anonymous enum</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -970,11 +970,11 @@ class sofa::component::solidmechanics::fem::elastic::TetrahedralCorotationalFEMF
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af3520ff6d43011872bab77edd27d4de3aea5e596a553757a677cb4da4c8a1f935"></a>SMALL&#160;</td><td class="fielddoc"><p>Symbol of small displacements tetrahedron solver. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a84627a72058502328269676b81780f89aea5e596a553757a677cb4da4c8a1f935"></a>SMALL&#160;</td><td class="fielddoc"><p>Symbol of small displacements tetrahedron solver. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="af3520ff6d43011872bab77edd27d4de3a716db5c72140446e5badac4683610310"></a>LARGE&#160;</td><td class="fielddoc"><p>Symbol of large displacements tetrahedron solver. </p>
+<tr><td class="fieldname"><a id="a84627a72058502328269676b81780f89a716db5c72140446e5badac4683610310"></a>LARGE&#160;</td><td class="fielddoc"><p>Symbol of large displacements tetrahedron solver. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="af3520ff6d43011872bab77edd27d4de3aa54fd87899b2d83f2a08232393e732fd"></a>POLAR&#160;</td><td class="fielddoc"><p>Symbol of polar displacements tetrahedron solver. </p>
+<tr><td class="fieldname"><a id="a84627a72058502328269676b81780f89aa54fd87899b2d83f2a08232393e732fd"></a>POLAR&#160;</td><td class="fielddoc"><p>Symbol of polar displacements tetrahedron solver. </p>
 </td></tr>
 </table>
 
@@ -1023,8 +1023,8 @@ class sofa::component::solidmechanics::fem::elastic::TetrahedralCorotationalFEMF
 <p>Internal addDForce Overloaded function, usually called from the generic addDForce version. This addDForce version directly gives access to df and dx vectors through its parameters. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mparams</td><td></td></tr>
-    <tr><td class="paramname">df</td><td>Output vector to fill, result of <img class="formulaInl" alt="$ kFactor K dx + bFactor B dx $" src="form_44.png"/> </td></tr>
-    <tr><td class="paramname">dx</td><td>Input vector used to compute <img class="formulaInl" alt="$ df = kFactor K dx + bFactor B dx $" src="form_45.png"/> </td></tr>
+    <tr><td class="paramname">df</td><td>Output vector to fill, result of <img class="formulaInl" alt="$ kFactor K dx + bFactor B dx $" src="form_43.png"/> </td></tr>
+    <tr><td class="paramname">dx</td><td>Input vector used to compute <img class="formulaInl" alt="$ df = kFactor K dx + bFactor B dx $" src="form_44.png"/> </td></tr>
   </table>
   </dd>
 </dl>
@@ -1079,7 +1079,7 @@ class sofa::component::solidmechanics::fem::elastic::TetrahedralCorotationalFEMF
 </table>
 </div><div class="memdoc">
 <p>Given the current position and velocity states, update the current force vector by computing and adding the forces associated with this ForceField.</p>
-<p>If the ForceField can be represented as a matrix, this method computes <img class="formulaInl" alt="$ f += B v + K x $" src="form_42.png"/></p>
+<p>If the ForceField can be represented as a matrix, this method computes <img class="formulaInl" alt="$ f += B v + K x $" src="form_41.png"/></p>
 <p>This is the method that should be implemented by the component </p>
 
 <p>Implements <a class="el" href="classsofa_1_1core_1_1behavior_1_1_force_field.html#a0022aae8a52185d14470a175f033c6fd">ForceField&lt; DataTypes &gt;</a>.</p>
@@ -1266,7 +1266,7 @@ class sofa::component::solidmechanics::fem::elastic::TetrahedralCorotationalFEMF
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>component</b></li><li class="navelem"><b>solidmechanics</b></li><li class="navelem"><b>fem</b></li><li class="navelem"><b>elastic</b></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_tetrahedral_corotational_f_e_m_force_field.html">TetrahedralCorotationalFEMForceField</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 04:54:37 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 06:01:00 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

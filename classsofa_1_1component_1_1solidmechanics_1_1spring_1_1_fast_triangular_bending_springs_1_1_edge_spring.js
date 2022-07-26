@@ -1,10 +1,10 @@
 var classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_fast_triangular_bending_springs_1_1_edge_spring =
 [
     [ "StiffnessMatrix", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_fast_triangular_bending_springs_1_1_edge_spring.html#a6fa80fce914170574088d46f4f6d95cb", null ],
-    [ "A", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_fast_triangular_bending_springs_1_1_edge_spring.html#a7cc2e4244ca368f68e5746185eda6c4aa42a4ade1acd55a49164099104990e09f", null ],
-    [ "B", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_fast_triangular_bending_springs_1_1_edge_spring.html#a7cc2e4244ca368f68e5746185eda6c4aa3f2a77ecd272aa6d6b5902faa5e5fc68", null ],
-    [ "C", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_fast_triangular_bending_springs_1_1_edge_spring.html#a7cc2e4244ca368f68e5746185eda6c4aa739ce3f516592d245d16fd8a3893472c", null ],
-    [ "D", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_fast_triangular_bending_springs_1_1_edge_spring.html#a7cc2e4244ca368f68e5746185eda6c4aa77a6b11f9898c052926f1d49765861e8", null ],
+    [ "A", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_fast_triangular_bending_springs_1_1_edge_spring.html#afccd240f973cf154952fb917c9209719a42a4ade1acd55a49164099104990e09f", null ],
+    [ "B", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_fast_triangular_bending_springs_1_1_edge_spring.html#afccd240f973cf154952fb917c9209719a3f2a77ecd272aa6d6b5902faa5e5fc68", null ],
+    [ "C", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_fast_triangular_bending_springs_1_1_edge_spring.html#afccd240f973cf154952fb917c9209719a739ce3f516592d245d16fd8a3893472c", null ],
+    [ "D", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_fast_triangular_bending_springs_1_1_edge_spring.html#afccd240f973cf154952fb917c9209719a77a6b11f9898c052926f1d49765861e8", null ],
     [ "addDForce", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_fast_triangular_bending_springs_1_1_edge_spring.html#a9745ad1e00f8ca0050d1407670f40936", null ],
     [ "addForce", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_fast_triangular_bending_springs_1_1_edge_spring.html#aa576dc1d028da84074a424ea085191b6", null ],
     [ "addStiffness", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_fast_triangular_bending_springs_1_1_edge_spring.html#a42a7cdc055b5e4a49e3336ea269ee6f3", null ],

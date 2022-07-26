@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: EulerImplicitSolver Class Reference</title>
+<title>SOFA: EulerImplicitSolver Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -642,28 +642,28 @@ template&lt;class T &gt; </td></tr>
 <div class="textblock"><p>Semi-implicit time integrator using backward Euler scheme for first and second degree ODEs. (default: second)</p>
 <p>2nd Order ***</p>
 <p>This is based on [Baraff and Witkin, Large Steps in Cloth Simulation, SIGGRAPH 1998] The integration scheme is based on the following equations:</p>
-<p><img class="formulaInl" alt="$x_{t+h} = x_t + h v_{t+h}$" src="form_3.png"/> <img class="formulaInl" alt="$v_{t+h} = v_t + h a_{t+h}$" src="form_4.png"/></p>
-<p>The unknown is <img class="formulaInl" alt="$v_{t+h} - v_t = dv$" src="form_5.png"/></p>
-<p>Newton's law is <img class="formulaInl" alt="$ M dv = h f(t+h) $" src="form_6.png"/> <img class="formulaInl" alt="$ M dv = h ( f(t) + K dx + (B - r_M M + r_K K) (v+dv) )$" src="form_7.png"/> <img class="formulaInl" alt="$ M dv = h ( f(t) + K h (v+dv) + (B - r_M M + r_K K) (v+dv) )$" src="form_8.png"/></p>
-<p><img class="formulaInl" alt="$ M $" src="form_9.png"/> is the mass matrix. <img class="formulaInl" alt="$ K = df/dx $" src="form_10.png"/> is the stiffness implemented (or not) by the force fields. <img class="formulaInl" alt="$ B = df/dv $" src="form_11.png"/> is the damping implemented (or not) by the force fields. An additional, uniform Rayleigh damping <img class="formulaInl" alt="$- r_M M + r_K K$" src="form_12.png"/> is imposed by the solver.</p>
+<p><img class="formulaInl" alt="$x_{t+h} = x_t + h v_{t+h}$" src="form_2.png"/> <img class="formulaInl" alt="$v_{t+h} = v_t + h a_{t+h}$" src="form_3.png"/></p>
+<p>The unknown is <img class="formulaInl" alt="$v_{t+h} - v_t = dv$" src="form_4.png"/></p>
+<p>Newton's law is <img class="formulaInl" alt="$ M dv = h f(t+h) $" src="form_5.png"/> <img class="formulaInl" alt="$ M dv = h ( f(t) + K dx + (B - r_M M + r_K K) (v+dv) )$" src="form_6.png"/> <img class="formulaInl" alt="$ M dv = h ( f(t) + K h (v+dv) + (B - r_M M + r_K K) (v+dv) )$" src="form_7.png"/></p>
+<p><img class="formulaInl" alt="$ M $" src="form_8.png"/> is the mass matrix. <img class="formulaInl" alt="$ K = df/dx $" src="form_9.png"/> is the stiffness implemented (or not) by the force fields. <img class="formulaInl" alt="$ B = df/dv $" src="form_10.png"/> is the damping implemented (or not) by the force fields. An additional, uniform Rayleigh damping <img class="formulaInl" alt="$- r_M M + r_K K$" src="form_11.png"/> is imposed by the solver.</p>
 <p>This corresponds to the following equation system:</p>
-<p><img class="formulaInl" alt="$ ( (1+h r_M) M - h B - h(h + r_K) K ) dv = h ( f(t) + (h+r_K) K v + B v - r_M M v )$" src="form_13.png"/></p>
-<p>Moreover, the projective constraints filter out the forbidden motions. This is equivalent with multiplying vectors with a projection matrix <img class="formulaInl" alt="$P$" src="form_14.png"/>. Finally, the equation system set by this ode solver is:</p>
-<p><img class="formulaInl" alt="$ P ( (1+h r_M) M - h B - h(h + r_K) K ) P dv = P h ( f(t) + (h + r_K) K v + B v - r_M M v )$" src="form_15.png"/></p>
+<p><img class="formulaInl" alt="$ ( (1+h r_M) M - h B - h(h + r_K) K ) dv = h ( f(t) + (h+r_K) K v + B v - r_M M v )$" src="form_12.png"/></p>
+<p>Moreover, the projective constraints filter out the forbidden motions. This is equivalent with multiplying vectors with a projection matrix <img class="formulaInl" alt="$P$" src="form_13.png"/>. Finally, the equation system set by this ode solver is:</p>
+<p><img class="formulaInl" alt="$ P ( (1+h r_M) M - h B - h(h + r_K) K ) P dv = P h ( f(t) + (h + r_K) K v + B v - r_M M v )$" src="form_14.png"/></p>
 <p>1st Order ***</p>
 <p>This integration scheme is based on the following equation:</p>
-<p><img class="formulaInl" alt="$x_{t+h} = x_t + h v_{t+h}$" src="form_3.png"/></p>
+<p><img class="formulaInl" alt="$x_{t+h} = x_t + h v_{t+h}$" src="form_2.png"/></p>
 <p>Applied to this mechanical system:</p>
-<p><img class="formulaInl" alt="$ M v_t = f_{ext} $" src="form_16.png"/></p>
-<p><img class="formulaInl" alt="$ M v_{t+h} = f_{ext_{t+h}} $" src="form_17.png"/> <img class="formulaInl" alt="$ = f_{ext_{t}} + h (df_{ext}/dt)_{t+h} $" src="form_18.png"/> <img class="formulaInl" alt="$ = f_{ext_{t}} + h (df_{ext}/dx)_{t+h} v_{t+h} $" src="form_19.png"/> <img class="formulaInl" alt="$ = f_{ext_{t}} - h K v_{t+h} $" src="form_20.png"/></p>
-<p><img class="formulaInl" alt="$ ( M + h K ) v_{t+h} = f_{ext} $" src="form_21.png"/></p>
+<p><img class="formulaInl" alt="$ M v_t = f_{ext} $" src="form_15.png"/></p>
+<p><img class="formulaInl" alt="$ M v_{t+h} = f_{ext_{t+h}} $" src="form_16.png"/> <img class="formulaInl" alt="$ = f_{ext_{t}} + h (df_{ext}/dt)_{t+h} $" src="form_17.png"/> <img class="formulaInl" alt="$ = f_{ext_{t}} + h (df_{ext}/dx)_{t+h} v_{t+h} $" src="form_18.png"/> <img class="formulaInl" alt="$ = f_{ext_{t}} - h K v_{t+h} $" src="form_19.png"/></p>
+<p><img class="formulaInl" alt="$ ( M + h K ) v_{t+h} = f_{ext} $" src="form_20.png"/></p>
 <p>Trapezoidal Rule ***</p>
 <p>The trapezoidal scheme is based on</p>
-<p><img class="formulaInl" alt="$v_{t+h} = h/2 ( f(t+h) + f(t) )$" src="form_22.png"/></p>
+<p><img class="formulaInl" alt="$v_{t+h} = h/2 ( f(t+h) + f(t) )$" src="form_21.png"/></p>
 <p>With this and the same techniques as for the implicit Euler scheme we receive for *** 2nd Order *** equations</p>
-<p><img class="formulaInl" alt="$ P ( (1+h/2 r_M) M - h/2 B - h/2 (h + r_K) K ) P dv = P h/2 ( 2 f(t) + (h + r_K) K v + B v - r_M M v )$" src="form_23.png"/></p>
+<p><img class="formulaInl" alt="$ P ( (1+h/2 r_M) M - h/2 B - h/2 (h + r_K) K ) P dv = P h/2 ( 2 f(t) + (h + r_K) K v + B v - r_M M v )$" src="form_22.png"/></p>
 <p>and for *** 1st Order ***</p>
-<p><img class="formulaInl" alt="$ ( M + h/2 K ) v_{t+h} = f_{ext} $" src="form_24.png"/> </p>
+<p><img class="formulaInl" alt="$ ( M + h/2 K ) v_{t+h} = f_{ext} $" src="form_23.png"/> </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6116e1a8965cfa1112b2ec004230aa39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6116e1a8965cfa1112b2ec004230aa39">&#9670;&nbsp;</a></span>cleanup()</h2>
@@ -880,7 +880,7 @@ template&lt;class T &gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>component</b></li><li class="navelem"><b>odesolver</b></li><li class="navelem"><b>backward</b></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1odesolver_1_1backward_1_1_euler_implicit_solver.html">EulerImplicitSolver</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 04:53:52 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 06:00:14 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

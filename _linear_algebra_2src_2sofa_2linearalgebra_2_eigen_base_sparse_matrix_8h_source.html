@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: Sofa/framework/LinearAlgebra/src/sofa/linearalgebra/EigenBaseSparseMatrix.h Source File</title>
+<title>SOFA: Sofa/framework/LinearAlgebra/src/sofa/linearalgebra/EigenBaseSparseMatrix.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -413,7 +413,7 @@ $(document).ready(function(){initNavTree('_linear_algebra_2src_2sofa_2linearalge
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        assert( &amp;res != &amp;rhs );</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        ((<a class="code" href="classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html">EigenBaseSparseMatrix&lt;Real&gt;</a>*)<span class="keyword">this</span>)-&gt;compress();  </div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        ((<a class="code" href="classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html">EigenBaseSparseMatrix&lt;Real&gt;</a>*)&amp;rhs)-&gt;compress();  </div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        conservative_sparse_sparse_product_selector_MT&lt;CompressedMatrix,CompressedMatrix,CompressedMatrix&gt;::run(<a class="code" href="classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a307864f43e7cece6d2590cc3785918a2">compressedMatrix</a>, rhs.<a class="code" href="classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a307864f43e7cece6d2590cc3785918a2">compressedMatrix</a>, res.<a class="code" href="classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a307864f43e7cece6d2590cc3785918a2">compressedMatrix</a>);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        conservative_sparse_sparse_product_selector_MT&lt;CompressedMatrix,CompressedMatrix,CompressedMatrix&gt;::run(<a class="code" href="classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a307864f43e7cece6d2590cc3785918a2">compressedMatrix</a>, rhs.compressedMatrix, res.compressedMatrix);</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="preprocessor">    #else</span></div>
 <div class="line"><a name="l00381"></a><span class="lineno"><a class="line" href="classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a3da886730fbbf4a244a6aed5a7c7bcc7">  381</a></span>&#160;        <a class="code" href="classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a821b6020126b208d1bf0cfe96573f791">mul</a>( res, rhs );</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="preprocessor">    #endif</span></div>
@@ -479,7 +479,7 @@ $(document).ready(function(){initNavTree('_linear_algebra_2src_2sofa_2linearalge
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_9fb0ceffa9d96cd22e8a42402ee0a204.html">LinearAlgebra</a></li><li class="navelem"><a class="el" href="dir_7a539ff504eba330c8de6b72177c0701.html">src</a></li><li class="navelem"><a class="el" href="dir_7b2a7612d8b68ea3c5f3562ab3e86337.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b525aa2a9c678505be07c2ed6f28d295.html">linearalgebra</a></li><li class="navelem"><b>EigenBaseSparseMatrix.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 04:24:23 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 05:36:14 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

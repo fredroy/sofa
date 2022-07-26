@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: Sofa/GUI/Qt/src/sofa/gui/qt/DataWidget.h Source File</title>
+<title>SOFA: Sofa/GUI/Qt/src/sofa/gui/qt/DataWidget.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -184,13 +184,13 @@ $(document).ready(function(){initNavTree('_data_widget_8h_source.html',''); init
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">void</span> dataValueChanged(QString dataValueString );</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_data.html">core::objectmodel::BaseData</a> <a class="code" href="class_my_data.html">MyData</a>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_data.html">core::objectmodel::BaseData</a> MyData;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    DataWidget(QWidget* parent,<span class="keyword">const</span> <span class="keywordtype">char</span>* name, <a class="code" href="class_my_data.html">MyData</a>* d);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    DataWidget(QWidget* parent,<span class="keyword">const</span> <span class="keywordtype">char</span>* name, MyData* d);</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    ~DataWidget() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setData( <a class="code" href="class_my_data.html">MyData</a>* d);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setData( MyData* d);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
 <div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1qt_1_1_data_widget.html#ab81f48839d3b49fcaa2c677542c0027a">  126</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_data.html">core::objectmodel::BaseData</a>* <a class="code" href="classsofa_1_1gui_1_1qt_1_1_data_widget.html#ab81f48839d3b49fcaa2c677542c0027a">getBaseData</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> baseData; }</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keyword">inline</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_data.html">core::objectmodel::BaseData</a>* getBaseData() { <span class="keywordflow">return</span> baseData; }</div>
@@ -340,7 +340,6 @@ $(document).ready(function(){initNavTree('_data_widget_8h_source.html',''); init
 <div class="ttc" id="aclasssofa_1_1gui_1_1qt_1_1_data_widget_html_ab81f48839d3b49fcaa2c677542c0027a"><div class="ttname"><a href="classsofa_1_1gui_1_1qt_1_1_data_widget.html#ab81f48839d3b49fcaa2c677542c0027a">sofa::gui::qt::DataWidget::getBaseData</a></div><div class="ttdeci">const core::objectmodel::BaseData * getBaseData() const</div><div class="ttdoc">BaseData pointer accessor function.</div><div class="ttdef"><b>Definition:</b> DataWidget.h:126</div></div>
 <div class="ttc" id="aclasssofa_1_1gui_1_1qt_1_1_data_widget_html_a1a35984e35f22e98f8bbcbe47809e925"><div class="ttname"><a href="classsofa_1_1gui_1_1qt_1_1_data_widget.html#a1a35984e35f22e98f8bbcbe47809e925">sofa::gui::qt::DataWidget::sizeWidget</a></div><div class="ttdeci">virtual unsigned int sizeWidget()</div><div class="ttdoc">Helper method to give a size.</div><div class="ttdef"><b>Definition:</b> DataWidget.h:144</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_data_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_data.html">sofa::core::objectmodel::Data</a></div><div class="ttdoc">Container that holds a variable for a component.</div><div class="ttdef"><b>Definition:</b> Data.h:136</div></div>
-<div class="ttc" id="aclass_my_data_html"><div class="ttname"><a href="class_my_data.html">MyData</a></div><div class="ttdef"><b>Definition:</b> BaseData_test.cpp:31</div></div>
 <div class="ttc" id="aclasssofa_1_1gui_1_1qt_1_1_data_widget_html_a5df46bb8bc31cfbde532f0e4d4a1760b"><div class="ttname"><a href="classsofa_1_1gui_1_1qt_1_1_data_widget.html#a5df46bb8bc31cfbde532f0e4d4a1760b">sofa::gui::qt::DataWidget::isFilled</a></div><div class="ttdeci">bool isFilled()</div><div class="ttdoc">return if DataWidget as been filled</div><div class="ttdef"><b>Definition:</b> DataWidget.h:134</div></div>
 <div class="ttc" id="aclasssofa_1_1gui_1_1qt_1_1_data_widget_html_acd827768eee5a6232b23370b065dce9a"><div class="ttname"><a href="classsofa_1_1gui_1_1qt_1_1_data_widget.html#acd827768eee5a6232b23370b065dce9a">sofa::gui::qt::DataWidget::m_toFill</a></div><div class="ttdeci">bool m_toFill</div><div class="ttdoc">bool to warn action is needed to fill Data, false by default</div><div class="ttdef"><b>Definition:</b> DataWidget.h:159</div></div>
 <div class="ttc" id="astructsofa_1_1gui_1_1qt_1_1_modify_object_flags_html"><div class="ttname"><a href="structsofa_1_1gui_1_1qt_1_1_modify_object_flags.html">sofa::gui::qt::ModifyObjectFlags</a></div><div class="ttdef"><b>Definition:</b> ModifyObject.h:79</div></div>
@@ -353,7 +352,7 @@ $(document).ready(function(){initNavTree('_data_widget_8h_source.html',''); init
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_927152f1403da9b2afd274b3e3ae770d.html">GUI</a></li><li class="navelem"><a class="el" href="dir_1eca62023986f93910713a5e9ddcd783.html">Qt</a></li><li class="navelem"><a class="el" href="dir_c9cf2f5bf756267bb272edea8678e2e7.html">src</a></li><li class="navelem"><a class="el" href="dir_70435d7e9fd0cc21447a6601a5ffca9e.html">sofa</a></li><li class="navelem"><a class="el" href="dir_8ed54395151f7a28f820c02d5a2e5ac0.html">gui</a></li><li class="navelem"><a class="el" href="dir_78e7ddc253744ad9fdbd52e0374e35b1.html">qt</a></li><li class="navelem"><b>DataWidget.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 04:32:53 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 05:42:47 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

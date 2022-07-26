@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: Sofa/Component/Collision/Response/Contact/src/sofa/component/collision/response/contact/RuleBasedContactManager.h Source File</title>
+<title>SOFA: Sofa/Component/Collision/Response/Contact/src/sofa/component/collision/response/contact/RuleBasedContactManager.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -149,7 +149,7 @@ $(document).ready(function(){initNavTree('_collision_2_response_2_contact_2src_2
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">return</span> in;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="namespacesofa.html#adcecdff57e88230cdda0b72c42307c25">operator &lt;&lt; </a>( std::ostream&amp; out, <span class="keyword">const</span> Rule&amp; r )</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; operator &lt;&lt; ( std::ostream&amp; out, <span class="keyword">const</span> Rule&amp; r )</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">if</span> (r.name1.empty())</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                out &lt;&lt; r.group1;</div>
@@ -213,7 +213,6 @@ $(document).ready(function(){initNavTree('_collision_2_response_2_contact_2src_2
 </div><!-- doc-content -->
 <div class="ttc" id="aclasssofa_1_1core_1_1_collision_model_html_a9d139dac5c9cfdbc22571d8c3ab530b1"><div class="ttname"><a href="classsofa_1_1core_1_1_collision_model.html#a9d139dac5c9cfdbc22571d8c3ab530b1">sofa::core::CollisionModel::getGroups</a></div><div class="ttdeci">const std::set&lt; int &gt; &amp; getGroups() const</div><div class="ttdoc">Return the group IDs containing this model.</div><div class="ttdef"><b>Definition:</b> CollisionModel.h:387</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_data_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_data.html">sofa::core::objectmodel::Data&lt; std::string &gt;</a></div></div>
-<div class="ttc" id="anamespacesofa_html_adcecdff57e88230cdda0b72c42307c25"><div class="ttname"><a href="namespacesofa.html#adcecdff57e88230cdda0b72c42307c25">sofa::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const DummyEnum &amp;d)</div><div class="ttdoc">Factories require this operator in order to have a custom class as a key.</div><div class="ttdef"><b>Definition:</b> Factory_test.cpp:38</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_html_a8802382fe16a9f1966b9565e38a8495a"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base.html#a8802382fe16a9f1966b9565e38a8495a">sofa::core::objectmodel::Base::getName</a></div><div class="ttdeci">const std::string &amp; getName() const</div><div class="ttdoc">Accessor to the object name.</div><div class="ttdef"><b>Definition:</b> Base.h:170</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_object_description_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">sofa::core::objectmodel::BaseObjectDescription</a></div><div class="ttdoc">Base Interface for classes containing the description of an object, used to construct it.</div><div class="ttdef"><b>Definition:</b> BaseObjectDescription.h:108</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_collision_model_html"><div class="ttname"><a href="classsofa_1_1core_1_1_collision_model.html">sofa::core::CollisionModel</a></div><div class="ttdoc">Abstract CollisionModel interface.</div><div class="ttdef"><b>Definition:</b> CollisionModel.h:114</div></div>
@@ -221,7 +220,7 @@ $(document).ready(function(){initNavTree('_collision_2_response_2_contact_2src_2
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_42ede1205723b3b890fa00e138974231.html">Component</a></li><li class="navelem"><a class="el" href="dir_bb848595cfe2f3891fce439845bd553b.html">Collision</a></li><li class="navelem"><a class="el" href="dir_459f30cefbdb887ef8ee8b12d7aca836.html">Response</a></li><li class="navelem"><a class="el" href="dir_153d0a52e6f6943220caf854b159bf84.html">Contact</a></li><li class="navelem"><a class="el" href="dir_72efaf25c1611c0ba31d51f84131491d.html">src</a></li><li class="navelem"><a class="el" href="dir_7ec1fbf3c5cf5312a49895a37ab4425e.html">sofa</a></li><li class="navelem"><a class="el" href="dir_3d50a4800aca4bd2db9da1ba2336763f.html">component</a></li><li class="navelem"><a class="el" href="dir_1218dc7fc7b6916e171ea74a0694a6e0.html">collision</a></li><li class="navelem"><a class="el" href="dir_7c16e866c63ec0119343fb527eeb54ab.html">response</a></li><li class="navelem"><a class="el" href="dir_7db85523e860c127764523ba86d348db.html">contact</a></li><li class="navelem"><b>RuleBasedContactManager.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 04:15:21 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 05:28:44 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

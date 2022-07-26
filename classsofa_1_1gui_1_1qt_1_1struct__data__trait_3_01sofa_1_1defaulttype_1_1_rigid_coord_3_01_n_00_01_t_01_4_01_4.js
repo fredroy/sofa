@@ -1,5 +1,5 @@
 var classsofa_1_1gui_1_1qt_1_1struct__data__trait_3_01sofa_1_1defaulttype_1_1_rigid_coord_3_01_n_00_01_t_01_4_01_4 =
 [
     [ "data_type", "classsofa_1_1gui_1_1qt_1_1struct__data__trait_3_01sofa_1_1defaulttype_1_1_rigid_coord_3_01_n_00_01_t_01_4_01_4.html#a6da7bc9404f72d5665ff42a5f9a817a1", null ],
-    [ "NVAR", "classsofa_1_1gui_1_1qt_1_1struct__data__trait_3_01sofa_1_1defaulttype_1_1_rigid_coord_3_01_n_00_01_t_01_4_01_4.html#a890034ffc30f381fc2a5dfda23ecf0f2a3f8900a8f39dd09be4151a05ad947388", null ]
+    [ "NVAR", "classsofa_1_1gui_1_1qt_1_1struct__data__trait_3_01sofa_1_1defaulttype_1_1_rigid_coord_3_01_n_00_01_t_01_4_01_4.html#a893dbd60c5ebe415600523fbae202880a3f8900a8f39dd09be4151a05ad947388", null ]
 ];

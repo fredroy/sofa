@@ -9,7 +9,7 @@ var classsofa_1_1type_1_1vector__device =
     [ "reference", "classsofa_1_1type_1_1vector__device.html#a9b1a63f171d76a7a3995b6858e99f2ea", null ],
     [ "Size", "classsofa_1_1type_1_1vector__device.html#af9ecec2d692138fab9167164a457cbd4", null ],
     [ "value_type", "classsofa_1_1type_1_1vector__device.html#a265a253612b46abed17c61b0a5e5ce30", null ],
-    [ "ALL_DEVICE_VALID", "classsofa_1_1type_1_1vector__device.html#a16a85e2bc30b7d629e4a3cf3cc573559ad930d521f27acbcd4b228c7081f7eef2", null ],
+    [ "ALL_DEVICE_VALID", "classsofa_1_1type_1_1vector__device.html#a71a1ab20dc2597c75d9b0c46cfa8af3cad930d521f27acbcd4b228c7081f7eef2", null ],
     [ "vector_device", "classsofa_1_1type_1_1vector__device.html#a73e21ee5d70fc6af07c5cd2d676c815f", null ],
     [ "vector_device", "classsofa_1_1type_1_1vector__device.html#a189cd8cc1bf711231149a86bd91b7ff6", null ],
     [ "vector_device", "classsofa_1_1type_1_1vector__device.html#aedde1b69b6ca7698834845e1f41665cd", null ],

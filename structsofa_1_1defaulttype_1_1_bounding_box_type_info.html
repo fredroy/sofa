@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: BoundingBoxTypeInfo Struct Reference</title>
+<title>SOFA: BoundingBoxTypeInfo Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -102,40 +102,40 @@ Inheritance diagram for BoundingBoxTypeInfo:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a188c132f478fb544e0213ea0020585bc"><td class="memItemLeft" align="right" valign="top"><a id="a188c132f478fb544e0213ea0020585bc"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>ValidInfo</b> = BaseTypeInfo::ValidInfo
+<tr class="memitem:a2b3c23b1a8c9aa351c7a12978c443dfb"><td class="memItemLeft" align="right" valign="top"><a id="a2b3c23b1a8c9aa351c7a12978c443dfb"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>ValidInfo</b> = BaseTypeInfo::ValidInfo
  }</td></tr>
+<tr class="separator:a2b3c23b1a8c9aa351c7a12978c443dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fde86696b9fb4575b16ddc150ff0a84"><td class="memItemLeft" align="right" valign="top"><a id="a6fde86696b9fb4575b16ddc150ff0a84"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>FixedSize</b> = 1
+ }</td></tr>
+<tr class="separator:a6fde86696b9fb4575b16ddc150ff0a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65a8130020b0f5722cda500f2e67acc2"><td class="memItemLeft" align="right" valign="top"><a id="a65a8130020b0f5722cda500f2e67acc2"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>ZeroConstructor</b> = 0
+ }</td></tr>
+<tr class="separator:a65a8130020b0f5722cda500f2e67acc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a188c132f478fb544e0213ea0020585bc"><td class="memItemLeft" align="right" valign="top"><a id="a188c132f478fb544e0213ea0020585bc"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>SimpleCopy</b> = 1
+ }</td></tr>
+<tr class="memdesc:a188c132f478fb544e0213ea0020585bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">-&gt; I don't think so, bbox are initialized with +inf / -inf usually <br /></td></tr>
 <tr class="separator:a188c132f478fb544e0213ea0020585bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4a9934b75947f1fae21deee31688bb7"><td class="memItemLeft" align="right" valign="top"><a id="ad4a9934b75947f1fae21deee31688bb7"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>FixedSize</b> = 1
+<tr class="memitem:ad4a9934b75947f1fae21deee31688bb7"><td class="memItemLeft" align="right" valign="top"><a id="ad4a9934b75947f1fae21deee31688bb7"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>SimpleLayout</b> = 1
  }</td></tr>
 <tr class="separator:ad4a9934b75947f1fae21deee31688bb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dd89091f7fcec969d562dcff9eabef3"><td class="memItemLeft" align="right" valign="top"><a id="a4dd89091f7fcec969d562dcff9eabef3"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>ZeroConstructor</b> = 0
+<tr class="memitem:a4dd89091f7fcec969d562dcff9eabef3"><td class="memItemLeft" align="right" valign="top"><a id="a4dd89091f7fcec969d562dcff9eabef3"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Integer</b> = 0
  }</td></tr>
 <tr class="separator:a4dd89091f7fcec969d562dcff9eabef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb911bb32d4e97b5fcd682dd43789991"><td class="memItemLeft" align="right" valign="top"><a id="abb911bb32d4e97b5fcd682dd43789991"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>SimpleCopy</b> = 1
+<tr class="memitem:abb911bb32d4e97b5fcd682dd43789991"><td class="memItemLeft" align="right" valign="top"><a id="abb911bb32d4e97b5fcd682dd43789991"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Scalar</b> = 1
  }</td></tr>
-<tr class="memdesc:abb911bb32d4e97b5fcd682dd43789991"><td class="mdescLeft">&#160;</td><td class="mdescRight">-&gt; I don't think so, bbox are initialized with +inf / -inf usually <br /></td></tr>
 <tr class="separator:abb911bb32d4e97b5fcd682dd43789991"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08f51f22ad2ed13a25181c2604573110"><td class="memItemLeft" align="right" valign="top"><a id="a08f51f22ad2ed13a25181c2604573110"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>SimpleLayout</b> = 1
+<tr class="memitem:a08f51f22ad2ed13a25181c2604573110"><td class="memItemLeft" align="right" valign="top"><a id="a08f51f22ad2ed13a25181c2604573110"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Text</b> = 0
  }</td></tr>
 <tr class="separator:a08f51f22ad2ed13a25181c2604573110"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afded920d42f51b77f7f86b5057dd4516"><td class="memItemLeft" align="right" valign="top"><a id="afded920d42f51b77f7f86b5057dd4516"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Integer</b> = 0
+<tr class="memitem:afded920d42f51b77f7f86b5057dd4516"><td class="memItemLeft" align="right" valign="top"><a id="afded920d42f51b77f7f86b5057dd4516"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>CopyOnWrite</b> = 1
  }</td></tr>
 <tr class="separator:afded920d42f51b77f7f86b5057dd4516"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a688c8c331cfa005f7431b606970203"><td class="memItemLeft" align="right" valign="top"><a id="a6a688c8c331cfa005f7431b606970203"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Scalar</b> = 1
+<tr class="memitem:a6a688c8c331cfa005f7431b606970203"><td class="memItemLeft" align="right" valign="top"><a id="a6a688c8c331cfa005f7431b606970203"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Container</b> = 1
  }</td></tr>
 <tr class="separator:a6a688c8c331cfa005f7431b606970203"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89fa9ed16122c5ba3a10393f7c0bc5ad"><td class="memItemLeft" align="right" valign="top"><a id="a89fa9ed16122c5ba3a10393f7c0bc5ad"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Text</b> = 0
+<tr class="memitem:a89fa9ed16122c5ba3a10393f7c0bc5ad"><td class="memItemLeft" align="right" valign="top"><a id="a89fa9ed16122c5ba3a10393f7c0bc5ad"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Size</b> = 2
  }</td></tr>
 <tr class="separator:a89fa9ed16122c5ba3a10393f7c0bc5ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2baea0e4a061cf7eda1c9589fd7c4fe"><td class="memItemLeft" align="right" valign="top"><a id="aa2baea0e4a061cf7eda1c9589fd7c4fe"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>CopyOnWrite</b> = 1
- }</td></tr>
-<tr class="separator:aa2baea0e4a061cf7eda1c9589fd7c4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6d61abedd58f4942675f955a24a642b"><td class="memItemLeft" align="right" valign="top"><a id="af6d61abedd58f4942675f955a24a642b"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Container</b> = 1
- }</td></tr>
-<tr class="separator:af6d61abedd58f4942675f955a24a642b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1df9dc2600f2dda7e99d31c00fd73e0"><td class="memItemLeft" align="right" valign="top"><a id="ad1df9dc2600f2dda7e99d31c00fd73e0"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Size</b> = 2
- }</td></tr>
-<tr class="separator:ad1df9dc2600f2dda7e99d31c00fd73e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87cfeecf2f6778f941e0b97f987f5ce6"><td class="memItemLeft" align="right" valign="top"><a id="a87cfeecf2f6778f941e0b97f987f5ce6"></a>
 typedef <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">type::BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DataType</b></td></tr>
 <tr class="separator:a87cfeecf2f6778f941e0b97f987f5ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -197,7 +197,7 @@ static void *&#160;</td><td class="memItemRight" valign="bottom"><b>getValuePtr<
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>defaulttype</b></li><li class="navelem"><a class="el" href="structsofa_1_1defaulttype_1_1_bounding_box_type_info.html">BoundingBoxTypeInfo</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:02:07 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 06:07:30 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

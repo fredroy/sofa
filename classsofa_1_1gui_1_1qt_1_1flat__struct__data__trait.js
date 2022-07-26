@@ -16,12 +16,12 @@ var classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait =
     [ "vtrait", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a5d98c2a18fcd942a7236ae4e636a11d1", null ],
     [ "vtype", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a9f03b2cba91183a884a5156c7af87ed9", null ],
     [ "vtype", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a9f03b2cba91183a884a5156c7af87ed9", null ],
-    [ "is_struct", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a6b1af8ba72fb238659a469ca5d2ef52ba67749cad3fa05c9d291c7b6a6acb9dce", null ],
-    [ "is_vector", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a3cf72ed4749da6539b6eb4c6fc18e392a51ec0d99146a1c7d602126da97f6d53e", null ],
-    [ "is_single", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a2f540bcfdd4fc37daf6a2ce293262088a74b4f3fce22f1709099e994fe7ef94a1", null ],
-    [ "is_default", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a9ef8dcf274b6eac0ec8bacc8303b366aa42560d649446d3c82327a06d9e03f545", null ],
-    [ "is_struct", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a6b1af8ba72fb238659a469ca5d2ef52ba67749cad3fa05c9d291c7b6a6acb9dce", null ],
-    [ "is_vector", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a3cf72ed4749da6539b6eb4c6fc18e392a51ec0d99146a1c7d602126da97f6d53e", null ],
-    [ "is_single", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a2f540bcfdd4fc37daf6a2ce293262088a74b4f3fce22f1709099e994fe7ef94a1", null ],
-    [ "is_default", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a9ef8dcf274b6eac0ec8bacc8303b366aa42560d649446d3c82327a06d9e03f545", null ]
+    [ "is_struct", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a5e7fba63eebd783231b18f414e8a138fa67749cad3fa05c9d291c7b6a6acb9dce", null ],
+    [ "is_vector", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a731c15105066cc17fd55a258db2879d3a51ec0d99146a1c7d602126da97f6d53e", null ],
+    [ "is_single", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a727cc1d940fa1a6396c79b0f86a72653a74b4f3fce22f1709099e994fe7ef94a1", null ],
+    [ "is_default", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a5bc6c193b77b15ca30bb8821799616e3a42560d649446d3c82327a06d9e03f545", null ],
+    [ "is_struct", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a5e7fba63eebd783231b18f414e8a138fa67749cad3fa05c9d291c7b6a6acb9dce", null ],
+    [ "is_vector", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a731c15105066cc17fd55a258db2879d3a51ec0d99146a1c7d602126da97f6d53e", null ],
+    [ "is_single", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a727cc1d940fa1a6396c79b0f86a72653a74b4f3fce22f1709099e994fe7ef94a1", null ],
+    [ "is_default", "classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait.html#a5bc6c193b77b15ca30bb8821799616e3a42560d649446d3c82327a06d9e03f545", null ]
 ];

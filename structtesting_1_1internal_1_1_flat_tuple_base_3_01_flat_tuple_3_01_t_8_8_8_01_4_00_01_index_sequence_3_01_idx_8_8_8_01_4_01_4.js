@@ -1,6 +1,0 @@
-var structtesting_1_1internal_1_1_flat_tuple_base_3_01_flat_tuple_3_01_t_8_8_8_01_4_00_01_index_sequence_3_01_idx_8_8_8_01_4_01_4 =
-[
-    [ "Indices", "structtesting_1_1internal_1_1_flat_tuple_base_3_01_flat_tuple_3_01_t_8_8_8_01_4_00_01_index_sequence_3_01_idx_8_8_8_01_4_01_4.html#a30e4581ba42a166249456cd63f8c0ad1", null ],
-    [ "FlatTupleBase", "structtesting_1_1internal_1_1_flat_tuple_base_3_01_flat_tuple_3_01_t_8_8_8_01_4_00_01_index_sequence_3_01_idx_8_8_8_01_4_01_4.html#a841d851ef333d9a6b146207e15fa6cdb", null ],
-    [ "FlatTupleBase", "structtesting_1_1internal_1_1_flat_tuple_base_3_01_flat_tuple_3_01_t_8_8_8_01_4_00_01_index_sequence_3_01_idx_8_8_8_01_4_01_4.html#ab1a8418b2ecd77862849885c062d6857", null ]
-];

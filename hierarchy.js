@@ -1,7 +1,6 @@
 var hierarchy =
 [
     [ "_DepthIndex", "struct___depth_index.html", null ],
-    [ "_UnderscoreClass", "class___underscore_class.html", null ],
     [ "AbstractDataLink", "classsofa_1_1core_1_1objectmodel_1_1_abstract_data_link.html", [
       [ "DataLink< sofa::core::objectmodel::BaseData >", "classsofa_1_1core_1_1objectmodel_1_1_data_link.html", null ],
       [ "DataLink< T >", "classsofa_1_1core_1_1objectmodel_1_1_data_link.html", null ]
@@ -14,8 +13,6 @@ var hierarchy =
     [ "ActivationFunctor", "structsofa_1_1gui_1_1qt_1_1_activation_functor.html", null ],
     [ "AddMToMatrixFunctor< Deriv, MassType >", "structsofa_1_1component_1_1mass_1_1_add_m_to_matrix_functor.html", null ],
     [ "AddMToMatrixFunctor< defaulttype::RigidDeriv< N, Real >, defaulttype::RigidMass< N, Real > >", "structsofa_1_1component_1_1mass_1_1_add_m_to_matrix_functor_3_01defaulttype_1_1_rigid_deriv_3_01200f3d6c4bb1eff8a98ce3e0a4e4ebc4.html", null ],
-    [ "AddRef< T >", "structstd_1_1tr1_1_1gtest__internal_1_1_add_ref.html", null ],
-    [ "AddRef< T & >", "structstd_1_1tr1_1_1gtest__internal_1_1_add_ref_3_01_t_01_6_01_4.html", null ],
     [ "AdvancedTimer", "classsofa_1_1helper_1_1_advanced_timer.html", null ],
     [ "AffineMovementConstraintInternalData< DataTypes >", "classsofa_1_1component_1_1constraint_1_1projective_1_1_affine_movement_constraint_internal_data.html", null ],
     [ "AlignPow2< N >", "structsofa_1_1helper_1_1system_1_1thread_1_1_align_pow2.html", null ],
@@ -26,14 +23,11 @@ var hierarchy =
     ] ],
     [ "SofaWindowProfiler::AnimationStepData", "classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_step_data.html", null ],
     [ "SofaWindowProfiler::AnimationSubStepData", "classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html", null ],
-    [ "AnyFailureChecker", "classtesting_1_1internal_1_1_any_failure_checker.html", null ],
     [ "ArgumentParser", "classsofa_1_1gui_1_1common_1_1_argument_parser.html", null ],
     [ "SolidTypes< R >::ArticulatedInertia", "classsofa_1_1defaulttype_1_1_solid_types_1_1_articulated_inertia.html", null ],
     [ "Aspect", "classsofa_1_1core_1_1objectmodel_1_1_aspect.html", null ],
     [ "AspectBuffer", "classsofa_1_1core_1_1objectmodel_1_1_aspect_buffer.html", null ],
     [ "AspectPool", "classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html", null ],
-    [ "AssertHelper", "classtesting_1_1internal_1_1_assert_helper.html", null ],
-    [ "atom", "structatom.html", null ],
     [ "BaseObjectDescription::Attribute", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description_1_1_attribute.html", null ],
     [ "AxisAlignedBox< T >", "classvrender_1_1_axis_aligned_box.html", null ],
     [ "AxisAlignedBox< Vector3 >", "classvrender_1_1_axis_aligned_box.html", null ],
@@ -55,20 +49,6 @@ var hierarchy =
         [ "BarycentricMapper< sofa::defaulttype::StdVectorTypes< sofa::type::Vec< 3, TInReal >, sofa::type::Vec< 3, TInReal >, TInReal >, sofa::defaulttype::StdRigidTypes< 3, TOutReal > >", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html", null ],
         [ "CustomBaseObject", "classcustomns_1_1_custom_base_object.html", null ],
         [ "CustomBaseObjectT< D >", "classcustomns_1_1_custom_base_object_t.html", null ],
-        [ "DefaultTemplate1< DataType1 >", "class_default_template1.html", null ],
-        [ "DefaultTemplate2< DataType1, DataType2 >", "class_default_template2.html", null ],
-        [ "DefaultTemplate3< DataType1, DataType2, NotAType >", "class_default_template3.html", null ],
-        [ "Dummy", "class_dummy.html", null ],
-        [ "EmptyObject", "class_empty_object.html", null ],
-        [ "FakeObject< Link >", "class_fake_object.html", null ],
-        [ "MyComponent", "class_my_component.html", null ],
-        [ "MyObject", "class_my_object.html", null ],
-        [ "NotDefaultTemplate< DataType1, DataType2, NotAType >", "class_not_default_template.html", null ],
-        [ "OuterClass< TDataType1 >", "class_outer_class.html", null ],
-        [ "OuterClass< TDataType1 >::InnerClass< TDataType2 >", "class_outer_class_1_1_inner_class.html", null ],
-        [ "EmptyObject", "classsofa_1_1another__namespace_1_1_empty_object.html", [
-          [ "NumberedClass456", "classsofa_1_1numbered__namespace__123_1_1_numbered_class456.html", null ]
-        ] ],
         [ "BlenderExporter< T >", "classsofa_1_1component_1_1__blenderexporter___1_1_blender_exporter.html", null ],
         [ "VTKExporter", "classsofa_1_1component_1_1__vtkexporter___1_1_v_t_k_exporter.html", null ],
         [ "BruteForceDetection", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_brute_force_detection.html", null ],
@@ -446,7 +426,6 @@ var hierarchy =
           ] ]
         ] ],
         [ "BehaviorModel", "classsofa_1_1core_1_1_behavior_model.html", [
-          [ "MyBehaviorModel", "classsofa_1_1component_1_1behaviormodel_1_1_my_behavior_model.html", null ],
           [ "BaseMouseInteractor", "classsofa_1_1gui_1_1component_1_1performer_1_1_base_mouse_interactor.html", null ]
         ] ],
         [ "CollisionAlgorithm", "classsofa_1_1core_1_1collision_1_1_collision_algorithm.html", [
@@ -465,8 +444,7 @@ var hierarchy =
               [ "BVHNarrowPhase", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_b_v_h_narrow_phase.html", null ],
               [ "DirectSAPNarrowPhase", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_direct_s_a_p_narrow_phase.html", null ],
               [ "IncrSAP", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_incr_s_a_p.html", null ],
-              [ "RayTraceNarrowPhase", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_ray_trace_narrow_phase.html", null ],
-              [ "DummyNarrowPhaseDetection", "classsofa_1_1core_1_1collision_1_1_dummy_narrow_phase_detection.html", null ]
+              [ "RayTraceNarrowPhase", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_ray_trace_narrow_phase.html", null ]
             ] ]
           ] ]
         ] ],
@@ -496,8 +474,7 @@ var hierarchy =
         [ "CollisionModel", "classsofa_1_1core_1_1_collision_model.html", [
           [ "CubeCollisionModel", "classsofa_1_1component_1_1collision_1_1geometry_1_1_cube_collision_model.html", null ],
           [ "RayCollisionModel", "classsofa_1_1component_1_1collision_1_1geometry_1_1_ray_collision_model.html", null ],
-          [ "TetrahedronCollisionModel", "classsofa_1_1component_1_1collision_1_1geometry_1_1_tetrahedron_collision_model.html", null ],
-          [ "DummyCollisionModel", "classsofa_1_1core_1_1_dummy_collision_model.html", null ]
+          [ "TetrahedronCollisionModel", "classsofa_1_1component_1_1collision_1_1geometry_1_1_tetrahedron_collision_model.html", null ]
         ] ],
         [ "DataEngine", "classsofa_1_1core_1_1_data_engine.html", [
           [ "AverageCoord< _DataTypes >", "classsofa_1_1component_1_1engine_1_1analyze_1_1_average_coord.html", [
@@ -583,7 +560,6 @@ var hierarchy =
           [ "SubsetTopology< DataTypes >", "classsofa_1_1component_1_1engine_1_1select_1_1_subset_topology.html", null ],
           [ "ValuesFromIndices< T >", "classsofa_1_1component_1_1engine_1_1select_1_1_values_from_indices.html", null ],
           [ "ValuesFromPositions< DataTypes >", "classsofa_1_1component_1_1engine_1_1select_1_1_values_from_positions.html", null ],
-          [ "TestEngine", "classsofa_1_1component_1_1engine_1_1_test_engine.html", null ],
           [ "AbstractTransformMatrixEngine", "classsofa_1_1component_1_1engine_1_1transform_1_1_abstract_transform_matrix_engine.html", [
             [ "InvertTransformMatrixEngine", "classsofa_1_1component_1_1engine_1_1transform_1_1_invert_transform_matrix_engine.html", null ],
             [ "RotateTransformMatrixEngine", "classsofa_1_1component_1_1engine_1_1transform_1_1_rotate_transform_matrix_engine.html", null ],
@@ -606,7 +582,6 @@ var hierarchy =
           [ "TransformPosition< DataTypes >", "classsofa_1_1component_1_1engine_1_1transform_1_1_transform_position.html", null ],
           [ "Vertex2Frame< DataTypes >", "classsofa_1_1component_1_1engine_1_1transform_1_1_vertex2_frame.html", null ],
           [ "MeshTopology::PrimitiveUpdate", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology_1_1_primitive_update.html", null ],
-          [ "TestEngine", "classsofa_1_1_test_engine.html", null ],
           [ "SphereROI< _DataTypes >", "classsofa_1_1component_1_1engine_1_1select_1_1_sphere_r_o_i.html", [
             [ "SphereROI_test< _DataTypes >", "structsofa_1_1_sphere_r_o_i__test.html", null ]
           ] ],
@@ -638,13 +613,9 @@ var hierarchy =
               [ "MeshVTKLoaderTest", "structsofa_1_1meshvtkloader__test_1_1_mesh_v_t_k_loader_test.html", null ]
             ] ],
             [ "MeshXspLoader", "classsofa_1_1component_1_1io_1_1mesh_1_1_mesh_xsp_loader.html", null ],
-            [ "StringMeshCreator", "classsofa_1_1component_1_1io_1_1mesh_1_1_string_mesh_creator.html", null ],
-            [ "MeshTestLoader", "classsofa_1_1_mesh_test_loader.html", null ]
+            [ "StringMeshCreator", "classsofa_1_1component_1_1io_1_1mesh_1_1_string_mesh_creator.html", null ]
           ] ],
-          [ "SceneLoader", "classsofa_1_1core_1_1loader_1_1_scene_loader.html", [
-            [ "SceneLoaderPHP", "classsofa_1_1simulation_1_1_scene_loader_p_h_p.html", null ],
-            [ "SceneLoaderXML", "classsofa_1_1simulation_1_1_scene_loader_x_m_l.html", null ]
-          ] ],
+          [ "SceneLoader", "classsofa_1_1core_1_1loader_1_1_scene_loader.html", null ],
           [ "VoxelLoader", "classsofa_1_1core_1_1loader_1_1_voxel_loader.html", [
             [ "VoxelGridLoader", "classsofa_1_1component_1_1io_1_1mesh_1_1_voxel_grid_loader.html", null ]
           ] ]
@@ -769,20 +740,11 @@ var hierarchy =
           ] ],
           [ "VisualManager", "classsofa_1_1core_1_1visual_1_1_visual_manager.html", null ]
         ] ],
-        [ "DataCallback_test::TestObject", "classsofa_1_1_data_callback__test_1_1_test_object.html", null ],
-        [ "DummyObject", "classsofa_1_1_dummy_object.html", null ],
-        [ "CustomName123", "classsofa_1_1numbered__namespace__123_1_1_custom_name123.html", null ],
-        [ "CustomNameOldWay", "classsofa_1_1numbered__namespace__123_1_1_custom_name_old_way.html", null ],
-        [ "NumberedClass123", "classsofa_1_1numbered__namespace__123_1_1_numbered_class123.html", null ],
         [ "BaseSimulationExporter", "classsofa_1_1simulation_1_1__basesimulationexporter___1_1_base_simulation_exporter.html", null ],
         [ "RequiredPlugin", "classsofa_1_1simulation_1_1_required_plugin.html", null ],
         [ "VisitorScheduler", "classsofa_1_1simulation_1_1_visitor_scheduler.html", [
           [ "ParallelVisitorScheduler", "classsofa_1_1simulation_1_1_parallel_visitor_scheduler.html", null ]
-        ] ],
-        [ "ComponentA", "classsofa_1_1test_1_1_component_a.html", null ],
-        [ "ComponentB< T >", "classsofa_1_1test_1_1_component_b.html", null ],
-        [ "TestObject", "classsofa_1_1_test_object.html", null ],
-        [ "TestObject2", "classsofa_1_1_test_object2.html", null ]
+        ] ]
       ] ],
       [ "AdvancedTimer::Id< Base >", "classsofa_1_1helper_1_1_advanced_timer_1_1_id.html", null ],
       [ "AdvancedTimer::Id< Base >::IdFactory", "classsofa_1_1helper_1_1_advanced_timer_1_1_id_1_1_id_factory.html", null ],
@@ -887,9 +849,6 @@ var hierarchy =
     ] ],
     [ "BaseLink", "classsofa_1_1core_1_1objectmodel_1_1_base_link.html", [
       [ "TLink< TOwnerType, TDestType, TFlags >", "classsofa_1_1core_1_1objectmodel_1_1_t_link.html", null ],
-      [ "TLink< BaseObject, BaseObject, TFlags &~BaseLink::FLAG_MULTILINK >", "classsofa_1_1core_1_1objectmodel_1_1_t_link.html", [
-        [ "SingleLink< BaseObject, BaseObject, BaseLink::FLAG_DOUBLELINK|BaseLink::FLAG_STRONGLINK|BaseLink::FLAG_STOREPATH >", "classsofa_1_1core_1_1objectmodel_1_1_single_link.html", null ]
-      ] ],
       [ "TLink< BaseObject, BaseObject, TFlags|BaseLink::FLAG_MULTILINK >", "classsofa_1_1core_1_1objectmodel_1_1_t_link.html", [
         [ "MultiLink< BaseObject, BaseObject, BaseLink::FLAG_DOUBLELINK|BaseLink::FLAG_STRONGLINK >", "classsofa_1_1core_1_1objectmodel_1_1_multi_link.html", null ]
       ] ],
@@ -1371,10 +1330,6 @@ var hierarchy =
       ] ]
     ] ],
     [ "BaseMatrix", "classsofa_1_1linearalgebra_1_1_base_matrix.html", [
-      [ "CompressedRowSparseMatrix< BlockMM >", "classsofa_1_1linearalgebra_1_1_compressed_row_sparse_matrix.html", null ],
-      [ "CompressedRowSparseMatrix< BlockMN >", "classsofa_1_1linearalgebra_1_1_compressed_row_sparse_matrix.html", null ],
-      [ "CompressedRowSparseMatrix< BlockNM >", "classsofa_1_1linearalgebra_1_1_compressed_row_sparse_matrix.html", null ],
-      [ "CompressedRowSparseMatrix< BlockNN >", "classsofa_1_1linearalgebra_1_1_compressed_row_sparse_matrix.html", null ],
       [ "CompressedRowSparseMatrix< MReal >", "classsofa_1_1linearalgebra_1_1_compressed_row_sparse_matrix.html", null ],
       [ "CompressedRowSparseMatrix< Real >", "classsofa_1_1linearalgebra_1_1_compressed_row_sparse_matrix.html", null ],
       [ "CompressedRowSparseMatrix< sofa::type::Mat< NL, NC, MReal > >", "classsofa_1_1linearalgebra_1_1_compressed_row_sparse_matrix.html", null ],
@@ -1394,10 +1349,6 @@ var hierarchy =
           [ "EigenSparseMatrix< InDataTypes, OutDataTypes >", "structsofa_1_1component_1_1linearsolver_1_1_eigen_sparse_matrix.html", null ]
         ] ]
       ] ],
-      [ "EigenBaseSparseMatrix< OutTypes ::Real >", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html", [
-        [ "EigenSparseMatrix< InTypes, OutTypes >", "classsofa_1_1linearalgebra_1_1_eigen_sparse_matrix.html", null ]
-      ] ],
-      [ "EigenBaseSparseMatrix< Real >", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html", null ],
       [ "EigenBaseSparseMatrix< TIn ::Real >", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html", [
         [ "EigenSparseMatrix< TIn, TIn >", "classsofa_1_1linearalgebra_1_1_eigen_sparse_matrix.html", null ]
       ] ],
@@ -1451,12 +1402,6 @@ var hierarchy =
     [ "BaseMatrixLinearOpMV_BlockDiagonal< Real, 1, 1, add, transpose, M, V1, V2 >", "structsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v___block_diagonal_3_01_real_00_011_00_0834e7a9c1912f057d0e0715e3c914c30.html", null ],
     [ "BaseMatrixLinearOpMV_BlockSparse< Real, NL, NC, add, transpose, M, V1, V2 >", "structsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v___block_sparse.html", null ],
     [ "BlocMatrixWriter< TBloc >::BaseMatrixWriter", "classsofa_1_1core_1_1behavior_1_1_bloc_matrix_writer_1_1_base_matrix_writer.html", null ],
-    [ "BaseObject", null, [
-      [ "DefaultTemplate1< DataOne >", "class_default_template1.html", null ],
-      [ "DefaultTemplate2< DataOne, DataTwo >", "class_default_template2.html", null ],
-      [ "DefaultTemplate3< DataOne, DataTwo, NotAType >", "class_default_template3.html", null ],
-      [ "OuterClass< DataOne >", "class_outer_class.html", null ]
-    ] ],
     [ "BaseObjectDescription", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html", [
       [ "BaseElement", "classsofa_1_1simulation_1_1xml_1_1_base_element.html", [
         [ "Element< core::objectmodel::BaseObject >", "classsofa_1_1simulation_1_1xml_1_1_element.html", [
@@ -1523,9 +1468,6 @@ var hierarchy =
     [ "BlockJacobiPreconditionerInternalData< TVector >", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_block_jacobi_preconditioner_internal_data.html", null ],
     [ "BlocMatrixWriter< TBloc >", "classsofa_1_1core_1_1behavior_1_1_bloc_matrix_writer.html", null ],
     [ "BodyPicked", "structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html", null ],
-    [ "bool_constant", null, [
-      [ "IsAProtocolMessage< T >", "structtesting_1_1internal_1_1_is_a_protocol_message.html", null ]
-    ] ],
     [ "BoolTypeInfo", "structsofa_1_1defaulttype_1_1_bool_type_info.html", [
       [ "DataTypeInfo< bool >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01bool_01_4.html", null ]
     ] ],
@@ -1543,29 +1485,22 @@ var hierarchy =
     [ "BSPNode", "class_b_s_p_node.html", null ],
     [ "BSPTree", "class_b_s_p_tree.html", null ],
     [ "JoystickEvent::ButtonEvent", "classsofa_1_1core_1_1objectmodel_1_1_joystick_event_1_1_button_event.html", null ],
-    [ "ByRef< T >", "structstd_1_1tr1_1_1gtest__internal_1_1_by_ref.html", null ],
-    [ "ByRef< T & >", "structstd_1_1tr1_1_1gtest__internal_1_1_by_ref_3_01_t_01_6_01_4.html", null ],
     [ "CallBackPicker", "classsofa_1_1gui_1_1common_1_1_call_back_picker.html", [
       [ "InformationOnPickCallBack", "classsofa_1_1gui_1_1qt_1_1_information_on_pick_call_back.html", null ]
     ] ],
     [ "CallBackRender", "classsofa_1_1gui_1_1common_1_1_call_back_render.html", [
       [ "ColourPickingRenderCallBack", "classsofa_1_1gui_1_1qt_1_1_colour_picking_render_call_back.html", null ]
     ] ],
-    [ "CartesianProductHolder< Gen >", "classtesting_1_1internal_1_1_cartesian_product_holder.html", null ],
     [ "CategoryLibrary", "classsofa_1_1core_1_1_category_library.html", null ],
-    [ "center_of_mass", "structcenter__of__mass.html", null ],
     [ "CenterOfMassMappingOperation< Model >", "structsofa_1_1component_1_1mapping_1_1linear_1_1_center_of_mass_mapping_operation.html", null ],
     [ "SofaWindowProfiler::CheckedSeries", "structsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_checked_series.html", null ],
     [ "BaseElement::child_iterator< Node >", "classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html", null ],
     [ "FlagTreeItem::ci_comparison", "structsofa_1_1core_1_1visual_1_1_flag_tree_item_1_1ci__comparison.html", null ],
-    [ "ckrinfo_t", "structckrinfo__t.html", null ],
     [ "ObjectFactory::ClassEntry", "classsofa_1_1core_1_1_object_factory_1_1_class_entry.html", null ],
     [ "ClassInfo", "classsofa_1_1core_1_1objectmodel_1_1_class_info.html", [
       [ "TClassInfo< T >", "classsofa_1_1core_1_1objectmodel_1_1_t_class_info.html", null ]
     ] ],
-    [ "cnbr_t", "structcnbr__t.html", null ],
     [ "MovieOptionsWidget::Codec", "structsofa_1_1gui_1_1qt_1_1_movie_options_widget_1_1_codec.html", null ],
-    [ "CodeLocation", "structtesting_1_1internal_1_1_code_location.html", null ],
     [ "BaseMatrix::ColBlockConstIterator", "classsofa_1_1linearalgebra_1_1_base_matrix_1_1_col_block_const_iterator.html", null ],
     [ "MapMapSparseMatrix< T >::ColConstIterator", "classsofa_1_1defaulttype_1_1_map_map_sparse_matrix_1_1_col_const_iterator.html", null ],
     [ "MapMapSparseMatrix< T >::ColIterator", "classsofa_1_1defaulttype_1_1_map_map_sparse_matrix_1_1_col_iterator.html", null ],
@@ -1594,7 +1529,6 @@ var hierarchy =
     [ "ConicalForceFieldInternalData< DataTypes >", "classsofa_1_1component_1_1mechanicalload_1_1_conical_force_field_internal_data.html", null ],
     [ "ConicalForceFieldInternalData< sofa::defaulttype::StdVectorTypes >", "classsofa_1_1component_1_1mechanicalload_1_1_conical_force_field_internal_data.html", null ],
     [ "SparseGridRamificationTopology::Connexion", "structsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_ramification_topology_1_1_connexion.html", null ],
-    [ "ConstCharPtr", "structtesting_1_1internal_1_1_const_char_ptr.html", null ],
     [ "Constraint", "classqglviewer_1_1_constraint.html", [
       [ "AxisPlaneConstraint", "classqglviewer_1_1_axis_plane_constraint.html", [
         [ "CameraConstraint", "classqglviewer_1_1_camera_constraint.html", null ],
@@ -1618,14 +1552,12 @@ var hierarchy =
       [ "UnilateralConstraintResolution", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_unilateral_constraint_resolution.html", null ],
       [ "UnilateralConstraintResolutionWithFriction", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_unilateral_constraint_resolution_with_friction.html", null ]
     ] ],
-    [ "ConstRef< T >", "structtesting_1_1internal_1_1_const_ref.html", null ],
-    [ "ConstRef< T & >", "structtesting_1_1internal_1_1_const_ref_3_01_t_01_6_01_4.html", null ],
+    [ "PenalityContactForceField< DataTypes >::Contact", "classsofa_1_1component_1_1collision_1_1response_1_1contact_1_1_penality_contact_force_field_1_1_contact.html", null ],
+    [ "ConicalForceField< DataTypes >::Contact", "classsofa_1_1component_1_1mechanicalload_1_1_conical_force_field_1_1_contact.html", null ],
     [ "EllipsoidForceField< DataTypes >::Contact", "classsofa_1_1component_1_1mechanicalload_1_1_ellipsoid_force_field_1_1_contact.html", null ],
+    [ "UnilateralInteractionConstraint< DataTypes >::Contact", "structsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_unilateral_interaction_constraint_1_1_contact.html", null ],
     [ "InteractionEllipsoidForceField< TDataTypes1, TDataTypes2 >::Contact", "classsofa_1_1component_1_1mechanicalload_1_1_interaction_ellipsoid_force_field_1_1_contact.html", null ],
     [ "SphereForceField< DataTypes >::Contact", "classsofa_1_1component_1_1mechanicalload_1_1_sphere_force_field_1_1_contact.html", null ],
-    [ "PenalityContactForceField< DataTypes >::Contact", "classsofa_1_1component_1_1collision_1_1response_1_1contact_1_1_penality_contact_force_field_1_1_contact.html", null ],
-    [ "UnilateralInteractionConstraint< DataTypes >::Contact", "structsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_unilateral_interaction_constraint_1_1_contact.html", null ],
-    [ "ConicalForceField< DataTypes >::Contact", "classsofa_1_1component_1_1mechanicalload_1_1_conical_force_field_1_1_contact.html", null ],
     [ "ContactIdentifier", "classsofa_1_1component_1_1collision_1_1response_1_1contact_1_1_contact_identifier.html", [
       [ "FrictionContact< TCollisionModel1, TCollisionModel2, ResponseDataTypes >", "classsofa_1_1component_1_1collision_1_1response_1_1contact_1_1_friction_contact.html", null ],
       [ "StickContactConstraint< TCollisionModel1, TCollisionModel2 >", "classsofa_1_1component_1_1collision_1_1response_1_1contact_1_1_stick_contact_constraint.html", null ]
@@ -1652,12 +1584,7 @@ var hierarchy =
     [ "DataWidget::CreatorArgument", "structsofa_1_1gui_1_1qt_1_1_data_widget_1_1_creator_argument.html", null ],
     [ "LinkWidget::CreatorArgument", "structsofa_1_1gui_1_1qt_1_1_link_widget_1_1_creator_argument.html", null ],
     [ "BlocMatrixWriter< TBloc >::CRSMatrixWriter< MReal >", "classsofa_1_1core_1_1behavior_1_1_bloc_matrix_writer_1_1_c_r_s_matrix_writer.html", null ],
-    [ "cs_dmperm_results", "structcs__dmperm__results.html", null ],
-    [ "cs_numeric", "structcs__numeric.html", null ],
-    [ "cs_sparse", "structcs__sparse.html", null ],
-    [ "cs_symbolic", "structcs__symbolic.html", null ],
     [ "CTime", "classsofa_1_1helper_1_1system_1_1thread_1_1_c_time.html", null ],
-    [ "ctrl_t", "structctrl__t.html", null ],
     [ "CubeCollisionModel::CubeData", "structsofa_1_1component_1_1collision_1_1geometry_1_1_cube_collision_model_1_1_cube_data.html", null ],
     [ "CubeCollisionModel::CubeSortPredicate", "classsofa_1_1component_1_1collision_1_1geometry_1_1_cube_collision_model_1_1_cube_sort_predicate.html", null ],
     [ "CylinderCollisionModel< TDataTypes >", "classsofa_1_1component_1_1collision_1_1geometry_1_1_cylinder_collision_model.html", null ],
@@ -1698,6 +1625,7 @@ var hierarchy =
     [ "DataContentValue< long, !std::is_scalar_v< long > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< MassType, !std::is_scalar_v< MassType > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< Mat< 3, 3, Real >, !std::is_scalar_v< Mat< 3, 3, Real > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
+    [ "DataContentValue< MatSym< 3, Real >, !std::is_scalar_v< MatSym< 3, Real > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< OutVecCoord, !std::is_scalar_v< OutVecCoord > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< Pos, !std::is_scalar_v< Pos > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< Quat< SReal >, !std::is_scalar_v< Quat< SReal > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
@@ -1725,7 +1653,6 @@ var hierarchy =
     [ "DataContentValue< sofa::type::fixed_array< sofa::type::Vec, 2 >, !std::is_scalar_v< sofa::type::fixed_array< sofa::type::Vec, 2 > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::Mat, !std::is_scalar_v< sofa::type::Mat > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::Material, !std::is_scalar_v< sofa::type::Material > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
-    [ "DataContentValue< sofa::type::MatSym, !std::is_scalar_v< sofa::type::MatSym > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::Quat, !std::is_scalar_v< sofa::type::Quat > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::Quat< SReal >, !std::is_scalar_v< sofa::type::Quat< SReal > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::RGBAColor, !std::is_scalar_v< sofa::type::RGBAColor > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
@@ -1752,6 +1679,7 @@ var hierarchy =
     [ "DataContentValue< sofa::type::vector< Index >, !std::is_scalar_v< sofa::type::vector< Index > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< int >, !std::is_scalar_v< sofa::type::vector< int > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< MassType >, !std::is_scalar_v< sofa::type::vector< MassType > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
+    [ "DataContentValue< sofa::type::vector< Mat< 3, 3, Real > >, !std::is_scalar_v< sofa::type::vector< Mat< 3, 3, Real > > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< OutputType >, !std::is_scalar_v< sofa::type::vector< OutputType > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< Quad >, !std::is_scalar_v< sofa::type::vector< Quad > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< Real >, !std::is_scalar_v< sofa::type::vector< Real > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
@@ -1784,11 +1712,9 @@ var hierarchy =
     [ "DataContentValue< sofa::type::vector< sofa::type::fixed_array< unsigned int, 3 > >, !std::is_scalar_v< sofa::type::vector< sofa::type::fixed_array< unsigned int, 3 > > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< sofa::type::fixed_array< unsigned int, 4 > >, !std::is_scalar_v< sofa::type::vector< sofa::type::fixed_array< unsigned int, 4 > > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< sofa::type::fixed_array< unsigned int, 8 > >, !std::is_scalar_v< sofa::type::vector< sofa::type::fixed_array< unsigned int, 8 > > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
-    [ "DataContentValue< sofa::type::vector< sofa::type::Mat >, !std::is_scalar_v< sofa::type::vector< sofa::type::Mat > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< sofa::type::Material >, !std::is_scalar_v< sofa::type::vector< sofa::type::Material > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< sofa::type::PrimitiveGroup >, !std::is_scalar_v< sofa::type::vector< sofa::type::PrimitiveGroup > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< sofa::type::Quat >, !std::is_scalar_v< sofa::type::vector< sofa::type::Quat > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
-    [ "DataContentValue< sofa::type::vector< sofa::type::RGBAColor >, !std::is_scalar_v< sofa::type::vector< sofa::type::RGBAColor > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< sofa::type::SVector< Index > >, !std::is_scalar_v< sofa::type::vector< sofa::type::SVector< Index > > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< sofa::type::SVector< InReal > >, !std::is_scalar_v< sofa::type::vector< sofa::type::SVector< InReal > > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< sofa::type::SVector< T > >, !std::is_scalar_v< sofa::type::vector< sofa::type::SVector< T > > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
@@ -1812,7 +1738,8 @@ var hierarchy =
     [ "DataContentValue< sofa::type::vector< unsigned char >, !std::is_scalar_v< sofa::type::vector< unsigned char > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< unsigned int >, !std::is_scalar_v< sofa::type::vector< unsigned int > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< Vec< 3, Real > >, !std::is_scalar_v< sofa::type::vector< Vec< 3, Real > > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
-    [ "DataContentValue< sofa::type::vector< vector< unsigned int > >, !std::is_scalar_v< sofa::type::vector< vector< unsigned int > > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
+    [ "DataContentValue< sofa::type::vector< Vec< 6, Real > >, !std::is_scalar_v< sofa::type::vector< Vec< 6, Real > > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
+    [ "DataContentValue< sofa::type::vector< vector< PointID > >, !std::is_scalar_v< sofa::type::vector< vector< PointID > > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< sofa::type::vector< visual_index_type >, !std::is_scalar_v< sofa::type::vector< visual_index_type > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< SReal, !std::is_scalar_v< SReal > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< std::list< const sofa::core::topology::TopologyChange * >, !std::is_scalar_v< std::list< const sofa::core::topology::TopologyChange * > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
@@ -1829,11 +1756,10 @@ var hierarchy =
     [ "DataContentValue< unsigned int, !std::is_scalar_v< unsigned int > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< unsigned, !std::is_scalar_v< unsigned > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< Vec3, !std::is_scalar_v< Vec3 > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
-    [ "DataContentValue< Vec3d, !std::is_scalar_v< Vec3d > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
-    [ "DataContentValue< Vec3f, !std::is_scalar_v< Vec3f > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< Vec< 2, Real >, !std::is_scalar_v< Vec< 2, Real > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< Vec< 3, int >, !std::is_scalar_v< Vec< 3, int > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< Vec< 3, Real >, !std::is_scalar_v< Vec< 3, Real > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
+    [ "DataContentValue< Vec< 6, Real >, !std::is_scalar_v< Vec< 6, Real > > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< VecCoord, !std::is_scalar_v< VecCoord > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< VecCoord1, !std::is_scalar_v< VecCoord1 > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
     [ "DataContentValue< VecT, !std::is_scalar_v< VecT > >", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],
@@ -1847,17 +1773,13 @@ var hierarchy =
     [ "DataEngineType", null, [
       [ "TestDataEngine< DataEngineType >", "classsofa_1_1_test_data_engine.html", null ]
     ] ],
-    [ "DataMockup< T >", "class_data_mockup.html", null ],
-    [ "DataOne", "class_data_one.html", null ],
     [ "dataTime", "structsofa_1_1gui_1_1qt_1_1data_time.html", null ],
     [ "DataTracker", "structsofa_1_1core_1_1_data_tracker.html", null ],
-    [ "DataTwo", "class_data_two.html", null ],
     [ "DataTypeInfo< TDataType >", "structsofa_1_1defaulttype_1_1_data_type_info.html", null ],
     [ "DataTypeInfo< T >", "structsofa_1_1defaulttype_1_1_data_type_info.html", [
       [ "DataTypeName< T >", "classsofa_1_1defaulttype_1_1_data_type_name.html", null ]
     ] ],
     [ "DDGNode", "classsofa_1_1core_1_1objectmodel_1_1_d_d_g_node.html", [
-      [ "DDGNodeTestClass", "class_d_d_g_node_test_class.html", null ],
       [ "DataTrackerDDGNode", "classsofa_1_1core_1_1_data_tracker_d_d_g_node.html", [
         [ "DataEngine", "classsofa_1_1core_1_1_data_engine.html", null ],
         [ "DataTrackerCallback", "classsofa_1_1core_1_1_data_tracker_callback.html", null ]
@@ -1881,6 +1803,7 @@ var hierarchy =
         [ "Data< long >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< MassType >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< Mat< 3, 3, Real > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
+        [ "Data< MatSym< 3, Real > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< OutVecCoord >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< Pos >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< Quat< SReal > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
@@ -1908,7 +1831,6 @@ var hierarchy =
         [ "Data< sofa::type::fixed_array< sofa::type::Vec, 2 > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::Mat >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::Material >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
-        [ "Data< sofa::type::MatSym >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::Quat >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::Quat< SReal > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::RGBAColor >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
@@ -1937,6 +1859,7 @@ var hierarchy =
         [ "Data< sofa::type::vector< Index > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< int > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< MassType > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
+        [ "Data< sofa::type::vector< Mat< 3, 3, Real > > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< OutputType > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< Quad > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< Real > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
@@ -1969,11 +1892,9 @@ var hierarchy =
         [ "Data< sofa::type::vector< sofa::type::fixed_array< unsigned int, 3 > > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< sofa::type::fixed_array< unsigned int, 4 > > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< sofa::type::fixed_array< unsigned int, 8 > > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
-        [ "Data< sofa::type::vector< sofa::type::Mat > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< sofa::type::Material > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< sofa::type::PrimitiveGroup > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< sofa::type::Quat > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
-        [ "Data< sofa::type::vector< sofa::type::RGBAColor > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< sofa::type::SVector< Index > > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< sofa::type::SVector< InReal > > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< sofa::type::SVector< T > > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
@@ -1997,7 +1918,8 @@ var hierarchy =
         [ "Data< sofa::type::vector< unsigned char > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< unsigned int > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< Vec< 3, Real > > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
-        [ "Data< sofa::type::vector< vector< unsigned int > > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
+        [ "Data< sofa::type::vector< Vec< 6, Real > > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
+        [ "Data< sofa::type::vector< vector< PointID > > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< sofa::type::vector< visual_index_type > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< SReal >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< std::list< const sofa::core::topology::TopologyChange * > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
@@ -2022,11 +1944,10 @@ var hierarchy =
         [ "Data< unsigned >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< unsigned int >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< Vec3 >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
-        [ "Data< Vec3d >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
-        [ "Data< Vec3f >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< Vec< 2, Real > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< Vec< 3, int > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< Vec< 3, Real > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
+        [ "Data< Vec< 6, Real > >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< VecCoord >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< VecCoord1 >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ],
         [ "Data< VecT >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", [
@@ -2105,7 +2026,6 @@ var hierarchy =
           [ "EmptyData", "classsofa_1_1core_1_1objectmodel_1_1_empty_data.html", null ],
           [ "BaseTopologyData< T >", "classsofa_1_1core_1_1topology_1_1_base_topology_data.html", null ]
         ] ],
-        [ "MyData", "class_my_data.html", null ],
         [ "Data< T >", "classsofa_1_1core_1_1objectmodel_1_1_data.html", null ]
       ] ],
       [ "TopologyHandler", "classsofa_1_1core_1_1topology_1_1_topology_handler.html", [
@@ -2137,7 +2057,6 @@ var hierarchy =
     [ "DeformableOnRigidFrameMappingInternalData< In, Out >", "classsofa_1_1component_1_1mapping_1_1linear_1_1_deformable_on_rigid_frame_mapping_internal_data.html", null ],
     [ "DetectionOutput", "classsofa_1_1core_1_1collision_1_1_detection_output.html", null ],
     [ "DetectionOutputVector", "classsofa_1_1core_1_1collision_1_1_detection_output_vector.html", [
-      [ "DummyDetectionOutputVector", "classsofa_1_1core_1_1collision_1_1_dummy_detection_output_vector.html", null ],
       [ "TDetectionOutputVector< CM1, CM2 >", "classsofa_1_1core_1_1collision_1_1_t_detection_output_vector.html", null ]
     ] ],
     [ "DiagonalMassInternalData< DataTypes, TMassType, GeometricalTypes >", "classsofa_1_1component_1_1mass_1_1_diagonal_mass_internal_data.html", null ],
@@ -2152,18 +2071,9 @@ var hierarchy =
     [ "DistancesInternalData< sofa::defaulttype::StdVectorTypes >", "classsofa_1_1component_1_1engine_1_1analyze_1_1_distances_internal_data.html", null ],
     [ "DistanceTriTri", "classsofa_1_1helper_1_1_distance_tri_tri.html", null ],
     [ "DomUtils", "class_dom_utils.html", null ],
-    [ "DoubleSequence< plus_one, T, sizeofT >", "structtesting_1_1internal_1_1_double_sequence.html", null ],
-    [ "DoubleSequence< false, IndexSequence< I... >, sizeofT >", "structtesting_1_1internal_1_1_double_sequence_3_01false_00_01_index_sequence_3_01_i_8_8_8_01_4_00_01sizeof_t_01_4.html", null ],
-    [ "DoubleSequence< true, IndexSequence< I... >, sizeofT >", "structtesting_1_1internal_1_1_double_sequence_3_01true_00_01_index_sequence_3_01_i_8_8_8_01_4_00_01sizeof_t_01_4.html", null ],
     [ "DrawTool", "classsofa_1_1helper_1_1visual_1_1_draw_tool.html", null ],
     [ "DSAPBox", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_d_s_a_p_box.html", null ],
     [ "DualQuatCoord3< real >", "classsofa_1_1type_1_1_dual_quat_coord3.html", null ],
-    [ "DummyBaseClass", "structsofa_1_1_dummy_base_class.html", [
-      [ "DummyClassA", "structsofa_1_1_dummy_class_a.html", null ],
-      [ "DummyClassB", "structsofa_1_1_dummy_class_b.html", null ],
-      [ "DummyClassC", "structsofa_1_1_dummy_class_c.html", null ],
-      [ "DummyClassD", "structsofa_1_1_dummy_class_d.html", null ]
-    ] ],
     [ "DynamicLibrary", "classsofa_1_1helper_1_1system_1_1_dynamic_library.html", null ],
     [ "Edge", "structsofa_1_1geometry_1_1_edge.html", null ],
     [ "edge_node", "classedge__node.html", null ],
@@ -2192,13 +2102,6 @@ var hierarchy =
       [ "MirrorIntersector", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_mirror_intersector.html", null ],
       [ "MemberElementIntersector< Elem1, Elem2, T >", "classsofa_1_1core_1_1collision_1_1_member_element_intersector.html", null ]
     ] ],
-    [ "ElemFromList< N, I, T >", "structtesting_1_1internal_1_1_elem_from_list.html", null ],
-    [ "ElemFromList< I, typename MakeIndexSequence< sizeof...(T)>::type, T... >", "structtesting_1_1internal_1_1_elem_from_list.html", null ],
-    [ "ElemFromListImpl< T, size_t, size_t >", "structtesting_1_1internal_1_1_elem_from_list_impl.html", null ],
-    [ "ElemFromListImpl< T, I, I >", "structtesting_1_1internal_1_1_elem_from_list_impl_3_01_t_00_01_i_00_01_i_01_4.html", null ],
-    [ "ElemFromListImpl< T, N, I >", "structtesting_1_1internal_1_1_elem_from_list_impl.html", [
-      [ "ElemFromList< N, IndexSequence< I... >, T... >", "structtesting_1_1internal_1_1_elem_from_list_3_01_n_00_01_index_sequence_3_01_i_8_8_8_01_4_00_01_t_8_8_8_01_4.html", null ]
-    ] ],
     [ "EllipsoidForceFieldInternalData< DataTypes >", "classsofa_1_1component_1_1mechanicalload_1_1_ellipsoid_force_field_internal_data.html", null ],
     [ "EllipsoidForceFieldInternalData< sofa::defaulttype::StdVectorTypes >", "classsofa_1_1component_1_1mechanicalload_1_1_ellipsoid_force_field_internal_data.html", null ],
     [ "TopologyChangeElementInfo< Topology::Triangle >::EMoved", "classsofa_1_1core_1_1topology_1_1_topology_change_element_info_3_01_topology_1_1_triangle_01_4_1_1_e_moved.html", null ],
@@ -2213,8 +2116,6 @@ var hierarchy =
     [ "EngineBackend", "classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html", [
       [ "GLBackend", "classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html", null ]
     ] ],
-    [ "Environment", "classtesting_1_1_environment.html", null ],
-    [ "EqHelper", "classtesting_1_1internal_1_1_eq_helper.html", null ],
     [ "ColorMap::evaluator< Real >", "classsofa_1_1helper_1_1_color_map_1_1evaluator.html", null ],
     [ "Event", "classsofa_1_1core_1_1objectmodel_1_1_event.html", [
       [ "DetachNodeEvent", "classsofa_1_1core_1_1objectmodel_1_1_detach_node_event.html", null ],
@@ -2266,17 +2167,14 @@ var hierarchy =
       [ "SofaViewerFactory", "classsofa_1_1helper_1_1_sofa_viewer_factory.html", null ]
     ] ],
     [ "fake_TopologyScene", "classfake___topology_scene.html", null ],
-    [ "faketype", "structtesting_1_1internal_1_1faketype.html", null ],
     [ "false_type", null, [
-      [ "HasRebindTypedef< T, OtherType, class >", "structsofa_1_1type_1_1_has_rebind_typedef.html", null ],
-      [ "IsRecursiveContainerImpl< C, false >", "structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01false_01_4.html", null ]
+      [ "HasRebindTypedef< T, OtherType, class >", "structsofa_1_1type_1_1_has_rebind_typedef.html", null ]
     ] ],
     [ "FastTetrahedralCorotationalForceField< DataTypes >", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html", null ],
     [ "FastTetrahedralCorotationalForceFieldData< DataTypes >", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field_data.html", null ],
     [ "Feedback3DColor", "classvrender_1_1_feedback3_d_color.html", null ],
     [ "File", "classsofa_1_1helper_1_1io_1_1_file.html", null ],
     [ "FileEventListener", "classsofa_1_1helper_1_1system_1_1_file_event_listener.html", [
-      [ "MyFileListener", "class_my_file_listener.html", null ],
       [ "RealGUIFileListener", "classsofa_1_1gui_1_1qt_1_1_real_g_u_i_file_listener.html", null ]
     ] ],
     [ "FileInfo", "structsofa_1_1helper_1_1logging_1_1_file_info.html", [
@@ -2416,18 +2314,7 @@ var hierarchy =
     [ "flat_vector_data_trait< T >", "classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html", [
       [ "flat_data_trait< T, TYPE_VECTOR >", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___v_e_c_t_o_r_01_4.html", null ]
     ] ],
-    [ "FlatTuple< T >", "classtesting_1_1internal_1_1_flat_tuple.html", null ],
-    [ "FlatTuple< Ts... >", "classtesting_1_1internal_1_1_flat_tuple.html", null ],
-    [ "FlatTupleBase< Derived, Idx >", "structtesting_1_1internal_1_1_flat_tuple_base.html", null ],
-    [ "FlatTupleElemBase< Derived, I >", "structtesting_1_1internal_1_1_flat_tuple_elem_base.html", null ],
-    [ "FlatTupleElemBase< FlatTuple< T... >, I >", "structtesting_1_1internal_1_1_flat_tuple_elem_base_3_01_flat_tuple_3_01_t_8_8_8_01_4_00_01_i_01_4.html", null ],
-    [ "FlatTupleElemBase< FlatTuple< T... >, Idx >", "structtesting_1_1internal_1_1_flat_tuple_elem_base.html", [
-      [ "FlatTupleBase< FlatTuple< T... >, IndexSequence< Idx... > >", "structtesting_1_1internal_1_1_flat_tuple_base_3_01_flat_tuple_3_01_t_8_8_8_01_4_00_01_index_sequence_3_01_idx_8_8_8_01_4_01_4.html", null ]
-    ] ],
-    [ "FloatingPoint< RawType >", "classtesting_1_1internal_1_1_floating_point.html", null ],
     [ "Foreground", "structsofa_1_1helper_1_1console_1_1_foreground.html", null ],
-    [ "FormatForComparison< ToPrint, OtherOperand >", "classtesting_1_1internal_1_1_format_for_comparison.html", null ],
-    [ "FormatForComparison< ToPrint[N], OtherOperand >", "classtesting_1_1internal_1_1_format_for_comparison_3_01_to_print_0f_n_0e_00_01_other_operand_01_4.html", null ],
     [ "Frame", "classsofa_1_1type_1_1_frame.html", null ],
     [ "FrameSpringForceFieldInternalData< DataTypes >", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_frame_spring_force_field_internal_data.html", null ],
     [ "FrameSpringForceFieldInternalData< sofa::defaulttype::StdVectorTypes >", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_frame_spring_force_field_internal_data.html", null ],
@@ -2436,17 +2323,6 @@ var hierarchy =
     [ "GearSpringForceFieldInternalData< sofa::defaulttype::StdVectorTypes >", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_gear_spring_force_field_internal_data.html", null ],
     [ "GenerateRigidInfo", "structsofa_1_1helper_1_1_generate_rigid_info.html", null ],
     [ "GenerateStringID", "classsofa_1_1component_1_1collision_1_1response_1_1mapper_1_1_generate_string_i_d.html", null ],
-    [ "Get< k >", "classstd_1_1tr1_1_1gtest__internal_1_1_get.html", null ],
-    [ "Get< 0 >", "classstd_1_1tr1_1_1gtest__internal_1_1_get_3_010_01_4.html", null ],
-    [ "Get< 1 >", "classstd_1_1tr1_1_1gtest__internal_1_1_get_3_011_01_4.html", null ],
-    [ "Get< 2 >", "classstd_1_1tr1_1_1gtest__internal_1_1_get_3_012_01_4.html", null ],
-    [ "Get< 3 >", "classstd_1_1tr1_1_1gtest__internal_1_1_get_3_013_01_4.html", null ],
-    [ "Get< 4 >", "classstd_1_1tr1_1_1gtest__internal_1_1_get_3_014_01_4.html", null ],
-    [ "Get< 5 >", "classstd_1_1tr1_1_1gtest__internal_1_1_get_3_015_01_4.html", null ],
-    [ "Get< 6 >", "classstd_1_1tr1_1_1gtest__internal_1_1_get_3_016_01_4.html", null ],
-    [ "Get< 7 >", "classstd_1_1tr1_1_1gtest__internal_1_1_get_3_017_01_4.html", null ],
-    [ "Get< 8 >", "classstd_1_1tr1_1_1gtest__internal_1_1_get_3_018_01_4.html", null ],
-    [ "Get< 9 >", "classstd_1_1tr1_1_1gtest__internal_1_1_get_3_019_01_4.html", null ],
     [ "Plugin::GetModuleComponentList", "structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_component_list.html", null ],
     [ "Plugin::GetModuleDescription", "structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_description.html", null ],
     [ "Plugin::GetModuleLicense", "structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_license.html", null ],
@@ -2455,35 +2331,21 @@ var hierarchy =
     [ "BaseContext::GetObjectsCallBack", "classsofa_1_1core_1_1objectmodel_1_1_base_context_1_1_get_objects_call_back.html", [
       [ "BaseContext::GetObjectsCallBackT< T, Container >", "classsofa_1_1core_1_1objectmodel_1_1_base_context_1_1_get_objects_call_back_t.html", null ]
     ] ],
-    [ "gk_csr_t", "structgk__csr__t.html", null ],
-    [ "gk_graph_t", "structgk__graph__t.html", null ],
-    [ "gk_HTable_t", "structgk___h_table__t.html", null ],
-    [ "gk_i2cc2i_t", "structgk__i2cc2i__t.html", null ],
-    [ "gk_mcore_t", "structgk__mcore__t.html", null ],
-    [ "gk_mop_t", "structgk__mop__t.html", null ],
-    [ "gk_option", "structgk__option.html", null ],
-    [ "gk_seq_t", "structgk__seq__t.html", null ],
-    [ "gk_str_t", "structgk__str__t.html", null ],
-    [ "gk_StringMap_t", "structgk___string_map__t.html", null ],
-    [ "gk_Tokens_t", "structgk___tokens__t.html", null ],
     [ "gpc_polygon", "structgpc__polygon.html", null ],
     [ "gpc_tristrip", "structgpc__tristrip.html", null ],
     [ "gpc_vertex", "structgpc__vertex.html", null ],
     [ "gpc_vertex_list", "structgpc__vertex__list.html", null ],
     [ "graph_data_widget_container< T >", "classsofa_1_1gui_1_1qt_1_1graph__data__widget__container.html", null ],
-    [ "graph_t", "structgraph__t.html", null ],
     [ "GraphScatteredMatrix", "classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_matrix.html", null ],
     [ "GraphSetting", "classsofa_1_1gui_1_1qt_1_1_graph_setting.html", [
       [ "GraphWidget< DataType >", "classsofa_1_1gui_1_1qt_1_1_graph_widget.html", null ]
     ] ],
     [ "GraphVisitor", "classsofa_1_1gui_1_1qt_1_1_graph_visitor.html", null ],
-    [ "GTestLog", "classtesting_1_1internal_1_1_g_test_log.html", null ],
     [ "GtestMessageFrame", "classsofa_1_1testing_1_1_gtest_message_frame.html", [
       [ "GtestMessageFrameFailure", "classsofa_1_1testing_1_1_gtest_message_frame_failure.html", null ],
       [ "GtestMessageFrameFailureWhenMissing", "classsofa_1_1testing_1_1_gtest_message_frame_failure_when_missing.html", null ],
       [ "GtestMessageFrameIgnore", "classsofa_1_1testing_1_1_gtest_message_frame_ignore.html", null ]
     ] ],
-    [ "GTestMutexLock", "classtesting_1_1internal_1_1_g_test_mutex_lock.html", null ],
     [ "GUI", null, [
       [ "RealGUI", "classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html", null ]
     ] ],
@@ -2519,7 +2381,6 @@ var hierarchy =
       [ "VerondaWestman< DataTypes >", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_veronda_westman.html", null ]
     ] ],
     [ "HyperelasticMaterial< sofa::defaulttype::StdVectorTypes >", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_hyperelastic_material.html", null ],
-    [ "IgnoredValue", "classtesting_1_1internal_1_1_ignored_value.html", null ],
     [ "IgnoreMessage", "classsofa_1_1testing_1_1_ignore_message.html", null ],
     [ "Image", "classsofa_1_1helper_1_1io_1_1_image.html", [
       [ "ImageDDS", "classsofa_1_1helper_1_1io_1_1_image_d_d_s.html", null ],
@@ -2529,21 +2390,11 @@ var hierarchy =
     [ "ImageInterface", null, [
       [ "ImageInterface", "class_image_interface.html", null ]
     ] ],
-    [ "imaxdiv_t", "structimaxdiv__t.html", null ],
     [ "StdVectorTypes< TCoord, TDeriv, TReal >::Impl< N, T >", "structsofa_1_1defaulttype_1_1_std_vector_types_1_1_impl.html", null ],
     [ "InciseAlongPathPerformerConfiguration", "classsofa_1_1gui_1_1component_1_1performer_1_1_incise_along_path_performer_configuration.html", [
       [ "InciseAlongPathPerformer", "classsofa_1_1gui_1_1component_1_1performer_1_1_incise_along_path_performer.html", null ]
     ] ],
     [ "IncompleteTypeInfo< TDataType >", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html", null ],
-    [ "IncompleteTypeInfo< MyType >", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html", [
-      [ "DataTypeInfo< MyType >", "classsofa_1_1defaulttype_1_1_data_type_info_3_01_my_type_01_4.html", null ]
-    ] ],
-    [ "IncompleteTypeInfo< ObjectInTranslationUnit1 >", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html", [
-      [ "DataTypeInfo< ObjectInTranslationUnit1 >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01_object_in_translation_unit1_01_4.html", null ]
-    ] ],
-    [ "IncompleteTypeInfo< ObjectInTranslationUnit2 >", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html", [
-      [ "DataTypeInfo< ObjectInTranslationUnit2 >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01_object_in_translation_unit2_01_4.html", null ]
-    ] ],
     [ "IncompleteTypeInfo< RigidMass< N, real > >", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html", [
       [ "DataTypeInfo< sofa::defaulttype::RigidMass< N, real > >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01sofa_1_1defaulttype_1_1_rigid_mass_3_01_n_00_01real_01_4_01_4.html", null ]
     ] ],
@@ -2552,20 +2403,11 @@ var hierarchy =
     ] ],
     [ "CompressedRowSparseMatrix< TBlock, TVecBlock, TVecIndex >::IndexedBlock", "structsofa_1_1linearalgebra_1_1_compressed_row_sparse_matrix_1_1_indexed_block.html", null ],
     [ "IndexOpenMP< T >", "structsofa_1_1helper_1_1_index_open_m_p.html", null ],
-    [ "IndexSequence< Is >", "structtesting_1_1internal_1_1_index_sequence.html", null ],
-    [ "IndexSequence<>", "structtesting_1_1internal_1_1_index_sequence.html", [
-      [ "MakeIndexSequence< 0 >", "structtesting_1_1internal_1_1_make_index_sequence_3_010_01_4.html", null ]
-    ] ],
     [ "Info", null, [
       [ "DataTypeInfoDynamicWrapper< Info >", "classsofa_1_1defaulttype_1_1_data_type_info_dynamic_wrapper.html", null ]
     ] ],
     [ "Plugin::InitExternalModule", "structsofa_1_1helper_1_1system_1_1_plugin_1_1_init_external_module.html", null ],
-    [ "OuterTemplateClass< T >::Inner_Template_Class< U >", "classsofa_1_1____sofa_____1_1_outer_template_class_1_1_inner___template___class.html", null ],
     [ "SparseMatrixStorageOrder< TMatrix >::InnerIterator", "classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html", null ],
-    [ "OuterSimpleClass::InnerSimpleClass", "classsofa_1_1____sofa_____1_1_outer_simple_class_1_1_inner_simple_class.html", null ],
-    [ "OuterSimpleClass::InnerSimpleClass", "class_outer_simple_class_1_1_inner_simple_class.html", null ],
-    [ "OuterSimpleClass::InnerSimpleStruct", "class_outer_simple_class_1_1_inner_simple_struct.html", null ],
-    [ "OuterSimpleClass::InnerSimpleStruct", "classsofa_1_1____sofa_____1_1_outer_simple_class_1_1_inner_simple_struct.html", null ],
     [ "input_event", "structsofa_1_1component_1_1playback_1_1input__event.html", null ],
     [ "int_data_widget_trait< T, vmin, vmax >", "classsofa_1_1gui_1_1qt_1_1int__data__widget__trait.html", null ],
     [ "int_data_widget_trait< char, -128, 127 >", "classsofa_1_1gui_1_1qt_1_1int__data__widget__trait.html", [
@@ -2638,12 +2480,8 @@ var hierarchy =
     [ "ISAPBox", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_i_s_a_p_box.html", null ],
     [ "IsEqual< is_integer >", "structsofa_1_1helper_1_1_is_equal.html", null ],
     [ "IsEqual< true >", "structsofa_1_1helper_1_1_is_equal_3_01true_01_4.html", null ],
-    [ "IsHashTable< T >", "structtesting_1_1internal_1_1_is_hash_table.html", null ],
     [ "IsNull< is_integer >", "structsofa_1_1helper_1_1_is_null.html", null ],
     [ "IsNull< true >", "structsofa_1_1helper_1_1_is_null_3_01true_01_4.html", null ],
-    [ "isparams_t", "structisparams__t.html", null ],
-    [ "IsRecursiveContainerImpl< C, bool >", "structtesting_1_1internal_1_1_is_recursive_container_impl.html", null ],
-    [ "IsRecursiveContainerImpl< C, true >", "structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01true_01_4.html", null ],
     [ "it_shape", "structit__shape.html", null ],
     [ "JointSpring< DataTypes >", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_joint_spring.html", null ],
     [ "JointSpringForceFieldInternalData< DataTypes >", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_joint_spring_force_field_internal_data.html", null ],
@@ -2666,8 +2504,6 @@ var hierarchy =
       [ "FullMatrix< T >::LineIterator", "classsofa_1_1linearalgebra_1_1_full_matrix_1_1_line_iterator.html", null ]
     ] ],
     [ "LineCollisionModel< TDataTypes >::LineData", "structsofa_1_1component_1_1collision_1_1geometry_1_1_line_collision_model_1_1_line_data.html", null ],
-    [ "linked_ptr< T >", "classtesting_1_1internal_1_1linked__ptr.html", null ],
-    [ "linked_ptr_internal", "classtesting_1_1internal_1_1linked__ptr__internal.html", null ],
     [ "LinkTraitsContainer< TDestType, TDestPtr, TValueType, multiLink >", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_container.html", null ],
     [ "LinkTraitsContainer< TDestType, TDestPtr, TValueType, false >", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_container_3_01_t_dest_type_00_01_t_dest_ptr_00_01_t_value_type_00_01false_01_4.html", null ],
     [ "LinkTraitsContainer< TDestType, TDestPtr, TValueType, true >", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_container_3_01_t_dest_type_00_01_t_dest_ptr_00_01_t_value_type_00_01true_01_4.html", null ],
@@ -2695,8 +2531,7 @@ var hierarchy =
     [ "MainPerComponentLoggingMessageHandler", "classsofa_1_1helper_1_1logging_1_1percomponentloggingmessagehandler_1_1_main_per_component_logging_message_handler.html", null ],
     [ "MainRoutingMessageHandler", "classsofa_1_1helper_1_1logging_1_1routingmessagehandler_1_1_main_routing_message_handler.html", null ],
     [ "ManyThreadsPerEnd", "classsofa_1_1helper_1_1system_1_1thread_1_1_many_threads_per_end.html", [
-      [ "CircularQueue< AtomicInt, helper::system::thread::FixedPower2Size< SOFA_DATA_MAX_ASPECTS >::type, helper::system::thread::ManyThreadsPerEnd >", "classsofa_1_1helper_1_1system_1_1thread_1_1_circular_queue.html", null ],
-      [ "CircularQueue< std::atomic< int >, FixedPower2Size< Capacity >::type, ManyThreadsPerEnd >", "classsofa_1_1helper_1_1system_1_1thread_1_1_circular_queue.html", null ]
+      [ "CircularQueue< AtomicInt, helper::system::thread::FixedPower2Size< SOFA_DATA_MAX_ASPECTS >::type, helper::system::thread::ManyThreadsPerEnd >", "classsofa_1_1helper_1_1system_1_1thread_1_1_circular_queue.html", null ]
     ] ],
     [ "map", null, [
       [ "map_ptr_stable_compare< std::pair< core::CollisionModel *, core::CollisionModel * >, core::collision::Contact::SPtr >", "classsofa_1_1helper_1_1map__ptr__stable__compare.html", null ],
@@ -2743,10 +2578,6 @@ var hierarchy =
     [ "Mat< N, N, Real >", "classsofa_1_1type_1_1_mat.html", null ],
     [ "Mat< N, N, Real1 >", "classsofa_1_1type_1_1_mat.html", null ],
     [ "Mat< NbRows, NbCols, Real >", "classsofa_1_1type_1_1_mat.html", null ],
-    [ "Mat< NCOLS, NCOLS, Real >", "classsofa_1_1type_1_1_mat.html", null ],
-    [ "Mat< NCOLS, NROWS, Real >", "classsofa_1_1type_1_1_mat.html", null ],
-    [ "Mat< NROWS, NCOLS, Real >", "classsofa_1_1type_1_1_mat.html", null ],
-    [ "Mat< NROWS, NROWS, Real >", "classsofa_1_1type_1_1_mat.html", null ],
     [ "Material", "classsofa_1_1type_1_1_material.html", null ],
     [ "MaterialParameters< DataTypes >", "structsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_material_parameters.html", null ],
     [ "MaterialParameters< sofa::defaulttype::StdVectorTypes >", "structsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_material_parameters.html", null ],
@@ -2880,14 +2711,11 @@ var hierarchy =
       [ "MeshGmsh", "classsofa_1_1helper_1_1io_1_1_mesh_gmsh.html", null ],
       [ "MeshOBJ", "classsofa_1_1helper_1_1io_1_1_mesh_o_b_j.html", null ]
     ] ],
-    [ "mesh_t", "structmesh__t.html", null ],
     [ "MeshMatrixMassInternalData< DataTypes, TMassType, GeometricalTypes >", "classsofa_1_1component_1_1mass_1_1_mesh_matrix_mass_internal_data.html", null ],
     [ "MeshMatrixMassInternalData< sofa::defaulttype::StdVectorTypes, MassType, DataTypes >", "classsofa_1_1component_1_1mass_1_1_mesh_matrix_mass_internal_data.html", null ],
-    [ "MeshOBJ_test::MeshOBJTestData", "structsofa_1_1_mesh_o_b_j__test_1_1_mesh_o_b_j_test_data.html", null ],
     [ "MeshTopologyLoader", "classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html", [
       [ "DefaultMeshTopologyLoader", "classsofa_1_1core_1_1topology_1_1_default_mesh_topology_loader.html", null ]
     ] ],
-    [ "Message", "classtesting_1_1_message.html", null ],
     [ "Message", "classsofa_1_1helper_1_1logging_1_1_message.html", null ],
     [ "MessageAsTestFailure", "classsofa_1_1testing_1_1_message_as_test_failure.html", null ],
     [ "MessageDispatcher", "classsofa_1_1helper_1_1logging_1_1_message_dispatcher.html", null ],
@@ -2898,7 +2726,6 @@ var hierarchy =
       [ "RichConsoleStyleMessageFormatter", "classsofa_1_1helper_1_1logging_1_1_rich_console_style_message_formatter.html", null ]
     ] ],
     [ "MessageHandler", "classsofa_1_1helper_1_1logging_1_1_message_handler.html", [
-      [ "MyMessageHandler", "class_my_message_handler.html", null ],
       [ "ClangMessageHandler", "classsofa_1_1helper_1_1logging_1_1_clang_message_handler.html", null ],
       [ "ConsoleMessageHandler", "classsofa_1_1helper_1_1logging_1_1_console_message_handler.html", null ],
       [ "CountingMessageHandler", "classsofa_1_1helper_1_1logging_1_1countingmessagehandler_1_1_counting_message_handler.html", null ],
@@ -2930,50 +2757,32 @@ var hierarchy =
       [ "SingleMatrixAccessor", "classsofa_1_1core_1_1behavior_1_1_single_matrix_accessor.html", null ]
     ] ],
     [ "MutationListener", "classsofa_1_1simulation_1_1_mutation_listener.html", [
-      [ "GraphListenerQListView", "classsofa_1_1gui_1_1qt_1_1_graph_listener_q_list_view.html", null ],
-      [ "TestMutationListener", "class_test_mutation_listener.html", null ]
+      [ "GraphListenerQListView", "classsofa_1_1gui_1_1qt_1_1_graph_listener_q_list_view.html", null ]
     ] ],
-    [ "Mutex", "classtesting_1_1internal_1_1_mutex.html", null ],
-    [ "DataTrackerFunctor_test::MyDataFunctor", "structsofa_1_1_data_tracker_functor__test_1_1_my_data_functor.html", null ],
     [ "MatrixProductOp< DiagonalMatrix< R1 >, M2 >::MyDest< Dest >", "classsofa_1_1linearalgebra_1_1_matrix_product_op_3_01_diagonal_matrix_3_01_r1_01_4_00_01_m2_01_4_1_1_my_dest.html", null ],
     [ "MatrixProductOp< M1, DiagonalMatrix< R2 > >::MyDest< Dest >", "classsofa_1_1linearalgebra_1_1_matrix_product_op_3_01_m1_00_01_diagonal_matrix_3_01_r2_01_4_01_4_1_1_my_dest.html", null ],
     [ "MatrixNegative< M1 >::MyDest< Dest >", "classsofa_1_1linearalgebra_1_1_matrix_negative_1_1_my_dest.html", null ],
     [ "MatrixTranspose< M1 >::MyDest< Dest >", "classsofa_1_1linearalgebra_1_1_matrix_transpose_1_1_my_dest.html", null ],
     [ "MatrixScale< M1, R2 >::MyDest< Dest >", "classsofa_1_1linearalgebra_1_1_matrix_scale_1_1_my_dest.html", null ],
     [ "MatrixSubstraction< M1, M2 >::MyDest< Dest >", "classsofa_1_1linearalgebra_1_1_matrix_substraction_1_1_my_dest.html", null ],
-    [ "MyType", "class_my_type.html", null ],
-    [ "MyTypeNotRegistered", "class_my_type_not_registered.html", null ],
     [ "NameDecoder", "classsofa_1_1helper_1_1_name_decoder.html", null ],
-    [ "NativeArray< Element >", "classtesting_1_1internal_1_1_native_array.html", null ],
     [ "NDIM > 0) ? TYPE_VECTOR :TYPE_SINGLE)) >", "classsofa_1_1gui_1_1qt_1_1flat__data__trait.html", null ],
     [ "BarycentricMapperTopologyContainer< In, Out, MappingDataType, Element >::NearestParams", "structsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmappertopologycontainer___1_1_baryc2390233395139c84d5490a3e208dd922.html", null ],
     [ "NoArgument", "classsofa_1_1helper_1_1_no_argument.html", null ],
     [ "FlagTreeItem::ci_comparison::nocase_compare", "structsofa_1_1core_1_1visual_1_1_flag_tree_item_1_1ci__comparison_1_1nocase__compare.html", null ],
     [ "NoInit", "structsofa_1_1type_1_1_no_init.html", null ],
-    [ "NotAType", "class_not_a_type.html", null ],
     [ "NoThreadManager", "classsofa_1_1component_1_1linearsolver_1_1_no_thread_manager.html", null ],
-    [ "nrinfo_t", "structnrinfo__t.html", null ],
     [ "MessageDispatcher::NullLoggerStream", "classsofa_1_1helper_1_1logging_1_1_message_dispatcher_1_1_null_logger_stream.html", null ],
     [ "NumericalIntegrationDescriptor< Real, N >", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html", null ],
     [ "NumericalIntegrationDescriptor< Real, 1 >", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html", null ],
     [ "NumericalIntegrationDescriptor< Real, 3 >", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html", null ],
     [ "NumericalIntegrationDescriptor< Real, 4 >", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html", null ],
     [ "NVector3", "classvrender_1_1_n_vector3.html", null ],
-    [ "O1", null, [
-      [ "ParentObject< O1, _O2 >", "structsofa_1_1_parent_object.html", null ]
-    ] ],
     [ "AdvancedTimer::Obj", "classsofa_1_1helper_1_1_advanced_timer_1_1_obj.html", null ],
-    [ "Object", null, [
-      [ "InstrumentedObject< Object >", "structsofa_1_1_instrumented_object.html", null ]
-    ] ],
     [ "ObjectFactory", "classsofa_1_1core_1_1_object_factory.html", null ],
-    [ "ObjectInTranslationUnit1", "class_object_in_translation_unit1.html", null ],
-    [ "ObjectInTranslationUnit2", "class_object_in_translation_unit2.html", null ],
     [ "ObjectModel", "structsofa_1_1gui_1_1qt_1_1_object_model.html", null ],
     [ "ObjectModelPtr", "unionsofa_1_1gui_1_1qt_1_1_object_model_ptr.html", null ],
-    [ "OneThreadPerEnd", "classsofa_1_1helper_1_1system_1_1thread_1_1_one_thread_per_end.html", [
-      [ "CircularQueue< int, FixedSize< 6 >::type, OneThreadPerEnd >", "classsofa_1_1helper_1_1system_1_1thread_1_1_circular_queue.html", null ]
-    ] ],
+    [ "OneThreadPerEnd", "classsofa_1_1helper_1_1system_1_1thread_1_1_one_thread_per_end.html", null ],
     [ "Operation", "classsofa_1_1gui_1_1common_1_1_operation.html", [
       [ "AddFrameOperation", "classsofa_1_1gui_1_1common_1_1_add_frame_operation.html", null ],
       [ "AddRecordedCameraOperation", "classsofa_1_1gui_1_1common_1_1_add_recorded_camera_operation.html", [
@@ -3011,30 +2820,11 @@ var hierarchy =
     [ "OptionsGroup", "classsofa_1_1helper_1_1_options_group.html", null ],
     [ "BoxROI< DataTypes >::OrientedBox", "structsofa_1_1component_1_1engine_1_1select_1_1boxroi_1_1_box_r_o_i_1_1_oriented_box.html", null ],
     [ "OscillatorConstraint< TDataTypes >::Oscillator", "structsofa_1_1component_1_1constraint_1_1projective_1_1_oscillator_constraint_1_1_oscillator.html", null ],
-    [ "OuterSimpleClass", "classsofa_1_1____sofa_____1_1_outer_simple_class.html", null ],
-    [ "OuterSimpleClass", "class_outer_simple_class.html", null ],
-    [ "OuterTemplateClass< T >", "classsofa_1_1____sofa_____1_1_outer_template_class.html", null ],
     [ "OwnershipSPtr< T >", "classsofa_1_1helper_1_1_ownership_s_ptr.html", null ],
     [ "pair", null, [
       [ "BaseMechanicalState::VMultiOpEntry", "classsofa_1_1core_1_1behavior_1_1_base_mechanical_state_1_1_v_multi_op_entry.html", null ],
       [ "CompressedRowSparseMatrix< TBlock, TVecBlock, TVecIndex >::Range", "classsofa_1_1linearalgebra_1_1_compressed_row_sparse_matrix_1_1_range.html", null ]
     ] ],
-    [ "ParameterizedTestSuiteInfoBase", "classtesting_1_1internal_1_1_parameterized_test_suite_info_base.html", [
-      [ "ParameterizedTestSuiteInfo< TestSuite >", "classtesting_1_1internal_1_1_parameterized_test_suite_info.html", null ]
-    ] ],
-    [ "ParameterizedTestSuiteRegistry", "classtesting_1_1internal_1_1_parameterized_test_suite_registry.html", null ],
-    [ "ParamGenerator< T >", "classtesting_1_1internal_1_1_param_generator.html", null ],
-    [ "ParamGeneratorInterface< T >", "classtesting_1_1internal_1_1_param_generator_interface.html", [
-      [ "RangeGenerator< T, IncrementT >", "classtesting_1_1internal_1_1_range_generator.html", null ],
-      [ "ValuesInIteratorRangeGenerator< T >", "classtesting_1_1internal_1_1_values_in_iterator_range_generator.html", null ]
-    ] ],
-    [ "ParamGeneratorInterface< ParamType >", "classtesting_1_1internal_1_1_param_generator_interface.html", null ],
-    [ "ParamGeneratorInterface<::std::tuple< T... > >", "classtesting_1_1internal_1_1_param_generator_interface.html", [
-      [ "CartesianProductGenerator< T >", "classtesting_1_1internal_1_1_cartesian_product_generator.html", null ]
-    ] ],
-    [ "ParamIterator< T >", "classtesting_1_1internal_1_1_param_iterator.html", null ],
-    [ "ParamIteratorInterface< T >", "classtesting_1_1internal_1_1_param_iterator_interface.html", null ],
-    [ "ParamIteratorInterface< ParamType >", "classtesting_1_1internal_1_1_param_iterator_interface.html", null ],
     [ "ParserGL", "classvrender_1_1_parser_g_l.html", null ],
     [ "ParserUtils", "class_parser_utils.html", null ],
     [ "PartialLinearMovementConstraintInternalData< DataTypes >", "classsofa_1_1component_1_1constraint_1_1projective_1_1_partial_linear_movement_constraint_internal_data.html", null ],
@@ -3042,7 +2832,6 @@ var hierarchy =
     [ "PatchTestStruct< T >", "structsofa_1_1_patch_test_struct.html", null ],
     [ "PatchTestStruct< DataTypes >", "structsofa_1_1_patch_test_struct.html", null ],
     [ "PathResolver", "classsofa_1_1core_1_1_path_resolver.html", null ],
-    [ "pdbf", "structpdbf.html", null ],
     [ "Pentahedron", "structsofa_1_1geometry_1_1_pentahedron.html", null ],
     [ "PickHandler", "classsofa_1_1gui_1_1common_1_1_pick_handler.html", [
       [ "GLPickHandler", "classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html", null ]
@@ -3070,7 +2859,6 @@ var hierarchy =
     ] ],
     [ "PrimitiveGroup", "classsofa_1_1type_1_1_primitive_group.html", null ],
     [ "PrimitivePositioning", "classvrender_1_1_primitive_positioning.html", null ],
-    [ "PrintToStringParamName", "structtesting_1_1_print_to_string_param_name.html", null ],
     [ "ProgressDialog", "class_progress_dialog.html", null ],
     [ "ProjectDirectionConstraintInternalData< DataTypes >", "classsofa_1_1component_1_1constraint_1_1projective_1_1_project_direction_constraint_internal_data.html", null ],
     [ "ProjectDirectionConstraintInternalData< sofa::defaulttype::StdVectorTypes >", "classsofa_1_1component_1_1constraint_1_1projective_1_1_project_direction_constraint_internal_data.html", null ],
@@ -3164,12 +2952,8 @@ var hierarchy =
     [ "QWebEnginePage", null, [
       [ "SofaEnrichedPage", "classsofa_1_1gui_1_1qt_1_1_sofa_enriched_page.html", null ]
     ] ],
-    [ "Random", "classtesting_1_1internal_1_1_random.html", null ],
     [ "RandomGenerator", "classsofa_1_1helper_1_1_random_generator.html", null ],
     [ "Ray", "classsofa_1_1type_1_1_ray.html", null ],
-    [ "RE", "classtesting_1_1internal_1_1_r_e.html", null ],
-    [ "re_pattern_buffer", "structre__pattern__buffer.html", null ],
-    [ "re_registers", "structre__registers.html", null ],
     [ "ReadAccessor< T, Enable >", "classsofa_1_1helper_1_1_read_accessor.html", null ],
     [ "ReadAccessor< T >", "classsofa_1_1helper_1_1_read_accessor.html", [
       [ "ReadAccessor< core::objectmodel::Data< T > >", "classsofa_1_1helper_1_1_read_accessor_3_01core_1_1objectmodel_1_1_data_3_01_t_01_4_01_4.html", null ]
@@ -3197,9 +2981,6 @@ var hierarchy =
     [ "RegisterObject", "classsofa_1_1core_1_1_register_object.html", null ],
     [ "RegisterOperation", "classsofa_1_1gui_1_1common_1_1_register_operation.html", null ],
     [ "RegisterTemplateAlias", "classsofa_1_1defaulttype_1_1_register_template_alias.html", null ],
-    [ "regmatch_t", "structregmatch__t.html", null ],
-    [ "RelationToSourceCopy", "structtesting_1_1internal_1_1_relation_to_source_copy.html", null ],
-    [ "RelationToSourceReference", "structtesting_1_1internal_1_1_relation_to_source_reference.html", null ],
     [ "RemovePrimitivePerformerConfiguration", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer_configuration.html", [
       [ "RemovePrimitivePerformer< DataTypes >", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html", null ]
     ] ],
@@ -3227,9 +3008,6 @@ var hierarchy =
     [ "MapMapSparseMatrix< T >::RowConstIterator", "classsofa_1_1defaulttype_1_1_map_map_sparse_matrix_1_1_row_const_iterator.html", null ],
     [ "MapMapSparseMatrix< T >::RowIterator", "classsofa_1_1defaulttype_1_1_map_map_sparse_matrix_1_1_row_iterator.html", null ],
     [ "RuleBasedContactManager::Rule", "classsofa_1_1component_1_1collision_1_1response_1_1contact_1_1_rule_based_contact_manager_1_1_rule.html", null ],
-    [ "SameSizeTuplePrefixComparator< kSize1, kSize2 >", "structstd_1_1tr1_1_1gtest__internal_1_1_same_size_tuple_prefix_comparator.html", null ],
-    [ "SameSizeTuplePrefixComparator< 0, 0 >", "structstd_1_1tr1_1_1gtest__internal_1_1_same_size_tuple_prefix_comparator_3_010_00_010_01_4.html", null ],
-    [ "SameSizeTuplePrefixComparator< k, k >", "structstd_1_1tr1_1_1gtest__internal_1_1_same_size_tuple_prefix_comparator_3_01k_00_01k_01_4.html", null ],
     [ "sbt_t_shape", "structsbt__t__shape.html", null ],
     [ "ScalarTypeInfo< TDataType >", "structsofa_1_1defaulttype_1_1_scalar_type_info.html", null ],
     [ "ScalarTypeInfo< double >", "structsofa_1_1defaulttype_1_1_scalar_type_info.html", [
@@ -3239,12 +3017,13 @@ var hierarchy =
       [ "DataTypeInfo< float >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01float_01_4.html", null ]
     ] ],
     [ "BaseSimulationTest::SceneInstance", "classsofa_1_1testing_1_1_base_simulation_test_1_1_scene_instance.html", null ],
-    [ "SceneLoader", "classsofa_1_1simulation_1_1_scene_loader.html", null ],
+    [ "SceneLoader", "classsofa_1_1simulation_1_1_scene_loader.html", [
+      [ "SceneLoaderPHP", "classsofa_1_1simulation_1_1_scene_loader_p_h_p.html", null ],
+      [ "SceneLoaderXML", "classsofa_1_1simulation_1_1_scene_loader_x_m_l.html", null ]
+    ] ],
     [ "SceneLoaderFactory", "classsofa_1_1simulation_1_1_scene_loader_factory.html", null ],
     [ "ScopedAdvancedTimer", "structsofa_1_1helper_1_1_scoped_advanced_timer.html", null ],
     [ "ScopedLock", "classsofa_1_1simulation_1_1_scoped_lock.html", null ],
-    [ "ScopedPrematureExitFile", "classtesting_1_1internal_1_1_scoped_premature_exit_file.html", null ],
-    [ "ScopedTrace", "classtesting_1_1_scoped_trace.html", null ],
     [ "set", null, [
       [ "TagSet", "classsofa_1_1core_1_1objectmodel_1_1_tag_set.html", null ]
     ] ],
@@ -3260,8 +3039,6 @@ var hierarchy =
     [ "SetTypeInfo< std::set< T, Compare, Alloc > >", "structsofa_1_1defaulttype_1_1_set_type_info.html", [
       [ "DataTypeInfo< std::set< T, Compare, Alloc > >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01std_1_1set_3_01_t_00_01_compare_00_01_alloc_01_4_01_4.html", null ]
     ] ],
-    [ "SimpleClass", "class_simple_class.html", null ],
-    [ "SimpleClass", "classsofa_1_1____sofa_____1_1_simple_class.html", null ],
     [ "SimplicialLDLTTraits< Real >", "structsofa_1_1component_1_1linearsolver_1_1direct_1_1_simplicial_l_d_l_t_traits.html", null ],
     [ "SimplicialLLTTraits< Real >", "structsofa_1_1component_1_1linearsolver_1_1direct_1_1_simplicial_l_l_t_traits.html", null ],
     [ "SinglePtr< T, TDestPtr, TPtr >", "classsofa_1_1core_1_1objectmodel_1_1_single_ptr.html", null ],
@@ -3305,8 +3082,8 @@ var hierarchy =
       [ "RigidRigidMapping< TIn, TOut >::Loader", "classsofa_1_1component_1_1mapping_1_1nonlinear_1_1_rigid_rigid_mapping_1_1_loader.html", null ]
     ] ],
     [ "SpinLock", "classsofa_1_1simulation_1_1_spin_lock.html", null ],
-    [ "VectorSpringForceField< DataTypes >::Spring", "structsofa_1_1component_1_1solidmechanics_1_1spring_1_1_vector_spring_force_field_1_1_spring.html", null ],
     [ "FrameSpringForceField< DataTypes >::Spring", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_frame_spring_force_field_1_1_spring.html", null ],
+    [ "VectorSpringForceField< DataTypes >::Spring", "structsofa_1_1component_1_1solidmechanics_1_1spring_1_1_vector_spring_force_field_1_1_spring.html", null ],
     [ "SpringForceFieldInternalData< DataTypes >", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_spring_force_field_internal_data.html", null ],
     [ "SpringForceFieldInternalData< sofa::defaulttype::StdVectorTypes >", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_spring_force_field_internal_data.html", null ],
     [ "SPtr", null, [
@@ -3343,7 +3120,6 @@ var hierarchy =
     ] ],
     [ "DAGNode::StatusStruct", "structsofa_1_1simulation_1_1graph_1_1_d_a_g_node_1_1_status_struct.html", null ],
     [ "STBImageCreators", "classsofa_1_1helper_1_1io_1_1_s_t_b_image_creators.html", null ],
-    [ "STBImage_test::STBImageTestData", "structsofa_1_1_s_t_b_image__test_1_1_s_t_b_image_test_data.html", null ],
     [ "StdRigidTypes< N, real >", "classsofa_1_1defaulttype_1_1_std_rigid_types.html", null ],
     [ "StdRigidTypes< 2, real >", "classsofa_1_1defaulttype_1_1_std_rigid_types_3_012_00_01real_01_4.html", null ],
     [ "StdRigidTypes< 3, real >", "classsofa_1_1defaulttype_1_1_std_rigid_types_3_013_00_01real_01_4.html", null ],
@@ -3361,7 +3137,6 @@ var hierarchy =
       [ "StandardTetrahedralFEMForceField< DataTypes >::TetrahedronRestInformation", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1_standard_tetrahedral_f_e_m_f1b7f2f40a66fe2a9522e50d01e0a4441.html", null ],
       [ "TetrahedronHyperelasticityFEMForceField< DataTypes >::TetrahedronRestInformation", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1_tetrahedron_hyperelasticity_11a43b7aa7f251e640b19f2d5ec26614.html", null ]
     ] ],
-    [ "String", "classtesting_1_1internal_1_1_string.html", null ],
     [ "struct_data_trait< T >", "classsofa_1_1gui_1_1qt_1_1struct__data__trait.html", null ],
     [ "struct_data_trait< CLASS >", "classsofa_1_1gui_1_1qt_1_1struct__data__trait_3_01_c_l_a_s_s_01_4.html", null ],
     [ "struct_data_trait< sofa::defaulttype::RigidCoord< N, T > >", "classsofa_1_1gui_1_1qt_1_1struct__data__trait_3_01sofa_1_1defaulttype_1_1_rigid_coord_3_01_n_00_01_t_01_4_01_4.html", null ],
@@ -3387,11 +3162,10 @@ var hierarchy =
     [ "SuturePointPerformerConfiguration", "classsofa_1_1gui_1_1component_1_1performer_1_1_suture_point_performer_configuration.html", [
       [ "SuturePointPerformer< DataTypes >", "classsofa_1_1gui_1_1component_1_1performer_1_1_suture_point_performer.html", null ]
     ] ],
-    [ "LinkTraitsValueType< TDestType, TDestPtr, strongLink, true >::T", "structsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_088b038afce842b68008542399b43f1cf.html", null ],
     [ "T", null, [
-      [ "MatrixExpr< T >", "classsofa_1_1linearalgebra_1_1_matrix_expr.html", null ],
-      [ "SuiteApiResolver< T >", "structtesting_1_1internal_1_1_suite_api_resolver.html", null ]
+      [ "MatrixExpr< T >", "classsofa_1_1linearalgebra_1_1_matrix_expr.html", null ]
     ] ],
+    [ "LinkTraitsValueType< TDestType, TDestPtr, strongLink, true >::T", "structsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_088b038afce842b68008542399b43f1cf.html", null ],
     [ "table_data_widget_container< T, FLAGS >", "classsofa_1_1gui_1_1qt_1_1table__data__widget__container.html", null ],
     [ "table_data_widget_container< T, TABLE_NORMAL >", "classsofa_1_1gui_1_1qt_1_1table__data__widget__container.html", null ],
     [ "Tag", "classsofa_1_1core_1_1objectmodel_1_1_tag.html", null ],
@@ -3401,8 +3175,6 @@ var hierarchy =
       [ "CpuTask", "classsofa_1_1simulation_1_1_cpu_task.html", [
         [ "FreeMotionTask", "classsofa_1_1component_1_1animationloop_1_1_free_motion_task.html", null ],
         [ "MechanicalMatrixMapper< TDataTypes1, TDataTypes2 >::JacobianTask", "classsofa_1_1component_1_1mapping_1_1mappedmatrix_1_1_mechanical_matrix_mapper_1_1_jacobian_task.html", null ],
-        [ "FibonacciTask", "classsofa_1_1_fibonacci_task.html", null ],
-        [ "IntSumTask", "classsofa_1_1_int_sum_task.html", null ],
         [ "InitPerThreadDataTask", "classsofa_1_1simulation_1_1_init_per_thread_data_task.html", null ],
         [ "SolveVisitorTask", "classsofa_1_1simulation_1_1_solve_visitor_task.html", null ]
       ] ]
@@ -3416,42 +3188,22 @@ var hierarchy =
     [ "TCylinder< TDataTypes >", "classsofa_1_1component_1_1collision_1_1geometry_1_1_t_cylinder.html", null ],
     [ "ValuesFromPositions< DataTypes >::TempData", "structsofa_1_1component_1_1engine_1_1select_1_1_values_from_positions_1_1_temp_data.html", null ],
     [ "TemplateAliases", "classsofa_1_1defaulttype_1_1_template_aliases.html", null ],
-    [ "TemplateClass< T >", "class_template_class.html", null ],
     [ "TemplateTypes< TDataTypes, TMassTypes >", "struct_template_types.html", null ],
     [ "TemporaryLocale", "classsofa_1_1helper_1_1system_1_1_temporary_locale.html", null ],
     [ "InteractionEllipsoidForceField< TDataTypes1, TDataTypes2 >::TempVars", "structsofa_1_1component_1_1mechanicalload_1_1_interaction_ellipsoid_force_field_1_1_temp_vars.html", null ],
-    [ "MatrixLinearSolver< Matrix, Vector, ThreadManager >::TempVectorContainer", "classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_1_1_temp_vector_container.html", null ],
     [ "MatrixLinearSolver< Matrix, Vector, NoThreadManager >::TempVectorContainer", "classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_3_01_matrix_00_01_vector_00_01_n31c2886da19cf3392fa59e6e45f7d675.html", null ],
-    [ "Test", "classtesting_1_1_test.html", [
-      [ "CircularQueue_ManyProdManyConsTest", "class_circular_queue___many_prod_many_cons_test.html", null ],
-      [ "CircularQueue_SingleProdSingleConsTest", "class_circular_queue___single_prod_single_cons_test.html", null ],
-      [ "CircularQueue_SingleTest", "class_circular_queue___single_test.html", null ],
-      [ "FileRepository_test", "struct_file_repository__test.html", null ],
+    [ "MatrixLinearSolver< Matrix, Vector, ThreadManager >::TempVectorContainer", "classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_1_1_temp_vector_container.html", null ],
+    [ "Test", null, [
       [ "BaryMapperTest", "structsofa_1_1_bary_mapper_test.html", null ],
-      [ "DataFileNameVector_test", "structsofa_1_1_data_file_name_vector__test.html", null ],
-      [ "DataTracker_test", "structsofa_1_1_data_tracker__test.html", null ],
-      [ "Geometry2DTriangle_test< VecType >", "classsofa_1_1_geometry2_d_triangle__test.html", null ],
-      [ "Geometry3DTriangle_test< VecType >", "classsofa_1_1_geometry3_d_triangle__test.html", null ],
       [ "JoinPoints_test< _DataTypes >", "classsofa_1_1_join_points__test.html", null ],
       [ "MeshOBJLoader_test", "classsofa_1_1meshobjloader__test_1_1_mesh_o_b_j_loader__test.html", null ],
       [ "RandomPointDistributionInSurface_test< _DataTypes >", "classsofa_1_1_random_point_distribution_in_surface__test.html", null ],
       [ "BaseTest", "classsofa_1_1testing_1_1_base_test.html", [
         [ "BarycentricMapperTriangleSetTopologyTest< In, Out >", "struct_barycentric_mapper_triangle_set_topology_test.html", null ],
-        [ "BaseClass_test", "class_base_class__test.html", null ],
-        [ "BaseData_test", "class_base_data__test.html", null ],
-        [ "BaseLinkTests< Link >", "class_base_link_tests.html", null ],
-        [ "BaseObjectDescription_test", "struct_base_object_description__test.html", null ],
         [ "BoxROITest< TDataType >", "struct_box_r_o_i_test.html", null ],
-        [ "Color_Test", "class_color___test.html", null ],
-        [ "DAGNode_test", "struct_d_a_g_node__test.html", null ],
-        [ "DataFileName_test", "class_data_file_name__test.html", null ],
-        [ "DataLink_test", "struct_data_link__test.html", null ],
-        [ "DDGNode_test", "class_d_d_g_node__test.html", null ],
         [ "EdgeSetTopology_test", "class_edge_set_topology__test.html", null ],
         [ "HexahedronSetTopology_test", "class_hexahedron_set_topology__test.html", null ],
         [ "MeshTopology_test", "class_mesh_topology__test.html", null ],
-        [ "MultiLink_test", "class_multi_link__test.html", null ],
-        [ "MutationListener_test", "struct_mutation_listener__test.html", null ],
         [ "NumericTest< _DataTypes::Coord::value_type >", "structsofa_1_1testing_1_1_numeric_test.html", [
           [ "ProjectToLineConstraint_test< _DataTypes >", "structsofa_1_1_project_to_line_constraint__test.html", null ],
           [ "ProjectToPlaneConstraint_test< _DataTypes >", "structsofa_1_1_project_to_plane_constraint__test.html", null ],
@@ -3501,53 +3253,27 @@ var hierarchy =
         [ "NumericTest< SReal >", "structsofa_1_1testing_1_1_numeric_test.html", [
           [ "EulerImplicit_test_2_particles_in_different_nodes_to_equilibrium", "structsofa_1_1_euler_implicit__test__2__particles__in__different__nodes__to__equilibrium.html", null ],
           [ "EulerImplicit_test_2_particles_to_equilibrium", "structsofa_1_1_euler_implicit__test__2__particles__to__equilibrium.html", null ],
-          [ "Scene_test", "structsofa_1_1_scene__test.html", null ],
           [ "SparseMatrixTest< TReal >", "structsofa_1_1testing_1_1_sparse_matrix_test.html", null ]
         ] ],
         [ "NumericTest< T::Real >", "structsofa_1_1testing_1_1_numeric_test.html", [
-          [ "TestBaseMatrix< T >", "classsofa_1_1linearalgebra_1_1testing_1_1_test_base_matrix.html", null ],
-          [ "TestSparseMatrices< T >", "structsofa_1_1_test_sparse_matrices.html", null ],
-          [ "SparseMatrixTest< T::Real >", "structsofa_1_1testing_1_1_sparse_matrix_test.html", [
-            [ "TestSparseMatrixProduct< T >", "struct_test_sparse_matrix_product.html", null ],
-            [ "TestSparseMatrixTranspose< T >", "struct_test_sparse_matrix_transpose.html", null ]
-          ] ]
+          [ "TestBaseMatrix< T >", "classsofa_1_1linearalgebra_1_1testing_1_1_test_base_matrix.html", null ]
         ] ],
         [ "NumericTest< TTypeTuple::DataType::Coord::value_type >", "structsofa_1_1testing_1_1_numeric_test.html", [
           [ "ConstantForceField_test< TTypeTuple >", "struct_constant_force_field__test.html", null ]
         ] ],
-        [ "NumericTest<>", "structsofa_1_1testing_1_1_numeric_test.html", [
-          [ "vector_benchmark< T >", "classvector__benchmark.html", null ],
-          [ "vector_test< T >", "classvector__test.html", null ]
-        ] ],
-        [ "PathResolver_test", "class_path_resolver__test.html", null ],
-        [ "PluginManager_test", "struct_plugin_manager__test.html", null ],
         [ "QuadSetTopology_test", "class_quad_set_topology__test.html", null ],
         [ "RegularGridTopology_test", "struct_regular_grid_topology__test.html", null ],
         [ "RestStiffSpringsForceField_test", "class_rest_stiff_springs_force_field__test.html", null ],
-        [ "SingleLink_test", "class_single_link__test.html", null ],
         [ "BeamFEMForceField_test< DataTypes >", "classsofa_1_1_beam_f_e_m_force_field__test.html", null ],
         [ "CylinderGridTopology_test", "structsofa_1_1_cylinder_grid_topology__test.html", null ],
-        [ "DAG_test", "structsofa_1_1_d_a_g__test.html", null ],
-        [ "Data_test", "classsofa_1_1_data__test.html", null ],
-        [ "DataCallback_test", "structsofa_1_1_data_callback__test.html", null ],
         [ "DataEngine_test< DataEngineType >", "structsofa_1_1_data_engine__test.html", null ],
-        [ "DataTrackerEngine_test", "structsofa_1_1_data_tracker_engine__test.html", null ],
-        [ "DataTrackerFunctor_test", "structsofa_1_1_data_tracker_functor__test.html", null ],
         [ "DiagonalMass_test< TDataTypes, TMassType >", "classsofa_1_1_diagonal_mass__test.html", null ],
-        [ "Engine_test", "structsofa_1_1_engine__test.html", null ],
-        [ "Factory_test", "classsofa_1_1_factory__test.html", null ],
-        [ "KdTreeTest", "structsofa_1_1_kd_tree_test.html", null ],
         [ "LCPForceFeedback_test", "classsofa_1_1_l_c_p_force_feedback__test.html", null ],
-        [ "LoadScene_test", "structsofa_1_1_load_scene__test.html", null ],
-        [ "Material_test", "classsofa_1_1_material__test.html", null ],
         [ "MeshGmshLoader_test", "classsofa_1_1meshgmshloader__test_1_1_mesh_gmsh_loader__test.html", null ],
-        [ "MeshLoader_test", "classsofa_1_1_mesh_loader__test.html", null ],
         [ "MeshMatrixMass_test< TDataTypes, TMassType >", "classsofa_1_1_mesh_matrix_mass__test.html", null ],
         [ "MeshNewProximityIntersectionTest", "structsofa_1_1_mesh_new_proximity_intersection_test.html", null ],
-        [ "MeshOBJ_test", "classsofa_1_1_mesh_o_b_j__test.html", null ],
         [ "MeshVTKLoaderTest", "structsofa_1_1meshvtkloader__test_1_1_mesh_v_t_k_loader_test.html", null ],
         [ "SphereGridTopology_test", "structsofa_1_1_sphere_grid_topology__test.html", null ],
-        [ "STBImage_test", "classsofa_1_1_s_t_b_image__test.html", null ],
         [ "TestIndexValueMapper< T >", "structsofa_1_1_test_index_value_mapper.html", null ],
         [ "TestIndicesFromValues", "structsofa_1_1_test_indices_from_values.html", null ],
         [ "BaseSimulationTest", "classsofa_1_1testing_1_1_base_simulation_test.html", [
@@ -3564,7 +3290,6 @@ var hierarchy =
           [ "NodeContext_test", "class_node_context__test.html", null ],
           [ "PolynomialRestShapeSpringsForceField_test", "class_polynomial_rest_shape_springs_force_field__test.html", null ],
           [ "ReadState_test", "class_read_state__test.html", null ],
-          [ "SimpleApi_test", "class_simple_api__test.html", null ],
           [ "AddResourceRepository_test", "structsofa_1_1_add_resource_repository__test.html", null ],
           [ "AdvancedTimerTest", "structsofa_1_1_advanced_timer_test.html", null ],
           [ "AffinePatch_sofa_test< _DataTypes >", "structsofa_1_1_affine_patch__sofa__test.html", null ],
@@ -3589,7 +3314,6 @@ var hierarchy =
           [ "ExtrudeEdgesAndGenerateQuads_test< _DataTypes >", "structsofa_1_1_extrude_edges_and_generate_quads__test.html", null ],
           [ "ForceField_test< _ForceFieldType >", "structsofa_1_1_force_field__test.html", null ],
           [ "LinearElasticity_test< _DataTypes >", "structsofa_1_1_linear_elasticity__test.html", null ],
-          [ "Link_test", "structsofa_1_1_link__test.html", null ],
           [ "Mapping_test< _Mapping >", "structsofa_1_1mapping__test_1_1_mapping__test.html", null ],
           [ "MergePoints_test< _DataTypes >", "structsofa_1_1_merge_points__test.html", null ],
           [ "MeshROI_test< _DataTypes >", "structsofa_1_1_mesh_r_o_i__test.html", null ],
@@ -3597,7 +3321,6 @@ var hierarchy =
           [ "PlaneROI_test< _DataTypes >", "structsofa_1_1_plane_r_o_i__test.html", null ],
           [ "ProjectToLineConstraint_test< _DataTypes >", "structsofa_1_1_project_to_line_constraint__test.html", null ],
           [ "ProjectToPlaneConstraint_test< _DataTypes >", "structsofa_1_1_project_to_plane_constraint__test.html", null ],
-          [ "RequiredPlugin_test", "structsofa_1_1_required_plugin__test.html", null ],
           [ "SkeletalMotionConstraint_test< _DataTypes >", "structsofa_1_1_skeletal_motion_constraint__test.html", null ],
           [ "SmoothMeshEngine_test< _DataTypes >", "structsofa_1_1_smooth_mesh_engine__test.html", null ],
           [ "SphereROI_test< _DataTypes >", "structsofa_1_1_sphere_r_o_i__test.html", null ],
@@ -3616,44 +3339,14 @@ var hierarchy =
         [ "TriangularBendingSprings_test< DataTypes >", "classsofa_1_1_triangular_bending_springs__test.html", null ],
         [ "SparseGridTopology_test", "struct_sparse_grid_topology__test.html", null ],
         [ "StaticSolverTest", "class_static_solver_test.html", null ],
-        [ "TestMessageHandler_test", "class_test_message_handler__test.html", null ],
         [ "TetrahedronSetTopology_test", "class_tetrahedron_set_topology__test.html", null ],
         [ "TriangleSetTopology_test", "class_triangle_set_topology__test.html", null ],
         [ "UniformMassTest< TTemplateTypes >", "struct_uniform_mass_test.html", null ]
       ] ],
       [ "TransformEngine_test< _DataTypes >", "classsofa_1_1_transform_engine__test.html", null ],
-      [ "VectorData_test", "structsofa_1_1_vector_data__test.html", null ],
-      [ "VisualModelImpl_test< _DataTypes >", "structsofa_1_1_visual_model_impl__test.html", null ],
-      [ "SVector_test< T >", "struct_s_vector__test.html", null ],
-      [ "TestWithParam< T >", "classtesting_1_1_test_with_param.html", null ]
+      [ "VisualModelImpl_test< _DataTypes >", "structsofa_1_1_visual_model_impl__test.html", null ]
     ] ],
     [ "TestBaseMatrixTraits< TMatrix, TNbRows, TNbCols, TReal >", "structsofa_1_1linearalgebra_1_1testing_1_1_test_base_matrix_traits.html", null ],
-    [ "TestEventListener", "classtesting_1_1_test_event_listener.html", [
-      [ "EmptyTestEventListener", "classtesting_1_1_empty_test_event_listener.html", [
-        [ "JsonUnitTestResultPrinter", "classtesting_1_1internal_1_1_json_unit_test_result_printer.html", null ],
-        [ "XmlUnitTestResultPrinter", "classtesting_1_1internal_1_1_xml_unit_test_result_printer.html", null ]
-      ] ],
-      [ "PrettyUnitTestResultPrinter", "classtesting_1_1internal_1_1_pretty_unit_test_result_printer.html", null ],
-      [ "TestEventRepeater", "classtesting_1_1internal_1_1_test_event_repeater.html", null ]
-    ] ],
-    [ "TestEventListeners", "classtesting_1_1_test_event_listeners.html", null ],
-    [ "TestFactoryBase", "classtesting_1_1internal_1_1_test_factory_base.html", [
-      [ "ParameterizedTestFactory< TestClass >", "classtesting_1_1internal_1_1_parameterized_test_factory.html", null ],
-      [ "TestFactoryImpl< TestClass >", "classtesting_1_1internal_1_1_test_factory_impl.html", null ]
-    ] ],
-    [ "TestInfo", "classtesting_1_1_test_info.html", null ],
-    [ "TestMetaFactoryBase< ParamType >", "classtesting_1_1internal_1_1_test_meta_factory_base.html", null ],
-    [ "TestMetaFactoryBase< TestSuite::ParamType >", "classtesting_1_1internal_1_1_test_meta_factory_base.html", [
-      [ "TestMetaFactory< TestSuite >", "classtesting_1_1internal_1_1_test_meta_factory.html", null ]
-    ] ],
-    [ "TestParamInfo< ParamType >", "structtesting_1_1_test_param_info.html", null ],
-    [ "TestProperty", "classtesting_1_1_test_property.html", null ],
-    [ "TestResult", "classtesting_1_1_test_result.html", null ],
-    [ "TestSparseMatricesTraits< TReal, TNbRows, TNbCols, TBlockRows, TBlockCols >", "structsofa_1_1_test_sparse_matrices_traits.html", null ],
-    [ "TestSparseMatrixProductTraits< TMatrix, TReal >", "struct_test_sparse_matrix_product_traits.html", null ],
-    [ "TestSparseMatrixTransposeTraits< TMatrix, TReal >", "struct_test_sparse_matrix_transpose_traits.html", null ],
-    [ "TestSuite", "classtesting_1_1_test_suite.html", null ],
-    [ "TestSuiteNameIs", "classtesting_1_1internal_1_1_test_suite_name_is.html", null ],
     [ "Tetrahedron", "structsofa_1_1geometry_1_1_tetrahedron.html", null ],
     [ "TetrahedronFEMForceField< DataTypes >", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_tetrahedron_f_e_m_force_field.html", null ],
     [ "TetrahedronFEMForceFieldInternalData< DataTypes >", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_tetrahedron_f_e_m_force_field_internal_data.html", null ],
@@ -3672,7 +3365,6 @@ var hierarchy =
     [ "ThreadAccessPolicy", null, [
       [ "CircularQueue< T, StoragePolicy, ThreadAccessPolicy >", "classsofa_1_1helper_1_1system_1_1thread_1_1_circular_queue.html", null ]
     ] ],
-    [ "ThreadLocal< T >", "classtesting_1_1internal_1_1_thread_local.html", null ],
     [ "AdvancedTimer::Timer", "classsofa_1_1helper_1_1_advanced_timer_1_1_timer.html", [
       [ "AdvancedTimer::Id< Timer >", "classsofa_1_1helper_1_1_advanced_timer_1_1_id.html", null ]
     ] ],
@@ -3763,8 +3455,8 @@ var hierarchy =
       [ "Scale< DataTypes >", "structsofa_1_1component_1_1engine_1_1transform_1_1_scale.html", null ],
       [ "Translation< DataTypes >", "structsofa_1_1component_1_1engine_1_1transform_1_1_translation.html", null ]
     ] ],
-    [ "BlocFullMatrix< N, T >::TransposedBlock", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix_1_1_transposed_block.html", null ],
     [ "BTDMatrix< N, T >::TransposedBlock", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix_1_1_transposed_block.html", null ],
+    [ "BlocFullMatrix< N, T >::TransposedBlock", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix_1_1_transposed_block.html", null ],
     [ "kdTree< Coord >::TREENODE", "structsofa_1_1helper_1_1kd_tree_1_1_t_r_e_e_n_o_d_e.html", null ],
     [ "Triangle", "structsofa_1_1geometry_1_1_triangle.html", null ],
     [ "TriangleCollisionModel< TDataTypes >", "classsofa_1_1component_1_1collision_1_1geometry_1_1_triangle_collision_model.html", null ],
@@ -3782,14 +3474,13 @@ var hierarchy =
     [ "TriangleOctreeRoot", "classsofa_1_1helper_1_1_triangle_octree_root.html", [
       [ "TriangleOctreeModel", "classsofa_1_1component_1_1collision_1_1geometry_1_1_triangle_octree_model.html", null ]
     ] ],
-    [ "OscillatingTorsionPressureForceField< DataTypes >::TrianglePressureInformation", "classsofa_1_1component_1_1mechanicalload_1_1_oscillating_torsion_pressure_force_field_1_1_triangle_pressure_information.html", null ],
     [ "TrianglePressureForceField< DataTypes >::TrianglePressureInformation", "classsofa_1_1component_1_1mechanicalload_1_1_triangle_pressure_force_field_1_1_triangle_pressure_information.html", null ],
+    [ "OscillatingTorsionPressureForceField< DataTypes >::TrianglePressureInformation", "classsofa_1_1component_1_1mechanicalload_1_1_oscillating_torsion_pressure_force_field_1_1_triangle_pressure_information.html", null ],
     [ "TriangularBiquadraticSpringsForceField< DataTypes >::TriangleRestInformation", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_triangular_biquadratic_springs_force_field_1_1_triangle_rest_information.html", null ],
     [ "TriangularQuadraticSpringsForceField< DataTypes >::TriangleRestInformation", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_triangular_quadratic_springs_force_field_1_1_triangle_rest_information.html", null ],
     [ "TriangularFEMForceFieldOptim< DataTypes >::TriangleState", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangular_f_e_m_force_field_optim_1_1_triangle_state.html", null ],
     [ "TriangularFEMForceFieldOptim< DataTypes >", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangular_f_e_m_force_field_optim.html", null ],
     [ "TriangularFEMForceFieldOptimInternalData< DataTypes >", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangular_f_e_m_force_field_optim_internal_data.html", null ],
-    [ "TestSparseMatrixTranspose< T >::Triplet", "struct_test_sparse_matrix_transpose_1_1_triplet.html", null ],
     [ "tristate", "structsofa_1_1core_1_1visual_1_1tristate.html", null ],
     [ "true_type", null, [
       [ "HasRebindTypedef< T, OtherType, std::void_t< typename T::template rebind_to< OtherType > > >", "structsofa_1_1type_1_1_has_rebind_typedef_3_01_t_00_01_other_type_00_01std_1_1void__t_3_01typena38b5e66e762bce55947455e96e15d75f.html", null ]
@@ -3809,32 +3500,6 @@ var hierarchy =
       [ "TStandardVec< V_ALL, vaccess >", "classsofa_1_1core_1_1_t_standard_vec_3_01_v___a_l_l_00_01vaccess_01_4.html", null ]
     ] ],
     [ "TTriangle< TDataTypes >", "classsofa_1_1component_1_1collision_1_1geometry_1_1_t_triangle.html", null ],
-    [ "tuple<>", "classstd_1_1tr1_1_1tuple.html", null ],
-    [ "tuple<>", "classstd_1_1tr1_1_1tuple_3_4.html", null ],
-    [ "tuple_element< k, Tuple >", "structstd_1_1tr1_1_1tuple__element.html", null ],
-    [ "tuple_size< Tuple >", "structstd_1_1tr1_1_1tuple__size.html", null ],
-    [ "tuple_size< GTEST_0_TUPLE_(T) >", "structstd_1_1tr1_1_1tuple__size_3_01_g_t_e_s_t__0___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "tuple_size< GTEST_10_TUPLE_(T) >", "structstd_1_1tr1_1_1tuple__size_3_01_g_t_e_s_t__10___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "tuple_size< GTEST_1_TUPLE_(T) >", "structstd_1_1tr1_1_1tuple__size_3_01_g_t_e_s_t__1___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "tuple_size< GTEST_2_TUPLE_(T) >", "structstd_1_1tr1_1_1tuple__size_3_01_g_t_e_s_t__2___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "tuple_size< GTEST_3_TUPLE_(T) >", "structstd_1_1tr1_1_1tuple__size_3_01_g_t_e_s_t__3___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "tuple_size< GTEST_4_TUPLE_(T) >", "structstd_1_1tr1_1_1tuple__size_3_01_g_t_e_s_t__4___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "tuple_size< GTEST_5_TUPLE_(T) >", "structstd_1_1tr1_1_1tuple__size_3_01_g_t_e_s_t__5___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "tuple_size< GTEST_6_TUPLE_(T) >", "structstd_1_1tr1_1_1tuple__size_3_01_g_t_e_s_t__6___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "tuple_size< GTEST_7_TUPLE_(T) >", "structstd_1_1tr1_1_1tuple__size_3_01_g_t_e_s_t__7___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "tuple_size< GTEST_8_TUPLE_(T) >", "structstd_1_1tr1_1_1tuple__size_3_01_g_t_e_s_t__8___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "tuple_size< GTEST_9_TUPLE_(T) >", "structstd_1_1tr1_1_1tuple__size_3_01_g_t_e_s_t__9___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "TupleElement< kIndexValid, kIndex, Tuple >", "structstd_1_1tr1_1_1gtest__internal_1_1_tuple_element.html", null ],
-    [ "TupleElement< true, 0, GTEST_10_TUPLE_(T) >", "structstd_1_1tr1_1_1gtest__internal_1_1_tuple_element_3_01true_00_010_00_01_g_t_e_s_t__10___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "TupleElement< true, 1, GTEST_10_TUPLE_(T) >", "structstd_1_1tr1_1_1gtest__internal_1_1_tuple_element_3_01true_00_011_00_01_g_t_e_s_t__10___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "TupleElement< true, 2, GTEST_10_TUPLE_(T) >", "structstd_1_1tr1_1_1gtest__internal_1_1_tuple_element_3_01true_00_012_00_01_g_t_e_s_t__10___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "TupleElement< true, 3, GTEST_10_TUPLE_(T) >", "structstd_1_1tr1_1_1gtest__internal_1_1_tuple_element_3_01true_00_013_00_01_g_t_e_s_t__10___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "TupleElement< true, 4, GTEST_10_TUPLE_(T) >", "structstd_1_1tr1_1_1gtest__internal_1_1_tuple_element_3_01true_00_014_00_01_g_t_e_s_t__10___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "TupleElement< true, 5, GTEST_10_TUPLE_(T) >", "structstd_1_1tr1_1_1gtest__internal_1_1_tuple_element_3_01true_00_015_00_01_g_t_e_s_t__10___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "TupleElement< true, 6, GTEST_10_TUPLE_(T) >", "structstd_1_1tr1_1_1gtest__internal_1_1_tuple_element_3_01true_00_016_00_01_g_t_e_s_t__10___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "TupleElement< true, 7, GTEST_10_TUPLE_(T) >", "structstd_1_1tr1_1_1gtest__internal_1_1_tuple_element_3_01true_00_017_00_01_g_t_e_s_t__10___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "TupleElement< true, 8, GTEST_10_TUPLE_(T) >", "structstd_1_1tr1_1_1gtest__internal_1_1_tuple_element_3_01true_00_018_00_01_g_t_e_s_t__10___t_u_p_l_e___07_t_08_01_4.html", null ],
-    [ "TupleElement< true, 9, GTEST_10_TUPLE_(T) >", "structstd_1_1tr1_1_1gtest__internal_1_1_tuple_element_3_01true_00_019_00_01_g_t_e_s_t__10___t_u_p_l_e___07_t_08_01_4.html", null ],
     [ "TVecId< vtype, vaccess >", "classsofa_1_1core_1_1_t_vec_id.html", null ],
     [ "TVecId< V_ALL, V_READ >", "classsofa_1_1core_1_1_t_vec_id.html", null ],
     [ "TVecId< V_ALL, V_WRITE >", "classsofa_1_1core_1_1_t_vec_id.html", null ],
@@ -3846,37 +3511,17 @@ var hierarchy =
     [ "TVecId< V_MATDERIV, V_WRITE >", "classsofa_1_1core_1_1_t_vec_id.html", null ],
     [ "FixedPower2Size< N >::type< T >", "classsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size_1_1type.html", null ],
     [ "FixedSize< N >::type< T >", "classsofa_1_1helper_1_1system_1_1thread_1_1_fixed_size_1_1type.html", null ],
-    [ "type", null, [
-      [ "IsRecursiveContainer< C >", "structtesting_1_1internal_1_1_is_recursive_container.html", null ]
-    ] ],
-    [ "type", null, [
-      [ "MakeIndexSequence< N >", "structtesting_1_1internal_1_1_make_index_sequence.html", null ]
-    ] ],
     [ "type< AtomicInt >", null, [
       [ "CircularQueue< AtomicInt, helper::system::thread::FixedPower2Size< SOFA_DATA_MAX_ASPECTS >::type, helper::system::thread::ManyThreadsPerEnd >", "classsofa_1_1helper_1_1system_1_1thread_1_1_circular_queue.html", null ]
-    ] ],
-    [ "type< int >", null, [
-      [ "CircularQueue< int, FixedSize< 6 >::type, OneThreadPerEnd >", "classsofa_1_1helper_1_1system_1_1thread_1_1_circular_queue.html", null ]
-    ] ],
-    [ "type< std::atomic< int > >", null, [
-      [ "CircularQueue< std::atomic< int >, FixedPower2Size< Capacity >::type, ManyThreadsPerEnd >", "classsofa_1_1helper_1_1system_1_1thread_1_1_circular_queue.html", null ]
     ] ],
     [ "type_selector< index, T0, T2 >", "classsofa_1_1linearalgebra_1_1type__selector.html", null ],
     [ "type_selector< 0, T0, T1 >", "classsofa_1_1linearalgebra_1_1type__selector_3_010_00_01_t0_00_01_t1_01_4.html", null ],
     [ "type_selector< 1, T0, T1 >", "classsofa_1_1linearalgebra_1_1type__selector_3_011_00_01_t0_00_01_t1_01_4.html", null ],
-    [ "TypeIdHelper< T >", "classtesting_1_1internal_1_1_type_id_helper.html", null ],
     [ "TypeInfo", "classsofa_1_1helper_1_1_type_info.html", null ],
     [ "TypeInfoId", "classsofa_1_1defaulttype_1_1_type_info_id.html", null ],
     [ "TypeInfoRegistry", "classsofa_1_1defaulttype_1_1_type_info_registry.html", null ],
     [ "TypeInfoRegistryTools", "classsofa_1_1defaulttype_1_1_type_info_registry_tools.html", null ],
     [ "TypeTuple< TDataType, TMassType >", "struct_type_tuple.html", null ],
-    [ "TypeWithoutFormatter< T, kTypeKind >", "classtesting_1_1internal2_1_1_type_without_formatter.html", null ],
-    [ "TypeWithoutFormatter< T, kConvertibleToInteger >", "classtesting_1_1internal2_1_1_type_without_formatter_3_01_t_00_01k_convertible_to_integer_01_4.html", null ],
-    [ "TypeWithoutFormatter< T, kProtobuf >", "classtesting_1_1internal2_1_1_type_without_formatter_3_01_t_00_01k_protobuf_01_4.html", null ],
-    [ "TypeWithSize< size >", "classtesting_1_1internal_1_1_type_with_size.html", null ],
-    [ "TypeWithSize< 4 >", "classtesting_1_1internal_1_1_type_with_size_3_014_01_4.html", null ],
-    [ "TypeWithSize< 8 >", "classtesting_1_1internal_1_1_type_with_size_3_018_01_4.html", null ],
-    [ "TypeWithSize< sizeof(RawType)>", "classtesting_1_1internal_1_1_type_with_size.html", null ],
     [ "Ui_AboutDialog", null, [
       [ "AboutSOFADialog", "classsofa_1_1gui_1_1qt_1_1_about_s_o_f_a_dialog.html", null ]
     ] ],
@@ -3895,74 +3540,12 @@ var hierarchy =
     [ "Ui_WindowProfiler", null, [
       [ "SofaWindowProfiler", "classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler.html", null ]
     ] ],
-    [ "UnitTest", "classtesting_1_1_unit_test.html", null ],
-    [ "UniversalPrinter< T >", "classtesting_1_1internal_1_1_universal_printer.html", null ],
-    [ "UniversalPrinter< T & >", "classtesting_1_1internal_1_1_universal_printer_3_01_t_01_6_01_4.html", null ],
-    [ "UniversalPrinter< T[N]>", "classtesting_1_1internal_1_1_universal_printer_3_01_t_0f_n_0e_4.html", null ],
-    [ "UniversalTersePrinter< T >", "classtesting_1_1internal_1_1_universal_terse_printer.html", null ],
-    [ "UniversalTersePrinter< char * >", "classtesting_1_1internal_1_1_universal_terse_printer_3_01char_01_5_01_4.html", null ],
-    [ "UniversalTersePrinter< const char * >", "classtesting_1_1internal_1_1_universal_terse_printer_3_01const_01char_01_5_01_4.html", null ],
-    [ "UniversalTersePrinter< T & >", "classtesting_1_1internal_1_1_universal_terse_printer_3_01_t_01_6_01_4.html", null ],
-    [ "UniversalTersePrinter< T[N]>", "classtesting_1_1internal_1_1_universal_terse_printer_3_01_t_0f_n_0e_4.html", null ],
-    [ "UniversalTersePrinter< wchar_t * >", "classtesting_1_1internal_1_1_universal_terse_printer_3_01wchar__t_01_5_01_4.html", null ],
     [ "Utils", "classsofa_1_1helper_1_1_utils.html", null ],
-    [ "uvw_t", "structuvw__t.html", null ],
     [ "v_shape", "structv__shape.html", null ],
     [ "AdvancedTimer::Val", "classsofa_1_1helper_1_1_advanced_timer_1_1_val.html", null ],
     [ "TimerData::ValData", "classsofa_1_1helper_1_1_timer_data_1_1_val_data.html", null ],
-    [ "ValueArray< Ts >", "classtesting_1_1internal_1_1_value_array.html", null ],
-    [ "ValueArray1< T1 >", "classtesting_1_1internal_1_1_value_array1.html", null ],
-    [ "ValueArray10< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10 >", "classtesting_1_1internal_1_1_value_array10.html", null ],
-    [ "ValueArray11< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11 >", "classtesting_1_1internal_1_1_value_array11.html", null ],
-    [ "ValueArray12< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12 >", "classtesting_1_1internal_1_1_value_array12.html", null ],
-    [ "ValueArray13< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13 >", "classtesting_1_1internal_1_1_value_array13.html", null ],
-    [ "ValueArray14< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14 >", "classtesting_1_1internal_1_1_value_array14.html", null ],
-    [ "ValueArray15< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15 >", "classtesting_1_1internal_1_1_value_array15.html", null ],
-    [ "ValueArray16< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16 >", "classtesting_1_1internal_1_1_value_array16.html", null ],
-    [ "ValueArray17< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17 >", "classtesting_1_1internal_1_1_value_array17.html", null ],
-    [ "ValueArray18< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18 >", "classtesting_1_1internal_1_1_value_array18.html", null ],
-    [ "ValueArray19< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19 >", "classtesting_1_1internal_1_1_value_array19.html", null ],
-    [ "ValueArray2< T1, T2 >", "classtesting_1_1internal_1_1_value_array2.html", null ],
-    [ "ValueArray20< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20 >", "classtesting_1_1internal_1_1_value_array20.html", null ],
-    [ "ValueArray21< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21 >", "classtesting_1_1internal_1_1_value_array21.html", null ],
-    [ "ValueArray22< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22 >", "classtesting_1_1internal_1_1_value_array22.html", null ],
-    [ "ValueArray23< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23 >", "classtesting_1_1internal_1_1_value_array23.html", null ],
-    [ "ValueArray24< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24 >", "classtesting_1_1internal_1_1_value_array24.html", null ],
-    [ "ValueArray25< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25 >", "classtesting_1_1internal_1_1_value_array25.html", null ],
-    [ "ValueArray26< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26 >", "classtesting_1_1internal_1_1_value_array26.html", null ],
-    [ "ValueArray27< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27 >", "classtesting_1_1internal_1_1_value_array27.html", null ],
-    [ "ValueArray28< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28 >", "classtesting_1_1internal_1_1_value_array28.html", null ],
-    [ "ValueArray29< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29 >", "classtesting_1_1internal_1_1_value_array29.html", null ],
-    [ "ValueArray3< T1, T2, T3 >", "classtesting_1_1internal_1_1_value_array3.html", null ],
-    [ "ValueArray30< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30 >", "classtesting_1_1internal_1_1_value_array30.html", null ],
-    [ "ValueArray31< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31 >", "classtesting_1_1internal_1_1_value_array31.html", null ],
-    [ "ValueArray32< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32 >", "classtesting_1_1internal_1_1_value_array32.html", null ],
-    [ "ValueArray33< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33 >", "classtesting_1_1internal_1_1_value_array33.html", null ],
-    [ "ValueArray34< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34 >", "classtesting_1_1internal_1_1_value_array34.html", null ],
-    [ "ValueArray35< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35 >", "classtesting_1_1internal_1_1_value_array35.html", null ],
-    [ "ValueArray36< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36 >", "classtesting_1_1internal_1_1_value_array36.html", null ],
-    [ "ValueArray37< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36, T37 >", "classtesting_1_1internal_1_1_value_array37.html", null ],
-    [ "ValueArray38< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36, T37, T38 >", "classtesting_1_1internal_1_1_value_array38.html", null ],
-    [ "ValueArray39< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36, T37, T38, T39 >", "classtesting_1_1internal_1_1_value_array39.html", null ],
-    [ "ValueArray4< T1, T2, T3, T4 >", "classtesting_1_1internal_1_1_value_array4.html", null ],
-    [ "ValueArray40< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36, T37, T38, T39, T40 >", "classtesting_1_1internal_1_1_value_array40.html", null ],
-    [ "ValueArray41< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36, T37, T38, T39, T40, T41 >", "classtesting_1_1internal_1_1_value_array41.html", null ],
-    [ "ValueArray42< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36, T37, T38, T39, T40, T41, T42 >", "classtesting_1_1internal_1_1_value_array42.html", null ],
-    [ "ValueArray43< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43 >", "classtesting_1_1internal_1_1_value_array43.html", null ],
-    [ "ValueArray44< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44 >", "classtesting_1_1internal_1_1_value_array44.html", null ],
-    [ "ValueArray45< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45 >", "classtesting_1_1internal_1_1_value_array45.html", null ],
-    [ "ValueArray46< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46 >", "classtesting_1_1internal_1_1_value_array46.html", null ],
-    [ "ValueArray47< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47 >", "classtesting_1_1internal_1_1_value_array47.html", null ],
-    [ "ValueArray48< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T48 >", "classtesting_1_1internal_1_1_value_array48.html", null ],
-    [ "ValueArray49< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T48, T49 >", "classtesting_1_1internal_1_1_value_array49.html", null ],
-    [ "ValueArray5< T1, T2, T3, T4, T5 >", "classtesting_1_1internal_1_1_value_array5.html", null ],
-    [ "ValueArray50< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T48, T49, T50 >", "classtesting_1_1internal_1_1_value_array50.html", null ],
-    [ "ValueArray6< T1, T2, T3, T4, T5, T6 >", "classtesting_1_1internal_1_1_value_array6.html", null ],
-    [ "ValueArray7< T1, T2, T3, T4, T5, T6, T7 >", "classtesting_1_1internal_1_1_value_array7.html", null ],
-    [ "ValueArray8< T1, T2, T3, T4, T5, T6, T7, T8 >", "classtesting_1_1internal_1_1_value_array8.html", null ],
-    [ "ValueArray9< T1, T2, T3, T4, T5, T6, T7, T8, T9 >", "classtesting_1_1internal_1_1_value_array9.html", null ],
-    [ "Vec", "classqglviewer_1_1_vec.html", null ],
     [ "Vec< N, ValueType >", "classsofa_1_1type_1_1_vec.html", null ],
+    [ "Vec", "classqglviewer_1_1_vec.html", null ],
     [ "Vec< 2, Real >", "classsofa_1_1type_1_1_vec.html", null ],
     [ "Vec< 2, unsigned int >", "classsofa_1_1type_1_1_vec.html", null ],
     [ "Vec< 3, double >", "classsofa_1_1type_1_1_vec.html", null ],
@@ -3981,8 +3564,6 @@ var hierarchy =
     [ "Vec< N, T >", "classsofa_1_1type_1_1_vec.html", [
       [ "BlockVector< N, T >::Block", "classsofa_1_1linearalgebra_1_1_block_vector_1_1_block.html", null ]
     ] ],
-    [ "Vec< NCOLS, Real >", "classsofa_1_1type_1_1_vec.html", null ],
-    [ "Vec< NROWS, Real >", "classsofa_1_1type_1_1_vec.html", null ],
     [ "VecIdAlignFix", "classsofa_1_1core_1_1_vec_id_align_fix.html", null ],
     [ "VecIdProperties", "structsofa_1_1core_1_1_vec_id_properties.html", null ],
     [ "VecNoInit< N, real >", "classsofa_1_1type_1_1_vec_no_init.html", null ],
@@ -3997,10 +3578,6 @@ var hierarchy =
       [ "vector< AHierarchicalPointMap >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< BaseData * >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< BaseLink * >", "classsofa_1_1type_1_1vector.html", null ],
-      [ "vector< BlockMM >", "classsofa_1_1type_1_1vector.html", null ],
-      [ "vector< BlockMN >", "classsofa_1_1type_1_1vector.html", null ],
-      [ "vector< BlockNM >", "classsofa_1_1type_1_1vector.html", null ],
-      [ "vector< BlockNN >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< bool >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< CollisionModelPair >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< Color >", "classsofa_1_1type_1_1vector.html", null ],
@@ -4011,9 +3588,6 @@ var hierarchy =
       [ "vector< Contact::SPtr >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< Coord >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< core::objectmodel::BaseContext::SPtr >", "classsofa_1_1type_1_1vector.html", null ],
-      [ "vector< core::objectmodel::Data< int > * >", "classsofa_1_1type_1_1vector.html", [
-        [ "vectorData< int >", "classsofa_1_1core_1_1objectmodel_1_1vector_data.html", null ]
-      ] ],
       [ "vector< core::objectmodel::Data< Real > * >", "classsofa_1_1type_1_1vector.html", [
         [ "vectorData< Real >", "classsofa_1_1core_1_1objectmodel_1_1vector_data.html", null ]
       ] ],
@@ -4146,7 +3720,6 @@ var hierarchy =
       [ "vector< sofa::type::vector< Index > >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::type::vector< influencedLineType > >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::type::vector< influencedVerticeType > >", "classsofa_1_1type_1_1vector.html", null ],
-      [ "vector< sofa::type::vector< Mat< 8, 8, Real > > >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::type::vector< OutCoord > >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::type::vector< Real > >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::type::vector< sofa::component::topology::container::grid::SparseGridRamificationTopology::Connexion * > >", "classsofa_1_1type_1_1vector.html", null ],
@@ -4210,7 +3783,8 @@ var hierarchy =
       [ "vector< unsigned int >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< Vec3DerivIndices >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< Vec3DerivValues >", "classsofa_1_1type_1_1vector.html", null ],
-      [ "vector< Vector3 >", "classsofa_1_1type_1_1vector.html", null ]
+      [ "vector< Vector3 >", "classsofa_1_1type_1_1vector.html", null ],
+      [ "vector< vector< TetraID > >", "classsofa_1_1type_1_1vector.html", null ]
     ] ],
     [ "Vector2", "classvrender_1_1_vector2.html", null ],
     [ "Vector3", "classvrender_1_1_vector3.html", null ],
@@ -4249,8 +3823,8 @@ var hierarchy =
     [ "VectorTypeInfo< sofa::type::vector< T, Alloc > >", "structsofa_1_1defaulttype_1_1_vector_type_info.html", [
       [ "DataTypeInfo< sofa::type::vector< T, Alloc > >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01sofa_1_1type_1_1vector_3_01_t_00_01_alloc_01_4_01_4.html", null ]
     ] ],
-    [ "QuadBendingFEMForceField< DataTypes >::VertexInformation", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_quad_bending_f_e_m_force_field_1_1_vertex_information.html", null ],
     [ "TriangularFEMForceField< DataTypes >::VertexInformation", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangular_f_e_m_force_field_1_1_vertex_information.html", null ],
+    [ "QuadBendingFEMForceField< DataTypes >::VertexInformation", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_quad_bending_f_e_m_force_field_1_1_vertex_information.html", null ],
     [ "Visitor", "classsofa_1_1simulation_1_1_visitor.html", [
       [ "GetAssembledSizeVisitor", "classsofa_1_1component_1_1odesolver_1_1testing_1_1_get_assembled_size_visitor.html", null ],
       [ "GetVectorVisitor", "classsofa_1_1component_1_1odesolver_1_1testing_1_1_get_vector_visitor.html", null ],
@@ -4268,7 +3842,6 @@ var hierarchy =
       [ "WriteStateCreator", "classsofa_1_1component_1_1playback_1_1_write_state_creator.html", null ],
       [ "WriteTopologyActivator", "classsofa_1_1component_1_1playback_1_1_write_topology_activator.html", null ],
       [ "WriteTopologyCreator", "classsofa_1_1component_1_1playback_1_1_write_topology_creator.html", null ],
-      [ "DAG_test::TestVisitor", "structsofa_1_1_d_a_g__test_1_1_test_visitor.html", null ],
       [ "ColourPickingVisitor", "classsofa_1_1gui_1_1common_1_1_colour_picking_visitor.html", null ],
       [ "AnimateVisitor", "classsofa_1_1simulation_1_1_animate_visitor.html", null ],
       [ "BaseMechanicalVisitor", "classsofa_1_1simulation_1_1_base_mechanical_visitor.html", [
@@ -4389,25 +3962,14 @@ var hierarchy =
     [ "VisualModelPolicyType", null, [
       [ "CustomPolicySofaViewer< VisualModelPolicyType >", "classsofa_1_1gui_1_1qt_1_1viewer_1_1_custom_policy_sofa_viewer.html", null ]
     ] ],
-    [ "vkrinfo_t", "structvkrinfo__t.html", null ],
-    [ "vnbr_t", "structvnbr__t.html", null ],
     [ "VRenderInterface", null, [
       [ "VRenderInterface", "class_v_render_interface.html", null ]
     ] ],
     [ "VRenderParams", "classvrender_1_1_v_render_params.html", null ],
-    [ "WithParamInterface< T >", "classtesting_1_1_with_param_interface.html", [
-      [ "TestWithParam< T >", "classtesting_1_1_test_with_param.html", null ]
-    ] ],
-    [ "WithParamInterface< std::vector< int > >", "classtesting_1_1_with_param_interface.html", [
+    [ "WithParamInterface", null, [
       [ "RegularGridTopology_test", "struct_regular_grid_topology__test.html", null ]
     ] ],
-    [ "WithParamInterface< std::vector< std::string > >", "classtesting_1_1_with_param_interface.html", [
-      [ "Color_Test", "class_color___test.html", null ],
-      [ "vector_benchmark< T >", "classvector__benchmark.html", null ],
-      [ "vector_test< T >", "classvector__test.html", null ]
-    ] ],
     [ "WorkerThread", "classsofa_1_1simulation_1_1_worker_thread.html", null ],
-    [ "WrapPrinterType< type >", "structtesting_1_1internal_1_1_wrap_printer_type.html", null ],
     [ "WriteAccessor< T, Enable >", "classsofa_1_1helper_1_1_write_accessor.html", null ],
     [ "WriteAccessor< sofa::core::objectmodel::Data< VecCoord > >", "classsofa_1_1helper_1_1_write_accessor.html", null ],
     [ "WriteAccessor< T >", "classsofa_1_1helper_1_1_write_accessor.html", [

@@ -7,7 +7,7 @@ var classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_joint_spring =
     [ "VecCoord", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_joint_spring.html#a05882e2e9ba8d707ab531ab94a1f39e0", null ],
     [ "VecDeriv", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_joint_spring.html#a83fb2b666b4e514e93d3bb221aa681ef", null ],
     [ "Vector", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_joint_spring.html#a06fca754d0d0c54170d36801d390b9e7", null ],
-    [ "N", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_joint_spring.html#ac9420823bfeba78fce625fc105e3b01da2c63acbe79d9f41ba6bb7766e9c37702", null ],
+    [ "N", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_joint_spring.html#a1be3860693af99a6c1da72580097294ca2c63acbe79d9f41ba6bb7766e9c37702", null ],
     [ "JointSpring", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_joint_spring.html#a8fe2d7b0672956d5daa21cbd163217f0", null ],
     [ "getBlocStiffnessRotation", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_joint_spring.html#a073260c6b2bc2baf9472d57fa76d1e80", null ],
     [ "getFreeAxis", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_joint_spring.html#a0372b623ec1de6516268782dc6685877", null ],

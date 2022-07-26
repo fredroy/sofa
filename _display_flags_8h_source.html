@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: Sofa/framework/Core/src/sofa/core/visual/DisplayFlags.h Source File</title>
+<title>SOFA: Sofa/framework/Core/src/sofa/core/visual/DisplayFlags.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -217,7 +217,7 @@ $(document).ready(function(){initNavTree('_display_flags_8h_source.html',''); in
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">const</span> <a class="code" href="structsofa_1_1core_1_1visual_1_1tristate.html">tristate</a>&amp; state( )<span class="keyword"> const </span>{<span class="keywordflow">return</span> m_state;}</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <a class="code" href="structsofa_1_1core_1_1visual_1_1tristate.html">tristate</a>&amp; state() {<span class="keywordflow">return</span> m_state;}</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    SOFA_CORE_API <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="namespacesofa.html#adcecdff57e88230cdda0b72c42307c25">operator&lt;&lt; </a>( std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="classsofa_1_1core_1_1visual_1_1_flag_tree_item.html">FlagTreeItem</a>&amp; root );</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    SOFA_CORE_API <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt; ( std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="classsofa_1_1core_1_1visual_1_1_flag_tree_item.html">FlagTreeItem</a>&amp; root );</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    SOFA_CORE_API <span class="keyword">friend</span> std::istream&amp; operator&gt;&gt; ( std::istream&amp; in, <a class="code" href="classsofa_1_1core_1_1visual_1_1_flag_tree_item.html">FlagTreeItem</a>&amp; root );</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    std::ostream&amp; write(std::ostream&amp; os) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    std::istream&amp; read(std::istream&amp; in);</div>
@@ -280,7 +280,7 @@ $(document).ready(function(){initNavTree('_display_flags_8h_source.html',''); in
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    DisplayFlags&amp; setShowAdvancedRendering(tristate v=<span class="keyword">true</span>) { m_showAdvancedRendering.setValue(v); <span class="keywordflow">return</span> (*<span class="keyword">this</span>); }</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    DisplayFlags&amp; setShowWireFrame(tristate v=<span class="keyword">true</span>) { m_showWireframe.setValue(v); <span class="keywordflow">return</span> (*<span class="keyword">this</span>); }</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    DisplayFlags&amp; setShowNormals(tristate v=<span class="keyword">true</span>) { m_showNormals.setValue(v); <span class="keywordflow">return</span> (*<span class="keyword">this</span>); }</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    SOFA_CORE_API <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="namespacesofa.html#adcecdff57e88230cdda0b72c42307c25">operator&lt;&lt; </a>( std::ostream&amp; os, <span class="keyword">const</span> DisplayFlags&amp; flags );</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    SOFA_CORE_API <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt; ( std::ostream&amp; os, <span class="keyword">const</span> DisplayFlags&amp; flags );</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    SOFA_CORE_API <span class="keyword">friend</span> std::istream&amp; operator&gt;&gt; ( std::istream&amp; in, DisplayFlags&amp; flags );</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordtype">bool</span> isNeutral() <span class="keyword">const</span>;</div>
@@ -331,13 +331,12 @@ $(document).ready(function(){initNavTree('_display_flags_8h_source.html',''); in
 <div class="ttc" id="aclasssofa_1_1core_1_1visual_1_1_display_flags_html"><div class="ttname"><a href="classsofa_1_1core_1_1visual_1_1_display_flags.html">sofa::core::visual::DisplayFlags</a></div><div class="ttdoc">Class which describes the display of components in a hierarchical fashion DisplayFlags are conveyed b...</div><div class="ttdef"><b>Definition:</b> DisplayFlags.h:241</div></div>
 <div class="ttc" id="astructsofa_1_1core_1_1visual_1_1tristate_html"><div class="ttname"><a href="structsofa_1_1core_1_1visual_1_1tristate.html">sofa::core::visual::tristate</a></div><div class="ttdef"><b>Definition:</b> DisplayFlags.h:97</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1vector_html"><div class="ttname"><a href="classsofa_1_1type_1_1vector.html">sofa::type::vector&lt; std::string &gt;</a></div></div>
-<div class="ttc" id="anamespacesofa_html_adcecdff57e88230cdda0b72c42307c25"><div class="ttname"><a href="namespacesofa.html#adcecdff57e88230cdda0b72c42307c25">sofa::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const DummyEnum &amp;d)</div><div class="ttdoc">Factories require this operator in order to have a custom class as a key.</div><div class="ttdef"><b>Definition:</b> Factory_test.cpp:38</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1visual_1_1_flag_tree_item_html"><div class="ttname"><a href="classsofa_1_1core_1_1visual_1_1_flag_tree_item.html">sofa::core::visual::FlagTreeItem</a></div><div class="ttdef"><b>Definition:</b> DisplayFlags.h:156</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_60e01685828ffd7c41f36858d8896f33.html">Core</a></li><li class="navelem"><a class="el" href="dir_1796a5980b33da4b9881c7f7295ea624.html">src</a></li><li class="navelem"><a class="el" href="dir_29474acf678dce4aed010bf0162b5a34.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b2ea3abd78d86d2c623df4c62fb6cf9b.html">core</a></li><li class="navelem"><a class="el" href="dir_3872913203ee87856852d1ea92baf7b4.html">visual</a></li><li class="navelem"><b>DisplayFlags.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 04:27:08 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 05:38:21 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -10,7 +10,7 @@ var classsofa_1_1linearalgebra_1_1_b_t_d_matrix =
     [ "SOFA_ATTRIBUTE_DEPRECATED__BLOCK_RENAMING_2404", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#af23ddddb58ad366c55a8e38f98af40cb", null ],
     [ "SOFA_ATTRIBUTE_DEPRECATED__BLOCK_RENAMING_2404", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#ae084b0b52e8e10362387da1e0de8c00a", null ],
     [ "SubMatrixType", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#a23376d1a8fa7ddab949f5268708efaaf", null ],
-    [ "BSIZE", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#aa3dfb65ce3006aaab287357097352604a965eb801509a30d40b08d9b988edf820", null ],
+    [ "BSIZE", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#a82f2c6e4d47f62f6b65c5887eb096fd5a965eb801509a30d40b08d9b988edf820", null ],
     [ "BTDMatrix", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#a87448408254aec4b44d1d91dd1a26b77", null ],
     [ "BTDMatrix", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#a54832386cfdacb0a12947cba4a9e70ba", null ],
     [ "~BTDMatrix", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#a9a8dd6b906a3a06d6ad2f988d9491dc4", null ],

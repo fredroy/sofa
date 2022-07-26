@@ -13,7 +13,7 @@ var classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_geom
     [ "Vec3d", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_geometry_algorithms.html#af00f2af275aa877016381f947cbcf3a8", null ],
     [ "VecCoord", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_geometry_algorithms.html#a05882e2e9ba8d707ab531ab94a1f39e0", null ],
     [ "VecDeriv", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_geometry_algorithms.html#a83fb2b666b4e514e93d3bb221aa681ef", null ],
-    [ "NC", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_geometry_algorithms.html#a2f80701c36e79c0640d91c788feee0b3a3dbd1016ea99d087d747530418b89a01", null ],
+    [ "NC", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_geometry_algorithms.html#af8654c714018c6241d9ebd01f3fb5a26a3dbd1016ea99d087d747530418b89a01", null ],
     [ "EdgeSetGeometryAlgorithms", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_geometry_algorithms.html#a9b0bc0eed3453c002be9f538bf1dc908", null ],
     [ "~EdgeSetGeometryAlgorithms", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_geometry_algorithms.html#a50408d7fddde675a5db7f51b522b35b6", null ],
     [ "compute2EdgesIntersection", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_geometry_algorithms.html#a727add72607b0a82c5e532d02d336832", null ],

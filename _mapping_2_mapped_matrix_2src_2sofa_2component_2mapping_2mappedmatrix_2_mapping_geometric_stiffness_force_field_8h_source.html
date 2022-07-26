@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: Sofa/Component/Mapping/MappedMatrix/src/sofa/component/mapping/mappedmatrix/MappingGeometricStiffnessForceField.h Source File</title>
+<title>SOFA: Sofa/Component/Mapping/MappedMatrix/src/sofa/component/mapping/mappedmatrix/MappingGeometricStiffnessForceField.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('_mapping_2_mapped_matrix_2src_2sofa_2c
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;               SOFA_TEMPLATE(<a class="code" href="classsofa_1_1core_1_1behavior_1_1_force_field.html">sofa::core::behavior::ForceField</a>,DataTypes) );</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">typedef</span> Inherit1 Inherit;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_single_link.html">sofa::SingleLink</a>&lt; <a class="code" href="class_my_type.html">MyType</a>, <a class="code" href="classsofa_1_1core_1_1_base_mapping.html">sofa::core::BaseMapping</a>, </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_single_link.html">sofa::SingleLink</a>&lt; MyType, <a class="code" href="classsofa_1_1core_1_1_base_mapping.html">sofa::core::BaseMapping</a>, </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html#ac560a88f1ec319db6a8a0f8377f3d24bacdec56601538250d849a49abd01f09c6">sofa::BaseLink::FLAG_STRONGLINK</a> | <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html#ac560a88f1ec319db6a8a0f8377f3d24bada48d1a0b2fc7bacd0135e622e8f43c7">sofa::BaseLink::FLAG_STOREPATH</a> &gt; MappingLink;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Inherit::DataVecDeriv DataVecDeriv;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Inherit::DataVecCoord DataVecCoord;</div>
@@ -164,14 +164,13 @@ $(document).ready(function(){initNavTree('_mapping_2_mapped_matrix_2src_2sofa_2c
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_single_link_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_single_link.html">sofa::core::objectmodel::SingleLink</a></div><div class="ttdoc">Container of single links in the scenegraph, from a given type of object (Owner) to another (Dest)</div><div class="ttdef"><b>Definition:</b> Link.h:715</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_link_html_ac560a88f1ec319db6a8a0f8377f3d24bada48d1a0b2fc7bacd0135e622e8f43c7"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html#ac560a88f1ec319db6a8a0f8377f3d24bada48d1a0b2fc7bacd0135e622e8f43c7">sofa::core::objectmodel::BaseLink::FLAG_STOREPATH</a></div><div class="ttdeci">@ FLAG_STOREPATH</div><div class="ttdoc">True if link requires a path string in order to be created.</div><div class="ttdef"><b>Definition:</b> BaseLink.h:117</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_mechanical_params_html"><div class="ttname"><a href="classsofa_1_1core_1_1_mechanical_params.html">sofa::core::MechanicalParams</a></div><div class="ttdoc">Class gathering parameters use by mechanical components methods, and transmitted by mechanical visito...</div><div class="ttdef"><b>Definition:</b> MechanicalParams.h:77</div></div>
-<div class="ttc" id="aclass_my_type_html"><div class="ttname"><a href="class_my_type.html">MyType</a></div><div class="ttdef"><b>Definition:</b> TypeInfoRepository_test.cpp:57</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_link_html_ac560a88f1ec319db6a8a0f8377f3d24bacdec56601538250d849a49abd01f09c6"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html#ac560a88f1ec319db6a8a0f8377f3d24bacdec56601538250d849a49abd01f09c6">sofa::core::objectmodel::BaseLink::FLAG_STRONGLINK</a></div><div class="ttdeci">@ FLAG_STRONGLINK</div><div class="ttdoc">True if link has ownership of linked object(s)</div><div class="ttdef"><b>Definition:</b> BaseLink.h:114</div></div>
 <div class="ttc" id="aclasssofa_1_1component_1_1mapping_1_1mappedmatrix_1_1_mapping_geometric_stiffness_force_field_html_a585ebac44b870c6219050c2835f3ad39"><div class="ttname"><a href="classsofa_1_1component_1_1mapping_1_1mappedmatrix_1_1_mapping_geometric_stiffness_force_field.html#a585ebac44b870c6219050c2835f3ad39">sofa::component::mapping::mappedmatrix::MappingGeometricStiffnessForceField::addKToMatrix</a></div><div class="ttdeci">void addKToMatrix(const sofa::core::MechanicalParams *mparams, const sofa::core::behavior::MultiMatrixAccessor *matrix) override</div><div class="ttdoc">Compute the system matrix corresponding to .</div><div class="ttdef"><b>Definition:</b> MappingGeometricStiffnessForceField.inl:78</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_42ede1205723b3b890fa00e138974231.html">Component</a></li><li class="navelem"><a class="el" href="dir_518c9dfd6aa60e6f51df0ba4440359e4.html">Mapping</a></li><li class="navelem"><a class="el" href="dir_3f8f06dc645148bd170523712047cac7.html">MappedMatrix</a></li><li class="navelem"><a class="el" href="dir_4d9dffce19b3ef12bb3589ad12b3f23b.html">src</a></li><li class="navelem"><a class="el" href="dir_8bf84d4c5d80f4c8274ea5168a84aeda.html">sofa</a></li><li class="navelem"><a class="el" href="dir_3331bca5c7bf232d5a665aaa6abe9663.html">component</a></li><li class="navelem"><a class="el" href="dir_3867890a0ddcf69b516906c1c15c792c.html">mapping</a></li><li class="navelem"><a class="el" href="dir_1a6ea8ec1ab02407c96353a91915f52b.html">mappedmatrix</a></li><li class="navelem"><b>MappingGeometricStiffnessForceField.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 04:16:52 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 05:29:58 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

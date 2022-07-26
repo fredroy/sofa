@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: Sofa/Component/LinearSolver/Direct/src/sofa/component/linearsolver/direct/SparseLUSolver.h Source File</title>
+<title>SOFA: Sofa/Component/LinearSolver/Direct/src/sofa/component/linearsolver/direct/SparseLUSolver.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -123,10 +123,10 @@ $(document).ready(function(){initNavTree('_linear_solver_2_direct_2src_2sofa_2co
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">class </span>SparseLUInvertData : <span class="keyword">public</span> MatrixInvertData {</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;public :</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="structcs__symbolic.html">css</a> *<a class="code" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_invert_data.html#a51376ee25c1f1f35bfce8f01ade150c4">S</a>; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="structcs__numeric.html">csn</a> *<a class="code" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_invert_data.html#ac005dba50700fa389daa2cdad4e22a54">N</a>; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="structcs__sparse.html">cs</a> A;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="structcs__sparse.html">cs</a>* permuted_A;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    css *<a class="code" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_invert_data.html#a51376ee25c1f1f35bfce8f01ade150c4">S</a>; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    csn *<a class="code" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_invert_data.html#ac005dba50700fa389daa2cdad4e22a54">N</a>; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    cs A;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    cs* permuted_A;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    type::vector&lt;int&gt; perm,<a class="code" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_invert_data.html#abed757fb540e24f26ae356906c90c93b">iperm</a>; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    type::vector&lt;int&gt; Previous_colptr,<a class="code" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_invert_data.html#a677e05bf75921ca4935c520446700faa">Previous_rowind</a>; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    type::vector&lt;sofa::Index&gt; A_i, A_p;</div>
@@ -172,7 +172,7 @@ $(document).ready(function(){initNavTree('_linear_solver_2_direct_2src_2sofa_2co
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data&lt;sofa::helper::OptionsGroup&gt;</a> d_typePermutation;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data&lt;int&gt;</a> <a class="code" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_solver.html#a9addf410ac92a713e1045d2084dc09de">d_L_nnz</a>; </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="structcs__symbolic.html">css</a>* symbolic_LU(<a class="code" href="structcs__sparse.html">cs</a> *A);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    css* symbolic_LU(cs *A);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_invert_data.html">MatrixInvertData</a> * createInvertData()<span class="keyword"> override </span>{</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_invert_data.html">SparseLUInvertData&lt;Real&gt;</a>();</div>
@@ -191,7 +191,6 @@ $(document).ready(function(){initNavTree('_linear_solver_2_direct_2src_2sofa_2co
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclasssofa_1_1component_1_1linearsolver_1_1_matrix_invert_data_html"><div class="ttname"><a href="classsofa_1_1component_1_1linearsolver_1_1_matrix_invert_data.html">sofa::component::linearsolver::MatrixInvertData</a></div><div class="ttdef"><b>Definition:</b> MatrixLinearSolver.h:67</div></div>
-<div class="ttc" id="astructcs__sparse_html"><div class="ttname"><a href="structcs__sparse.html">cs_sparse</a></div><div class="ttdef"><b>Definition:</b> csparse.h:18</div></div>
 <div class="ttc" id="aclasssofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_invert_data_html_a677e05bf75921ca4935c520446700faa"><div class="ttname"><a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_invert_data.html#a677e05bf75921ca4935c520446700faa">sofa::component::linearsolver::direct::SparseLUInvertData::Previous_rowind</a></div><div class="ttdeci">type::vector&lt; int &gt; Previous_rowind</div><div class="ttdoc">shape of the matrix at the previous step</div><div class="ttdef"><b>Definition:</b> SparseLUSolver.h:83</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_data_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_data.html">sofa::core::objectmodel::Data&lt; bool &gt;</a></div></div>
 <div class="ttc" id="aclasssofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_invert_data_html_ac005dba50700fa389daa2cdad4e22a54"><div class="ttname"><a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_invert_data.html#ac005dba50700fa389daa2cdad4e22a54">sofa::component::linearsolver::direct::SparseLUInvertData::N</a></div><div class="ttdeci">csn * N</div><div class="ttdoc">store the partial pivot and the LU factorization</div><div class="ttdef"><b>Definition:</b> SparseLUSolver.h:79</div></div>
@@ -200,17 +199,15 @@ $(document).ready(function(){initNavTree('_linear_solver_2_direct_2src_2sofa_2co
 <div class="ttc" id="aclasssofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_solver_html_af72ac10916cf1dc11d8496d525bb9893"><div class="ttname"><a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_solver.html#af72ac10916cf1dc11d8496d525bb9893">sofa::component::linearsolver::direct::SparseLUSolver::f_verbose</a></div><div class="ttdeci">Data&lt; bool &gt; f_verbose</div><div class="ttdoc">Dump system state at each iteration.</div><div class="ttdef"><b>Definition:</b> SparseLUSolver.h:94</div></div>
 <div class="ttc" id="aclasssofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_solver_html"><div class="ttname"><a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_solver.html">sofa::component::linearsolver::direct::SparseLUSolver</a></div><div class="ttdef"><b>Definition:</b> SparseLUSolver.h:83</div></div>
 <div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_full_vector_html"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_full_vector.html">sofa::linearalgebra::FullVector&lt; SReal &gt;</a></div></div>
-<div class="ttc" id="astructcs__symbolic_html"><div class="ttname"><a href="structcs__symbolic.html">cs_symbolic</a></div><div class="ttdef"><b>Definition:</b> csparse.h:52</div></div>
 <div class="ttc" id="aclasssofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_invert_data_html"><div class="ttname"><a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_invert_data.html">sofa::component::linearsolver::direct::SparseLUInvertData</a></div><div class="ttdef"><b>Definition:</b> SparseLUSolver.h:55</div></div>
 <div class="ttc" id="aclasssofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_invert_data_html_abed757fb540e24f26ae356906c90c93b"><div class="ttname"><a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_invert_data.html#abed757fb540e24f26ae356906c90c93b">sofa::component::linearsolver::direct::SparseLUInvertData::iperm</a></div><div class="ttdeci">type::vector&lt; int &gt; iperm</div><div class="ttdoc">fill reducing permutation</div><div class="ttdef"><b>Definition:</b> SparseLUSolver.h:82</div></div>
-<div class="ttc" id="astructcs__numeric_html"><div class="ttname"><a href="structcs__numeric.html">cs_numeric</a></div><div class="ttdef"><b>Definition:</b> csparse.h:63</div></div>
 <div class="ttc" id="aclasssofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_solver_html_aab5cb68816419db5c71a2ad748be8b4b"><div class="ttname"><a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_sparse_l_u_solver.html#aab5cb68816419db5c71a2ad748be8b4b">sofa::component::linearsolver::direct::SparseLUSolver::f_tol</a></div><div class="ttdeci">Data&lt; double &gt; f_tol</div><div class="ttdoc">tolerance of factorization</div><div class="ttdef"><b>Definition:</b> SparseLUSolver.h:95</div></div>
 <div class="ttc" id="aclasssofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_html"><div class="ttname"><a href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html">sofa::component::linearsolver::MatrixLinearSolver</a></div><div class="ttdef"><b>Definition:</b> MatrixLinearSolver.h:187</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_42ede1205723b3b890fa00e138974231.html">Component</a></li><li class="navelem"><a class="el" href="dir_6762d5ad67193467092ca340d658b3b7.html">LinearSolver</a></li><li class="navelem"><a class="el" href="dir_c1c1a56e463c7c74d90e93b65067da82.html">Direct</a></li><li class="navelem"><a class="el" href="dir_a9556a4d348857430d8ae2cca3699fc4.html">src</a></li><li class="navelem"><a class="el" href="dir_9f8737f3bfe4d44a94cb3ec5f9721c6b.html">sofa</a></li><li class="navelem"><a class="el" href="dir_8256c06fa845357de31f121c7c1a9aa7.html">component</a></li><li class="navelem"><a class="el" href="dir_9197a9b8dd0532d39895d96ff3d896f1.html">linearsolver</a></li><li class="navelem"><a class="el" href="dir_952bacb561703c90b7fedebda1e065c3.html">direct</a></li><li class="navelem"><b>SparseLUSolver.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 04:23:03 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 05:35:11 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

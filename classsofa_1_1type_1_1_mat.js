@@ -5,7 +5,7 @@ var classsofa_1_1type_1_1_mat =
     [ "LineNoInit", "classsofa_1_1type_1_1_mat.html#aeebdd8dd57f2f410b68b93bb1d1cfda4", null ],
     [ "Real", "classsofa_1_1type_1_1_mat.html#a61317b8c4d7123685a0566b52afddd27", null ],
     [ "Size", "classsofa_1_1type_1_1_mat.html#a2f2db5855468d5d37437a1433c64e812", null ],
-    [ "N", "classsofa_1_1type_1_1_mat.html#a828846a8d8fe2996c6aec3680dcdbbdda2c63acbe79d9f41ba6bb7766e9c37702", null ],
+    [ "N", "classsofa_1_1type_1_1_mat.html#add18e1506c718e8a28df3a2bfdaa9ad2a2c63acbe79d9f41ba6bb7766e9c37702", null ],
     [ "Mat", "classsofa_1_1type_1_1_mat.html#a8fed46ded89b86a08b9f22dff1aa6b02", null ],
     [ "Mat", "classsofa_1_1type_1_1_mat.html#a97bab96251403e63a7221aee980956e9", null ],
     [ "Mat", "classsofa_1_1type_1_1_mat.html#a1c1c41494fa43cf10b216ec8a8309cd4", null ],

@@ -36,7 +36,7 @@ var classsofa_1_1component_1_1mapping_1_1linear_1_1_deformable_on_rigid_frame_ma
     [ "OutVecDeriv", "classsofa_1_1component_1_1mapping_1_1linear_1_1_deformable_on_rigid_frame_mapping.html#a814ccfd044e4b593194c3da716c30c6a", null ],
     [ "Real", "classsofa_1_1component_1_1mapping_1_1linear_1_1_deformable_on_rigid_frame_mapping.html#a763831020d6597508dd724c9073df62f", null ],
     [ "Vector", "classsofa_1_1component_1_1mapping_1_1linear_1_1_deformable_on_rigid_frame_mapping.html#a06fca754d0d0c54170d36801d390b9e7", null ],
-    [ "N", "classsofa_1_1component_1_1mapping_1_1linear_1_1_deformable_on_rigid_frame_mapping.html#a94798fdadfbf49a7c658ace669a1d310a2c63acbe79d9f41ba6bb7766e9c37702", null ],
+    [ "N", "classsofa_1_1component_1_1mapping_1_1linear_1_1_deformable_on_rigid_frame_mapping.html#aaf8fd5f0e57d456151c951e0f3715fc4a2c63acbe79d9f41ba6bb7766e9c37702", null ],
     [ "DeformableOnRigidFrameMapping", "classsofa_1_1component_1_1mapping_1_1linear_1_1_deformable_on_rigid_frame_mapping.html#af7e4da4b53c5fe60001f45393128d7e1", null ],
     [ "~DeformableOnRigidFrameMapping", "classsofa_1_1component_1_1mapping_1_1linear_1_1_deformable_on_rigid_frame_mapping.html#a8f4a51a7f8459f1ac609c179f875958a", null ],
     [ "addPoint", "classsofa_1_1component_1_1mapping_1_1linear_1_1_deformable_on_rigid_frame_mapping.html#a1dedc678066bc38ff6fe4c378e89ba15", null ],

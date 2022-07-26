@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BeamAdapter: Sofa/framework/DefaultType/src/sofa/defaulttype/SolidTypes.h Source File</title>
+<title>SOFA: Sofa/framework/DefaultType/src/sofa/defaulttype/SolidTypes.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BeamAdapter
+   <div id="projectname">SOFA
    </div>
   </td>
  </tr>
@@ -178,7 +178,7 @@ $(document).ready(function(){initNavTree('_solid_types_8h_source.html',''); init
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_spatial_vector.html">SpatialVector</a> cross( <span class="keyword">const</span> <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_spatial_vector.html">SpatialVector</a>&amp; v ) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_spatial_vector.html">SpatialVector</a> operator * (<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat66</a>&amp;) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="namespacesofa.html#adcecdff57e88230cdda0b72c42307c25">operator &lt;&lt; </a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_spatial_vector.html">SpatialVector</a>&amp; t )</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; operator &lt;&lt; (std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_spatial_vector.html">SpatialVector</a>&amp; t )</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        {</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            out &lt;&lt; t.lineVec &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; t.freeVec;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">return</span> out;</div>
@@ -295,7 +295,7 @@ $(document).ready(function(){initNavTree('_solid_types_8h_source.html',''); init
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_spatial_vector.html">SpatialVector</a> operator * (<span class="keyword">const</span> <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_spatial_vector.html">SpatialVector</a>&amp; sv ) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_spatial_vector.html">SpatialVector</a> operator / (<span class="keyword">const</span> <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_spatial_vector.html">SpatialVector</a>&amp; sv ) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <span class="keywordtype">void</span> writeOpenGlMatrix( <span class="keywordtype">double</span> *m ) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="namespacesofa.html#adcecdff57e88230cdda0b72c42307c25">operator &lt;&lt; </a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html">Transform</a>&amp; t )</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; operator &lt;&lt; (std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html">Transform</a>&amp; t )</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        {</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;            out &lt;&lt; t.<a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html#a140119c80f93248abca3ca61567e5091">getOrigin</a>() &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; t.<a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html#a639cdb3ce240baed7a70cc4811d1aca5">getOrientation</a>();</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            <span class="keywordflow">return</span> out;</div>
@@ -352,7 +352,7 @@ $(document).ready(function(){initNavTree('_solid_types_8h_source.html',''); init
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_rigid_inertia.html">RigidInertia</a>( Real m, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec</a>&amp; h, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat</a>&amp; I );</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_spatial_vector.html">SpatialVector</a> operator * (<span class="keyword">const</span> <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_spatial_vector.html">SpatialVector</a>&amp; v ) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_rigid_inertia.html">RigidInertia</a> operator * ( <span class="keyword">const</span> <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html">Transform</a>&amp; t ) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="namespacesofa.html#adcecdff57e88230cdda0b72c42307c25">operator &lt;&lt; </a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_rigid_inertia.html">RigidInertia</a>&amp; r )</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; operator &lt;&lt; (std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_rigid_inertia.html">RigidInertia</a>&amp; r )</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        {</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;            out&lt;&lt;<span class="stringliteral">&quot;I= &quot;</span>&lt;&lt;r.I&lt;&lt;std::endl;</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;            out&lt;&lt;<span class="stringliteral">&quot;h= &quot;</span>&lt;&lt;r.<a class="code" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_rigid_inertia.html#a5fdd41be9fb184502a11248f5e976a4e">h</a>&lt;&lt;std::endl;</div>
@@ -375,7 +375,7 @@ $(document).ready(function(){initNavTree('_solid_types_8h_source.html',''); init
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        ArticulatedInertia&amp; operator += (<span class="keyword">const</span> ArticulatedInertia&amp; Ai );</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        ArticulatedInertia operator + (<span class="keyword">const</span> ArticulatedInertia&amp; Ai ) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        ArticulatedInertia operator - (<span class="keyword">const</span> ArticulatedInertia&amp; Ai ) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="namespacesofa.html#adcecdff57e88230cdda0b72c42307c25">operator &lt;&lt; </a>(std::ostream&amp; out, <span class="keyword">const</span> ArticulatedInertia&amp; r )</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; operator &lt;&lt; (std::ostream&amp; out, <span class="keyword">const</span> ArticulatedInertia&amp; r )</div>
 <div class="line"><a name="l00381"></a><span class="lineno"><a class="line" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html#ab34ad7d8c2802e914677216e799fce0a">  381</a></span>&#160;        {</div>
 <div class="line"><a name="l00382"></a><span class="lineno"><a class="line" href="classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html#ac3d8ee3ba360b092da7cb7f9490dc84c">  382</a></span>&#160;            out&lt;&lt;<span class="stringliteral">&quot;I= &quot;</span>&lt;&lt;r.I&lt;&lt;std::endl;</div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;            out&lt;&lt;<span class="stringliteral">&quot;H= &quot;</span>&lt;&lt;r.H&lt;&lt;std::endl;</div>
@@ -438,14 +438,13 @@ $(document).ready(function(){initNavTree('_solid_types_8h_source.html',''); init
 <div class="ttc" id="aclasssofa_1_1defaulttype_1_1_solid_types_1_1_transform_html"><div class="ttname"><a href="classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html">sofa::defaulttype::SolidTypes::Transform</a></div><div class="ttdef"><b>Definition:</b> SolidTypes.h:254</div></div>
 <div class="ttc" id="aclasssofa_1_1defaulttype_1_1_solid_types_1_1_transform_html_a140119c80f93248abca3ca61567e5091"><div class="ttname"><a href="classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html#a140119c80f93248abca3ca61567e5091">sofa::defaulttype::SolidTypes::Transform::getOrigin</a></div><div class="ttdeci">Vec getOrigin() const</div><div class="ttdoc">Origin of child in parent coordinates.</div><div class="ttdef"><b>Definition:</b> SolidTypes.inl:156</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_quat_html"><div class="ttname"><a href="classsofa_1_1type_1_1_quat.html">sofa::type::Quat</a></div><div class="ttdef"><b>Definition:</b> fwd.h:120</div></div>
-<div class="ttc" id="anamespacesofa_html_adcecdff57e88230cdda0b72c42307c25"><div class="ttname"><a href="namespacesofa.html#adcecdff57e88230cdda0b72c42307c25">sofa::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const DummyEnum &amp;d)</div><div class="ttdoc">Factories require this operator in order to have a custom class as a key.</div><div class="ttdef"><b>Definition:</b> Factory_test.cpp:38</div></div>
 <div class="ttc" id="aclasssofa_1_1defaulttype_1_1_solid_types_1_1_rigid_inertia_html"><div class="ttname"><a href="classsofa_1_1defaulttype_1_1_solid_types_1_1_rigid_inertia.html">sofa::defaulttype::SolidTypes::RigidInertia</a></div><div class="ttdef"><b>Definition:</b> SolidTypes.h:387</div></div>
 <div class="ttc" id="aclasssofa_1_1defaulttype_1_1_solid_types_1_1_rigid_inertia_html_ae41ab64a41fedd9546d1fa283b3fe029"><div class="ttname"><a href="classsofa_1_1defaulttype_1_1_solid_types_1_1_rigid_inertia.html#ae41ab64a41fedd9546d1fa283b3fe029">sofa::defaulttype::SolidTypes::RigidInertia::m</a></div><div class="ttdeci">Real m</div><div class="ttdoc">mass</div><div class="ttdef"><b>Definition:</b> SolidTypes.h:390</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_0d107a4ec0fcd1d08023ac7b8c5ae236.html">DefaultType</a></li><li class="navelem"><a class="el" href="dir_5c2b5f7e070e96aa6f2414b8917eb71e.html">src</a></li><li class="navelem"><a class="el" href="dir_93fd527f9bee515199e824272fb626bb.html">sofa</a></li><li class="navelem"><a class="el" href="dir_1804e18a8712f79097be205dbad56bae.html">defaulttype</a></li><li class="navelem"><b>SolidTypes.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 04:27:33 for BeamAdapter by
+    <li class="footer">Generated on Tue Jul 26 2022 05:38:40 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
