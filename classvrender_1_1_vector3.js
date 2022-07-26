@@ -6,6 +6,8 @@ var classvrender_1_1_vector3 =
     [ "Vector3", "classvrender_1_1_vector3.html#a81a50216a5276b766568958068d7dd35", null ],
     [ "Vector3", "classvrender_1_1_vector3.html#a06673d3bd60ae2d6a47616d9c2a37d14", null ],
     [ "infNorm", "classvrender_1_1_vector3.html#a501d45248d448784172721711da26cb9", null ],
+    [ "maxi", "classvrender_1_1_vector3.html#a283be8b9bdc9f63c8fa59d3ee128140c", null ],
+    [ "mini", "classvrender_1_1_vector3.html#ada2ff86454ef86b0755e46bc22f9b2b2", null ],
     [ "norm", "classvrender_1_1_vector3.html#adbeac4b406b78e64460863820679c14f", null ],
     [ "operator*", "classvrender_1_1_vector3.html#a7c6ae0d17d60ed0e96248484617be49a", null ],
     [ "operator*", "classvrender_1_1_vector3.html#a1d78d91c9648895c91b5f44fa65b0c7a", null ],
@@ -35,5 +37,7 @@ var classvrender_1_1_vector3 =
     [ "operator*", "classvrender_1_1_vector3.html#a2b419f49c7dc2aea5f8f1a59197a64ca", null ],
     [ "operator-", "classvrender_1_1_vector3.html#a03b701d653901ef2a6c81a29f40b41c9", null ],
     [ "operator<<", "classvrender_1_1_vector3.html#a6c5af9507d1dedf3e3a7ebdf2399082b", null ],
-    [ "operator==", "classvrender_1_1_vector3.html#ac76d191f6447dc5b9dde2d723d57485a", null ]
+    [ "operator==", "classvrender_1_1_vector3.html#ac76d191f6447dc5b9dde2d723d57485a", null ],
+    [ "_xyz", "classvrender_1_1_vector3.html#ab49c668a4cfd562abe3dba159fd6c53c", null ],
+    [ "inf", "classvrender_1_1_vector3.html#af1a4458d1113431e8ea639e1812856da", null ]
 ];

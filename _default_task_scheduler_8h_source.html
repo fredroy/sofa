@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_default_task_scheduler_8h_source.html
 <div class="title">DefaultTaskScheduler.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_default_task_scheduler_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('_default_task_scheduler_8h_source.html
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/config.h&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;sofa/simulation/TaskScheduler.h&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_task_scheduler_8h.html">sofa/simulation/TaskScheduler.h</a>&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;atomic&gt;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('_default_task_scheduler_8h_source.html
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa.html">sofa</a>  {</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">namespace </span>simulation</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">namespace </span><a class="code" href="_bilateral_interaction_constraint__test_8cpp.html#a89530560649ee50f2a37b34839a0da33">simulation</a></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; <span class="comment">//#define ENABLE_TASK_SCHEDULER_PROFILER 1     // Comment this line to disable the profiler</span></div>
@@ -163,7 +163,7 @@ $(document).ready(function(){initNavTree('_default_task_scheduler_8h_source.html
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="comment">// interface</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> init(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nbThread = 0) final;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="namespacesofa_1_1simulation.html#ac76d7567dc56037e3e4328b18b4996fb">init</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nbThread = 0) final;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            virtual <span class="keywordtype">void</span> stop(<span class="keywordtype">void</span>) final;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            virtual <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getThreadCount(<span class="keywordtype">void</span>)  const final { <span class="keywordflow">return</span> m_threadCount; }</div>
@@ -172,11 +172,11 @@ $(document).ready(function(){initNavTree('_default_task_scheduler_8h_source.html
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            </div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="comment">// queue task if there is space, and run it otherwise</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordtype">bool</span> addTask(Task* task) override final;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordtype">void</span> workUntilDone(Task::Status* status) override final;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordtype">void</span> workUntilDone(Task::<a class="code" href="namespacesofa_1_1helper_1_1console.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</a>* status) override final;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            Task::Allocator* getTaskAllocator() override final;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="comment">// factory methods: name, creator function</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            static const <span class="keywordtype">char</span>* name() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;_default&quot;</span>; }</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="_default_task_scheduler_8h.html#a9c854fcddacd914b686c1ce8ab60ef8e">   96</a></span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="_default_task_scheduler_8h.html#a8c1e5045f2ed59aa79bd0123a6137ead">   97</a></span>&#160;            <span class="comment">// factory methods: name, creator function</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="_default_task_scheduler_8h.html#a49037991e5a7a88d727981f5bf0a0d9c">   98</a></span>&#160;            static const <span class="keywordtype">char</span>* name() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;_default&quot;</span>; }</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keyword">static</span> DefaultTaskScheduler* create();</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            </div>
@@ -184,12 +184,12 @@ $(document).ready(function(){initNavTree('_default_task_scheduler_8h_source.html
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            </div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            </div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">  106</a></span>&#160;            <span class="keywordtype">bool</span> isInitialized() { <span class="keywordflow">return</span> m_isInitialized; }</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">  106</a></span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="namespacesofa_1_1core.html#a34038d1a2ba3f58e08359fb3b5d7201f">isInitialized</a>() { <span class="keywordflow">return</span> m_isInitialized; }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordtype">bool</span> isClosing(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_isClosing; }</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordtype">void</span>        WaitForWorkersToBeReady();</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            </div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a52d62f1e780113658227de8a9e4c201ea10425a75a96eb068c8f4cbd7f8540745">  110</a></span>&#160;            <span class="keywordtype">void</span>        WaitForWorkersToBeReady();</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a52d62f1e780113658227de8a9e4c201ea307437b1eb56d8f5b8da528766f5d0c3">  111</a></span>&#160;            </div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <span class="keywordtype">void</span>        wakeUpWorkers();</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keyword">static</span> <span class="keywordtype">unsigned</span> GetHardwareThreadsCount();</div>
@@ -203,7 +203,7 @@ $(document).ready(function(){initNavTree('_default_task_scheduler_8h_source.html
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            </div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <span class="comment">// TO DO: replace with thread_specific_ptr. clang 3.5 doesn&#39;t support C++ 11 thread_local vars on Mac</span></div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="comment">//static thread_local WorkerThread* _workerThreadIndex;</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="keyword">static</span> std::map&lt; std::thread::id, WorkerThread*&gt; _threads;</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a76e78b0ebc237e196ebb80d6b24f0484">  128</a></span>&#160;            <span class="keyword">static</span> std::map&lt; std::thread::id, WorkerThread*&gt; _threads;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            </div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="keyword">const</span> <a class="code" href="classsofa_1_1simulation_1_1_task_1_1_status.html">Task::Status</a>* m_mainTaskStatus;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            </div>
@@ -213,9 +213,9 @@ $(document).ready(function(){initNavTree('_default_task_scheduler_8h_source.html
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            </div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <a class="code" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a>();</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <a class="code" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a>&amp;) {}</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#aa6be32e0d1b4bd24f8745d1d3267b295">  138</a></span>&#160;            <a class="code" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a>&amp;) {}</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            ~DefaultTaskScheduler() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            ~<a class="code" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="keywordtype">void</span> start(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> NbThread);</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            </div>
@@ -230,26 +230,31 @@ $(document).ready(function(){initNavTree('_default_task_scheduler_8h_source.html
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="keywordtype">unsigned</span> m_threadCount;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            </div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            </div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span>WorkerThread;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsofa_1_1simulation_1_1_worker_thread.html">WorkerThread</a>;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        };</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a1b003dc5cfce1a4d8f9a0c4b9b589045">  164</a></span>&#160; </div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        } <span class="comment">// namespace simulation</span></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;} <span class="comment">// namespace sofa</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a1c4c32175c89bb89a17cd5a25173292f">  168</a></span>&#160; </div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="preprocessor">#endif // DefaultTaskScheduler_h__</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a8fa3878c89aa13e62f6e6531025c7cbb">  170</a></span>&#160;<span class="preprocessor">#endif // DefaultTaskScheduler_h__</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1simulation_html_ac76d7567dc56037e3e4328b18b4996fb"><div class="ttname"><a href="namespacesofa_1_1simulation.html#ac76d7567dc56037e3e4328b18b4996fb">sofa::simulation::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">Initialize the SofaCore library, as well as its dependencies: SofaDefaultType, SofaHelper.</div><div class="ttdef"><b>Definition:</b> init.cpp:72</div></div>
+<div class="ttc" id="anamespacesofa_1_1helper_1_1console_html_a67a0db04d321a74b7e7fcfd3f1a3f70b"><div class="ttname"><a href="namespacesofa_1_1helper_1_1console.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">sofa::helper::console::Status</a></div><div class="ttdeci">Status</div><div class="ttdef"><b>Definition:</b> console.h:132</div></div>
+<div class="ttc" id="a_task_scheduler_8h_html"><div class="ttname"><a href="_task_scheduler_8h.html">TaskScheduler.h</a></div></div>
 <div class="ttc" id="anamespacesofa_html"><div class="ttname"><a href="namespacesofa.html">sofa</a></div><div class="ttdoc">This allow MeshTrian to interact with the messaging system.</div><div class="ttdef"><b>Definition:</b> ConstraintAnimationLoop.cpp:81</div></div>
 <div class="ttc" id="aclasssofa_1_1simulation_1_1_default_task_scheduler_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1_default_task_scheduler.html">sofa::simulation::DefaultTaskScheduler</a></div><div class="ttdef"><b>Definition:</b> DefaultTaskScheduler.h:106</div></div>
 <div class="ttc" id="aclasssofa_1_1simulation_1_1_worker_thread_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1_worker_thread.html">sofa::simulation::WorkerThread</a></div><div class="ttdef"><b>Definition:</b> WorkerThread.h:57</div></div>
 <div class="ttc" id="aclasssofa_1_1simulation_1_1_task_1_1_status_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1_task_1_1_status.html">sofa::simulation::Task::Status</a></div><div class="ttdef"><b>Definition:</b> Task.h:78</div></div>
+<div class="ttc" id="a_bilateral_interaction_constraint__test_8cpp_html_a89530560649ee50f2a37b34839a0da33"><div class="ttname"><a href="_bilateral_interaction_constraint__test_8cpp.html#a89530560649ee50f2a37b34839a0da33">simulation</a></div><div class="ttdeci">simulation::Simulation * simulation</div><div class="ttdoc">created by the constructor an re-used in the tests</div><div class="ttdef"><b>Definition:</b> BilateralInteractionConstraint_test.cpp:67</div></div>
+<div class="ttc" id="anamespacesofa_1_1core_html_a34038d1a2ba3f58e08359fb3b5d7201f"><div class="ttname"><a href="namespacesofa_1_1core.html#a34038d1a2ba3f58e08359fb3b5d7201f">sofa::core::isInitialized</a></div><div class="ttdeci">SOFA_CORE_API bool isInitialized()</div><div class="ttdoc">Return true if and only if the SofaCore library has been initialized.</div><div class="ttdef"><b>Definition:</b> init.cpp:62</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ded960159c28a7f98e773d05d8cb2edb.html">Simulation</a></li><li class="navelem"><a class="el" href="dir_776c813820cf6d73d3a9c07b71d5bddc.html">Core</a></li><li class="navelem"><a class="el" href="dir_e84b8fb263c26c9bc9cb6b1ce635e120.html">src</a></li><li class="navelem"><a class="el" href="dir_0b1a735c28b1bd5121a035bd3ff7eb6a.html">sofa</a></li><li class="navelem"><a class="el" href="dir_e4887cc2fd2fae784949c25f567ec731.html">simulation</a></li><li class="navelem"><b>DefaultTaskScheduler.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:41:49 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ded960159c28a7f98e773d05d8cb2edb.html">Simulation</a></li><li class="navelem"><a class="el" href="dir_776c813820cf6d73d3a9c07b71d5bddc.html">Core</a></li><li class="navelem"><a class="el" href="dir_e84b8fb263c26c9bc9cb6b1ce635e120.html">src</a></li><li class="navelem"><a class="el" href="dir_0b1a735c28b1bd5121a035bd3ff7eb6a.html">sofa</a></li><li class="navelem"><a class="el" href="dir_e4887cc2fd2fae784949c25f567ec731.html">simulation</a></li><li class="navelem"><a class="el" href="_default_task_scheduler_8h.html">DefaultTaskScheduler.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:15:33 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

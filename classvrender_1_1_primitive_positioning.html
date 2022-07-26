@@ -85,45 +85,742 @@ $(document).ready(function(){initNavTree('classvrender_1_1_primitive_positioning
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classvrender_1_1_primitive_positioning-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PrimitivePositioning Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_primitive_positioning_8h_source.html">PrimitivePositioning.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a6d79531f3f1e648de522a994019972cc"><td class="memItemLeft" align="right" valign="top"><a id="a6d79531f3f1e648de522a994019972cc"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>RelativePosition</b> { <b>Independent</b> = 0x0, 
-<b>Upper</b> = 0x1, 
-<b>Lower</b> = 0x2
+<tr class="memitem:a6d79531f3f1e648de522a994019972cc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#a6d79531f3f1e648de522a994019972cc">RelativePosition</a> { <a class="el" href="classvrender_1_1_primitive_positioning.html#a6d79531f3f1e648de522a994019972cca101a55141b8cf1397c0122fea700807f">Independent</a> = 0x0, 
+<a class="el" href="classvrender_1_1_primitive_positioning.html#a6d79531f3f1e648de522a994019972ccae70afef0d3ff7aca74e17e85ff6c9f2e">Upper</a> = 0x1, 
+<a class="el" href="classvrender_1_1_primitive_positioning.html#a6d79531f3f1e648de522a994019972ccaf886b397626076218462d53d50eb96bc">Lower</a> = 0x2
  }</td></tr>
 <tr class="separator:a6d79531f3f1e648de522a994019972cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a9df89b018732afb1d9aebc12fd46c042"><td class="memItemLeft" align="right" valign="top"><a id="a9df89b018732afb1d9aebc12fd46c042"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>computeRelativePosition</b> (const <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *p1, const <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *p2)</td></tr>
+<tr class="memitem:a9df89b018732afb1d9aebc12fd46c042"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#a9df89b018732afb1d9aebc12fd46c042">computeRelativePosition</a> (const <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *p1, const <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *p2)</td></tr>
 <tr class="separator:a9df89b018732afb1d9aebc12fd46c042"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a509856284cbad66fd04c92af286bc754"><td class="memItemLeft" align="right" valign="top"><a id="a509856284cbad66fd04c92af286bc754"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>splitPrimitive</b> (<a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *P, const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;v, double c, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;prim_up, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;prim_lo)</td></tr>
+<tr class="memitem:a509856284cbad66fd04c92af286bc754"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#a509856284cbad66fd04c92af286bc754">splitPrimitive</a> (<a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *P, const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;v, double c, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;prim_up, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;prim_lo)</td></tr>
 <tr class="separator:a509856284cbad66fd04c92af286bc754"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43dbe5f3a5437133efa226e926571572"><td class="memItemLeft" align="right" valign="top"><a id="a43dbe5f3a5437133efa226e926571572"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>split</b> (<a class="el" href="classvrender_1_1_segment.html">Segment</a> *S, const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;v, double C, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;P_plus, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;P_moins)</td></tr>
+<tr class="memitem:a43dbe5f3a5437133efa226e926571572"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#a43dbe5f3a5437133efa226e926571572">split</a> (<a class="el" href="classvrender_1_1_segment.html">Segment</a> *S, const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;v, double C, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;P_plus, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;P_moins)</td></tr>
 <tr class="separator:a43dbe5f3a5437133efa226e926571572"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40fad7aa9640f1748b73756be218de20"><td class="memItemLeft" align="right" valign="top"><a id="a40fad7aa9640f1748b73756be218de20"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>split</b> (<a class="el" href="classvrender_1_1_point.html">Point</a> *P, const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;v, double C, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;P_plus, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;P_moins)</td></tr>
+<tr class="memitem:a40fad7aa9640f1748b73756be218de20"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#a40fad7aa9640f1748b73756be218de20">split</a> (<a class="el" href="classvrender_1_1_point.html">Point</a> *P, const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;v, double C, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;P_plus, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;P_moins)</td></tr>
 <tr class="separator:a40fad7aa9640f1748b73756be218de20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af81bba8537af1e6b4207c7dad40607c8"><td class="memItemLeft" align="right" valign="top"><a id="af81bba8537af1e6b4207c7dad40607c8"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>split</b> (<a class="el" href="classvrender_1_1_polygone.html">Polygone</a> *P, const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;v, double C, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;P_plus, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;P_moins)</td></tr>
+<tr class="memitem:af81bba8537af1e6b4207c7dad40607c8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#af81bba8537af1e6b4207c7dad40607c8">split</a> (<a class="el" href="classvrender_1_1_polygone.html">Polygone</a> *P, const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;v, double C, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;P_plus, <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;P_moins)</td></tr>
 <tr class="separator:af81bba8537af1e6b4207c7dad40607c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a7cd5702cc330c2c440a92412c9ac267b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#a7cd5702cc330c2c440a92412c9ac267b">getsigns</a> (const <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *P, const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;v, double C, std::vector&lt; int &gt; &amp;signs, std::vector&lt; double &gt; &amp;zvals, int &amp;Smin, int &amp;Smax, double I_EPS)</td></tr>
+<tr class="separator:a7cd5702cc330c2c440a92412c9ac267b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fd4078cc0d9355650b2a2b0520ee866"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#a6fd4078cc0d9355650b2a2b0520ee866">computeRelativePosition</a> (const <a class="el" href="classvrender_1_1_polygone.html">Polygone</a> *p1, const <a class="el" href="classvrender_1_1_polygone.html">Polygone</a> *p2)</td></tr>
+<tr class="separator:a6fd4078cc0d9355650b2a2b0520ee866"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a204157b4e8088aa898e0de7a1801960a"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#a204157b4e8088aa898e0de7a1801960a">computeRelativePosition</a> (const <a class="el" href="classvrender_1_1_polygone.html">Polygone</a> *p1, const <a class="el" href="classvrender_1_1_segment.html">Segment</a> *p2)</td></tr>
+<tr class="separator:a204157b4e8088aa898e0de7a1801960a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a107689bf7c0ac5c23af063002e121b82"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#a107689bf7c0ac5c23af063002e121b82">computeRelativePosition</a> (const <a class="el" href="classvrender_1_1_polygone.html">Polygone</a> *p1, const <a class="el" href="classvrender_1_1_point.html">Point</a> *p2)</td></tr>
+<tr class="separator:a107689bf7c0ac5c23af063002e121b82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a334b1c0943457bef88d4f069cbd0991b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#a334b1c0943457bef88d4f069cbd0991b">computeRelativePosition</a> (const <a class="el" href="classvrender_1_1_segment.html">Segment</a> *p1, const <a class="el" href="classvrender_1_1_segment.html">Segment</a> *p2)</td></tr>
+<tr class="separator:a334b1c0943457bef88d4f069cbd0991b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a158d8d936123965ad54eae40f22f2ff9"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#a158d8d936123965ad54eae40f22f2ff9">pointOutOfPolygon_XY</a> (const <a class="el" href="classvrender_1_1_vector3.html">Vector3</a> &amp;P, const <a class="el" href="classvrender_1_1_polygone.html">Polygone</a> *Q, double I_EPS)</td></tr>
+<tr class="separator:a158d8d936123965ad54eae40f22f2ff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4f30745afce6921313385480b5b769"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#a0a4f30745afce6921313385480b5b769">intersectSegments_XY</a> (const <a class="el" href="classvrender_1_1_vector2.html">Vector2</a> &amp;P1, const <a class="el" href="classvrender_1_1_vector2.html">Vector2</a> &amp;Q1, const <a class="el" href="classvrender_1_1_vector2.html">Vector2</a> &amp;P2, const <a class="el" href="classvrender_1_1_vector2.html">Vector2</a> &amp;Q2, double I_EPS, double &amp;t1, double &amp;t2)</td></tr>
+<tr class="separator:a0a4f30745afce6921313385480b5b769"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a486665ec8d4992ee58d55e4b252d03ed"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structgpc__polygon.html">gpc_polygon</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#a486665ec8d4992ee58d55e4b252d03ed">createGPCPolygon_XY</a> (const <a class="el" href="classvrender_1_1_polygone.html">Polygone</a> *P)</td></tr>
+<tr class="separator:a486665ec8d4992ee58d55e4b252d03ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace4af8ff9624c3877a507d90d8789bd5"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#ace4af8ff9624c3877a507d90d8789bd5">inverseRP</a> (int)</td></tr>
+<tr class="separator:ace4af8ff9624c3877a507d90d8789bd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a220cd943b548d9da7687ec92f4c98f0e"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive_positioning.html#a220cd943b548d9da7687ec92f4c98f0e">_EPS</a> = 0.00001</td></tr>
+<tr class="separator:a220cd943b548d9da7687ec92f4c98f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a6d79531f3f1e648de522a994019972cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d79531f3f1e648de522a994019972cc">&#9670;&nbsp;</a></span>RelativePosition</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classvrender_1_1_primitive_positioning.html#a6d79531f3f1e648de522a994019972cc">RelativePosition</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6d79531f3f1e648de522a994019972cca101a55141b8cf1397c0122fea700807f"></a>Independent&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6d79531f3f1e648de522a994019972ccae70afef0d3ff7aca74e17e85ff6c9f2e"></a>Upper&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6d79531f3f1e648de522a994019972ccaf886b397626076218462d53d50eb96bc"></a>Lower&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a107689bf7c0ac5c23af063002e121b82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a107689bf7c0ac5c23af063002e121b82">&#9670;&nbsp;</a></span>computeRelativePosition() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int computeRelativePosition </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_polygone.html">Polygone</a> *&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_point.html">Point</a> *&#160;</td>
+          <td class="paramname"><em>p2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6fd4078cc0d9355650b2a2b0520ee866"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fd4078cc0d9355650b2a2b0520ee866">&#9670;&nbsp;</a></span>computeRelativePosition() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int computeRelativePosition </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_polygone.html">Polygone</a> *&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_polygone.html">Polygone</a> *&#160;</td>
+          <td class="paramname"><em>p2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a204157b4e8088aa898e0de7a1801960a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a204157b4e8088aa898e0de7a1801960a">&#9670;&nbsp;</a></span>computeRelativePosition() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int computeRelativePosition </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_polygone.html">Polygone</a> *&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_segment.html">Segment</a> *&#160;</td>
+          <td class="paramname"><em>p2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9df89b018732afb1d9aebc12fd46c042"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9df89b018732afb1d9aebc12fd46c042">&#9670;&nbsp;</a></span>computeRelativePosition() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int computeRelativePosition </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&#160;</td>
+          <td class="paramname"><em>p2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a334b1c0943457bef88d4f069cbd0991b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a334b1c0943457bef88d4f069cbd0991b">&#9670;&nbsp;</a></span>computeRelativePosition() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int computeRelativePosition </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_segment.html">Segment</a> *&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_segment.html">Segment</a> *&#160;</td>
+          <td class="paramname"><em>p2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a486665ec8d4992ee58d55e4b252d03ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a486665ec8d4992ee58d55e4b252d03ed">&#9670;&nbsp;</a></span>createGPCPolygon_XY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgpc__polygon.html">gpc_polygon</a> createGPCPolygon_XY </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_polygone.html">Polygone</a> *&#160;</td>
+          <td class="paramname"><em>P</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7cd5702cc330c2c440a92412c9ac267b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cd5702cc330c2c440a92412c9ac267b">&#9670;&nbsp;</a></span>getsigns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getsigns </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&#160;</td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>C</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>signs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>zvals</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>Smin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>Smax</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>I_EPS</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a4f30745afce6921313385480b5b769"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a4f30745afce6921313385480b5b769">&#9670;&nbsp;</a></span>intersectSegments_XY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool intersectSegments_XY </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_vector2.html">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>P1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_vector2.html">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>Q1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_vector2.html">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>P2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_vector2.html">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>Q2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>I_EPS</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>t1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>t2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ace4af8ff9624c3877a507d90d8789bd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace4af8ff9624c3877a507d90d8789bd5">&#9670;&nbsp;</a></span>inverseRP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int inverseRP </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a158d8d936123965ad54eae40f22f2ff9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a158d8d936123965ad54eae40f22f2ff9">&#9670;&nbsp;</a></span>pointOutOfPolygon_XY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool pointOutOfPolygon_XY </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_polygone.html">Polygone</a> *&#160;</td>
+          <td class="paramname"><em>Q</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>I_EPS</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a40fad7aa9640f1748b73756be218de20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40fad7aa9640f1748b73756be218de20">&#9670;&nbsp;</a></span>split() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void split </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classvrender_1_1_point.html">Point</a> *&#160;</td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>C</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;&#160;</td>
+          <td class="paramname"><em>P_plus</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;&#160;</td>
+          <td class="paramname"><em>P_moins</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af81bba8537af1e6b4207c7dad40607c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af81bba8537af1e6b4207c7dad40607c8">&#9670;&nbsp;</a></span>split() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void split </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classvrender_1_1_polygone.html">Polygone</a> *&#160;</td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>C</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;&#160;</td>
+          <td class="paramname"><em>P_plus</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;&#160;</td>
+          <td class="paramname"><em>P_moins</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a43dbe5f3a5437133efa226e926571572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43dbe5f3a5437133efa226e926571572">&#9670;&nbsp;</a></span>split() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void split </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classvrender_1_1_segment.html">Segment</a> *&#160;</td>
+          <td class="paramname"><em>S</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>C</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;&#160;</td>
+          <td class="paramname"><em>P_plus</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;&#160;</td>
+          <td class="paramname"><em>P_moins</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a509856284cbad66fd04c92af286bc754"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a509856284cbad66fd04c92af286bc754">&#9670;&nbsp;</a></span>splitPrimitive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void splitPrimitive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&#160;</td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;&#160;</td>
+          <td class="paramname"><em>prim_up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classvrender_1_1_primitive.html">Primitive</a> *&amp;&#160;</td>
+          <td class="paramname"><em>prim_lo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a220cd943b548d9da7687ec92f4c98f0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a220cd943b548d9da7687ec92f4c98f0e">&#9670;&nbsp;</a></span>_EPS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double _EPS = 0.00001</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>vrender</b></li><li class="navelem"><a class="el" href="classvrender_1_1_primitive_positioning.html">PrimitivePositioning</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:14:32 for SOFA by
+    <li class="navelem"><a class="el" href="namespacevrender.html">vrender</a></li><li class="navelem"><a class="el" href="classvrender_1_1_primitive_positioning.html">PrimitivePositioning</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:47:05 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

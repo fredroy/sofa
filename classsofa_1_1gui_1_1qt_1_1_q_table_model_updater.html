@@ -85,11 +85,14 @@ $(document).ready(function(){initNavTree('classsofa_1_1gui_1_1qt_1_1_q_table_mod
   <div class="summary">
 <a href="#pub-slots">Public Slots</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1gui_1_1qt_1_1_q_table_model_updater-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">QTableModelUpdater Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_q_model_view_table_updater_8h_source.html">QModelViewTableUpdater.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for QTableModelUpdater:</div>
 <div class="dyncontent">
@@ -99,35 +102,231 @@ Inheritance diagram for QTableModelUpdater:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
-<tr class="memitem:a09b1c0864b733e1687a6ec39f65a4f1f"><td class="memItemLeft" align="right" valign="top"><a id="a09b1c0864b733e1687a6ec39f65a4f1f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resizeTableV</b> (int number)</td></tr>
+<tr class="memitem:a09b1c0864b733e1687a6ec39f65a4f1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_q_table_model_updater.html#a09b1c0864b733e1687a6ec39f65a4f1f">resizeTableV</a> (int number)</td></tr>
 <tr class="separator:a09b1c0864b733e1687a6ec39f65a4f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1253277b9f762ef7c4cf90b68c0bd64"><td class="memItemLeft" align="right" valign="top"><a id="ad1253277b9f762ef7c4cf90b68c0bd64"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resizeTableH</b> (int number)</td></tr>
+<tr class="memitem:ad1253277b9f762ef7c4cf90b68c0bd64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_q_table_model_updater.html#ad1253277b9f762ef7c4cf90b68c0bd64">resizeTableH</a> (int number)</td></tr>
 <tr class="separator:ad1253277b9f762ef7c4cf90b68c0bd64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1ac1ba24998bbd2329cf82410061c1b2"><td class="memItemLeft" align="right" valign="top"><a id="a1ac1ba24998bbd2329cf82410061c1b2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>QTableModelUpdater</b> (int numRows, int numCols, QWidget *parent=nullptr, const char *=nullptr)</td></tr>
+<tr class="memitem:a1ac1ba24998bbd2329cf82410061c1b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_q_table_model_updater.html#a1ac1ba24998bbd2329cf82410061c1b2">QTableModelUpdater</a> (int numRows, int numCols, QWidget *parent=nullptr, const char *=nullptr)</td></tr>
 <tr class="separator:a1ac1ba24998bbd2329cf82410061c1b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45ea671fa405e2be81c54d6f7b8473ab"><td class="memItemLeft" align="right" valign="top"><a id="a45ea671fa405e2be81c54d6f7b8473ab"></a>
-Qt::ItemFlags&#160;</td><td class="memItemRight" valign="bottom"><b>flags</b> (const QModelIndex &amp;) const override</td></tr>
+<tr class="memitem:a45ea671fa405e2be81c54d6f7b8473ab"><td class="memItemLeft" align="right" valign="top">Qt::ItemFlags&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_q_table_model_updater.html#a45ea671fa405e2be81c54d6f7b8473ab">flags</a> (const QModelIndex &amp;) const override</td></tr>
 <tr class="separator:a45ea671fa405e2be81c54d6f7b8473ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae93b915598cdbe5ae59dddf41d917a53"><td class="memItemLeft" align="right" valign="top"><a id="ae93b915598cdbe5ae59dddf41d917a53"></a>
-QVariant&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> (const QModelIndex &amp;index, int role) const override</td></tr>
+<tr class="memitem:ae93b915598cdbe5ae59dddf41d917a53"><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_q_table_model_updater.html#ae93b915598cdbe5ae59dddf41d917a53">data</a> (const QModelIndex &amp;index, int role) const override</td></tr>
 <tr class="separator:ae93b915598cdbe5ae59dddf41d917a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9442859bdef427ae87864006dace04dc"><td class="memItemLeft" align="right" valign="top"><a id="a9442859bdef427ae87864006dace04dc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setReadOnly</b> (const bool isReadOnly)</td></tr>
+<tr class="memitem:a9442859bdef427ae87864006dace04dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_q_table_model_updater.html#a9442859bdef427ae87864006dace04dc">setReadOnly</a> (const bool isReadOnly)</td></tr>
 <tr class="separator:a9442859bdef427ae87864006dace04dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a3e2853426517ddd84430756b04edcb38"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_q_table_model_updater.html#a3e2853426517ddd84430756b04edcb38">m_isReadOnly</a></td></tr>
+<tr class="separator:a3e2853426517ddd84430756b04edcb38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1ac1ba24998bbd2329cf82410061c1b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ac1ba24998bbd2329cf82410061c1b2">&#9670;&nbsp;</a></span>QTableModelUpdater()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_q_table_model_updater.html">QTableModelUpdater</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae93b915598cdbe5ae59dddf41d917a53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae93b915598cdbe5ae59dddf41d917a53">&#9670;&nbsp;</a></span>data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVariant data </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>role</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a45ea671fa405e2be81c54d6f7b8473ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45ea671fa405e2be81c54d6f7b8473ab">&#9670;&nbsp;</a></span>flags()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Qt::ItemFlags flags </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad1253277b9f762ef7c4cf90b68c0bd64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1253277b9f762ef7c4cf90b68c0bd64">&#9670;&nbsp;</a></span>resizeTableH</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void resizeTableH </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a09b1c0864b733e1687a6ec39f65a4f1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09b1c0864b733e1687a6ec39f65a4f1f">&#9670;&nbsp;</a></span>resizeTableV</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void resizeTableV </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9442859bdef427ae87864006dace04dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9442859bdef427ae87864006dace04dc">&#9670;&nbsp;</a></span>setReadOnly()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setReadOnly </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>isReadOnly</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3e2853426517ddd84430756b04edcb38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e2853426517ddd84430756b04edcb38">&#9670;&nbsp;</a></span>m_isReadOnly</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool m_isReadOnly</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>gui</b></li><li class="navelem"><b>qt</b></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_q_table_model_updater.html">QTableModelUpdater</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:52 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui.html">gui</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui_1_1qt.html">qt</a></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_q_table_model_updater.html">QTableModelUpdater</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:39 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

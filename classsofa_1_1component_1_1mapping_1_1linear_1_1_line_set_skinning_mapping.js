@@ -1,5 +1,7 @@
 var classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping =
 [
+    [ "influencedLineType", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping_1_1influenced_line_type.html", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping_1_1influenced_line_type" ],
+    [ "influencedVerticeType", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping_1_1influenced_vertice_type.html", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping_1_1influenced_vertice_type" ],
     [ "In", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#a2cbc1372bbf7fdcbf0a794f8a3653705", null ],
     [ "InCoord", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#af85944cd3e94c3094112e5a015ab09b0", null ],
     [ "InDataMatrixDeriv", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#ab794d1aadc6238032741fa27f0786dfc", null ],
@@ -27,12 +29,18 @@ var classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping =
     [ "applyJ", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#a19d952128bc56cfdebb626f8e8d32a3a", null ],
     [ "applyJT", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#ab1f00b5e581642429874deff3abcfa28", null ],
     [ "applyJT", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#a91e9f7d6760bd9d9fa599b57bce2b1b2", null ],
+    [ "convolutionSegment", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#af6c218aa234ab47e93e271ae61efd591", null ],
     [ "draw", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#a8673433953792026ae9baf91b348d7da", null ],
     [ "init", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#ad72eef1561c7a53b19b048397d4ef570", null ],
+    [ "projectToSegment", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#a6a17f20ace1e5ef34708c56b3d9d3d4b", null ],
     [ "reinit", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#ab1094b915e637faa84817a097d8d87be", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#a46b2e5dec9e359a530cb666eaa0abde8", null ],
+    [ "linesInfluencedByVertice", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#adfdcb7066a86a00a88952ac6f5f9b9d3", null ],
     [ "m_topology", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#af844fbe9a803458c15315a7ddcd62bd7", null ],
+    [ "neighborhood", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#a11e79456c8888cadc21ffd377d53b3a5", null ],
+    [ "neighborhoodLinesSet", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#ad9dc5df399a83d5448f52a90a5f33475", null ],
     [ "numberInfluencedLines", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#aa5d524a1cf024df963cb04e78cf40f28", null ],
     [ "nvNeighborhood", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#a285cd937b1a051646b736599e09acce6", null ],
+    [ "verticesInfluencedByLine", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#a4ccb3eb0989a25d0f0e9f9f7f1baf4b6", null ],
     [ "weightCoef", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping.html#a6343ce0bd272ef8ff053e93229796f24", null ]
 ];

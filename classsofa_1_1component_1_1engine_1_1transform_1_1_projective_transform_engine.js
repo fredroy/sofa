@@ -13,6 +13,7 @@ var classsofa_1_1component_1_1engine_1_1transform_1_1_projective_transform_engin
     [ "init", "classsofa_1_1component_1_1engine_1_1transform_1_1_projective_transform_engine.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "reinit", "classsofa_1_1component_1_1engine_1_1transform_1_1_projective_transform_engine.html#ab1094b915e637faa84817a097d8d87be", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1engine_1_1transform_1_1_projective_transform_engine.html#a307a8288e223f50a53844f5f36e7f000", null ],
+    [ "templateName", "classsofa_1_1component_1_1engine_1_1transform_1_1_projective_transform_engine.html#a0296ab0e24bc55195f3fdaec02027c21", null ],
     [ "f_inputX", "classsofa_1_1component_1_1engine_1_1transform_1_1_projective_transform_engine.html#a523b74af20d5458ff30f5c04905b0629", null ],
     [ "f_outputX", "classsofa_1_1component_1_1engine_1_1transform_1_1_projective_transform_engine.html#ac93aca9f5cec119d04cf4eb735ce6776", null ],
     [ "focal_distance", "classsofa_1_1component_1_1engine_1_1transform_1_1_projective_transform_engine.html#a911d41f1b41a3d9dcb14acea5695e571", null ],

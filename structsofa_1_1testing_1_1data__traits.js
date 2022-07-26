@@ -9,5 +9,7 @@ var structsofa_1_1testing_1_1data__traits =
     [ "VecDeriv", "structsofa_1_1testing_1_1data__traits.html#a83fb2b666b4e514e93d3bb221aa681ef", null ],
     [ "spatial_dimensions", "structsofa_1_1testing_1_1data__traits.html#a0341d081395407fd92061819ba76eb96a52d450260197c3fbf41ad0093ecd75b8", null ],
     [ "coord_total_size", "structsofa_1_1testing_1_1data__traits.html#a540c98815fbf3a535e5c3474823ca58ca62b3cc2a94d1f904b8655423e9a73c19", null ],
-    [ "deriv_total_size", "structsofa_1_1testing_1_1data__traits.html#a0efc1b13f14c790dd3d59de11e12bc6dae3103f6732bf4376dad84ffd852c73e8", null ]
+    [ "deriv_total_size", "structsofa_1_1testing_1_1data__traits.html#a0efc1b13f14c790dd3d59de11e12bc6dae3103f6732bf4376dad84ffd852c73e8", null ],
+    [ "VecCoord_to_Vector", "structsofa_1_1testing_1_1data__traits.html#a48927347187c4c60165ed7f4028445eb", null ],
+    [ "VecDeriv_to_Vector", "structsofa_1_1testing_1_1data__traits.html#aa7f8a9fd66417da78e002b0327ddcd9c", null ]
 ];

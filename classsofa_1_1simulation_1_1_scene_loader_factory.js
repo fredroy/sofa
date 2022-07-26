@@ -8,5 +8,6 @@ var classsofa_1_1simulation_1_1_scene_loader_factory =
     [ "getEntryFileName", "classsofa_1_1simulation_1_1_scene_loader_factory.html#a33a9ab58c59151b56d0e3613e21c8e8d", null ],
     [ "getExporterEntryFileExtension", "classsofa_1_1simulation_1_1_scene_loader_factory.html#a2bde4fdfd292037917d3e0fb55cf13ff", null ],
     [ "getExporterEntryFileName", "classsofa_1_1simulation_1_1_scene_loader_factory.html#ad0e4556daafca6c60b5ab612c89380bb", null ],
+    [ "getInstance", "classsofa_1_1simulation_1_1_scene_loader_factory.html#ade02d44b21f7ad18984d7a913fc86872", null ],
     [ "registry", "classsofa_1_1simulation_1_1_scene_loader_factory.html#a50200e09f735f99c922cbb2bdd07a5b3", null ]
 ];

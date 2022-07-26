@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_axis_aligned_box_8h_source.html','');
 <div class="title">AxisAlignedBox.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<a href="_axis_aligned_box_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> This file is part of the VRender library.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> Copyright (C) 2005 Cyril Soler (Cyril.Soler@imag.fr)</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> Version 1.0.0, released on June 27, 2005.</span></div>
@@ -133,70 +133,79 @@ $(document).ready(function(){initNavTree('_axis_aligned_box_8h_source.html','');
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#ifndef _VRENDER_AXISALIGNEDBOX_H</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#define _VRENDER_AXISALIGNEDBOX_H</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">namespace </span>vrender</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="namespacevrender.html">   48</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevrender.html">vrender</a></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">class </span><a class="code" href="namespacesofa_1_1type.html#a7efde172da2b56d03234c31980d5eaf1">Vector2</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">class </span><a class="code" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">Vector3</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">class </span><a class="code" href="classvrender_1_1_vector2.html">Vector2</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">class </span><a class="code" href="classvrender_1_1_vector3.html">Vector3</a>;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">class </span>AxisAlignedBox</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">class </span><a class="code" href="classvrender_1_1_axis_aligned_box.html">AxisAlignedBox</a></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                        AxisAlignedBox() ;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                        AxisAlignedBox(<span class="keyword">const</span> T&amp; v) ;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                        AxisAlignedBox(<span class="keyword">const</span> T&amp; v,<span class="keyword">const</span> T&amp; w) ;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                        <a class="code" href="classvrender_1_1_axis_aligned_box.html#a46c040dc1810d98b36e8feaeb70bd4c6">AxisAlignedBox</a>() ;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                        <a class="code" href="classvrender_1_1_axis_aligned_box.html#a46c040dc1810d98b36e8feaeb70bd4c6">AxisAlignedBox</a>(<span class="keyword">const</span> T&amp; v) ;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                        <a class="code" href="classvrender_1_1_axis_aligned_box.html#a46c040dc1810d98b36e8feaeb70bd4c6">AxisAlignedBox</a>(<span class="keyword">const</span> T&amp; v,<span class="keyword">const</span> T&amp; w) ;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                        <span class="keyword">const</span> T&amp; mini()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _min ; }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                        <span class="keyword">const</span> T&amp; maxi()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _max ; }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                        <span class="keyword">const</span> T&amp; <a class="code" href="classvrender_1_1_axis_aligned_box.html#a7e53840b071de3821b2a71db510c3c99">mini</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classvrender_1_1_axis_aligned_box.html#a374efade9212efde82a275f6277c8287">_min</a> ; }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                        <span class="keyword">const</span> T&amp; <a class="code" href="classvrender_1_1_axis_aligned_box.html#afb74714fc6173a476220ae76c99e540b">maxi</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classvrender_1_1_axis_aligned_box.html#ae09cab9d3ebccb25951c2205301b7901">_max</a> ; }</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                        <span class="keywordtype">void</span> include(<span class="keyword">const</span> T&amp; v) ;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                        <span class="keywordtype">void</span> include(<span class="keyword">const</span> AxisAlignedBox&lt;T&gt;&amp; b) ;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                        <span class="keywordtype">void</span> <a class="code" href="classvrender_1_1_axis_aligned_box.html#a04873413702815f2fcc4e1c0f1275572">include</a>(<span class="keyword">const</span> T&amp; v) ;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                        <span class="keywordtype">void</span> <a class="code" href="classvrender_1_1_axis_aligned_box.html#a04873413702815f2fcc4e1c0f1275572">include</a>(<span class="keyword">const</span> <a class="code" href="classvrender_1_1_axis_aligned_box.html">AxisAlignedBox&lt;T&gt;</a>&amp; b) ;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        T _min ;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                        T _max ;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        T <a class="code" href="classvrender_1_1_axis_aligned_box.html#a374efade9212efde82a275f6277c8287">_min</a> ;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                        T <a class="code" href="classvrender_1_1_axis_aligned_box.html#ae09cab9d3ebccb25951c2205301b7901">_max</a> ;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        };</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">typedef</span> AxisAlignedBox&lt; Vector2 &gt; AxisAlignedBox_xy ;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="classvrender_1_1_axis_aligned_box.html">AxisAlignedBox&lt; Vector3 &gt;</a> AxisAlignedBox_xyz ;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="classvrender_1_1_axis_aligned_box.html">AxisAlignedBox&lt; Vector2 &gt;</a> <a class="code" href="namespacevrender.html#ac004c977d0905b58aa22131c74f8650d">AxisAlignedBox_xy</a> ;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="classvrender_1_1_axis_aligned_box.html">AxisAlignedBox&lt; Vector3 &gt;</a> <a class="code" href="namespacevrender.html#af3c65fd04c017f4e7549c77ac682312a">AxisAlignedBox_xyz</a> ;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classvrender_1_1_axis_aligned_box.html">   73</a></span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <a class="code" href="classvrender_1_1_axis_aligned_box.html">AxisAlignedBox&lt;T&gt;::AxisAlignedBox</a>()</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classvrender_1_1_axis_aligned_box.html">   73</a></span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <a class="code" href="classvrender_1_1_axis_aligned_box.html#a46c040dc1810d98b36e8feaeb70bd4c6">AxisAlignedBox&lt;T&gt;::AxisAlignedBox</a>()</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        : _min(T::inf), _max(-T::inf)</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <a class="code" href="classvrender_1_1_axis_aligned_box.html">AxisAlignedBox&lt;T&gt;::AxisAlignedBox</a>(<span class="keyword">const</span> T&amp; v)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <a class="code" href="classvrender_1_1_axis_aligned_box.html#a46c040dc1810d98b36e8feaeb70bd4c6">AxisAlignedBox&lt;T&gt;::AxisAlignedBox</a>(<span class="keyword">const</span> T&amp; v)</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                : _min(v), _max(v)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classvrender_1_1_axis_aligned_box.html#a7e53840b071de3821b2a71db510c3c99">   80</a></span>&#160;        {</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classvrender_1_1_axis_aligned_box.html#afb74714fc6173a476220ae76c99e540b">   81</a></span>&#160;        }</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; AxisAlignedBox&lt;T&gt;::AxisAlignedBox(<span class="keyword">const</span> T&amp; v,<span class="keyword">const</span> T&amp; w)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <a class="code" href="classvrender_1_1_axis_aligned_box.html#a46c040dc1810d98b36e8feaeb70bd4c6">AxisAlignedBox&lt;T&gt;::AxisAlignedBox</a>(<span class="keyword">const</span> T&amp; v,<span class="keyword">const</span> T&amp; w)</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                : _min(v), _max(v)</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                include(w) ;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classvrender_1_1_axis_aligned_box.html#a374efade9212efde82a275f6277c8287">   86</a></span>&#160;                include(w) ;</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classvrender_1_1_axis_aligned_box.html#ae09cab9d3ebccb25951c2205301b7901">   87</a></span>&#160;        }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> AxisAlignedBox&lt;T&gt;::include(<span class="keyword">const</span> T&amp; v)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                _min = T::mini(_min,v) ;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="classvrender_1_1_axis_aligned_box.html">AxisAlignedBox&lt;T&gt;::include</a>(<span class="keyword">const</span> T&amp; v)</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="namespacevrender.html#ac004c977d0905b58aa22131c74f8650d">   90</a></span>&#160;        {</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="namespacevrender.html#af3c65fd04c017f4e7549c77ac682312a">   91</a></span>&#160;                _min = T::mini(_min,v) ;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                _max = T::maxi(_max,v) ;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classvrender_1_1_axis_aligned_box.html#a46c040dc1810d98b36e8feaeb70bd4c6">   93</a></span>&#160;        }</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> AxisAlignedBox&lt;T&gt;::include(<span class="keyword">const</span> AxisAlignedBox&lt;T&gt;&amp; b)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="classvrender_1_1_axis_aligned_box.html">AxisAlignedBox&lt;T&gt;::include</a>(<span class="keyword">const</span> <a class="code" href="classvrender_1_1_axis_aligned_box.html">AxisAlignedBox&lt;T&gt;</a>&amp; b)</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                include(b._min) ;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                include(b._max) ;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                include(b.<a class="code" href="classvrender_1_1_axis_aligned_box.html#a374efade9212efde82a275f6277c8287">_min</a>) ;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classvrender_1_1_axis_aligned_box.html#aeeec9bdf60bc89904d45bbd919e6e289">   98</a></span>&#160;                include(b.<a class="code" href="classvrender_1_1_axis_aligned_box.html#ae09cab9d3ebccb25951c2205301b7901">_max</a>) ;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacesofa_1_1type_html_a7efde172da2b56d03234c31980d5eaf1"><div class="ttname"><a href="namespacesofa_1_1type.html#a7efde172da2b56d03234c31980d5eaf1">sofa::type::Vector2</a></div><div class="ttdeci">Vec2d Vector2</div><div class="ttdoc">alias</div><div class="ttdef"><b>Definition:</b> fwd.h:85</div></div>
-<div class="ttc" id="aclassvrender_1_1_axis_aligned_box_html"><div class="ttname"><a href="classvrender_1_1_axis_aligned_box.html">vrender::AxisAlignedBox&lt; Vector3 &gt;</a></div></div>
-<div class="ttc" id="anamespacesofa_1_1type_html_a62baf775eb04f09e83f1a8bf818bd971"><div class="ttname"><a href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">sofa::type::Vector3</a></div><div class="ttdeci">Vec3d Vector3</div><div class="ttdoc">alias</div><div class="ttdef"><b>Definition:</b> fwd.h:86</div></div>
+<div class="ttc" id="aclassvrender_1_1_axis_aligned_box_html_a46c040dc1810d98b36e8feaeb70bd4c6"><div class="ttname"><a href="classvrender_1_1_axis_aligned_box.html#a46c040dc1810d98b36e8feaeb70bd4c6">vrender::AxisAlignedBox::AxisAlignedBox</a></div><div class="ttdeci">AxisAlignedBox()</div><div class="ttdef"><b>Definition:</b> AxisAlignedBox.h:93</div></div>
+<div class="ttc" id="aclassvrender_1_1_axis_aligned_box_html"><div class="ttname"><a href="classvrender_1_1_axis_aligned_box.html">vrender::AxisAlignedBox</a></div><div class="ttdef"><b>Definition:</b> AxisAlignedBox.h:73</div></div>
+<div class="ttc" id="anamespacevrender_html_ac004c977d0905b58aa22131c74f8650d"><div class="ttname"><a href="namespacevrender.html#ac004c977d0905b58aa22131c74f8650d">vrender::AxisAlignedBox_xy</a></div><div class="ttdeci">AxisAlignedBox&lt; Vector2 &gt; AxisAlignedBox_xy</div><div class="ttdef"><b>Definition:</b> AxisAlignedBox.h:90</div></div>
+<div class="ttc" id="anamespacevrender_html_af3c65fd04c017f4e7549c77ac682312a"><div class="ttname"><a href="namespacevrender.html#af3c65fd04c017f4e7549c77ac682312a">vrender::AxisAlignedBox_xyz</a></div><div class="ttdeci">AxisAlignedBox&lt; Vector3 &gt; AxisAlignedBox_xyz</div><div class="ttdef"><b>Definition:</b> AxisAlignedBox.h:91</div></div>
+<div class="ttc" id="aclassvrender_1_1_axis_aligned_box_html_a374efade9212efde82a275f6277c8287"><div class="ttname"><a href="classvrender_1_1_axis_aligned_box.html#a374efade9212efde82a275f6277c8287">vrender::AxisAlignedBox::_min</a></div><div class="ttdeci">T _min</div><div class="ttdef"><b>Definition:</b> AxisAlignedBox.h:86</div></div>
+<div class="ttc" id="aclassvrender_1_1_axis_aligned_box_html_afb74714fc6173a476220ae76c99e540b"><div class="ttname"><a href="classvrender_1_1_axis_aligned_box.html#afb74714fc6173a476220ae76c99e540b">vrender::AxisAlignedBox::maxi</a></div><div class="ttdeci">const T &amp; maxi() const</div><div class="ttdef"><b>Definition:</b> AxisAlignedBox.h:81</div></div>
+<div class="ttc" id="aclassvrender_1_1_axis_aligned_box_html_a7e53840b071de3821b2a71db510c3c99"><div class="ttname"><a href="classvrender_1_1_axis_aligned_box.html#a7e53840b071de3821b2a71db510c3c99">vrender::AxisAlignedBox::mini</a></div><div class="ttdeci">const T &amp; mini() const</div><div class="ttdef"><b>Definition:</b> AxisAlignedBox.h:80</div></div>
+<div class="ttc" id="aclassvrender_1_1_vector3_html"><div class="ttname"><a href="classvrender_1_1_vector3.html">vrender::Vector3</a></div><div class="ttdef"><b>Definition:</b> Vector3.h:58</div></div>
+<div class="ttc" id="aclassvrender_1_1_axis_aligned_box_html_ae09cab9d3ebccb25951c2205301b7901"><div class="ttname"><a href="classvrender_1_1_axis_aligned_box.html#ae09cab9d3ebccb25951c2205301b7901">vrender::AxisAlignedBox::_max</a></div><div class="ttdeci">T _max</div><div class="ttdef"><b>Definition:</b> AxisAlignedBox.h:87</div></div>
+<div class="ttc" id="aclassvrender_1_1_vector2_html"><div class="ttname"><a href="classvrender_1_1_vector2.html">vrender::Vector2</a></div><div class="ttdef"><b>Definition:</b> Vector2.h:75</div></div>
+<div class="ttc" id="anamespacevrender_html"><div class="ttname"><a href="namespacevrender.html">vrender</a></div><div class="ttdef"><b>Definition:</b> AxisAlignedBox.h:48</div></div>
+<div class="ttc" id="aclassvrender_1_1_axis_aligned_box_html_a04873413702815f2fcc4e1c0f1275572"><div class="ttname"><a href="classvrender_1_1_axis_aligned_box.html#a04873413702815f2fcc4e1c0f1275572">vrender::AxisAlignedBox::include</a></div><div class="ttdeci">void include(const T &amp;v)</div><div class="ttdef"><b>Definition:</b> AxisAlignedBox.h:109</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_927152f1403da9b2afd274b3e3ae770d.html">GUI</a></li><li class="navelem"><a class="el" href="dir_1eca62023986f93910713a5e9ddcd783.html">Qt</a></li><li class="navelem"><a class="el" href="dir_f7311ca8eb3b00f9887af19adf559895.html">libQGLViewer-2.7.1</a></li><li class="navelem"><a class="el" href="dir_0fb872e7831622d7309fbbdadf113450.html">QGLViewer</a></li><li class="navelem"><a class="el" href="dir_37d8a04ead74802bdbcf6b448d55d98c.html">VRender</a></li><li class="navelem"><b>AxisAlignedBox.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:42:47 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_927152f1403da9b2afd274b3e3ae770d.html">GUI</a></li><li class="navelem"><a class="el" href="dir_1eca62023986f93910713a5e9ddcd783.html">Qt</a></li><li class="navelem"><a class="el" href="dir_f7311ca8eb3b00f9887af19adf559895.html">libQGLViewer-2.7.1</a></li><li class="navelem"><a class="el" href="dir_0fb872e7831622d7309fbbdadf113450.html">QGLViewer</a></li><li class="navelem"><a class="el" href="dir_37d8a04ead74802bdbcf6b448d55d98c.html">VRender</a></li><li class="navelem"><a class="el" href="_axis_aligned_box_8h.html">AxisAlignedBox.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:18:21 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

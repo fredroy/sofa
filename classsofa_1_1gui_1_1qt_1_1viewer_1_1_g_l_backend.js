@@ -10,5 +10,8 @@ var classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend =
     [ "screenshotName", "classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#af6157441a5643269ad18694bf4b56a9d", null ],
     [ "setBackgroundImage", "classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#a5940befb33d6b541788cf7eb00500cbc", null ],
     [ "setPickingMethod", "classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#ac0cc35dd6ff30d32c172996b5ab2e82c", null ],
-    [ "setPrefix", "classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#a9fdca633333f524e073f31d7674ab1a8", null ]
+    [ "setPrefix", "classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#a9fdca633333f524e073f31d7674ab1a8", null ],
+    [ "m_capture", "classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#aa3355dfa515b7bce35f8fafdc6d1845d", null ],
+    [ "m_texLogo", "classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#a4749c91f38f2a80f91c015c54b3da7b3", null ],
+    [ "m_videoRecorderFFMPEG", "classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#a2b8cc6a5eaf0aed1f5861816fb110ea5", null ]
 ];

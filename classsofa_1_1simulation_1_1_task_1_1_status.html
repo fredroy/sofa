@@ -89,6 +89,8 @@ $(document).ready(function(){initNavTree('classsofa_1_1simulation_1_1_task_1_1_s
 <div class="title">Task::Status Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_task_8h_source.html">Task.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Task::Status:</div>
 <div class="dyncontent">
@@ -101,20 +103,102 @@ Inheritance diagram for Task::Status:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3b4b8b7b381018ebda54d5ed24583253"><td class="memItemLeft" align="right" valign="top"><a id="a3b4b8b7b381018ebda54d5ed24583253"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isBusy</b> () const =0</td></tr>
+<tr class="memitem:ad1d40ebceaa9d48a70b260880a5b1b86"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_task_1_1_status.html#ad1d40ebceaa9d48a70b260880a5b1b86">~Status</a> ()</td></tr>
+<tr class="separator:ad1d40ebceaa9d48a70b260880a5b1b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b4b8b7b381018ebda54d5ed24583253"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_task_1_1_status.html#a3b4b8b7b381018ebda54d5ed24583253">isBusy</a> () const =0</td></tr>
 <tr class="separator:a3b4b8b7b381018ebda54d5ed24583253"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad97fbe927f28da090a0f2aa924a02783"><td class="memItemLeft" align="right" valign="top"><a id="ad97fbe927f28da090a0f2aa924a02783"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>setBusy</b> (bool busy)=0</td></tr>
+<tr class="memitem:ad97fbe927f28da090a0f2aa924a02783"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_task_1_1_status.html#ad97fbe927f28da090a0f2aa924a02783">setBusy</a> (bool busy)=0</td></tr>
 <tr class="separator:ad97fbe927f28da090a0f2aa924a02783"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad1d40ebceaa9d48a70b260880a5b1b86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1d40ebceaa9d48a70b260880a5b1b86">&#9670;&nbsp;</a></span>~Status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ~<a class="el" href="classsofa_1_1simulation_1_1_task_1_1_status.html">Status</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3b4b8b7b381018ebda54d5ed24583253"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b4b8b7b381018ebda54d5ed24583253">&#9670;&nbsp;</a></span>isBusy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool isBusy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1simulation_1_1_cpu_task_1_1_status.html#ad890cfa3f72244b23759818944a84582">CpuTask::Status</a>.</p>
+
+</div>
+</div>
+<a id="ad97fbe927f28da090a0f2aa924a02783"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad97fbe927f28da090a0f2aa924a02783">&#9670;&nbsp;</a></span>setBusy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int setBusy </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>busy</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1simulation_1_1_cpu_task_1_1_status.html#a930fe4b499508432a73f17e21a5c1531">CpuTask::Status</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>simulation</b></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_task.html">Task</a></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_task_1_1_status.html">Status</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:14:04 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1simulation.html">simulation</a></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_task.html">Task</a></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_task_1_1_status.html">Status</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:46:36 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

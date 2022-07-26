@@ -90,62 +90,425 @@ $(document).ready(function(){initNavTree('classsofa_1_1linearalgebra_1_1matrix__
 <div class="title">matrix_bloc_traits&lt; double, IndexType &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_linear_algebra_2src_2sofa_2linearalgebra_2matrix__bloc__traits_8h_source.html">matrix_bloc_traits.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a775634eda7917b3f2142895169300799"><td class="memItemLeft" align="right" valign="top"><a id="a775634eda7917b3f2142895169300799"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>NL</b> = 1
+<tr class="memitem:a775634eda7917b3f2142895169300799"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a775634eda7917b3f2142895169300799aeba10cd0b438b1f9094fa3d1fc88193e">NL</a> = 1
  }</td></tr>
 <tr class="separator:a775634eda7917b3f2142895169300799"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0dbe611dd282845a1b1c621fbcfbe00"><td class="memItemLeft" align="right" valign="top"><a id="ad0dbe611dd282845a1b1c621fbcfbe00"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>NC</b> = 1
+<tr class="memitem:ad0dbe611dd282845a1b1c621fbcfbe00"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#ad0dbe611dd282845a1b1c621fbcfbe00a3dbd1016ea99d087d747530418b89a01">NC</a> = 1
  }</td></tr>
 <tr class="separator:ad0dbe611dd282845a1b1c621fbcfbe00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b8151a5bf231d456c9cf7bf8befd475"><td class="memItemLeft" align="right" valign="top"><a id="a2b8151a5bf231d456c9cf7bf8befd475"></a>
-typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>Block</b></td></tr>
+<tr class="memitem:a2b8151a5bf231d456c9cf7bf8befd475"><td class="memItemLeft" align="right" valign="top">typedef double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a></td></tr>
 <tr class="separator:a2b8151a5bf231d456c9cf7bf8befd475"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af23ddddb58ad366c55a8e38f98af40cb"><td class="memItemLeft" align="right" valign="top"><a id="af23ddddb58ad366c55a8e38f98af40cb"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>SOFA_ATTRIBUTE_DEPRECATED__BLOCK_RENAMING_2404</b> = Block</td></tr>
+<tr class="memitem:af23ddddb58ad366c55a8e38f98af40cb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#af23ddddb58ad366c55a8e38f98af40cb">SOFA_ATTRIBUTE_DEPRECATED__BLOCK_RENAMING_2404</a> = <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a></td></tr>
 <tr class="separator:af23ddddb58ad366c55a8e38f98af40cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a445a5f0e2a34c9d97d69a3c2d1957907"><td class="memItemLeft" align="right" valign="top"><a id="a445a5f0e2a34c9d97d69a3c2d1957907"></a>
-typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>Real</b></td></tr>
+<tr class="memitem:a445a5f0e2a34c9d97d69a3c2d1957907"><td class="memItemLeft" align="right" valign="top">typedef double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a></td></tr>
 <tr class="separator:a445a5f0e2a34c9d97d69a3c2d1957907"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a0d784a0978168432dc646db0e91a844a"><td class="memItemLeft" align="right" valign="top"><a id="a0d784a0978168432dc646db0e91a844a"></a>
-static Real &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>v</b> (Block &amp;b, IndexType, IndexType)</td></tr>
+<tr class="memitem:a0d784a0978168432dc646db0e91a844a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a0d784a0978168432dc646db0e91a844a">v</a> (<a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a> &amp;b, IndexType, IndexType)</td></tr>
 <tr class="separator:a0d784a0978168432dc646db0e91a844a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afea5a62aed45924740dc466e4a6b78cb"><td class="memItemLeft" align="right" valign="top"><a id="afea5a62aed45924740dc466e4a6b78cb"></a>
-static const Real &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>v</b> (const Block &amp;b, IndexType, IndexType)</td></tr>
+<tr class="memitem:afea5a62aed45924740dc466e4a6b78cb"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#afea5a62aed45924740dc466e4a6b78cb">v</a> (const <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a> &amp;b, IndexType, IndexType)</td></tr>
 <tr class="separator:afea5a62aed45924740dc466e4a6b78cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab84610fffd64d88f023505e87d0224fb"><td class="memItemLeft" align="right" valign="top"><a id="ab84610fffd64d88f023505e87d0224fb"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> (Block &amp;b)</td></tr>
+<tr class="memitem:ab84610fffd64d88f023505e87d0224fb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#ab84610fffd64d88f023505e87d0224fb">clear</a> (<a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a> &amp;b)</td></tr>
 <tr class="separator:ab84610fffd64d88f023505e87d0224fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affb9f3394a45131a987e01078d634cb1"><td class="memItemLeft" align="right" valign="top"><a id="affb9f3394a45131a987e01078d634cb1"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>empty</b> (const Block &amp;b)</td></tr>
+<tr class="memitem:affb9f3394a45131a987e01078d634cb1"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#affb9f3394a45131a987e01078d634cb1">empty</a> (const <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a> &amp;b)</td></tr>
 <tr class="separator:affb9f3394a45131a987e01078d634cb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74330032d3ae9493c8ab0ba41590a838"><td class="memItemLeft" align="right" valign="top"><a id="a74330032d3ae9493c8ab0ba41590a838"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>invert</b> (Block &amp;result, const Block &amp;b)</td></tr>
+<tr class="memitem:a74330032d3ae9493c8ab0ba41590a838"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a74330032d3ae9493c8ab0ba41590a838">invert</a> (<a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a> &amp;result, const <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a> &amp;b)</td></tr>
 <tr class="separator:a74330032d3ae9493c8ab0ba41590a838"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aded4a073934d9200896b12347d2f7063"><td class="memItemLeft" align="right" valign="top"><a id="aded4a073934d9200896b12347d2f7063"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>split_row_index</b> (IndexType &amp;index, IndexType &amp;modulo)</td></tr>
+<tr class="memitem:aded4a073934d9200896b12347d2f7063"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#aded4a073934d9200896b12347d2f7063">split_row_index</a> (IndexType &amp;index, IndexType &amp;modulo)</td></tr>
 <tr class="separator:aded4a073934d9200896b12347d2f7063"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e63d4ddb8d5d140a540e90298ad3d56"><td class="memItemLeft" align="right" valign="top"><a id="a9e63d4ddb8d5d140a540e90298ad3d56"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>split_col_index</b> (IndexType &amp;index, IndexType &amp;modulo)</td></tr>
+<tr class="memitem:a9e63d4ddb8d5d140a540e90298ad3d56"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a9e63d4ddb8d5d140a540e90298ad3d56">split_col_index</a> (IndexType &amp;index, IndexType &amp;modulo)</td></tr>
 <tr class="separator:a9e63d4ddb8d5d140a540e90298ad3d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6a44d2e9c373b6d3eb2af5a8781f283"><td class="memItemLeft" align="right" valign="top"><a id="af6a44d2e9c373b6d3eb2af5a8781f283"></a>
-static sofa::linearalgebra::BaseMatrix::ElementType&#160;</td><td class="memItemRight" valign="bottom"><b>getElementType</b> ()</td></tr>
+<tr class="memitem:af6a44d2e9c373b6d3eb2af5a8781f283"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html#a16b11be27a8e9362dd122c4d879e01ae">sofa::linearalgebra::BaseMatrix::ElementType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#af6a44d2e9c373b6d3eb2af5a8781f283">getElementType</a> ()</td></tr>
 <tr class="separator:af6a44d2e9c373b6d3eb2af5a8781f283"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42787b89bf1451a38afa8cca83ab23e9"><td class="memItemLeft" align="right" valign="top"><a id="a42787b89bf1451a38afa8cca83ab23e9"></a>
-static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>Name</b> ()</td></tr>
+<tr class="memitem:a42787b89bf1451a38afa8cca83ab23e9"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a42787b89bf1451a38afa8cca83ab23e9">Name</a> ()</td></tr>
 <tr class="separator:a42787b89bf1451a38afa8cca83ab23e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a2b8151a5bf231d456c9cf7bf8befd475"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b8151a5bf231d456c9cf7bf8befd475">&#9670;&nbsp;</a></span>Block</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef double <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a445a5f0e2a34c9d97d69a3c2d1957907"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a445a5f0e2a34c9d97d69a3c2d1957907">&#9670;&nbsp;</a></span>Real</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef double <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af23ddddb58ad366c55a8e38f98af40cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af23ddddb58ad366c55a8e38f98af40cb">&#9670;&nbsp;</a></span>SOFA_ATTRIBUTE_DEPRECATED__BLOCK_RENAMING_2404</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#af23ddddb58ad366c55a8e38f98af40cb">SOFA_ATTRIBUTE_DEPRECATED__BLOCK_RENAMING_2404</a> =  <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a775634eda7917b3f2142895169300799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a775634eda7917b3f2142895169300799">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a775634eda7917b3f2142895169300799aeba10cd0b438b1f9094fa3d1fc88193e"></a>NL&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ad0dbe611dd282845a1b1c621fbcfbe00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0dbe611dd282845a1b1c621fbcfbe00">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad0dbe611dd282845a1b1c621fbcfbe00a3dbd1016ea99d087d747530418b89a01"></a>NC&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab84610fffd64d88f023505e87d0224fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab84610fffd64d88f023505e87d0224fb">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void clear </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="affb9f3394a45131a987e01078d634cb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affb9f3394a45131a987e01078d634cb1">&#9670;&nbsp;</a></span>empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool empty </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af6a44d2e9c373b6d3eb2af5a8781f283"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6a44d2e9c373b6d3eb2af5a8781f283">&#9670;&nbsp;</a></span>getElementType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html#a16b11be27a8e9362dd122c4d879e01ae">sofa::linearalgebra::BaseMatrix::ElementType</a> getElementType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a74330032d3ae9493c8ab0ba41590a838"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74330032d3ae9493c8ab0ba41590a838">&#9670;&nbsp;</a></span>invert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void invert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a> &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42787b89bf1451a38afa8cca83ab23e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42787b89bf1451a38afa8cca83ab23e9">&#9670;&nbsp;</a></span>Name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const std::string Name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e63d4ddb8d5d140a540e90298ad3d56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e63d4ddb8d5d140a540e90298ad3d56">&#9670;&nbsp;</a></span>split_col_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void split_col_index </td>
+          <td>(</td>
+          <td class="paramtype">IndexType &amp;&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IndexType &amp;&#160;</td>
+          <td class="paramname"><em>modulo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aded4a073934d9200896b12347d2f7063"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aded4a073934d9200896b12347d2f7063">&#9670;&nbsp;</a></span>split_row_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void split_row_index </td>
+          <td>(</td>
+          <td class="paramtype">IndexType &amp;&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IndexType &amp;&#160;</td>
+          <td class="paramname"><em>modulo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d784a0978168432dc646db0e91a844a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d784a0978168432dc646db0e91a844a">&#9670;&nbsp;</a></span>v() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&amp; v </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IndexType&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IndexType&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afea5a62aed45924740dc466e4a6b78cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afea5a62aed45924740dc466e4a6b78cb">&#9670;&nbsp;</a></span>v() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&amp; v </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html#a2b8151a5bf231d456c9cf7bf8befd475">Block</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IndexType&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IndexType&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>linearalgebra</b></li><li class="navelem"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html">matrix_bloc_traits&lt; double, IndexType &gt;</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:11:26 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1linearalgebra.html">linearalgebra</a></li><li class="navelem"><a class="el" href="classsofa_1_1linearalgebra_1_1matrix__bloc__traits_3_01double_00_01_index_type_01_4.html">matrix_bloc_traits&lt; double, IndexType &gt;</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:34 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

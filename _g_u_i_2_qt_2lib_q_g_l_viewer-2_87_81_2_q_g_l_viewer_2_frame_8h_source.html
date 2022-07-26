@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_
 <div class="title">frame.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/****************************************************************************</span></div>
+<a href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_frame_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/****************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> Copyright (C) 2002-2014 Gilles Debunne. All rights reserved.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"></span> </div>
@@ -114,11 +114,11 @@ $(document).ready(function(){initNavTree('_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;constraint.h&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_constraint_8h.html">constraint.h</a>&quot;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">// #include &quot;GL/gl.h&quot; is now included in config.h for ease of configuration</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span>qglviewer {</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">class </span>QGLVIEWER_EXPORT Frame : <span class="keyword">public</span> QObject {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceqglviewer.html">qglviewer</a> {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">class </span><a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2config_8h.html#a26c8f95aa8f060675f2500a3aac614e3">QGLVIEWER_EXPORT</a> Frame : <span class="keyword">public</span> QObject {</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  Q_OBJECT</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keyword">public</span>:</div>
@@ -195,20 +195,20 @@ $(document).ready(function(){initNavTree('_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  <span class="keywordtype">void</span> translate(qreal x, qreal y, qreal z);</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  <span class="keywordtype">void</span> translate(qreal &amp;x, qreal &amp;y, qreal &amp;z);</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  <span class="keywordtype">void</span> rotate(Quaternion &amp;q);</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  <span class="keywordtype">void</span> rotate(<span class="keyword">const</span> Quaternion &amp;q);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="namespacesofa_1_1defaulttype.html#abed48e217039b3e7c2ee4d86908b414c">rotate</a>(Quaternion &amp;q);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="namespacesofa_1_1defaulttype.html#abed48e217039b3e7c2ee4d86908b414c">rotate</a>(<span class="keyword">const</span> Quaternion &amp;q);</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  <span class="comment">// Some compilers complain about &quot;overloading cannot distinguish from previous</span></div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  <span class="comment">// declaration&quot; Simply comment out the following method and its associated</span></div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <span class="comment">// implementation</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_frame.html#acff1a699a1a37a598aa766db7d26b56f">  311</a></span>&#160;  <span class="keywordtype">void</span> rotate(qreal q0, qreal q1, qreal q2, qreal q3);</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="keywordtype">void</span> rotate(qreal &amp;q0, qreal &amp;q1, qreal &amp;q2, qreal &amp;q3);</div>
+<div class="line"><a name="l00311"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_frame.html#acff1a699a1a37a598aa766db7d26b56f">  311</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="namespacesofa_1_1defaulttype.html#abed48e217039b3e7c2ee4d86908b414c">rotate</a>(qreal q0, qreal q1, qreal q2, qreal q3);</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="namespacesofa_1_1defaulttype.html#abed48e217039b3e7c2ee4d86908b414c">rotate</a>(qreal &amp;q0, qreal &amp;q1, qreal &amp;q2, qreal &amp;q3);</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  <span class="keywordtype">void</span> rotateAroundPoint(<a class="code" href="classqglviewer_1_1_quaternion.html">Quaternion</a> &amp;rotation, <span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> &amp;point);</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  <span class="keywordtype">void</span> rotateAroundPoint(<span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_quaternion.html">Quaternion</a> &amp;rotation, <span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> &amp;point);</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  <span class="keywordtype">void</span> alignWithFrame(<span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_frame.html">Frame</a> *<span class="keyword">const</span> frame, <span class="keywordtype">bool</span> move = <span class="keyword">false</span>,</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                      qreal threshold = 0.0);</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  <span class="keywordtype">void</span> projectOnLine(<span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> &amp;origin, <span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> &amp;direction);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  <span class="keywordtype">void</span> projectOnLine(<span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> &amp;origin, <span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> &amp;<a class="code" href="_project_direction_constraint__test_8cpp.html#a3f2cebfb0ab8ca33ed6f0f3598df6112">direction</a>);</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> coordinatesOf(<span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> &amp;src) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> inverseCoordinatesOf(<span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> &amp;src) <span class="keyword">const</span>;</div>
@@ -311,15 +311,20 @@ $(document).ready(function(){initNavTree('_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;<span class="preprocessor">#endif // QGLVIEWER_FRAME_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1defaulttype_html_abed48e217039b3e7c2ee4d86908b414c"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html#abed48e217039b3e7c2ee4d86908b414c">sofa::defaulttype::rotate</a></div><div class="ttdeci">static void rotate(V1 &amp;v, Rot rotation)</div><div class="ttdoc">Apply the given translation and rotation to each entry of vector v.</div><div class="ttdef"><b>Definition:</b> RigidTypes.h:1934</div></div>
+<div class="ttc" id="a_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2config_8h_html_a26c8f95aa8f060675f2500a3aac614e3"><div class="ttname"><a href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2config_8h.html#a26c8f95aa8f060675f2500a3aac614e3">QGLVIEWER_EXPORT</a></div><div class="ttdeci">#define QGLVIEWER_EXPORT</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_quaternion_html"><div class="ttname"><a href="classqglviewer_1_1_quaternion.html">qglviewer::Quaternion</a></div><div class="ttdoc">The Quaternion class represents 3D rotations and orientations.</div><div class="ttdef"><b>Definition:</b> quaternion.h:89</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_constraint_html"><div class="ttname"><a href="classqglviewer_1_1_constraint.html">qglviewer::Constraint</a></div><div class="ttdoc">An interface class for Frame constraints.</div><div class="ttdef"><b>Definition:</b> constraint.h:141</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_frame_html"><div class="ttname"><a href="classqglviewer_1_1_frame.html">qglviewer::Frame</a></div><div class="ttdoc">The Frame class represents a coordinate system, defined by a position and an orientation.</div><div class="ttdef"><b>Definition:</b> frame.h:154</div></div>
+<div class="ttc" id="anamespaceqglviewer_html"><div class="ttname"><a href="namespaceqglviewer.html">qglviewer</a></div><div class="ttdef"><b>Definition:</b> camera.h:30</div></div>
+<div class="ttc" id="a_project_direction_constraint__test_8cpp_html_a3f2cebfb0ab8ca33ed6f0f3598df6112"><div class="ttname"><a href="_project_direction_constraint__test_8cpp.html#a3f2cebfb0ab8ca33ed6f0f3598df6112">direction</a></div><div class="ttdeci">CPos direction</div><div class="ttdoc">direction to project to</div><div class="ttdef"><b>Definition:</b> ProjectDirectionConstraint_test.cpp:67</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_vec_html"><div class="ttname"><a href="classqglviewer_1_1_vec.html">qglviewer::Vec</a></div><div class="ttdoc">The Vec class represents 3D positions and 3D vectors.</div><div class="ttdef"><b>Definition:</b> vec.h:85</div></div>
+<div class="ttc" id="a_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_constraint_8h_html"><div class="ttname"><a href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_constraint_8h.html">constraint.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_927152f1403da9b2afd274b3e3ae770d.html">GUI</a></li><li class="navelem"><a class="el" href="dir_1eca62023986f93910713a5e9ddcd783.html">Qt</a></li><li class="navelem"><a class="el" href="dir_f7311ca8eb3b00f9887af19adf559895.html">libQGLViewer-2.7.1</a></li><li class="navelem"><a class="el" href="dir_0fb872e7831622d7309fbbdadf113450.html">QGLViewer</a></li><li class="navelem"><b>frame.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:35:40 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_927152f1403da9b2afd274b3e3ae770d.html">GUI</a></li><li class="navelem"><a class="el" href="dir_1eca62023986f93910713a5e9ddcd783.html">Qt</a></li><li class="navelem"><a class="el" href="dir_f7311ca8eb3b00f9887af19adf559895.html">libQGLViewer-2.7.1</a></li><li class="navelem"><a class="el" href="dir_0fb872e7831622d7309fbbdadf113450.html">QGLViewer</a></li><li class="navelem"><a class="el" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_frame_8h.html">frame.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:01:48 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

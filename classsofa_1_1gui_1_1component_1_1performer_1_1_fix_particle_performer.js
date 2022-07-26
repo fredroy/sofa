@@ -10,6 +10,11 @@ var classsofa_1_1gui_1_1component_1_1performer_1_1_fix_particle_performer =
     [ "draw", "classsofa_1_1gui_1_1component_1_1performer_1_1_fix_particle_performer.html#ac3e9ca9bd7a5d2b2a9a7042b69d8e5fb", null ],
     [ "execute", "classsofa_1_1gui_1_1component_1_1performer_1_1_fix_particle_performer.html#a61af3e60b94ae3e748f6fbac1e794af7", null ],
     [ "getFixationPoints", "classsofa_1_1gui_1_1component_1_1performer_1_1_fix_particle_performer.html#acba08c53cd748bd9c3ae3dfa98b908fd", null ],
+    [ "getFixationPointsSphere", "classsofa_1_1gui_1_1component_1_1performer_1_1_fix_particle_performer.html#a8d1efd3602bd449caef5b6caa43595e4", null ],
+    [ "getFixationPointsTriangle", "classsofa_1_1gui_1_1component_1_1performer_1_1_fix_particle_performer.html#a696d443527b7f7cdb0a34e30531acf9c", null ],
+    [ "getMapInstance", "classsofa_1_1gui_1_1component_1_1performer_1_1_fix_particle_performer.html#ab9c1e6cdc8666703562551d64bc54e14", null ],
+    [ "RegisterSupportedModel", "classsofa_1_1gui_1_1component_1_1performer_1_1_fix_particle_performer.html#a9e9a52ff41f57d4e3252249bc75581f2", null ],
     [ "start", "classsofa_1_1gui_1_1component_1_1performer_1_1_fix_particle_performer.html#a60de64d75454385b23995437f1d72669", null ],
-    [ "fixations", "classsofa_1_1gui_1_1component_1_1performer_1_1_fix_particle_performer.html#ab5a226265bc42627761d24b1f22ee039", null ]
+    [ "fixations", "classsofa_1_1gui_1_1component_1_1performer_1_1_fix_particle_performer.html#ab5a226265bc42627761d24b1f22ee039", null ],
+    [ "s_mapSupportedModels", "classsofa_1_1gui_1_1component_1_1performer_1_1_fix_particle_performer.html#a5836d06cd88f1241dadcc8ced4c2b1af", null ]
 ];

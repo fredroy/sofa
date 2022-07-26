@@ -103,9 +103,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a3e978ff906533c37dd26045f07f0e393"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6be4c3ff8b8d7c43c92fc91cbdb986a5"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; const <a class="el" href="classsofa_1_1defaulttype_1_1_abstract_type_info.html">AbstractTypeInfo</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_type_info_registry.html#a6be4c3ff8b8d7c43c92fc91cbdb986a5">GetRegisteredTypes</a> (const std::string &amp;target=&quot;&quot;)</td></tr>
 <tr class="separator:a6be4c3ff8b8d7c43c92fc91cbdb986a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd962b0f6612fb0615059301711ec32e"><td class="memItemLeft" align="right" valign="top"><a id="afd962b0f6612fb0615059301711ec32e"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_type_info_registry.html#afd962b0f6612fb0615059301711ec32e">AllocateNewTypeId</a> (const std::type_info &amp;nfo)</td></tr>
-<tr class="memdesc:afd962b0f6612fb0615059301711ec32e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new int to generates the corresponding <a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html" title="Generates unique id for types.">TypeInfoId</a>. <br /></td></tr>
+<tr class="memitem:afd962b0f6612fb0615059301711ec32e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_type_info_registry.html#afd962b0f6612fb0615059301711ec32e">AllocateNewTypeId</a> (const std::type_info &amp;nfo)</td></tr>
+<tr class="memdesc:afd962b0f6612fb0615059301711ec32e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new int to generates the corresponding <a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html" title="Generates unique id for types.">TypeInfoId</a>.  <a href="classsofa_1_1defaulttype_1_1_type_info_registry.html#afd962b0f6612fb0615059301711ec32e">More...</a><br /></td></tr>
 <tr class="separator:afd962b0f6612fb0615059301711ec32e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -114,8 +113,36 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 <p> <a class="el" href="classsofa_1_1defaulttype_1_1_abstract_type_info.html">AbstractTypeInfo</a> offers an API to manipulate the data content of a specific type without requiering the inner details of the type. Have a look in <a class="el" href="classsofa_1_1defaulttype_1_1_abstract_type_info.html">AbstractTypeInfo</a> for more informations.</p>
 <p>On its side, <a class="el" href="classsofa_1_1defaulttype_1_1_type_info_registry.html" title="An unique singleton to register all the type info defined in Sofa.">TypeInfoRegistry</a> holds all the instances of object thats inherits from <a class="el" href="classsofa_1_1defaulttype_1_1_abstract_type_info.html">AbstractTypeInfo</a></p>
 <p>The common use case is get the type id to access a full <a class="el" href="classsofa_1_1defaulttype_1_1_abstract_type_info.html">AbstractTypeInfo</a> from the <a class="el" href="classsofa_1_1defaulttype_1_1_type_info_registry.html" title="An unique singleton to register all the type info defined in Sofa.">TypeInfoRegistry</a>. The acces is done with a <a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html" title="Generates unique id for types.">TypeInfoId</a> instance that stores an unique identifier for each data type.</p>
-<p>Example of use: <a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html" title="Generates unique id for types.">TypeInfoId</a>&amp; shortinfo = TypeInfoId::GetTypeId&lt;double&gt;(); AbstractTypeInfo* info = TypeInfoRegistry::Get(shortinfo); info-&gt;getName() </p>
+<p>Example of use: <a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html" title="Generates unique id for types.">TypeInfoId</a>&amp; shortinfo = <a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html#ab152f0e7248ed7ac79869e71d8aadc69">TypeInfoId::GetTypeId&lt;double&gt;()</a>; AbstractTypeInfo* info = TypeInfoRegistry::Get(shortinfo); info-&gt;getName() </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="afd962b0f6612fb0615059301711ec32e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd962b0f6612fb0615059301711ec32e">&#9670;&nbsp;</a></span>AllocateNewTypeId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int AllocateNewTypeId </td>
+          <td>(</td>
+          <td class="paramtype">const std::type_info &amp;&#160;</td>
+          <td class="paramname"><em>nfo</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a new int to generates the corresponding <a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html" title="Generates unique id for types.">TypeInfoId</a>. </p>
+
+</div>
+</div>
 <a id="adf923921591e6bc3fc8f3646cc5093be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf923921591e6bc3fc8f3646cc5093be">&#9670;&nbsp;</a></span>Get()</h2>
 
@@ -218,8 +245,8 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>defaulttype</b></li><li class="navelem"><a class="el" href="classsofa_1_1defaulttype_1_1_type_info_registry.html">TypeInfoRegistry</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:31 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1defaulttype.html">defaulttype</a></li><li class="navelem"><a class="el" href="classsofa_1_1defaulttype_1_1_type_info_registry.html">TypeInfoRegistry</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:22 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

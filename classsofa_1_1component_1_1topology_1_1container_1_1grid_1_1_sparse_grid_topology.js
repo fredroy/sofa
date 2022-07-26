@@ -120,6 +120,7 @@ var classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topo
     [ "_usingMC", "classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html#a0cfa91e6951e19726c7eed59f53eb39e", null ],
     [ "_virtualFinerLevels", "classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html#a401016fdadc90fc5b3f3624aae76bfe1", null ],
     [ "convolutionSize", "classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html#ad2eac76b891338f6d19d813033d63f14", null ],
+    [ "cornerIndicesFromFineToCoarse", "classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html#a0301e8c59404e85ed35fcb14688712e5", null ],
     [ "d_bOnlyInsideCells", "classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html#a36c98876766b192a11e38d18c2e26416", null ],
     [ "dataResolution", "classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html#a43ef71a43bb06c9bc9fd9ebb9ec698c1", null ],
     [ "dataVoxels", "classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html#ae20e4ed94fd86847c46a2763d04ce420", null ],
@@ -128,5 +129,6 @@ var classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topo
     [ "marchingCubes", "classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html#a9fdf39c5378f1ac7b94961142edf8771", null ],
     [ "marchingCubeStep", "classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html#ad014ef46f65c80f5d477a59b3c72321d", null ],
     [ "n", "classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html#afbd25633ada1a0bc8afc80af3c8e55c5", null ],
-    [ "voxelSize", "classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html#a5b7069bf424412fadef318eb9ee32e8f", null ]
+    [ "voxelSize", "classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html#a5b7069bf424412fadef318eb9ee32e8f", null ],
+    [ "WEIGHT27", "classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html#a28dbf345fa6ac29bb18ee86c1758d346", null ]
 ];

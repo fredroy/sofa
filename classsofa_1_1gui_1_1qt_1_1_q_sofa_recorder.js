@@ -20,6 +20,7 @@ var classsofa_1_1gui_1_1qt_1_1_q_sofa_recorder =
     [ "SetRecordDirectory", "classsofa_1_1gui_1_1qt_1_1_q_sofa_recorder.html#ab06f79e5e8bd9123b5e9e31a3751fc08", null ],
     [ "SetSimulation", "classsofa_1_1gui_1_1qt_1_1_q_sofa_recorder.html#a57572a561babee8a9b525b3610367d2f", null ],
     [ "setTimeSimulation", "classsofa_1_1gui_1_1qt_1_1_q_sofa_recorder.html#a336f5a47a43bf13fbfc60dc097d91ae6", null ],
+    [ "sleep", "classsofa_1_1gui_1_1qt_1_1_q_sofa_recorder.html#ae7c228ebee0624f03a4709a1cb938658", null ],
     [ "slot_backward", "classsofa_1_1gui_1_1qt_1_1_q_sofa_recorder.html#aabdddcc4d039426d4a65d5252f943325", null ],
     [ "slot_forward", "classsofa_1_1gui_1_1qt_1_1_q_sofa_recorder.html#a595c7f683047095f366f401c8f11993c", null ],
     [ "slot_loadrecord_timevalue", "classsofa_1_1gui_1_1qt_1_1_q_sofa_recorder.html#a7c61b3014710e55d271cc8bf9c09f19a", null ],

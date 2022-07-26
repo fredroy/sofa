@@ -13,6 +13,7 @@ var classsofa_1_1component_1_1engine_1_1select_1_1_values_from_positions =
     [ "VecReal", "classsofa_1_1component_1_1engine_1_1select_1_1_values_from_positions.html#a6c0d252670960c4ead435e98ff168952", null ],
     [ "ValuesFromPositions", "classsofa_1_1component_1_1engine_1_1select_1_1_values_from_positions.html#a0bf5b0880cb3b3933138f9a695d0cd31", null ],
     [ "~ValuesFromPositions", "classsofa_1_1component_1_1engine_1_1select_1_1_values_from_positions.html#a6ec13428c2d092efb5cdaebf9fcca2e1", null ],
+    [ "canCreate", "classsofa_1_1component_1_1engine_1_1select_1_1_values_from_positions.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1select_1_1_values_from_positions.html#a4daa2dc990606f6f13a82f619a13358a", null ],
     [ "draw", "classsofa_1_1component_1_1engine_1_1select_1_1_values_from_positions.html#a8673433953792026ae9baf91b348d7da", null ],
     [ "init", "classsofa_1_1component_1_1engine_1_1select_1_1_values_from_positions.html#ad72eef1561c7a53b19b048397d4ef570", null ],

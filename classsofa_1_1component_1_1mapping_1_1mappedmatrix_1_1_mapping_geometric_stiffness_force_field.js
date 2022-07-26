@@ -10,5 +10,6 @@ var classsofa_1_1component_1_1mapping_1_1mappedmatrix_1_1_mapping_geometric_stif
     [ "addForce", "classsofa_1_1component_1_1mapping_1_1mappedmatrix_1_1_mapping_geometric_stiffness_force_field.html#a131b4243ef75d02e83e9893265d5a8df", null ],
     [ "addKToMatrix", "classsofa_1_1component_1_1mapping_1_1mappedmatrix_1_1_mapping_geometric_stiffness_force_field.html#a585ebac44b870c6219050c2835f3ad39", null ],
     [ "getPotentialEnergy", "classsofa_1_1component_1_1mapping_1_1mappedmatrix_1_1_mapping_geometric_stiffness_force_field.html#a96720111ed3bcf58add33a4d18461ef4", null ],
-    [ "SOFA_CLASS", "classsofa_1_1component_1_1mapping_1_1mappedmatrix_1_1_mapping_geometric_stiffness_force_field.html#af552ec34dffbe6c8e15a7181fa3dbf66", null ]
+    [ "SOFA_CLASS", "classsofa_1_1component_1_1mapping_1_1mappedmatrix_1_1_mapping_geometric_stiffness_force_field.html#af552ec34dffbe6c8e15a7181fa3dbf66", null ],
+    [ "l_mapping", "classsofa_1_1component_1_1mapping_1_1mappedmatrix_1_1_mapping_geometric_stiffness_force_field.html#af44aaf8162807b229565e0eb1db862e1", null ]
 ];

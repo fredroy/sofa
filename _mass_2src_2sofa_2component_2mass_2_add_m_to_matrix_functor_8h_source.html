@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_mass_2src_2sofa_2component_2mass_2_ad
 <div class="title">AddMToMatrixFunctor.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_mass_2src_2sofa_2component_2mass_2_add_m_to_matrix_functor_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -110,50 +110,60 @@ $(document).ready(function(){initNavTree('_mass_2src_2sofa_2component_2mass_2_ad
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;sofa/component/mass/config.h&gt;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/linearalgebra/BaseMatrix.h&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sofa/defaulttype/RigidTypes.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_linear_algebra_2src_2sofa_2linearalgebra_2_base_matrix_8h.html">sofa/linearalgebra/BaseMatrix.h</a>&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_rigid_types_8h.html">sofa/defaulttype/RigidTypes.h</a>&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>sofa::component::mass</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="namespacesofa_1_1component_1_1mass.html">   28</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1component_1_1mass.html">sofa::component::mass</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> Deriv, <span class="keyword">class</span> MassType&gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">struct </span>AddMToMatrixFunctor</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">struct </span><a class="code" href="structsofa_1_1component_1_1mass_1_1_add_m_to_matrix_functor.html">AddMToMatrixFunctor</a></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    static_assert(std::is_floating_point_v&lt;MassType&gt;, <span class="stringliteral">&quot;Default implementation of AddMToMatrixFunctor assumes MassType is a floating point&quot;</span>);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> operator()(linearalgebra::BaseMatrix * mat, MassType mass, <span class="keywordtype">int</span> pos, MassType fact)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structsofa_1_1component_1_1mass_1_1_add_m_to_matrix_functor.html#a7d6f596c0285d00c311441d577b8afbb">operator()</a>(<a class="code" href="classsofa_1_1linearalgebra_1_1_base_matrix.html">linearalgebra::BaseMatrix</a> * mat, <a class="code" href="structsofa_1_1component_1_1mass_1_1_mass_type.html">MassType</a> mass, <span class="keywordtype">int</span> pos, <a class="code" href="structsofa_1_1component_1_1mass_1_1_mass_type.html">MassType</a> fact)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        this-&gt;operator()(mat, mass, pos, pos, fact);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        this-&gt;<a class="code" href="structsofa_1_1component_1_1mass_1_1_add_m_to_matrix_functor.html#a7d6f596c0285d00c311441d577b8afbb">operator()</a>(mat, mass, pos, pos, fact);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> operator()(linearalgebra::BaseMatrix * mat, MassType mass, <span class="keywordtype">int</span> posRow, <span class="keywordtype">int</span> posColumn, MassType fact)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structsofa_1_1component_1_1mass_1_1_add_m_to_matrix_functor.html#a7d6f596c0285d00c311441d577b8afbb">operator()</a>(<a class="code" href="classsofa_1_1linearalgebra_1_1_base_matrix.html">linearalgebra::BaseMatrix</a> * mat, <a class="code" href="structsofa_1_1component_1_1mass_1_1_mass_type.html">MassType</a> mass, <span class="keywordtype">int</span> posRow, <span class="keywordtype">int</span> posColumn, <a class="code" href="structsofa_1_1component_1_1mass_1_1_mass_type.html">MassType</a> fact)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> m = mass * fact;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; Deriv::total_size; ++i)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            mat-&gt;add(posRow + i, posColumn + i, m);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            mat-&gt;<a class="code" href="classsofa_1_1linearalgebra_1_1_base_matrix.html#a0f7edd704c8f67d11464be8d7158f233">add</a>(posRow + i, posColumn + i, m);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">template</span>&lt;sofa::Size N, <span class="keyword">typename</span> Real&gt;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">struct </span>AddMToMatrixFunctor&lt; defaulttype::RigidDeriv&lt;N,Real&gt;, defaulttype::RigidMass&lt;N,Real&gt; &gt;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">struct </span><a class="code" href="structsofa_1_1component_1_1mass_1_1_add_m_to_matrix_functor.html">AddMToMatrixFunctor</a>&lt; defaulttype::<a class="code" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt;N,Real&gt;, <a class="code" href="classsofa_1_1defaulttype_1_1_rigid_mass.html">defaulttype::RigidMass</a>&lt;N,Real&gt; &gt;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> operator()(linearalgebra::BaseMatrix * mat, <span class="keyword">const</span> defaulttype::RigidMass&lt;N,Real&gt;&amp; mass, <span class="keywordtype">int</span> pos, Real fact)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structsofa_1_1component_1_1mass_1_1_add_m_to_matrix_functor.html#a7d6f596c0285d00c311441d577b8afbb">operator()</a>(<a class="code" href="classsofa_1_1linearalgebra_1_1_base_matrix.html">linearalgebra::BaseMatrix</a> * mat, <span class="keyword">const</span> <a class="code" href="classsofa_1_1defaulttype_1_1_rigid_mass.html">defaulttype::RigidMass&lt;N,Real&gt;</a>&amp; mass, <span class="keywordtype">int</span> pos, Real fact)</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> m = mass.mass * fact;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">for</span> (sofa::Size i = 0; i &lt; N; ++i)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            mat-&gt;add(pos + i, pos + i, m);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        mat-&gt;add(pos + N, pos + N, mass.inertiaMassMatrix * fact);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            mat-&gt;<a class="code" href="classsofa_1_1linearalgebra_1_1_base_matrix.html#a0f7edd704c8f67d11464be8d7158f233">add</a>(pos + i, pos + i, m);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        mat-&gt;<a class="code" href="classsofa_1_1linearalgebra_1_1_base_matrix.html#a0f7edd704c8f67d11464be8d7158f233">add</a>(pos + N, pos + N, mass.inertiaMassMatrix * fact);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;} <span class="comment">// namespace sofa::component::mass</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclasssofa_1_1defaulttype_1_1_rigid_mass_html"><div class="ttname"><a href="classsofa_1_1defaulttype_1_1_rigid_mass.html">sofa::defaulttype::RigidMass</a></div><div class="ttdef"><b>Definition:</b> fwd.h:57</div></div>
+<div class="ttc" id="astructsofa_1_1component_1_1mass_1_1_mass_type_html"><div class="ttname"><a href="structsofa_1_1component_1_1mass_1_1_mass_type.html">sofa::component::mass::MassType</a></div><div class="ttdef"><b>Definition:</b> MassType.h:60</div></div>
+<div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_base_matrix_html_a0f7edd704c8f67d11464be8d7158f233"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_base_matrix.html#a0f7edd704c8f67d11464be8d7158f233">sofa::linearalgebra::BaseMatrix::add</a></div><div class="ttdeci">virtual void add(Index row, Index col, double v)=0</div><div class="ttdoc">Add v to the existing value of the element at row i, column j (using 0-based indices)</div></div>
+<div class="ttc" id="astructsofa_1_1component_1_1mass_1_1_add_m_to_matrix_functor_html"><div class="ttname"><a href="structsofa_1_1component_1_1mass_1_1_add_m_to_matrix_functor.html">sofa::component::mass::AddMToMatrixFunctor</a></div><div class="ttdef"><b>Definition:</b> AddMToMatrixFunctor.h:60</div></div>
+<div class="ttc" id="a_linear_algebra_2src_2sofa_2linearalgebra_2_base_matrix_8h_html"><div class="ttname"><a href="_linear_algebra_2src_2sofa_2linearalgebra_2_base_matrix_8h.html">BaseMatrix.h</a></div></div>
+<div class="ttc" id="anamespacesofa_1_1component_1_1mass_html"><div class="ttname"><a href="namespacesofa_1_1component_1_1mass.html">sofa::component::mass</a></div><div class="ttdef"><b>Definition:</b> AddMToMatrixFunctor.h:28</div></div>
+<div class="ttc" id="a_rigid_types_8h_html"><div class="ttname"><a href="_rigid_types_8h.html">RigidTypes.h</a></div></div>
+<div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_base_matrix_html"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_base_matrix.html">sofa::linearalgebra::BaseMatrix</a></div><div class="ttdef"><b>Definition:</b> BaseMatrix.h:60</div></div>
+<div class="ttc" id="astructsofa_1_1component_1_1mass_1_1_add_m_to_matrix_functor_html_a7d6f596c0285d00c311441d577b8afbb"><div class="ttname"><a href="structsofa_1_1component_1_1mass_1_1_add_m_to_matrix_functor.html#a7d6f596c0285d00c311441d577b8afbb">sofa::component::mass::AddMToMatrixFunctor::operator()</a></div><div class="ttdeci">void operator()(linearalgebra::BaseMatrix *mat, MassType mass, int pos, MassType fact)</div><div class="ttdef"><b>Definition:</b> AddMToMatrixFunctor.h:84</div></div>
+<div class="ttc" id="aclasssofa_1_1defaulttype_1_1_rigid_deriv_html"><div class="ttname"><a href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">sofa::defaulttype::RigidDeriv</a></div><div class="ttdef"><b>Definition:</b> fwd.h:51</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_42ede1205723b3b890fa00e138974231.html">Component</a></li><li class="navelem"><a class="el" href="dir_b4bbf8024930473dc2b375de947034b7.html">Mass</a></li><li class="navelem"><a class="el" href="dir_2b93fb47dc8610eb12218ad8a8b36370.html">src</a></li><li class="navelem"><a class="el" href="dir_e78df81fa300b13e02f6e526b5c0cf52.html">sofa</a></li><li class="navelem"><a class="el" href="dir_e324a98ea7b973301b6ba611e11d2063.html">component</a></li><li class="navelem"><a class="el" href="dir_7933f07b6c2593934be3a44ed4dac3c6.html">mass</a></li><li class="navelem"><b>AddMToMatrixFunctor.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:28:47 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_42ede1205723b3b890fa00e138974231.html">Component</a></li><li class="navelem"><a class="el" href="dir_b4bbf8024930473dc2b375de947034b7.html">Mass</a></li><li class="navelem"><a class="el" href="dir_2b93fb47dc8610eb12218ad8a8b36370.html">src</a></li><li class="navelem"><a class="el" href="dir_e78df81fa300b13e02f6e526b5c0cf52.html">sofa</a></li><li class="navelem"><a class="el" href="dir_e324a98ea7b973301b6ba611e11d2063.html">component</a></li><li class="navelem"><a class="el" href="dir_7933f07b6c2593934be3a44ed4dac3c6.html">mass</a></li><li class="navelem"><a class="el" href="_mass_2src_2sofa_2component_2mass_2_add_m_to_matrix_functor_8h.html">AddMToMatrixFunctor.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 06:39:41 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

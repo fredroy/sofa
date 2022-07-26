@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('classsofa_1_1core_1_1behavior_1_1_cons
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ConstraintResolution Class Reference</div>  </div>
@@ -111,47 +112,445 @@ Inheritance diagram for ConstraintResolution:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad7e1a40bdccadc17ca9deefc785fad53"><td class="memItemLeft" align="right" valign="top"><a id="ad7e1a40bdccadc17ca9deefc785fad53"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ConstraintResolution</b> (unsigned int nbLines, double tolerance=0.0)</td></tr>
+<tr class="memitem:ad7e1a40bdccadc17ca9deefc785fad53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#ad7e1a40bdccadc17ca9deefc785fad53">ConstraintResolution</a> (unsigned int nbLines, double tolerance=0.0)</td></tr>
 <tr class="separator:ad7e1a40bdccadc17ca9deefc785fad53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a422c3d842b803c13b0bd3971c4e2ae06"><td class="memItemLeft" align="right" valign="top"><a id="a422c3d842b803c13b0bd3971c4e2ae06"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a422c3d842b803c13b0bd3971c4e2ae06">init</a> (int, double **, double *)</td></tr>
-<tr class="memdesc:a422c3d842b803c13b0bd3971c4e2ae06"><td class="mdescLeft">&#160;</td><td class="mdescRight">The resolution object can do precomputation with the compliance matrix, and give an initial guess. <br /></td></tr>
+<tr class="memitem:afa7e69859b745a8e1571466408bfd689"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#afa7e69859b745a8e1571466408bfd689">~ConstraintResolution</a> ()</td></tr>
+<tr class="separator:afa7e69859b745a8e1571466408bfd689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a422c3d842b803c13b0bd3971c4e2ae06"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a422c3d842b803c13b0bd3971c4e2ae06">init</a> (int, double **, double *)</td></tr>
+<tr class="memdesc:a422c3d842b803c13b0bd3971c4e2ae06"><td class="mdescLeft">&#160;</td><td class="mdescRight">The resolution object can do precomputation with the compliance matrix, and give an initial guess.  <a href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a422c3d842b803c13b0bd3971c4e2ae06">More...</a><br /></td></tr>
 <tr class="separator:a422c3d842b803c13b0bd3971c4e2ae06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7c1be4e08e6b5d70c4b3f4e94e41b60"><td class="memItemLeft" align="right" valign="top"><a id="ac7c1be4e08e6b5d70c4b3f4e94e41b60"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#ac7c1be4e08e6b5d70c4b3f4e94e41b60">initForce</a> (int, double *)</td></tr>
-<tr class="memdesc:ac7c1be4e08e6b5d70c4b3f4e94e41b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">The resolution object can provide an initial guess. <br /></td></tr>
+<tr class="memitem:ac7c1be4e08e6b5d70c4b3f4e94e41b60"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#ac7c1be4e08e6b5d70c4b3f4e94e41b60">initForce</a> (int, double *)</td></tr>
+<tr class="memdesc:ac7c1be4e08e6b5d70c4b3f4e94e41b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">The resolution object can provide an initial guess.  <a href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#ac7c1be4e08e6b5d70c4b3f4e94e41b60">More...</a><br /></td></tr>
 <tr class="separator:ac7c1be4e08e6b5d70c4b3f4e94e41b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57ea5db9ab1a0ce35b8b68585a3c6dc5"><td class="memItemLeft" align="right" valign="top"><a id="a57ea5db9ab1a0ce35b8b68585a3c6dc5"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a57ea5db9ab1a0ce35b8b68585a3c6dc5">resolution</a> (int line, double **w, double *d, double *force, double *dFree)</td></tr>
-<tr class="memdesc:a57ea5db9ab1a0ce35b8b68585a3c6dc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolution of the constraint for one Gauss-Seidel iteration. <br /></td></tr>
+<tr class="memitem:a57ea5db9ab1a0ce35b8b68585a3c6dc5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a57ea5db9ab1a0ce35b8b68585a3c6dc5">resolution</a> (int line, double **w, double *d, double *force, double *dFree)</td></tr>
+<tr class="memdesc:a57ea5db9ab1a0ce35b8b68585a3c6dc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolution of the constraint for one Gauss-Seidel iteration.  <a href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a57ea5db9ab1a0ce35b8b68585a3c6dc5">More...</a><br /></td></tr>
 <tr class="separator:a57ea5db9ab1a0ce35b8b68585a3c6dc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31ca14083dde7a134885a80e539b9dba"><td class="memItemLeft" align="right" valign="top"><a id="a31ca14083dde7a134885a80e539b9dba"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a31ca14083dde7a134885a80e539b9dba">store</a> (int, double *, bool)</td></tr>
-<tr class="memdesc:a31ca14083dde7a134885a80e539b9dba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called after Gauss-Seidel last iteration, in order to store last computed forces for the inital guess. <br /></td></tr>
+<tr class="memitem:a31ca14083dde7a134885a80e539b9dba"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a31ca14083dde7a134885a80e539b9dba">store</a> (int, double *, bool)</td></tr>
+<tr class="memdesc:a31ca14083dde7a134885a80e539b9dba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called after Gauss-Seidel last iteration, in order to store last computed forces for the inital guess.  <a href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a31ca14083dde7a134885a80e539b9dba">More...</a><br /></td></tr>
 <tr class="separator:a31ca14083dde7a134885a80e539b9dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a109d2d9e436d790b0a8e238f1b9b94d4"><td class="memItemLeft" align="right" valign="top"><a id="a109d2d9e436d790b0a8e238f1b9b94d4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNbLines</b> (unsigned int nbLines)</td></tr>
+<tr class="memitem:a109d2d9e436d790b0a8e238f1b9b94d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a109d2d9e436d790b0a8e238f1b9b94d4">setNbLines</a> (unsigned int nbLines)</td></tr>
 <tr class="separator:a109d2d9e436d790b0a8e238f1b9b94d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c6365f2e77bb79a0ead0aa4c719f4fd"><td class="memItemLeft" align="right" valign="top"><a id="a4c6365f2e77bb79a0ead0aa4c719f4fd"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getNbLines</b> () const</td></tr>
+<tr class="memitem:a4c6365f2e77bb79a0ead0aa4c719f4fd"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a4c6365f2e77bb79a0ead0aa4c719f4fd">getNbLines</a> () const</td></tr>
 <tr class="separator:a4c6365f2e77bb79a0ead0aa4c719f4fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab775e7293ddd12cd11332ce73d1cdec3"><td class="memItemLeft" align="right" valign="top"><a id="ab775e7293ddd12cd11332ce73d1cdec3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTolerance</b> (double tolerance)</td></tr>
+<tr class="memitem:ab775e7293ddd12cd11332ce73d1cdec3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#ab775e7293ddd12cd11332ce73d1cdec3">setTolerance</a> (double tolerance)</td></tr>
 <tr class="separator:ab775e7293ddd12cd11332ce73d1cdec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1651d37454cc7d2973a5816fb86fb904"><td class="memItemLeft" align="right" valign="top"><a id="a1651d37454cc7d2973a5816fb86fb904"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getTolerance</b> () const</td></tr>
+<tr class="memitem:a1651d37454cc7d2973a5816fb86fb904"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a1651d37454cc7d2973a5816fb86fb904">getTolerance</a> () const</td></tr>
 <tr class="separator:a1651d37454cc7d2973a5816fb86fb904"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ad31238bc929335c23cd6976fd167e94c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#ad31238bc929335c23cd6976fd167e94c">m_nbLines</a></td></tr>
+<tr class="memdesc:ad31238bc929335c23cd6976fd167e94c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of dof used by this particular constraint. To be modified in the object's constructor.  <a href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#ad31238bc929335c23cd6976fd167e94c">More...</a><br /></td></tr>
+<tr class="separator:ad31238bc929335c23cd6976fd167e94c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25b9854cda6aa4088d1cb713cb3b5adc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a25b9854cda6aa4088d1cb713cb3b5adc">m_tolerance</a></td></tr>
+<tr class="memdesc:a25b9854cda6aa4088d1cb713cb3b5adc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Custom tolerance, used for the convergence of this particular constraint instead of the global tolerance.  <a href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a25b9854cda6aa4088d1cb713cb3b5adc">More...</a><br /></td></tr>
+<tr class="separator:a25b9854cda6aa4088d1cb713cb3b5adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Object computing a constraint resolution within a Gauss-Seidel algorithm. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad7e1a40bdccadc17ca9deefc785fad53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7e1a40bdccadc17ca9deefc785fad53">&#9670;&nbsp;</a></span>ConstraintResolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html">ConstraintResolution</a> </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>nbLines</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code>0.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa7e69859b745a8e1571466408bfd689"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa7e69859b745a8e1571466408bfd689">&#9670;&nbsp;</a></span>~ConstraintResolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html">ConstraintResolution</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4c6365f2e77bb79a0ead0aa4c719f4fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c6365f2e77bb79a0ead0aa4c719f4fd">&#9670;&nbsp;</a></span>getNbLines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int getNbLines </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1651d37454cc7d2973a5816fb86fb904"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1651d37454cc7d2973a5816fb86fb904">&#9670;&nbsp;</a></span>getTolerance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double getTolerance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a422c3d842b803c13b0bd3971c4e2ae06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a422c3d842b803c13b0bd3971c4e2ae06">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The resolution object can do precomputation with the compliance matrix, and give an initial guess. </p>
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_unilateral_constraint_resolution_with_friction.html#ad946528053040e4a7141a9618747ca56">UnilateralConstraintResolutionWithFriction</a>, <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralconstraintresolution_1_129eee3b1da620beeab92d097fcda171b.html#ad946528053040e4a7141a9618747ca56">BilateralConstraintResolution3Dof</a>, <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_stopper_constraint_resolution1_dof.html#ad946528053040e4a7141a9618747ca56">StopperConstraintResolution1Dof</a>, <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralconstraintresolution_1_109f686c762b26e457e3030f3b670e53b.html#ad0787f4bdc61a3de5ad77598263fe4f6">BilateralConstraintResolutionNDof</a>, and <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralconstraintresolution_1_12b4888f9e6c1589f26e7ea3bb0a89aef.html#a1948e0bcc86b38faae59718db6586cb4">BilateralConstraintResolution</a>.</p>
+
+</div>
+</div>
+<a id="ac7c1be4e08e6b5d70c4b3f4e94e41b60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7c1be4e08e6b5d70c4b3f4e94e41b60">&#9670;&nbsp;</a></span>initForce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initForce </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The resolution object can provide an initial guess. </p>
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralconstraintresolution_1_129eee3b1da620beeab92d097fcda171b.html#a76235ff33ef3d43ce1582d1a3688530c">BilateralConstraintResolution3Dof</a>, and <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralconstraintresolution_1_12b4888f9e6c1589f26e7ea3bb0a89aef.html#a76235ff33ef3d43ce1582d1a3688530c">BilateralConstraintResolution</a>.</p>
+
+</div>
+</div>
+<a id="a57ea5db9ab1a0ce35b8b68585a3c6dc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57ea5db9ab1a0ce35b8b68585a3c6dc5">&#9670;&nbsp;</a></span>resolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void resolution </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>force</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>dFree</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resolution of the constraint for one Gauss-Seidel iteration. </p>
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_unilateral_constraint_resolution_with_friction.html#a017001e811c310497646caa49c27dc69">UnilateralConstraintResolutionWithFriction</a>, <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_unilateral_constraint_resolution.html#ae154c12452d0a2d786dc8a459e746dba">UnilateralConstraintResolution</a>, <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralconstraintresolution_1_12b4888f9e6c1589f26e7ea3bb0a89aef.html#ae154c12452d0a2d786dc8a459e746dba">BilateralConstraintResolution</a>, <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralconstraintresolution_1_109f686c762b26e457e3030f3b670e53b.html#a598e3991790845dd4a82441b79de0b91">BilateralConstraintResolutionNDof</a>, <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralconstraintresolution_1_129eee3b1da620beeab92d097fcda171b.html#a26ccc0208d2a9b032a855b59979218cc">BilateralConstraintResolution3Dof</a>, and <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_stopper_constraint_resolution1_dof.html#a6d9e495db2011531716a8f394afb87bb">StopperConstraintResolution1Dof</a>.</p>
+
+</div>
+</div>
+<a id="a109d2d9e436d790b0a8e238f1b9b94d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a109d2d9e436d790b0a8e238f1b9b94d4">&#9670;&nbsp;</a></span>setNbLines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setNbLines </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>nbLines</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab775e7293ddd12cd11332ce73d1cdec3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab775e7293ddd12cd11332ce73d1cdec3">&#9670;&nbsp;</a></span>setTolerance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setTolerance </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>tolerance</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a31ca14083dde7a134885a80e539b9dba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31ca14083dde7a134885a80e539b9dba">&#9670;&nbsp;</a></span>store()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void store </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called after Gauss-Seidel last iteration, in order to store last computed forces for the inital guess. </p>
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralconstraintresolution_1_129eee3b1da620beeab92d097fcda171b.html#a20f91be726312e73f49c68a45623fdaa">BilateralConstraintResolution3Dof</a>, <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_unilateral_constraint_resolution_with_friction.html#a20f91be726312e73f49c68a45623fdaa">UnilateralConstraintResolutionWithFriction</a>, and <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralconstraintresolution_1_12b4888f9e6c1589f26e7ea3bb0a89aef.html#a20f91be726312e73f49c68a45623fdaa">BilateralConstraintResolution</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad31238bc929335c23cd6976fd167e94c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad31238bc929335c23cd6976fd167e94c">&#9670;&nbsp;</a></span>m_nbLines</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int m_nbLines</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of dof used by this particular constraint. To be modified in the object's constructor. </p>
+
+</div>
+</div>
+<a id="a25b9854cda6aa4088d1cb713cb3b5adc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25b9854cda6aa4088d1cb713cb3b5adc">&#9670;&nbsp;</a></span>m_tolerance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double m_tolerance</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Custom tolerance, used for the convergence of this particular constraint instead of the global tolerance. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>core</b></li><li class="navelem"><a class="el" href="namespacesofa_1_1core_1_1behavior.html">behavior</a></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html">ConstraintResolution</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:05:25 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1core.html">core</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1core_1_1behavior.html">behavior</a></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html">ConstraintResolution</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:37:34 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

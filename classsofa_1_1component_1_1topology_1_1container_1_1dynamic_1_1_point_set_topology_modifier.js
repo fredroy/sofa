@@ -27,5 +27,6 @@ var classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_top
     [ "SOFA_CLASS", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_topology_modifier.html#a9168c9da949fd366042b0099bf96274d", null ],
     [ "swapPoints", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_topology_modifier.html#aac70bf21718cfb65c7541fd43b29c3ce", null ],
     [ "PointSetGeometryAlgorithms", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_topology_modifier.html#a22de65176337b5d5445d956458ae19a0", null ],
-    [ "d_propagateToDOF", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_topology_modifier.html#aaee013ae66043370c76073a928a888c2", null ]
+    [ "d_propagateToDOF", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_topology_modifier.html#aaee013ae66043370c76073a928a888c2", null ],
+    [ "m_container", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_topology_modifier.html#a1d64ce0958fc103ba220a18673c54c1c", null ]
 ];

@@ -86,12 +86,15 @@ $(document).ready(function(){initNavTree('classsofa_1_1helper_1_1system_1_1_plug
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classsofa_1_1helper_1_1system_1_1_plugin-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Plugin Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_plugin_manager_8h_source.html">PluginManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -112,62 +115,282 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ab5cd58c689e7c4a323cb75d9df2811cf"><td class="memItemLeft" align="right" valign="top"><a id="ab5cd58c689e7c4a323cb75d9df2811cf"></a>
-typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_init_external_module.html">sofa::helper::system::Plugin::InitExternalModule</a>&#160;</td><td class="memItemRight" valign="bottom"><b>InitExternalModule</b></td></tr>
+<tr class="memitem:ab5cd58c689e7c4a323cb75d9df2811cf"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_init_external_module.html">sofa::helper::system::Plugin::InitExternalModule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html#ab5cd58c689e7c4a323cb75d9df2811cf">InitExternalModule</a></td></tr>
 <tr class="separator:ab5cd58c689e7c4a323cb75d9df2811cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a537a21b8a339cd978f7d9ad7cc63f7c0"><td class="memItemLeft" align="right" valign="top"><a id="a537a21b8a339cd978f7d9ad7cc63f7c0"></a>
-typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_name.html">sofa::helper::system::Plugin::GetModuleName</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetModuleName</b></td></tr>
+<tr class="memitem:a537a21b8a339cd978f7d9ad7cc63f7c0"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_name.html">sofa::helper::system::Plugin::GetModuleName</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html#a537a21b8a339cd978f7d9ad7cc63f7c0">GetModuleName</a></td></tr>
 <tr class="separator:a537a21b8a339cd978f7d9ad7cc63f7c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad50870bb1fa616b17a32e97ad3931aae"><td class="memItemLeft" align="right" valign="top"><a id="ad50870bb1fa616b17a32e97ad3931aae"></a>
-typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_description.html">sofa::helper::system::Plugin::GetModuleDescription</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetModuleDescription</b></td></tr>
+<tr class="memitem:ad50870bb1fa616b17a32e97ad3931aae"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_description.html">sofa::helper::system::Plugin::GetModuleDescription</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html#ad50870bb1fa616b17a32e97ad3931aae">GetModuleDescription</a></td></tr>
 <tr class="separator:ad50870bb1fa616b17a32e97ad3931aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aec01f4c7f12d497b8614194380bbf2"><td class="memItemLeft" align="right" valign="top"><a id="a9aec01f4c7f12d497b8614194380bbf2"></a>
-typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_license.html">sofa::helper::system::Plugin::GetModuleLicense</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetModuleLicense</b></td></tr>
+<tr class="memitem:a9aec01f4c7f12d497b8614194380bbf2"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_license.html">sofa::helper::system::Plugin::GetModuleLicense</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html#a9aec01f4c7f12d497b8614194380bbf2">GetModuleLicense</a></td></tr>
 <tr class="separator:a9aec01f4c7f12d497b8614194380bbf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22374d26581c36ecfe54d045a6a9995d"><td class="memItemLeft" align="right" valign="top"><a id="a22374d26581c36ecfe54d045a6a9995d"></a>
-typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_component_list.html">sofa::helper::system::Plugin::GetModuleComponentList</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetModuleComponentList</b></td></tr>
+<tr class="memitem:a22374d26581c36ecfe54d045a6a9995d"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_component_list.html">sofa::helper::system::Plugin::GetModuleComponentList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html#a22374d26581c36ecfe54d045a6a9995d">GetModuleComponentList</a></td></tr>
 <tr class="separator:a22374d26581c36ecfe54d045a6a9995d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5f0acae268bf7735f9a4b9b11507ee2"><td class="memItemLeft" align="right" valign="top"><a id="ac5f0acae268bf7735f9a4b9b11507ee2"></a>
-typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_version.html">sofa::helper::system::Plugin::GetModuleVersion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetModuleVersion</b></td></tr>
+<tr class="memitem:ac5f0acae268bf7735f9a4b9b11507ee2"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_version.html">sofa::helper::system::Plugin::GetModuleVersion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html#ac5f0acae268bf7735f9a4b9b11507ee2">GetModuleVersion</a></td></tr>
 <tr class="separator:ac5f0acae268bf7735f9a4b9b11507ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a927685cc412686efa894a8677df3c196"><td class="memItemLeft" align="right" valign="top"><a id="a927685cc412686efa894a8677df3c196"></a>
-<a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_init_external_module.html">InitExternalModule</a>&#160;</td><td class="memItemRight" valign="bottom"><b>initExternalModule</b></td></tr>
+<tr class="memitem:a927685cc412686efa894a8677df3c196"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_init_external_module.html">InitExternalModule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html#a927685cc412686efa894a8677df3c196">initExternalModule</a></td></tr>
 <tr class="separator:a927685cc412686efa894a8677df3c196"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a3c20a3fe784fc3f9b418fddfdbfe0a"><td class="memItemLeft" align="right" valign="top"><a id="a4a3c20a3fe784fc3f9b418fddfdbfe0a"></a>
-<a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_name.html">GetModuleName</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getModuleName</b></td></tr>
+<tr class="memitem:a4a3c20a3fe784fc3f9b418fddfdbfe0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_name.html">GetModuleName</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html#a4a3c20a3fe784fc3f9b418fddfdbfe0a">getModuleName</a></td></tr>
 <tr class="separator:a4a3c20a3fe784fc3f9b418fddfdbfe0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16c8cee4a5f4882ebe34db3d04b7a1aa"><td class="memItemLeft" align="right" valign="top"><a id="a16c8cee4a5f4882ebe34db3d04b7a1aa"></a>
-<a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_description.html">GetModuleDescription</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getModuleDescription</b></td></tr>
+<tr class="memitem:a16c8cee4a5f4882ebe34db3d04b7a1aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_description.html">GetModuleDescription</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html#a16c8cee4a5f4882ebe34db3d04b7a1aa">getModuleDescription</a></td></tr>
 <tr class="separator:a16c8cee4a5f4882ebe34db3d04b7a1aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa152daaf1701a4d411583a5d182fe7ec"><td class="memItemLeft" align="right" valign="top"><a id="aa152daaf1701a4d411583a5d182fe7ec"></a>
-<a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_license.html">GetModuleLicense</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getModuleLicense</b></td></tr>
+<tr class="memitem:aa152daaf1701a4d411583a5d182fe7ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_license.html">GetModuleLicense</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html#aa152daaf1701a4d411583a5d182fe7ec">getModuleLicense</a></td></tr>
 <tr class="separator:aa152daaf1701a4d411583a5d182fe7ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83ea9e30662964a0bfd599e068a93185"><td class="memItemLeft" align="right" valign="top"><a id="a83ea9e30662964a0bfd599e068a93185"></a>
-<a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_component_list.html">GetModuleComponentList</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getModuleComponentList</b></td></tr>
+<tr class="memitem:a83ea9e30662964a0bfd599e068a93185"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_component_list.html">GetModuleComponentList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html#a83ea9e30662964a0bfd599e068a93185">getModuleComponentList</a></td></tr>
 <tr class="separator:a83ea9e30662964a0bfd599e068a93185"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29fc2605b23a8584cf698b009a587ee4"><td class="memItemLeft" align="right" valign="top"><a id="a29fc2605b23a8584cf698b009a587ee4"></a>
-<a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_version.html">GetModuleVersion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getModuleVersion</b></td></tr>
+<tr class="memitem:a29fc2605b23a8584cf698b009a587ee4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_version.html">GetModuleVersion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html#a29fc2605b23a8584cf698b009a587ee4">getModuleVersion</a></td></tr>
 <tr class="separator:a29fc2605b23a8584cf698b009a587ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae04c21c823ed166843febc0f0aa692df"><td class="memItemLeft" align="right" valign="top"><a id="ae04c21c823ed166843febc0f0aa692df"></a>
-<a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_module_is_initialized.html">ModuleIsInitialized</a>&#160;</td><td class="memItemRight" valign="bottom"><b>moduleIsInitialized</b></td></tr>
+<tr class="memitem:ae04c21c823ed166843febc0f0aa692df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_module_is_initialized.html">ModuleIsInitialized</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html#ae04c21c823ed166843febc0f0aa692df">moduleIsInitialized</a></td></tr>
 <tr class="separator:ae04c21c823ed166843febc0f0aa692df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a54e8f9bfafbe38e426fc8459080e4ea1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1helper_1_1system_1_1_dynamic_library_1_1_handle.html">DynamicLibrary::Handle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html#a54e8f9bfafbe38e426fc8459080e4ea1">dynamicLibrary</a></td></tr>
+<tr class="separator:a54e8f9bfafbe38e426fc8459080e4ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:ad0ccd35859b04e162412b22bf5200374"><td class="memItemLeft" align="right" valign="top"><a id="ad0ccd35859b04e162412b22bf5200374"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>PluginManager</b></td></tr>
+<tr class="memitem:ad0ccd35859b04e162412b22bf5200374"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html#ad0ccd35859b04e162412b22bf5200374">PluginManager</a></td></tr>
 <tr class="separator:ad0ccd35859b04e162412b22bf5200374"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a22374d26581c36ecfe54d045a6a9995d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22374d26581c36ecfe54d045a6a9995d">&#9670;&nbsp;</a></span>GetModuleComponentList</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_component_list.html">sofa::helper::system::Plugin::GetModuleComponentList</a> <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_component_list.html">GetModuleComponentList</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad50870bb1fa616b17a32e97ad3931aae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad50870bb1fa616b17a32e97ad3931aae">&#9670;&nbsp;</a></span>GetModuleDescription</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_description.html">sofa::helper::system::Plugin::GetModuleDescription</a> <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_description.html">GetModuleDescription</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9aec01f4c7f12d497b8614194380bbf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aec01f4c7f12d497b8614194380bbf2">&#9670;&nbsp;</a></span>GetModuleLicense</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_license.html">sofa::helper::system::Plugin::GetModuleLicense</a> <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_license.html">GetModuleLicense</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a537a21b8a339cd978f7d9ad7cc63f7c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a537a21b8a339cd978f7d9ad7cc63f7c0">&#9670;&nbsp;</a></span>GetModuleName</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_name.html">sofa::helper::system::Plugin::GetModuleName</a> <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_name.html">GetModuleName</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5f0acae268bf7735f9a4b9b11507ee2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5f0acae268bf7735f9a4b9b11507ee2">&#9670;&nbsp;</a></span>GetModuleVersion</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_version.html">sofa::helper::system::Plugin::GetModuleVersion</a> <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_version.html">GetModuleVersion</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab5cd58c689e7c4a323cb75d9df2811cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5cd58c689e7c4a323cb75d9df2811cf">&#9670;&nbsp;</a></span>InitExternalModule</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_init_external_module.html">sofa::helper::system::Plugin::InitExternalModule</a> <a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_init_external_module.html">InitExternalModule</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="ad0ccd35859b04e162412b22bf5200374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0ccd35859b04e162412b22bf5200374">&#9670;&nbsp;</a></span>PluginManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a54e8f9bfafbe38e426fc8459080e4ea1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54e8f9bfafbe38e426fc8459080e4ea1">&#9670;&nbsp;</a></span>dynamicLibrary</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1system_1_1_dynamic_library_1_1_handle.html">DynamicLibrary::Handle</a> dynamicLibrary</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83ea9e30662964a0bfd599e068a93185"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83ea9e30662964a0bfd599e068a93185">&#9670;&nbsp;</a></span>getModuleComponentList</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_component_list.html">GetModuleComponentList</a> getModuleComponentList</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a16c8cee4a5f4882ebe34db3d04b7a1aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16c8cee4a5f4882ebe34db3d04b7a1aa">&#9670;&nbsp;</a></span>getModuleDescription</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_description.html">GetModuleDescription</a> getModuleDescription</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa152daaf1701a4d411583a5d182fe7ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa152daaf1701a4d411583a5d182fe7ec">&#9670;&nbsp;</a></span>getModuleLicense</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_license.html">GetModuleLicense</a> getModuleLicense</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4a3c20a3fe784fc3f9b418fddfdbfe0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a3c20a3fe784fc3f9b418fddfdbfe0a">&#9670;&nbsp;</a></span>getModuleName</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_name.html">GetModuleName</a> getModuleName</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a29fc2605b23a8584cf698b009a587ee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29fc2605b23a8584cf698b009a587ee4">&#9670;&nbsp;</a></span>getModuleVersion</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_get_module_version.html">GetModuleVersion</a> getModuleVersion</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a927685cc412686efa894a8677df3c196"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a927685cc412686efa894a8677df3c196">&#9670;&nbsp;</a></span>initExternalModule</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_init_external_module.html">InitExternalModule</a> initExternalModule</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae04c21c823ed166843febc0f0aa692df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae04c21c823ed166843febc0f0aa692df">&#9670;&nbsp;</a></span>moduleIsInitialized</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsofa_1_1helper_1_1system_1_1_plugin_1_1_module_is_initialized.html">ModuleIsInitialized</a> moduleIsInitialized</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><b>system</b></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:10:54 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper_1_1system.html">system</a></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

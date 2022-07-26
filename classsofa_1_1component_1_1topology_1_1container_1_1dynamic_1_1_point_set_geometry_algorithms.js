@@ -15,6 +15,7 @@ var classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geo
     ] ],
     [ "PointSetGeometryAlgorithms", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geometry_algorithms.html#aaf6c4ed04d5cae9bf549e2e26a17914c", null ],
     [ "~PointSetGeometryAlgorithms", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geometry_algorithms.html#a5e4c7cb73a53b84d808d4b92dae2e172", null ],
+    [ "canCreate", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geometry_algorithms.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "computeAngle", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geometry_algorithms.html#a19911d61ee58f5154bcc535fe53a1af5", null ],
     [ "computeBBox", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geometry_algorithms.html#ac0732500bd7b34633e1df024d3f88632", null ],
     [ "draw", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_geometry_algorithms.html#a8673433953792026ae9baf91b348d7da", null ],

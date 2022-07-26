@@ -1,5 +1,6 @@
 var classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_ray_discrete_intersection =
 [
+    [ "OutputVector", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_ray_discrete_intersection.html#acf79118dd483875e28d6f2cfb5ed0b7b", null ],
     [ "RayDiscreteIntersection", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_ray_discrete_intersection.html#a7089148111ede8a9a044ab0d432fbf07", null ],
     [ "computeIntersection", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_ray_discrete_intersection.html#a9232d5caf7b75c33cd404d6f8244a2d7", null ],
     [ "computeIntersection", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_ray_discrete_intersection.html#aa0d42de30b9d8ac165391754b83fd50c", null ],

@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('classsofa_1_1gui_1_1common_1_1_argumen
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1gui_1_1common_1_1_argument_parser-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ArgumentParser Class Reference</div>  </div>
@@ -102,6 +103,8 @@ Public Member Functions</h2></td></tr>
 </ul>
  <a href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#a43903addf11d16c04bef6a2bece761b5">More...</a><br /></td></tr>
 <tr class="separator:a43903addf11d16c04bef6a2bece761b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5d1d1e27f061f55894cce1838b51602"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#ac5d1d1e27f061f55894cce1838b51602">~ArgumentParser</a> ()</td></tr>
+<tr class="separator:ac5d1d1e27f061f55894cce1838b51602"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7dc2d63b3a4db2d8ae8957d90e72ba4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#ae7dc2d63b3a4db2d8ae8957d90e72ba4">addArgument</a> (std::shared_ptr&lt; cxxopts::Value &gt; s, const std::string name, const std::string help)</td></tr>
 <tr class="memdesc:ae7dc2d63b3a4db2d8ae8957d90e72ba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">addArgument  <a href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#ae7dc2d63b3a4db2d8ae8957d90e72ba4">More...</a><br /></td></tr>
 <tr class="separator:ae7dc2d63b3a4db2d8ae8957d90e72ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,37 +117,46 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aec315d77f5c38417289a0e311d2a9d31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#aec315d77f5c38417289a0e311d2a9d31">showHelp</a> ()</td></tr>
 <tr class="memdesc:aec315d77f5c38417289a0e311d2a9d31"><td class="mdescLeft">&#160;</td><td class="mdescRight">simply display the help (You need to add -h &ndash;help options in your main and call this function by yourself  <a href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#aec315d77f5c38417289a0e311d2a9d31">More...</a><br /></td></tr>
 <tr class="separator:aec315d77f5c38417289a0e311d2a9d31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7c704b34912678d95c13243cacf9d7f"><td class="memItemLeft" align="right" valign="top"><a id="ad7c704b34912678d95c13243cacf9d7f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#ad7c704b34912678d95c13243cacf9d7f">parse</a> ()</td></tr>
-<tr class="memdesc:ad7c704b34912678d95c13243cacf9d7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">this is the main function. You have to call this function if you want to parse the arguments given to the constructor <br /></td></tr>
+<tr class="memitem:ad7c704b34912678d95c13243cacf9d7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#ad7c704b34912678d95c13243cacf9d7f">parse</a> ()</td></tr>
+<tr class="memdesc:ad7c704b34912678d95c13243cacf9d7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">this is the main function. You have to call this function if you want to parse the arguments given to the constructor  <a href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#ad7c704b34912678d95c13243cacf9d7f">More...</a><br /></td></tr>
 <tr class="separator:ad7c704b34912678d95c13243cacf9d7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1f383592602dadccc0494f678aca006"><td class="memItemLeft" align="right" valign="top"><a id="aa1f383592602dadccc0494f678aca006"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#aa1f383592602dadccc0494f678aca006">showArgs</a> ()</td></tr>
-<tr class="memdesc:aa1f383592602dadccc0494f678aca006"><td class="mdescLeft">&#160;</td><td class="mdescRight">display args with values <br /></td></tr>
+<tr class="memitem:aa1f383592602dadccc0494f678aca006"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#aa1f383592602dadccc0494f678aca006">showArgs</a> ()</td></tr>
+<tr class="memdesc:aa1f383592602dadccc0494f678aca006"><td class="mdescLeft">&#160;</td><td class="mdescRight">display args with values  <a href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#aa1f383592602dadccc0494f678aca006">More...</a><br /></td></tr>
 <tr class="separator:aa1f383592602dadccc0494f678aca006"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a4226053bef77e07a6d2e3330032e5f"><td class="memTemplParams" colspan="2"><a id="a7a4226053bef77e07a6d2e3330032e5f"></a>
-template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a7a4226053bef77e07a6d2e3330032e5f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a7a4226053bef77e07a6d2e3330032e5f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#a7a4226053bef77e07a6d2e3330032e5f">getValueFromKey</a> (const std::string &amp;key, T &amp;value) const</td></tr>
-<tr class="memdesc:a7a4226053bef77e07a6d2e3330032e5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the value associated to the key (if this key exists or the type is correct) <br /></td></tr>
+<tr class="memdesc:a7a4226053bef77e07a6d2e3330032e5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the value associated to the key (if this key exists or the type is correct)  <a href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#a7a4226053bef77e07a6d2e3330032e5f">More...</a><br /></td></tr>
 <tr class="separator:a7a4226053bef77e07a6d2e3330032e5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68caf3dd2afb448ff6a84e286768d6d0"><td class="memItemLeft" align="right" valign="top"><a id="a68caf3dd2afb448ff6a84e286768d6d0"></a>
-const std::unordered_map&lt; std::string, std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMap</b> () const</td></tr>
+<tr class="memitem:a68caf3dd2afb448ff6a84e286768d6d0"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; std::string, std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#a68caf3dd2afb448ff6a84e286768d6d0">getMap</a> () const</td></tr>
 <tr class="separator:a68caf3dd2afb448ff6a84e286768d6d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47724ceb0fd2d9ce15757d0ce84d65f7"><td class="memItemLeft" align="right" valign="top"><a id="a47724ceb0fd2d9ce15757d0ce84d65f7"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getInputFileList</b> ()</td></tr>
+<tr class="memitem:a47724ceb0fd2d9ce15757d0ce84d65f7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#a47724ceb0fd2d9ce15757d0ce84d65f7">getInputFileList</a> ()</td></tr>
 <tr class="separator:a47724ceb0fd2d9ce15757d0ce84d65f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad0c512d4bccbf89746d0c24e0dd4275f"><td class="memItemLeft" align="right" valign="top"><a id="ad0c512d4bccbf89746d0c24e0dd4275f"></a>
-static const std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#ad0c512d4bccbf89746d0c24e0dd4275f">extra_args</a> ()</td></tr>
-<tr class="memdesc:ad0c512d4bccbf89746d0c24e0dd4275f"><td class="mdescLeft">&#160;</td><td class="mdescRight">return extra_args needed for python (arguments) <br /></td></tr>
+<tr class="memitem:ad0c512d4bccbf89746d0c24e0dd4275f"><td class="memItemLeft" align="right" valign="top">static const std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#ad0c512d4bccbf89746d0c24e0dd4275f">extra_args</a> ()</td></tr>
+<tr class="memdesc:ad0c512d4bccbf89746d0c24e0dd4275f"><td class="mdescLeft">&#160;</td><td class="mdescRight">return extra_args needed for python (arguments)  <a href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#ad0c512d4bccbf89746d0c24e0dd4275f">More...</a><br /></td></tr>
 <tr class="separator:ad0c512d4bccbf89746d0c24e0dd4275f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a8cf0f85ff3e557997ed8f889dcc3d969"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#a8cf0f85ff3e557997ed8f889dcc3d969">extra</a> = std::vector&lt;std::string&gt;()</td></tr>
 <tr class="separator:a8cf0f85ff3e557997ed8f889dcc3d969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aa27f99c1342c57c56f40e748a36a85dd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#aa27f99c1342c57c56f40e748a36a85dd">m_argc</a></td></tr>
+<tr class="memdesc:aa27f99c1342c57c56f40e748a36a85dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple argc parameter copied from constructor  <a href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#aa27f99c1342c57c56f40e748a36a85dd">More...</a><br /></td></tr>
+<tr class="separator:aa27f99c1342c57c56f40e748a36a85dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc5dce79071b7c640e0bb36285945d3f"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#adc5dce79071b7c640e0bb36285945d3f">m_argv</a></td></tr>
+<tr class="memdesc:adc5dce79071b7c640e0bb36285945d3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple argv parameter copied from constructor  <a href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#adc5dce79071b7c640e0bb36285945d3f">More...</a><br /></td></tr>
+<tr class="separator:adc5dce79071b7c640e0bb36285945d3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adff8dda707e0d34f103377772f60df79"><td class="memItemLeft" align="right" valign="top">cxxopts::Options&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#adff8dda707e0d34f103377772f60df79">m_options</a></td></tr>
+<tr class="separator:adff8dda707e0d34f103377772f60df79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e797420a10d0064e4a6c58c938ff461"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::function&lt; void(const <a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> *, const std::string &amp;)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#a2e797420a10d0064e4a6c58c938ff461">m_mapCallbacks</a></td></tr>
+<tr class="separator:a2e797420a10d0064e4a6c58c938ff461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9a6978e28d0952f56bfdbe32aa53d98"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html#ae9a6978e28d0952f56bfdbe32aa53d98">m_parseResult</a></td></tr>
+<tr class="separator:ae9a6978e28d0952f56bfdbe32aa53d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Command line parser</p>
@@ -187,6 +199,23 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ac5d1d1e27f061f55894cce1838b51602"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5d1d1e27f061f55894cce1838b51602">&#9670;&nbsp;</a></span>~ArgumentParser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -338,6 +367,143 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ad0c512d4bccbf89746d0c24e0dd4275f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0c512d4bccbf89746d0c24e0dd4275f">&#9670;&nbsp;</a></span>extra_args()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const std::vector&lt;std::string&gt; extra_args </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return extra_args needed for python (arguments) </p>
+
+</div>
+</div>
+<a id="a47724ceb0fd2d9ce15757d0ce84d65f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47724ceb0fd2d9ce15757d0ce84d65f7">&#9670;&nbsp;</a></span>getInputFileList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; getInputFileList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a68caf3dd2afb448ff6a84e286768d6d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68caf3dd2afb448ff6a84e286768d6d0">&#9670;&nbsp;</a></span>getMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::unordered_map&lt; std::string, std::string &gt; &amp; getMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a4226053bef77e07a6d2e3330032e5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a4226053bef77e07a6d2e3330032e5f">&#9670;&nbsp;</a></span>getValueFromKey()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool getValueFromKey </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get the value associated to the key (if this key exists or the type is correct) </p>
+
+</div>
+</div>
+<a id="ad7c704b34912678d95c13243cacf9d7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7c704b34912678d95c13243cacf9d7f">&#9670;&nbsp;</a></span>parse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void parse </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>this is the main function. You have to call this function if you want to parse the arguments given to the constructor </p>
+
+</div>
+</div>
+<a id="aa1f383592602dadccc0494f678aca006"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1f383592602dadccc0494f678aca006">&#9670;&nbsp;</a></span>showArgs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void showArgs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>display args with values </p>
+
+</div>
+</div>
 <a id="aec315d77f5c38417289a0e311d2a9d31"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aec315d77f5c38417289a0e311d2a9d31">&#9670;&nbsp;</a></span>showHelp()</h2>
 
@@ -382,13 +548,127 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aa27f99c1342c57c56f40e748a36a85dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa27f99c1342c57c56f40e748a36a85dd">&#9670;&nbsp;</a></span>m_argc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int m_argc</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>simple argc parameter copied from constructor </p>
+
+</div>
+</div>
+<a id="adc5dce79071b7c640e0bb36285945d3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc5dce79071b7c640e0bb36285945d3f">&#9670;&nbsp;</a></span>m_argv</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char** m_argv</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>simple argv parameter copied from constructor </p>
+
+</div>
+</div>
+<a id="a2e797420a10d0064e4a6c58c938ff461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e797420a10d0064e4a6c58c938ff461">&#9670;&nbsp;</a></span>m_mapCallbacks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string, std::function&lt;void(const <a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a>*, const std::string&amp;)&gt; &gt; m_mapCallbacks</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adff8dda707e0d34f103377772f60df79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adff8dda707e0d34f103377772f60df79">&#9670;&nbsp;</a></span>m_options</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">cxxopts::Options m_options</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae9a6978e28d0952f56bfdbe32aa53d98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9a6978e28d0952f56bfdbe32aa53d98">&#9670;&nbsp;</a></span>m_parseResult</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, std::string&gt; m_parseResult</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>gui</b></li><li class="navelem"><b>common</b></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:34 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui.html">gui</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui_1_1common.html">common</a></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:22 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

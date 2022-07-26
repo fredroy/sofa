@@ -1,5 +1,9 @@
 var classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01true_01_4 =
 [
     [ "T", "structsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_088b038afce842b68008542399b43f1cf.html", "structsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_088b038afce842b68008542399b43f1cf" ],
-    [ "TraitsDestPtr", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01true_01_4.html#ad3225455258dfb34b8fcda300d095608", null ]
+    [ "TraitsDestPtr", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01true_01_4.html#ad3225455258dfb34b8fcda300d095608", null ],
+    [ "get", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01true_01_4.html#abec5423e2c2fa74241affc1671560545", null ],
+    [ "path", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01true_01_4.html#aa5accca8f45b9493ef70d85ef525b54b", null ],
+    [ "set", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01true_01_4.html#aa1031859a6d10c938c32adb13c91dda2", null ],
+    [ "setPath", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01true_01_4.html#a0f634f58203984621d96fc06feebaace", null ]
 ];

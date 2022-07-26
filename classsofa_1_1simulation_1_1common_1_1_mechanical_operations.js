@@ -58,5 +58,6 @@ var classsofa_1_1simulation_1_1common_1_1_mechanical_operations =
     [ "cparams", "classsofa_1_1simulation_1_1common_1_1_mechanical_operations.html#aa21c05e845dca3a70bb725b16d943080", null ],
     [ "ctx", "classsofa_1_1simulation_1_1common_1_1_mechanical_operations.html#af3ae5d3d95077e11a3df31fb49f320f4", null ],
     [ "executeVisitor", "classsofa_1_1simulation_1_1common_1_1_mechanical_operations.html#a90ed8f4e9e150c0cc0adcaa1c9adf7b4", null ],
+    [ "hasShownMissingLinearSolverMap", "classsofa_1_1simulation_1_1common_1_1_mechanical_operations.html#adab1563fcb3048d3768ff419bb35b5a5", null ],
     [ "mparams", "classsofa_1_1simulation_1_1common_1_1_mechanical_operations.html#a58f9edb7dcd8232c5591cec211a0ff06", null ]
 ];

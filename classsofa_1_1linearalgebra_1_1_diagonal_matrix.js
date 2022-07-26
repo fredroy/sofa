@@ -33,6 +33,7 @@ var classsofa_1_1linearalgebra_1_1_diagonal_matrix =
     [ "i", "classsofa_1_1linearalgebra_1_1_diagonal_matrix.html#a96f5319293c67fc6552e7eaa7a9a0343", null ],
     [ "invert", "classsofa_1_1linearalgebra_1_1_diagonal_matrix.html#a7fa1616cc61c19a5efcc863c950f7f30", null ],
     [ "mult", "classsofa_1_1linearalgebra_1_1_diagonal_matrix.html#af3c91b49d75648ed2ea7e999e683bcdd", null ],
+    [ "Name", "classsofa_1_1linearalgebra_1_1_diagonal_matrix.html#a28ceceb8e81ac299b3c6992dd0a707d3", null ],
     [ "operator*", "classsofa_1_1linearalgebra_1_1_diagonal_matrix.html#a2b5865d4c791bb9599ceb9d13536dcff", null ],
     [ "operator*", "classsofa_1_1linearalgebra_1_1_diagonal_matrix.html#a97c150ae3b9b29805958c10c9e0ffa69", null ],
     [ "operator+=", "classsofa_1_1linearalgebra_1_1_diagonal_matrix.html#a29ad7320a42e144d0f648cd7ecda2adf", null ],

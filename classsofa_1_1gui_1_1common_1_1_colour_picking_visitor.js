@@ -9,5 +9,9 @@ var classsofa_1_1gui_1_1common_1_1_colour_picking_visitor =
     [ "getCategoryName", "classsofa_1_1gui_1_1common_1_1_colour_picking_visitor.html#a1221cbb275148115e95093049bf11b3c", null ],
     [ "getClassName", "classsofa_1_1gui_1_1common_1_1_colour_picking_visitor.html#abf09a670a9f753e66efb6c1c21a0df28", null ],
     [ "processCollisionModel", "classsofa_1_1gui_1_1common_1_1_colour_picking_visitor.html#a52b341e4cef3f26d9b7fd2f77fa91ac1", null ],
-    [ "processNodeTopDown", "classsofa_1_1gui_1_1common_1_1_colour_picking_visitor.html#a816f691f7250f169637c170c24c1646a", null ]
+    [ "processNodeTopDown", "classsofa_1_1gui_1_1common_1_1_colour_picking_visitor.html#a816f691f7250f169637c170c24c1646a", null ],
+    [ "processSphereModel", "classsofa_1_1gui_1_1common_1_1_colour_picking_visitor.html#a801c56a29ee0985472ac49002c1dea7c", null ],
+    [ "processTriangleModel", "classsofa_1_1gui_1_1common_1_1_colour_picking_visitor.html#a5eda87f341a5f635bab15a225a9967c5", null ],
+    [ "method", "classsofa_1_1gui_1_1common_1_1_colour_picking_visitor.html#af6e25be4cc6ef29462a9d885bfe16258", null ],
+    [ "vparams", "classsofa_1_1gui_1_1common_1_1_colour_picking_visitor.html#afb0962844b6f042f842237a0bbcdaf89", null ]
 ];

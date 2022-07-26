@@ -103,6 +103,11 @@ Inheritance diagram for KeyFrameInterpolator:</div>
   <img src="classqglviewer_1_1_key_frame_interpolator.png" alt=""/>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html">KeyFrame</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
 <tr class="memitem:ab55c2a4f1732b90057fae4b6037399de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#ab55c2a4f1732b90057fae4b6037399de">interpolated</a> ()</td></tr>
@@ -197,16 +202,60 @@ Path drawing</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 XML representation</h2></td></tr>
+<tr class="memitem:ad6ad75f8981d2f08142427a6587fa249"><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html">KeyFrame</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#ad6ad75f8981d2f08142427a6587fa249">keyFrame_</a></td></tr>
+<tr class="separator:ad6ad75f8981d2f08142427a6587fa249"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb26259c43daa8accb719624bfc919a3"><td class="memItemLeft" align="right" valign="top">QMutableListIterator&lt; <a class="el" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html">KeyFrame</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#adb26259c43daa8accb719624bfc919a3">currentFrame_</a> [4]</td></tr>
+<tr class="separator:adb26259c43daa8accb719624bfc919a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aa545fc99a5fa517b97017cc1f79a91"><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="classqglviewer_1_1_frame.html">Frame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a6aa545fc99a5fa517b97017cc1f79a91">path_</a></td></tr>
+<tr class="separator:a6aa545fc99a5fa517b97017cc1f79a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7205b5bb4e248118381da6348da686a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classqglviewer_1_1_frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a7205b5bb4e248118381da6348da686a4">frame_</a></td></tr>
+<tr class="separator:a7205b5bb4e248118381da6348da686a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad55150b2a54b3b308d2eca8c44221b5f"><td class="memItemLeft" align="right" valign="top">QTimer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#ad55150b2a54b3b308d2eca8c44221b5f">timer_</a></td></tr>
+<tr class="separator:ad55150b2a54b3b308d2eca8c44221b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8309a7efb1db1afb3c8de5c240df517e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a8309a7efb1db1afb3c8de5c240df517e">period_</a></td></tr>
+<tr class="separator:a8309a7efb1db1afb3c8de5c240df517e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad79def7db75522da9f5d5fe119f50fe3"><td class="memItemLeft" align="right" valign="top">qreal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#ad79def7db75522da9f5d5fe119f50fe3">interpolationTime_</a></td></tr>
+<tr class="separator:ad79def7db75522da9f5d5fe119f50fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26764ca948221f7e4c7597e10a1cead7"><td class="memItemLeft" align="right" valign="top">qreal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a26764ca948221f7e4c7597e10a1cead7">interpolationSpeed_</a></td></tr>
+<tr class="separator:a26764ca948221f7e4c7597e10a1cead7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1550c4d5359212d094ceeb7bb54c9d62"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a1550c4d5359212d094ceeb7bb54c9d62">interpolationStarted_</a></td></tr>
+<tr class="separator:a1550c4d5359212d094ceeb7bb54c9d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedfb9a031762a5abd45e44deaba6eca4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#aedfb9a031762a5abd45e44deaba6eca4">closedPath_</a></td></tr>
+<tr class="separator:aedfb9a031762a5abd45e44deaba6eca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af83015fb1473cb5213290a272d8804de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#af83015fb1473cb5213290a272d8804de">loopInterpolation_</a></td></tr>
+<tr class="separator:af83015fb1473cb5213290a272d8804de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac572a5619303f1bc6d0819327f39e25e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#ac572a5619303f1bc6d0819327f39e25e">pathIsValid_</a></td></tr>
+<tr class="separator:ac572a5619303f1bc6d0819327f39e25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b1db1b3e49ef77fd5b8a8cf85adb24b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a3b1db1b3e49ef77fd5b8a8cf85adb24b">valuesAreValid_</a></td></tr>
+<tr class="separator:a3b1db1b3e49ef77fd5b8a8cf85adb24b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab13504b3d970d435f6745815d1ff9e73"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#ab13504b3d970d435f6745815d1ff9e73">currentFrameValid_</a></td></tr>
+<tr class="separator:ab13504b3d970d435f6745815d1ff9e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22bbe1b1782447cf10bc58242b8d2555"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a22bbe1b1782447cf10bc58242b8d2555">splineCacheIsValid_</a></td></tr>
+<tr class="separator:a22bbe1b1782447cf10bc58242b8d2555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ea0efa3c006ac4ad328a26e2349b26b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classqglviewer_1_1_vec.html">Vec</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a4ea0efa3c006ac4ad328a26e2349b26b">v1</a></td></tr>
+<tr class="separator:a4ea0efa3c006ac4ad328a26e2349b26b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3322e729eb5428a3489fe4554a50304a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classqglviewer_1_1_vec.html">Vec</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a3322e729eb5428a3489fe4554a50304a">v2</a></td></tr>
+<tr class="separator:a3322e729eb5428a3489fe4554a50304a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1aa0ee6f18bae0d4638705905cd37a51"><td class="memItemLeft" align="right" valign="top">virtual QDomElement&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a1aa0ee6f18bae0d4638705905cd37a51">domElement</a> (const QString &amp;name, QDomDocument &amp;document) const</td></tr>
 <tr class="separator:a1aa0ee6f18bae0d4638705905cd37a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd13d2ddeca530cb9f26ead47f7d25d3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#acd13d2ddeca530cb9f26ead47f7d25d3">initFromDOMElement</a> (const QDomElement &amp;element)</td></tr>
 <tr class="separator:acd13d2ddeca530cb9f26ead47f7d25d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5c54df7ed3b930268c8d7752c101725"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#ac5c54df7ed3b930268c8d7752c101725">update</a> ()</td></tr>
+<tr class="separator:ac5c54df7ed3b930268c8d7752c101725"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a876883e4a79cdd24eb81c0336b21a8bb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a876883e4a79cdd24eb81c0336b21a8bb">invalidateValues</a> ()</td></tr>
+<tr class="separator:a876883e4a79cdd24eb81c0336b21a8bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8deb19e722c7adb07b06114b6586452"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#ae8deb19e722c7adb07b06114b6586452">updateCurrentKeyFrameForTime</a> (qreal time)</td></tr>
+<tr class="separator:ae8deb19e722c7adb07b06114b6586452"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af782530c4ad674861eb4e14c57372f6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#af782530c4ad674861eb4e14c57372f6b">updateModifiedFrameValues</a> ()</td></tr>
+<tr class="separator:af782530c4ad674861eb4e14c57372f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6160cb38f431f1ff247e885e3944df8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a6160cb38f431f1ff247e885e3944df8e">updateSplineCache</a> ()</td></tr>
+<tr class="separator:a6160cb38f431f1ff247e885e3944df8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A keyFrame Catmull-Rom <a class="el" href="classqglviewer_1_1_frame.html" title="The Frame class represents a coordinate system, defined by a position and an orientation.">Frame</a> interpolator. </p>
-<p><a class="el" href="key_frame_interpolator_8h_source.html">QGLViewer/keyFrameInterpolator.h</a></p>
+<p><a class="el" href="key_frame_interpolator_8h.html">QGLViewer/keyFrameInterpolator.h</a></p>
 <p>A <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html" title="A keyFrame Catmull-Rom Frame interpolator.">KeyFrameInterpolator</a> holds keyFrames (that define a path) and a pointer to a <a class="el" href="classqglviewer_1_1_frame.html" title="The Frame class represents a coordinate system, defined by a position and an orientation.">Frame</a> of your application (which will be interpolated). When the user <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a3c0098b2307d04e904c1f64f505e5819">startInterpolation()</a>, the <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html" title="A keyFrame Catmull-Rom Frame interpolator.">KeyFrameInterpolator</a> regularly updates the <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a4cb610e5b934e75fcede5af91484d61c">frame()</a> position and orientation along the path.</p>
-<p>Here is a typical utilization example (see also the <a href="../examples/keyFrames.html">keyFrames example</a>):</p><div class="fragment"><div class="line">init()</div>
+<p>Here is a typical utilization example (see also the <a href="../examples/keyFrames.html">keyFrames example</a>):</p><div class="fragment"><div class="line"><a class="code" href="namespacesofa_1_1component_1_1animationloop.html#a8187e91aae8de933c1af59b41af09bd7">init</a>()</div>
 <div class="line">{</div>
 <div class="line">      <span class="comment">// The KeyFrameInterpolator kfi is given the Frame that it will drive</span></div>
 <div class="line">over time. kfi = <span class="keyword">new</span> <a class="code" href="classqglviewer_1_1_key_frame_interpolator.html#a2a78bc183af3ac92802cbe605e2a878e">KeyFrameInterpolator</a>( <span class="keyword">new</span> Frame() ); kfi-&gt;addKeyFrame(</div>
@@ -215,7 +264,7 @@ XML representation</h2></td></tr>
 <div class="line">      <span class="comment">// ...and so on for all the keyFrames.</span></div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Ask for a display update after each update of the</span></div>
-<div class="line"><a class="code" href="classqglviewer_1_1_key_frame_interpolator.html#a2a78bc183af3ac92802cbe605e2a878e">KeyFrameInterpolator</a> connect(kfi, SIGNAL(<a class="code" href="classqglviewer_1_1_key_frame_interpolator.html#ab55c2a4f1732b90057fae4b6037399de">interpolated</a>()), SLOT(update()));</div>
+<div class="line"><a class="code" href="classqglviewer_1_1_key_frame_interpolator.html#a2a78bc183af3ac92802cbe605e2a878e">KeyFrameInterpolator</a> <a class="code" href="_q_sofa_recorder_8cpp.html#a9a8bd9afb13d8976459e941f32436fee">connect</a>(kfi, SIGNAL(<a class="code" href="classqglviewer_1_1_key_frame_interpolator.html#ab55c2a4f1732b90057fae4b6037399de">interpolated</a>()), SLOT(<a class="code" href="classqglviewer_1_1_key_frame_interpolator.html#ac5c54df7ed3b930268c8d7752c101725">update</a>()));</div>
 <div class="line"> </div>
 <div class="line">      kfi-&gt;startInterpolation();</div>
 <div class="line">}</div>
@@ -453,7 +502,7 @@ XML representation</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Whether or not (default) the path defined by the keyFrames is a closed loop. When <code>true</code>, the last and the first KeyFrame are linked by a new spline segment.</p>
+<p>Whether or not (default) the path defined by the keyFrames is a closed loop. When <code>true</code>, the last and the first <a class="el" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html">KeyFrame</a> are linked by a new spline segment.</p>
 <p>Use <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a31a491ac2ac016298cbd1c66f07be6dd">setLoopInterpolation()</a> to create a continuous animation over the entire path. </p><dl class="section attention"><dt>Attention</dt><dd>The closed path feature is not yet implemented. </dd></dl>
 
 </div>
@@ -570,7 +619,7 @@ XML representation</h2></td></tr>
 <div class="fragment"><div class="line"><a class="code" href="classqglviewer_1_1_key_frame_interpolator.html#a72eb61459856747e751eaf750168577e">drawPath</a>();  <span class="comment">// Simply draws the interpolation path</span></div>
 <div class="line"><a class="code" href="classqglviewer_1_1_key_frame_interpolator.html#a72eb61459856747e751eaf750168577e">drawPath</a>(3); <span class="comment">// Draws path and cameras</span></div>
 <div class="line"><a class="code" href="classqglviewer_1_1_key_frame_interpolator.html#a72eb61459856747e751eaf750168577e">drawPath</a>(5); <span class="comment">// Draws path and axis</span></div>
-</div><!-- fragment --><p>In the case where camera or axis is drawn, <code>nbFrames</code> controls the number of objects (axis or camera) drawn between two successive keyFrames. When <code>nbFrames=1</code>, only the path KeyFrames are drawn. <code>nbFrames=2</code> also draws the intermediate orientation, etc. The maximum value is 30. <code>nbFrames</code> should divide 30 so that an object is drawn for each KeyFrame. Default value is 6.</p>
+</div><!-- fragment --><p>In the case where camera or axis is drawn, <code>nbFrames</code> controls the number of objects (axis or camera) drawn between two successive keyFrames. When <code>nbFrames=1</code>, only the path KeyFrames are drawn. <code>nbFrames=2</code> also draws the intermediate orientation, etc. The maximum value is 30. <code>nbFrames</code> should divide 30 so that an object is drawn for each <a class="el" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html">KeyFrame</a>. Default value is 6.</p>
 <p><code>scale</code> (default=1.0) controls the scaling of the camera and axis drawing. A value of <a class="el" href="class_q_g_l_viewer.html#a3defc8f5063631a33652b7f4dd7bb5f4">QGLViewer::sceneRadius()</a> should give good results.</p>
 <p>See the <a href="../examples/keyFrames.html">keyFrames example</a> for an illustration.</p>
 <p>The color of the path is the current <code>glColor()</code>.</p>
@@ -757,8 +806,8 @@ XML representation</h2></td></tr>
 </div><div class="memdoc">
 <p>This signal is emitted whenever the <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a4cb610e5b934e75fcede5af91484d61c">frame()</a> state is interpolated.</p>
 <p>The emission of this signal triggers the synchronous emission of the <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a4cb610e5b934e75fcede5af91484d61c">frame()</a> <a class="el" href="classqglviewer_1_1_frame.html#ab55c2a4f1732b90057fae4b6037399de">Frame::interpolated()</a> signal, which may also be useful.</p>
-<p>This signal should especially be connected to your QGLViewer::update() slot, so that the display is updated after every update of the <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html" title="A keyFrame Catmull-Rom Frame interpolator.">KeyFrameInterpolator</a> <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a4cb610e5b934e75fcede5af91484d61c">frame()</a>:</p><div class="fragment"><div class="line"> connect(myKeyFrameInterpolator, SIGNAL(<a class="code" href="classqglviewer_1_1_key_frame_interpolator.html#ab55c2a4f1732b90057fae4b6037399de">interpolated</a>()),</div>
-<div class="line">SLOT(update())); </div>
+<p>This signal should especially be connected to your QGLViewer::update() slot, so that the display is updated after every update of the <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html" title="A keyFrame Catmull-Rom Frame interpolator.">KeyFrameInterpolator</a> <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a4cb610e5b934e75fcede5af91484d61c">frame()</a>:</p><div class="fragment"><div class="line"> <a class="code" href="_q_sofa_recorder_8cpp.html#a9a8bd9afb13d8976459e941f32436fee">connect</a>(myKeyFrameInterpolator, SIGNAL(<a class="code" href="classqglviewer_1_1_key_frame_interpolator.html#ab55c2a4f1732b90057fae4b6037399de">interpolated</a>()),</div>
+<div class="line">SLOT(<a class="code" href="classqglviewer_1_1_key_frame_interpolator.html#ac5c54df7ed3b930268c8d7752c101725">update</a>())); </div>
 </div><!-- fragment --><p> Use the <a class="el" href="class_q_g_l_viewer.html#aa27d9e0070ba3117afb99cfe5931d754">QGLViewer::QGLViewerPool()</a> to connect the signal to all the viewers.</p>
 <p>Note that the <a class="el" href="class_q_g_l_viewer.html#ab82c5c0d1cd206aa7b019ed2a69f289e">QGLViewer::camera()</a> <a class="el" href="classqglviewer_1_1_camera.html#adbb97a4bae7962f5347a474a574caf48">Camera::keyFrameInterpolator()</a> created using <a class="el" href="class_q_g_l_viewer.html#a317ab0337608985945927c3a7d636986">QGLViewer::pathKey()</a> have their <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#ab55c2a4f1732b90057fae4b6037399de">interpolated()</a> signals automatically connected to the QGLViewer::update() slot. </p>
 
@@ -870,6 +919,31 @@ XML representation</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns the current interpolation time (in seconds) along the <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html" title="A keyFrame Catmull-Rom Frame interpolator.">KeyFrameInterpolator</a> path.</p>
 <p>This time is regularly updated when <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#ae66bf414687c7c2fda2adbdeb4b8f679">interpolationIsStarted()</a>. Can be set directly with <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a59c9040c5ffe58920e9dbc521c1407c7">setInterpolationTime()</a> or <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#aa661a38cfc0fe1a3ac5f1e63fdc4918a">interpolateAtTime()</a>. </p>
+
+</div>
+</div>
+<a id="a876883e4a79cdd24eb81c0336b21a8bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a876883e4a79cdd24eb81c0336b21a8bb">&#9670;&nbsp;</a></span>invalidateValues</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void invalidateValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">virtual</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1264,16 +1338,497 @@ XML representation</h2></td></tr>
 
 </div>
 </div>
+<a id="ac5c54df7ed3b930268c8d7752c101725"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5c54df7ed3b930268c8d7752c101725">&#9670;&nbsp;</a></span>update</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Updates <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a4cb610e5b934e75fcede5af91484d61c">frame()</a> state according to current <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a0df41d65f0759f0eabb594ec1bc510ce">interpolationTime()</a>. Then adds <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a724bd13ad2b28a8a0e8448cf184d8328">interpolationPeriod()</a>*interpolationSpeed() to <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a0df41d65f0759f0eabb594ec1bc510ce">interpolationTime()</a>.</p>
+<p>This internal method is called by a timer when <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#ae66bf414687c7c2fda2adbdeb4b8f679">interpolationIsStarted()</a>. It can be used for debugging purpose. <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a16f0910299ae07cede3396a14ec01f4b">stopInterpolation()</a> is called when <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a0df41d65f0759f0eabb594ec1bc510ce">interpolationTime()</a> reaches <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a79d0e2ba4e6dea76d795ad590c73e9f1">firstTime()</a> or <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#abd6d8d695f40c0da256e86058f79af6a">lastTime()</a>, unless <a class="el" href="classqglviewer_1_1_key_frame_interpolator.html#a2887ab30d34b295ca35f9815c1ca68fe">loopInterpolation()</a> is <code>true</code>. </p>
+
+</div>
+</div>
+<a id="ae8deb19e722c7adb07b06114b6586452"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8deb19e722c7adb07b06114b6586452">&#9670;&nbsp;</a></span>updateCurrentKeyFrameForTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateCurrentKeyFrameForTime </td>
+          <td>(</td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af782530c4ad674861eb4e14c57372f6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af782530c4ad674861eb4e14c57372f6b">&#9670;&nbsp;</a></span>updateModifiedFrameValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateModifiedFrameValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6160cb38f431f1ff247e885e3944df8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6160cb38f431f1ff247e885e3944df8e">&#9670;&nbsp;</a></span>updateSplineCache()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateSplineCache </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aedfb9a031762a5abd45e44deaba6eca4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedfb9a031762a5abd45e44deaba6eca4">&#9670;&nbsp;</a></span>closedPath_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool closedPath_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb26259c43daa8accb719624bfc919a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb26259c43daa8accb719624bfc919a3">&#9670;&nbsp;</a></span>currentFrame_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMutableListIterator&lt;<a class="el" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html">KeyFrame</a> *&gt;* currentFrame_[4]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab13504b3d970d435f6745815d1ff9e73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab13504b3d970d435f6745815d1ff9e73">&#9670;&nbsp;</a></span>currentFrameValid_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool currentFrameValid_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7205b5bb4e248118381da6348da686a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7205b5bb4e248118381da6348da686a4">&#9670;&nbsp;</a></span>frame_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classqglviewer_1_1_frame.html">Frame</a>* frame_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a26764ca948221f7e4c7597e10a1cead7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26764ca948221f7e4c7597e10a1cead7">&#9670;&nbsp;</a></span>interpolationSpeed_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">qreal interpolationSpeed_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1550c4d5359212d094ceeb7bb54c9d62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1550c4d5359212d094ceeb7bb54c9d62">&#9670;&nbsp;</a></span>interpolationStarted_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool interpolationStarted_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad79def7db75522da9f5d5fe119f50fe3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad79def7db75522da9f5d5fe119f50fe3">&#9670;&nbsp;</a></span>interpolationTime_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">qreal interpolationTime_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad6ad75f8981d2f08142427a6587fa249"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6ad75f8981d2f08142427a6587fa249">&#9670;&nbsp;</a></span>keyFrame_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;<a class="el" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html">KeyFrame</a> *&gt; keyFrame_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af83015fb1473cb5213290a272d8804de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af83015fb1473cb5213290a272d8804de">&#9670;&nbsp;</a></span>loopInterpolation_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool loopInterpolation_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6aa545fc99a5fa517b97017cc1f79a91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6aa545fc99a5fa517b97017cc1f79a91">&#9670;&nbsp;</a></span>path_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;<a class="el" href="classqglviewer_1_1_frame.html">Frame</a>&gt; path_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac572a5619303f1bc6d0819327f39e25e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac572a5619303f1bc6d0819327f39e25e">&#9670;&nbsp;</a></span>pathIsValid_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool pathIsValid_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8309a7efb1db1afb3c8de5c240df517e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8309a7efb1db1afb3c8de5c240df517e">&#9670;&nbsp;</a></span>period_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int period_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22bbe1b1782447cf10bc58242b8d2555"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22bbe1b1782447cf10bc58242b8d2555">&#9670;&nbsp;</a></span>splineCacheIsValid_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool splineCacheIsValid_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad55150b2a54b3b308d2eca8c44221b5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad55150b2a54b3b308d2eca8c44221b5f">&#9670;&nbsp;</a></span>timer_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTimer timer_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ea0efa3c006ac4ad328a26e2349b26b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ea0efa3c006ac4ad328a26e2349b26b">&#9670;&nbsp;</a></span>v1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classqglviewer_1_1_vec.html">Vec</a> v1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3322e729eb5428a3489fe4554a50304a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3322e729eb5428a3489fe4554a50304a">&#9670;&nbsp;</a></span>v2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classqglviewer_1_1_vec.html">Vec</a> v2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b1db1b3e49ef77fd5b8a8cf85adb24b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b1db1b3e49ef77fd5b8a8cf85adb24b">&#9670;&nbsp;</a></span>valuesAreValid_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool valuesAreValid_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclassqglviewer_1_1_key_frame_interpolator_html_ac5c54df7ed3b930268c8d7752c101725"><div class="ttname"><a href="classqglviewer_1_1_key_frame_interpolator.html#ac5c54df7ed3b930268c8d7752c101725">qglviewer::KeyFrameInterpolator::update</a></div><div class="ttdeci">virtual void update()</div><div class="ttdef"><b>Definition:</b> keyFrameInterpolator.cpp:75</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_key_frame_interpolator_html_a2a78bc183af3ac92802cbe605e2a878e"><div class="ttname"><a href="classqglviewer_1_1_key_frame_interpolator.html#a2a78bc183af3ac92802cbe605e2a878e">qglviewer::KeyFrameInterpolator::KeyFrameInterpolator</a></div><div class="ttdeci">KeyFrameInterpolator(Frame *fr=NULL)</div><div class="ttdef"><b>Definition:</b> keyFrameInterpolator.cpp:35</div></div>
+<div class="ttc" id="anamespacesofa_1_1component_1_1animationloop_html_a8187e91aae8de933c1af59b41af09bd7"><div class="ttname"><a href="namespacesofa_1_1component_1_1animationloop.html#a8187e91aae8de933c1af59b41af09bd7">sofa::component::animationloop::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> init.cpp:68</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_key_frame_interpolator_html_ab55c2a4f1732b90057fae4b6037399de"><div class="ttname"><a href="classqglviewer_1_1_key_frame_interpolator.html#ab55c2a4f1732b90057fae4b6037399de">qglviewer::KeyFrameInterpolator::interpolated</a></div><div class="ttdeci">void interpolated()</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_key_frame_interpolator_html_a72eb61459856747e751eaf750168577e"><div class="ttname"><a href="classqglviewer_1_1_key_frame_interpolator.html#a72eb61459856747e751eaf750168577e">qglviewer::KeyFrameInterpolator::drawPath</a></div><div class="ttdeci">virtual void drawPath(int mask=1, int nbFrames=6, qreal scale=1.0)</div><div class="ttdef"><b>Definition:</b> keyFrameInterpolator.cpp:336</div></div>
+<div class="ttc" id="a_q_sofa_recorder_8cpp_html_a9a8bd9afb13d8976459e941f32436fee"><div class="ttname"><a href="_q_sofa_recorder_8cpp.html#a9a8bd9afb13d8976459e941f32436fee">connect</a></div><div class="ttdeci">connect(record, SIGNAL(toggled(bool)), this, SLOT(slot_recordSimulation(bool)))</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>qglviewer</b></li><li class="navelem"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html">KeyFrameInterpolator</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:43:28 for SOFA by
+    <li class="navelem"><a class="el" href="namespaceqglviewer.html">qglviewer</a></li><li class="navelem"><a class="el" href="classqglviewer_1_1_key_frame_interpolator.html">KeyFrameInterpolator</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:20:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

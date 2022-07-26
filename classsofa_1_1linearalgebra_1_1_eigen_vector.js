@@ -13,6 +13,7 @@ var classsofa_1_1linearalgebra_1_1_eigen_vector =
     [ "getVectorEigen", "classsofa_1_1linearalgebra_1_1_eigen_vector.html#a73ab930438fde3b42aece464fd458afa", null ],
     [ "getVectorEigen", "classsofa_1_1linearalgebra_1_1_eigen_vector.html#a784e620aeb9cf363d29c016f4c6b2a5c", null ],
     [ "Name", "classsofa_1_1linearalgebra_1_1_eigen_vector.html#a4d729501d8a06f757fe9a47d5c81e170", null ],
+    [ "Name", "classsofa_1_1linearalgebra_1_1_eigen_vector.html#a42787b89bf1451a38afa8cca83ab23e9", null ],
     [ "resize", "classsofa_1_1linearalgebra_1_1_eigen_vector.html#af49c9eb54cf492edb4cfe2d58fda04ed", null ],
     [ "resizeBlocks", "classsofa_1_1linearalgebra_1_1_eigen_vector.html#a43a6a8c5e4d9e83af98bd8a87fabcc9b", null ],
     [ "set", "classsofa_1_1linearalgebra_1_1_eigen_vector.html#ae8f230a136e7d268335792fd102f1ae3", null ],

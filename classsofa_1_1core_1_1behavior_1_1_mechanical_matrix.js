@@ -14,5 +14,8 @@ var classsofa_1_1core_1_1behavior_1_1_mechanical_matrix =
     [ "operator-", "classsofa_1_1core_1_1behavior_1_1_mechanical_matrix.html#ae5e043ced9fe0db50bdbc56957c08d88", null ],
     [ "operator/", "classsofa_1_1core_1_1behavior_1_1_mechanical_matrix.html#ad0bcf9d5ec915cd9c6be4d47c8bc0cfe", null ],
     [ "operator<<", "classsofa_1_1core_1_1behavior_1_1_mechanical_matrix.html#ab513a958233c2014b4e29444f5967ac8", null ],
-    [ "factors", "classsofa_1_1core_1_1behavior_1_1_mechanical_matrix.html#ac81c57207bfc7458799594cd1646e879", null ]
+    [ "B", "classsofa_1_1core_1_1behavior_1_1_mechanical_matrix.html#a56467f4d3af8eb843aa9c2cc5f64b1a4", null ],
+    [ "factors", "classsofa_1_1core_1_1behavior_1_1_mechanical_matrix.html#ac81c57207bfc7458799594cd1646e879", null ],
+    [ "K", "classsofa_1_1core_1_1behavior_1_1_mechanical_matrix.html#a5703bb5a6c06cbc13022fc9733fc4945", null ],
+    [ "M", "classsofa_1_1core_1_1behavior_1_1_mechanical_matrix.html#ae8221b87fa1fc5e454fe5da544488c33", null ]
 ];

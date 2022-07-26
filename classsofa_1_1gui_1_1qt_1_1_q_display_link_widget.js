@@ -4,6 +4,7 @@ var classsofa_1_1gui_1_1qt_1_1_q_display_link_widget =
     [ "getNumWidgets", "classsofa_1_1gui_1_1qt_1_1_q_display_link_widget.html#ad83e136bf159c6138d2cf328f13fc951", null ],
     [ "LinkOwnerDirty", "classsofa_1_1gui_1_1qt_1_1_q_display_link_widget.html#afb43f94ccd5442273618e52d55f5292f", null ],
     [ "LinkUpdate", "classsofa_1_1gui_1_1qt_1_1_q_display_link_widget.html#a283c900c49d7ec372b3ba634b3fc3d35", null ],
+    [ "RefreshIcon", "classsofa_1_1gui_1_1qt_1_1_q_display_link_widget.html#a60184c0668dc3b46fefa8cc0a2833621", null ],
     [ "UpdateLink", "classsofa_1_1gui_1_1qt_1_1_q_display_link_widget.html#a23b274611d6a9192c8ef604a2c0d61df", null ],
     [ "UpdateWidgets", "classsofa_1_1gui_1_1qt_1_1_q_display_link_widget.html#a66ca80bf65cb4e008da3c1a9da3db9be", null ],
     [ "WidgetDirty", "classsofa_1_1gui_1_1qt_1_1_q_display_link_widget.html#a21c9a21090f823be18cc92a3e32157f6", null ],

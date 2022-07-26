@@ -87,11 +87,14 @@ $(document).ready(function(){initNavTree('classsofa_1_1gui_1_1qt_1_1_sofa_mouse_
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SofaMouseManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_sofa_mouse_manager_8h_source.html">SofaMouseManager.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SofaMouseManager:</div>
 <div class="dyncontent">
@@ -101,56 +104,344 @@ Inheritance diagram for SofaMouseManager:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
-<tr class="memitem:a3b642e8892b502b4015a4e0fc7b2ae7c"><td class="memItemLeft" align="right" valign="top"><a id="a3b642e8892b502b4015a4e0fc7b2ae7c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>selectOperation</b> (int)</td></tr>
+<tr class="memitem:a3b642e8892b502b4015a4e0fc7b2ae7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#a3b642e8892b502b4015a4e0fc7b2ae7c">selectOperation</a> (int)</td></tr>
 <tr class="separator:a3b642e8892b502b4015a4e0fc7b2ae7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5344d229b75c57593d429ace6525b5c6"><td class="memItemLeft" align="right" valign="top"><a id="a5344d229b75c57593d429ace6525b5c6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SofaMouseManager</b> (QWidget *parent)</td></tr>
+<tr class="memitem:a5344d229b75c57593d429ace6525b5c6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#a5344d229b75c57593d429ace6525b5c6">SofaMouseManager</a> (QWidget *parent)</td></tr>
 <tr class="separator:a5344d229b75c57593d429ace6525b5c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94e47126075766307c429b68aa65fed5"><td class="memItemLeft" align="right" valign="top"><a id="a94e47126075766307c429b68aa65fed5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateContent</b> ()</td></tr>
+<tr class="memitem:a4971f4a98028c3b8ab9fb08ffd32af96"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#a4971f4a98028c3b8ab9fb08ffd32af96">~SofaMouseManager</a> () override</td></tr>
+<tr class="separator:a4971f4a98028c3b8ab9fb08ffd32af96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94e47126075766307c429b68aa65fed5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#a94e47126075766307c429b68aa65fed5">updateContent</a> ()</td></tr>
 <tr class="separator:a94e47126075766307c429b68aa65fed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebcc5355d88e0d868780f57af8579140"><td class="memItemLeft" align="right" valign="top"><a id="aebcc5355d88e0d868780f57af8579140"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPickHandler</b> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">common::PickHandler</a> *)</td></tr>
+<tr class="memitem:aebcc5355d88e0d868780f57af8579140"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#aebcc5355d88e0d868780f57af8579140">setPickHandler</a> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">common::PickHandler</a> *)</td></tr>
 <tr class="separator:aebcc5355d88e0d868780f57af8579140"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed8e1bd3cf46e61b649d66d4fd2c1c74"><td class="memItemLeft" align="right" valign="top"><a id="aed8e1bd3cf46e61b649d66d4fd2c1c74"></a>
-std::map&lt; int, std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMapIndexOperation</b> ()</td></tr>
+<tr class="memitem:aed8e1bd3cf46e61b649d66d4fd2c1c74"><td class="memItemLeft" align="right" valign="top">std::map&lt; int, std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#aed8e1bd3cf46e61b649d66d4fd2c1c74">getMapIndexOperation</a> ()</td></tr>
 <tr class="separator:aed8e1bd3cf46e61b649d66d4fd2c1c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1e9ebb20c36c996c3ca4ba87d2c27af"><td class="memItemLeft" align="right" valign="top"><a id="ab1e9ebb20c36c996c3ca4ba87d2c27af"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateOperation</b> (<a class="el" href="classsofa_1_1component_1_1setting_1_1_mouse_button_setting.html">sofa::component::setting::MouseButtonSetting</a> *setting)</td></tr>
+<tr class="memitem:ab1e9ebb20c36c996c3ca4ba87d2c27af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#ab1e9ebb20c36c996c3ca4ba87d2c27af">updateOperation</a> (<a class="el" href="classsofa_1_1component_1_1setting_1_1_mouse_button_setting.html">sofa::component::setting::MouseButtonSetting</a> *setting)</td></tr>
 <tr class="separator:ab1e9ebb20c36c996c3ca4ba87d2c27af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fed4232b309a3788fb2637c1a32df8c"><td class="memItemLeft" align="right" valign="top"><a id="a2fed4232b309a3788fb2637c1a32df8c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateOperation</b> (common::MOUSE_BUTTON button, const std::string &amp;id)</td></tr>
+<tr class="memitem:a2fed4232b309a3788fb2637c1a32df8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#a2fed4232b309a3788fb2637c1a32df8c">updateOperation</a> (<a class="el" href="namespacesofa_1_1gui_1_1common.html#ac306d9f7f033a5e73e4660ace4e89b2a">common::MOUSE_BUTTON</a> button, const std::string &amp;id)</td></tr>
 <tr class="separator:a2fed4232b309a3788fb2637c1a32df8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a2fa61de4145ae23cc9584cacbc803b60"><td class="memItemLeft" align="right" valign="top"><a id="a2fa61de4145ae23cc9584cacbc803b60"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateOperation</b> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_operation.html">common::Operation</a> *op)</td></tr>
+<tr class="memitem:a2fa61de4145ae23cc9584cacbc803b60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#a2fa61de4145ae23cc9584cacbc803b60">updateOperation</a> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_operation.html">common::Operation</a> *op)</td></tr>
 <tr class="separator:a2fa61de4145ae23cc9584cacbc803b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:aafaccc5e97a886757ee8a1d735dc8d96"><td class="memItemLeft" align="right" valign="top"><a id="aafaccc5e97a886757ee8a1d735dc8d96"></a>
-<a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">common::PickHandler</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pickHandler</b></td></tr>
+<tr class="memitem:aafaccc5e97a886757ee8a1d735dc8d96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">common::PickHandler</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#aafaccc5e97a886757ee8a1d735dc8d96">pickHandler</a></td></tr>
 <tr class="separator:aafaccc5e97a886757ee8a1d735dc8d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae6b9e08ccccd466efd2beb4f736b886"><td class="memItemLeft" align="right" valign="top"><a id="aae6b9e08ccccd466efd2beb4f736b886"></a>
-std::map&lt; int, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mapIndexOperation</b></td></tr>
+<tr class="memitem:aae6b9e08ccccd466efd2beb4f736b886"><td class="memItemLeft" align="right" valign="top">std::map&lt; int, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#aae6b9e08ccccd466efd2beb4f736b886">mapIndexOperation</a></td></tr>
 <tr class="separator:aae6b9e08ccccd466efd2beb4f736b886"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb779ec21db87f0250cf2818d1db4996"><td class="memItemLeft" align="right" valign="top"><a id="adb779ec21db87f0250cf2818d1db4996"></a>
-<a class="el" href="classsofa_1_1type_1_1fixed__array.html">type::fixed_array</a>&lt; std::string, common::NONE &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>usedOperations</b></td></tr>
+<tr class="memitem:adb779ec21db87f0250cf2818d1db4996"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1fixed__array.html">type::fixed_array</a>&lt; std::string, <a class="el" href="namespacesofa_1_1gui_1_1common.html#ac306d9f7f033a5e73e4660ace4e89b2aac157bdf0b85a40d2619cbc8bc1ae5fe2">common::NONE</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#adb779ec21db87f0250cf2818d1db4996">usedOperations</a></td></tr>
 <tr class="separator:adb779ec21db87f0250cf2818d1db4996"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a087339329f9c5443b4ae4f3e7cc4c954"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; Ui_MouseManager &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#a087339329f9c5443b4ae4f3e7cc4c954">gui</a></td></tr>
+<tr class="separator:a087339329f9c5443b4ae4f3e7cc4c954"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a5344d229b75c57593d429ace6525b5c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5344d229b75c57593d429ace6525b5c6">&#9670;&nbsp;</a></span>SofaMouseManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html">SofaMouseManager</a> </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4971f4a98028c3b8ab9fb08ffd32af96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4971f4a98028c3b8ab9fb08ffd32af96">&#9670;&nbsp;</a></span>~SofaMouseManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html">SofaMouseManager</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aed8e1bd3cf46e61b649d66d4fd2c1c74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed8e1bd3cf46e61b649d66d4fd2c1c74">&#9670;&nbsp;</a></span>getMapIndexOperation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; int, std::string &gt;&amp; getMapIndexOperation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b642e8892b502b4015a4e0fc7b2ae7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b642e8892b502b4015a4e0fc7b2ae7c">&#9670;&nbsp;</a></span>selectOperation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void selectOperation </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>operation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aebcc5355d88e0d868780f57af8579140"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebcc5355d88e0d868780f57af8579140">&#9670;&nbsp;</a></span>setPickHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setPickHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">common::PickHandler</a> *&#160;</td>
+          <td class="paramname"><em>picker</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a94e47126075766307c429b68aa65fed5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94e47126075766307c429b68aa65fed5">&#9670;&nbsp;</a></span>updateContent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateContent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2fed4232b309a3788fb2637c1a32df8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fed4232b309a3788fb2637c1a32df8c">&#9670;&nbsp;</a></span>updateOperation() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateOperation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1gui_1_1common.html#ac306d9f7f033a5e73e4660ace4e89b2a">common::MOUSE_BUTTON</a>&#160;</td>
+          <td class="paramname"><em>button</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2fa61de4145ae23cc9584cacbc803b60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fa61de4145ae23cc9584cacbc803b60">&#9670;&nbsp;</a></span>updateOperation() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateOperation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1common_1_1_operation.html">common::Operation</a> *&#160;</td>
+          <td class="paramname"><em>op</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab1e9ebb20c36c996c3ca4ba87d2c27af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1e9ebb20c36c996c3ca4ba87d2c27af">&#9670;&nbsp;</a></span>updateOperation() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateOperation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1setting_1_1_mouse_button_setting.html">sofa::component::setting::MouseButtonSetting</a> *&#160;</td>
+          <td class="paramname"><em>setting</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a087339329f9c5443b4ae4f3e7cc4c954"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a087339329f9c5443b4ae4f3e7cc4c954">&#9670;&nbsp;</a></span>gui</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;Ui_MouseManager&gt; gui</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aae6b9e08ccccd466efd2beb4f736b886"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae6b9e08ccccd466efd2beb4f736b886">&#9670;&nbsp;</a></span>mapIndexOperation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; int, std::string &gt; mapIndexOperation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aafaccc5e97a886757ee8a1d735dc8d96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafaccc5e97a886757ee8a1d735dc8d96">&#9670;&nbsp;</a></span>pickHandler</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">common::PickHandler</a>* pickHandler</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb779ec21db87f0250cf2818d1db4996"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb779ec21db87f0250cf2818d1db4996">&#9670;&nbsp;</a></span>usedOperations</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1fixed__array.html">type::fixed_array</a>&lt; std::string, <a class="el" href="namespacesofa_1_1gui_1_1common.html#ac306d9f7f033a5e73e4660ace4e89b2aac157bdf0b85a40d2619cbc8bc1ae5fe2">common::NONE</a> &gt; usedOperations</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>gui</b></li><li class="navelem"><b>qt</b></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html">SofaMouseManager</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:52 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui.html">gui</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui_1_1qt.html">qt</a></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html">SofaMouseManager</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:39 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

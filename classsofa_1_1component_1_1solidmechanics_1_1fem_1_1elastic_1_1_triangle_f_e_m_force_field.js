@@ -63,7 +63,9 @@ var classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangle_f_e_
     [ "InvalidStrainDisplacement", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangle_f_e_m_force_field.html#a77927353fc1a9e72c976658c42a71fc9", null ],
     [ "InvalidTransform", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangle_f_e_m_force_field.html#a2bcb0655efc539bcd11821f8bab276d6", null ],
     [ "l_topology", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangle_f_e_m_force_field.html#a5a209ff446ab98530c27b3d50f3508c4", null ],
+    [ "LARGE", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangle_f_e_m_force_field.html#a5ef7f28285cc76bc85eed4cde39db975", null ],
     [ "m_topology", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangle_f_e_m_force_field.html#af844fbe9a803458c15315a7ddcd62bd7", null ],
     [ "m_triangleUtils", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangle_f_e_m_force_field.html#a753a574e0a85f4884e5d458aed93b871", null ],
-    [ "method", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangle_f_e_m_force_field.html#adcc9a19ad3119f823a658f6a49a24e64", null ]
+    [ "method", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangle_f_e_m_force_field.html#adcc9a19ad3119f823a658f6a49a24e64", null ],
+    [ "SMALL", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangle_f_e_m_force_field.html#af734543a1205c0e00419db4e8a0a88fd", null ]
 ];

@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_worker_thread_8h_source.html',''); in
 <div class="title">WorkerThread.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_worker_thread_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -111,12 +111,12 @@ $(document).ready(function(){initNavTree('_worker_thread_8h_source.html',''); in
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/simulation/config.h&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sofa/simulation/Task.h&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_task_8h.html">sofa/simulation/Task.h</a>&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;deque&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;sofa/simulation/Locks.h&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_locks_8h.html">sofa/simulation/Locks.h</a>&gt;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>sofa::simulation</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1simulation.html">sofa::simulation</a></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">class </span>DefaultTaskScheduler;</div>
@@ -135,9 +135,9 @@ $(document).ready(function(){initNavTree('_worker_thread_8h_source.html',''); in
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">// queue task if there is space, and run it otherwise</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">bool</span> addTask(Task* pTask);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> workUntilDone(Task::Status* status);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> workUntilDone(<a class="code" href="namespacesofa_1_1helper_1_1console.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Task::Status</a>* status);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">const</span> Task::Status* getCurrentStatus()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_currentStatus; }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">const</span> <a class="code" href="namespacesofa_1_1helper_1_1console.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Task::Status</a>* getCurrentStatus()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_currentStatus; }</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* getName()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_name.c_str(); }</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
@@ -157,17 +157,17 @@ $(document).ready(function(){initNavTree('_worker_thread_8h_source.html',''); in
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> runTask(Task* task);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">// queue task if there is space (or do nothing)</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">bool</span> pushTask(Task* pTask);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_worker_thread.html#a744a890e8224e1ff7ab6ca96e87e1175">   73</a></span>&#160;    <span class="comment">// queue task if there is space (or do nothing)</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">bool</span> pushTask(<a class="code" href="classsofa_1_1simulation_1_1_task.html">Task</a>* pTask);</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_worker_thread.html#acf84bf3d36151fbecd5138f48393ce0b">   75</a></span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// pop task from queue</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">bool</span> popTask(Task** ppTask);</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_worker_thread.html#ad332f75a3b947cd7df5f1a4857b431f0">   77</a></span>&#160;    <span class="keywordtype">bool</span> popTask(<a class="code" href="classsofa_1_1simulation_1_1_task.html">Task</a>** ppTask);</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">// steal and queue some task from another thread</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">bool</span> stealTask(Task** task);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> doWork(Task::Status* status);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">bool</span> stealTask(<a class="code" href="classsofa_1_1simulation_1_1_task.html">Task</a>** task);</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_worker_thread.html#a7d24eda1811b103a93c100348b459bb8">   81</a></span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> doWork(<a class="code" href="classsofa_1_1simulation_1_1_task_1_1_status.html">Task::Status</a>* status);</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_worker_thread.html#a2ce2f5d701b5fd7c4b901fc9f7363844">   83</a></span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// boost thread main loop</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> run(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
@@ -185,30 +185,38 @@ $(document).ready(function(){initNavTree('_worker_thread_8h_source.html',''); in
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> m_type;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    simulation::SpinLock m_taskMutex;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="classsofa_1_1simulation_1_1_spin_lock.html">simulation::SpinLock</a> m_taskMutex;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    std::deque&lt;Task*&gt; m_tasks;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    std::thread  m_stdThread;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    Task::Status*       m_currentStatus;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="classsofa_1_1simulation_1_1_task_1_1_status.html">Task::Status</a>*       m_currentStatus;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    DefaultTaskScheduler*     m_taskScheduler;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a>*     m_taskScheduler;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">// The following members may be accessed by _multiple_ threads at the same time:</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    std::atomic&lt;bool&gt;   m_finished;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>DefaultTaskScheduler;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_worker_thread.html#a85d881cb3816f77e92c1c8f721b54fc4adde15a81e06b78b52229b15bf1f9e5da">  114</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a>;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;};</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1_worker_thread.html#a6f9e296fcf5c68222c08850e8279025e">  117</a></span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1helper_1_1console_html_a67a0db04d321a74b7e7fcfd3f1a3f70b"><div class="ttname"><a href="namespacesofa_1_1helper_1_1console.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">sofa::helper::console::Status</a></div><div class="ttdeci">Status</div><div class="ttdef"><b>Definition:</b> console.h:132</div></div>
+<div class="ttc" id="a_task_8h_html"><div class="ttname"><a href="_task_8h.html">Task.h</a></div></div>
+<div class="ttc" id="aclasssofa_1_1simulation_1_1_task_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1_task.html">sofa::simulation::Task</a></div><div class="ttdef"><b>Definition:</b> Task.h:53</div></div>
+<div class="ttc" id="aclasssofa_1_1simulation_1_1_default_task_scheduler_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1_default_task_scheduler.html">sofa::simulation::DefaultTaskScheduler</a></div><div class="ttdef"><b>Definition:</b> DefaultTaskScheduler.h:106</div></div>
+<div class="ttc" id="aclasssofa_1_1simulation_1_1_spin_lock_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1_spin_lock.html">sofa::simulation::SpinLock</a></div><div class="ttdef"><b>Definition:</b> Locks.h:75</div></div>
+<div class="ttc" id="aclasssofa_1_1simulation_1_1_task_1_1_status_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1_task_1_1_status.html">sofa::simulation::Task::Status</a></div><div class="ttdef"><b>Definition:</b> Task.h:78</div></div>
+<div class="ttc" id="anamespacesofa_1_1simulation_html"><div class="ttname"><a href="namespacesofa_1_1simulation.html">sofa::simulation</a></div><div class="ttdef"><b>Definition:</b> ConstraintStoreLambdaVisitor.h:28</div></div>
+<div class="ttc" id="a_locks_8h_html"><div class="ttname"><a href="_locks_8h.html">Locks.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ded960159c28a7f98e773d05d8cb2edb.html">Simulation</a></li><li class="navelem"><a class="el" href="dir_776c813820cf6d73d3a9c07b71d5bddc.html">Core</a></li><li class="navelem"><a class="el" href="dir_e84b8fb263c26c9bc9cb6b1ce635e120.html">src</a></li><li class="navelem"><a class="el" href="dir_0b1a735c28b1bd5121a035bd3ff7eb6a.html">sofa</a></li><li class="navelem"><a class="el" href="dir_e4887cc2fd2fae784949c25f567ec731.html">simulation</a></li><li class="navelem"><b>WorkerThread.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:42:33 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ded960159c28a7f98e773d05d8cb2edb.html">Simulation</a></li><li class="navelem"><a class="el" href="dir_776c813820cf6d73d3a9c07b71d5bddc.html">Core</a></li><li class="navelem"><a class="el" href="dir_e84b8fb263c26c9bc9cb6b1ce635e120.html">src</a></li><li class="navelem"><a class="el" href="dir_0b1a735c28b1bd5121a035bd3ff7eb6a.html">sofa</a></li><li class="navelem"><a class="el" href="dir_e4887cc2fd2fae784949c25f567ec731.html">simulation</a></li><li class="navelem"><a class="el" href="_worker_thread_8h.html">WorkerThread.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:17:52 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

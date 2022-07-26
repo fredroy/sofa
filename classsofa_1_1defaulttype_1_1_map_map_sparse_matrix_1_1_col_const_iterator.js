@@ -18,5 +18,7 @@ var classsofa_1_1defaulttype_1_1_map_map_sparse_matrix_1_1_col_const_iterator =
     [ "operator>", "classsofa_1_1defaulttype_1_1_map_map_sparse_matrix_1_1_col_const_iterator.html#a69e47df36e9af8af45ca59a243b08ba1", null ],
     [ "row", "classsofa_1_1defaulttype_1_1_map_map_sparse_matrix_1_1_col_const_iterator.html#afc489c874e5937cf1648f43d00ba571a", null ],
     [ "val", "classsofa_1_1defaulttype_1_1_map_map_sparse_matrix_1_1_col_const_iterator.html#adbf3d8cc2e02411b88d26a458a0aaf30", null ],
-    [ "RowConstIterator", "classsofa_1_1defaulttype_1_1_map_map_sparse_matrix_1_1_col_const_iterator.html#a4fd1f115dd68bf2ba5fe15b17a34112f", null ]
+    [ "RowConstIterator", "classsofa_1_1defaulttype_1_1_map_map_sparse_matrix_1_1_col_const_iterator.html#a4fd1f115dd68bf2ba5fe15b17a34112f", null ],
+    [ "m_internal", "classsofa_1_1defaulttype_1_1_map_map_sparse_matrix_1_1_col_const_iterator.html#a919589ff5cf2a637f556784fcfa81b7b", null ],
+    [ "m_rowIndex", "classsofa_1_1defaulttype_1_1_map_map_sparse_matrix_1_1_col_const_iterator.html#a0d77e466fb439fe22457825e685731a5", null ]
 ];

@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_simulation_2_common_2src_2sofa_2simul
 <div class="title">BaseElement.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_simulation_2_common_2src_2sofa_2simulation_2common_2xml_2_base_element_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -108,24 +108,24 @@ $(document).ready(function(){initNavTree('_simulation_2_common_2src_2sofa_2simul
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* Contact information: contact@sofa-framework.org                             *</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">******************************************************************************/</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;sofa/helper/Factory.h&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/core/objectmodel/Base.h&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/core/objectmodel/BaseContext.h&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sofa/core/objectmodel/BaseObject.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;sofa/core/objectmodel/BaseObjectDescription.h&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_factory_8h.html">sofa/helper/Factory.h</a>&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_base_8h.html">sofa/core/objectmodel/Base.h</a>&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_base_context_8h.html">sofa/core/objectmodel/BaseContext.h</a>&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_base_object_8h.html">sofa/core/objectmodel/BaseObject.h</a>&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_base_object_description_8h.html">sofa/core/objectmodel/BaseObjectDescription.h</a>&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;sofa/simulation/common/config.h&gt;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span>sofa::simulation::xml</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1simulation_1_1xml.html">sofa::simulation::xml</a></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">enum</span> IncludeNodeType</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">enum</span> <a class="code" href="namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72ab">IncludeNodeType</a></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    INCLUDE_NODE_CHILD, </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    INCLUDE_NODE_GROUP, </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    INCLUDE_NODE_MERGE, </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72abafa021492940af008cff9013f2d34eebb">INCLUDE_NODE_CHILD</a>, </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72aba9aec986c56e30939ec0b7ddd7caab786">INCLUDE_NODE_GROUP</a>, </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72abab66363249fc6845345124f396a69a9d7">INCLUDE_NODE_MERGE</a>, </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">class </span>SOFA_SIMULATION_COMMON_API BaseElement : <span class="keyword">public</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">sofa::core::objectmodel::BaseObjectDescription</a></div>
@@ -138,30 +138,30 @@ $(document).ready(function(){initNavTree('_simulation_2_common_2src_2sofa_2simul
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    BaseElement* parent;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">typedef</span> std::list&lt;BaseElement*&gt; ChildList;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    ChildList children;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    IncludeNodeType includeNodeType;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72ab">IncludeNodeType</a> includeNodeType;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    std::map&lt; std::string, std::string &gt; replaceAttribute;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    BaseElement(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> std::string&amp; type, BaseElement* newParent=<span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72ab">   57</a></span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html">BaseElement</a>(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> std::string&amp; type, <a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html">BaseElement</a>* newParent=<span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    ~BaseElement() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    ~<a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html">BaseElement</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* getClass() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespacesofa_1_1gui_1_1qt.html#aa9fb00a0cfe930082d694d2811edf2c9">getClass</a>() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html">   64</a></span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a>* getObject() <span class="keyword">override</span> = 0;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    std::string getName()<span class="keyword"> override</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#aed0ec947e78368727bd9b232cba7bde4">   67</a></span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#a29fb762f01ec0c4a61f98417cf0157de">   69</a></span>&#160;    std::string getName()<span class="keyword"> override</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">    </span>{ <span class="keywordflow">return</span> attributes[<span class="stringliteral">&quot;name&quot;</span>]; }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setName(<span class="keyword">const</span> std::string&amp; newName)<span class="keyword"> override</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">    </span>{ attributes[<span class="stringliteral">&quot;name&quot;</span>] = newName; }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    std::string getType()</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#a467661f6f1465ecd9bd264c7a6a933b7">   71</a></span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#a4cb849e084f62abd636bed8e359a5958">   72</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setName(<span class="keyword">const</span> std::string&amp; newName)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#aa8705eb9f16550f41bad1af0a206f1f1">   73</a></span>&#160;<span class="keyword">    </span>{ attributes[<span class="stringliteral">&quot;name&quot;</span>] = newName; }</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#aa192fb7ea1c18b8c4321df63405d1541">   74</a></span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#a1ea196e3cd39602038744b65149ab402">   76</a></span>&#160;    std::string getType()</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    { <span class="keywordflow">return</span> attributes[<span class="stringliteral">&quot;type&quot;</span>]; }</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setType(<span class="keyword">const</span> std::string&amp; newType)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    { attributes[<span class="stringliteral">&quot;type&quot;</span>] = newType; }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72abafa021492940af008cff9013f2d34eebb">   79</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setType(<span class="keyword">const</span> std::string&amp; newType)</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72aba9aec986c56e30939ec0b7ddd7caab786">   80</a></span>&#160;    { attributes[<span class="stringliteral">&quot;type&quot;</span>] = newType; }</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72abab66363249fc6845345124f396a69a9d7">   81</a></span>&#160; </div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">sofa::core::objectmodel::BaseObjectDescription</a>* getParent()<span class="keyword"> const override</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">    </span>{ <span class="keywordflow">return</span> parent; }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
@@ -176,13 +176,13 @@ $(document).ready(function(){initNavTree('_simulation_2_common_2src_2sofa_2simul
 <div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#abff4a74ab82d3f0e9470620181f7756e">   96</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setSrcFile(<span class="keyword">const</span> std::string&amp; newSrcFile);</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">int</span> getSrcLine() <span class="keyword">const</span> ;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setSrcLine(<span class="keyword">const</span> <span class="keywordtype">int</span> l);</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#ac4d67748b5831dcb5c273fecafd8c5bb">   99</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setSrcLine(<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a>);</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">bool</span> isFileRoot();</div>
 <div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#ae58ae9ce5b52e8c8c85afafc5614a956">  103</a></span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    IncludeNodeType getIncludeNodeType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> includeNodeType; }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72ab">IncludeNodeType</a> getIncludeNodeType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> includeNodeType; }</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span> setIncludeNodeType(IncludeNodeType t) { includeNodeType=t; }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span> setIncludeNodeType(<a class="code" href="namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72ab">IncludeNodeType</a> t) { includeNodeType=t; }</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">//const std::map&lt;std::string,std::string*&gt;&amp; getAttributeMap() const;</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
@@ -236,7 +236,7 @@ $(document).ready(function(){initNavTree('_simulation_2_common_2src_2sofa_2simul
 <div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#a67f0bf41eff796ea8628ce52ebf9c3b3">  170</a></span>&#160; </div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> initNode() = 0;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> init();</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="namespacesofa_1_1simulation.html#ac76d7567dc56037e3e4328b18b4996fb">init</a>();</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Node=BaseElement&gt;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keyword">class </span><a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html">child_iterator</a></div>
@@ -244,88 +244,105 @@ $(document).ready(function(){initNavTree('_simulation_2_common_2src_2sofa_2simul
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html">BaseElement</a>* parent;</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        ChildList::iterator it;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>* current;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>* <a class="code" href="_point_set_topology_container_8cpp.html#a8edd9762b324f8467d7ed8336887a6cb">current</a>;</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html">child_iterator</a>(<a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html">BaseElement</a>* parent, ChildList::iterator it)</div>
-<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#ab802116da33db9d070b4610a4a237f1b">  183</a></span>&#160;            : parent(parent), it(it), current(nullptr)</div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#ab802116da33db9d070b4610a4a237f1b">  183</a></span>&#160;            : parent(parent), it(it), <a class="code" href="_point_set_topology_container_8cpp.html#a8edd9762b324f8467d7ed8336887a6cb">current</a>(nullptr)</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        {</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            checkIt();</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        }</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keywordtype">void</span> checkIt()</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        {</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            <span class="keywordflow">while</span> (it != parent-&gt;children.end())</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            <span class="keywordflow">while</span> (it != parent-&gt;<a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#aa8705eb9f16550f41bad1af0a206f1f1">children</a>.end())</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            {</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                current=<span class="keyword">dynamic_cast&lt;</span><a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>*<span class="keyword">&gt;</span>(*it);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                <span class="keywordflow">if</span> (current!=<span class="keyword">nullptr</span>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                <a class="code" href="_point_set_topology_container_8cpp.html#a8edd9762b324f8467d7ed8336887a6cb">current</a>=<span class="keyword">dynamic_cast&lt;</span><a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>*<span class="keyword">&gt;</span>(*it);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="_point_set_topology_container_8cpp.html#a8edd9762b324f8467d7ed8336887a6cb">current</a>!=<span class="keyword">nullptr</span>) <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                ++it;</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            }</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            current = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <a class="code" href="_point_set_topology_container_8cpp.html#a8edd9762b324f8467d7ed8336887a6cb">current</a> = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html">  196</a></span>&#160;        }</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keyword">operator</span> <a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>*() { <span class="keywordflow">return</span> current; }</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>* operator-&gt;() { <span class="keywordflow">return</span> current; }</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordtype">void</span> operator ++() { ++it; checkIt(); }</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> child_iterator&lt;Node&gt;&amp; i)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="keywordflow">return</span> it == i.it;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keyword">operator</span> <a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>*() { <span class="keywordflow">return</span> <a class="code" href="_point_set_topology_container_8cpp.html#a8edd9762b324f8467d7ed8336887a6cb">current</a>; }</div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html#a467661f6f1465ecd9bd264c7a6a933b7">  199</a></span>&#160;        <a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>* operator-&gt;() { <span class="keywordflow">return</span> <a class="code" href="_point_set_topology_container_8cpp.html#a8edd9762b324f8467d7ed8336887a6cb">current</a>; }</div>
+<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html#ae23fbe85cd9fa4326d568f65c32bedc4">  200</a></span>&#160;        <span class="keywordtype">void</span> operator ++() { ++<a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html#ae23fbe85cd9fa4326d568f65c32bedc4">it</a>; checkIt(); }</div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html#a0a02c7763e38d5ce4d5ddf6c48df9703">  201</a></span>&#160;        <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html">child_iterator&lt;Node&gt;</a>&amp; i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html#a5234205c4f8bc4ba4e52de676754b0c0">  202</a></span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="keywordflow">return</span> it == i.<a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html#ae23fbe85cd9fa4326d568f65c32bedc4">it</a>;</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        }</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span>BaseElement;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html">BaseElement</a>;</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    };</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html#ac1989b4f281a87fcde7dad65e7de1e29">  207</a></span>&#160; </div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Node&gt;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    child_iterator&lt;Node&gt; begin()</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html">child_iterator&lt;Node&gt;</a> begin()</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    {</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keywordflow">return</span> child_iterator&lt;Node&gt;(<span class="keyword">this</span>, children.begin());</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html">child_iterator&lt;Node&gt;</a>(<span class="keyword">this</span>, children.begin());</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    child_iterator&lt;BaseElement&gt; begin()</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html">child_iterator&lt;BaseElement&gt;</a> begin()</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    {</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keywordflow">return</span> begin&lt;BaseElement&gt;();</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    }</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Node&gt;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    child_iterator&lt;Node&gt; end()</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    {</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">return</span> child_iterator&lt;Node&gt;(<span class="keyword">this</span>, children.end());</div>
+<div class="line"><a name="l00218"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html#a27a0fd6998627847675b69a12662fa0e">  218</a></span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html#abbcb321fe8fcb32d38edf18d5e049862">  219</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Node&gt;</div>
+<div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html#a00f008b80917746917b874d00abd02a9">  220</a></span>&#160;    <a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html">child_iterator&lt;Node&gt;</a> end()</div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html#a71e9c2b5d496707ec43c70f04275dac3">  221</a></span>&#160;    {</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html">child_iterator&lt;Node&gt;</a>(<span class="keyword">this</span>, children.end());</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    }</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    child_iterator&lt;BaseElement&gt; end()</div>
+<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html#a454e65bd70550991cc38830059031dab">  225</a></span>&#160;    <a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html">child_iterator&lt;BaseElement&gt;</a> end()</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    {</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keywordflow">return</span> end&lt;BaseElement&gt;();</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    }</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keyword">typedef</span> helper::Factory&lt; std::string, BaseElement, std::pair&lt;std::string, std::string&gt; &gt; NodeFactory;</div>
+<div class="line"><a name="l00229"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#a5b3d4066b2399509a3f2b5cbb50369c6">  229</a></span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classsofa_1_1helper_1_1_factory.html">helper::Factory&lt; std::string, BaseElement, std::pair&lt;std::string, std::string&gt;</a> &gt; <a class="code" href="classsofa_1_1helper_1_1_factory.html">NodeFactory</a>;</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">static</span> BaseElement* Create(<span class="keyword">const</span> std::string&amp; nodeClass, <span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> std::string&amp; type);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">static</span> <a class="code" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html">BaseElement</a>* Create(<span class="keyword">const</span> std::string&amp; nodeClass, <span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> std::string&amp; type);</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Node&gt;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keyword">static</span> Node* create(Node*, std::pair&lt;std::string,std::string&gt; arg)</div>
+<div class="line"><a name="l00234"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#a3c8a16f80ca2d66c16825edc4d36c9f7">  234</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Node&gt;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keyword">static</span> <a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>* create(<a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>*, std::pair&lt;std::string,std::string&gt; arg)</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    {</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">new</span> Node(arg.first,arg.second);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>(arg.first,arg.second);</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    }</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;};</div>
+<div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#a02c6dcfee1fb18596262b9487aa34522">  240</a></span>&#160;};</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;} <span class="comment">// namespace sofa::simulation::xml</span></div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1helper.html">sofa::helper</a></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;{</div>
+<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#a2b15a6316c01525295f02df7e653e320">  245</a></span>&#160;{</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="preprocessor">#if  !defined(SOFA_SIMULATION_COMMON_XML_BASEELEMENT_CPP)</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span>SOFA_SIMULATION_COMMON_API Factory&lt; std::string, sofa::simulation::xml::BaseElement, std::pair&lt;std::string, std::string&gt; &gt;;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span>SOFA_SIMULATION_COMMON_API <a class="code" href="classsofa_1_1helper_1_1_factory.html">Factory&lt; std::string, sofa::simulation::xml::BaseElement, std::pair&lt;std::string, std::string&gt;</a> &gt;;</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;} <span class="comment">// namespace sofa::helper</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1simulation_html_ac76d7567dc56037e3e4328b18b4996fb"><div class="ttname"><a href="namespacesofa_1_1simulation.html#ac76d7567dc56037e3e4328b18b4996fb">sofa::simulation::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">Initialize the SofaCore library, as well as its dependencies: SofaDefaultType, SofaHelper.</div><div class="ttdef"><b>Definition:</b> init.cpp:72</div></div>
+<div class="ttc" id="anamespacesofa_1_1simulation_1_1xml_html_a8c030ed0e259c23026d5349c0c0f72abafa021492940af008cff9013f2d34eebb"><div class="ttname"><a href="namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72abafa021492940af008cff9013f2d34eebb">sofa::simulation::xml::INCLUDE_NODE_CHILD</a></div><div class="ttdeci">@ INCLUDE_NODE_CHILD</div><div class="ttdoc">indicating a standard node that should be used as child</div><div class="ttdef"><b>Definition:</b> BaseElement.h:79</div></div>
+<div class="ttc" id="a_base_object_8h_html"><div class="ttname"><a href="_base_object_8h.html">BaseObject.h</a></div></div>
+<div class="ttc" id="anamespacesofa_1_1simulation_1_1xml_html_a8c030ed0e259c23026d5349c0c0f72aba9aec986c56e30939ec0b7ddd7caab786"><div class="ttname"><a href="namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72aba9aec986c56e30939ec0b7ddd7caab786">sofa::simulation::xml::INCLUDE_NODE_GROUP</a></div><div class="ttdeci">@ INCLUDE_NODE_GROUP</div><div class="ttdoc">indicating a node that should be removed, and its content added within the parent node</div><div class="ttdef"><b>Definition:</b> BaseElement.h:80</div></div>
+<div class="ttc" id="aclasssofa_1_1simulation_1_1xml_1_1_base_element_html_aa8705eb9f16550f41bad1af0a206f1f1"><div class="ttname"><a href="classsofa_1_1simulation_1_1xml_1_1_base_element.html#aa8705eb9f16550f41bad1af0a206f1f1">sofa::simulation::xml::BaseElement::children</a></div><div class="ttdeci">ChildList children</div><div class="ttdef"><b>Definition:</b> BaseElement.h:73</div></div>
+<div class="ttc" id="anamespacesofa_1_1simulation_1_1xml_html_a8c030ed0e259c23026d5349c0c0f72abab66363249fc6845345124f396a69a9d7"><div class="ttname"><a href="namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72abab66363249fc6845345124f396a69a9d7">sofa::simulation::xml::INCLUDE_NODE_MERGE</a></div><div class="ttdeci">@ INCLUDE_NODE_MERGE</div><div class="ttdoc">indicating a node that should be merged with its parent, and any child node with the same name as an ...</div><div class="ttdef"><b>Definition:</b> BaseElement.h:81</div></div>
+<div class="ttc" id="aclasssofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator_html_ae23fbe85cd9fa4326d568f65c32bedc4"><div class="ttname"><a href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html#ae23fbe85cd9fa4326d568f65c32bedc4">sofa::simulation::xml::BaseElement::child_iterator::it</a></div><div class="ttdeci">ChildList::iterator it</div><div class="ttdef"><b>Definition:</b> BaseElement.h:200</div></div>
 <div class="ttc" id="aclasssofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html">sofa::simulation::xml::BaseElement::child_iterator</a></div><div class="ttdef"><b>Definition:</b> BaseElement.h:196</div></div>
 <div class="ttc" id="aclasssofa_1_1simulation_1_1xml_1_1_base_element_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1xml_1_1_base_element.html">sofa::simulation::xml::BaseElement</a></div><div class="ttdef"><b>Definition:</b> BaseElement.h:64</div></div>
+<div class="ttc" id="anamespacesofa_1_1simulation_1_1xml_html_a8c030ed0e259c23026d5349c0c0f72ab"><div class="ttname"><a href="namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72ab">sofa::simulation::xml::IncludeNodeType</a></div><div class="ttdeci">IncludeNodeType</div><div class="ttdoc">Flags indicating when an element is from an included file that should be treated specifically.</div><div class="ttdef"><b>Definition:</b> BaseElement.h:57</div></div>
+<div class="ttc" id="anamespacesofa_1_1gui_1_1qt_html_aa9fb00a0cfe930082d694d2811edf2c9"><div class="ttname"><a href="namespacesofa_1_1gui_1_1qt.html#aa9fb00a0cfe930082d694d2811edf2c9">sofa::gui::qt::getClass</a></div><div class="ttdeci">const std::string getClass(core::objectmodel::Base *obj)</div><div class="ttdef"><b>Definition:</b> GraphListenerQListView.cpp:72</div></div>
+<div class="ttc" id="a_point_set_topology_container_8cpp_html_a8edd9762b324f8467d7ed8336887a6cb"><div class="ttname"><a href="_point_set_topology_container_8cpp.html#a8edd9762b324f8467d7ed8336887a6cb">current</a></div><div class="ttdeci">PointID current</div><div class="ttdef"><b>Definition:</b> PointSetTopologyContainer.cpp:107</div></div>
+<div class="ttc" id="a_base_8h_html"><div class="ttname"><a href="_base_8h.html">Base.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1simulation_1_1_node_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a></div><div class="ttdef"><b>Definition:</b> Node.h:166</div></div>
+<div class="ttc" id="a_factory_8h_html"><div class="ttname"><a href="_factory_8h.html">Factory.h</a></div></div>
+<div class="ttc" id="a_base_object_description_8h_html"><div class="ttname"><a href="_base_object_description_8h.html">BaseObjectDescription.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_object_description_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">sofa::core::objectmodel::BaseObjectDescription</a></div><div class="ttdoc">Base Interface for classes containing the description of an object, used to construct it.</div><div class="ttdef"><b>Definition:</b> BaseObjectDescription.h:108</div></div>
+<div class="ttc" id="anamespacesofa_1_1simulation_1_1xml_html"><div class="ttname"><a href="namespacesofa_1_1simulation_1_1xml.html">sofa::simulation::xml</a></div><div class="ttdef"><b>Definition:</b> AttributeElement.cpp:25</div></div>
+<div class="ttc" id="aclasssofa_1_1helper_1_1_factory_html"><div class="ttname"><a href="classsofa_1_1helper_1_1_factory.html">sofa::helper::Factory</a></div><div class="ttdef"><b>Definition:</b> Factory.h:80</div></div>
+<div class="ttc" id="a_static_solver__test_8cpp_html_adbde00fd7f75b31654f761d2be114467"><div class="ttname"><a href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a></div><div class="ttdeci">static constexpr SReal l</div><div class="ttdef"><b>Definition:</b> StaticSolver_test.cpp:41</div></div>
+<div class="ttc" id="a_base_context_8h_html"><div class="ttname"><a href="_base_context_8h.html">BaseContext.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a></div><div class="ttdoc">Base class for everything.</div><div class="ttdef"><b>Definition:</b> Base.h:115</div></div>
 <div class="ttc" id="anamespacesofa_1_1helper_html"><div class="ttname"><a href="namespacesofa_1_1helper.html">sofa::helper</a></div><div class="ttdoc">Remove it when the operator are completely removed.</div><div class="ttdef"><b>Definition:</b> BaseContactMapper.cpp:53</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ded960159c28a7f98e773d05d8cb2edb.html">Simulation</a></li><li class="navelem"><a class="el" href="dir_71cad00ab82cc9f659f751cc1436b9cf.html">Common</a></li><li class="navelem"><a class="el" href="dir_f309850bfab2dbba8bf7997a6e066487.html">src</a></li><li class="navelem"><a class="el" href="dir_c4f9358fc9286c83a12eecbd39f640ef.html">sofa</a></li><li class="navelem"><a class="el" href="dir_11fb7a0453f03a60f186f7c00f63cba8.html">simulation</a></li><li class="navelem"><a class="el" href="dir_6a6e8991c61017f88d825770c4c84eac.html">common</a></li><li class="navelem"><a class="el" href="dir_0f6556ad69e5028efbd228e0568d8031.html">xml</a></li><li class="navelem"><b>BaseElement.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:36:19 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ded960159c28a7f98e773d05d8cb2edb.html">Simulation</a></li><li class="navelem"><a class="el" href="dir_71cad00ab82cc9f659f751cc1436b9cf.html">Common</a></li><li class="navelem"><a class="el" href="dir_f309850bfab2dbba8bf7997a6e066487.html">src</a></li><li class="navelem"><a class="el" href="dir_c4f9358fc9286c83a12eecbd39f640ef.html">sofa</a></li><li class="navelem"><a class="el" href="dir_11fb7a0453f03a60f186f7c00f63cba8.html">simulation</a></li><li class="navelem"><a class="el" href="dir_6a6e8991c61017f88d825770c4c84eac.html">common</a></li><li class="navelem"><a class="el" href="dir_0f6556ad69e5028efbd228e0568d8031.html">xml</a></li><li class="navelem"><a class="el" href="_simulation_2_common_2src_2sofa_2simulation_2common_2xml_2_base_element_8h.html">BaseElement.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:02:51 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

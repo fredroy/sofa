@@ -29,5 +29,7 @@ var classsofa_1_1defaulttype_1_1_name_only_type_info =
     [ "type_info", "classsofa_1_1defaulttype_1_1_name_only_type_info.html#aba8c006286326dac2a4c029dfe2818db", null ],
     [ "ValidInfo", "classsofa_1_1defaulttype_1_1_name_only_type_info.html#a4c1ba11378c577b2187dadb1128440d9", null ],
     [ "ValueType", "classsofa_1_1defaulttype_1_1_name_only_type_info.html#a6e31234c075b99bbcc7d11c38109461b", null ],
-    [ "ZeroConstructor", "classsofa_1_1defaulttype_1_1_name_only_type_info.html#a4bd85bf4be912585faec7b1f2283fa0c", null ]
+    [ "ZeroConstructor", "classsofa_1_1defaulttype_1_1_name_only_type_info.html#a4bd85bf4be912585faec7b1f2283fa0c", null ],
+    [ "m_name", "classsofa_1_1defaulttype_1_1_name_only_type_info.html#adb41893ba19e889e56c559f25fc1a68a", null ],
+    [ "m_typeName", "classsofa_1_1defaulttype_1_1_name_only_type_info.html#af9edfeac29ee4a4c95cc9bf9a8dd887f", null ]
 ];

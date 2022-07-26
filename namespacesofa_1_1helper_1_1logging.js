@@ -13,7 +13,7 @@ var namespacesofa_1_1helper_1_1logging =
     [ "FileInfo", "structsofa_1_1helper_1_1logging_1_1_file_info.html", "structsofa_1_1helper_1_1logging_1_1_file_info" ],
     [ "FileInfoOwningFilename", "structsofa_1_1helper_1_1logging_1_1_file_info_owning_filename.html", "structsofa_1_1helper_1_1logging_1_1_file_info_owning_filename" ],
     [ "FileMessageHandler", "classsofa_1_1helper_1_1logging_1_1_file_message_handler.html", "classsofa_1_1helper_1_1logging_1_1_file_message_handler" ],
-    [ "MainConsoleMessageHandler", "classsofa_1_1helper_1_1logging_1_1_main_console_message_handler.html", null ],
+    [ "MainConsoleMessageHandler", "classsofa_1_1helper_1_1logging_1_1_main_console_message_handler.html", "classsofa_1_1helper_1_1logging_1_1_main_console_message_handler" ],
     [ "Message", "classsofa_1_1helper_1_1logging_1_1_message.html", "classsofa_1_1helper_1_1logging_1_1_message" ],
     [ "MessageDispatcher", "classsofa_1_1helper_1_1logging_1_1_message_dispatcher.html", "classsofa_1_1helper_1_1logging_1_1_message_dispatcher" ],
     [ "MessageDispatcherImpl", "classsofa_1_1helper_1_1logging_1_1_message_dispatcher_impl.html", "classsofa_1_1helper_1_1logging_1_1_message_dispatcher_impl" ],

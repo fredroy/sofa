@@ -90,6 +90,8 @@ $(document).ready(function(){initNavTree('classvrender_1_1_segment.html',''); in
 <div class="title">Segment Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_primitive_8h_source.html">Primitive.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Segment:</div>
 <div class="dyncontent">
@@ -102,42 +104,257 @@ Inheritance diagram for Segment:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac3e4995d0330d62f78205c4edb21b5b3"><td class="memItemLeft" align="right" valign="top"><a id="ac3e4995d0330d62f78205c4edb21b5b3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Segment</b> (const <a class="el" href="classvrender_1_1_feedback3_d_color.html">Feedback3DColor</a> &amp;p1, const <a class="el" href="classvrender_1_1_feedback3_d_color.html">Feedback3DColor</a> &amp;p2)</td></tr>
+<tr class="memitem:ac3e4995d0330d62f78205c4edb21b5b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_segment.html#ac3e4995d0330d62f78205c4edb21b5b3">Segment</a> (const <a class="el" href="classvrender_1_1_feedback3_d_color.html">Feedback3DColor</a> &amp;p1, const <a class="el" href="classvrender_1_1_feedback3_d_color.html">Feedback3DColor</a> &amp;p2)</td></tr>
 <tr class="separator:ac3e4995d0330d62f78205c4edb21b5b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a6b8da609ce32d7f27cac5673ea00a0"><td class="memItemLeft" align="right" valign="top"><a id="a0a6b8da609ce32d7f27cac5673ea00a0"></a>
-virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nbVertices</b> () const</td></tr>
+<tr class="memitem:ad5d1e9e2519515a45a2e9bb569a59207"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_segment.html#ad5d1e9e2519515a45a2e9bb569a59207">~Segment</a> ()</td></tr>
+<tr class="separator:ad5d1e9e2519515a45a2e9bb569a59207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a6b8da609ce32d7f27cac5673ea00a0"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_segment.html#a0a6b8da609ce32d7f27cac5673ea00a0">nbVertices</a> () const</td></tr>
 <tr class="separator:a0a6b8da609ce32d7f27cac5673ea00a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a830a110bf9647569a1878131b326b571"><td class="memItemLeft" align="right" valign="top"><a id="a830a110bf9647569a1878131b326b571"></a>
-virtual const <a class="el" href="classvrender_1_1_vector3.html">Vector3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>vertex</b> (size_t) const</td></tr>
+<tr class="memitem:a830a110bf9647569a1878131b326b571"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classvrender_1_1_vector3.html">Vector3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_segment.html#a830a110bf9647569a1878131b326b571">vertex</a> (size_t) const</td></tr>
 <tr class="separator:a830a110bf9647569a1878131b326b571"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fc3d96f2af0a7f211c4ed25c1be6a0f"><td class="memItemLeft" align="right" valign="top"><a id="a4fc3d96f2af0a7f211c4ed25c1be6a0f"></a>
-virtual const <a class="el" href="classvrender_1_1_feedback3_d_color.html">Feedback3DColor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>sommet3DColor</b> (size_t i) const</td></tr>
+<tr class="memitem:a4fc3d96f2af0a7f211c4ed25c1be6a0f"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classvrender_1_1_feedback3_d_color.html">Feedback3DColor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_segment.html#a4fc3d96f2af0a7f211c4ed25c1be6a0f">sommet3DColor</a> (size_t i) const</td></tr>
 <tr class="separator:a4fc3d96f2af0a7f211c4ed25c1be6a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa089fa0c8844156da00a9e2009d57f4a"><td class="memItemLeft" align="right" valign="top"><a id="aa089fa0c8844156da00a9e2009d57f4a"></a>
-virtual <a class="el" href="classvrender_1_1_axis_aligned_box.html">AxisAlignedBox_xyz</a>&#160;</td><td class="memItemRight" valign="bottom"><b>bbox</b> () const</td></tr>
+<tr class="memitem:aa089fa0c8844156da00a9e2009d57f4a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacevrender.html#af3c65fd04c017f4e7549c77ac682312a">AxisAlignedBox_xyz</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_segment.html#aa089fa0c8844156da00a9e2009d57f4a">bbox</a> () const</td></tr>
 <tr class="separator:aa089fa0c8844156da00a9e2009d57f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classvrender_1_1_primitive"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classvrender_1_1_primitive')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classvrender_1_1_primitive.html">Primitive</a></td></tr>
+<tr class="memitem:aecfbeca932cd2843db543672e76f3dc3 inherit pub_methods_classvrender_1_1_primitive"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive.html#aecfbeca932cd2843db543672e76f3dc3">~Primitive</a> ()</td></tr>
+<tr class="separator:aecfbeca932cd2843db543672e76f3dc3 inherit pub_methods_classvrender_1_1_primitive"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:aff81f112f92615e73fb336f687e3d644"><td class="memItemLeft" align="right" valign="top"><a id="aff81f112f92615e73fb336f687e3d644"></a>
-<a class="el" href="classvrender_1_1_feedback3_d_color.html">Feedback3DColor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>P1</b></td></tr>
+<tr class="memitem:aff81f112f92615e73fb336f687e3d644"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvrender_1_1_feedback3_d_color.html">Feedback3DColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_segment.html#aff81f112f92615e73fb336f687e3d644">P1</a></td></tr>
 <tr class="separator:aff81f112f92615e73fb336f687e3d644"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab42caea682d1b9a57f0f9e31974e4eea"><td class="memItemLeft" align="right" valign="top"><a id="ab42caea682d1b9a57f0f9e31974e4eea"></a>
-<a class="el" href="classvrender_1_1_feedback3_d_color.html">Feedback3DColor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>P2</b></td></tr>
+<tr class="memitem:ab42caea682d1b9a57f0f9e31974e4eea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvrender_1_1_feedback3_d_color.html">Feedback3DColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_segment.html#ab42caea682d1b9a57f0f9e31974e4eea">P2</a></td></tr>
 <tr class="separator:ab42caea682d1b9a57f0f9e31974e4eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classvrender_1_1_primitive"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classvrender_1_1_primitive')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classvrender_1_1_primitive.html">Primitive</a></td></tr>
-<tr class="memitem:af2277c119474fd7fc2064451b55cab47 inherit pro_attribs_classvrender_1_1_primitive"><td class="memItemLeft" align="right" valign="top"><a id="af2277c119474fd7fc2064451b55cab47"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>_vibility</b></td></tr>
+<tr class="memitem:af2277c119474fd7fc2064451b55cab47 inherit pro_attribs_classvrender_1_1_primitive"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_primitive.html#af2277c119474fd7fc2064451b55cab47">_vibility</a></td></tr>
 <tr class="separator:af2277c119474fd7fc2064451b55cab47 inherit pro_attribs_classvrender_1_1_primitive"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac3e4995d0330d62f78205c4edb21b5b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3e4995d0330d62f78205c4edb21b5b3">&#9670;&nbsp;</a></span>Segment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvrender_1_1_segment.html">Segment</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_feedback3_d_color.html">Feedback3DColor</a> &amp;&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_feedback3_d_color.html">Feedback3DColor</a> &amp;&#160;</td>
+          <td class="paramname"><em>p2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad5d1e9e2519515a45a2e9bb569a59207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5d1e9e2519515a45a2e9bb569a59207">&#9670;&nbsp;</a></span>~Segment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ~<a class="el" href="classvrender_1_1_segment.html">Segment</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa089fa0c8844156da00a9e2009d57f4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa089fa0c8844156da00a9e2009d57f4a">&#9670;&nbsp;</a></span>bbox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacevrender.html#af3c65fd04c017f4e7549c77ac682312a">AxisAlignedBox_xyz</a> <a class="el" href="gpc_8cpp.html#a14ebf0e28206eb1ec6f3f985d5923af4">bbox</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classvrender_1_1_primitive.html#a90c0a7e7f10dc146e8bb506b0271b05d">Primitive</a>.</p>
+
+</div>
+</div>
+<a id="a0a6b8da609ce32d7f27cac5673ea00a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a6b8da609ce32d7f27cac5673ea00a0">&#9670;&nbsp;</a></span>nbVertices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual size_t nbVertices </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classvrender_1_1_primitive.html#af1f30f63f4330375d67d357ddca72b8f">Primitive</a>.</p>
+
+</div>
+</div>
+<a id="a4fc3d96f2af0a7f211c4ed25c1be6a0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fc3d96f2af0a7f211c4ed25c1be6a0f">&#9670;&nbsp;</a></span>sommet3DColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classvrender_1_1_feedback3_d_color.html">Feedback3DColor</a> &amp; sommet3DColor </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classvrender_1_1_primitive.html#abd4bc8141824ad017340d784f09954d1">Primitive</a>.</p>
+
+</div>
+</div>
+<a id="a830a110bf9647569a1878131b326b571"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a830a110bf9647569a1878131b326b571">&#9670;&nbsp;</a></span>vertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classvrender_1_1_vector3.html">Vector3</a> &amp; vertex </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classvrender_1_1_primitive.html#aedf0ead9494888789f7cc2195891f28f">Primitive</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aff81f112f92615e73fb336f687e3d644"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff81f112f92615e73fb336f687e3d644">&#9670;&nbsp;</a></span>P1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvrender_1_1_feedback3_d_color.html">Feedback3DColor</a> P1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab42caea682d1b9a57f0f9e31974e4eea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab42caea682d1b9a57f0f9e31974e4eea">&#9670;&nbsp;</a></span>P2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvrender_1_1_feedback3_d_color.html">Feedback3DColor</a> P2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>vrender</b></li><li class="navelem"><a class="el" href="classvrender_1_1_segment.html">Segment</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:14:32 for SOFA by
+    <li class="navelem"><a class="el" href="namespacevrender.html">vrender</a></li><li class="navelem"><a class="el" href="classvrender_1_1_segment.html">Segment</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:47:05 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

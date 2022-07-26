@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('src_2sofa_2testing_2_base_simulation_t
 <div class="title">BaseSimulationTest.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="src_2sofa_2testing_2_base_simulation_test_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -111,9 +111,9 @@ $(document).ready(function(){initNavTree('src_2sofa_2testing_2_base_simulation_t
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/testing/config.h&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sofa/testing/BaseTest.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;sofa/simulation/Node.h&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;sofa/simulation/Simulation.h&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="src_2sofa_2testing_2_base_test_8h.html">sofa/testing/BaseTest.h</a>&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_node_8h.html">sofa/simulation/Node.h</a>&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_simulation_8h.html">sofa/simulation/Simulation.h</a>&gt;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1testing.html">sofa::testing</a></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('src_2sofa_2testing_2_base_simulation_t
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    BaseSimulationTest() ;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> importPlugin(<span class="keyword">const</span> std::string&amp; name) ;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespacesofa_1_1simpleapi.html#aeac01ad585a0425955f8d9a106673a12">importPlugin</a>(<span class="keyword">const</span> std::string&amp; name) ;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">class </span>SOFA_TESTING_API SceneInstance</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
@@ -136,8 +136,8 @@ $(document).ready(function(){initNavTree('src_2sofa_2testing_2_base_simulation_t
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">static</span> SceneInstance LoadFromFile(<span class="keyword">const</span> std::string&amp; filename) ;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        Node::SPtr root ;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        Simulation* simulation {<span class="keyword">nullptr</span>} ;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">Node::SPtr</a> <a class="code" href="_bilateral_interaction_constraint__test_8cpp.html#ae4921ba1b53a64ac407621370dec9883">root</a> ;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        Simulation* <a class="code" href="_bilateral_interaction_constraint__test_8cpp.html#a89530560649ee50f2a37b34839a0da33">simulation</a> {<span class="keyword">nullptr</span>} ;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classsofa_1_1testing_1_1_base_simulation_test.html">   55</a></span>&#160;        <span class="keywordtype">void</span> initScene() ;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">void</span> simulate(<span class="keyword">const</span> <span class="keywordtype">double</span> timestep) ;</div>
@@ -149,13 +149,20 @@ $(document).ready(function(){initNavTree('src_2sofa_2testing_2_base_simulation_t
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclasssofa_1_1simulation_1_1_simulation_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1_simulation.html">sofa::simulation::Simulation</a></div><div class="ttdef"><b>Definition:</b> Simulation.h:45</div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_html_ab57acce1b994c39fb8ad8014583a8bbd"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">sofa::core::objectmodel::Base::SPtr</a></div><div class="ttdeci">sptr&lt; Base &gt; SPtr</div><div class="ttdef"><b>Definition:</b> Base.h:120</div></div>
+<div class="ttc" id="anamespacesofa_1_1simpleapi_html_aeac01ad585a0425955f8d9a106673a12"><div class="ttname"><a href="namespacesofa_1_1simpleapi.html#aeac01ad585a0425955f8d9a106673a12">sofa::simpleapi::importPlugin</a></div><div class="ttdeci">bool importPlugin(const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> SimpleApi.cpp:45</div></div>
+<div class="ttc" id="a_simulation_8h_html"><div class="ttname"><a href="_simulation_8h.html">Simulation.h</a></div></div>
+<div class="ttc" id="asrc_2sofa_2testing_2_base_test_8h_html"><div class="ttname"><a href="src_2sofa_2testing_2_base_test_8h.html">BaseTest.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1simulation_1_1_node_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a></div><div class="ttdef"><b>Definition:</b> Node.h:166</div></div>
 <div class="ttc" id="anamespacesofa_1_1testing_html"><div class="ttname"><a href="namespacesofa_1_1testing.html">sofa::testing</a></div><div class="ttdef"><b>Definition:</b> SparseMatrixTest.h:28</div></div>
+<div class="ttc" id="a_node_8h_html"><div class="ttname"><a href="_node_8h.html">Node.h</a></div></div>
+<div class="ttc" id="a_bilateral_interaction_constraint__test_8cpp_html_a89530560649ee50f2a37b34839a0da33"><div class="ttname"><a href="_bilateral_interaction_constraint__test_8cpp.html#a89530560649ee50f2a37b34839a0da33">simulation</a></div><div class="ttdeci">simulation::Simulation * simulation</div><div class="ttdoc">created by the constructor an re-used in the tests</div><div class="ttdef"><b>Definition:</b> BilateralInteractionConstraint_test.cpp:67</div></div>
+<div class="ttc" id="a_bilateral_interaction_constraint__test_8cpp_html_ae4921ba1b53a64ac407621370dec9883"><div class="ttname"><a href="_bilateral_interaction_constraint__test_8cpp.html#ae4921ba1b53a64ac407621370dec9883">root</a></div><div class="ttdeci">simulation::Node::SPtr root</div><div class="ttdoc">Root of the scene graph, created by the constructor an re-used in the tests.</div><div class="ttdef"><b>Definition:</b> BilateralInteractionConstraint_test.cpp:66</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_fb9ca955ec84034fe543c6fbbf191646.html">Testing</a></li><li class="navelem"><a class="el" href="dir_622a0948709f06d8bd345dab82870293.html">src</a></li><li class="navelem"><a class="el" href="dir_4fb965f29624eb5d24d0ff015f1467ce.html">sofa</a></li><li class="navelem"><a class="el" href="dir_a38ef6e0346123e2c00944c888981fc0.html">testing</a></li><li class="navelem"><b>BaseSimulationTest.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:42:43 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_fb9ca955ec84034fe543c6fbbf191646.html">Testing</a></li><li class="navelem"><a class="el" href="dir_622a0948709f06d8bd345dab82870293.html">src</a></li><li class="navelem"><a class="el" href="dir_4fb965f29624eb5d24d0ff015f1467ce.html">sofa</a></li><li class="navelem"><a class="el" href="dir_a38ef6e0346123e2c00944c888981fc0.html">testing</a></li><li class="navelem"><a class="el" href="src_2sofa_2testing_2_base_simulation_test_8h.html">BaseSimulationTest.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:18:16 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

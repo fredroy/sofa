@@ -1,0 +1,4 @@
+var _solid_mechanics_2_spring_2src_2sofa_2component_2solidmechanics_2spring_2_fast_triangular_bending_springs_8inl =
+[
+    [ "EdgesInTriangle", "_solid_mechanics_2_spring_2src_2sofa_2component_2solidmechanics_2spring_2_fast_triangular_bending_springs_8inl.html#affc14352bb43ce1d5316805cbc4bc7ae", null ]
+];

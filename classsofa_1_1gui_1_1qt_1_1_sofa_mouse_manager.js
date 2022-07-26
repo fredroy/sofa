@@ -9,6 +9,7 @@ var classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager =
     [ "updateOperation", "classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#a2fed4232b309a3788fb2637c1a32df8c", null ],
     [ "updateOperation", "classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#a2fa61de4145ae23cc9584cacbc803b60", null ],
     [ "updateOperation", "classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#ab1e9ebb20c36c996c3ca4ba87d2c27af", null ],
+    [ "gui", "classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#a087339329f9c5443b4ae4f3e7cc4c954", null ],
     [ "mapIndexOperation", "classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#aae6b9e08ccccd466efd2beb4f736b886", null ],
     [ "pickHandler", "classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#aafaccc5e97a886757ee8a1d735dc8d96", null ],
     [ "usedOperations", "classsofa_1_1gui_1_1qt_1_1_sofa_mouse_manager.html#adb779ec21db87f0250cf2818d1db4996", null ]

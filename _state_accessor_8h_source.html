@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_state_accessor_8h_source.html',''); i
 <div class="title">StateAccessor.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_state_accessor_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -111,8 +111,8 @@ $(document).ready(function(){initNavTree('_state_accessor_8h_source.html',''); i
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/core/config.h&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sofa/core/objectmodel/BaseObject.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;sofa/core/behavior/BaseMechanicalState.h&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_base_object_8h.html">sofa/core/objectmodel/BaseObject.h</a>&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_base_mechanical_state_8h.html">sofa/core/behavior/BaseMechanicalState.h</a>&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1core_1_1behavior.html">sofa::core::behavior</a></div>
@@ -121,9 +121,9 @@ $(document).ready(function(){initNavTree('_state_accessor_8h_source.html',''); i
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">class </span>StateAccessor : <span class="keyword">public</span> <span class="keyword">virtual</span> objectmodel::BaseObject</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    SOFA_ABSTRACT_CLASS(StateAccessor, objectmodel::BaseObject);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#a6372e22f22aa28c83edaeab269cd5c66">SOFA_ABSTRACT_CLASS</a>(<a class="code" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#af01cb8f3431bc44332ada4f4e3b6f641">StateAccessor</a>, objectmodel::BaseObject);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> MultiLink&lt;StateAccessor, BaseMechanicalState, BaseLink::FLAG_DUPLICATE&gt;::Container&amp; <a class="code" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#a6c787c2b59a2ffbe5f94ededdbcde8e5">getMechanicalStates</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_multi_link.html#a9e531623f2b7ebb8eeefe6634872f239">MultiLink&lt;StateAccessor, BaseMechanicalState, BaseLink::FLAG_DUPLICATE&gt;::Container</a>&amp; <a class="code" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#a6c787c2b59a2ffbe5f94ededdbcde8e5">getMechanicalStates</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#a8a8e291ca7a7e6223cca769401573369">l_mechanicalStates</a>.getValue();</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
@@ -132,12 +132,12 @@ $(document).ready(function(){initNavTree('_state_accessor_8h_source.html',''); i
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    StateAccessor()</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#af01cb8f3431bc44332ada4f4e3b6f641">StateAccessor</a>()</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        : Inherit1()</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        , <a class="code" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#a8a8e291ca7a7e6223cca769401573369">l_mechanicalStates</a>(initLink(<span class="stringliteral">&quot;mechanicalStates&quot;</span>, <span class="stringliteral">&quot;List of mechanical states to which this component is associated&quot;</span>))</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {}</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html">   60</a></span>&#160;    ~<a class="code" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html">StateAccessor</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html">   60</a></span>&#160;    <a class="code" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#a5e3dc9d967de430b7d43ea99d5fdaee2">~StateAccessor</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_multi_link.html">MultiLink &lt; StateAccessor, BaseMechanicalState, BaseLink::FLAG_DUPLICATE &gt;</a> <a class="code" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#a8a8e291ca7a7e6223cca769401573369">l_mechanicalStates</a>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
@@ -170,7 +170,7 @@ $(document).ready(function(){initNavTree('_state_accessor_8h_source.html',''); i
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            anyMState = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#af01cb8f3431bc44332ada4f4e3b6f641">   95</a></span>&#160; </div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">if</span> (anyMState)</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    {</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        this-&gt;<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html#a820b4fc43ce2d47a159de4a088369f37">f_bbox</a>.<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_data.html#aeec6cb9926cb3b1c489ed8db0894ed83">setValue</a>(<a class="code" href="classsofa_1_1type_1_1_t_bounding_box.html">sofa::type::TBoundingBox</a>(minBBox,maxBBox));</div>
@@ -180,12 +180,17 @@ $(document).ready(function(){initNavTree('_state_accessor_8h_source.html',''); i
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;} <span class="comment">// namespace sofa::core::behavior</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="a_base_object_8h_html"><div class="ttname"><a href="_base_object_8h.html">BaseObject.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_multi_link_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_multi_link.html">sofa::core::objectmodel::MultiLink</a></div><div class="ttdoc">Container of vectors of links in the scenegraph, from a given type of object (Owner) to another (Dest...</div><div class="ttdef"><b>Definition:</b> Link.h:639</div></div>
+<div class="ttc" id="a_base_mechanical_state_8h_html"><div class="ttname"><a href="_base_mechanical_state_8h.html">BaseMechanicalState.h</a></div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1behavior_1_1_state_accessor_html_a6372e22f22aa28c83edaeab269cd5c66"><div class="ttname"><a href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#a6372e22f22aa28c83edaeab269cd5c66">sofa::core::behavior::StateAccessor::SOFA_ABSTRACT_CLASS</a></div><div class="ttdeci">SOFA_ABSTRACT_CLASS(StateAccessor, objectmodel::BaseObject)</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_t_bounding_box_html"><div class="ttname"><a href="classsofa_1_1type_1_1_t_bounding_box.html">sofa::type::TBoundingBox</a></div><div class="ttdef"><b>Definition:</b> BoundingBox.h:124</div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_multi_link_html_a9e531623f2b7ebb8eeefe6634872f239"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_multi_link.html#a9e531623f2b7ebb8eeefe6634872f239">sofa::core::objectmodel::MultiLink::Container</a></div><div class="ttdeci">Inherit::Container Container</div><div class="ttdef"><b>Definition:</b> Link.h:650</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1behavior_1_1_state_accessor_html_ac0732500bd7b34633e1df024d3f88632"><div class="ttname"><a href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#ac0732500bd7b34633e1df024d3f88632">sofa::core::behavior::StateAccessor::computeBBox</a></div><div class="ttdeci">void computeBBox(const core::ExecParams *params, bool onlyVisible=false) override</div><div class="ttdef"><b>Definition:</b> StateAccessor.h:89</div></div>
-<div class="ttc" id="aclasssofa_1_1core_1_1behavior_1_1_state_accessor_html"><div class="ttname"><a href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html">sofa::core::behavior::StateAccessor</a></div><div class="ttdef"><b>Definition:</b> StateAccessor.h:60</div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1behavior_1_1_state_accessor_html_af01cb8f3431bc44332ada4f4e3b6f641"><div class="ttname"><a href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#af01cb8f3431bc44332ada4f4e3b6f641">sofa::core::behavior::StateAccessor::StateAccessor</a></div><div class="ttdeci">StateAccessor()</div><div class="ttdef"><b>Definition:</b> StateAccessor.h:95</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1behavior_1_1_state_accessor_html_a8a8e291ca7a7e6223cca769401573369"><div class="ttname"><a href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#a8a8e291ca7a7e6223cca769401573369">sofa::core::behavior::StateAccessor::l_mechanicalStates</a></div><div class="ttdeci">MultiLink&lt; StateAccessor, BaseMechanicalState, BaseLink::FLAG_DUPLICATE &gt; l_mechanicalStates</div><div class="ttdef"><b>Definition:</b> StateAccessor.h:104</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1behavior_1_1_state_accessor_html_a6c787c2b59a2ffbe5f94ededdbcde8e5"><div class="ttname"><a href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#a6c787c2b59a2ffbe5f94ededdbcde8e5">sofa::core::behavior::StateAccessor::getMechanicalStates</a></div><div class="ttdeci">virtual const MultiLink&lt; StateAccessor, BaseMechanicalState, BaseLink::FLAG_DUPLICATE &gt;::Container &amp; getMechanicalStates() const</div><div class="ttdoc">Return a list of mechanical states to which this component is associated.</div><div class="ttdef"><b>Definition:</b> StateAccessor.h:86</div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1behavior_1_1_state_accessor_html_a5e3dc9d967de430b7d43ea99d5fdaee2"><div class="ttname"><a href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#a5e3dc9d967de430b7d43ea99d5fdaee2">sofa::core::behavior::StateAccessor::~StateAccessor</a></div><div class="ttdeci">~StateAccessor() override=default</div></div>
 <div class="ttc" id="anamespacesofa_1_1core_1_1behavior_html"><div class="ttname"><a href="namespacesofa_1_1core_1_1behavior.html">sofa::core::behavior</a></div><div class="ttdoc">For BaseMatrix.</div><div class="ttdef"><b>Definition:</b> FreeMotionAnimationLoop.h:28</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_exec_params_html"><div class="ttname"><a href="classsofa_1_1core_1_1_exec_params.html">sofa::core::ExecParams</a></div><div class="ttdoc">Class gathering parameters use by most components methods, and transmitted by all visitors.</div><div class="ttdef"><b>Definition:</b> ExecParams.h:80</div></div>
 <div class="ttc" id="astructbbox__shape_html"><div class="ttname"><a href="structbbox__shape.html">bbox_shape</a></div><div class="ttdef"><b>Definition:</b> gpc.cpp:276</div></div>
@@ -194,8 +199,8 @@ $(document).ready(function(){initNavTree('_state_accessor_8h_source.html',''); i
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_60e01685828ffd7c41f36858d8896f33.html">Core</a></li><li class="navelem"><a class="el" href="dir_1796a5980b33da4b9881c7f7295ea624.html">src</a></li><li class="navelem"><a class="el" href="dir_29474acf678dce4aed010bf0162b5a34.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b2ea3abd78d86d2c623df4c62fb6cf9b.html">core</a></li><li class="navelem"><a class="el" href="dir_54d1dbc3b4a21b95ff1639af6455b74b.html">behavior</a></li><li class="navelem"><b>StateAccessor.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:36:24 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_60e01685828ffd7c41f36858d8896f33.html">Core</a></li><li class="navelem"><a class="el" href="dir_1796a5980b33da4b9881c7f7295ea624.html">src</a></li><li class="navelem"><a class="el" href="dir_29474acf678dce4aed010bf0162b5a34.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b2ea3abd78d86d2c623df4c62fb6cf9b.html">core</a></li><li class="navelem"><a class="el" href="dir_54d1dbc3b4a21b95ff1639af6455b74b.html">behavior</a></li><li class="navelem"><a class="el" href="_state_accessor_8h.html">StateAccessor.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:04:06 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

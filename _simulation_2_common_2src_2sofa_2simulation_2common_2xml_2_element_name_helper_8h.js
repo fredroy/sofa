@@ -1,0 +1,4 @@
+var _simulation_2_common_2src_2sofa_2simulation_2common_2xml_2_element_name_helper_8h =
+[
+    [ "SOFA_ATTRIBUTE_DEPRECATED__ELEMENTNAMEHELPER", "_simulation_2_common_2src_2sofa_2simulation_2common_2xml_2_element_name_helper_8h.html#a52d79f73256d29a84b047e8070428cc4", null ]
+];

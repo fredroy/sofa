@@ -6,6 +6,7 @@ var classsofa_1_1gui_1_1common_1_1_incise_operation =
     [ "endOperation", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a026e8bc7a84ac1b61300ad12472a5c26", null ],
     [ "execution", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#ae97970bafcb6d9a09aebb6f889f7c164", null ],
     [ "getCompleteIncision", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#aeb4e731c319a3b2f291a9b753afa48cf", null ],
+    [ "getDescription", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a025bef3a2dadf6a272b146e0697e9bb2", null ],
     [ "getIncisionMethod", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a7e35132a0b20bffb027af101c23bc7c8", null ],
     [ "getKeepPoint", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#afe33d25d744c17dbf7dab1c852e6853d", null ],
     [ "getSnapingBorderValue", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#ac108ea15188f5adc41cf8f8f2d99514f", null ],

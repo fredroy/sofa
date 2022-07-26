@@ -8,9 +8,11 @@ var classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_brute_forc
     [ "doesSelfCollide", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_brute_force_broad_phase.html#a3aed257bfd1875fcb137cb144f1afaff", null ],
     [ "init", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_brute_force_broad_phase.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "intersectWithBoxModel", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_brute_force_broad_phase.html#a5527a8516ca1833d3d83a616488a4c4d", null ],
+    [ "keepCollisionBetween", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_brute_force_broad_phase.html#a85cdf8458178b1d5e48a80142f288abd", null ],
     [ "needsDeepBoundingTree", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_brute_force_broad_phase.html#a18d1278bcff235f275b66fd52bd1b029", null ],
     [ "reinit", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_brute_force_broad_phase.html#ab1094b915e637faa84817a097d8d87be", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_brute_force_broad_phase.html#ab45116b9a7473fd67b97377aa456e276", null ],
+    [ "box", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_brute_force_broad_phase.html#a2b95f8b0125d3007fb7b6f56f951f137", null ],
     [ "boxModel", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_brute_force_broad_phase.html#a7115e6aa2130fb90b3eb46ca8597780d", null ],
     [ "m_collisionModels", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_brute_force_broad_phase.html#afc894aa636584378766fb04f9503d4d2", null ]
 ];

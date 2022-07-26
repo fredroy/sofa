@@ -19,5 +19,9 @@ var classqglviewer_1_1_axis_plane_constraint =
     [ "setTranslationConstraintDirection", "classqglviewer_1_1_axis_plane_constraint.html#a2b676c088af158a52724bbbab15d1a65", null ],
     [ "setTranslationConstraintType", "classqglviewer_1_1_axis_plane_constraint.html#a0cee03d4db5722e992c20f042601eaa5", null ],
     [ "translationConstraintDirection", "classqglviewer_1_1_axis_plane_constraint.html#a57cb43d7f8c316173babedfbe8df32b2", null ],
-    [ "translationConstraintType", "classqglviewer_1_1_axis_plane_constraint.html#a1c9802d7ccc2adfb905d1f25236a3585", null ]
+    [ "translationConstraintType", "classqglviewer_1_1_axis_plane_constraint.html#a1c9802d7ccc2adfb905d1f25236a3585", null ],
+    [ "rotationConstraintDir_", "classqglviewer_1_1_axis_plane_constraint.html#a04e3bf40b537f123df4c17d8b6dc7ddb", null ],
+    [ "rotationConstraintType_", "classqglviewer_1_1_axis_plane_constraint.html#ac6ea6c42dcac064e197dc9dfe88b445a", null ],
+    [ "translationConstraintDir_", "classqglviewer_1_1_axis_plane_constraint.html#aabe78d5dd4b188c8ba1f95276a4e00e5", null ],
+    [ "translationConstraintType_", "classqglviewer_1_1_axis_plane_constraint.html#a6099d25fba133377b7a57d4f0b37b563", null ]
 ];

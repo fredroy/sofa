@@ -106,40 +106,133 @@ Inheritance diagram for ComponentInfo:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a9aa211af021fd1f48ed34e6e9a2d54e1"><td class="memItemLeft" align="right" valign="top"><a id="a9aa211af021fd1f48ed34e6e9a2d54e1"></a>
-typedef std::shared_ptr&lt; <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>SPtr</b></td></tr>
+<tr class="memitem:a9aa211af021fd1f48ed34e6e9a2d54e1"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">SPtr</a></td></tr>
 <tr class="separator:a9aa211af021fd1f48ed34e6e9a2d54e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aaaedfe06f7ce566fd77c1cf06c305a04"><td class="memItemLeft" align="right" valign="top"><a id="aaaedfe06f7ce566fd77c1cf06c305a04"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ComponentInfo</b> (const std::string &amp;name)</td></tr>
+<tr class="memitem:a9ad54415ad55bb71cb1f7a5d0a2ec39f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9ad54415ad55bb71cb1f7a5d0a2ec39f">ComponentInfo</a> ()</td></tr>
+<tr class="separator:a9ad54415ad55bb71cb1f7a5d0a2ec39f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaedfe06f7ce566fd77c1cf06c305a04"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#aaaedfe06f7ce566fd77c1cf06c305a04">ComponentInfo</a> (const std::string &amp;name)</td></tr>
 <tr class="separator:aaaedfe06f7ce566fd77c1cf06c305a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2daef550472d8bb86a6a2615d19d19e2"><td class="memItemLeft" align="right" valign="top"><a id="a2daef550472d8bb86a6a2615d19d19e2"></a>
-const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a2daef550472d8bb86a6a2615d19d19e2">sender</a> () const</td></tr>
-<tr class="memdesc:a2daef550472d8bb86a6a2615d19d19e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string identifying the sender of a message. <br /></td></tr>
+<tr class="memitem:a79b252989701bce1e244683cb209b462"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a79b252989701bce1e244683cb209b462">~ComponentInfo</a> ()</td></tr>
+<tr class="separator:a79b252989701bce1e244683cb209b462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2daef550472d8bb86a6a2615d19d19e2"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a2daef550472d8bb86a6a2615d19d19e2">sender</a> () const</td></tr>
+<tr class="memdesc:a2daef550472d8bb86a6a2615d19d19e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string identifying the sender of a message.  <a href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a2daef550472d8bb86a6a2615d19d19e2">More...</a><br /></td></tr>
 <tr class="separator:a2daef550472d8bb86a6a2615d19d19e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2afcde199f430c4237549a90436a6edd"><td class="memItemLeft" align="right" valign="top">virtual std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a2afcde199f430c4237549a90436a6edd">toStream</a> (std::ostream &amp;out) const</td></tr>
 <tr class="separator:a2afcde199f430c4237549a90436a6edd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a505676a5f9e7c900e0adfea52d707253"><td class="memItemLeft" align="right" valign="top"><a id="a505676a5f9e7c900e0adfea52d707253"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_sender</b></td></tr>
+<tr class="memitem:a505676a5f9e7c900e0adfea52d707253"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a505676a5f9e7c900e0adfea52d707253">m_sender</a></td></tr>
 <tr class="separator:a505676a5f9e7c900e0adfea52d707253"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a26926f047c5597aefde4b7a82b5eab0a"><td class="memItemLeft" align="right" valign="top"><a id="a26926f047c5597aefde4b7a82b5eab0a"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;out, const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> &amp;nfo)</td></tr>
+<tr class="memitem:a26926f047c5597aefde4b7a82b5eab0a"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a26926f047c5597aefde4b7a82b5eab0a">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> &amp;nfo)</td></tr>
 <tr class="separator:a26926f047c5597aefde4b7a82b5eab0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac406967aceb09564f4695bd4ca4f2100"><td class="memItemLeft" align="right" valign="top"><a id="ac406967aceb09564f4695bd4ca4f2100"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;out, const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> *nfo)</td></tr>
+<tr class="memitem:ac406967aceb09564f4695bd4ca4f2100"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#ac406967aceb09564f4695bd4ca4f2100">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> *nfo)</td></tr>
 <tr class="separator:ac406967aceb09564f4695bd4ca4f2100"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The base class to keep track of informations associated with a message. A component info object have a sender method to return the name string identifying the sender of a message. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a9aa211af021fd1f48ed34e6e9a2d54e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aa211af021fd1f48ed34e6e9a2d54e1">&#9670;&nbsp;</a></span>SPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::shared_ptr&lt;<a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a>&gt; <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">SPtr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9ad54415ad55bb71cb1f7a5d0a2ec39f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ad54415ad55bb71cb1f7a5d0a2ec39f">&#9670;&nbsp;</a></span>ComponentInfo() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaaedfe06f7ce566fd77c1cf06c305a04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaedfe06f7ce566fd77c1cf06c305a04">&#9670;&nbsp;</a></span>ComponentInfo() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79b252989701bce1e244683cb209b462"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79b252989701bce1e244683cb209b462">&#9670;&nbsp;</a></span>~ComponentInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2daef550472d8bb86a6a2615d19d19e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2daef550472d8bb86a6a2615d19d19e2">&#9670;&nbsp;</a></span>sender()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; sender </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a string identifying the sender of a message. </p>
+
+</div>
+</div>
 <a id="a2afcde199f430c4237549a90436a6edd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2afcde199f430c4237549a90436a6edd">&#9670;&nbsp;</a></span>toStream()</h2>
 
@@ -169,13 +262,109 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 
 </div>
 </div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a26926f047c5597aefde4b7a82b5eab0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26926f047c5597aefde4b7a82b5eab0a">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>nfo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac406967aceb09564f4695bd4ca4f2100"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac406967aceb09564f4695bd4ca4f2100">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> *&#160;</td>
+          <td class="paramname"><em>nfo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a505676a5f9e7c900e0adfea52d707253"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a505676a5f9e7c900e0adfea52d707253">&#9670;&nbsp;</a></span>m_sender</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string m_sender</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper_1_1logging.html">logging</a></li><li class="navelem"><a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:10:54 for SOFA by
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

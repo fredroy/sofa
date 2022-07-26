@@ -213,7 +213,7 @@ Frame modification</h2></td></tr>
 <tr class="separator:a5f87bae05096c99fb3b30cf5bb52c891"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5b704f2a19e1ebc3b646e4354724ccd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_frame.html#af5b704f2a19e1ebc3b646e4354724ccd">alignWithFrame</a> (const <a class="el" href="classqglviewer_1_1_frame.html">Frame</a> *const frame, bool move=false, qreal threshold=0.0)</td></tr>
 <tr class="separator:af5b704f2a19e1ebc3b646e4354724ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af97ae9e790033879dfcb9837a7312255"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_frame.html#af97ae9e790033879dfcb9837a7312255">projectOnLine</a> (const <a class="el" href="classqglviewer_1_1_vec.html">Vec</a> &amp;origin, const <a class="el" href="classqglviewer_1_1_vec.html">Vec</a> &amp;direction)</td></tr>
+<tr class="memitem:af97ae9e790033879dfcb9837a7312255"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_frame.html#af97ae9e790033879dfcb9837a7312255">projectOnLine</a> (const <a class="el" href="classqglviewer_1_1_vec.html">Vec</a> &amp;origin, const <a class="el" href="classqglviewer_1_1_vec.html">Vec</a> &amp;<a class="el" href="_project_direction_constraint__test_8cpp.html#a3f2cebfb0ab8ca33ed6f0f3598df6112">direction</a>)</td></tr>
 <tr class="separator:af97ae9e790033879dfcb9837a7312255"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
@@ -305,6 +305,14 @@ Inversion of the transformation</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 XML representation</h2></td></tr>
+<tr class="memitem:a854b06243fe2e39613c200abf8b26e34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classqglviewer_1_1_vec.html">Vec</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_frame.html#a854b06243fe2e39613c200abf8b26e34">t_</a></td></tr>
+<tr class="separator:a854b06243fe2e39613c200abf8b26e34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5465e497c44058496e89f8f3b6725949"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classqglviewer_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_frame.html#a5465e497c44058496e89f8f3b6725949">q_</a></td></tr>
+<tr class="separator:a5465e497c44058496e89f8f3b6725949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeac2f4c340ba30d3b2205a451c850d83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classqglviewer_1_1_constraint.html">Constraint</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_frame.html#aeac2f4c340ba30d3b2205a451c850d83">constraint_</a></td></tr>
+<tr class="separator:aeac2f4c340ba30d3b2205a451c850d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b7ce02f2597785b1ef0f4c06c36b74b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classqglviewer_1_1_frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_frame.html#a3b7ce02f2597785b1ef0f4c06c36b74b">referenceFrame_</a></td></tr>
+<tr class="separator:a3b7ce02f2597785b1ef0f4c06c36b74b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1aa0ee6f18bae0d4638705905cd37a51"><td class="memItemLeft" align="right" valign="top">virtual QDomElement&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_frame.html#a1aa0ee6f18bae0d4638705905cd37a51">domElement</a> (const QString &amp;name, QDomDocument &amp;document) const</td></tr>
 <tr class="separator:a1aa0ee6f18bae0d4638705905cd37a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd13d2ddeca530cb9f26ead47f7d25d3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqglviewer_1_1_frame.html#acd13d2ddeca530cb9f26ead47f7d25d3">initFromDOMElement</a> (const QDomElement &amp;element)</td></tr>
@@ -1510,10 +1518,10 @@ XML representation</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>This signal is emitted whenever the <a class="el" href="classqglviewer_1_1_frame.html#a8bd03c538c9b90a8db7ecee97332c86a">position()</a> or the <a class="el" href="classqglviewer_1_1_frame.html#a54c2837276f79bf854173c3183927da0">orientation()</a> of the <a class="el" href="classqglviewer_1_1_frame.html" title="The Frame class represents a coordinate system, defined by a position and an orientation.">Frame</a> is modified.</p>
-<p>Connect this signal to any object that must be notified: </p><div class="fragment"><div class="line">QObject::connect(myFrame, SIGNAL(<a class="code" href="classqglviewer_1_1_frame.html#ab6722375e68e03d151762ebfc83c5459">modified</a>()), myObject, SLOT(update()));</div>
+<p>Connect this signal to any object that must be notified: </p><div class="fragment"><div class="line"><a class="code" href="_q_sofa_recorder_8cpp.html#a9a8bd9afb13d8976459e941f32436fee">QObject::connect</a>(myFrame, SIGNAL(<a class="code" href="classqglviewer_1_1_frame.html#ab6722375e68e03d151762ebfc83c5459">modified</a>()), myObject, SLOT(update()));</div>
 </div><!-- fragment --><p> Use the <a class="el" href="class_q_g_l_viewer.html#aa27d9e0070ba3117afb99cfe5931d754">QGLViewer::QGLViewerPool()</a> to connect the signal to all the viewers.</p>
 <dl class="section note"><dt>Note</dt><dd>If your <a class="el" href="classqglviewer_1_1_frame.html" title="The Frame class represents a coordinate system, defined by a position and an orientation.">Frame</a> is part of a <a class="el" href="classqglviewer_1_1_frame.html" title="The Frame class represents a coordinate system, defined by a position and an orientation.">Frame</a> hierarchy (see <a class="el" href="classqglviewer_1_1_frame.html#acff1a699a1a37a598aa766db7d26b56f">referenceFrame()</a>), a modification of one of the parents of this <a class="el" href="classqglviewer_1_1_frame.html" title="The Frame class represents a coordinate system, defined by a position and an orientation.">Frame</a> will <em>not</em> emit this signal. Use code like this to change this behavior (you can do this recursively for all the <a class="el" href="classqglviewer_1_1_frame.html#acff1a699a1a37a598aa766db7d26b56f">referenceFrame()</a> until the <code>NULL</code> world root frame is encountered): <div class="fragment"><div class="line"><span class="comment">// Emits the Frame modified() signal when its referenceFrame() is modified().</span></div>
-<div class="line">connect(myFrame-&gt;referenceFrame(), SIGNAL(<a class="code" href="classqglviewer_1_1_frame.html#ab6722375e68e03d151762ebfc83c5459">modified</a>()), myFrame,</div>
+<div class="line"><a class="code" href="_q_sofa_recorder_8cpp.html#a9a8bd9afb13d8976459e941f32436fee">connect</a>(myFrame-&gt;referenceFrame(), SIGNAL(<a class="code" href="classqglviewer_1_1_frame.html#ab6722375e68e03d151762ebfc83c5459">modified</a>()), myFrame,</div>
 <div class="line">SIGNAL(<a class="code" href="classqglviewer_1_1_frame.html#ab6722375e68e03d151762ebfc83c5459">modified</a>())); </div>
 </div><!-- fragment --></dd></dl>
 <dl class="section attention"><dt>Attention</dt><dd>Connecting this signal to a QOpenGLWidget::update() slot (or a method that calls it) will prevent you from modifying the <a class="el" href="classqglviewer_1_1_frame.html" title="The Frame class represents a coordinate system, defined by a position and an orientation.">Frame</a> <em>inside</em> your <a class="el" href="class_q_g_l_viewer.html#abc45d04e5f5ce1fbd68f920fcdb2d0e0">QGLViewer::draw()</a> method as it would result in an infinite loop. However, <a class="el" href="class_q_g_l_viewer.html#abc45d04e5f5ce1fbd68f920fcdb2d0e0">QGLViewer::draw()</a> should not modify the scene.</dd></dl>
@@ -2686,6 +2694,95 @@ XML representation</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aeac2f4c340ba30d3b2205a451c850d83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeac2f4c340ba30d3b2205a451c850d83">&#9670;&nbsp;</a></span>constraint_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classqglviewer_1_1_constraint.html">Constraint</a>* constraint_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5465e497c44058496e89f8f3b6725949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5465e497c44058496e89f8f3b6725949">&#9670;&nbsp;</a></span>q_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classqglviewer_1_1_quaternion.html">Quaternion</a> q_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b7ce02f2597785b1ef0f4c06c36b74b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b7ce02f2597785b1ef0f4c06c36b74b">&#9670;&nbsp;</a></span>referenceFrame_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classqglviewer_1_1_frame.html">Frame</a>* referenceFrame_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a854b06243fe2e39613c200abf8b26e34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a854b06243fe2e39613c200abf8b26e34">&#9670;&nbsp;</a></span>t_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classqglviewer_1_1_vec.html">Vec</a> t_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclassqglviewer_1_1_frame_html_ab71e6ee46f0c2593266f9a62d9c5e029"><div class="ttname"><a href="classqglviewer_1_1_frame.html#ab71e6ee46f0c2593266f9a62d9c5e029">qglviewer::Frame::Frame</a></div><div class="ttdeci">Frame()</div><div class="ttdef"><b>Definition:</b> frame.cpp:34</div></div>
@@ -2693,11 +2790,12 @@ XML representation</h2></td></tr>
 <div class="ttc" id="aclassqglviewer_1_1_frame_html_a85579973bc48a10e5e2929291602ff8f"><div class="ttname"><a href="classqglviewer_1_1_frame.html#a85579973bc48a10e5e2929291602ff8f">qglviewer::Frame::matrix</a></div><div class="ttdeci">const GLdouble * matrix() const</div><div class="ttdef"><b>Definition:</b> frame.cpp:119</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_frame_html_ab6722375e68e03d151762ebfc83c5459"><div class="ttname"><a href="classqglviewer_1_1_frame.html#ab6722375e68e03d151762ebfc83c5459">qglviewer::Frame::modified</a></div><div class="ttdeci">void modified()</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_frame_html_a8bd03c538c9b90a8db7ecee97332c86a"><div class="ttname"><a href="classqglviewer_1_1_frame.html#a8bd03c538c9b90a8db7ecee97332c86a">qglviewer::Frame::position</a></div><div class="ttdeci">Vec position() const</div><div class="ttdef"><b>Definition:</b> frame.cpp:519</div></div>
+<div class="ttc" id="a_q_sofa_recorder_8cpp_html_a9a8bd9afb13d8976459e941f32436fee"><div class="ttname"><a href="_q_sofa_recorder_8cpp.html#a9a8bd9afb13d8976459e941f32436fee">connect</a></div><div class="ttdeci">connect(record, SIGNAL(toggled(bool)), this, SLOT(slot_recordSimulation(bool)))</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>qglviewer</b></li><li class="navelem"><a class="el" href="classqglviewer_1_1_frame.html">Frame</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:43:28 for SOFA by
+    <li class="navelem"><a class="el" href="namespaceqglviewer.html">qglviewer</a></li><li class="navelem"><a class="el" href="classqglviewer_1_1_frame.html">Frame</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:20:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

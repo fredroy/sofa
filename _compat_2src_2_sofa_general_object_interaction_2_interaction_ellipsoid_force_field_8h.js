@@ -1,0 +1,4 @@
+var _compat_2src_2_sofa_general_object_interaction_2_interaction_ellipsoid_force_field_8h =
+[
+    [ "InteractionEllipsoidForceField", "_compat_2src_2_sofa_general_object_interaction_2_interaction_ellipsoid_force_field_8h.html#a82fa23ff226e04e83706c4442ceec928", null ]
+];

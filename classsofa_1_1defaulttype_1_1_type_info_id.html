@@ -85,6 +85,8 @@ $(document).ready(function(){initNavTree('classsofa_1_1defaulttype_1_1_type_info
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="classsofa_1_1defaulttype_1_1_type_info_id-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">TypeInfoId Class Reference</div>  </div>
@@ -98,32 +100,157 @@ $(document).ready(function(){initNavTree('classsofa_1_1defaulttype_1_1_type_info
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ab152f0e7248ed7ac79869e71d8aadc69"><td class="memTemplParams" colspan="2"><a id="ab152f0e7248ed7ac79869e71d8aadc69"></a>
-template&lt;class T &gt; </td></tr>
-<tr class="memitem:ab152f0e7248ed7ac79869e71d8aadc69"><td class="memTemplItemLeft" align="right" valign="top">static const <a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html">TypeInfoId</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>GetTypeId</b> ()</td></tr>
+<tr class="memitem:ab152f0e7248ed7ac79869e71d8aadc69"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ab152f0e7248ed7ac79869e71d8aadc69"><td class="memTemplItemLeft" align="right" valign="top">static const <a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html">TypeInfoId</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html#ab152f0e7248ed7ac79869e71d8aadc69">GetTypeId</a> ()</td></tr>
 <tr class="separator:ab152f0e7248ed7ac79869e71d8aadc69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a7441ef0865bcb3db9b8064dd7375c1ea"><td class="memItemLeft" align="right" valign="top"><a id="a7441ef0865bcb3db9b8064dd7375c1ea"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
+<tr class="memitem:a7441ef0865bcb3db9b8064dd7375c1ea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a></td></tr>
 <tr class="separator:a7441ef0865bcb3db9b8064dd7375c1ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd213e83114a912e5ba741c19dff70c6"><td class="memItemLeft" align="right" valign="top"><a id="afd213e83114a912e5ba741c19dff70c6"></a>
-const std::type_info &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>nfo</b></td></tr>
+<tr class="memitem:afd213e83114a912e5ba741c19dff70c6"><td class="memItemLeft" align="right" valign="top">const std::type_info &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html#afd213e83114a912e5ba741c19dff70c6">nfo</a></td></tr>
 <tr class="separator:afd213e83114a912e5ba741c19dff70c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a63b4ab4087b4e838d597a678fdbf38f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html#a63b4ab4087b4e838d597a678fdbf38f3">TypeInfoId</a> (int id_, const std::type_info &amp;<a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html#afd213e83114a912e5ba741c19dff70c6">nfo</a>)</td></tr>
+<tr class="separator:a63b4ab4087b4e838d597a678fdbf38f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a4640781443c03251bb959eb8f7a6e77a"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html#a4640781443c03251bb959eb8f7a6e77a">GetNewId</a> (const std::type_info &amp;<a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html#afd213e83114a912e5ba741c19dff70c6">nfo</a>)</td></tr>
+<tr class="separator:a4640781443c03251bb959eb8f7a6e77a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Generates unique id for types. </p>
 <hr  />
 <p> Compared to type_info.hash_code() this version is guaranteed to be in constant time</p>
 <p>The common use case is get the type id to access a full <a class="el" href="classsofa_1_1defaulttype_1_1_abstract_type_info.html">AbstractTypeInfo</a> from the <a class="el" href="classsofa_1_1defaulttype_1_1_type_info_registry.html" title="An unique singleton to register all the type info defined in Sofa.">TypeInfoRegistry</a>. Example: <a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html" title="Generates unique id for types.">TypeInfoId</a>&amp; shortinfo = TypeInfoId::getTypeId&lt;double&gt;(); AbstractTypeInfo* info = <a class="el" href="classsofa_1_1defaulttype_1_1_type_info_registry.html#adf923921591e6bc3fc8f3646cc5093be">TypeInfoRegistry::Get</a>(shortinfo.id); info-&gt;getName() </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a63b4ab4087b4e838d597a678fdbf38f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63b4ab4087b4e838d597a678fdbf38f3">&#9670;&nbsp;</a></span>TypeInfoId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html">TypeInfoId</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::type_info &amp;&#160;</td>
+          <td class="paramname"><em>nfo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4640781443c03251bb959eb8f7a6e77a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4640781443c03251bb959eb8f7a6e77a">&#9670;&nbsp;</a></span>GetNewId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GetNewId </td>
+          <td>(</td>
+          <td class="paramtype">const std::type_info &amp;&#160;</td>
+          <td class="paramname"><em>nfo</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab152f0e7248ed7ac79869e71d8aadc69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab152f0e7248ed7ac79869e71d8aadc69">&#9670;&nbsp;</a></span>GetTypeId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html">TypeInfoId</a>&amp; GetTypeId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7441ef0865bcb3db9b8064dd7375c1ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7441ef0865bcb3db9b8064dd7375c1ea">&#9670;&nbsp;</a></span>id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afd213e83114a912e5ba741c19dff70c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd213e83114a912e5ba741c19dff70c6">&#9670;&nbsp;</a></span>nfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::type_info&amp; nfo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>defaulttype</b></li><li class="navelem"><a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html">TypeInfoId</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:31 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1defaulttype.html">defaulttype</a></li><li class="navelem"><a class="el" href="classsofa_1_1defaulttype_1_1_type_info_id.html">TypeInfoId</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:22 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

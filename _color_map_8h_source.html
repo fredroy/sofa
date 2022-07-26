@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_color_map_8h_source.html',''); initRe
 <div class="title">ColorMap.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_color_map_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -112,9 +112,9 @@ $(document).ready(function(){initNavTree('_color_map_8h_source.html',''); initRe
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/helper/config.h&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;sofa/type/vector.h&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;sofa/helper/rmath.h&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;sofa/type/Vec.h&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_type_2src_2sofa_2type_2vector_8h.html">sofa/type/vector.h</a>&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="rmath_8h.html">sofa/helper/rmath.h</a>&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="framework_2_type_2src_2sofa_2type_2vec_8h.html">sofa/type/Vec.h</a>&gt;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">//#include &lt;sofa/helper/OptionsGroup.h&gt;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
@@ -129,8 +129,8 @@ $(document).ready(function(){initNavTree('_color_map_8h_source.html',''); initRe
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">typedef</span> type::Vec3f Color3;  <span class="comment">// Color tripplet</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">typedef</span> type::Vec4f Color;   <span class="comment">// ... with alpha value</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="namespacesofa_1_1type.html#a8b80c2beee885ea1bb438dcb9eada39a">type::Vec3f</a> Color3;  <span class="comment">// Color tripplet</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="namespacesofa_1_1type.html#a3c3a8c6ef20d3f63d0e5e5c038127c1e">type::Vec4f</a> Color;   <span class="comment">// ... with alpha value</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classsofa_1_1type_1_1vector.html">sofa::type::vector&lt;Color&gt;</a> VecColor;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    ColorMap(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> paletteSize = 256, <span class="keyword">const</span> std::string&amp; colorScheme = <span class="stringliteral">&quot;HSV&quot;</span>);</div>
@@ -181,7 +181,7 @@ $(document).ready(function(){initNavTree('_color_map_8h_source.html',''); initRe
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">void</span> setColorScheme(<span class="keyword">const</span> std::string&amp; colorScheme) { m_colorScheme = colorScheme; }</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getNbColors()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) entries.size(); }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    Color getColor(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i) {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    Color <a class="code" href="namespacesofa_1_1simulation_1_1_colors.html#addb6f6acf6a40b3188da8c46583a41c5">getColor</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i) {</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">if</span> (i &lt; entries.size()) <span class="keywordflow">return</span> entries[i];</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> Color(0.f, 0.f, 0.f, 0.f);</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
@@ -189,10 +189,10 @@ $(document).ready(function(){initNavTree('_color_map_8h_source.html',''); initRe
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">static</span> ColorMap* getDefault();</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Real&gt;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    evaluator&lt;Real&gt; getEvaluator(Real vmin, Real vmax)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">if</span> (!entries.empty()) {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">return</span> evaluator&lt;Real&gt;(<span class="keyword">this</span>, vmin, vmax);</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1_color_map.html#a7680a50f912c158963349cded279ca93">  104</a></span>&#160;    <a class="code" href="classsofa_1_1helper_1_1_color_map_1_1evaluator.html">evaluator&lt;Real&gt;</a> getEvaluator(Real vmin, Real vmax)</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1_color_map.html#aa85ebee9d42ef1c9e62b04fe2184eba6">  105</a></span>&#160;    {</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1_color_map.html#a348be1eed452ba358fbccddd3a7de88d">  106</a></span>&#160;        <span class="keywordflow">if</span> (!entries.empty()) {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classsofa_1_1helper_1_1_color_map_1_1evaluator.html">evaluator&lt;Real&gt;</a>(<span class="keyword">this</span>, vmin, vmax);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordflow">return</span> evaluator&lt;Real&gt;(getDefault(), vmin, vmax);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
@@ -200,15 +200,15 @@ $(document).ready(function(){initNavTree('_color_map_8h_source.html',''); initRe
 <div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1_color_map_1_1evaluator.html">  112</a></span>&#160; </div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_vec.html">Color3</a> hsv2rgb(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Color3</a> &amp;hsv);</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; operator &lt;&lt; (std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="classsofa_1_1helper_1_1_color_map.html">ColorMap</a>&amp; m )</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1_color_map_1_1evaluator.html#adb9598b49fe71cb97fe499840601a6af">  115</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="namespacesofa_1_1helper.html#acfe38b75c36950cace49b5efcc87d2fb">operator &lt;&lt; </a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="classsofa_1_1helper_1_1_color_map.html">ColorMap</a>&amp; m )</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        out &lt;&lt; m.entries;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        out &lt;&lt; m.<a class="code" href="classsofa_1_1helper_1_1_color_map.html#a4f637df06aac89eb5bdb516b36360c14">entries</a>;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">return</span> out;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1_color_map_1_1evaluator.html#a0be3a844e360664056e88d522a8fff5e">  119</a></span>&#160;    }</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">inline</span> <span class="keyword">friend</span> std::istream&amp; operator &gt;&gt; (std::istream&amp; in, <a class="code" href="classsofa_1_1helper_1_1_color_map.html">ColorMap</a>&amp; m )</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        in &gt;&gt; m.entries;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">inline</span> <span class="keyword">friend</span> std::istream&amp; <a class="code" href="namespacesofa_1_1helper.html#a9bcb435e69740d3efb80f27ab30ed4b1">operator &gt;&gt; </a>(std::istream&amp; in, <a class="code" href="classsofa_1_1helper_1_1_color_map.html">ColorMap</a>&amp; m )</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1_color_map_1_1evaluator.html#afa4464a17e875ce7c2d8487c94003518">  122</a></span>&#160;    {</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        in &gt;&gt; m.<a class="code" href="classsofa_1_1helper_1_1_color_map.html#a4f637df06aac89eb5bdb516b36360c14">entries</a>;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">return</span> in;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;};</div>
@@ -222,16 +222,26 @@ $(document).ready(function(){initNavTree('_color_map_8h_source.html',''); initRe
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1type_html_a8b80c2beee885ea1bb438dcb9eada39a"><div class="ttname"><a href="namespacesofa_1_1type.html#a8b80c2beee885ea1bb438dcb9eada39a">sofa::type::Vec3f</a></div><div class="ttdeci">Vec&lt; 3, float &gt; Vec3f</div><div class="ttdef"><b>Definition:</b> fwd.h:66</div></div>
+<div class="ttc" id="anamespacesofa_1_1simulation_1_1_colors_html_addb6f6acf6a40b3188da8c46583a41c5"><div class="ttname"><a href="namespacesofa_1_1simulation_1_1_colors.html#addb6f6acf6a40b3188da8c46583a41c5">sofa::simulation::Colors::getColor</a></div><div class="ttdeci">const char * getColor(const char *classname)</div><div class="ttdef"><b>Definition:</b> Colors.h:148</div></div>
 <div class="ttc" id="aclasssofa_1_1helper_1_1_color_map_html"><div class="ttname"><a href="classsofa_1_1helper_1_1_color_map.html">sofa::helper::ColorMap</a></div><div class="ttdef"><b>Definition:</b> ColorMap.h:80</div></div>
 <div class="ttc" id="anamespacesofa_html"><div class="ttname"><a href="namespacesofa.html">sofa</a></div><div class="ttdoc">This allow MeshTrian to interact with the messaging system.</div><div class="ttdef"><b>Definition:</b> ConstraintAnimationLoop.cpp:81</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_vec_html"><div class="ttname"><a href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec&lt; 3, float &gt;</a></div></div>
 <div class="ttc" id="anamespacesofa_1_1helper_html_a4cfe1c43cedc9a147c2b1177f8179ce1"><div class="ttname"><a href="namespacesofa_1_1helper.html#a4cfe1c43cedc9a147c2b1177f8179ce1">sofa::helper::init</a></div><div class="ttdeci">SOFA_HELPER_API void init()</div><div class="ttdoc">Initialize the SofaHelper library.</div><div class="ttdef"><b>Definition:</b> init.cpp:78</div></div>
+<div class="ttc" id="a_type_2src_2sofa_2type_2vector_8h_html"><div class="ttname"><a href="_type_2src_2sofa_2type_2vector_8h.html">vector.h</a></div></div>
+<div class="ttc" id="aframework_2_type_2src_2sofa_2type_2vec_8h_html"><div class="ttname"><a href="framework_2_type_2src_2sofa_2type_2vec_8h.html">Vec.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1vector_html"><div class="ttname"><a href="classsofa_1_1type_1_1vector.html">sofa::type::vector&lt; Color &gt;</a></div></div>
+<div class="ttc" id="aclasssofa_1_1helper_1_1_color_map_1_1evaluator_html"><div class="ttname"><a href="classsofa_1_1helper_1_1_color_map_1_1evaluator.html">sofa::helper::ColorMap::evaluator</a></div><div class="ttdef"><b>Definition:</b> ColorMap.h:112</div></div>
+<div class="ttc" id="anamespacesofa_1_1helper_html_a9bcb435e69740d3efb80f27ab30ed4b1"><div class="ttname"><a href="namespacesofa_1_1helper.html#a9bcb435e69740d3efb80f27ab30ed4b1">sofa::helper::operator&gt;&gt;</a></div><div class="ttdeci">std::istream &amp; operator&gt;&gt;(std::istream &amp;in, WriteAccessor&lt; U &gt; &amp;vec)=delete</div></div>
+<div class="ttc" id="aclasssofa_1_1helper_1_1_color_map_html_a4f637df06aac89eb5bdb516b36360c14"><div class="ttname"><a href="classsofa_1_1helper_1_1_color_map.html#a4f637df06aac89eb5bdb516b36360c14">sofa::helper::ColorMap::entries</a></div><div class="ttdeci">VecColor entries</div><div class="ttdef"><b>Definition:</b> ColorMap.h:144</div></div>
+<div class="ttc" id="anamespacesofa_1_1helper_html_acfe38b75c36950cace49b5efcc87d2fb"><div class="ttname"><a href="namespacesofa_1_1helper.html#acfe38b75c36950cace49b5efcc87d2fb">sofa::helper::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const ReadAccessor&lt; U &gt; &amp;vec)=delete</div></div>
+<div class="ttc" id="anamespacesofa_1_1type_html_a3c3a8c6ef20d3f63d0e5e5c038127c1e"><div class="ttname"><a href="namespacesofa_1_1type.html#a3c3a8c6ef20d3f63d0e5e5c038127c1e">sofa::type::Vec4f</a></div><div class="ttdeci">Vec&lt; 4, float &gt; Vec4f</div><div class="ttdef"><b>Definition:</b> fwd.h:72</div></div>
+<div class="ttc" id="armath_8h_html"><div class="ttname"><a href="rmath_8h.html">rmath.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><b>ColorMap.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:39:15 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><a class="el" href="_color_map_8h.html">ColorMap.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:10:38 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('src_2sofa_2testing_2_test_message_hand
 <div class="title">TestMessageHandler.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="src_2sofa_2testing_2_test_message_handler_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -111,11 +111,11 @@ $(document).ready(function(){initNavTree('src_2sofa_2testing_2_test_message_hand
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/testing/config.h&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sofa/type/vector.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;sofa/helper/logging/CountingMessageHandler.h&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;sofa/helper/logging/LoggingMessageHandler.h&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;sofa/helper/logging/MessageHandler.h&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;sofa/helper/logging/Message.h&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_type_2src_2sofa_2type_2vector_8h.html">sofa/type/vector.h</a>&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_counting_message_handler_8h.html">sofa/helper/logging/CountingMessageHandler.h</a>&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_logging_message_handler_8h.html">sofa/helper/logging/LoggingMessageHandler.h</a>&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_message_handler_8h.html">sofa/helper/logging/MessageHandler.h</a>&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_message_8h.html">sofa/helper/logging/Message.h</a>&gt;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;gtest/gtest.h&gt;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
@@ -146,7 +146,7 @@ $(document).ready(function(){initNavTree('src_2sofa_2testing_2_test_message_hand
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="classsofa_1_1testing_1_1_gtest_message_frame.html">GtestMessageFrame</a>* m_frame ;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;};</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classsofa_1_1testing_1_1_message_as_test_failure.html#a345df848925d52fa08b6547483655102">  104</a></span>&#160; </div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">class </span>SOFA_TESTING_API <a class="code" href="classsofa_1_1testing_1_1_ignore_message.html">IgnoreMessage</a></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;{</div>
@@ -182,37 +182,42 @@ $(document).ready(function(){initNavTree('src_2sofa_2testing_2_test_message_hand
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor">#define EXPECT_MSG_EMIT_CHOOSE_FROM_ARG_COUNT(...) FUNC_RECOMPOSER((__VA_ARGS__, EXPECT_MSG_EMIT2, EXPECT_MSG_EMIT1, ))</span></div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="preprocessor">#define EXPECT_MSG_EMIT_NO_ARG_EXPANDER() ,,EXPECT_MSG_EMIT0</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor">#define EXPECT_MSG_EMIT_CHOOSER(...) EXPECT_MSG_EMIT_CHOOSE_FROM_ARG_COUNT(EXPECT_MSG_EMIT_NO_ARG_EXPANDER __VA_ARGS__ ())</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="src_2sofa_2testing_2_test_message_handler_8h.html#ab6bb0f78314edd783f5b847dfdc42dd2">  164</a></span>&#160; </div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="preprocessor">#define EXPECT_MSG_EMIT(...) EXPECT_MSG_EMIT_CHOOSER(__VA_ARGS__)(__VA_ARGS__)</span></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor">#define EXPECT_MSG_NOEMIT2(a,b) \</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor">       sofa::testing::MessageAsTestFailure EXPECT_MSG_EVALUATOR(__hiddenscopevarA_, __LINE__) ( sofa::helper::logging::Message::a, __FILE__, __LINE__ ); \</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="src_2sofa_2testing_2_test_message_handler_8h.html#af5980c35f63fac7d3519dcb76a884c90">  167</a></span>&#160;<span class="preprocessor">#define EXPECT_MSG_NOEMIT2(a,b) \</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="src_2sofa_2testing_2_test_message_handler_8h.html#a5ee83bd4e6747df30e7cd0c582163b9b">  168</a></span>&#160;<span class="preprocessor">       sofa::testing::MessageAsTestFailure EXPECT_MSG_EVALUATOR(__hiddenscopevarA_, __LINE__) ( sofa::helper::logging::Message::a, __FILE__, __LINE__ ); \</span></div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor">       sofa::testing::MessageAsTestFailure EXPECT_MSG_EVALUATOR(__hiddenscopevarB_, __LINE__) ( sofa::helper::logging::Message::b, __FILE__, __LINE__ )</span></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">#define EXPECT_MSG_NOEMIT1(t)   sofa::testing::MessageAsTestFailure EXPECT_MSG_EVALUATOR(__hiddenscopevarT_, __LINE__)( sofa::helper::logging::Message::t, __FILE__, __LINE__ )</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor">#define EXPECT_MSG_NOEMIT0</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="src_2sofa_2testing_2_test_message_handler_8h.html#aca59ec2df62e749d14cdea1c877e98cb">  171</a></span>&#160;<span class="preprocessor">#define EXPECT_MSG_NOEMIT1(t)   sofa::testing::MessageAsTestFailure EXPECT_MSG_EVALUATOR(__hiddenscopevarT_, __LINE__)( sofa::helper::logging::Message::t, __FILE__, __LINE__ )</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="src_2sofa_2testing_2_test_message_handler_8h.html#ad8926f1c53f2764fc8218e1abb94de6d">  172</a></span>&#160;<span class="preprocessor">#define EXPECT_MSG_NOEMIT0</span></div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor">#define EXPECT_MSG_NOEMIT_CHOOSE_FROM_ARG_COUNT(...) FUNC_RECOMPOSER((__VA_ARGS__, EXPECT_MSG_NOEMIT2, EXPECT_MSG_NOEMIT1, ))</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="src_2sofa_2testing_2_test_message_handler_8h.html#aab77ba63967820a290fc5c96ec293f14">  174</a></span>&#160;<span class="preprocessor">#define EXPECT_MSG_NOEMIT_CHOOSE_FROM_ARG_COUNT(...) FUNC_RECOMPOSER((__VA_ARGS__, EXPECT_MSG_NOEMIT2, EXPECT_MSG_NOEMIT1, ))</span></div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor">#define EXPECT_MSG_NOEMIT_NO_ARG_EXPANDER() ,,EXPECT_MSG_NOEMIT0</span></div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">#define EXPECT_MSG_NOEMIT_CHOOSER(...) EXPECT_MSG_NOEMIT_CHOOSE_FROM_ARG_COUNT(EXPECT_MSG_NOEMIT_NO_ARG_EXPANDER __VA_ARGS__ ())</span></div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">#define EXPECT_MSG_NOEMIT(...) EXPECT_MSG_NOEMIT_CHOOSER(__VA_ARGS__)(__VA_ARGS__)</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="src_2sofa_2testing_2_test_message_handler_8h.html#a7d0a2c848fab1f30f237e6ac2eb0bd24">  178</a></span>&#160;<span class="preprocessor">#define EXPECT_MSG_NOEMIT(...) EXPECT_MSG_NOEMIT_CHOOSER(__VA_ARGS__)(__VA_ARGS__)</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="src_2sofa_2testing_2_test_message_handler_8h.html#ad1f1b5a67b5aea604be175082d52bf1e">  179</a></span>&#160; </div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;} <span class="comment">// namespace sofa::testing</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclasssofa_1_1testing_1_1_expect_message_html"><div class="ttname"><a href="classsofa_1_1testing_1_1_expect_message.html">sofa::testing::ExpectMessage</a></div><div class="ttdef"><b>Definition:</b> TestMessageHandler.h:113</div></div>
 <div class="ttc" id="aclasssofa_1_1testing_1_1_ignore_message_html"><div class="ttname"><a href="classsofa_1_1testing_1_1_ignore_message.html">sofa::testing::IgnoreMessage</a></div><div class="ttdef"><b>Definition:</b> TestMessageHandler.h:131</div></div>
+<div class="ttc" id="a_logging_message_handler_8h_html"><div class="ttname"><a href="_logging_message_handler_8h.html">LoggingMessageHandler.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1helper_1_1logging_1_1_message_html_a1d1cfd8ffb84e947f82999c682b666a7"><div class="ttname"><a href="classsofa_1_1helper_1_1logging_1_1_message.html#a1d1cfd8ffb84e947f82999c682b666a7">sofa::helper::logging::Message::Type</a></div><div class="ttdeci">Type</div><div class="ttdoc">possible levels of messages (ordered)</div><div class="ttdef"><b>Definition:</b> Message.h:151</div></div>
 <div class="ttc" id="aclasssofa_1_1testing_1_1_gtest_message_frame_html"><div class="ttname"><a href="classsofa_1_1testing_1_1_gtest_message_frame.html">sofa::testing::GtestMessageFrame</a></div><div class="ttdef"><b>Definition:</b> TestMessageHandler.cpp:62</div></div>
 <div class="ttc" id="aclasssofa_1_1helper_1_1logging_1_1_message_handler_html"><div class="ttname"><a href="classsofa_1_1helper_1_1logging_1_1_message_handler.html">sofa::helper::logging::MessageHandler</a></div><div class="ttdef"><b>Definition:</b> MessageHandler.h:112</div></div>
+<div class="ttc" id="a_type_2src_2sofa_2type_2vector_8h_html"><div class="ttname"><a href="_type_2src_2sofa_2type_2vector_8h.html">vector.h</a></div></div>
+<div class="ttc" id="a_message_handler_8h_html"><div class="ttname"><a href="_message_handler_8h.html">MessageHandler.h</a></div></div>
 <div class="ttc" id="anamespacesofa_1_1testing_html"><div class="ttname"><a href="namespacesofa_1_1testing.html">sofa::testing</a></div><div class="ttdef"><b>Definition:</b> SparseMatrixTest.h:28</div></div>
 <div class="ttc" id="aclasssofa_1_1testing_1_1_main_gtest_message_handler_html"><div class="ttname"><a href="classsofa_1_1testing_1_1_main_gtest_message_handler.html">sofa::testing::MainGtestMessageHandler</a></div><div class="ttdef"><b>Definition:</b> TestMessageHandler.h:144</div></div>
+<div class="ttc" id="a_message_8h_html"><div class="ttname"><a href="_message_8h.html">Message.h</a></div></div>
+<div class="ttc" id="a_counting_message_handler_8h_html"><div class="ttname"><a href="_counting_message_handler_8h.html">CountingMessageHandler.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_fb9ca955ec84034fe543c6fbbf191646.html">Testing</a></li><li class="navelem"><a class="el" href="dir_622a0948709f06d8bd345dab82870293.html">src</a></li><li class="navelem"><a class="el" href="dir_4fb965f29624eb5d24d0ff015f1467ce.html">sofa</a></li><li class="navelem"><a class="el" href="dir_a38ef6e0346123e2c00944c888981fc0.html">testing</a></li><li class="navelem"><b>TestMessageHandler.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:42:43 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_fb9ca955ec84034fe543c6fbbf191646.html">Testing</a></li><li class="navelem"><a class="el" href="dir_622a0948709f06d8bd345dab82870293.html">src</a></li><li class="navelem"><a class="el" href="dir_4fb965f29624eb5d24d0ff015f1467ce.html">sofa</a></li><li class="navelem"><a class="el" href="dir_a38ef6e0346123e2c00944c888981fc0.html">testing</a></li><li class="navelem"><a class="el" href="src_2sofa_2testing_2_test_message_handler_8h.html">TestMessageHandler.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:18:16 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

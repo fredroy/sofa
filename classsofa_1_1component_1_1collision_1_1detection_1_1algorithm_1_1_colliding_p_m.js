@@ -7,5 +7,9 @@ var classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_
     [ "add", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a0b22889a0064f292110efec42c4094ba", null ],
     [ "clear", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#ac8bb3912a3ce86b15842e79d0b421204", null ],
     [ "intersect", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a4ce1c9a8eeaa7470cb345c0a6f0cef8c", null ],
-    [ "remove", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a955f4368df20fe9c2fe00510ff61a049", null ]
+    [ "remove", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a955f4368df20fe9c2fe00510ff61a049", null ],
+    [ "_addedCM", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#ad8af3d77c2002771202cae060aa4706b", null ],
+    [ "_coll_pairs", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a63b9aff604371b339dea02798ee78b56", null ],
+    [ "_intersectors", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a1db2ae04a2d980ff34464a8baa59c10b", null ],
+    [ "_order", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a1eade94be954d576b263789a1bcb66d0", null ]
 ];

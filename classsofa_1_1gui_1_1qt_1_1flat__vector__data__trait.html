@@ -90,6 +90,8 @@ $(document).ready(function(){initNavTree('classsofa_1_1gui_1_1qt_1_1flat__vector
 <div class="title">flat_vector_data_trait&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_q_model_view_table_data_container_8h_source.html">QModelViewTableDataContainer.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for flat_vector_data_trait&lt; T &gt;:</div>
 <div class="dyncontent">
@@ -102,107 +104,778 @@ Inheritance diagram for flat_vector_data_trait&lt; T &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a22a181a370d3ab8aa40e77637fb5a2f9"><td class="memItemLeft" align="right" valign="top"><a id="a22a181a370d3ab8aa40e77637fb5a2f9"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_struct</b> = 0
+<tr class="memitem:a22a181a370d3ab8aa40e77637fb5a2f9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a9ef8dcf274b6eac0ec8bacc8303b366aa67749cad3fa05c9d291c7b6a6acb9dce">is_struct</a> = 0
  }</td></tr>
 <tr class="separator:a22a181a370d3ab8aa40e77637fb5a2f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a573f0cc5fc240fb29edcf79155e5a542"><td class="memItemLeft" align="right" valign="top"><a id="a573f0cc5fc240fb29edcf79155e5a542"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_vector</b> = 1
+<tr class="memitem:a573f0cc5fc240fb29edcf79155e5a542"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1c0581a1af2c849406558c0611b41266a51ec0d99146a1c7d602126da97f6d53e">is_vector</a> = 1
  }</td></tr>
 <tr class="separator:a573f0cc5fc240fb29edcf79155e5a542"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affeecfb4b0548596bafa671799ea3f4e"><td class="memItemLeft" align="right" valign="top"><a id="affeecfb4b0548596bafa671799ea3f4e"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_single</b> = 0
+<tr class="memitem:affeecfb4b0548596bafa671799ea3f4e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#adb6624c7dc121e8a3fd6bff996afb7e8a74b4f3fce22f1709099e994fe7ef94a1">is_single</a> = 0
  }</td></tr>
 <tr class="separator:affeecfb4b0548596bafa671799ea3f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79b731fd4cfe419a4f26fdd5f3d12754"><td class="memItemLeft" align="right" valign="top"><a id="a79b731fd4cfe419a4f26fdd5f3d12754"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_default</b> = ((struct_data_trait&lt;T&gt;::NVAR == 1 &amp;&amp; vector_data_trait&lt;T&gt;::NDIM &gt;= 1) ? 1 : 0)
+<tr class="memitem:a79b731fd4cfe419a4f26fdd5f3d12754"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a3ce47c3d065b1f28693de14d77ba532fa42560d649446d3c82327a06d9e03f545">is_default</a> = ((struct_data_trait&lt;T&gt;::NVAR == 1 &amp;&amp; vector_data_trait&lt;T&gt;::NDIM &gt;= 1) ? 1 : 0)
  }</td></tr>
 <tr class="separator:a79b731fd4cfe419a4f26fdd5f3d12754"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ef8dcf274b6eac0ec8bacc8303b366a"><td class="memItemLeft" align="right" valign="top"><a id="a9ef8dcf274b6eac0ec8bacc8303b366a"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_struct</b> = 0
+<tr class="memitem:a9ef8dcf274b6eac0ec8bacc8303b366a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a9ef8dcf274b6eac0ec8bacc8303b366aa67749cad3fa05c9d291c7b6a6acb9dce">is_struct</a> = 0
  }</td></tr>
 <tr class="separator:a9ef8dcf274b6eac0ec8bacc8303b366a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c0581a1af2c849406558c0611b41266"><td class="memItemLeft" align="right" valign="top"><a id="a1c0581a1af2c849406558c0611b41266"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_vector</b> = 1
+<tr class="memitem:a1c0581a1af2c849406558c0611b41266"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1c0581a1af2c849406558c0611b41266a51ec0d99146a1c7d602126da97f6d53e">is_vector</a> = 1
  }</td></tr>
 <tr class="separator:a1c0581a1af2c849406558c0611b41266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb6624c7dc121e8a3fd6bff996afb7e8"><td class="memItemLeft" align="right" valign="top"><a id="adb6624c7dc121e8a3fd6bff996afb7e8"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_single</b> = 0
+<tr class="memitem:adb6624c7dc121e8a3fd6bff996afb7e8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#adb6624c7dc121e8a3fd6bff996afb7e8a74b4f3fce22f1709099e994fe7ef94a1">is_single</a> = 0
  }</td></tr>
 <tr class="separator:adb6624c7dc121e8a3fd6bff996afb7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ce47c3d065b1f28693de14d77ba532f"><td class="memItemLeft" align="right" valign="top"><a id="a3ce47c3d065b1f28693de14d77ba532f"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_default</b> = ((struct_data_trait&lt;T&gt;::NVAR == 1 &amp;&amp; vector_data_trait&lt;T&gt;::NDIM &gt;= 1) ? 1 : 0)
+<tr class="memitem:a3ce47c3d065b1f28693de14d77ba532f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a3ce47c3d065b1f28693de14d77ba532fa42560d649446d3c82327a06d9e03f545">is_default</a> = ((struct_data_trait&lt;T&gt;::NVAR == 1 &amp;&amp; vector_data_trait&lt;T&gt;::NDIM &gt;= 1) ? 1 : 0)
  }</td></tr>
 <tr class="separator:a3ce47c3d065b1f28693de14d77ba532f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cff5e5153c81f5a22e8c97d3f8ae0f1"><td class="memItemLeft" align="right" valign="top"><a id="a1cff5e5153c81f5a22e8c97d3f8ae0f1"></a>
-typedef T&#160;</td><td class="memItemRight" valign="bottom"><b>data_type</b></td></tr>
+<tr class="memitem:a1cff5e5153c81f5a22e8c97d3f8ae0f1"><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a></td></tr>
 <tr class="separator:a1cff5e5153c81f5a22e8c97d3f8ae0f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ac501ae1227e301d1ee6da13eead20c"><td class="memItemLeft" align="right" valign="top"><a id="a7ac501ae1227e301d1ee6da13eead20c"></a>
-typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1vector__data__trait.html">vector_data_trait</a>&lt; data_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>vhelper</b></td></tr>
+<tr class="memitem:a7ac501ae1227e301d1ee6da13eead20c"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1vector__data__trait.html">vector_data_trait</a>&lt; <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a7ac501ae1227e301d1ee6da13eead20c">vhelper</a></td></tr>
 <tr class="separator:a7ac501ae1227e301d1ee6da13eead20c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f03b2cba91183a884a5156c7af87ed9"><td class="memItemLeft" align="right" valign="top"><a id="a9f03b2cba91183a884a5156c7af87ed9"></a>
-typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1vector__data__trait.html#a265a253612b46abed17c61b0a5e5ce30">vhelper::value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>vtype</b></td></tr>
+<tr class="memitem:a9f03b2cba91183a884a5156c7af87ed9"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1vector__data__trait.html#a265a253612b46abed17c61b0a5e5ce30">vhelper::value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a9f03b2cba91183a884a5156c7af87ed9">vtype</a></td></tr>
 <tr class="separator:a9f03b2cba91183a884a5156c7af87ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d98c2a18fcd942a7236ae4e636a11d1"><td class="memItemLeft" align="right" valign="top"><a id="a5d98c2a18fcd942a7236ae4e636a11d1"></a>
-typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1default__flat__data__trait.html">default_flat_data_trait</a>&lt; vtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>vtrait</b></td></tr>
+<tr class="memitem:a5d98c2a18fcd942a7236ae4e636a11d1"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1default__flat__data__trait.html">default_flat_data_trait</a>&lt; <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a9f03b2cba91183a884a5156c7af87ed9">vtype</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a5d98c2a18fcd942a7236ae4e636a11d1">vtrait</a></td></tr>
 <tr class="separator:a5d98c2a18fcd942a7236ae4e636a11d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a474421889311293a02c246e56b7f413a"><td class="memItemLeft" align="right" valign="top"><a id="a474421889311293a02c246e56b7f413a"></a>
-typedef vtrait::value_type&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b></td></tr>
+<tr class="memitem:a474421889311293a02c246e56b7f413a"><td class="memItemLeft" align="right" valign="top">typedef vtrait::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a474421889311293a02c246e56b7f413a">value_type</a></td></tr>
 <tr class="separator:a474421889311293a02c246e56b7f413a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cff5e5153c81f5a22e8c97d3f8ae0f1"><td class="memItemLeft" align="right" valign="top"><a id="a1cff5e5153c81f5a22e8c97d3f8ae0f1"></a>
-typedef T&#160;</td><td class="memItemRight" valign="bottom"><b>data_type</b></td></tr>
+<tr class="memitem:a1cff5e5153c81f5a22e8c97d3f8ae0f1"><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a></td></tr>
 <tr class="separator:a1cff5e5153c81f5a22e8c97d3f8ae0f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ac501ae1227e301d1ee6da13eead20c"><td class="memItemLeft" align="right" valign="top"><a id="a7ac501ae1227e301d1ee6da13eead20c"></a>
-typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1vector__data__trait.html">vector_data_trait</a>&lt; data_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>vhelper</b></td></tr>
+<tr class="memitem:a7ac501ae1227e301d1ee6da13eead20c"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1vector__data__trait.html">vector_data_trait</a>&lt; <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a7ac501ae1227e301d1ee6da13eead20c">vhelper</a></td></tr>
 <tr class="separator:a7ac501ae1227e301d1ee6da13eead20c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f03b2cba91183a884a5156c7af87ed9"><td class="memItemLeft" align="right" valign="top"><a id="a9f03b2cba91183a884a5156c7af87ed9"></a>
-typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1vector__data__trait.html#a265a253612b46abed17c61b0a5e5ce30">vhelper::value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>vtype</b></td></tr>
+<tr class="memitem:a9f03b2cba91183a884a5156c7af87ed9"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1vector__data__trait.html#a265a253612b46abed17c61b0a5e5ce30">vhelper::value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a9f03b2cba91183a884a5156c7af87ed9">vtype</a></td></tr>
 <tr class="separator:a9f03b2cba91183a884a5156c7af87ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d98c2a18fcd942a7236ae4e636a11d1"><td class="memItemLeft" align="right" valign="top"><a id="a5d98c2a18fcd942a7236ae4e636a11d1"></a>
-typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1default__flat__data__trait.html">default_flat_data_trait</a>&lt; vtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>vtrait</b></td></tr>
+<tr class="memitem:a5d98c2a18fcd942a7236ae4e636a11d1"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1default__flat__data__trait.html">default_flat_data_trait</a>&lt; <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a9f03b2cba91183a884a5156c7af87ed9">vtype</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a5d98c2a18fcd942a7236ae4e636a11d1">vtrait</a></td></tr>
 <tr class="separator:a5d98c2a18fcd942a7236ae4e636a11d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a474421889311293a02c246e56b7f413a"><td class="memItemLeft" align="right" valign="top"><a id="a474421889311293a02c246e56b7f413a"></a>
-typedef vtrait::value_type&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b></td></tr>
+<tr class="memitem:a474421889311293a02c246e56b7f413a"><td class="memItemLeft" align="right" valign="top">typedef vtrait::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a474421889311293a02c246e56b7f413a">value_type</a></td></tr>
 <tr class="separator:a474421889311293a02c246e56b7f413a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad689cc5178c3aede6c74f9061d291d7d"><td class="memItemLeft" align="right" valign="top"><a id="ad689cc5178c3aede6c74f9061d291d7d"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> ()</td></tr>
+<tr class="memitem:ad689cc5178c3aede6c74f9061d291d7d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#ad689cc5178c3aede6c74f9061d291d7d">size</a> ()</td></tr>
 <tr class="separator:ad689cc5178c3aede6c74f9061d291d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a273ac1ea9c43b2282326800e0e1338fe"><td class="memItemLeft" align="right" valign="top"><a id="a273ac1ea9c43b2282326800e0e1338fe"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> (const data_type &amp;)</td></tr>
+<tr class="memitem:a273ac1ea9c43b2282326800e0e1338fe"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a273ac1ea9c43b2282326800e0e1338fe">size</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;)</td></tr>
 <tr class="separator:a273ac1ea9c43b2282326800e0e1338fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83177e9272ea21dbcbb05d61a17c414b"><td class="memItemLeft" align="right" valign="top"><a id="a83177e9272ea21dbcbb05d61a17c414b"></a>
-static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>header</b> (const data_type &amp;d, int i=0)</td></tr>
+<tr class="memitem:a83177e9272ea21dbcbb05d61a17c414b"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a83177e9272ea21dbcbb05d61a17c414b">header</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;d, int i=0)</td></tr>
 <tr class="separator:a83177e9272ea21dbcbb05d61a17c414b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8abb11271a3420a85a5483b0a2e225e9"><td class="memItemLeft" align="right" valign="top"><a id="a8abb11271a3420a85a5483b0a2e225e9"></a>
-static const value_type *&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> (const data_type &amp;d, int i=0)</td></tr>
+<tr class="memitem:a8abb11271a3420a85a5483b0a2e225e9"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a474421889311293a02c246e56b7f413a">value_type</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a8abb11271a3420a85a5483b0a2e225e9">get</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;d, int i=0)</td></tr>
 <tr class="separator:a8abb11271a3420a85a5483b0a2e225e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d6966b9f2169b2af04fe7dd74fe2af6"><td class="memItemLeft" align="right" valign="top"><a id="a7d6966b9f2169b2af04fe7dd74fe2af6"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> (const value_type &amp;v, data_type &amp;d, int i=0)</td></tr>
+<tr class="memitem:a7d6966b9f2169b2af04fe7dd74fe2af6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a7d6966b9f2169b2af04fe7dd74fe2af6">set</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a474421889311293a02c246e56b7f413a">value_type</a> &amp;v, <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;d, int i=0)</td></tr>
 <tr class="separator:a7d6966b9f2169b2af04fe7dd74fe2af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab26728c2855f80e44f453cab8e93d669"><td class="memItemLeft" align="right" valign="top"><a id="ab26728c2855f80e44f453cab8e93d669"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>setS</b> (const std::string &amp;v, data_type &amp;d, int i=0)</td></tr>
+<tr class="memitem:ab26728c2855f80e44f453cab8e93d669"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#ab26728c2855f80e44f453cab8e93d669">setS</a> (const std::string &amp;v, <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;d, int i=0)</td></tr>
 <tr class="separator:ab26728c2855f80e44f453cab8e93d669"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad689cc5178c3aede6c74f9061d291d7d"><td class="memItemLeft" align="right" valign="top"><a id="ad689cc5178c3aede6c74f9061d291d7d"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> ()</td></tr>
+<tr class="memitem:ad689cc5178c3aede6c74f9061d291d7d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#ad689cc5178c3aede6c74f9061d291d7d">size</a> ()</td></tr>
 <tr class="separator:ad689cc5178c3aede6c74f9061d291d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a273ac1ea9c43b2282326800e0e1338fe"><td class="memItemLeft" align="right" valign="top"><a id="a273ac1ea9c43b2282326800e0e1338fe"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> (const data_type &amp;)</td></tr>
+<tr class="memitem:a273ac1ea9c43b2282326800e0e1338fe"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a273ac1ea9c43b2282326800e0e1338fe">size</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;)</td></tr>
 <tr class="separator:a273ac1ea9c43b2282326800e0e1338fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83177e9272ea21dbcbb05d61a17c414b"><td class="memItemLeft" align="right" valign="top"><a id="a83177e9272ea21dbcbb05d61a17c414b"></a>
-static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>header</b> (const data_type &amp;d, int i=0)</td></tr>
+<tr class="memitem:a83177e9272ea21dbcbb05d61a17c414b"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a83177e9272ea21dbcbb05d61a17c414b">header</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;d, int i=0)</td></tr>
 <tr class="separator:a83177e9272ea21dbcbb05d61a17c414b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8abb11271a3420a85a5483b0a2e225e9"><td class="memItemLeft" align="right" valign="top"><a id="a8abb11271a3420a85a5483b0a2e225e9"></a>
-static const value_type *&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> (const data_type &amp;d, int i=0)</td></tr>
+<tr class="memitem:a8abb11271a3420a85a5483b0a2e225e9"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a474421889311293a02c246e56b7f413a">value_type</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a8abb11271a3420a85a5483b0a2e225e9">get</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;d, int i=0)</td></tr>
 <tr class="separator:a8abb11271a3420a85a5483b0a2e225e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d6966b9f2169b2af04fe7dd74fe2af6"><td class="memItemLeft" align="right" valign="top"><a id="a7d6966b9f2169b2af04fe7dd74fe2af6"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> (const value_type &amp;v, data_type &amp;d, int i=0)</td></tr>
+<tr class="memitem:a7d6966b9f2169b2af04fe7dd74fe2af6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a7d6966b9f2169b2af04fe7dd74fe2af6">set</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a474421889311293a02c246e56b7f413a">value_type</a> &amp;v, <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;d, int i=0)</td></tr>
 <tr class="separator:a7d6966b9f2169b2af04fe7dd74fe2af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab26728c2855f80e44f453cab8e93d669"><td class="memItemLeft" align="right" valign="top"><a id="ab26728c2855f80e44f453cab8e93d669"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>setS</b> (const std::string &amp;v, data_type &amp;d, int i=0)</td></tr>
+<tr class="memitem:ab26728c2855f80e44f453cab8e93d669"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#ab26728c2855f80e44f453cab8e93d669">setS</a> (const std::string &amp;v, <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;d, int i=0)</td></tr>
 <tr class="separator:ab26728c2855f80e44f453cab8e93d669"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a1cff5e5153c81f5a22e8c97d3f8ae0f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cff5e5153c81f5a22e8c97d3f8ae0f1">&#9670;&nbsp;</a></span>data_type <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef T <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1cff5e5153c81f5a22e8c97d3f8ae0f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cff5e5153c81f5a22e8c97d3f8ae0f1">&#9670;&nbsp;</a></span>data_type <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef T <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a474421889311293a02c246e56b7f413a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a474421889311293a02c246e56b7f413a">&#9670;&nbsp;</a></span>value_type <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef vtrait::value_type <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a474421889311293a02c246e56b7f413a">value_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a474421889311293a02c246e56b7f413a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a474421889311293a02c246e56b7f413a">&#9670;&nbsp;</a></span>value_type <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef vtrait::value_type <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a474421889311293a02c246e56b7f413a">value_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ac501ae1227e301d1ee6da13eead20c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ac501ae1227e301d1ee6da13eead20c">&#9670;&nbsp;</a></span>vhelper <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1vector__data__trait.html">vector_data_trait</a>&lt;<a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a>&gt; <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a7ac501ae1227e301d1ee6da13eead20c">vhelper</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ac501ae1227e301d1ee6da13eead20c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ac501ae1227e301d1ee6da13eead20c">&#9670;&nbsp;</a></span>vhelper <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1vector__data__trait.html">vector_data_trait</a>&lt;<a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a>&gt; <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a7ac501ae1227e301d1ee6da13eead20c">vhelper</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d98c2a18fcd942a7236ae4e636a11d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d98c2a18fcd942a7236ae4e636a11d1">&#9670;&nbsp;</a></span>vtrait <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1default__flat__data__trait.html">default_flat_data_trait</a>&lt;<a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a9f03b2cba91183a884a5156c7af87ed9">vtype</a>&gt; <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a5d98c2a18fcd942a7236ae4e636a11d1">vtrait</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d98c2a18fcd942a7236ae4e636a11d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d98c2a18fcd942a7236ae4e636a11d1">&#9670;&nbsp;</a></span>vtrait <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1default__flat__data__trait.html">default_flat_data_trait</a>&lt;<a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a9f03b2cba91183a884a5156c7af87ed9">vtype</a>&gt; <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a5d98c2a18fcd942a7236ae4e636a11d1">vtrait</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f03b2cba91183a884a5156c7af87ed9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f03b2cba91183a884a5156c7af87ed9">&#9670;&nbsp;</a></span>vtype <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1vector__data__trait.html#a265a253612b46abed17c61b0a5e5ce30">vhelper::value_type</a> <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a9f03b2cba91183a884a5156c7af87ed9">vtype</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f03b2cba91183a884a5156c7af87ed9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f03b2cba91183a884a5156c7af87ed9">&#9670;&nbsp;</a></span>vtype <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1vector__data__trait.html#a265a253612b46abed17c61b0a5e5ce30">vhelper::value_type</a> <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a9f03b2cba91183a884a5156c7af87ed9">vtype</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a22a181a370d3ab8aa40e77637fb5a2f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22a181a370d3ab8aa40e77637fb5a2f9">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9ef8dcf274b6eac0ec8bacc8303b366aa67749cad3fa05c9d291c7b6a6acb9dce"></a>is_struct&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a573f0cc5fc240fb29edcf79155e5a542"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a573f0cc5fc240fb29edcf79155e5a542">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1c0581a1af2c849406558c0611b41266a51ec0d99146a1c7d602126da97f6d53e"></a>is_vector&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="affeecfb4b0548596bafa671799ea3f4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affeecfb4b0548596bafa671799ea3f4e">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adb6624c7dc121e8a3fd6bff996afb7e8a74b4f3fce22f1709099e994fe7ef94a1"></a>is_single&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a79b731fd4cfe419a4f26fdd5f3d12754"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79b731fd4cfe419a4f26fdd5f3d12754">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3ce47c3d065b1f28693de14d77ba532fa42560d649446d3c82327a06d9e03f545"></a>is_default&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a9ef8dcf274b6eac0ec8bacc8303b366a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ef8dcf274b6eac0ec8bacc8303b366a">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9ef8dcf274b6eac0ec8bacc8303b366aa67749cad3fa05c9d291c7b6a6acb9dce"></a>is_struct&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a1c0581a1af2c849406558c0611b41266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c0581a1af2c849406558c0611b41266">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1c0581a1af2c849406558c0611b41266a51ec0d99146a1c7d602126da97f6d53e"></a>is_vector&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="adb6624c7dc121e8a3fd6bff996afb7e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb6624c7dc121e8a3fd6bff996afb7e8">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adb6624c7dc121e8a3fd6bff996afb7e8a74b4f3fce22f1709099e994fe7ef94a1"></a>is_single&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a3ce47c3d065b1f28693de14d77ba532f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ce47c3d065b1f28693de14d77ba532f">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3ce47c3d065b1f28693de14d77ba532fa42560d649446d3c82327a06d9e03f545"></a>is_default&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8abb11271a3420a85a5483b0a2e225e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8abb11271a3420a85a5483b0a2e225e9">&#9670;&nbsp;</a></span>get() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a474421889311293a02c246e56b7f413a">value_type</a>* get </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8abb11271a3420a85a5483b0a2e225e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8abb11271a3420a85a5483b0a2e225e9">&#9670;&nbsp;</a></span>get() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a474421889311293a02c246e56b7f413a">value_type</a>* get </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83177e9272ea21dbcbb05d61a17c414b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83177e9272ea21dbcbb05d61a17c414b">&#9670;&nbsp;</a></span>header() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const char* header </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83177e9272ea21dbcbb05d61a17c414b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83177e9272ea21dbcbb05d61a17c414b">&#9670;&nbsp;</a></span>header() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const char* header </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d6966b9f2169b2af04fe7dd74fe2af6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d6966b9f2169b2af04fe7dd74fe2af6">&#9670;&nbsp;</a></span>set() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void set </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a474421889311293a02c246e56b7f413a">value_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d6966b9f2169b2af04fe7dd74fe2af6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d6966b9f2169b2af04fe7dd74fe2af6">&#9670;&nbsp;</a></span>set() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void set </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a474421889311293a02c246e56b7f413a">value_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab26728c2855f80e44f453cab8e93d669"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab26728c2855f80e44f453cab8e93d669">&#9670;&nbsp;</a></span>setS() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void setS </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab26728c2855f80e44f453cab8e93d669"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab26728c2855f80e44f453cab8e93d669">&#9670;&nbsp;</a></span>setS() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void setS </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad689cc5178c3aede6c74f9061d291d7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad689cc5178c3aede6c74f9061d291d7d">&#9670;&nbsp;</a></span>size() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad689cc5178c3aede6c74f9061d291d7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad689cc5178c3aede6c74f9061d291d7d">&#9670;&nbsp;</a></span>size() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a273ac1ea9c43b2282326800e0e1338fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a273ac1ea9c43b2282326800e0e1338fe">&#9670;&nbsp;</a></span>size() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int size </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a273ac1ea9c43b2282326800e0e1338fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a273ac1ea9c43b2282326800e0e1338fe">&#9670;&nbsp;</a></span>size() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int size </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>gui</b></li><li class="navelem"><b>qt</b></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html">flat_vector_data_trait</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:52 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui.html">gui</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui_1_1qt.html">qt</a></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__vector__data__trait.html">flat_vector_data_trait</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:39 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

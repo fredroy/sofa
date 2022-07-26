@@ -87,12 +87,15 @@ $(document).ready(function(){initNavTree('classsofa_1_1helper_1_1_basic_dispatch
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-types">Protected Types</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classsofa_1_1helper_1_1_basic_dispatcher-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">BasicDispatcher&lt; BaseClass, ResulT &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_fn_dispatcher_8h_source.html">FnDispatcher.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for BasicDispatcher&lt; BaseClass, ResulT &gt;:</div>
 <div class="dyncontent">
@@ -106,61 +109,381 @@ Inheritance diagram for BasicDispatcher&lt; BaseClass, ResulT &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ae129a5161a435d71cb74c45d261510c9"><td class="memItemLeft" align="right" valign="top"><a id="ae129a5161a435d71cb74c45d261510c9"></a>
-typedef ResulT(*&#160;</td><td class="memItemRight" valign="bottom"><b>F</b>) (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;)</td></tr>
+<tr class="memitem:ae129a5161a435d71cb74c45d261510c9"><td class="memItemLeft" align="right" valign="top">typedef ResulT(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#ae129a5161a435d71cb74c45d261510c9">F</a>) (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;)</td></tr>
 <tr class="separator:ae129a5161a435d71cb74c45d261510c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a679b4bc6c4edbf1ad62e64e6e74a768f"><td class="memItemLeft" align="right" valign="top"><a id="a679b4bc6c4edbf1ad62e64e6e74a768f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add</b> (const std::type_info &amp;class1, const std::type_info &amp;class2, F fun)</td></tr>
+<tr class="memitem:a679b4bc6c4edbf1ad62e64e6e74a768f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a679b4bc6c4edbf1ad62e64e6e74a768f">add</a> (const std::type_info &amp;class1, const std::type_info &amp;class2, <a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#ae129a5161a435d71cb74c45d261510c9">F</a> fun)</td></tr>
 <tr class="separator:a679b4bc6c4edbf1ad62e64e6e74a768f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b57eb160fc7b2f6516fe150828009eb"><td class="memItemLeft" align="right" valign="top"><a id="a9b57eb160fc7b2f6516fe150828009eb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ignore</b> (const std::type_info &amp;class1, const std::type_info &amp;class2)</td></tr>
+<tr class="memitem:a9b57eb160fc7b2f6516fe150828009eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a9b57eb160fc7b2f6516fe150828009eb">ignore</a> (const std::type_info &amp;class1, const std::type_info &amp;class2)</td></tr>
 <tr class="separator:a9b57eb160fc7b2f6516fe150828009eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa90777917a8ce4342699b3120f9b8df4"><td class="memTemplParams" colspan="2"><a id="aa90777917a8ce4342699b3120f9b8df4"></a>
-template&lt;class ConcreteClass1 , class ConcreteClass2 , ResulT(*)(ConcreteClass1 &amp;, ConcreteClass2 &amp;) F, bool symetric&gt; </td></tr>
-<tr class="memitem:aa90777917a8ce4342699b3120f9b8df4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ignore</b> ()</td></tr>
+<tr class="memitem:aa90777917a8ce4342699b3120f9b8df4"><td class="memTemplParams" colspan="2">template&lt;class ConcreteClass1 , class ConcreteClass2 , ResulT(*)(ConcreteClass1 &amp;, ConcreteClass2 &amp;) F, bool symetric&gt; </td></tr>
+<tr class="memitem:aa90777917a8ce4342699b3120f9b8df4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#aa90777917a8ce4342699b3120f9b8df4">ignore</a> ()</td></tr>
 <tr class="separator:aa90777917a8ce4342699b3120f9b8df4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc1f787ae7490aaa41d1e7531734b3a0"><td class="memItemLeft" align="right" valign="top"><a id="abc1f787ae7490aaa41d1e7531734b3a0"></a>
-virtual ResulT&#160;</td><td class="memItemRight" valign="bottom"><b>defaultFn</b> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg1, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg2)</td></tr>
+<tr class="memitem:abc1f787ae7490aaa41d1e7531734b3a0"><td class="memItemLeft" align="right" valign="top">virtual ResulT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#abc1f787ae7490aaa41d1e7531734b3a0">defaultFn</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg1, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg2)</td></tr>
 <tr class="separator:abc1f787ae7490aaa41d1e7531734b3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57b051554c37dd4e131daf90770afd48"><td class="memItemLeft" align="right" valign="top"><a id="a57b051554c37dd4e131daf90770afd48"></a>
-ResulT&#160;</td><td class="memItemRight" valign="bottom"><b>go</b> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg1, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg2)</td></tr>
+<tr class="memitem:a57b051554c37dd4e131daf90770afd48"><td class="memItemLeft" align="right" valign="top">ResulT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a57b051554c37dd4e131daf90770afd48">go</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg1, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg2)</td></tr>
 <tr class="separator:a57b051554c37dd4e131daf90770afd48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ccfde8846bc0509714ae844ef048747"><td class="memItemLeft" align="right" valign="top"><a id="a7ccfde8846bc0509714ae844ef048747"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a7ccfde8846bc0509714ae844ef048747">isSupported</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg1, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg2)</td></tr>
-<tr class="memdesc:a7ccfde8846bc0509714ae844ef048747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if a pair of argument correspond to a callback function (different than ignoreFn) <br /></td></tr>
+<tr class="memitem:a7ccfde8846bc0509714ae844ef048747"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a7ccfde8846bc0509714ae844ef048747">isSupported</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg1, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg2)</td></tr>
+<tr class="memdesc:a7ccfde8846bc0509714ae844ef048747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if a pair of argument correspond to a callback function (different than ignoreFn)  <a href="classsofa_1_1helper_1_1_basic_dispatcher.html#a7ccfde8846bc0509714ae844ef048747">More...</a><br /></td></tr>
 <tr class="separator:a7ccfde8846bc0509714ae844ef048747"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a98168a1af900c0592dfed159a8a2f1dd"><td class="memItemLeft" align="right" valign="top"><a id="a98168a1af900c0592dfed159a8a2f1dd"></a>
-static ResulT&#160;</td><td class="memItemRight" valign="bottom"><b>ignoreFn</b> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg1, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg2)</td></tr>
+<tr class="memitem:a98168a1af900c0592dfed159a8a2f1dd"><td class="memItemLeft" align="right" valign="top">static ResulT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a98168a1af900c0592dfed159a8a2f1dd">ignoreFn</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg1, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;arg2)</td></tr>
 <tr class="separator:a98168a1af900c0592dfed159a8a2f1dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
 Protected Types</h2></td></tr>
-<tr class="memitem:a719e276ec835d19cea3d4c13b4b6a8f7"><td class="memItemLeft" align="right" valign="top"><a id="a719e276ec835d19cea3d4c13b4b6a8f7"></a>
-typedef std::pair&lt; <a class="el" href="classsofa_1_1helper_1_1_type_info.html">TypeInfo</a>, <a class="el" href="classsofa_1_1helper_1_1_type_info.html">TypeInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>KeyType</b></td></tr>
+<tr class="memitem:a719e276ec835d19cea3d4c13b4b6a8f7"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; <a class="el" href="classsofa_1_1helper_1_1_type_info.html">TypeInfo</a>, <a class="el" href="classsofa_1_1helper_1_1_type_info.html">TypeInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a719e276ec835d19cea3d4c13b4b6a8f7">KeyType</a></td></tr>
 <tr class="separator:a719e276ec835d19cea3d4c13b4b6a8f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a292c5e063ad43c550d95751dd381b0a9"><td class="memItemLeft" align="right" valign="top"><a id="a292c5e063ad43c550d95751dd381b0a9"></a>
-typedef std::map&lt; KeyType, F &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>MapType</b></td></tr>
+<tr class="memitem:a292c5e063ad43c550d95751dd381b0a9"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; <a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a719e276ec835d19cea3d4c13b4b6a8f7">KeyType</a>, <a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#ae129a5161a435d71cb74c45d261510c9">F</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a292c5e063ad43c550d95751dd381b0a9">MapType</a></td></tr>
 <tr class="separator:a292c5e063ad43c550d95751dd381b0a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a34a82b5785f8f8b25679cb756b4ef5e0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a34a82b5785f8f8b25679cb756b4ef5e0">~BasicDispatcher</a> ()</td></tr>
+<tr class="separator:a34a82b5785f8f8b25679cb756b4ef5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a10429a287f457ff4e94876d87257610c"><td class="memItemLeft" align="right" valign="top"><a id="a10429a287f457ff4e94876d87257610c"></a>
-MapType&#160;</td><td class="memItemRight" valign="bottom"><b>callBackMap</b></td></tr>
+<tr class="memitem:a10429a287f457ff4e94876d87257610c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a292c5e063ad43c550d95751dd381b0a9">MapType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a10429a287f457ff4e94876d87257610c">callBackMap</a></td></tr>
 <tr class="separator:a10429a287f457ff4e94876d87257610c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ae129a5161a435d71cb74c45d261510c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae129a5161a435d71cb74c45d261510c9">&#9670;&nbsp;</a></span>F</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef ResulT(* F(<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a719e276ec835d19cea3d4c13b4b6a8f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a719e276ec835d19cea3d4c13b4b6a8f7">&#9670;&nbsp;</a></span>KeyType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;<a class="el" href="classsofa_1_1helper_1_1_type_info.html">TypeInfo</a>,<a class="el" href="classsofa_1_1helper_1_1_type_info.html">TypeInfo</a>&gt; <a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a719e276ec835d19cea3d4c13b4b6a8f7">KeyType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a292c5e063ad43c550d95751dd381b0a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a292c5e063ad43c550d95751dd381b0a9">&#9670;&nbsp;</a></span>MapType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;<a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a719e276ec835d19cea3d4c13b4b6a8f7">KeyType</a>, <a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#ae129a5161a435d71cb74c45d261510c9">F</a>&gt; <a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a292c5e063ad43c550d95751dd381b0a9">MapType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a34a82b5785f8f8b25679cb756b4ef5e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34a82b5785f8f8b25679cb756b4ef5e0">&#9670;&nbsp;</a></span>~BasicDispatcher()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ~<a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html">BasicDispatcher</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a679b4bc6c4edbf1ad62e64e6e74a768f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a679b4bc6c4edbf1ad62e64e6e74a768f">&#9670;&nbsp;</a></span>add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add </td>
+          <td>(</td>
+          <td class="paramtype">const std::type_info &amp;&#160;</td>
+          <td class="paramname"><em>class1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::type_info &amp;&#160;</td>
+          <td class="paramname"><em>class2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#ae129a5161a435d71cb74c45d261510c9">F</a>&#160;</td>
+          <td class="paramname"><em>fun</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc1f787ae7490aaa41d1e7531734b3a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc1f787ae7490aaa41d1e7531734b3a0">&#9670;&nbsp;</a></span>defaultFn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ResulT defaultFn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>arg1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>arg2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a57b051554c37dd4e131daf90770afd48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57b051554c37dd4e131daf90770afd48">&#9670;&nbsp;</a></span>go()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ResulT go </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>arg1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>arg2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa90777917a8ce4342699b3120f9b8df4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa90777917a8ce4342699b3120f9b8df4">&#9670;&nbsp;</a></span>ignore() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ignore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b57eb160fc7b2f6516fe150828009eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b57eb160fc7b2f6516fe150828009eb">&#9670;&nbsp;</a></span>ignore() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ignore </td>
+          <td>(</td>
+          <td class="paramtype">const std::type_info &amp;&#160;</td>
+          <td class="paramname"><em>class1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::type_info &amp;&#160;</td>
+          <td class="paramname"><em>class2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a98168a1af900c0592dfed159a8a2f1dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98168a1af900c0592dfed159a8a2f1dd">&#9670;&nbsp;</a></span>ignoreFn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ResulT ignoreFn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>arg1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>arg2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ccfde8846bc0509714ae844ef048747"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ccfde8846bc0509714ae844ef048747">&#9670;&nbsp;</a></span>isSupported()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isSupported </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>arg1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>arg2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return true if a pair of argument correspond to a callback function (different than ignoreFn) </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a10429a287f457ff4e94876d87257610c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10429a287f457ff4e94876d87257610c">&#9670;&nbsp;</a></span>callBackMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html#a292c5e063ad43c550d95751dd381b0a9">MapType</a> callBackMap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1_basic_dispatcher.html">BasicDispatcher</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:54 for SOFA by
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:40 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

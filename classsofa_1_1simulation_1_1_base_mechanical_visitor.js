@@ -52,6 +52,8 @@ var classsofa_1_1simulation_1_1_base_mechanical_visitor =
     [ "setNodeData", "classsofa_1_1simulation_1_1_base_mechanical_visitor.html#abeb71909c92958be145a15f5c541abb1", null ],
     [ "stopAtMechanicalMapping", "classsofa_1_1simulation_1_1_base_mechanical_visitor.html#a3489b0454437f1597743b34c156e02ba", null ],
     [ "writeNodeData", "classsofa_1_1simulation_1_1_base_mechanical_visitor.html#a79dd39dd3fe06e68aee8923eea90e14b", null ],
+    [ "bwdVisitorType", "classsofa_1_1simulation_1_1_base_mechanical_visitor.html#a8dda14851ba87a33e802f1921b0d223c", null ],
+    [ "fwdVisitorType", "classsofa_1_1simulation_1_1_base_mechanical_visitor.html#a6901aa2d31fb69a2f45ee68a6fa10914", null ],
     [ "root", "classsofa_1_1simulation_1_1_base_mechanical_visitor.html#a880cac6c3bba2432dc293d6fc7cdd178", null ],
     [ "rootData", "classsofa_1_1simulation_1_1_base_mechanical_visitor.html#abfc9aaf894992154583a2bcfa5fbd001", null ]
 ];

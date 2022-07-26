@@ -20,6 +20,7 @@ var classsofa_1_1helper_1_1_triangle_octree =
     [ "traceAllStart", "classsofa_1_1helper_1_1_triangle_octree.html#a4108a4d4675791300f0a3e29a451391e", null ],
     [ "TriangleOctreeRoot", "classsofa_1_1helper_1_1_triangle_octree.html#a7f24adc6891295f1c813cecb7956b279", null ],
     [ "childVec", "classsofa_1_1helper_1_1_triangle_octree.html#a8358c8d1c6f9729e2e04c87bf847e5e6", null ],
+    [ "CUBE_SIZE", "classsofa_1_1helper_1_1_triangle_octree.html#acb0c10aab478b0e8dd28a40b7d750be0", null ],
     [ "internal", "classsofa_1_1helper_1_1_triangle_octree.html#a11c36f4d2472498ccb67b76fb748d56d", null ],
     [ "is_leaf", "classsofa_1_1helper_1_1_triangle_octree.html#ab10fefeff0f06c67fe931f011449e3e5", null ],
     [ "objects", "classsofa_1_1helper_1_1_triangle_octree.html#a578692a0b1ee5922a63e75e8054df88d", null ],

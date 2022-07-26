@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('framework_2_type_2src_2sofa_2type_2_fr
 <div class="title">Frame.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="framework_2_type_2src_2sofa_2type_2_frame_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -111,9 +111,9 @@ $(document).ready(function(){initNavTree('framework_2_type_2src_2sofa_2type_2_fr
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/type/config.h&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sofa/type/Vec.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;sofa/type/Mat.h&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;sofa/type/Quat.h&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="framework_2_type_2src_2sofa_2type_2vec_8h.html">sofa/type/Vec.h</a>&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_type_2src_2sofa_2type_2_mat_8h.html">sofa/type/Mat.h</a>&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_type_2src_2sofa_2type_2_quat_8h.html">sofa/type/Quat.h</a>&gt;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1type.html">sofa::type</a></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
@@ -124,20 +124,20 @@ $(document).ready(function(){initNavTree('framework_2_type_2src_2sofa_2type_2_fr
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">typedef</span> type::Quat&lt;SReal&gt; Quat;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">typedef</span> Mat&lt;3,3,SReal&gt; Mat33;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    Vec3 origin_;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> origin_;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    Mat33 basis_;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    Frame (<span class="keyword">const</span> Vec3 &amp;origin, <span class="keyword">const</span> Mat33&amp; m );</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    Frame (<span class="keyword">const</span> <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;origin, <span class="keyword">const</span> Mat33&amp; m );</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    Frame (<span class="keyword">const</span> Vec3 &amp;origin, <span class="keyword">const</span> Quat &amp;orientation, <span class="keyword">const</span> Vec3&amp; scale=Vec3(1,1,1) );</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    Frame (<span class="keyword">const</span> <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;origin, <span class="keyword">const</span> Quat &amp;orientation, <span class="keyword">const</span> <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>&amp; scale=<a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>(1,1,1) );</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    Frame (<span class="keyword">const</span> Vec3 &amp;origin );</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    Frame (<span class="keyword">const</span> <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;origin );</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    Frame ();</div>
 <div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_frame.html">   61</a></span>&#160; </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> setTransform( <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>&amp; origin, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>&amp; orientation, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>&amp; scale );</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> clear();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="_q_sofa_recorder_8cpp.html#adc2a83d174f742e14902972009913e84">clear</a>();</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>&amp; getOrigin ();</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
@@ -149,10 +149,10 @@ $(document).ready(function(){initNavTree('framework_2_type_2src_2sofa_2type_2_fr
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat33</a>&amp; getBasis () <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> setBasis( <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat33</a>&amp; m );</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">static</span> <a class="code" href="classsofa_1_1type_1_1_frame.html">Frame</a> identity();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_frame.html#ad3328bdc3b0c9264a4359be38c20845a">   84</a></span>&#160;    <span class="keywordtype">void</span> setBasis( <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat33</a>&amp; m );</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_frame.html#ab32aab3b564a8851045c196614b4f5aa">   85</a></span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_frame.html#aece359308e1b373ff8e5e78451b85cb6">   87</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="classsofa_1_1type_1_1_frame.html">Frame</a> identity();</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_frame.html#abebf02d6935854b7a0d76fa4827d468f">   88</a></span>&#160; </div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> multRight( <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_frame.html">Frame</a>&amp; c );</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_frame.html">Frame</a> mult( <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_frame.html">Frame</a>&amp; c ) <span class="keyword">const</span>;</div>
@@ -179,22 +179,28 @@ $(document).ready(function(){initNavTree('framework_2_type_2src_2sofa_2type_2_fr
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_frame.html">Frame</a> inversed() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; operator &lt;&lt; (std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_frame.html">Frame</a>&amp; c );</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="namespacesofa_1_1type.html#a217531c3da1b353db4bcec2b43197958">operator &lt;&lt; </a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_frame.html">Frame</a>&amp; c );</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;};</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;} <span class="comment">// namespace sofa::type</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_html"><div class="ttname"><a href="classsofa_1_1type_1_1_mat.html">sofa::type::Mat&lt; 3, 3, SReal &gt;</a></div></div>
+<div class="ttc" id="anamespacesofa_1_1type_html_a84aea2c81a0c09781db1480502dad042"><div class="ttname"><a href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a></div><div class="ttdeci">Vec&lt; 3, SReal &gt; Vec3</div><div class="ttdef"><b>Definition:</b> fwd.h:70</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_vec_html"><div class="ttname"><a href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec&lt; 3, SReal &gt;</a></div></div>
+<div class="ttc" id="aframework_2_type_2src_2sofa_2type_2vec_8h_html"><div class="ttname"><a href="framework_2_type_2src_2sofa_2type_2vec_8h.html">Vec.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_quat_html"><div class="ttname"><a href="classsofa_1_1type_1_1_quat.html">sofa::type::Quat&lt; SReal &gt;</a></div></div>
+<div class="ttc" id="a_type_2src_2sofa_2type_2_quat_8h_html"><div class="ttname"><a href="_type_2src_2sofa_2type_2_quat_8h.html">Quat.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_frame_html"><div class="ttname"><a href="classsofa_1_1type_1_1_frame.html">sofa::type::Frame</a></div><div class="ttdef"><b>Definition:</b> Frame.h:61</div></div>
+<div class="ttc" id="a_q_sofa_recorder_8cpp_html_adc2a83d174f742e14902972009913e84"><div class="ttname"><a href="_q_sofa_recorder_8cpp.html#adc2a83d174f742e14902972009913e84">clear</a></div><div class="ttdeci">fpsLabel clear()</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html"><div class="ttname"><a href="namespacesofa_1_1type.html">sofa::type</a></div><div class="ttdoc">for std::pair</div><div class="ttdef"><b>Definition:</b> BoundingBox.cpp:27</div></div>
+<div class="ttc" id="anamespacesofa_1_1type_html_a217531c3da1b353db4bcec2b43197958"><div class="ttname"><a href="namespacesofa_1_1type.html#a217531c3da1b353db4bcec2b43197958">sofa::type::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const sofa::type::Frame &amp;c)</div><div class="ttdef"><b>Definition:</b> Frame.cpp:173</div></div>
+<div class="ttc" id="a_type_2src_2sofa_2type_2_mat_8h_html"><div class="ttname"><a href="_type_2src_2sofa_2type_2_mat_8h.html">Mat.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_f952eb3b438e9453a2f5655056abb290.html">Type</a></li><li class="navelem"><a class="el" href="dir_8aa759aadb20f2635db8c61303b9b849.html">src</a></li><li class="navelem"><a class="el" href="dir_78b83bb765cda7d746578ac350d06d39.html">sofa</a></li><li class="navelem"><a class="el" href="dir_863403d1a96f2534cd37b5b5b93b2f40.html">type</a></li><li class="navelem"><b>Frame.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:35:40 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_f952eb3b438e9453a2f5655056abb290.html">Type</a></li><li class="navelem"><a class="el" href="dir_8aa759aadb20f2635db8c61303b9b849.html">src</a></li><li class="navelem"><a class="el" href="dir_78b83bb765cda7d746578ac350d06d39.html">sofa</a></li><li class="navelem"><a class="el" href="dir_863403d1a96f2534cd37b5b5b93b2f40.html">type</a></li><li class="navelem"><a class="el" href="framework_2_type_2src_2sofa_2type_2_frame_8h.html">Frame.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:01:48 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

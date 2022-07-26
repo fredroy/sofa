@@ -1,6 +1,6 @@
 var classsofa_1_1defaulttype_1_1_std_vector_types =
 [
-    [ "Impl", "structsofa_1_1defaulttype_1_1_std_vector_types_1_1_impl.html", null ],
+    [ "Impl", "structsofa_1_1defaulttype_1_1_std_vector_types_1_1_impl.html", "structsofa_1_1defaulttype_1_1_std_vector_types_1_1_impl" ],
     [ "Coord", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a433a4446e8804f24450e7f9f90cf27a5", null ],
     [ "CPos", "classsofa_1_1defaulttype_1_1_std_vector_types.html#afa162b0b84c501897a99ea89a7c526f2", null ],
     [ "Deriv", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a8ea6da29f450c7a8fcceed1d0e3c4cfc", null ],
@@ -10,5 +10,19 @@ var classsofa_1_1defaulttype_1_1_std_vector_types =
     [ "Size", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a49857dd111c04e1d7fdff0d624cb17a4", null ],
     [ "VecCoord", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a06eb712afb67c0ee7c25eb52a2f5cf5f", null ],
     [ "VecDeriv", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a87984e2bbae86596548eb282b5624420", null ],
-    [ "VecReal", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a6c0d252670960c4ead435e98ff168952", null ]
+    [ "VecReal", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a6c0d252670960c4ead435e98ff168952", null ],
+    [ "add", "classsofa_1_1defaulttype_1_1_std_vector_types.html#ac2f7f44e37fc36eca596181b02a4f4e3", null ],
+    [ "coordDifference", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a52a72066743a6fd05353eb1e6d0bdc4d", null ],
+    [ "get", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a23491800101b8783f8eb1bc9a882a4ea", null ],
+    [ "getCPos", "classsofa_1_1defaulttype_1_1_std_vector_types.html#acbf51a6a95c84770b2c343317ce63042", null ],
+    [ "getDPos", "classsofa_1_1defaulttype_1_1_std_vector_types.html#ad1782a42b62c7e770d302ae49a7d5064", null ],
+    [ "interpolate", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a2f168f47d3a7e26c02dbc0542753e82b", null ],
+    [ "Name", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
+    [ "randomDeriv", "classsofa_1_1defaulttype_1_1_std_vector_types.html#ae0ee0c7f77ad2029c7bcf31dbd5a558e", null ],
+    [ "set", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a95d95242fbb3866d336727bf72f84c2d", null ],
+    [ "setCPos", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a4fe3d2ec6666f2b57510b9165af583af", null ],
+    [ "setDPos", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a5747b7ebfc09fd3e213cba708fae9202", null ],
+    [ "coord_total_size", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a5b7d9609d89401c58df852e86e26306a", null ],
+    [ "deriv_total_size", "classsofa_1_1defaulttype_1_1_std_vector_types.html#ac96652415a8823c5868ff28d7fb36588", null ],
+    [ "spatial_dimensions", "classsofa_1_1defaulttype_1_1_std_vector_types.html#a1f8f9c1cd430adf959a75f3c884bf271", null ]
 ];

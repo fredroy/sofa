@@ -1,6 +1,9 @@
 var classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology =
 [
+    [ "EdgeUpdate", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology_1_1_edge_update.html", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology_1_1_edge_update" ],
     [ "PrimitiveUpdate", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology_1_1_primitive_update.html", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology_1_1_primitive_update" ],
+    [ "QuadUpdate", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology_1_1_quad_update.html", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology_1_1_quad_update" ],
+    [ "TriangleUpdate", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology_1_1_triangle_update.html", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology_1_1_triangle_update" ],
     [ "SeqPoints", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology.html#ae0eaaec838adb1525386c82847acffe8", null ],
     [ "SeqUV", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology.html#a21df86b632d3014f7d3fbc65051e90f8", null ],
     [ "UV", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology.html#a1879c465104bfd7d8027e5ffe52d0344", null ],

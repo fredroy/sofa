@@ -9,5 +9,17 @@ var classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l
     [ "is_single", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#af96be3e9de53e065a22cd7978e05dc5ca74b4f3fce22f1709099e994fe7ef94a1", null ],
     [ "is_struct", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#a688e8862af90a31ae0f4d894b555a7bda67749cad3fa05c9d291c7b6a6acb9dce", null ],
     [ "is_vector", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#a8585c80e32993102dff78219f1bf177da51ec0d99146a1c7d602126da97f6d53e", null ],
-    [ "is_single", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#af96be3e9de53e065a22cd7978e05dc5ca74b4f3fce22f1709099e994fe7ef94a1", null ]
+    [ "is_single", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#af96be3e9de53e065a22cd7978e05dc5ca74b4f3fce22f1709099e994fe7ef94a1", null ],
+    [ "get", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#a2160758e3184673878b5a7c782ed5ced", null ],
+    [ "get", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#a2160758e3184673878b5a7c782ed5ced", null ],
+    [ "header", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#aa24d251062939cfcc337e4acb4827ccb", null ],
+    [ "header", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#aa24d251062939cfcc337e4acb4827ccb", null ],
+    [ "set", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#a1e7c662dac643eb3d2217bc03e0d7be5", null ],
+    [ "set", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#a1e7c662dac643eb3d2217bc03e0d7be5", null ],
+    [ "setS", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#ac73f44242634c244739ac9de786fdb15", null ],
+    [ "setS", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#ac73f44242634c244739ac9de786fdb15", null ],
+    [ "size", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#ad689cc5178c3aede6c74f9061d291d7d", null ],
+    [ "size", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#ad689cc5178c3aede6c74f9061d291d7d", null ],
+    [ "size", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#a273ac1ea9c43b2282326800e0e1338fe", null ],
+    [ "size", "classsofa_1_1gui_1_1qt_1_1flat__data__trait_3_01_t_00_01_t_y_p_e___s_i_n_g_l_e_01_4.html#a273ac1ea9c43b2282326800e0e1338fe", null ]
 ];

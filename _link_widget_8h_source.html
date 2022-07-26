@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_link_widget_8h_source.html',''); init
 <div class="title">LinkWidget.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_link_widget_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -110,9 +110,9 @@ $(document).ready(function(){initNavTree('_link_widget_8h_source.html',''); init
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/gui/qt/config.h&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/core/objectmodel/BaseLink.h&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sofa/core/objectmodel/Base.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;sofa/helper/Factory.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_base_link_8h.html">sofa/core/objectmodel/BaseLink.h</a>&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_base_8h.html">sofa/core/objectmodel/Base.h</a>&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_factory_8h.html">sofa/helper/Factory.h</a>&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;QDialog&gt;</span></div>
@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('_link_widget_8h_source.html',''); init
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span>sofa::gui::qt</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1gui_1_1qt.html">sofa::gui::qt</a></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">class </span>SOFA_GUI_QT_API LinkWidget : <span class="keyword">public</span> QWidget</div>
@@ -190,16 +190,16 @@ $(document).ready(function(){initNavTree('_link_widget_8h_source.html',''); init
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        dirty = b;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        emit WidgetDirty(b);</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;signals:</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="structsofa_1_1gui_1_1qt_1_1_link_widget_1_1_creator_argument.html#a9b45b3e13bd9167aab02e17e08916231">  116</a></span>&#160;signals:</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span> WidgetDirty(<span class="keywordtype">bool</span> );</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span> LinkOwnerDirty(<span class="keywordtype">bool</span> );</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordtype">void</span> LinkBeingChanged();</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">core::objectmodel::BaseLink</a> MyLink;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">core::objectmodel::BaseLink</a> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">MyLink</a>;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    LinkWidget(QWidget* parent,<span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="comment">/*name*/</span>, MyLink* l) :</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        QWidget(parent <span class="comment">/*,name */</span>), baseLink(l), dirty(false), counter(-1)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <a class="code" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html">LinkWidget</a>(QWidget* parent,<span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="comment">/*name*/</span>, <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">MyLink</a>* <a class="code" href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a>) :</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        QWidget(parent <span class="comment">/*,name */</span>), baseLink(<a class="code" href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a>), dirty(false), counter(-1)</div>
 <div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html#a79e36b795e2f29ddddf9b625ee0c8ff4">  131</a></span>&#160;    {</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    ~<a class="code" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html">LinkWidget</a>()<span class="keyword"> override </span>{}</div>
@@ -219,7 +219,7 @@ $(document).ready(function(){initNavTree('_link_widget_8h_source.html',''); init
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="comment">//parentWidget()-&gt;setShown(baseLink-&gt;isDisplayed());</span></div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    }</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">bool</span> isDirty() { <span class="keywordflow">return</span> dirty; }</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html#a6b11172dcbc2d88982cd55c0a02879bf">  151</a></span>&#160; </div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> createWidgets() = 0;</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> sizeWidget() {<span class="keywordflow">return</span> 1;}</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numColumnWidget() {<span class="keywordflow">return</span> 3;}</div>
@@ -228,37 +228,44 @@ $(document).ready(function(){initNavTree('_link_widget_8h_source.html',''); init
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> readFromLink() = 0;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> writeToLink() = 0;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    core::objectmodel::BaseLink* baseLink;</div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html#a2692f0d243f7291bf8eefa83d80ea91a">  167</a></span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">core::objectmodel::BaseLink</a>* baseLink;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">bool</span> dirty;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">int</span> counter;</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html#a7d62df7c17f3b9513dfc51c7c3c6fd71">  169</a></span>&#160;    <span class="keywordtype">int</span> counter;</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;};</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="keyword">class </span>SOFA_GUI_QT_API QDisplayLinkInfoWidget: <span class="keyword">public</span> QWidget</div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html#abee568e58711e5eb44c8bbde7feb60f4">  173</a></span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html#aa6ad17db52f9122d46fd99456b80e5f4">  175</a></span>&#160;<span class="keyword">class </span>SOFA_GUI_QT_API <a class="code" href="classsofa_1_1gui_1_1qt_1_1_q_display_link_info_widget.html">QDisplayLinkInfoWidget</a>: <span class="keyword">public</span> QWidget</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;{</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    Q_OBJECT</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    QDisplayLinkInfoWidget(QWidget* parent, <span class="keyword">const</span> std::string&amp; helper, core::objectmodel::BaseLink* l, <span class="keywordtype">bool</span> modifiable);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <a class="code" href="classsofa_1_1gui_1_1qt_1_1_q_display_link_info_widget.html">QDisplayLinkInfoWidget</a>(QWidget* parent, <span class="keyword">const</span> std::string&amp; helper, <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">core::objectmodel::BaseLink</a>* <a class="code" href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a>, <span class="keywordtype">bool</span> modifiable);</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keyword">public</span> slots:</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getNumLines()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> numLines_;}</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html#a6a9ab1baedf327ac72d3386bf7230db8">  183</a></span>&#160;    <span class="keywordtype">void</span> formatHelperString(<span class="keyword">const</span> std::string&amp; helper, std::string&amp; final_text);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numLines(<span class="keyword">const</span> std::string&amp; str);</div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html#a5b35650c592c885fd62de4b19af51d58">  184</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numLines(<span class="keyword">const</span> std::string&amp; <a class="code" href="namespacesofa_1_1simpleapi.html#a5beef2e2f23a74395a3a756b82218e14">str</a>);</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">core::objectmodel::BaseLink</a>* link;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numLines_;</div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html#a817da6d3174d35794114b3d589a38a89">  186</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numLines_;</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;};</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;} <span class="comment">//namespace sofa::gui::qt</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclasssofa_1_1gui_1_1qt_1_1_link_widget_html"><div class="ttname"><a href="classsofa_1_1gui_1_1qt_1_1_link_widget.html">sofa::gui::qt::LinkWidget</a></div><div class="ttdoc">Abstract Interface of a qwidget which allows to edit a link.</div><div class="ttdef"><b>Definition:</b> LinkWidget.h:66</div></div>
+<div class="ttc" id="anamespacesofa_1_1gui_1_1qt_html"><div class="ttname"><a href="namespacesofa_1_1gui_1_1qt.html">sofa::gui::qt</a></div><div class="ttdef"><b>Definition:</b> AboutSOFADialog.cpp:32</div></div>
+<div class="ttc" id="aclasssofa_1_1gui_1_1qt_1_1_q_display_link_info_widget_html"><div class="ttname"><a href="classsofa_1_1gui_1_1qt_1_1_q_display_link_info_widget.html">sofa::gui::qt::QDisplayLinkInfoWidget</a></div><div class="ttdoc">Widget used to display the name of a Link.</div><div class="ttdef"><b>Definition:</b> LinkWidget.h:195</div></div>
+<div class="ttc" id="anamespacesofa_1_1simpleapi_html_a5beef2e2f23a74395a3a756b82218e14"><div class="ttname"><a href="namespacesofa_1_1simpleapi.html#a5beef2e2f23a74395a3a756b82218e14">sofa::simpleapi::str</a></div><div class="ttdeci">std::string str(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> SimpleApi.h:95</div></div>
+<div class="ttc" id="a_base_8h_html"><div class="ttname"><a href="_base_8h.html">Base.h</a></div></div>
+<div class="ttc" id="a_factory_8h_html"><div class="ttname"><a href="_factory_8h.html">Factory.h</a></div></div>
+<div class="ttc" id="a_base_link_8h_html"><div class="ttname"><a href="_base_link_8h.html">BaseLink.h</a></div></div>
+<div class="ttc" id="a_static_solver__test_8cpp_html_adbde00fd7f75b31654f761d2be114467"><div class="ttname"><a href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a></div><div class="ttdeci">static constexpr SReal l</div><div class="ttdef"><b>Definition:</b> StaticSolver_test.cpp:41</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_link_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">sofa::core::objectmodel::BaseLink</a></div><div class="ttdoc">Abstract base class for all links in the scene grapn, independently of their type.</div><div class="ttdef"><b>Definition:</b> BaseLink.h:107</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_927152f1403da9b2afd274b3e3ae770d.html">GUI</a></li><li class="navelem"><a class="el" href="dir_1eca62023986f93910713a5e9ddcd783.html">Qt</a></li><li class="navelem"><a class="el" href="dir_c9cf2f5bf756267bb272edea8678e2e7.html">src</a></li><li class="navelem"><a class="el" href="dir_70435d7e9fd0cc21447a6601a5ffca9e.html">sofa</a></li><li class="navelem"><a class="el" href="dir_8ed54395151f7a28f820c02d5a2e5ac0.html">gui</a></li><li class="navelem"><a class="el" href="dir_78e7ddc253744ad9fdbd52e0374e35b1.html">qt</a></li><li class="navelem"><b>LinkWidget.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:42:48 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_927152f1403da9b2afd274b3e3ae770d.html">GUI</a></li><li class="navelem"><a class="el" href="dir_1eca62023986f93910713a5e9ddcd783.html">Qt</a></li><li class="navelem"><a class="el" href="dir_c9cf2f5bf756267bb272edea8678e2e7.html">src</a></li><li class="navelem"><a class="el" href="dir_70435d7e9fd0cc21447a6601a5ffca9e.html">sofa</a></li><li class="navelem"><a class="el" href="dir_8ed54395151f7a28f820c02d5a2e5ac0.html">gui</a></li><li class="navelem"><a class="el" href="dir_78e7ddc253744ad9fdbd52e0374e35b1.html">qt</a></li><li class="navelem"><a class="el" href="_link_widget_8h.html">LinkWidget.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:18:22 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

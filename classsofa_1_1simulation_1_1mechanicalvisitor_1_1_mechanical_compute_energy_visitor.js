@@ -7,5 +7,7 @@ var classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_compute_energy_v
     [ "fwdMass", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_compute_energy_visitor.html#a2cb56b689832219599eaed7dd4151f28", null ],
     [ "getClassName", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_compute_energy_visitor.html#abf09a670a9f753e66efb6c1c21a0df28", null ],
     [ "getKineticEnergy", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_compute_energy_visitor.html#a228611d2e8042fe8566517df66b64035", null ],
-    [ "getPotentialEnergy", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_compute_energy_visitor.html#a96684c90833832833e1f45bd51b8ad2e", null ]
+    [ "getPotentialEnergy", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_compute_energy_visitor.html#a96684c90833832833e1f45bd51b8ad2e", null ],
+    [ "m_kineticEnergy", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_compute_energy_visitor.html#a61164c12e48b975a1ab6cf7a831e5005", null ],
+    [ "m_potentialEnergy", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_compute_energy_visitor.html#acc8c57135216d98e0873eb38078727d2", null ]
 ];

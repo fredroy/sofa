@@ -12,6 +12,7 @@ var classsofa_1_1core_1_1objectmodel_1_1_joystick_event =
     [ "getAxisEventsSize", "classsofa_1_1core_1_1objectmodel_1_1_joystick_event.html#a464d2274a358ccd829ada15f8e7a436a", null ],
     [ "getButton", "classsofa_1_1core_1_1objectmodel_1_1_joystick_event.html#abde669494c00b1fdae31282e6fe0c3f3", null ],
     [ "getButtonEvent", "classsofa_1_1core_1_1objectmodel_1_1_joystick_event.html#ae8b0a21d264bfb3e1d43dfa2c7fecd67", null ],
+    [ "GetClassName", "classsofa_1_1core_1_1objectmodel_1_1_joystick_event.html#a19a81be23ebc80699fa8fce13a5eb660", null ],
     [ "getHatEvent", "classsofa_1_1core_1_1objectmodel_1_1_joystick_event.html#ad7e8fa65f78e4da016ec0dade3c58766", null ],
     [ "getHatEvents", "classsofa_1_1core_1_1objectmodel_1_1_joystick_event.html#af009efee9b1d45de983e12da4ce10a3b", null ],
     [ "getHatEventsSize", "classsofa_1_1core_1_1objectmodel_1_1_joystick_event.html#afc9ff5a4d3bfd8c87eaebf925ec9022b", null ],

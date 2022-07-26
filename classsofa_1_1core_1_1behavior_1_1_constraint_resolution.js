@@ -9,5 +9,7 @@ var classsofa_1_1core_1_1behavior_1_1_constraint_resolution =
     [ "resolution", "classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a57ea5db9ab1a0ce35b8b68585a3c6dc5", null ],
     [ "setNbLines", "classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a109d2d9e436d790b0a8e238f1b9b94d4", null ],
     [ "setTolerance", "classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#ab775e7293ddd12cd11332ce73d1cdec3", null ],
-    [ "store", "classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a31ca14083dde7a134885a80e539b9dba", null ]
+    [ "store", "classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a31ca14083dde7a134885a80e539b9dba", null ],
+    [ "m_nbLines", "classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#ad31238bc929335c23cd6976fd167e94c", null ],
+    [ "m_tolerance", "classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html#a25b9854cda6aa4088d1cb713cb3b5adc", null ]
 ];

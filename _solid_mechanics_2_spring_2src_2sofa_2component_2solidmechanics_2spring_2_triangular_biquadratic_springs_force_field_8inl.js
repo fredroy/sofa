@@ -1,0 +1,4 @@
+var _solid_mechanics_2_spring_2src_2sofa_2component_2solidmechanics_2spring_2_triangular_biquadratic_springs_force_field_8inl =
+[
+    [ "Triangle", "_solid_mechanics_2_spring_2src_2sofa_2component_2solidmechanics_2spring_2_triangular_biquadratic_springs_force_field_8inl.html#a55d806ffd55a1e2f3fd9614c2b4ceed6", null ]
+];

@@ -32,6 +32,7 @@ var classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix =
     [ "mult", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a2189e8d0be543de760a294e6398fe03e", null ],
     [ "mult_MT", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a86fce675095ef2c2635f19123395e2e3", null ],
     [ "multVector", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a332848f1b4231484e21cdc475b3f5134", null ],
+    [ "Name", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a28ceceb8e81ac299b3c6992dd0a707d3", null ],
     [ "Name", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
     [ "Name", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
     [ "operator*", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a68f078cab1c52cc0ff9e469f2be69b5f", null ],
@@ -39,7 +40,9 @@ var classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix =
     [ "reserve", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a4fce98d350c01db336b145ea68dbe64c", null ],
     [ "resize", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#ac9527e7cd6e9a9c52d3630b933ec1e9f", null ],
     [ "rowSize", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a22fe2c05e7ef62e807d9d0bc6d0b6d79", null ],
+    [ "set", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#af285a5fe734bb9fffad8729cbc8b6665", null ],
     [ "setIdentity", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a382e6ad7e6721b121e510959e1011be3", null ],
     [ "cholesky", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#af6ced36788365542bb72a11d3a644279", null ],
-    [ "compressedMatrix", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a307864f43e7cece6d2590cc3785918a2", null ]
+    [ "compressedMatrix", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a307864f43e7cece6d2590cc3785918a2", null ],
+    [ "incoming", "classsofa_1_1linearalgebra_1_1_eigen_base_sparse_matrix.html#a29d02eff7d08acabb4b40f0edd8dd2d4", null ]
 ];

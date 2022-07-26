@@ -3,6 +3,7 @@ var classsofa_1_1component_1_1topology_1_1utility_1_1_topological_change_process
     [ "Index", "classsofa_1_1component_1_1topology_1_1utility_1_1_topological_change_processor.html#a34485df4864136107fd830e23695986c", null ],
     [ "TopologicalChangeProcessor", "classsofa_1_1component_1_1topology_1_1utility_1_1_topological_change_processor.html#aa1619114ea6cd6cfe3eaf68c8ab6aa2f", null ],
     [ "~TopologicalChangeProcessor", "classsofa_1_1component_1_1topology_1_1utility_1_1_topological_change_processor.html#a644ba767af69bb7790af3fe5b521a5aa", null ],
+    [ "canCreate", "classsofa_1_1component_1_1topology_1_1utility_1_1_topological_change_processor.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "draw", "classsofa_1_1component_1_1topology_1_1utility_1_1_topological_change_processor.html#a8673433953792026ae9baf91b348d7da", null ],
     [ "findElementIndex", "classsofa_1_1component_1_1topology_1_1utility_1_1_topological_change_processor.html#a2f208e99178f7672dd786f8f2c066cb3", null ],
     [ "findIndexInListOfTime", "classsofa_1_1component_1_1topology_1_1utility_1_1_topological_change_processor.html#a97ea64315fbb3ebf9cc0acc926f7c9d1", null ],

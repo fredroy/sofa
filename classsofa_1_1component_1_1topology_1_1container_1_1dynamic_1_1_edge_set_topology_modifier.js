@@ -40,5 +40,6 @@ var classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_topo
     [ "splitEdgesProcess", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_topology_modifier.html#a0a3909b55285f496f1a630e815876bd2", null ],
     [ "swapEdges", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_topology_modifier.html#a13431d702c54a3d0657db5a5c6d492f6", null ],
     [ "swapEdgesProcess", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_topology_modifier.html#a170bb4b16fa27ca04cbaa2aa39659427", null ],
-    [ "EdgeSetGeometryAlgorithms", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_topology_modifier.html#a3ba71e7035859d0a7aebbfe9c602f01f", null ]
+    [ "EdgeSetGeometryAlgorithms", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_topology_modifier.html#a3ba71e7035859d0a7aebbfe9c602f01f", null ],
+    [ "m_container", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_edge_set_topology_modifier.html#aa468be5270f4219fde98a4ae7e0da2d0", null ]
 ];

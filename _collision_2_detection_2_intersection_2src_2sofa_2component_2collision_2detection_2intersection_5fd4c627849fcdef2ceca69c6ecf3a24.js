@@ -1,0 +1,5 @@
+var _collision_2_detection_2_intersection_2src_2sofa_2component_2collision_2detection_2intersection_5fd4c627849fcdef2ceca69c6ecf3a24 =
+[
+    [ "SAMESIDE", "_collision_2_detection_2_intersection_2src_2sofa_2component_2collision_2detection_2intersection_5fd4c627849fcdef2ceca69c6ecf3a24.html#a8ba3d950bc4f2120e790e48fbe73856b", null ],
+    [ "SAMESIDE", "_collision_2_detection_2_intersection_2src_2sofa_2component_2collision_2detection_2intersection_5fd4c627849fcdef2ceca69c6ecf3a24.html#a8ba3d950bc4f2120e790e48fbe73856b", null ]
+];

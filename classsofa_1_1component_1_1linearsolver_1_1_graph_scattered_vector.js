@@ -6,6 +6,7 @@ var classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_vector =
     [ "GraphScatteredVector", "classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_vector.html#ae0f3f37a1759a8eee5f2850a133020a1", null ],
     [ "add", "classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_vector.html#ad0d01f65cbb4b057f56ae45ea58fa203", null ],
     [ "element", "classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_vector.html#a50defedfd08027c2f7888b0c26ea49c8", null ],
+    [ "Name", "classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_vector.html#a28ceceb8e81ac299b3c6992dd0a707d3", null ],
     [ "operator=", "classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_vector.html#ab9e107a82680a4868ba984f7c8a9ce9b", null ],
     [ "reset", "classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_vector.html#ad20897c5c8bd47f5d4005989bead0e55", null ],
     [ "resize", "classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_vector.html#a9c133c95c84f0a14ce800d46fd53b380", null ],

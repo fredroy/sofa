@@ -2,6 +2,7 @@ var classsofa_1_1component_1_1playback_1_1_write_state =
 [
     [ "WriteState", "classsofa_1_1component_1_1playback_1_1_write_state.html#ae12ddb75ca896906e3fc902f2e47d0e0", null ],
     [ "~WriteState", "classsofa_1_1component_1_1playback_1_1_write_state.html#a95138f2aed5207406c2955854a058347", null ],
+    [ "canCreate", "classsofa_1_1component_1_1playback_1_1_write_state.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "handleEvent", "classsofa_1_1component_1_1playback_1_1_write_state.html#a4543defaa0067ca36bcf42777f805d8f", null ],
     [ "init", "classsofa_1_1component_1_1playback_1_1_write_state.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "reinit", "classsofa_1_1component_1_1playback_1_1_write_state.html#ab1094b915e637faa84817a097d8d87be", null ],

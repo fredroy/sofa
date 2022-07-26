@@ -4,5 +4,13 @@ var classsofa_1_1linearalgebra_1_1matrix__bloc__traits =
     [ "Real", "classsofa_1_1linearalgebra_1_1matrix__bloc__traits.html#ab20b3f4d2b45eeacf2f192c627733e4d", null ],
     [ "SOFA_ATTRIBUTE_DEPRECATED__BLOCK_RENAMING_2404", "classsofa_1_1linearalgebra_1_1matrix__bloc__traits.html#af23ddddb58ad366c55a8e38f98af40cb", null ],
     [ "NL", "classsofa_1_1linearalgebra_1_1matrix__bloc__traits.html#a191c33aa19f004f13bed2b7be33756caaeba10cd0b438b1f9094fa3d1fc88193e", null ],
-    [ "NC", "classsofa_1_1linearalgebra_1_1matrix__bloc__traits.html#a0c5bde183ecefe103f70b49ad9740bcda3dbd1016ea99d087d747530418b89a01", null ]
+    [ "NC", "classsofa_1_1linearalgebra_1_1matrix__bloc__traits.html#a0c5bde183ecefe103f70b49ad9740bcda3dbd1016ea99d087d747530418b89a01", null ],
+    [ "clear", "classsofa_1_1linearalgebra_1_1matrix__bloc__traits.html#ab84610fffd64d88f023505e87d0224fb", null ],
+    [ "empty", "classsofa_1_1linearalgebra_1_1matrix__bloc__traits.html#affb9f3394a45131a987e01078d634cb1", null ],
+    [ "getElementType", "classsofa_1_1linearalgebra_1_1matrix__bloc__traits.html#af6a44d2e9c373b6d3eb2af5a8781f283", null ],
+    [ "invert", "classsofa_1_1linearalgebra_1_1matrix__bloc__traits.html#a74330032d3ae9493c8ab0ba41590a838", null ],
+    [ "split_col_index", "classsofa_1_1linearalgebra_1_1matrix__bloc__traits.html#a9e63d4ddb8d5d140a540e90298ad3d56", null ],
+    [ "split_row_index", "classsofa_1_1linearalgebra_1_1matrix__bloc__traits.html#aded4a073934d9200896b12347d2f7063", null ],
+    [ "v", "classsofa_1_1linearalgebra_1_1matrix__bloc__traits.html#a3cab2c2e4b0c2e4e971527abb69636b7", null ],
+    [ "v", "classsofa_1_1linearalgebra_1_1matrix__bloc__traits.html#a332a64eacea29e8fe8e997b0669d1862", null ]
 ];

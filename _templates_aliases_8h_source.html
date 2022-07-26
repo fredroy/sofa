@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_templates_aliases_8h_source.html','')
 <div class="title">TemplatesAliases.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_templates_aliases_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -119,15 +119,15 @@ $(document).ready(function(){initNavTree('_templates_aliases_8h_source.html','')
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;constexpr <span class="keywordtype">bool</span> isDouble(){<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacesofa_1_1defaulttype.html#a2f44dcf66b3cdffe365d88d1615f31e6">isDouble</a>(){<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;constexpr <span class="keywordtype">bool</span> isDouble&lt;double&gt;(){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacesofa_1_1defaulttype.html#ad35aa9e58d7531e37d9e8d712ceb6458">isDouble&lt;double&gt;</a>(){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;constexpr <span class="keywordtype">bool</span> isSRealDouble(){ <span class="keywordflow">return</span> isDouble&lt;SReal&gt;(); }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;constexpr <span class="keywordtype">bool</span> isSRealFloat(){ <span class="keywordflow">return</span> !isDouble&lt;SReal&gt;(); }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacesofa_1_1defaulttype.html#acc0fe60dd8bd8ca4b347e40991701e64">isSRealDouble</a>(){ <span class="keywordflow">return</span> isDouble&lt;SReal&gt;(); }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacesofa_1_1defaulttype.html#a3a127aea16624a0cf4ee9920a33ad03b">isSRealFloat</a>(){ <span class="keywordflow">return</span> !isDouble&lt;SReal&gt;(); }</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">typedef</span> std::pair&lt;std::string, bool&gt; TemplateAlias;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">typedef</span> std::pair&lt;std::string, bool&gt; <a class="code" href="namespacesofa_1_1defaulttype.html#a19d60fd67b069e0603c085a28959b27c">TemplateAlias</a>;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">class </span>SOFA_DEFAULTTYPE_API TemplateAliases</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
@@ -136,28 +136,34 @@ $(document).ready(function(){initNavTree('_templates_aliases_8h_source.html','')
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">static</span> std::string resolveAlias(<span class="keyword">const</span> std::string&amp; name);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> TemplateAlias* getTemplateAlias(<span class="keyword">const</span> std::string&amp; name);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="namespacesofa_1_1defaulttype.html#a19d60fd67b069e0603c085a28959b27c">TemplateAlias</a>* getTemplateAlias(<span class="keyword">const</span> std::string&amp; name);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">class </span>SOFA_DEFAULTTYPE_API RegisterTemplateAlias</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    RegisterTemplateAlias(<span class="keyword">const</span> std::string&amp; alias, <span class="keyword">const</span> std::string&amp; result, <span class="keyword">const</span> <span class="keywordtype">bool</span> doWarnUser=<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="namespacesofa_1_1defaulttype.html#ad35aa9e58d7531e37d9e8d712ceb6458">   77</a></span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="namespacesofa_1_1defaulttype.html#acc0fe60dd8bd8ca4b347e40991701e64">   79</a></span>&#160;    <a class="code" href="classsofa_1_1defaulttype_1_1_register_template_alias.html">RegisterTemplateAlias</a>(<span class="keyword">const</span> std::string&amp; alias, <span class="keyword">const</span> std::string&amp; result, <span class="keyword">const</span> <span class="keywordtype">bool</span> doWarnUser=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="namespacesofa_1_1defaulttype.html#a3a127aea16624a0cf4ee9920a33ad03b">   80</a></span>&#160;};</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}<span class="comment">// defaulttype</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="namespacesofa_1_1defaulttype.html#a19d60fd67b069e0603c085a28959b27c">   82</a></span>&#160;}<span class="comment">// defaulttype</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}<span class="comment">// sofa</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif // SOFA_HELPER_TEMPLATESALIASES_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1defaulttype_html_acc0fe60dd8bd8ca4b347e40991701e64"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html#acc0fe60dd8bd8ca4b347e40991701e64">sofa::defaulttype::isSRealDouble</a></div><div class="ttdeci">constexpr bool isSRealDouble()</div><div class="ttdef"><b>Definition:</b> TemplatesAliases.h:79</div></div>
 <div class="ttc" id="anamespacesofa_html"><div class="ttname"><a href="namespacesofa.html">sofa</a></div><div class="ttdoc">This allow MeshTrian to interact with the messaging system.</div><div class="ttdef"><b>Definition:</b> ConstraintAnimationLoop.cpp:81</div></div>
+<div class="ttc" id="anamespacesofa_1_1defaulttype_html_a2f44dcf66b3cdffe365d88d1615f31e6"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html#a2f44dcf66b3cdffe365d88d1615f31e6">sofa::defaulttype::isDouble</a></div><div class="ttdeci">constexpr bool isDouble()</div><div class="ttdef"><b>Definition:</b> TemplatesAliases.h:74</div></div>
+<div class="ttc" id="anamespacesofa_1_1defaulttype_html_a19d60fd67b069e0603c085a28959b27c"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html#a19d60fd67b069e0603c085a28959b27c">sofa::defaulttype::TemplateAlias</a></div><div class="ttdeci">std::pair&lt; std::string, bool &gt; TemplateAlias</div><div class="ttdef"><b>Definition:</b> TemplatesAliases.h:82</div></div>
+<div class="ttc" id="anamespacesofa_1_1defaulttype_html_a3a127aea16624a0cf4ee9920a33ad03b"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html#a3a127aea16624a0cf4ee9920a33ad03b">sofa::defaulttype::isSRealFloat</a></div><div class="ttdeci">constexpr bool isSRealFloat()</div><div class="ttdef"><b>Definition:</b> TemplatesAliases.h:80</div></div>
+<div class="ttc" id="anamespacesofa_1_1defaulttype_html_ad35aa9e58d7531e37d9e8d712ceb6458"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html#ad35aa9e58d7531e37d9e8d712ceb6458">sofa::defaulttype::isDouble&lt; double &gt;</a></div><div class="ttdeci">constexpr bool isDouble&lt; double &gt;()</div><div class="ttdef"><b>Definition:</b> TemplatesAliases.h:77</div></div>
+<div class="ttc" id="aclasssofa_1_1defaulttype_1_1_register_template_alias_html"><div class="ttname"><a href="classsofa_1_1defaulttype_1_1_register_template_alias.html">sofa::defaulttype::RegisterTemplateAlias</a></div><div class="ttdoc">Helper class used to register a template alias in the TemplateAliases class.</div><div class="ttdef"><b>Definition:</b> TemplatesAliases.h:115</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_0d107a4ec0fcd1d08023ac7b8c5ae236.html">DefaultType</a></li><li class="navelem"><a class="el" href="dir_5c2b5f7e070e96aa6f2414b8917eb71e.html">src</a></li><li class="navelem"><a class="el" href="dir_93fd527f9bee515199e824272fb626bb.html">sofa</a></li><li class="navelem"><a class="el" href="dir_1804e18a8712f79097be205dbad56bae.html">defaulttype</a></li><li class="navelem"><b>TemplatesAliases.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:38:40 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_0d107a4ec0fcd1d08023ac7b8c5ae236.html">DefaultType</a></li><li class="navelem"><a class="el" href="dir_5c2b5f7e070e96aa6f2414b8917eb71e.html">src</a></li><li class="navelem"><a class="el" href="dir_93fd527f9bee515199e824272fb626bb.html">sofa</a></li><li class="navelem"><a class="el" href="dir_1804e18a8712f79097be205dbad56bae.html">defaulttype</a></li><li class="navelem"><a class="el" href="_templates_aliases_8h.html">TemplatesAliases.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:09:20 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

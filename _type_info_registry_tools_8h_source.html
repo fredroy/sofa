@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_type_info_registry_tools_8h_source.ht
 <div class="title">TypeInfoRegistryTools.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_type_info_registry_tools_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -110,34 +110,40 @@ $(document).ready(function(){initNavTree('_type_info_registry_tools_8h_source.ht
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/defaulttype/TypeInfoRegistry.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_type_info_registry_8h.html">sofa/defaulttype/TypeInfoRegistry.h</a>&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>sofa::defaulttype</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1defaulttype.html">sofa::defaulttype</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">enum class</span> TypeInfoType</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespacesofa_1_1defaulttype.html#acc3fdff545315ca4163402c62c4b9d3c">TypeInfoType</a></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    MISSING,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    NAMEONLY,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    COMPLETE</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="namespacesofa_1_1defaulttype.html#acc3fdff545315ca4163402c62c4b9d3ca10d1208b485425756fcc932229386b02">MISSING</a>,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="namespacesofa_1_1defaulttype.html#acc3fdff545315ca4163402c62c4b9d3ca2c349b5e33d20c7fca698ce1cd1a26f3">NAMEONLY</a>,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="namespacesofa_1_1defaulttype.html#acc3fdff545315ca4163402c62c4b9d3ca3de44296982e58199afc513a715b12ba">COMPLETE</a></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">class </span>SOFA_DEFAULTTYPE_API TypeInfoRegistryTools</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> dumpRegistryContentToStream(std::ostream&amp; out,</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                                TypeInfoType type=TypeInfoType::COMPLETE,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                                <a class="code" href="namespacesofa_1_1defaulttype.html#acc3fdff545315ca4163402c62c4b9d3c">TypeInfoType</a> type=<a class="code" href="namespacesofa_1_1defaulttype.html#acc3fdff545315ca4163402c62c4b9d3ca3de44296982e58199afc513a715b12ba">TypeInfoType::COMPLETE</a>,</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                                <span class="keyword">const</span> std::string&amp; target=<span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;} </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1defaulttype_html"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html">sofa::defaulttype</a></div><div class="ttdef"><b>Definition:</b> BaseMatrix.h:29</div></div>
+<div class="ttc" id="a_type_info_registry_8h_html"><div class="ttname"><a href="_type_info_registry_8h.html">TypeInfoRegistry.h</a></div></div>
+<div class="ttc" id="anamespacesofa_1_1defaulttype_html_acc3fdff545315ca4163402c62c4b9d3ca2c349b5e33d20c7fca698ce1cd1a26f3"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html#acc3fdff545315ca4163402c62c4b9d3ca2c349b5e33d20c7fca698ce1cd1a26f3">sofa::defaulttype::TypeInfoType::NAMEONLY</a></div><div class="ttdeci">@ NAMEONLY</div></div>
+<div class="ttc" id="anamespacesofa_1_1defaulttype_html_acc3fdff545315ca4163402c62c4b9d3c"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html#acc3fdff545315ca4163402c62c4b9d3c">sofa::defaulttype::TypeInfoType</a></div><div class="ttdeci">TypeInfoType</div><div class="ttdoc">Encodes the different kind of type infos stored in the TypeInfoRegistry.</div><div class="ttdef"><b>Definition:</b> TypeInfoRegistryTools.h:66</div></div>
+<div class="ttc" id="anamespacesofa_1_1defaulttype_html_acc3fdff545315ca4163402c62c4b9d3ca3de44296982e58199afc513a715b12ba"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html#acc3fdff545315ca4163402c62c4b9d3ca3de44296982e58199afc513a715b12ba">sofa::defaulttype::TypeInfoType::COMPLETE</a></div><div class="ttdeci">@ COMPLETE</div></div>
+<div class="ttc" id="anamespacesofa_1_1defaulttype_html_acc3fdff545315ca4163402c62c4b9d3ca10d1208b485425756fcc932229386b02"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html#acc3fdff545315ca4163402c62c4b9d3ca10d1208b485425756fcc932229386b02">sofa::defaulttype::TypeInfoType::MISSING</a></div><div class="ttdeci">@ MISSING</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_0d107a4ec0fcd1d08023ac7b8c5ae236.html">DefaultType</a></li><li class="navelem"><a class="el" href="dir_5c2b5f7e070e96aa6f2414b8917eb71e.html">src</a></li><li class="navelem"><a class="el" href="dir_93fd527f9bee515199e824272fb626bb.html">sofa</a></li><li class="navelem"><a class="el" href="dir_1804e18a8712f79097be205dbad56bae.html">defaulttype</a></li><li class="navelem"><b>TypeInfoRegistryTools.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:38:43 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_0d107a4ec0fcd1d08023ac7b8c5ae236.html">DefaultType</a></li><li class="navelem"><a class="el" href="dir_5c2b5f7e070e96aa6f2414b8917eb71e.html">src</a></li><li class="navelem"><a class="el" href="dir_93fd527f9bee515199e824272fb626bb.html">sofa</a></li><li class="navelem"><a class="el" href="dir_1804e18a8712f79097be205dbad56bae.html">defaulttype</a></li><li class="navelem"><a class="el" href="_type_info_registry_tools_8h.html">TypeInfoRegistryTools.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:09:34 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

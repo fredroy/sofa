@@ -119,95 +119,583 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a4f522ae52fb363438e3ecc199c4ae870"><td class="memItemLeft" align="right" valign="top"><a id="a4f522ae52fb363438e3ecc199c4ae870"></a>
-typedef std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ExtensionList</b></td></tr>
+<tr class="memitem:a4f522ae52fb363438e3ecc199c4ae870"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a4f522ae52fb363438e3ecc199c4ae870">ExtensionList</a></td></tr>
 <tr class="separator:a4f522ae52fb363438e3ecc199c4ae870"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7c5c7b43055d4b67c3c3a6f842c027de"><td class="memItemLeft" align="right" valign="top"><a id="a7c5c7b43055d4b67c3c3a6f842c027de"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a7c5c7b43055d4b67c3c3a6f842c027de">canLoadFileName</a> (const char *filename)</td></tr>
-<tr class="memdesc:a7c5c7b43055d4b67c3c3a6f842c027de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pre-loading check. <br /></td></tr>
+<tr class="memitem:a7c5c7b43055d4b67c3c3a6f842c027de"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a7c5c7b43055d4b67c3c3a6f842c027de">canLoadFileName</a> (const char *filename)</td></tr>
+<tr class="memdesc:a7c5c7b43055d4b67c3c3a6f842c027de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pre-loading check.  <a href="classsofa_1_1simulation_1_1_scene_loader.html#a7c5c7b43055d4b67c3c3a6f842c027de">More...</a><br /></td></tr>
 <tr class="separator:a7c5c7b43055d4b67c3c3a6f842c027de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a387d8027c6a3677d9a1bf5c95653681b"><td class="memItemLeft" align="right" valign="top"><a id="a387d8027c6a3677d9a1bf5c95653681b"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a387d8027c6a3677d9a1bf5c95653681b">canWriteFileName</a> (const char *filename)</td></tr>
-<tr class="memdesc:a387d8027c6a3677d9a1bf5c95653681b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pre-saving check. <br /></td></tr>
+<tr class="memitem:a387d8027c6a3677d9a1bf5c95653681b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a387d8027c6a3677d9a1bf5c95653681b">canWriteFileName</a> (const char *filename)</td></tr>
+<tr class="memdesc:a387d8027c6a3677d9a1bf5c95653681b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pre-saving check.  <a href="classsofa_1_1simulation_1_1_scene_loader.html#a387d8027c6a3677d9a1bf5c95653681b">More...</a><br /></td></tr>
 <tr class="separator:a387d8027c6a3677d9a1bf5c95653681b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5fc62832afaa32ce3cff2dad9c87ab7"><td class="memItemLeft" align="right" valign="top"><a id="ad5fc62832afaa32ce3cff2dad9c87ab7"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>canLoadFileExtension</b> (const char *extension)=0</td></tr>
+<tr class="memitem:ad5fc62832afaa32ce3cff2dad9c87ab7"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#ad5fc62832afaa32ce3cff2dad9c87ab7">canLoadFileExtension</a> (const char *<a class="el" href="save_snapshot_8cpp.html#a1ce7e66096dadf951062dd29a482decc">extension</a>)=0</td></tr>
 <tr class="separator:ad5fc62832afaa32ce3cff2dad9c87ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6981315f4412ad3ca114b4ccb996dd1c"><td class="memItemLeft" align="right" valign="top"><a id="a6981315f4412ad3ca114b4ccb996dd1c"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>canWriteFileExtension</b> (const char *)</td></tr>
+<tr class="memitem:a6981315f4412ad3ca114b4ccb996dd1c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a6981315f4412ad3ca114b4ccb996dd1c">canWriteFileExtension</a> (const char *)</td></tr>
 <tr class="separator:a6981315f4412ad3ca114b4ccb996dd1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fab84d3b3c2781a41506eb9434bc727"><td class="memItemLeft" align="right" valign="top"><a id="a8fab84d3b3c2781a41506eb9434bc727"></a>
-sofa::simulation::NodeSPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a8fab84d3b3c2781a41506eb9434bc727">load</a> (const std::string &amp;filename, bool reload=false, const std::vector&lt; std::string &gt; &amp;sceneArgs=std::vector&lt; std::string &gt;(0))</td></tr>
-<tr class="memdesc:a8fab84d3b3c2781a41506eb9434bc727"><td class="mdescLeft">&#160;</td><td class="mdescRight">load the file <br /></td></tr>
+<tr class="memitem:a8fab84d3b3c2781a41506eb9434bc727"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a8fab84d3b3c2781a41506eb9434bc727">load</a> (const std::string &amp;filename, bool reload=false, const std::vector&lt; std::string &gt; &amp;sceneArgs=std::vector&lt; std::string &gt;(0))</td></tr>
+<tr class="memdesc:a8fab84d3b3c2781a41506eb9434bc727"><td class="mdescLeft">&#160;</td><td class="mdescRight">load the file  <a href="classsofa_1_1simulation_1_1_scene_loader.html#a8fab84d3b3c2781a41506eb9434bc727">More...</a><br /></td></tr>
 <tr class="separator:a8fab84d3b3c2781a41506eb9434bc727"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa293cfa70fe8208ed4b23d23c2fb5b36"><td class="memItemLeft" align="right" valign="top"><a id="aa293cfa70fe8208ed4b23d23c2fb5b36"></a>
-virtual sofa::simulation::NodeSPtr&#160;</td><td class="memItemRight" valign="bottom"><b>doLoad</b> (const std::string &amp;filename, const std::vector&lt; std::string &gt; &amp;sceneArgs)=0</td></tr>
+<tr class="memitem:aa293cfa70fe8208ed4b23d23c2fb5b36"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#aa293cfa70fe8208ed4b23d23c2fb5b36">doLoad</a> (const std::string &amp;filename, const std::vector&lt; std::string &gt; &amp;sceneArgs)=0</td></tr>
 <tr class="separator:aa293cfa70fe8208ed4b23d23c2fb5b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3047fc2d2e5b1528913d04daca4c54c"><td class="memItemLeft" align="right" valign="top"><a id="ae3047fc2d2e5b1528913d04daca4c54c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#ae3047fc2d2e5b1528913d04daca4c54c">write</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a> *, const char *)</td></tr>
-<tr class="memdesc:ae3047fc2d2e5b1528913d04daca4c54c"><td class="mdescLeft">&#160;</td><td class="mdescRight">write scene graph in the file <br /></td></tr>
+<tr class="memitem:ae3047fc2d2e5b1528913d04daca4c54c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#ae3047fc2d2e5b1528913d04daca4c54c">write</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a> *, const char *)</td></tr>
+<tr class="memdesc:ae3047fc2d2e5b1528913d04daca4c54c"><td class="mdescLeft">&#160;</td><td class="mdescRight">write scene graph in the file  <a href="classsofa_1_1simulation_1_1_scene_loader.html#ae3047fc2d2e5b1528913d04daca4c54c">More...</a><br /></td></tr>
 <tr class="separator:ae3047fc2d2e5b1528913d04daca4c54c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3373a33701b3846035600fd93a468a5e"><td class="memItemLeft" align="right" valign="top"><a id="a3373a33701b3846035600fd93a468a5e"></a>
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a3373a33701b3846035600fd93a468a5e">getFileTypeDesc</a> ()=0</td></tr>
-<tr class="memdesc:a3373a33701b3846035600fd93a468a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the file type description <br /></td></tr>
+<tr class="memitem:a3373a33701b3846035600fd93a468a5e"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a3373a33701b3846035600fd93a468a5e">getFileTypeDesc</a> ()=0</td></tr>
+<tr class="memdesc:a3373a33701b3846035600fd93a468a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the file type description  <a href="classsofa_1_1simulation_1_1_scene_loader.html#a3373a33701b3846035600fd93a468a5e">More...</a><br /></td></tr>
 <tr class="separator:a3373a33701b3846035600fd93a468a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a057d3cd350d00a43876e42f1ac15555e"><td class="memItemLeft" align="right" valign="top"><a id="a057d3cd350d00a43876e42f1ac15555e"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a057d3cd350d00a43876e42f1ac15555e">getExtensionList</a> (ExtensionList *list)=0</td></tr>
-<tr class="memdesc:a057d3cd350d00a43876e42f1ac15555e"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the list of file extensions <br /></td></tr>
+<tr class="memitem:a057d3cd350d00a43876e42f1ac15555e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a057d3cd350d00a43876e42f1ac15555e">getExtensionList</a> (<a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a4f522ae52fb363438e3ecc199c4ae870">ExtensionList</a> *list)=0</td></tr>
+<tr class="memdesc:a057d3cd350d00a43876e42f1ac15555e"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the list of file extensions  <a href="classsofa_1_1simulation_1_1_scene_loader.html#a057d3cd350d00a43876e42f1ac15555e">More...</a><br /></td></tr>
 <tr class="separator:a057d3cd350d00a43876e42f1ac15555e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a076dd0bbc0527c2ed6ccb81164ad5b12"><td class="memItemLeft" align="right" valign="top"><a id="a076dd0bbc0527c2ed6ccb81164ad5b12"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a076dd0bbc0527c2ed6ccb81164ad5b12">addListener</a> (<a class="el" href="structsofa_1_1simulation_1_1_scene_loader_1_1_listener.html">Listener</a> *l)</td></tr>
-<tr class="memdesc:a076dd0bbc0527c2ed6ccb81164ad5b12"><td class="mdescLeft">&#160;</td><td class="mdescRight">adding a listener <br /></td></tr>
+<tr class="memitem:a076dd0bbc0527c2ed6ccb81164ad5b12"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a076dd0bbc0527c2ed6ccb81164ad5b12">addListener</a> (<a class="el" href="structsofa_1_1simulation_1_1_scene_loader_1_1_listener.html">Listener</a> *<a class="el" href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a>)</td></tr>
+<tr class="memdesc:a076dd0bbc0527c2ed6ccb81164ad5b12"><td class="mdescLeft">&#160;</td><td class="mdescRight">adding a listener  <a href="classsofa_1_1simulation_1_1_scene_loader.html#a076dd0bbc0527c2ed6ccb81164ad5b12">More...</a><br /></td></tr>
 <tr class="separator:a076dd0bbc0527c2ed6ccb81164ad5b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa87c171140c359ad23cdddd53a420e02"><td class="memItemLeft" align="right" valign="top"><a id="aa87c171140c359ad23cdddd53a420e02"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#aa87c171140c359ad23cdddd53a420e02">removeListener</a> (<a class="el" href="structsofa_1_1simulation_1_1_scene_loader_1_1_listener.html">Listener</a> *l)</td></tr>
-<tr class="memdesc:aa87c171140c359ad23cdddd53a420e02"><td class="mdescLeft">&#160;</td><td class="mdescRight">removing a listener <br /></td></tr>
+<tr class="memitem:aa87c171140c359ad23cdddd53a420e02"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#aa87c171140c359ad23cdddd53a420e02">removeListener</a> (<a class="el" href="structsofa_1_1simulation_1_1_scene_loader_1_1_listener.html">Listener</a> *<a class="el" href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a>)</td></tr>
+<tr class="memdesc:aa87c171140c359ad23cdddd53a420e02"><td class="mdescLeft">&#160;</td><td class="mdescRight">removing a listener  <a href="classsofa_1_1simulation_1_1_scene_loader.html#aa87c171140c359ad23cdddd53a420e02">More...</a><br /></td></tr>
 <tr class="separator:aa87c171140c359ad23cdddd53a420e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
 Protected Types</h2></td></tr>
-<tr class="memitem:a76579ec928f81ed9e45d67fe90ed04ac"><td class="memItemLeft" align="right" valign="top"><a id="a76579ec928f81ed9e45d67fe90ed04ac"></a>
-typedef std::set&lt; <a class="el" href="structsofa_1_1simulation_1_1_scene_loader_1_1_listener.html">Listener</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a76579ec928f81ed9e45d67fe90ed04ac">Listeners</a></td></tr>
-<tr class="memdesc:a76579ec928f81ed9e45d67fe90ed04ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">the list of listeners <br /></td></tr>
+<tr class="memitem:a76579ec928f81ed9e45d67fe90ed04ac"><td class="memItemLeft" align="right" valign="top">typedef std::set&lt; <a class="el" href="structsofa_1_1simulation_1_1_scene_loader_1_1_listener.html">Listener</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a76579ec928f81ed9e45d67fe90ed04ac">Listeners</a></td></tr>
+<tr class="memdesc:a76579ec928f81ed9e45d67fe90ed04ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">the list of listeners  <a href="classsofa_1_1simulation_1_1_scene_loader.html#a76579ec928f81ed9e45d67fe90ed04ac">More...</a><br /></td></tr>
 <tr class="separator:a76579ec928f81ed9e45d67fe90ed04ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:aa36bfb5da28d90dacadf75344f605289"><td class="memItemLeft" align="right" valign="top"><a id="aa36bfb5da28d90dacadf75344f605289"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyLoadingSceneBefore</b> ()</td></tr>
+<tr class="memitem:aa36bfb5da28d90dacadf75344f605289"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#aa36bfb5da28d90dacadf75344f605289">notifyLoadingSceneBefore</a> ()</td></tr>
 <tr class="separator:aa36bfb5da28d90dacadf75344f605289"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04b2070f7b40179c0b9ae3aa85f584cf"><td class="memItemLeft" align="right" valign="top"><a id="a04b2070f7b40179c0b9ae3aa85f584cf"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyReloadingSceneBefore</b> ()</td></tr>
+<tr class="memitem:a04b2070f7b40179c0b9ae3aa85f584cf"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a04b2070f7b40179c0b9ae3aa85f584cf">notifyReloadingSceneBefore</a> ()</td></tr>
 <tr class="separator:a04b2070f7b40179c0b9ae3aa85f584cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad44a7e8613346dd2ee71f82b220827b"><td class="memItemLeft" align="right" valign="top"><a id="aad44a7e8613346dd2ee71f82b220827b"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyLoadingSceneAfter</b> (sofa::simulation::NodeSPtr node)</td></tr>
+<tr class="memitem:aad44a7e8613346dd2ee71f82b220827b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#aad44a7e8613346dd2ee71f82b220827b">notifyLoadingSceneAfter</a> (<a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a> node)</td></tr>
 <tr class="separator:aad44a7e8613346dd2ee71f82b220827b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94327290ffed454afeb7f8cf753559bc"><td class="memItemLeft" align="right" valign="top"><a id="a94327290ffed454afeb7f8cf753559bc"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyReloadingSceneAfter</b> (sofa::simulation::NodeSPtr node)</td></tr>
+<tr class="memitem:a94327290ffed454afeb7f8cf753559bc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a94327290ffed454afeb7f8cf753559bc">notifyReloadingSceneAfter</a> (<a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a> node)</td></tr>
 <tr class="separator:a94327290ffed454afeb7f8cf753559bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:ac5e212631edaf12ea661f5cb755a6be1"><td class="memItemLeft" align="right" valign="top"><a id="ac5e212631edaf12ea661f5cb755a6be1"></a>
-static <a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a76579ec928f81ed9e45d67fe90ed04ac">Listeners</a>&#160;</td><td class="memItemRight" valign="bottom"><b>s_listeners</b></td></tr>
+<tr class="memitem:ac5e212631edaf12ea661f5cb755a6be1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a76579ec928f81ed9e45d67fe90ed04ac">Listeners</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#ac5e212631edaf12ea661f5cb755a6be1">s_listeners</a></td></tr>
 <tr class="separator:ac5e212631edaf12ea661f5cb755a6be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main class used to register scene file loaders. </p>
 <p>It uses the Factory design pattern, where each class is registered in a map, and dynamically retrieved given the type name. Abstract interface of a scene loader </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a4f522ae52fb363438e3ecc199c4ae870"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f522ae52fb363438e3ecc199c4ae870">&#9670;&nbsp;</a></span>ExtensionList</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;std::string&gt; <a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a4f522ae52fb363438e3ecc199c4ae870">ExtensionList</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a76579ec928f81ed9e45d67fe90ed04ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76579ec928f81ed9e45d67fe90ed04ac">&#9670;&nbsp;</a></span>Listeners</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::set&lt;<a class="el" href="structsofa_1_1simulation_1_1_scene_loader_1_1_listener.html">Listener</a>*&gt; <a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a76579ec928f81ed9e45d67fe90ed04ac">Listeners</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the list of listeners </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a076dd0bbc0527c2ed6ccb81164ad5b12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a076dd0bbc0527c2ed6ccb81164ad5b12">&#9670;&nbsp;</a></span>addListener()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addListener </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsofa_1_1simulation_1_1_scene_loader_1_1_listener.html">Listener</a> *&#160;</td>
+          <td class="paramname"><em>l</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>adding a listener </p>
+
+</div>
+</div>
+<a id="ad5fc62832afaa32ce3cff2dad9c87ab7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5fc62832afaa32ce3cff2dad9c87ab7">&#9670;&nbsp;</a></span>canLoadFileExtension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool canLoadFileExtension </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>extension</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1simulation_1_1_scene_loader_x_m_l.html#a396c8b3dd361f7e1d93f668660fc8bc4">SceneLoaderXML</a>, and <a class="el" href="classsofa_1_1simulation_1_1_scene_loader_p_h_p.html#a396c8b3dd361f7e1d93f668660fc8bc4">SceneLoaderPHP</a>.</p>
+
+</div>
+</div>
+<a id="a7c5c7b43055d4b67c3c3a6f842c027de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c5c7b43055d4b67c3c3a6f842c027de">&#9670;&nbsp;</a></span>canLoadFileName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool canLoadFileName </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pre-loading check. </p>
+
+</div>
+</div>
+<a id="a6981315f4412ad3ca114b4ccb996dd1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6981315f4412ad3ca114b4ccb996dd1c">&#9670;&nbsp;</a></span>canWriteFileExtension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool canWriteFileExtension </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1simulation_1_1_scene_loader_x_m_l.html#a52a7a25a0ab118ff2c8119f6375bdbc5">SceneLoaderXML</a>.</p>
+
+</div>
+</div>
+<a id="a387d8027c6a3677d9a1bf5c95653681b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a387d8027c6a3677d9a1bf5c95653681b">&#9670;&nbsp;</a></span>canWriteFileName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool canWriteFileName </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pre-saving check. </p>
+
+</div>
+</div>
+<a id="aa293cfa70fe8208ed4b23d23c2fb5b36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa293cfa70fe8208ed4b23d23c2fb5b36">&#9670;&nbsp;</a></span>doLoad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a> doLoad </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>sceneArgs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1simulation_1_1_scene_loader_x_m_l.html#acc01360fd120a74ef0efdc0ecbd08c78">SceneLoaderXML</a>, and <a class="el" href="classsofa_1_1simulation_1_1_scene_loader_p_h_p.html#acc01360fd120a74ef0efdc0ecbd08c78">SceneLoaderPHP</a>.</p>
+
+</div>
+</div>
+<a id="a057d3cd350d00a43876e42f1ac15555e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a057d3cd350d00a43876e42f1ac15555e">&#9670;&nbsp;</a></span>getExtensionList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void getExtensionList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a4f522ae52fb363438e3ecc199c4ae870">ExtensionList</a> *&#160;</td>
+          <td class="paramname"><em>list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get the list of file extensions </p>
+
+<p>Implemented in <a class="el" href="classsofa_1_1simulation_1_1_scene_loader_x_m_l.html#af6c064adbd5252a5b85d0f72d0c28823">SceneLoaderXML</a>, and <a class="el" href="classsofa_1_1simulation_1_1_scene_loader_p_h_p.html#af6c064adbd5252a5b85d0f72d0c28823">SceneLoaderPHP</a>.</p>
+
+</div>
+</div>
+<a id="a3373a33701b3846035600fd93a468a5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3373a33701b3846035600fd93a468a5e">&#9670;&nbsp;</a></span>getFileTypeDesc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string getFileTypeDesc </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get the file type description </p>
+
+<p>Implemented in <a class="el" href="classsofa_1_1simulation_1_1_scene_loader_x_m_l.html#a3b3ea5d023cb020262e9b44d6cd20fae">SceneLoaderXML</a>, and <a class="el" href="classsofa_1_1simulation_1_1_scene_loader_p_h_p.html#a3b3ea5d023cb020262e9b44d6cd20fae">SceneLoaderPHP</a>.</p>
+
+</div>
+</div>
+<a id="a8fab84d3b3c2781a41506eb9434bc727"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fab84d3b3c2781a41506eb9434bc727">&#9670;&nbsp;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a> load </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>reload</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>sceneArgs</em> = <code>std::vector&lt;std::string&gt;(0)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>load the file </p>
+
+</div>
+</div>
+<a id="aad44a7e8613346dd2ee71f82b220827b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad44a7e8613346dd2ee71f82b220827b">&#9670;&nbsp;</a></span>notifyLoadingSceneAfter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void notifyLoadingSceneAfter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a>&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa36bfb5da28d90dacadf75344f605289"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa36bfb5da28d90dacadf75344f605289">&#9670;&nbsp;</a></span>notifyLoadingSceneBefore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void notifyLoadingSceneBefore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a94327290ffed454afeb7f8cf753559bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94327290ffed454afeb7f8cf753559bc">&#9670;&nbsp;</a></span>notifyReloadingSceneAfter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void notifyReloadingSceneAfter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a>&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04b2070f7b40179c0b9ae3aa85f584cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04b2070f7b40179c0b9ae3aa85f584cf">&#9670;&nbsp;</a></span>notifyReloadingSceneBefore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void notifyReloadingSceneBefore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa87c171140c359ad23cdddd53a420e02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa87c171140c359ad23cdddd53a420e02">&#9670;&nbsp;</a></span>removeListener()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void removeListener </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsofa_1_1simulation_1_1_scene_loader_1_1_listener.html">Listener</a> *&#160;</td>
+          <td class="paramname"><em>l</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>removing a listener </p>
+
+</div>
+</div>
+<a id="ae3047fc2d2e5b1528913d04daca4c54c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3047fc2d2e5b1528913d04daca4c54c">&#9670;&nbsp;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>write scene graph in the file </p>
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1simulation_1_1_scene_loader_x_m_l.html#af8f1a4cbcf9abad4c2629fe99bc108cf">SceneLoaderXML</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac5e212631edaf12ea661f5cb755a6be1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5e212631edaf12ea661f5cb755a6be1">&#9670;&nbsp;</a></span>s_listeners</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html#a76579ec928f81ed9e45d67fe90ed04ac">SceneLoader::Listeners</a> s_listeners</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>simulation</b></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html">SceneLoader</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:14:04 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1simulation.html">simulation</a></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_scene_loader.html">SceneLoader</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:46:36 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

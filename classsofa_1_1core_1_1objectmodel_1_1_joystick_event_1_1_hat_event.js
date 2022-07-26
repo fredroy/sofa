@@ -15,5 +15,7 @@ var classsofa_1_1core_1_1objectmodel_1_1_joystick_event_1_1_hat_event =
     [ "~HatEvent", "classsofa_1_1core_1_1objectmodel_1_1_joystick_event_1_1_hat_event.html#ac5dae0b293153d65c5e26b74eb34e8a4", null ],
     [ "getClassName", "classsofa_1_1core_1_1objectmodel_1_1_joystick_event_1_1_hat_event.html#a03b8b5a278c33b2d9e225ceb286f350e", null ],
     [ "getIndex", "classsofa_1_1core_1_1objectmodel_1_1_joystick_event_1_1_hat_event.html#a1678b8fbb78027fe25fd31e6b4001f0e", null ],
-    [ "getState", "classsofa_1_1core_1_1objectmodel_1_1_joystick_event_1_1_hat_event.html#a99905fac01b5eeaf3e0b8354e46443c6", null ]
+    [ "getState", "classsofa_1_1core_1_1objectmodel_1_1_joystick_event_1_1_hat_event.html#a99905fac01b5eeaf3e0b8354e46443c6", null ],
+    [ "m_index", "classsofa_1_1core_1_1objectmodel_1_1_joystick_event_1_1_hat_event.html#ac22eaf8cf27f5e6e3ba1788f902ee36c", null ],
+    [ "m_state", "classsofa_1_1core_1_1objectmodel_1_1_joystick_event_1_1_hat_event.html#a878e364ddbc8769bfb32ee27208562db", null ]
 ];

@@ -21,6 +21,7 @@ var classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_stiff_spring_force_fi
     [ "addKToMatrix", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_stiff_spring_force_field.html#a585ebac44b870c6219050c2835f3ad39", null ],
     [ "addSpringDForce", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_stiff_spring_force_field.html#a8d723729b69dd9cee6f02e28234988b5", null ],
     [ "addSpringForce", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_stiff_spring_force_field.html#acb0b3bcdf7fe26fd5761d2702a4f6139", null ],
+    [ "addToMatrix", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_stiff_spring_force_field.html#a860001a80b2a2f9eeaa5d7c864b0e142", null ],
     [ "createSpringsFromInputs", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_stiff_spring_force_field.html#a18a5aceaf0d3eb21e270b8e1248c7896", null ],
     [ "init", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_stiff_spring_force_field.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_stiff_spring_force_field.html#af503c0dd0542815de46885022bcde9e0", null ],

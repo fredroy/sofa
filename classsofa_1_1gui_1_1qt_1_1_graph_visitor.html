@@ -91,104 +91,773 @@ $(document).ready(function(){initNavTree('classsofa_1_1gui_1_1qt_1_1_graph_visit
 <div class="title">GraphVisitor Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_graph_visitor_8h_source.html">GraphVisitor.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a50ce6d2c4dc3891091e352a8f3b898b9"><td class="memItemLeft" align="right" valign="top"><a id="a50ce6d2c4dc3891091e352a8f3b898b9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GraphVisitor</b> (<a class="el" href="classsofa_1_1gui_1_1qt_1_1_window_visitor.html">WindowVisitor</a> *w)</td></tr>
+<tr class="memitem:a50ce6d2c4dc3891091e352a8f3b898b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#a50ce6d2c4dc3891091e352a8f3b898b9">GraphVisitor</a> (<a class="el" href="classsofa_1_1gui_1_1qt_1_1_window_visitor.html">WindowVisitor</a> *w)</td></tr>
 <tr class="separator:a50ce6d2c4dc3891091e352a8f3b898b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6db96583ab77b549c4414366c1c8b9e0"><td class="memItemLeft" align="right" valign="top"><a id="a6db96583ab77b549c4414366c1c8b9e0"></a>
-QTreeWidgetItem *&#160;</td><td class="memItemRight" valign="bottom"><b>addNode</b> (QTreeWidgetItem *parent, QTreeWidgetItem *elementAbove, std::string info)</td></tr>
+<tr class="memitem:a6db96583ab77b549c4414366c1c8b9e0"><td class="memItemLeft" align="right" valign="top">QTreeWidgetItem *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#a6db96583ab77b549c4414366c1c8b9e0">addNode</a> (QTreeWidgetItem *parent, QTreeWidgetItem *elementAbove, std::string info)</td></tr>
 <tr class="separator:a6db96583ab77b549c4414366c1c8b9e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57fc4b3c1c432a0ad17aaf56bbc0591b"><td class="memItemLeft" align="right" valign="top"><a id="a57fc4b3c1c432a0ad17aaf56bbc0591b"></a>
-QTreeWidgetItem *&#160;</td><td class="memItemRight" valign="bottom"><b>addComment</b> (QTreeWidgetItem *element, QTreeWidgetItem *elementAbove, std::string comment)</td></tr>
+<tr class="memitem:a57fc4b3c1c432a0ad17aaf56bbc0591b"><td class="memItemLeft" align="right" valign="top">QTreeWidgetItem *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#a57fc4b3c1c432a0ad17aaf56bbc0591b">addComment</a> (QTreeWidgetItem *element, QTreeWidgetItem *elementAbove, std::string comment)</td></tr>
 <tr class="separator:a57fc4b3c1c432a0ad17aaf56bbc0591b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a494999d97d1bc4537ae499a15c5ed65e"><td class="memItemLeft" align="right" valign="top"><a id="a494999d97d1bc4537ae499a15c5ed65e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addInformation</b> (QTreeWidgetItem *element, std::string name, std::string info)</td></tr>
+<tr class="memitem:a494999d97d1bc4537ae499a15c5ed65e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#a494999d97d1bc4537ae499a15c5ed65e">addInformation</a> (QTreeWidgetItem *element, std::string name, std::string info)</td></tr>
 <tr class="separator:a494999d97d1bc4537ae499a15c5ed65e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac479ea4a916f58b9831e71ff828315c8"><td class="memItemLeft" align="right" valign="top"><a id="ac479ea4a916f58b9831e71ff828315c8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addTime</b> (QTreeWidgetItem *element, std::string info)</td></tr>
+<tr class="memitem:ac479ea4a916f58b9831e71ff828315c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#ac479ea4a916f58b9831e71ff828315c8">addTime</a> (QTreeWidgetItem *element, std::string info)</td></tr>
 <tr class="separator:ac479ea4a916f58b9831e71ff828315c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb58f540ce53726aa909b4b918a66a89"><td class="memItemLeft" align="right" valign="top"><a id="abb58f540ce53726aa909b4b918a66a89"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (std::string &amp;file)</td></tr>
+<tr class="memitem:abb58f540ce53726aa909b4b918a66a89"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#abb58f540ce53726aa909b4b918a66a89">load</a> (std::string &amp;file)</td></tr>
 <tr class="separator:abb58f540ce53726aa909b4b918a66a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3894538d56c2d3b8065d423bd031a02"><td class="memItemLeft" align="right" valign="top"><a id="aa3894538d56c2d3b8065d423bd031a02"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setGraph</b> (QTreeWidget *g)</td></tr>
+<tr class="memitem:aa3894538d56c2d3b8065d423bd031a02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#aa3894538d56c2d3b8065d423bd031a02">setGraph</a> (QTreeWidget *g)</td></tr>
 <tr class="separator:aa3894538d56c2d3b8065d423bd031a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8bb3912a3ce86b15842e79d0b421204"><td class="memItemLeft" align="right" valign="top"><a id="ac8bb3912a3ce86b15842e79d0b421204"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="memitem:ac8bb3912a3ce86b15842e79d0b421204"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#ac8bb3912a3ce86b15842e79d0b421204">clear</a> ()</td></tr>
 <tr class="separator:ac8bb3912a3ce86b15842e79d0b421204"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbc2b996ea30ee0c7a9904fae541c755"><td class="memItemLeft" align="right" valign="top"><a id="acbc2b996ea30ee0c7a9904fae541c755"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getTotalTime</b> (TiXmlNode *node) const</td></tr>
+<tr class="memitem:acbc2b996ea30ee0c7a9904fae541c755"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#acbc2b996ea30ee0c7a9904fae541c755">getTotalTime</a> (TiXmlNode *node) const</td></tr>
 <tr class="separator:acbc2b996ea30ee0c7a9904fae541c755"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9036160cc2ffc36715543c74d9735fd"><td class="memItemLeft" align="right" valign="top"><a id="ac9036160cc2ffc36715543c74d9735fd"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getTime</b> (TiXmlAttribute *attribute) const</td></tr>
+<tr class="memitem:ac9036160cc2ffc36715543c74d9735fd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#ac9036160cc2ffc36715543c74d9735fd">getTime</a> (TiXmlAttribute *attribute) const</td></tr>
 <tr class="separator:ac9036160cc2ffc36715543c74d9735fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a64bdc6128551063122dfe541d923b0c7"><td class="memItemLeft" align="right" valign="top"><a id="a64bdc6128551063122dfe541d923b0c7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>openTime</b> (TiXmlNode *element, QTreeWidgetItem *item)</td></tr>
+<tr class="memitem:a64bdc6128551063122dfe541d923b0c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#a64bdc6128551063122dfe541d923b0c7">openTime</a> (TiXmlNode *element, QTreeWidgetItem *item)</td></tr>
 <tr class="separator:a64bdc6128551063122dfe541d923b0c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83cc8430eae56747502170edaf3960ed"><td class="memItemLeft" align="right" valign="top"><a id="a83cc8430eae56747502170edaf3960ed"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>openAttribute</b> (TiXmlElement *element, QTreeWidgetItem *item)</td></tr>
+<tr class="memitem:a83cc8430eae56747502170edaf3960ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#a83cc8430eae56747502170edaf3960ed">openAttribute</a> (TiXmlElement *element, QTreeWidgetItem *item)</td></tr>
 <tr class="separator:a83cc8430eae56747502170edaf3960ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a433ddf769f5a2af7970b24a329fcc86e"><td class="memItemLeft" align="right" valign="top"><a id="a433ddf769f5a2af7970b24a329fcc86e"></a>
-QTreeWidgetItem *&#160;</td><td class="memItemRight" valign="bottom"><b>openNode</b> (TiXmlNode *node, QTreeWidgetItem *parent, QTreeWidgetItem *elementAbove)</td></tr>
+<tr class="memitem:a433ddf769f5a2af7970b24a329fcc86e"><td class="memItemLeft" align="right" valign="top">QTreeWidgetItem *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#a433ddf769f5a2af7970b24a329fcc86e">openNode</a> (TiXmlNode *node, QTreeWidgetItem *parent, QTreeWidgetItem *elementAbove)</td></tr>
 <tr class="separator:a433ddf769f5a2af7970b24a329fcc86e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a31ed46d581f94cca6b8d60e08756fd04"><td class="memItemLeft" align="right" valign="top"><a id="a31ed46d581f94cca6b8d60e08756fd04"></a>
-QTreeWidget *&#160;</td><td class="memItemRight" valign="bottom"><b>graph</b></td></tr>
+<tr class="memitem:a31ed46d581f94cca6b8d60e08756fd04"><td class="memItemLeft" align="right" valign="top">QTreeWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#a31ed46d581f94cca6b8d60e08756fd04">graph</a></td></tr>
 <tr class="separator:a31ed46d581f94cca6b8d60e08756fd04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad60b263005dd561b075e7704ff81822e"><td class="memItemLeft" align="right" valign="top"><a id="ad60b263005dd561b075e7704ff81822e"></a>
-<a class="el" href="classsofa_1_1gui_1_1qt_1_1_window_visitor.html">WindowVisitor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>window</b></td></tr>
+<tr class="memitem:ad60b263005dd561b075e7704ff81822e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_window_visitor.html">WindowVisitor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#ad60b263005dd561b075e7704ff81822e">window</a></td></tr>
 <tr class="separator:ad60b263005dd561b075e7704ff81822e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae15a5fb5647ad685d2d5bde7fcfaa93a"><td class="memItemLeft" align="right" valign="top"><a id="ae15a5fb5647ad685d2d5bde7fcfaa93a"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>totalTime</b></td></tr>
+<tr class="memitem:ae15a5fb5647ad685d2d5bde7fcfaa93a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#ae15a5fb5647ad685d2d5bde7fcfaa93a">totalTime</a></td></tr>
 <tr class="separator:ae15a5fb5647ad685d2d5bde7fcfaa93a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a747ddb8bc527d8d9d55ee9a0271883e6"><td class="memItemLeft" align="right" valign="top"><a id="a747ddb8bc527d8d9d55ee9a0271883e6"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>totalTimeMax</b></td></tr>
+<tr class="memitem:a747ddb8bc527d8d9d55ee9a0271883e6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#a747ddb8bc527d8d9d55ee9a0271883e6">totalTimeMax</a></td></tr>
 <tr class="separator:a747ddb8bc527d8d9d55ee9a0271883e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a736daa8291216f76cec0b87a5325856f"><td class="memItemLeft" align="right" valign="top"><a id="a736daa8291216f76cec0b87a5325856f"></a>
-std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>timeComponentsBelow</b></td></tr>
+<tr class="memitem:a736daa8291216f76cec0b87a5325856f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#a736daa8291216f76cec0b87a5325856f">timeComponentsBelow</a></td></tr>
 <tr class="separator:a736daa8291216f76cec0b87a5325856f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf4d33ee4cff36f69b924471174dcb11"><td class="memItemLeft" align="right" valign="top"><a id="acf4d33ee4cff36f69b924471174dcb11"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>level</b></td></tr>
+<tr class="memitem:acf4d33ee4cff36f69b924471174dcb11"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#acf4d33ee4cff36f69b924471174dcb11">level</a></td></tr>
 <tr class="separator:acf4d33ee4cff36f69b924471174dcb11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa24d1788cc6560ce9942fc2169ff6b92"><td class="memItemLeft" align="right" valign="top"><a id="aa24d1788cc6560ce9942fc2169ff6b92"></a>
-std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>componentsTime</b></td></tr>
+<tr class="memitem:aa24d1788cc6560ce9942fc2169ff6b92"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#aa24d1788cc6560ce9942fc2169ff6b92">componentsTime</a></td></tr>
 <tr class="separator:aa24d1788cc6560ce9942fc2169ff6b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c4480ea06bde7f169a58a2508c0eacd"><td class="memItemLeft" align="right" valign="top"><a id="a9c4480ea06bde7f169a58a2508c0eacd"></a>
-std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>visitorsTime</b></td></tr>
+<tr class="memitem:a9c4480ea06bde7f169a58a2508c0eacd"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#a9c4480ea06bde7f169a58a2508c0eacd">visitorsTime</a></td></tr>
 <tr class="separator:a9c4480ea06bde7f169a58a2508c0eacd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21943bdd9621e16e5b842829a99f2b4e"><td class="memItemLeft" align="right" valign="top"><a id="a21943bdd9621e16e5b842829a99f2b4e"></a>
-std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>componentsTimeTotal</b></td></tr>
+<tr class="memitem:a21943bdd9621e16e5b842829a99f2b4e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#a21943bdd9621e16e5b842829a99f2b4e">componentsTimeTotal</a></td></tr>
 <tr class="separator:a21943bdd9621e16e5b842829a99f2b4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c09812c51b0147a6ee50a93e9c18385"><td class="memItemLeft" align="right" valign="top"><a id="a4c09812c51b0147a6ee50a93e9c18385"></a>
-std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>visitorsTimeTotal</b></td></tr>
+<tr class="memitem:a4c09812c51b0147a6ee50a93e9c18385"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#a4c09812c51b0147a6ee50a93e9c18385">visitorsTimeTotal</a></td></tr>
 <tr class="separator:a4c09812c51b0147a6ee50a93e9c18385"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab550000f2f52696cbb276c11e3bf65f8"><td class="memItemLeft" align="right" valign="top"><a id="ab550000f2f52696cbb276c11e3bf65f8"></a>
-std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>componentsTimeMax</b></td></tr>
+<tr class="memitem:ab550000f2f52696cbb276c11e3bf65f8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#ab550000f2f52696cbb276c11e3bf65f8">componentsTimeMax</a></td></tr>
 <tr class="separator:ab550000f2f52696cbb276c11e3bf65f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59182734e410ebd26479335dee2213b2"><td class="memItemLeft" align="right" valign="top"><a id="a59182734e410ebd26479335dee2213b2"></a>
-std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>visitorsTimeMax</b></td></tr>
+<tr class="memitem:a59182734e410ebd26479335dee2213b2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#a59182734e410ebd26479335dee2213b2">visitorsTimeMax</a></td></tr>
 <tr class="separator:a59182734e410ebd26479335dee2213b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3119f4ea676e61b2ab3df2889722f4b"><td class="memItemLeft" align="right" valign="top"><a id="ac3119f4ea676e61b2ab3df2889722f4b"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>visitedNode</b></td></tr>
+<tr class="memitem:ac3119f4ea676e61b2ab3df2889722f4b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#ac3119f4ea676e61b2ab3df2889722f4b">visitedNode</a></td></tr>
 <tr class="separator:ac3119f4ea676e61b2ab3df2889722f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac67b410221dc1446503c217332a16eb8"><td class="memItemLeft" align="right" valign="top"><a id="ac67b410221dc1446503c217332a16eb8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>initSize</b></td></tr>
+<tr class="memitem:ac67b410221dc1446503c217332a16eb8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html#ac67b410221dc1446503c217332a16eb8">initSize</a></td></tr>
 <tr class="separator:ac67b410221dc1446503c217332a16eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a50ce6d2c4dc3891091e352a8f3b898b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50ce6d2c4dc3891091e352a8f3b898b9">&#9670;&nbsp;</a></span>GraphVisitor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html">GraphVisitor</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_window_visitor.html">WindowVisitor</a> *&#160;</td>
+          <td class="paramname"><em>w</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a57fc4b3c1c432a0ad17aaf56bbc0591b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57fc4b3c1c432a0ad17aaf56bbc0591b">&#9670;&nbsp;</a></span>addComment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTreeWidgetItem * addComment </td>
+          <td>(</td>
+          <td class="paramtype">QTreeWidgetItem *&#160;</td>
+          <td class="paramname"><em>element</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QTreeWidgetItem *&#160;</td>
+          <td class="paramname"><em>elementAbove</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>comment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a494999d97d1bc4537ae499a15c5ed65e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a494999d97d1bc4537ae499a15c5ed65e">&#9670;&nbsp;</a></span>addInformation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addInformation </td>
+          <td>(</td>
+          <td class="paramtype">QTreeWidgetItem *&#160;</td>
+          <td class="paramname"><em>element</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>info</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6db96583ab77b549c4414366c1c8b9e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6db96583ab77b549c4414366c1c8b9e0">&#9670;&nbsp;</a></span>addNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTreeWidgetItem * addNode </td>
+          <td>(</td>
+          <td class="paramtype">QTreeWidgetItem *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QTreeWidgetItem *&#160;</td>
+          <td class="paramname"><em>elementAbove</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>info</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac479ea4a916f58b9831e71ff828315c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac479ea4a916f58b9831e71ff828315c8">&#9670;&nbsp;</a></span>addTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addTime </td>
+          <td>(</td>
+          <td class="paramtype">QTreeWidgetItem *&#160;</td>
+          <td class="paramname"><em>element</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>info</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac8bb3912a3ce86b15842e79d0b421204"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8bb3912a3ce86b15842e79d0b421204">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9036160cc2ffc36715543c74d9735fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9036160cc2ffc36715543c74d9735fd">&#9670;&nbsp;</a></span>getTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double getTime </td>
+          <td>(</td>
+          <td class="paramtype">TiXmlAttribute *&#160;</td>
+          <td class="paramname"><em>attribute</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acbc2b996ea30ee0c7a9904fae541c755"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbc2b996ea30ee0c7a9904fae541c755">&#9670;&nbsp;</a></span>getTotalTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double getTotalTime </td>
+          <td>(</td>
+          <td class="paramtype">TiXmlNode *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb58f540ce53726aa909b4b918a66a89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb58f540ce53726aa909b4b918a66a89">&#9670;&nbsp;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool load </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83cc8430eae56747502170edaf3960ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83cc8430eae56747502170edaf3960ed">&#9670;&nbsp;</a></span>openAttribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void openAttribute </td>
+          <td>(</td>
+          <td class="paramtype">TiXmlElement *&#160;</td>
+          <td class="paramname"><em>element</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QTreeWidgetItem *&#160;</td>
+          <td class="paramname"><em>item</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a433ddf769f5a2af7970b24a329fcc86e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a433ddf769f5a2af7970b24a329fcc86e">&#9670;&nbsp;</a></span>openNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTreeWidgetItem * openNode </td>
+          <td>(</td>
+          <td class="paramtype">TiXmlNode *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QTreeWidgetItem *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QTreeWidgetItem *&#160;</td>
+          <td class="paramname"><em>elementAbove</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a64bdc6128551063122dfe541d923b0c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64bdc6128551063122dfe541d923b0c7">&#9670;&nbsp;</a></span>openTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void openTime </td>
+          <td>(</td>
+          <td class="paramtype">TiXmlNode *&#160;</td>
+          <td class="paramname"><em>element</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QTreeWidgetItem *&#160;</td>
+          <td class="paramname"><em>item</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3894538d56c2d3b8065d423bd031a02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3894538d56c2d3b8065d423bd031a02">&#9670;&nbsp;</a></span>setGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setGraph </td>
+          <td>(</td>
+          <td class="paramtype">QTreeWidget *&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa24d1788cc6560ce9942fc2169ff6b92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa24d1788cc6560ce9942fc2169ff6b92">&#9670;&nbsp;</a></span>componentsTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt; componentsTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab550000f2f52696cbb276c11e3bf65f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab550000f2f52696cbb276c11e3bf65f8">&#9670;&nbsp;</a></span>componentsTimeMax</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt; componentsTimeMax</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a21943bdd9621e16e5b842829a99f2b4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21943bdd9621e16e5b842829a99f2b4e">&#9670;&nbsp;</a></span>componentsTimeTotal</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt; componentsTimeTotal</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a31ed46d581f94cca6b8d60e08756fd04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31ed46d581f94cca6b8d60e08756fd04">&#9670;&nbsp;</a></span>graph</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTreeWidget* graph</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac67b410221dc1446503c217332a16eb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac67b410221dc1446503c217332a16eb8">&#9670;&nbsp;</a></span>initSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool initSize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acf4d33ee4cff36f69b924471174dcb11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf4d33ee4cff36f69b924471174dcb11">&#9670;&nbsp;</a></span>level</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int level</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a736daa8291216f76cec0b87a5325856f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a736daa8291216f76cec0b87a5325856f">&#9670;&nbsp;</a></span>timeComponentsBelow</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; timeComponentsBelow</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae15a5fb5647ad685d2d5bde7fcfaa93a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae15a5fb5647ad685d2d5bde7fcfaa93a">&#9670;&nbsp;</a></span>totalTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double totalTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a747ddb8bc527d8d9d55ee9a0271883e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a747ddb8bc527d8d9d55ee9a0271883e6">&#9670;&nbsp;</a></span>totalTimeMax</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double totalTimeMax</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac3119f4ea676e61b2ab3df2889722f4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3119f4ea676e61b2ab3df2889722f4b">&#9670;&nbsp;</a></span>visitedNode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; visitedNode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c4480ea06bde7f169a58a2508c0eacd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c4480ea06bde7f169a58a2508c0eacd">&#9670;&nbsp;</a></span>visitorsTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt; visitorsTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59182734e410ebd26479335dee2213b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59182734e410ebd26479335dee2213b2">&#9670;&nbsp;</a></span>visitorsTimeMax</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt; visitorsTimeMax</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4c09812c51b0147a6ee50a93e9c18385"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c09812c51b0147a6ee50a93e9c18385">&#9670;&nbsp;</a></span>visitorsTimeTotal</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structsofa_1_1gui_1_1qt_1_1data_time.html">dataTime</a> &gt; visitorsTimeTotal</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad60b263005dd561b075e7704ff81822e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad60b263005dd561b075e7704ff81822e">&#9670;&nbsp;</a></span>window</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_window_visitor.html">WindowVisitor</a>* window</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>gui</b></li><li class="navelem"><b>qt</b></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html">GraphVisitor</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:52 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui.html">gui</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui_1_1qt.html">qt</a></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_graph_visitor.html">GraphVisitor</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:39 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

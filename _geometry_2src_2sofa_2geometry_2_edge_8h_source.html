@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_geometry_2src_2sofa_2geometry_2_edge_
 <div class="title">Edge.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_geometry_2src_2sofa_2geometry_2_edge_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -110,23 +110,23 @@ $(document).ready(function(){initNavTree('_geometry_2src_2sofa_2geometry_2_edge_
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/geometry/config.h&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/type/Vec.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="framework_2_type_2src_2sofa_2type_2vec_8h.html">sofa/type/Vec.h</a>&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;numeric&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;iterator&gt;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span>sofa::geometry</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="namespacesofa_1_1geometry.html">   32</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1geometry.html">sofa::geometry</a></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">struct </span>Edge</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">struct </span><a class="code" href="structsofa_1_1geometry_1_1_edge.html">Edge</a></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">static</span> constexpr sofa::Size NumberOfNodes = 2;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">static</span> constexpr sofa::Size <a class="code" href="structsofa_1_1geometry_1_1_edge.html#a27d5611031bd5a6f407dbd6d8bf1b611">NumberOfNodes</a> = 2;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    Edge() = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="structsofa_1_1geometry_1_1_edge.html#ab8dcae5ecbbdc1966cad293968743d4c">Edge</a>() = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Node,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>,</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;             <span class="keyword">typename</span> T = std::decay_t&lt;decltype(*std::begin(std::declval&lt;Node&gt;()))&gt;,</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;             <span class="keyword">typename</span> = std::enable_if_t&lt;std::is_scalar_v&lt;T&gt;&gt;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    &gt;</div>
@@ -168,15 +168,15 @@ $(document).ready(function(){initNavTree('_geometry_2src_2sofa_2geometry_2_edge_
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec&lt;2, T&gt;</a> baryCoefs;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keyword">const</span> T dist = (n1 - n0).<a class="code" href="namespacesofa_1_1type.html#af8eb9688f1429be60c5733988ca591b9">norm</a>();</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">if</span> (dist &lt; EQUALITY_THRESHOLD)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">if</span> (dist &lt; <a class="code" href="framework_2_type_2src_2sofa_2type_2vec_8h.html#a6d7a89df29ae9bafccf0a4d752ed991c">EQUALITY_THRESHOLD</a>)</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        {</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            baryCoefs[0] = 0.5;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            baryCoefs[1] = 0.5;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        }</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        {</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            baryCoefs[0] = (point - n1).norm() / dist;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            baryCoefs[1] = (point - n0).norm() / dist;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            baryCoefs[0] = (point - n1).<a class="code" href="namespacesofa_1_1type.html#af8eb9688f1429be60c5733988ca591b9">norm</a>() / dist;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            baryCoefs[1] = (point - n0).<a class="code" href="namespacesofa_1_1type.html#af8eb9688f1429be60c5733988ca591b9">norm</a>() / dist;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        }</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">return</span> baryCoefs;</div>
@@ -199,7 +199,7 @@ $(document).ready(function(){initNavTree('_geometry_2src_2sofa_2geometry_2_edge_
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="comment">//compute intersection between line and plane equation</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keyword">const</span> T denominator = planeNorm * (n1 - n0);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordflow">if</span> (denominator &lt; EQUALITY_THRESHOLD)</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordflow">if</span> (denominator &lt; <a class="code" href="framework_2_type_2src_2sofa_2type_2vec_8h.html#a6d7a89df29ae9bafccf0a4d752ed991c">EQUALITY_THRESHOLD</a>)</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        {</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        }</div>
@@ -217,19 +217,25 @@ $(document).ready(function(){initNavTree('_geometry_2src_2sofa_2geometry_2_edge_
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;} <span class="comment">// namespace sofa::geometry</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="astructsofa_1_1geometry_1_1_edge_html"><div class="ttname"><a href="structsofa_1_1geometry_1_1_edge.html">sofa::geometry::Edge</a></div><div class="ttdef"><b>Definition:</b> Edge.h:55</div></div>
+<div class="ttc" id="astructsofa_1_1geometry_1_1_edge_html_ab8dcae5ecbbdc1966cad293968743d4c"><div class="ttname"><a href="structsofa_1_1geometry_1_1_edge.html#ab8dcae5ecbbdc1966cad293968743d4c">sofa::geometry::Edge::Edge</a></div><div class="ttdeci">Edge()=delete</div></div>
 <div class="ttc" id="astructsofa_1_1geometry_1_1_edge_html_a95d1eb0eedeac773ee2f4bb72e679d0a"><div class="ttname"><a href="structsofa_1_1geometry_1_1_edge.html#a95d1eb0eedeac773ee2f4bb72e679d0a">sofa::geometry::Edge::pointBaryCoefs</a></div><div class="ttdeci">static constexpr auto pointBaryCoefs(const Node &amp;point, const Node &amp;n0, const Node &amp;n1)</div><div class="ttdoc">Compute the barycentric coefficients of input point on Edge (n0, n1)</div><div class="ttdef"><b>Definition:</b> Edge.h:144</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_vec_html"><div class="ttname"><a href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec</a></div><div class="ttdef"><b>Definition:</b> fwd.h:49</div></div>
+<div class="ttc" id="aframework_2_type_2src_2sofa_2type_2vec_8h_html"><div class="ttname"><a href="framework_2_type_2src_2sofa_2type_2vec_8h.html">Vec.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_vec_html_ad4c1ffead86040d398afbf38da30c0cf"><div class="ttname"><a href="classsofa_1_1type_1_1_vec.html#ad4c1ffead86040d398afbf38da30c0cf">sofa::type::Vec::normalized</a></div><div class="ttdeci">constexpr Vec&lt; N, ValueType &gt; normalized() const noexcept</div><div class="ttdef"><b>Definition:</b> Vec.h:521</div></div>
 <div class="ttc" id="aclasssofa_1_1simulation_1_1_node_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a></div><div class="ttdef"><b>Definition:</b> Node.h:166</div></div>
 <div class="ttc" id="astructsofa_1_1geometry_1_1_edge_html_a1f0fc27a51c7720f4d509a76d25c9a02"><div class="ttname"><a href="structsofa_1_1geometry_1_1_edge.html#a1f0fc27a51c7720f4d509a76d25c9a02">sofa::geometry::Edge::length</a></div><div class="ttdeci">static constexpr auto length(const Node &amp;n0, const Node &amp;n1)</div><div class="ttdoc">Compute the length (or norm) of an edge.</div><div class="ttdef"><b>Definition:</b> Edge.h:126</div></div>
+<div class="ttc" id="anamespacesofa_1_1geometry_html"><div class="ttname"><a href="namespacesofa_1_1geometry.html">sofa::geometry</a></div><div class="ttdef"><b>Definition:</b> Edge.h:32</div></div>
+<div class="ttc" id="aframework_2_type_2src_2sofa_2type_2vec_8h_html_a6d7a89df29ae9bafccf0a4d752ed991c"><div class="ttname"><a href="framework_2_type_2src_2sofa_2type_2vec_8h.html#a6d7a89df29ae9bafccf0a4d752ed991c">EQUALITY_THRESHOLD</a></div><div class="ttdeci">#define EQUALITY_THRESHOLD</div><div class="ttdef"><b>Definition:</b> Vec.h:34</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html_af8eb9688f1429be60c5733988ca591b9"><div class="ttname"><a href="namespacesofa_1_1type.html#af8eb9688f1429be60c5733988ca591b9">sofa::type::norm</a></div><div class="ttdeci">SReal norm(const V &amp;v)</div><div class="ttdoc">Norm of a vector.</div><div class="ttdef"><b>Definition:</b> vector_algebra.h:71</div></div>
 <div class="ttc" id="astructsofa_1_1geometry_1_1_edge_html_a0ea7ff1055d8638ab02d1e16a170d435"><div class="ttname"><a href="structsofa_1_1geometry_1_1_edge.html#a0ea7ff1055d8638ab02d1e16a170d435">sofa::geometry::Edge::intersectionWithPlane</a></div><div class="ttdeci">static constexpr bool intersectionWithPlane(const Node &amp;n0, const Node &amp;n1, const sofa::type::Vec&lt; 3, T &gt; &amp;planeP0, const sofa::type::Vec&lt; 3, T &gt; &amp;normal, sofa::type::Vec&lt; 3, T &gt; &amp;intersection)</div><div class="ttdoc">Compute the intersection between a plane (defined by a point and a normal) and the Edge (n0,...</div><div class="ttdef"><b>Definition:</b> Edge.h:178</div></div>
+<div class="ttc" id="astructsofa_1_1geometry_1_1_edge_html_a27d5611031bd5a6f407dbd6d8bf1b611"><div class="ttname"><a href="structsofa_1_1geometry_1_1_edge.html#a27d5611031bd5a6f407dbd6d8bf1b611">sofa::geometry::Edge::NumberOfNodes</a></div><div class="ttdeci">static constexpr sofa::Size NumberOfNodes</div><div class="ttdef"><b>Definition:</b> Edge.h:77</div></div>
 <div class="ttc" id="astructsofa_1_1geometry_1_1_edge_html_a7cc5b85592fc414ebb20ecb24b386d09"><div class="ttname"><a href="structsofa_1_1geometry_1_1_edge.html#a7cc5b85592fc414ebb20ecb24b386d09">sofa::geometry::Edge::squaredLength</a></div><div class="ttdeci">static constexpr auto squaredLength(const Node &amp;n0, const Node &amp;n1)</div><div class="ttdoc">Compute the squared length (or norm) of an edge.</div><div class="ttdef"><b>Definition:</b> Edge.h:95</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_e4c1f116cc2455b3b3f8f9a35ad77584.html">Geometry</a></li><li class="navelem"><a class="el" href="dir_6f58e753a67df6b61bcdab0cf0d1b354.html">src</a></li><li class="navelem"><a class="el" href="dir_7eed1b1401cbf30e5183e5be957a6f60.html">sofa</a></li><li class="navelem"><a class="el" href="dir_8b3227a93d893dddc274ba5c4e2fcb6a.html">geometry</a></li><li class="navelem"><b>Edge.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:38:43 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_e4c1f116cc2455b3b3f8f9a35ad77584.html">Geometry</a></li><li class="navelem"><a class="el" href="dir_6f58e753a67df6b61bcdab0cf0d1b354.html">src</a></li><li class="navelem"><a class="el" href="dir_7eed1b1401cbf30e5183e5be957a6f60.html">sofa</a></li><li class="navelem"><a class="el" href="dir_8b3227a93d893dddc274ba5c4e2fcb6a.html">geometry</a></li><li class="navelem"><a class="el" href="_geometry_2src_2sofa_2geometry_2_edge_8h.html">Edge.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:09:35 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

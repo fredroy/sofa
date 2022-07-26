@@ -7,6 +7,7 @@ var classsofa_1_1component_1_1engine_1_1generate_1_1_join_points =
     [ "JoinPoints", "classsofa_1_1component_1_1engine_1_1generate_1_1_join_points.html#a055324828a23dbdcff21af0e09730f03", null ],
     [ "~JoinPoints", "classsofa_1_1component_1_1engine_1_1generate_1_1_join_points.html#a3de98f487946971cfecdff3041bc5238", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1generate_1_1_join_points.html#a4daa2dc990606f6f13a82f619a13358a", null ],
+    [ "getNearestPoint", "classsofa_1_1component_1_1engine_1_1generate_1_1_join_points.html#aad4066fdf9e2ab80dafa20f17f7e3aeb", null ],
     [ "init", "classsofa_1_1component_1_1engine_1_1generate_1_1_join_points.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "reinit", "classsofa_1_1component_1_1engine_1_1generate_1_1_join_points.html#ab1094b915e637faa84817a097d8d87be", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1engine_1_1generate_1_1_join_points.html#a9ce1846899b7398d58c1cce352ab2aa2", null ],

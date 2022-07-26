@@ -26,6 +26,7 @@ var classsofa_1_1type_1_1_bounding_box1_d =
     [ "maxBBox", "classsofa_1_1type_1_1_bounding_box1_d.html#aa88a0e1ace7c9d814c6040d27d7ae22a", null ],
     [ "minBBox", "classsofa_1_1type_1_1_bounding_box1_d.html#a8ba6d8715787bda8aa01fe4548c49b90", null ],
     [ "minBBox", "classsofa_1_1type_1_1_bounding_box1_d.html#a62204fdfd0444ba26bf54d6599a38240", null ],
+    [ "neutral_bbox", "classsofa_1_1type_1_1_bounding_box1_d.html#abf6e2a0ce0602d76484508993a42b076", null ],
     [ "operator bbox_t", "classsofa_1_1type_1_1_bounding_box1_d.html#aca2fb76f4ccae2f1004fb39c1b2eb9f9", null ],
     [ "operator<<", "classsofa_1_1type_1_1_bounding_box1_d.html#a3093c790312e8d43abec78c6a12bedb1", null ],
     [ "operator>>", "classsofa_1_1type_1_1_bounding_box1_d.html#af4cfc7c35883102e4c245677e9a105e0", null ],

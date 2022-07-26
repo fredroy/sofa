@@ -1,5 +1,9 @@
 var classsofa_1_1type_1_1_dual_quat_coord3 =
 [
+    [ "Pos", "classsofa_1_1type_1_1_dual_quat_coord3.html#abf3a968f08c99c0c3b1d6089209c4367", null ],
+    [ "Quat", "classsofa_1_1type_1_1_dual_quat_coord3.html#a438a2585caa47ed8151a89f585efb4f1", null ],
+    [ "value_type", "classsofa_1_1type_1_1_dual_quat_coord3.html#aee5785e9d2466ec41c29ca400213e52f", null ],
+    [ "Vec3", "classsofa_1_1type_1_1_dual_quat_coord3.html#a4b6856131cd312a19fec59e647b198b4", null ],
     [ "DualQuatCoord3", "classsofa_1_1type_1_1_dual_quat_coord3.html#a0aba180d8edd83fd4815a8db57bca3e5", null ],
     [ "DualQuatCoord3", "classsofa_1_1type_1_1_dual_quat_coord3.html#a33cfd0b94182889ec6f0f823fc16543d", null ],
     [ "DualQuatCoord3", "classsofa_1_1type_1_1_dual_quat_coord3.html#acd530324d776864643d0047059228e5c", null ],
@@ -12,9 +16,11 @@ var classsofa_1_1type_1_1_dual_quat_coord3 =
     [ "getOrientation", "classsofa_1_1type_1_1_dual_quat_coord3.html#a89764bdfc5409572022b856a70d7d33e", null ],
     [ "getOrientation", "classsofa_1_1type_1_1_dual_quat_coord3.html#a03be09735c307d4e77a647b90dc7005d", null ],
     [ "getTranslation", "classsofa_1_1type_1_1_dual_quat_coord3.html#a66ff5c97024aa238456de599dcf0998f", null ],
+    [ "identity", "classsofa_1_1type_1_1_dual_quat_coord3.html#a8ee88f2f44eaa08617d7f799fcc63cf1", null ],
     [ "inverse", "classsofa_1_1type_1_1_dual_quat_coord3.html#a0e26cc8f7836e5581a15d55a16acb414", null ],
     [ "inverseRotate", "classsofa_1_1type_1_1_dual_quat_coord3.html#a225ce0c2b044d25458763d88958003f0", null ],
     [ "invert", "classsofa_1_1type_1_1_dual_quat_coord3.html#a7fa1616cc61c19a5efcc863c950f7f30", null ],
+    [ "max_size", "classsofa_1_1type_1_1_dual_quat_coord3.html#a1efeed5f826a38cfc6d2481a92e6e8c5", null ],
     [ "multLeft", "classsofa_1_1type_1_1_dual_quat_coord3.html#a95861d10bd4b0c4bc9fc7f89e627eede", null ],
     [ "multLeft_getJ", "classsofa_1_1type_1_1_dual_quat_coord3.html#a960d97b5f3f6c444699b939a43330d9b", null ],
     [ "multRight", "classsofa_1_1type_1_1_dual_quat_coord3.html#afc364201255d4c510266c8abf73151e5", null ],
@@ -51,6 +57,7 @@ var classsofa_1_1type_1_1_dual_quat_coord3 =
     [ "rotation_applyH", "classsofa_1_1type_1_1_dual_quat_coord3.html#a0f202d784f68cbedb25ce318f26aaf99", null ],
     [ "rotation_applyHT", "classsofa_1_1type_1_1_dual_quat_coord3.html#ad29704a435910faf9df92d494324ae2d", null ],
     [ "setTranslation", "classsofa_1_1type_1_1_dual_quat_coord3.html#afc4af21b51e858366a476952122d61af", null ],
+    [ "size", "classsofa_1_1type_1_1_dual_quat_coord3.html#abab29be3e52b99114bad27934ebda37f", null ],
     [ "toMatrix", "classsofa_1_1type_1_1_dual_quat_coord3.html#a781036aeac1381243cd90804fea79155", null ],
     [ "toRotationMatrix", "classsofa_1_1type_1_1_dual_quat_coord3.html#a3392691908164f62de12a4589245b76e", null ],
     [ "vectorToChild", "classsofa_1_1type_1_1_dual_quat_coord3.html#af00912896a68083fd63b2c1b62e92a8f", null ],
@@ -58,5 +65,9 @@ var classsofa_1_1type_1_1_dual_quat_coord3 =
     [ "velocity_applyJT", "classsofa_1_1type_1_1_dual_quat_coord3.html#a5d01f110a1911dde21d0b9860c7d34b6", null ],
     [ "velocity_getJ", "classsofa_1_1type_1_1_dual_quat_coord3.html#a1a24fa82b3f68b2ca1dfa289c2317db8", null ],
     [ "operator<<", "classsofa_1_1type_1_1_dual_quat_coord3.html#a1fc513746f1784e150d681d01f1b8845", null ],
-    [ "operator>>", "classsofa_1_1type_1_1_dual_quat_coord3.html#af662ab2fbdbbdc840d9c5efa9771b305", null ]
+    [ "operator>>", "classsofa_1_1type_1_1_dual_quat_coord3.html#af662ab2fbdbbdc840d9c5efa9771b305", null ],
+    [ "dual", "classsofa_1_1type_1_1_dual_quat_coord3.html#a474ef9fe977cb3cf4f3dfda202d5b00d", null ],
+    [ "orientation", "classsofa_1_1type_1_1_dual_quat_coord3.html#a5053466d863d5e7fb17d4b9a5f3722a7", null ],
+    [ "spatial_dimensions", "classsofa_1_1type_1_1_dual_quat_coord3.html#a7d37194ec776d0b064baebe9bd3e3657", null ],
+    [ "total_size", "classsofa_1_1type_1_1_dual_quat_coord3.html#a961948cc6e0024845a81c394752357fc", null ]
 ];

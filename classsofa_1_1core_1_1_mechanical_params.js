@@ -3,6 +3,7 @@ var classsofa_1_1core_1_1_mechanical_params =
     [ "MechanicalParams", "classsofa_1_1core_1_1_mechanical_params.html#ad16bd36ee29c3ffb633c4bbc08a74f88", null ],
     [ "MechanicalParams", "classsofa_1_1core_1_1_mechanical_params.html#a8a46fd779bbf747fdf794684bb866018", null ],
     [ "bFactor", "classsofa_1_1core_1_1_mechanical_params.html#ab8105dbba4d53446345b490d41740f2f", null ],
+    [ "defaultInstance", "classsofa_1_1core_1_1_mechanical_params.html#a899802427b55ee192106542d9383fd47", null ],
     [ "df", "classsofa_1_1core_1_1_mechanical_params.html#af9921f73381c7d9cc933ff445e1b3d06", null ],
     [ "df", "classsofa_1_1core_1_1_mechanical_params.html#a5dfb4c2a4a9bf8885e74f21eb76f868c", null ],
     [ "dt", "classsofa_1_1core_1_1_mechanical_params.html#acf1817cb2fa99b45d73a77935e7106d2", null ],

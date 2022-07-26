@@ -85,11 +85,15 @@ $(document).ready(function(){initNavTree('classsofa_1_1helper_1_1io_1_1_base_fil
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classsofa_1_1helper_1_1io_1_1_base_file_access-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">BaseFileAccess Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_base_file_access_8h_source.html">BaseFileAccess.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for BaseFileAccess:</div>
 <div class="dyncontent">
@@ -102,45 +106,368 @@ Inheritance diagram for BaseFileAccess:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a229ad83d75e96fc8eca8ade06589d889"><td class="memItemLeft" align="right" valign="top"><a id="a229ad83d75e96fc8eca8ade06589d889"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>open</b> (const std::string &amp;filename, std::ios_base::openmode openMode)=0</td></tr>
+<tr class="memitem:a2a39da2c9367d2dc361102be7a201108"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html#a2a39da2c9367d2dc361102be7a201108">~BaseFileAccess</a> ()</td></tr>
+<tr class="separator:a2a39da2c9367d2dc361102be7a201108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a229ad83d75e96fc8eca8ade06589d889"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html#a229ad83d75e96fc8eca8ade06589d889">open</a> (const std::string &amp;filename, std::ios_base::openmode openMode)=0</td></tr>
 <tr class="separator:a229ad83d75e96fc8eca8ade06589d889"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6ee7eacbde6b379b68d954e44f6e549"><td class="memItemLeft" align="right" valign="top"><a id="af6ee7eacbde6b379b68d954e44f6e549"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>close</b> ()=0</td></tr>
+<tr class="memitem:af6ee7eacbde6b379b68d954e44f6e549"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html#af6ee7eacbde6b379b68d954e44f6e549">close</a> ()=0</td></tr>
 <tr class="separator:af6ee7eacbde6b379b68d954e44f6e549"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7597bad09c09e1d6359ab429fd573f86"><td class="memItemLeft" align="right" valign="top"><a id="a7597bad09c09e1d6359ab429fd573f86"></a>
-virtual std::streambuf *&#160;</td><td class="memItemRight" valign="bottom"><b>streambuf</b> () const =0</td></tr>
+<tr class="memitem:a7597bad09c09e1d6359ab429fd573f86"><td class="memItemLeft" align="right" valign="top">virtual std::streambuf *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html#a7597bad09c09e1d6359ab429fd573f86">streambuf</a> () const =0</td></tr>
 <tr class="separator:a7597bad09c09e1d6359ab429fd573f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a593b82d90c8b157f6660492ee9cde25a"><td class="memItemLeft" align="right" valign="top"><a id="a593b82d90c8b157f6660492ee9cde25a"></a>
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>readAll</b> ()=0</td></tr>
+<tr class="memitem:a593b82d90c8b157f6660492ee9cde25a"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html#a593b82d90c8b157f6660492ee9cde25a">readAll</a> ()=0</td></tr>
 <tr class="separator:a593b82d90c8b157f6660492ee9cde25a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5484dbee0f0536f96ea5309d38df0e79"><td class="memItemLeft" align="right" valign="top"><a id="a5484dbee0f0536f96ea5309d38df0e79"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (const std::string &amp;data)=0</td></tr>
+<tr class="memitem:a5484dbee0f0536f96ea5309d38df0e79"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html#a5484dbee0f0536f96ea5309d38df0e79">write</a> (const std::string &amp;data)=0</td></tr>
 <tr class="separator:a5484dbee0f0536f96ea5309d38df0e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a3b494ab383036c61d0068eb108a1231b"><td class="memItemLeft" align="right" valign="top"><a id="a3b494ab383036c61d0068eb108a1231b"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDefaultCreator</b> ()</td></tr>
+<tr class="memitem:a3b494ab383036c61d0068eb108a1231b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html#a3b494ab383036c61d0068eb108a1231b">SetDefaultCreator</a> ()</td></tr>
 <tr class="separator:a3b494ab383036c61d0068eb108a1231b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc087953a29e51b5619c83998332ef38"><td class="memItemLeft" align="right" valign="top"><a id="abc087953a29e51b5619c83998332ef38"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetCreator</b> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access_creator.html">BaseFileAccessCreator</a> *baseFileAccessCreator)</td></tr>
+<tr class="memitem:abc087953a29e51b5619c83998332ef38"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html#abc087953a29e51b5619c83998332ef38">SetCreator</a> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access_creator.html">BaseFileAccessCreator</a> *baseFileAccessCreator)</td></tr>
 <tr class="separator:abc087953a29e51b5619c83998332ef38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31979acff886ca76d58beff42eb76e14"><td class="memTemplParams" colspan="2"><a id="a31979acff886ca76d58beff42eb76e14"></a>
-template&lt;class T &gt; </td></tr>
-<tr class="memitem:a31979acff886ca76d58beff42eb76e14"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>SetCreator</b> ()</td></tr>
+<tr class="memitem:a31979acff886ca76d58beff42eb76e14"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a31979acff886ca76d58beff42eb76e14"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html#a31979acff886ca76d58beff42eb76e14">SetCreator</a> ()</td></tr>
 <tr class="separator:a31979acff886ca76d58beff42eb76e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a5ced0d288199caf54638d537d91b75"><td class="memItemLeft" align="right" valign="top"><a id="a2a5ced0d288199caf54638d537d91b75"></a>
-static <a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html">BaseFileAccess</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> ()</td></tr>
+<tr class="memitem:a2a5ced0d288199caf54638d537d91b75"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html">BaseFileAccess</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html#a2a5ced0d288199caf54638d537d91b75">Create</a> ()</td></tr>
 <tr class="separator:a2a5ced0d288199caf54638d537d91b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:addd426cce7164dccd8946fb2591673b1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html#addd426cce7164dccd8946fb2591673b1">BaseFileAccess</a> ()</td></tr>
+<tr class="separator:addd426cce7164dccd8946fb2591673b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a1c9628076890f6fa889d1d56568a70dc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access_creator.html">BaseFileAccessCreator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html#a1c9628076890f6fa889d1d56568a70dc">OurCreator</a> = nullptr</td></tr>
+<tr class="separator:a1c9628076890f6fa889d1d56568a70dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="addd426cce7164dccd8946fb2591673b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addd426cce7164dccd8946fb2591673b1">&#9670;&nbsp;</a></span>BaseFileAccess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html">BaseFileAccess</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a39da2c9367d2dc361102be7a201108"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a39da2c9367d2dc361102be7a201108">&#9670;&nbsp;</a></span>~BaseFileAccess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html">BaseFileAccess</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af6ee7eacbde6b379b68d954e44f6e549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6ee7eacbde6b379b68d954e44f6e549">&#9670;&nbsp;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void close </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1helper_1_1io_1_1_file_access.html#a7008bca493d69ea65f12e0940f3a6886">FileAccess</a>.</p>
+
+</div>
+</div>
+<a id="a2a5ced0d288199caf54638d537d91b75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a5ced0d288199caf54638d537d91b75">&#9670;&nbsp;</a></span>Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html">BaseFileAccess</a> * Create </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a229ad83d75e96fc8eca8ade06589d889"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a229ad83d75e96fc8eca8ade06589d889">&#9670;&nbsp;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool open </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ios_base::openmode&#160;</td>
+          <td class="paramname"><em>openMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1helper_1_1io_1_1_file_access.html#ac7e80887d31f4fa809a596435bcf17b5">FileAccess</a>.</p>
+
+</div>
+</div>
+<a id="a593b82d90c8b157f6660492ee9cde25a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a593b82d90c8b157f6660492ee9cde25a">&#9670;&nbsp;</a></span>readAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string readAll </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1helper_1_1io_1_1_file_access.html#a59c591e9e463a16eb0056e78b0fe2298">FileAccess</a>.</p>
+
+</div>
+</div>
+<a id="a31979acff886ca76d58beff42eb76e14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31979acff886ca76d58beff42eb76e14">&#9670;&nbsp;</a></span>SetCreator() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetCreator</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc087953a29e51b5619c83998332ef38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc087953a29e51b5619c83998332ef38">&#9670;&nbsp;</a></span>SetCreator() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetCreator </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access_creator.html">BaseFileAccessCreator</a> *&#160;</td>
+          <td class="paramname"><em>baseFileAccessCreator</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b494ab383036c61d0068eb108a1231b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b494ab383036c61d0068eb108a1231b">&#9670;&nbsp;</a></span>SetDefaultCreator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetDefaultCreator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7597bad09c09e1d6359ab429fd573f86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7597bad09c09e1d6359ab429fd573f86">&#9670;&nbsp;</a></span>streambuf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::streambuf* streambuf </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1helper_1_1io_1_1_file_access.html#a33ab626ce5c1a7ca050afe2cd3d55b15">FileAccess</a>.</p>
+
+</div>
+</div>
+<a id="a5484dbee0f0536f96ea5309d38df0e79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5484dbee0f0536f96ea5309d38df0e79">&#9670;&nbsp;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void write </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1helper_1_1io_1_1_file_access.html#a39449d8c59335a84743f35a4c9f8f4fc">FileAccess</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1c9628076890f6fa889d1d56568a70dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c9628076890f6fa889d1d56568a70dc">&#9670;&nbsp;</a></span>OurCreator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access_creator.html">BaseFileAccessCreator</a> * OurCreator = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><b>io</b></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html">BaseFileAccess</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:10:54 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper_1_1io.html">io</a></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1io_1_1_base_file_access.html">BaseFileAccess</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -39,6 +39,7 @@ var classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralinte
     [ "reinit", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralinteractionconstraint_1_b6f1c387e8bb33ec5fcd3c7ddbaf9e6e.html#ab1094b915e637faa84817a097d8d87be", null ],
     [ "reset", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralinteractionconstraint_1_b6f1c387e8bb33ec5fcd3c7ddbaf9e6e.html#aebfcdbbd0fe4efbff10b180be50ca6bc", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralinteractionconstraint_1_b6f1c387e8bb33ec5fcd3c7ddbaf9e6e.html#abda9578d26d9d6421989bec11eec4102", null ],
+    [ "unspecializedInit", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralinteractionconstraint_1_b6f1c387e8bb33ec5fcd3c7ddbaf9e6e.html#a865edb3e6a76c1b912aca8a074d98112", null ],
     [ "BilateralInteractionConstraintSpecialization", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralinteractionconstraint_1_b6f1c387e8bb33ec5fcd3c7ddbaf9e6e.html#a65b0644c67983d8dea6461fc58254dd9", null ],
     [ "activateAtIteration", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralinteractionconstraint_1_b6f1c387e8bb33ec5fcd3c7ddbaf9e6e.html#a8227d35c8c1b2c4bc9817e2d7c24dd4c", null ],
     [ "activated", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1bilateralinteractionconstraint_1_b6f1c387e8bb33ec5fcd3c7ddbaf9e6e.html#a73e9fa0c3543560192f38a8ab6a78c47", null ],

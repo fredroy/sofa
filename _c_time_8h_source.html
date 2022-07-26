@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_c_time_8h_source.html',''); initResiz
 <div class="title">CTime.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_c_time_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -135,38 +135,38 @@ $(document).ready(function(){initNavTree('_c_time_8h_source.html',''); initResiz
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#ifdef WIN32</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">typedef</span> ULONGLONG ctime_t;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">typedef</span> ULONGLONG <a class="code" href="namespacesofa_1_1helper_1_1system_1_1thread.html#a8132bc2c8efe014d70871182d8720d76">ctime_t</a>;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> ctime_t;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="namespacesofa_1_1helper_1_1system_1_1thread.html#a8132bc2c8efe014d70871182d8720d76">ctime_t</a>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">class </span>SOFA_HELPER_API CTime</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">class </span>SOFA_HELPER_API <a class="code" href="namespacesofa_1_1helper.html#ab28199cf157934f81ac797144b178c49">CTime</a></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">//volatile causes: &quot;warning: type qualifiers ignored on function return type&quot; on GCC 4.3</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">// Get current reference time</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">static</span> <span class="comment">/*volatile*/</span> ctime_t getRefTime();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">static</span> <span class="comment">/*volatile*/</span> <a class="code" href="namespacesofa_1_1helper_1_1system_1_1thread.html#a8132bc2c8efe014d70871182d8720d76">ctime_t</a> getRefTime();</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">// Get the frequency of the reference timer</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">static</span> ctime_t getRefTicksPerSec();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">static</span> <a class="code" href="namespacesofa_1_1helper_1_1system_1_1thread.html#a8132bc2c8efe014d70871182d8720d76">ctime_t</a> getRefTicksPerSec();</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">// Get current time using the fastest available method</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">static</span> <span class="comment">/*volatile*/</span> ctime_t getFastTime();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">static</span> <span class="comment">/*volatile*/</span> <a class="code" href="namespacesofa_1_1helper_1_1system_1_1thread.html#a8132bc2c8efe014d70871182d8720d76">ctime_t</a> getFastTime();</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">// Get the frequency of the fast timer</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">static</span> ctime_t getTicksPerSec();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">static</span> <a class="code" href="namespacesofa_1_1helper_1_1system_1_1thread.html#a8132bc2c8efe014d70871182d8720d76">ctime_t</a> getTicksPerSec();</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">// Same as getFastTime, but with the additionnal guaranty that it will never decrease.</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">static</span> <span class="comment">/*volatile*/</span> ctime_t getTime();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">static</span> <span class="comment">/*volatile*/</span> <a class="code" href="namespacesofa_1_1helper_1_1system_1_1thread.html#a8132bc2c8efe014d70871182d8720d76">ctime_t</a> <a class="code" href="namespacesofa_1_1helper.html#a32d7680d86387a4f8317cb7dc1cb83d5">getTime</a>();</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">// Sleep for the given duration in second</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> sleep(<span class="keywordtype">double</span> s);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">double</span> toSecond(<span class="keyword">const</span> ctime_t t) ;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">double</span> toSecond(<span class="keyword">const</span> <a class="code" href="namespacesofa_1_1helper_1_1system_1_1thread.html#a8132bc2c8efe014d70871182d8720d76">ctime_t</a> t) ;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">static</span> ctime_t computeTicksPerSec();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">static</span> <a class="code" href="namespacesofa_1_1helper_1_1system_1_1thread.html#a8132bc2c8efe014d70871182d8720d76">ctime_t</a> computeTicksPerSec();</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;} <span class="comment">// namespace thread</span></div>
@@ -181,11 +181,14 @@ $(document).ready(function(){initNavTree('_c_time_8h_source.html',''); initResiz
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacesofa_html"><div class="ttname"><a href="namespacesofa.html">sofa</a></div><div class="ttdoc">This allow MeshTrian to interact with the messaging system.</div><div class="ttdef"><b>Definition:</b> ConstraintAnimationLoop.cpp:81</div></div>
+<div class="ttc" id="anamespacesofa_1_1helper_html_a32d7680d86387a4f8317cb7dc1cb83d5"><div class="ttname"><a href="namespacesofa_1_1helper.html#a32d7680d86387a4f8317cb7dc1cb83d5">sofa::helper::getTime</a></div><div class="ttdeci">std::string getTime(ctime_t t, int niter=1)</div><div class="ttdef"><b>Definition:</b> AdvancedTimer.cpp:1074</div></div>
+<div class="ttc" id="anamespacesofa_1_1helper_html_ab28199cf157934f81ac797144b178c49"><div class="ttname"><a href="namespacesofa_1_1helper.html#ab28199cf157934f81ac797144b178c49">sofa::helper::CTime</a></div><div class="ttdeci">sofa::helper::system::thread::CTime CTime</div><div class="ttdef"><b>Definition:</b> AdvancedTimer.cpp:49</div></div>
+<div class="ttc" id="anamespacesofa_1_1helper_1_1system_1_1thread_html_a8132bc2c8efe014d70871182d8720d76"><div class="ttname"><a href="namespacesofa_1_1helper_1_1system_1_1thread.html#a8132bc2c8efe014d70871182d8720d76">sofa::helper::system::thread::ctime_t</a></div><div class="ttdeci">unsigned long long ctime_t</div><div class="ttdef"><b>Definition:</b> CTime.h:140</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><a class="el" href="dir_fc466feef2df996a6bc7955f87c4296d.html">system</a></li><li class="navelem"><a class="el" href="dir_84e3aaad95d7fe2dba5a8120cdc0b039.html">thread</a></li><li class="navelem"><b>CTime.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:41:48 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><a class="el" href="dir_fc466feef2df996a6bc7955f87c4296d.html">system</a></li><li class="navelem"><a class="el" href="dir_84e3aaad95d7fe2dba5a8120cdc0b039.html">thread</a></li><li class="navelem"><a class="el" href="_c_time_8h.html">CTime.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:14:59 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

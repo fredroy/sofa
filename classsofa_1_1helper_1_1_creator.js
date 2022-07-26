@@ -8,5 +8,6 @@ var classsofa_1_1helper_1_1_creator =
     [ "createInstance", "classsofa_1_1helper_1_1_creator.html#a64a4b5b6ce48d9171fc847dffb327525", null ],
     [ "getKey", "classsofa_1_1helper_1_1_creator.html#a12867cb81304913c0b0529157aa024f8", null ],
     [ "registerInFactory", "classsofa_1_1helper_1_1_creator.html#a7a7e5ffb056220d1862ee83ecd49195f", null ],
-    [ "type", "classsofa_1_1helper_1_1_creator.html#a981b506a60026a8153c6b4f62d9a1800", null ]
+    [ "type", "classsofa_1_1helper_1_1_creator.html#a981b506a60026a8153c6b4f62d9a1800", null ],
+    [ "m_key", "classsofa_1_1helper_1_1_creator.html#a7c1ce58ee66d5ddc470939b32ff4d645", null ]
 ];

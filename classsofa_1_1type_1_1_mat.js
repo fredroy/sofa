@@ -14,6 +14,8 @@ var classsofa_1_1type_1_1_mat =
     [ "Mat", "classsofa_1_1type_1_1_mat.html#ae91c7968732f5c7874baf6962b1182f3", null ],
     [ "Mat", "classsofa_1_1type_1_1_mat.html#a7937baa2b4db88c7d7cb17be3b520709", null ],
     [ "addTransposed", "classsofa_1_1type_1_1_mat.html#ac5f19f17e1e04aabdef3bf2f9e08ece6", null ],
+    [ "canSelfTranspose", "classsofa_1_1type_1_1_mat.html#a4dfa31188f7d366deaf3953a54c017e5", null ],
+    [ "canSelfTranspose", "classsofa_1_1type_1_1_mat.html#a3516872448f2401641a5c542949777ad", null ],
     [ "clear", "classsofa_1_1type_1_1_mat.html#a96d391a5b8907ff5b9adf72774583f90", null ],
     [ "col", "classsofa_1_1type_1_1_mat.html#a98d174b87512acaf974730f286420c27", null ],
     [ "fill", "classsofa_1_1type_1_1_mat.html#ad66ef6b83ae4bed430088e584e1c41fb", null ],
@@ -21,6 +23,7 @@ var classsofa_1_1type_1_1_mat =
     [ "getNbLines", "classsofa_1_1type_1_1_mat.html#a46bf147082fe9661a5bfdbe58cd6442e", null ],
     [ "getsub", "classsofa_1_1type_1_1_mat.html#a29fadd0c71e9d0a839311769130100b3", null ],
     [ "identity", "classsofa_1_1type_1_1_mat.html#afdbc53b738d171d7ab11d8d981c18e0a", null ],
+    [ "Identity", "classsofa_1_1type_1_1_mat.html#a7c28c46b19edd758162d812df0981d30", null ],
     [ "invert", "classsofa_1_1type_1_1_mat.html#ad7a1ddc36289519ab68e8cb5a2d3dcf9", null ],
     [ "inverted", "classsofa_1_1type_1_1_mat.html#afeed1f634754cf574189decbb967ab5f", null ],
     [ "isDiagonal", "classsofa_1_1type_1_1_mat.html#a2ad1791cbb09e03d5f83e2d968226c09", null ],
@@ -65,6 +68,10 @@ var classsofa_1_1type_1_1_mat =
     [ "symmetrize", "classsofa_1_1type_1_1_mat.html#a9275706aaaa795f953c622f7f2fdb3e8", null ],
     [ "transform", "classsofa_1_1type_1_1_mat.html#a72a9b774c1e6d799d21fe4a68bd327b4", null ],
     [ "transformInvert", "classsofa_1_1type_1_1_mat.html#aa0b4ab9d7a05f0cb818edc5d35aa6c26", null ],
+    [ "transformRotation", "classsofa_1_1type_1_1_mat.html#a73bb8b0282a7d8d766c11ec6ba240934", null ],
+    [ "transformScale", "classsofa_1_1type_1_1_mat.html#a11dc04b08dbe435a4c2d4670ff3c3405", null ],
+    [ "transformScale", "classsofa_1_1type_1_1_mat.html#a8bae8954dcf1cbc12ad4b2f17d0f5413", null ],
+    [ "transformTranslation", "classsofa_1_1type_1_1_mat.html#a901125b3cbc6bd800f030e5f6e0938db", null ],
     [ "transpose", "classsofa_1_1type_1_1_mat.html#aeebf36b189952e11649dc7aa796696c8", null ],
     [ "transpose", "classsofa_1_1type_1_1_mat.html#a65141d8cdfe47fa63321104aa2e5b67d", null ],
     [ "transposed", "classsofa_1_1type_1_1_mat.html#ab8f84b6ecc1a587a8ff9c5fc4f1061e5", null ],
@@ -76,5 +83,8 @@ var classsofa_1_1type_1_1_mat =
     [ "y", "classsofa_1_1type_1_1_mat.html#a885608c2557b7de9810bf0418846ac57", null ],
     [ "z", "classsofa_1_1type_1_1_mat.html#a497806bf590ccbe9a3ff77a7e7bb4650", null ],
     [ "z", "classsofa_1_1type_1_1_mat.html#a294e4b57418a312fea2d5f098ec1fef9", null ],
-    [ "operator*", "classsofa_1_1type_1_1_mat.html#a4440e2760347181f4e887c61a31d3efe", null ]
+    [ "operator*", "classsofa_1_1type_1_1_mat.html#a4440e2760347181f4e887c61a31d3efe", null ],
+    [ "nbCols", "classsofa_1_1type_1_1_mat.html#afc244cf36dc188e0ab78bf8f70511f42", null ],
+    [ "nbLines", "classsofa_1_1type_1_1_mat.html#a7f000cb1832206f740bbcfef583e9d03", null ],
+    [ "s_identity", "classsofa_1_1type_1_1_mat.html#a0174d1634d08abb3604d10e4e8608e9d", null ]
 ];

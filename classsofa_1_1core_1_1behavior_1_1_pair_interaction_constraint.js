@@ -14,6 +14,8 @@ var classsofa_1_1core_1_1behavior_1_1_pair_interaction_constraint =
     [ "~PairInteractionConstraint", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_constraint.html#a86a2d8d3e887669fe83125e81ada67b0", null ],
     [ "buildConstraintMatrix", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_constraint.html#aa5a3e1672e7c39a5ec8a5b22a36ffb5c", null ],
     [ "buildConstraintMatrix", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_constraint.html#a7792b77caa3a20ffb7c878f24ef87fb7", null ],
+    [ "canCreate", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_constraint.html#ac65a50a3ff81bba00ec9967bc8e98a67", null ],
+    [ "create", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_constraint.html#a134f915a5a48fb81fbd3c672af910ccf", null ],
     [ "getConstraintViolation", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_constraint.html#a793090a726941cb561d8c81ea545c484", null ],
     [ "getConstraintViolation", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_constraint.html#aee9c8eb6b6e6173b7b61fefb4d04e43a", null ],
     [ "getConstraintViolation", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_constraint.html#aa191d07adbf876f41a6d661f42bf7f76", null ],

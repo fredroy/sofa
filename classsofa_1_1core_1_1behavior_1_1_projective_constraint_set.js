@@ -13,6 +13,7 @@ var classsofa_1_1core_1_1behavior_1_1_projective_constraint_set =
     [ "~ProjectiveConstraintSet", "classsofa_1_1core_1_1behavior_1_1_projective_constraint_set.html#af514bc25e5a073923b3a450555ad5d11", null ],
     [ "applyConstraint", "classsofa_1_1core_1_1behavior_1_1_projective_constraint_set.html#abc03fd2ffdeba8caf21159625d0e4ac0", null ],
     [ "applyConstraint", "classsofa_1_1core_1_1behavior_1_1_projective_constraint_set.html#a4ef4421478b65f23c7e6fe5b2352be43", null ],
+    [ "canCreate", "classsofa_1_1core_1_1behavior_1_1_projective_constraint_set.html#ac65a50a3ff81bba00ec9967bc8e98a67", null ],
     [ "getModels", "classsofa_1_1core_1_1behavior_1_1_projective_constraint_set.html#a8042b348aa07c847dd144dae3d2601dd", null ],
     [ "isActive", "classsofa_1_1core_1_1behavior_1_1_projective_constraint_set.html#a354c7d206ec624b9bdbb81f3b788f826", null ],
     [ "projectJacobianMatrix", "classsofa_1_1core_1_1behavior_1_1_projective_constraint_set.html#a5023caf5623fcad88aaa779513c1881e", null ],

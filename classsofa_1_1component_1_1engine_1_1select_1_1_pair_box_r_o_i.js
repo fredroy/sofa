@@ -9,6 +9,7 @@ var classsofa_1_1component_1_1engine_1_1select_1_1_pair_box_r_o_i =
     [ "VecCoord", "classsofa_1_1component_1_1engine_1_1select_1_1_pair_box_r_o_i.html#a05882e2e9ba8d707ab531ab94a1f39e0", null ],
     [ "PairBoxROI", "classsofa_1_1component_1_1engine_1_1select_1_1_pair_box_r_o_i.html#aeb6b1e73986fb65cfffc166de3f3a1ee", null ],
     [ "~PairBoxROI", "classsofa_1_1component_1_1engine_1_1select_1_1_pair_box_r_o_i.html#a3583283808c11328b48e4dbcfb90c11e", null ],
+    [ "canCreate", "classsofa_1_1component_1_1engine_1_1select_1_1_pair_box_r_o_i.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1select_1_1_pair_box_r_o_i.html#a4daa2dc990606f6f13a82f619a13358a", null ],
     [ "draw", "classsofa_1_1component_1_1engine_1_1select_1_1_pair_box_r_o_i.html#aa8c1e22ec6f8ac7e9eaa9c1a6f88cfac", null ],
     [ "init", "classsofa_1_1component_1_1engine_1_1select_1_1_pair_box_r_o_i.html#ad72eef1561c7a53b19b048397d4ef570", null ],

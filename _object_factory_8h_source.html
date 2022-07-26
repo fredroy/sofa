@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="title">ObjectFactory.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_object_factory_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -110,8 +110,8 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#ifndef SOFA_CORE_OBJECTFACTORY_H</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define SOFA_CORE_OBJECTFACTORY_H</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/core/objectmodel/BaseObject.h&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sofa/helper/NameDecoder.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_base_object_8h.html">sofa/core/objectmodel/BaseObject.h</a>&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_name_decoder_8h.html">sofa/helper/NameDecoder.h</a>&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;numeric&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa.html">sofa</a></div>
@@ -120,24 +120,24 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span>core</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">typedef</span> std::function&lt;void(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a>*, <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">sofa::core::objectmodel::BaseObjectDescription</a>*)&gt; OnCreateCallback ;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">typedef</span> std::function&lt;void(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a>*, <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">sofa::core::objectmodel::BaseObjectDescription</a>*)&gt; <a class="code" href="namespacesofa_1_1core.html#ac01d4902b0fb6154145238731c3a990d">OnCreateCallback</a> ;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">class </span>SOFA_CORE_API ObjectFactory</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">class </span>Creator</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">class </span><a class="code" href="namespacesofa_1_1core.html#a962ac39d0e7afd102d19aaee4dbc47cf">Creator</a></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">typedef</span> std::shared_ptr&lt;Creator&gt; SPtr;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">virtual</span> ~Creator() { }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="namespacesofa_1_1core.html#a962ac39d0e7afd102d19aaee4dbc47cf">Creator</a>() { }</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> canCreate(objectmodel::BaseContext* context, objectmodel::BaseObjectDescription* arg) = 0;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">virtual</span> objectmodel::BaseObject::SPtr createInstance(objectmodel::BaseContext* context, objectmodel::BaseObjectDescription* arg) = 0;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">objectmodel::BaseObject::SPtr</a> createInstance(objectmodel::BaseContext* context, objectmodel::BaseObjectDescription* arg) = 0;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> std::type_info&amp; type() = 0;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> objectmodel::BaseClass* getClass() = 0;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> objectmodel::BaseClass* <a class="code" href="namespacesofa_1_1gui_1_1qt.html#aa9fb00a0cfe930082d694d2811edf2c9">getClass</a>() = 0;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        SOFA_ATTRIBUTE_DISABLED__CLASSNAME_INTROSPECTION()</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <a class="code" href="namespacestd.html">std</a>::<span class="keywordtype">string</span> shortName(objectmodel::BaseObjectDescription* arg) = delete;</div>
@@ -146,10 +146,10 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        virtual const <span class="keywordtype">char</span>* getHeaderFileLocation() = 0;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    };</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    typedef <a class="code" href="namespacestd.html">std</a>::map&lt;<a class="code" href="namespacestd.html">std</a>::<span class="keywordtype">string</span>, Creator::SPtr&gt; CreatorMap;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    typedef <a class="code" href="namespacestd.html">std</a>::map&lt;<a class="code" href="namespacestd.html">std</a>::<span class="keywordtype">string</span>, <a class="code" href="namespacesofa_1_1core.html#a962ac39d0e7afd102d19aaee4dbc47cf">Creator</a>::SPtr&gt; CreatorMap;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    class ClassEntry</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    class <a class="code" href="namespacesofa_1_1core.html#ae6517f0f4f41ba0676fee218028b6186">ClassEntry</a></div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="namespacesofa_1_1core.html#ac01d4902b0fb6154145238731c3a990d">   88</a></span>&#160;    {</div>
 <div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory.html">   89</a></span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keyword">typedef</span> std::shared_ptr&lt;ClassEntry&gt; SPtr;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
@@ -158,15 +158,15 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory_1_1_creator.html">   94</a></span>&#160;        std::string description;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        std::string authors;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        std::string license;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        std::string defaultTemplate;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        CreatorMap creatorMap;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        std::map&lt;std::string, std::vector&lt;std::string&gt;&gt; m_dataAlias ;</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory_1_1_creator.html#afb51a7cee149f2f7b3209356a040c707">   97</a></span>&#160;        std::string defaultTemplate;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <a class="code" href="classsofa_1_1core_1_1_object_factory.html#a1507d27a95aa083c0d6b375ddf69d60d">CreatorMap</a> creatorMap;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory_1_1_creator.html#a3f1666f44154fe9744a8e8e2e9b12218">   99</a></span>&#160;        std::map&lt;std::string, std::vector&lt;std::string&gt;&gt; m_dataAlias ;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    };</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">typedef</span> std::map&lt;std::string, ClassEntry::SPtr&gt; ClassEntryMap;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">typedef</span> std::map&lt;std::string, ClassEntry::SPtr&gt; <a class="code" href="classsofa_1_1core_1_1_object_factory.html#adb4cc6e7f05d67d613b9e318f37a8595">ClassEntryMap</a>;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    ClassEntryMap registry;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    OnCreateCallback m_callbackOnCreate ;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="classsofa_1_1core_1_1_object_factory.html#adb4cc6e7f05d67d613b9e318f37a8595">ClassEntryMap</a> registry;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="namespacesofa_1_1core.html#ac01d4902b0fb6154145238731c3a990d">OnCreateCallback</a> m_callbackOnCreate ;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
@@ -179,38 +179,38 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    std::string shortName(std::string classname);</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span> getAllEntries(std::vector&lt;ClassEntry::SPtr&gt;&amp; result);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory.html#a1507d27a95aa083c0d6b375ddf69d60d">  124</a></span>&#160; </div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span> getEntriesFromTarget(std::vector&lt;ClassEntry::SPtr&gt;&amp; result, std::string target);</div>
 <div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html">  127</a></span>&#160; </div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    std::string listClassesFromTarget(std::string target, std::string separator = <span class="stringliteral">&quot;, &quot;</span>);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> BaseClass&gt;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">void</span> getEntriesDerivedFrom(std::vector&lt;ClassEntry::SPtr&gt;&amp; result) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> BaseClass&gt;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    std::string listClassesDerivedFrom(<span class="keyword">const</span> std::string&amp; separator = <span class="stringliteral">&quot;, &quot;</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#a20a64b5890b963bf3c561a5c4067a9e9">  130</a></span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#a7a53726c8d2e28a1e948ed39b24ed607">  132</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> BaseClass&gt;</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#ac928d03f028f94b88593203ee8f98f2c">  133</a></span>&#160;    <span class="keywordtype">void</span> getEntriesDerivedFrom(std::vector&lt;ClassEntry::SPtr&gt;&amp; result) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#a2e1454f6988673f814408646edaeb320">  134</a></span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#a869c0ada5fcd9582aeea8d31b041d688">  136</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> BaseClass&gt;</div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#a36fc9e6a21c979f8b6e1a08084e16ae2">  137</a></span>&#160;    std::string listClassesDerivedFrom(<span class="keyword">const</span> std::string&amp; separator = <span class="stringliteral">&quot;, &quot;</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#a8df8a756e0629d60f86349e4b340be8e">  138</a></span>&#160; </div>
 <div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory.html#a9b527762c2e2512f86c384ab02056715">  145</a></span>&#160;    <span class="keywordtype">bool</span> addAlias(std::string name, std::string target, <span class="keywordtype">bool</span> force=<span class="keyword">false</span>,</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                  ClassEntry::SPtr* previous = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory.html#ad2c20ed857e8cccc1c0762fcb310f21e">  146</a></span>&#160;                  <a class="code" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#a20a64b5890b963bf3c561a5c4067a9e9">ClassEntry::SPtr</a>* previous = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">void</span> resetAlias(std::string name, ClassEntry::SPtr previous);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">void</span> resetAlias(std::string name, <a class="code" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#a20a64b5890b963bf3c561a5c4067a9e9">ClassEntry::SPtr</a> previous);</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    objectmodel::BaseObject::SPtr createObject(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_context.html">objectmodel::BaseContext</a>* context, <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">objectmodel::BaseObjectDescription</a>* arg);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">objectmodel::BaseObject::SPtr</a> <a class="code" href="namespacesofa_1_1simpleapi.html#a90018f938efd15002a935d00a108b92e">createObject</a>(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_context.html">objectmodel::BaseContext</a>* context, <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">objectmodel::BaseObjectDescription</a>* arg);</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keyword">static</span> <a class="code" href="classsofa_1_1core_1_1_object_factory.html">ObjectFactory</a>* getInstance();</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keyword">static</span> objectmodel::BaseObject::SPtr CreateObject(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_context.html">objectmodel::BaseContext</a>* context, <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">objectmodel::BaseObjectDescription</a>* arg)</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keyword">static</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">objectmodel::BaseObject::SPtr</a> CreateObject(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_context.html">objectmodel::BaseContext</a>* context, <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">objectmodel::BaseObjectDescription</a>* arg)</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    {</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keywordflow">return</span> getInstance()-&gt;createObject(context, arg);</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    }</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> AddAlias(std::string name, std::string result, <span class="keywordtype">bool</span> force=<span class="keyword">false</span>,</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                         ClassEntry::SPtr* previous = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                         <a class="code" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#a20a64b5890b963bf3c561a5c4067a9e9">ClassEntry::SPtr</a>* previous = <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    {</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordflow">return</span> getInstance()-&gt;addAlias(name, result, force, previous);</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    }</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ResetAlias(std::string name, ClassEntry::SPtr previous)</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ResetAlias(std::string name, <a class="code" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#a20a64b5890b963bf3c561a5c4067a9e9">ClassEntry::SPtr</a> previous)</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    {</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        getInstance()-&gt;resetAlias(name, previous);</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    }</div>
@@ -231,7 +231,7 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordtype">void</span> dumpHTML(std::ostream&amp; out = std::cout);</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordtype">void</span> setCallback(OnCreateCallback cb) { m_callbackOnCreate = cb ; }</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordtype">void</span> setCallback(<a class="code" href="namespacesofa_1_1core.html#ac01d4902b0fb6154145238731c3a990d">OnCreateCallback</a> cb) { m_callbackOnCreate = cb ; }</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;};</div>
 <div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory.html#a4d0154409c77c82b715ac6d264f2ac92">  201</a></span>&#160; </div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> BaseClass&gt;</div>
@@ -240,7 +240,7 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    result.clear();</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; r : registry)</div>
 <div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory.html#a3ca89f2f0749e3fd2606b838d3b0ac2d">  207</a></span>&#160;    {</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        ClassEntry::SPtr entry = r.second;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <a class="code" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#a20a64b5890b963bf3c561a5c4067a9e9">ClassEntry::SPtr</a> entry = r.second;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="comment">// Push the entry only if it is not an alias</span></div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="keywordflow">if</span> (entry-&gt;className == r.first)</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        {</div>
@@ -248,7 +248,7 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            <span class="keywordflow">if</span> (creatorEntry != entry-&gt;creatorMap.end())</div>
 <div class="line"><a name="l00214"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory.html#a75beea88be8bd84cfa11e6c343143339">  214</a></span>&#160;            {</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>* baseClass = creatorEntry-&gt;second-&gt;getClass();</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                <span class="keywordflow">if</span> (baseClass &amp;&amp; baseClass-&gt;hasParent(BaseClass::GetClass()))</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                <span class="keywordflow">if</span> (baseClass &amp;&amp; baseClass-&gt;hasParent(<a class="code" href="namespacesofa_1_1core_1_1objectmodel_1_1base.html#a6be10f4a762a08c28b9eca8d75b524c7">BaseClass::GetClass</a>()))</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                {</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                    result.push_back(entry);</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                }</div>
@@ -257,21 +257,21 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    }</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;}</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> BaseClass&gt;</div>
+<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory.html#a45d8d5b8dce799831192b28841dab870">  225</a></span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> BaseClass&gt;</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;std::string <a class="code" href="classsofa_1_1core_1_1_object_factory.html#ab45f5648e5a10c1eae2b6c1233aeb33a">ObjectFactory::listClassesDerivedFrom</a>(<span class="keyword">const</span> std::string&amp; separator)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    std::vector&lt;ClassEntry::SPtr&gt; entries;</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    getEntriesDerivedFrom&lt;BaseClass&gt;(entries);</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">if</span> (entries.empty()) <span class="keywordflow">return</span> std::string();</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespacesofa_1_1helper.html#a093505469f664a03d694c1375dd9c4d0">join</a> = [&amp;separator](std::string a, ClassEntry::SPtr b)</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespacesofa_1_1helper.html#a093505469f664a03d694c1375dd9c4d0">join</a> = [&amp;separator](std::string a, <a class="code" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#a20a64b5890b963bf3c561a5c4067a9e9">ClassEntry::SPtr</a> b)</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    {</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keywordflow">return</span> std::move(a) + separator + b-&gt;className;</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    };</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordflow">return</span> std::accumulate(std::next(entries.begin()), entries.end(),</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                           entries.front()-&gt;className, join);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                           entries.front()-&gt;className, <a class="code" href="namespacesofa_1_1helper.html#a093505469f664a03d694c1375dd9c4d0">join</a>);</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;}</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
+<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory.html#a7884f6d3f33f4b42471c4da1ec19f4f4">  239</a></span>&#160; </div>
 <div class="line"><a name="l00243"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory.html#ae0418587533a6766903c32f03d1b65c0">  243</a></span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> RealObject&gt;</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="keyword">class </span><a class="code" href="classsofa_1_1core_1_1_object_creator.html">ObjectCreator</a> : <span class="keyword">public</span> <a class="code" href="classsofa_1_1core_1_1_object_factory_1_1_creator.html">ObjectFactory::Creator</a></div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;{</div>
@@ -281,7 +281,7 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        RealObject* instance = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="keywordflow">return</span> RealObject::canCreate(instance, context, arg);</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    }</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    objectmodel::BaseObject::SPtr createInstance(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_context.html">objectmodel::BaseContext</a>* context, <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">objectmodel::BaseObjectDescription</a>* arg)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">objectmodel::BaseObject::SPtr</a> createInstance(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_context.html">objectmodel::BaseContext</a>* context, <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">objectmodel::BaseObjectDescription</a>* arg)<span class="keyword"> override</span></div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        RealObject* instance = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keywordflow">return</span> RealObject::create(instance, context, arg);</div>
@@ -290,9 +290,9 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">typeid</span>(RealObject);</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    }</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keyword">const</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">objectmodel::BaseClass</a>* getClass()<span class="keyword"> override</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keyword">const</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">objectmodel::BaseClass</a>* <a class="code" href="namespacesofa_1_1gui_1_1qt.html#aa9fb00a0cfe930082d694d2811edf2c9">getClass</a>()<span class="keyword"> override</span></div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keywordflow">return</span> RealObject::GetClass();</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacesofa_1_1core_1_1objectmodel_1_1base.html#a6be10f4a762a08c28b9eca8d75b524c7">RealObject::GetClass</a>();</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    }</div>
 <div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_factory.html#ab45f5648e5a10c1eae2b6c1233aeb33a">  266</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* getTarget()<span class="keyword"> override</span></div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keyword">    </span>{</div>
@@ -312,7 +312,7 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="keyword">class </span>SOFA_CORE_API RegisterObject</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;{</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    ObjectFactory::ClassEntry entry;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <a class="code" href="namespacesofa_1_1core.html#ae6517f0f4f41ba0676fee218028b6186">ObjectFactory::ClassEntry</a> entry;</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
 <div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_creator.html#a94a375e8fe7f9b92e2bbad2cf8f4d85f">  306</a></span>&#160;    <a class="code" href="classsofa_1_1core_1_1_register_object.html">RegisterObject</a>(<span class="keyword">const</span> std::string&amp; description);</div>
@@ -321,12 +321,12 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <a class="code" href="classsofa_1_1core_1_1_register_object.html">RegisterObject</a>&amp; addDescription(std::string val);</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <a class="code" href="classsofa_1_1core_1_1_register_object.html">RegisterObject</a>&amp; addAuthor(std::string val);</div>
+<div class="line"><a name="l00315"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_object_creator.html#a7f28b51b55f6d5d31636fe0b00abac61">  315</a></span>&#160;    <a class="code" href="classsofa_1_1core_1_1_register_object.html">RegisterObject</a>&amp; addAuthor(std::string val);</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <a class="code" href="classsofa_1_1core_1_1_register_object.html">RegisterObject</a>&amp; addLicense(std::string val);</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <a class="code" href="classsofa_1_1core_1_1_register_object.html">RegisterObject</a>&amp; addCreator(std::string classname, std::string templatename,</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                               ObjectFactory::Creator::SPtr creator);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                               <a class="code" href="classsofa_1_1core_1_1_object_factory_1_1_creator.html#afb51a7cee149f2f7b3209356a040c707">ObjectFactory::Creator::SPtr</a> creator);</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> RealObject&gt;</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <a class="code" href="classsofa_1_1core_1_1_register_object.html">RegisterObject</a>&amp; add(<span class="keywordtype">bool</span> defaultTemplate=<span class="keyword">false</span>)</div>
@@ -337,7 +337,7 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        <span class="keywordflow">if</span> (defaultTemplate)</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            entry.defaultTemplate = templatename;</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
-<div class="line"><a name="l00338"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_register_object.html">  338</a></span>&#160;        <span class="keywordflow">return</span> addCreator(classname, templatename, ObjectFactory::Creator::SPtr(<span class="keyword">new</span> <a class="code" href="classsofa_1_1core_1_1_object_creator.html">ObjectCreator&lt;RealObject&gt;</a>));</div>
+<div class="line"><a name="l00338"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_register_object.html">  338</a></span>&#160;        <span class="keywordflow">return</span> addCreator(classname, templatename, <a class="code" href="classsofa_1_1core_1_1_object_factory_1_1_creator.html#afb51a7cee149f2f7b3209356a040c707">ObjectFactory::Creator::SPtr</a>(<span class="keyword">new</span> <a class="code" href="classsofa_1_1core_1_1_object_creator.html">ObjectCreator&lt;RealObject&gt;</a>));</div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    }</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
 <div class="line"><a name="l00342"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_register_object.html#a1023a05f2f0d119f8722964a64c0982b">  342</a></span>&#160;    <span class="keyword">operator</span> int();</div>
@@ -350,25 +350,38 @@ $(document).ready(function(){initNavTree('_object_factory_8h_source.html',''); i
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclasssofa_1_1core_1_1_object_factory_1_1_creator_html_afb51a7cee149f2f7b3209356a040c707"><div class="ttname"><a href="classsofa_1_1core_1_1_object_factory_1_1_creator.html#afb51a7cee149f2f7b3209356a040c707">sofa::core::ObjectFactory::Creator::SPtr</a></div><div class="ttdeci">std::shared_ptr&lt; Creator &gt; SPtr</div><div class="ttdef"><b>Definition:</b> ObjectFactory.h:97</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_object_factory_html"><div class="ttname"><a href="classsofa_1_1core_1_1_object_factory.html">sofa::core::ObjectFactory</a></div><div class="ttdef"><b>Definition:</b> ObjectFactory.h:89</div></div>
+<div class="ttc" id="a_base_object_8h_html"><div class="ttname"><a href="_base_object_8h.html">BaseObject.h</a></div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_html_ab57acce1b994c39fb8ad8014583a8bbd"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">sofa::core::objectmodel::Base::SPtr</a></div><div class="ttdeci">sptr&lt; Base &gt; SPtr</div><div class="ttdef"><b>Definition:</b> Base.h:120</div></div>
+<div class="ttc" id="anamespacesofa_1_1core_html_ac01d4902b0fb6154145238731c3a990d"><div class="ttname"><a href="namespacesofa_1_1core.html#ac01d4902b0fb6154145238731c3a990d">sofa::core::OnCreateCallback</a></div><div class="ttdeci">std::function&lt; void(sofa::core::objectmodel::Base *, sofa::core::objectmodel::BaseObjectDescription *)&gt; OnCreateCallback</div><div class="ttdoc">Main class used to register and dynamically create objects.</div><div class="ttdef"><b>Definition:</b> ObjectFactory.h:88</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_object_factory_html_ae0418587533a6766903c32f03d1b65c0"><div class="ttname"><a href="classsofa_1_1core_1_1_object_factory.html#ae0418587533a6766903c32f03d1b65c0">sofa::core::ObjectFactory::getEntriesDerivedFrom</a></div><div class="ttdeci">void getEntriesDerivedFrom(std::vector&lt; ClassEntry::SPtr &gt; &amp;result) const</div><div class="ttdoc">Fill the given vector with all the registered classes derived from BaseClass.</div><div class="ttdef"><b>Definition:</b> ObjectFactory.h:243</div></div>
 <div class="ttc" id="anamespacesofa_html"><div class="ttname"><a href="namespacesofa.html">sofa</a></div><div class="ttdoc">This allow MeshTrian to interact with the messaging system.</div><div class="ttdef"><b>Definition:</b> ConstraintAnimationLoop.cpp:81</div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1_object_factory_html_adb4cc6e7f05d67d613b9e318f37a8595"><div class="ttname"><a href="classsofa_1_1core_1_1_object_factory.html#adb4cc6e7f05d67d613b9e318f37a8595">sofa::core::ObjectFactory::ClassEntryMap</a></div><div class="ttdeci">std::map&lt; std::string, ClassEntry::SPtr &gt; ClassEntryMap</div><div class="ttdef"><b>Definition:</b> ObjectFactory.h:141</div></div>
+<div class="ttc" id="anamespacesofa_1_1gui_1_1qt_html_aa9fb00a0cfe930082d694d2811edf2c9"><div class="ttname"><a href="namespacesofa_1_1gui_1_1qt.html#aa9fb00a0cfe930082d694d2811edf2c9">sofa::gui::qt::getClass</a></div><div class="ttdeci">const std::string getClass(core::objectmodel::Base *obj)</div><div class="ttdef"><b>Definition:</b> GraphListenerQListView.cpp:72</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_object_factory_1_1_creator_html"><div class="ttname"><a href="classsofa_1_1core_1_1_object_factory_1_1_creator.html">sofa::core::ObjectFactory::Creator</a></div><div class="ttdoc">Abstract interface of objects used to create instances of a given type.</div><div class="ttdef"><b>Definition:</b> ObjectFactory.h:94</div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1_object_factory_html_a1507d27a95aa083c0d6b375ddf69d60d"><div class="ttname"><a href="classsofa_1_1core_1_1_object_factory.html#a1507d27a95aa083c0d6b375ddf69d60d">sofa::core::ObjectFactory::CreatorMap</a></div><div class="ttdeci">std::map&lt; std::string, Creator::SPtr &gt; CreatorMap</div><div class="ttdef"><b>Definition:</b> ObjectFactory.h:124</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_class_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">sofa::core::objectmodel::BaseClass</a></div><div class="ttdoc">Class hierarchy reflection base class.</div><div class="ttdef"><b>Definition:</b> BaseClass.h:110</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_register_object_html"><div class="ttname"><a href="classsofa_1_1core_1_1_register_object.html">sofa::core::RegisterObject</a></div><div class="ttdoc">Helper class used to register a class in the ObjectFactory.</div><div class="ttdef"><b>Definition:</b> ObjectFactory.h:338</div></div>
 <div class="ttc" id="anamespacesofa_1_1helper_html_a093505469f664a03d694c1375dd9c4d0"><div class="ttname"><a href="namespacesofa_1_1helper.html#a093505469f664a03d694c1375dd9c4d0">sofa::helper::join</a></div><div class="ttdeci">std::string join(std::vector&lt; T &gt; &amp;elems, S &amp;delim)</div><div class="ttdoc">Join a std::vector into a single string, separated by the provided delimiter.</div><div class="ttdef"><b>Definition:</b> StringUtils.h:85</div></div>
+<div class="ttc" id="anamespacesofa_1_1core_html_ae6517f0f4f41ba0676fee218028b6186"><div class="ttname"><a href="namespacesofa_1_1core.html#ae6517f0f4f41ba0676fee218028b6186">sofa::core::ClassEntry</a></div><div class="ttdeci">sofa::core::ObjectFactory::ClassEntry ClassEntry</div><div class="ttdef"><b>Definition:</b> ComponentLibrary.h:74</div></div>
+<div class="ttc" id="a_name_decoder_8h_html"><div class="ttname"><a href="_name_decoder_8h.html">NameDecoder.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_object_factory_html_ab45f5648e5a10c1eae2b6c1233aeb33a"><div class="ttname"><a href="classsofa_1_1core_1_1_object_factory.html#ab45f5648e5a10c1eae2b6c1233aeb33a">sofa::core::ObjectFactory::listClassesDerivedFrom</a></div><div class="ttdeci">std::string listClassesDerivedFrom(const std::string &amp;separator=&quot;, &quot;) const</div><div class="ttdoc">Return the list of classes derived from BaseClass as a string.</div><div class="ttdef"><b>Definition:</b> ObjectFactory.h:266</div></div>
+<div class="ttc" id="anamespacesofa_1_1core_1_1objectmodel_1_1base_html_a6be10f4a762a08c28b9eca8d75b524c7"><div class="ttname"><a href="namespacesofa_1_1core_1_1objectmodel_1_1base.html#a6be10f4a762a08c28b9eca8d75b524c7">sofa::core::objectmodel::base::GetClass</a></div><div class="ttdeci">const sofa::core::objectmodel::BaseClass * GetClass()</div><div class="ttdoc">Returns the BaseClass* from type parameter B, hiding B::GetClass()</div><div class="ttdef"><b>Definition:</b> fwd.h:202</div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">generic hash for pairs</div><div class="ttdef"><b>Definition:</b> TopologyChange.cpp:26</div></div>
+<div class="ttc" id="anamespacesofa_1_1simpleapi_html_a90018f938efd15002a935d00a108b92e"><div class="ttname"><a href="namespacesofa_1_1simpleapi.html#a90018f938efd15002a935d00a108b92e">sofa::simpleapi::createObject</a></div><div class="ttdeci">BaseObject::SPtr createObject(Node::SPtr parent, BaseObjectDescription &amp;desc)</div><div class="ttdef"><b>Definition:</b> SimpleApi.cpp:84</div></div>
+<div class="ttc" id="anamespacesofa_1_1core_html_a962ac39d0e7afd102d19aaee4dbc47cf"><div class="ttname"><a href="namespacesofa_1_1core.html#a962ac39d0e7afd102d19aaee4dbc47cf">sofa::core::Creator</a></div><div class="ttdeci">sofa::core::ObjectFactory::Creator Creator</div><div class="ttdef"><b>Definition:</b> CategoryLibrary.h:51</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_object_description_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">sofa::core::objectmodel::BaseObjectDescription</a></div><div class="ttdoc">Base Interface for classes containing the description of an object, used to construct it.</div><div class="ttdef"><b>Definition:</b> BaseObjectDescription.h:108</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_context_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_context.html">sofa::core::objectmodel::BaseContext</a></div><div class="ttdoc">Base class for Context classes, storing shared variables and parameters.</div><div class="ttdef"><b>Definition:</b> BaseContext.h:49</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a></div><div class="ttdoc">Base class for everything.</div><div class="ttdef"><b>Definition:</b> Base.h:115</div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1_object_factory_1_1_class_entry_html_a20a64b5890b963bf3c561a5c4067a9e9"><div class="ttname"><a href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#a20a64b5890b963bf3c561a5c4067a9e9">sofa::core::ObjectFactory::ClassEntry::SPtr</a></div><div class="ttdeci">std::shared_ptr&lt; ClassEntry &gt; SPtr</div><div class="ttdef"><b>Definition:</b> ObjectFactory.h:130</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_object_creator_html"><div class="ttname"><a href="classsofa_1_1core_1_1_object_creator.html">sofa::core::ObjectCreator</a></div><div class="ttdoc">Typed Creator class used to create instances of object type RealObject.</div><div class="ttdef"><b>Definition:</b> ObjectFactory.h:284</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_object_factory_1_1_class_entry_html"><div class="ttname"><a href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html">sofa::core::ObjectFactory::ClassEntry</a></div><div class="ttdoc">Record storing information about a class.</div><div class="ttdef"><b>Definition:</b> ObjectFactory.h:127</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_60e01685828ffd7c41f36858d8896f33.html">Core</a></li><li class="navelem"><a class="el" href="dir_1796a5980b33da4b9881c7f7295ea624.html">src</a></li><li class="navelem"><a class="el" href="dir_29474acf678dce4aed010bf0162b5a34.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b2ea3abd78d86d2c623df4c62fb6cf9b.html">core</a></li><li class="navelem"><b>ObjectFactory.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:37:03 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_60e01685828ffd7c41f36858d8896f33.html">Core</a></li><li class="navelem"><a class="el" href="dir_1796a5980b33da4b9881c7f7295ea624.html">src</a></li><li class="navelem"><a class="el" href="dir_29474acf678dce4aed010bf0162b5a34.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b2ea3abd78d86d2c623df4c62fb6cf9b.html">core</a></li><li class="navelem"><a class="el" href="_object_factory_8h.html">ObjectFactory.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:05:10 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

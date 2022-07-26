@@ -19,6 +19,7 @@ var classsofa_1_1component_1_1engine_1_1select_1_1_subset_topology =
     ] ],
     [ "SubsetTopology", "classsofa_1_1component_1_1engine_1_1select_1_1_subset_topology.html#a4ca46a935226246110982f7fae481099", null ],
     [ "~SubsetTopology", "classsofa_1_1component_1_1engine_1_1select_1_1_subset_topology.html#ab28339aedbd095a620a6801708003e16", null ],
+    [ "canCreate", "classsofa_1_1component_1_1engine_1_1select_1_1_subset_topology.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "computeBBox", "classsofa_1_1component_1_1engine_1_1select_1_1_subset_topology.html#ac0732500bd7b34633e1df024d3f88632", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1select_1_1_subset_topology.html#a4daa2dc990606f6f13a82f619a13358a", null ],
     [ "draw", "classsofa_1_1component_1_1engine_1_1select_1_1_subset_topology.html#a8673433953792026ae9baf91b348d7da", null ],

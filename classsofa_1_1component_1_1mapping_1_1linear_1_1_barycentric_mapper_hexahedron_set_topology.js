@@ -1,5 +1,7 @@
 var classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_hexahedron_set_topology =
 [
+    [ "Index", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_hexahedron_set_topology.html#a34485df4864136107fd830e23695986c", null ],
+    [ "MappingData", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_hexahedron_set_topology.html#ad6b593d94a03241e03fc1dc6c22d7775", null ],
     [ "Real", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_hexahedron_set_topology.html#ae6d60344352fcf1803100b52e37e1ff3", null ],
     [ "~BarycentricMapperHexahedronSetTopology", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_hexahedron_set_topology.html#afe12e2a64591751f1fc015fff730044b", null ],
     [ "BarycentricMapperHexahedronSetTopology", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_hexahedron_set_topology.html#a8cfb475e42bacda318b13c486e1967b6", null ],

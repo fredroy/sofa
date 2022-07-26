@@ -1,0 +1,5 @@
+var _mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_regular_grid_topology_8inl =
+[
+    [ "operator<<", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_regular_grid_topology_8inl.html#ae23c184045d2e97aca8ae942d1ceefc7", null ],
+    [ "operator>>", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_regular_grid_topology_8inl.html#a7424a6ba4d3b7c7caabbf6173e4ca4d2", null ]
+];

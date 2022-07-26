@@ -9,5 +9,7 @@ var classsofa_1_1linearalgebra_1_1testing_1_1_test_base_matrix =
     [ "onSetUp", "classsofa_1_1linearalgebra_1_1testing_1_1_test_base_matrix.html#a06fbafc65f95441d3b5ed143ded918b2", null ],
     [ "onTearDown", "classsofa_1_1linearalgebra_1_1testing_1_1_test_base_matrix.html#ac69c45f88c4a119cd83441550af9d94a", null ],
     [ "m_modelMatrix", "classsofa_1_1linearalgebra_1_1testing_1_1_test_base_matrix.html#add262a7ab17b1b6e26b86ecf79ea2c3f", null ],
-    [ "m_testedMatrix", "classsofa_1_1linearalgebra_1_1testing_1_1_test_base_matrix.html#a7f8a7a71756a8f1705f31bed65797a8e", null ]
+    [ "m_testedMatrix", "classsofa_1_1linearalgebra_1_1testing_1_1_test_base_matrix.html#a7f8a7a71756a8f1705f31bed65797a8e", null ],
+    [ "NbCols", "classsofa_1_1linearalgebra_1_1testing_1_1_test_base_matrix.html#a644e2fd3c882892f32237751071b684a", null ],
+    [ "NbRows", "classsofa_1_1linearalgebra_1_1testing_1_1_test_base_matrix.html#a102bfe24e47a5d141d14801ceaa815af", null ]
 ];

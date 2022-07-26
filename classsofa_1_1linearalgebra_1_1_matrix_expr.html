@@ -91,6 +91,8 @@ $(document).ready(function(){initNavTree('classsofa_1_1linearalgebra_1_1_matrix_
 <div class="title">MatrixExpr&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_linear_algebra_2src_2sofa_2linearalgebra_2_matrix_expr_8h_source.html">MatrixExpr.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MatrixExpr&lt; T &gt;:</div>
 <div class="dyncontent">
@@ -100,62 +102,392 @@ Inheritance diagram for MatrixExpr&lt; T &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ab1d6bcf361e376d3b2e9b9718fd522bf"><td class="memItemLeft" align="right" valign="top"><a id="ab1d6bcf361e376d3b2e9b9718fd522bf"></a>
-typedef T&#160;</td><td class="memItemRight" valign="bottom"><b>Expr</b></td></tr>
+<tr class="memitem:ab1d6bcf361e376d3b2e9b9718fd522bf"><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a></td></tr>
 <tr class="separator:ab1d6bcf361e376d3b2e9b9718fd522bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7cb61d4d5506ea375a66d484d307ba53"><td class="memItemLeft" align="right" valign="top"><a id="a7cb61d4d5506ea375a66d484d307ba53"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixExpr</b> (const Expr &amp;e)</td></tr>
+<tr class="memitem:a7cb61d4d5506ea375a66d484d307ba53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#a7cb61d4d5506ea375a66d484d307ba53">MatrixExpr</a> (const <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &amp;e)</td></tr>
 <tr class="separator:a7cb61d4d5506ea375a66d484d307ba53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac310b008d2bd148987dcb7df543436d5"><td class="memTemplParams" colspan="2"><a id="ac310b008d2bd148987dcb7df543436d5"></a>
-template&lt;class M2 &gt; </td></tr>
-<tr class="memitem:ac310b008d2bd148987dcb7df543436d5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html">MatrixProduct</a>&lt; Expr, typename M2::Expr &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator*</b> (const M2 &amp;m) const</td></tr>
+<tr class="memitem:ac310b008d2bd148987dcb7df543436d5"><td class="memTemplParams" colspan="2">template&lt;class M2 &gt; </td></tr>
+<tr class="memitem:ac310b008d2bd148987dcb7df543436d5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html">MatrixProduct</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a>, typename M2::Expr &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ac310b008d2bd148987dcb7df543436d5">operator*</a> (const M2 &amp;m) const</td></tr>
 <tr class="separator:ac310b008d2bd148987dcb7df543436d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9511775793ad05dde7276a48e809c7f"><td class="memTemplParams" colspan="2"><a id="ad9511775793ad05dde7276a48e809c7f"></a>
-template&lt;class M2 &gt; </td></tr>
-<tr class="memitem:ad9511775793ad05dde7276a48e809c7f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_addition.html">MatrixAddition</a>&lt; Expr, typename M2::Expr &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator+</b> (const M2 &amp;m) const</td></tr>
+<tr class="memitem:ad9511775793ad05dde7276a48e809c7f"><td class="memTemplParams" colspan="2">template&lt;class M2 &gt; </td></tr>
+<tr class="memitem:ad9511775793ad05dde7276a48e809c7f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_addition.html">MatrixAddition</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a>, typename M2::Expr &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ad9511775793ad05dde7276a48e809c7f">operator+</a> (const M2 &amp;m) const</td></tr>
 <tr class="separator:ad9511775793ad05dde7276a48e809c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d132252a7ceb441a0ae84bb7f254e77"><td class="memTemplParams" colspan="2"><a id="a7d132252a7ceb441a0ae84bb7f254e77"></a>
-template&lt;class M2 &gt; </td></tr>
-<tr class="memitem:a7d132252a7ceb441a0ae84bb7f254e77"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html">MatrixSubstraction</a>&lt; Expr, typename M2::Expr &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator-</b> (const M2 &amp;m) const</td></tr>
+<tr class="memitem:a7d132252a7ceb441a0ae84bb7f254e77"><td class="memTemplParams" colspan="2">template&lt;class M2 &gt; </td></tr>
+<tr class="memitem:a7d132252a7ceb441a0ae84bb7f254e77"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html">MatrixSubstraction</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a>, typename M2::Expr &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#a7d132252a7ceb441a0ae84bb7f254e77">operator-</a> (const M2 &amp;m) const</td></tr>
 <tr class="separator:a7d132252a7ceb441a0ae84bb7f254e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90b6aed03381eaf28f0a189a7bc9ac19"><td class="memItemLeft" align="right" valign="top"><a id="a90b6aed03381eaf28f0a189a7bc9ac19"></a>
-<a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_negative.html">MatrixNegative</a>&lt; Expr &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> () const</td></tr>
+<tr class="memitem:a90b6aed03381eaf28f0a189a7bc9ac19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_negative.html">MatrixNegative</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#a90b6aed03381eaf28f0a189a7bc9ac19">operator-</a> () const</td></tr>
 <tr class="separator:a90b6aed03381eaf28f0a189a7bc9ac19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e26511bcf2a25556fabe79611df6966"><td class="memItemLeft" align="right" valign="top"><a id="a6e26511bcf2a25556fabe79611df6966"></a>
-<a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_transpose.html">MatrixTranspose</a>&lt; Expr &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>t</b> () const</td></tr>
+<tr class="memitem:a6e26511bcf2a25556fabe79611df6966"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_transpose.html">MatrixTranspose</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#a6e26511bcf2a25556fabe79611df6966">t</a> () const</td></tr>
 <tr class="separator:a6e26511bcf2a25556fabe79611df6966"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dd745071e89219a4e9db4ee2b556093"><td class="memItemLeft" align="right" valign="top"><a id="a2dd745071e89219a4e9db4ee2b556093"></a>
-<a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_scale.html">MatrixScale</a>&lt; Expr, double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (double d) const</td></tr>
+<tr class="memitem:a2dd745071e89219a4e9db4ee2b556093"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_scale.html">MatrixScale</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a>, double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#a2dd745071e89219a4e9db4ee2b556093">operator*</a> (double d) const</td></tr>
 <tr class="separator:a2dd745071e89219a4e9db4ee2b556093"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a832df68a90a9d7958acb33686157aa92"><td class="memItemLeft" align="right" valign="top"><a id="a832df68a90a9d7958acb33686157aa92"></a>
-<a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_scale.html">MatrixScale</a>&lt; Expr, double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (double d, const <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; Expr &gt; &amp;m)</td></tr>
+<tr class="memitem:a832df68a90a9d7958acb33686157aa92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_scale.html">MatrixScale</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a>, double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#a832df68a90a9d7958acb33686157aa92">operator*</a> (double d, const <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &amp;m)</td></tr>
 <tr class="separator:a832df68a90a9d7958acb33686157aa92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc9ae1a800f327bab89628751d0f6fd0"><td class="memTemplParams" colspan="2"><a id="abc9ae1a800f327bab89628751d0f6fd0"></a>
-template&lt;class M1 &gt; </td></tr>
-<tr class="memitem:abc9ae1a800f327bab89628751d0f6fd0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html">MatrixProduct</a>&lt; typename M1::Expr, Expr &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator*</b> (const M1 &amp;m1, const <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; Expr &gt; &amp;m2)</td></tr>
+<tr class="memitem:abc9ae1a800f327bab89628751d0f6fd0"><td class="memTemplParams" colspan="2">template&lt;class M1 &gt; </td></tr>
+<tr class="memitem:abc9ae1a800f327bab89628751d0f6fd0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html">MatrixProduct</a>&lt; typename M1::Expr, <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#abc9ae1a800f327bab89628751d0f6fd0">operator*</a> (const M1 &amp;m1, const <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &amp;m2)</td></tr>
 <tr class="separator:abc9ae1a800f327bab89628751d0f6fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd6baaa5449a14ecc2599239ca218a89"><td class="memTemplParams" colspan="2"><a id="acd6baaa5449a14ecc2599239ca218a89"></a>
-template&lt;class M1 &gt; </td></tr>
-<tr class="memitem:acd6baaa5449a14ecc2599239ca218a89"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_addition.html">MatrixAddition</a>&lt; typename M1::Expr, Expr &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator+</b> (const M1 &amp;m1, const <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; Expr &gt; &amp;m2)</td></tr>
+<tr class="memitem:acd6baaa5449a14ecc2599239ca218a89"><td class="memTemplParams" colspan="2">template&lt;class M1 &gt; </td></tr>
+<tr class="memitem:acd6baaa5449a14ecc2599239ca218a89"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_addition.html">MatrixAddition</a>&lt; typename M1::Expr, <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#acd6baaa5449a14ecc2599239ca218a89">operator+</a> (const M1 &amp;m1, const <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &amp;m2)</td></tr>
 <tr class="separator:acd6baaa5449a14ecc2599239ca218a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89233e9112bd3d52fab264c1f12effa1"><td class="memTemplParams" colspan="2"><a id="a89233e9112bd3d52fab264c1f12effa1"></a>
-template&lt;class M1 &gt; </td></tr>
-<tr class="memitem:a89233e9112bd3d52fab264c1f12effa1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html">MatrixSubstraction</a>&lt; typename M1::Expr, Expr &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator-</b> (const M1 &amp;m1, const <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; Expr &gt; &amp;m2)</td></tr>
+<tr class="memitem:a89233e9112bd3d52fab264c1f12effa1"><td class="memTemplParams" colspan="2">template&lt;class M1 &gt; </td></tr>
+<tr class="memitem:a89233e9112bd3d52fab264c1f12effa1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html">MatrixSubstraction</a>&lt; typename M1::Expr, <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#a89233e9112bd3d52fab264c1f12effa1">operator-</a> (const M1 &amp;m1, const <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &amp;m2)</td></tr>
 <tr class="separator:a89233e9112bd3d52fab264c1f12effa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ab1d6bcf361e376d3b2e9b9718fd522bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1d6bcf361e376d3b2e9b9718fd522bf">&#9670;&nbsp;</a></span>Expr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef T <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7cb61d4d5506ea375a66d484d307ba53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cb61d4d5506ea375a66d484d307ba53">&#9670;&nbsp;</a></span>MatrixExpr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac310b008d2bd148987dcb7df543436d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac310b008d2bd148987dcb7df543436d5">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html">MatrixProduct</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a>, typename M2::Expr &gt; &gt; operator* </td>
+          <td>(</td>
+          <td class="paramtype">const M2 &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2dd745071e89219a4e9db4ee2b556093"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dd745071e89219a4e9db4ee2b556093">&#9670;&nbsp;</a></span>operator*() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_scale.html">MatrixScale</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a>, double &gt; &gt; operator* </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9511775793ad05dde7276a48e809c7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9511775793ad05dde7276a48e809c7f">&#9670;&nbsp;</a></span>operator+()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_addition.html">MatrixAddition</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a>, typename M2::Expr &gt; &gt; operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const M2 &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90b6aed03381eaf28f0a189a7bc9ac19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90b6aed03381eaf28f0a189a7bc9ac19">&#9670;&nbsp;</a></span>operator-() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_negative.html">MatrixNegative</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &gt; operator- </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d132252a7ceb441a0ae84bb7f254e77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d132252a7ceb441a0ae84bb7f254e77">&#9670;&nbsp;</a></span>operator-() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html">MatrixSubstraction</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a>, typename M2::Expr &gt; &gt; operator- </td>
+          <td>(</td>
+          <td class="paramtype">const M2 &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e26511bcf2a25556fabe79611df6966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e26511bcf2a25556fabe79611df6966">&#9670;&nbsp;</a></span>t()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_transpose.html">MatrixTranspose</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &gt; t </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="abc9ae1a800f327bab89628751d0f6fd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc9ae1a800f327bab89628751d0f6fd0">&#9670;&nbsp;</a></span>operator* <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html">MatrixProduct</a>&lt; typename M1::Expr, <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &gt; operator* </td>
+          <td>(</td>
+          <td class="paramtype">const M1 &amp;&#160;</td>
+          <td class="paramname"><em>m1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>m2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a832df68a90a9d7958acb33686157aa92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a832df68a90a9d7958acb33686157aa92">&#9670;&nbsp;</a></span>operator* <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_scale.html">MatrixScale</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a>, double &gt; &gt; operator* </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acd6baaa5449a14ecc2599239ca218a89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd6baaa5449a14ecc2599239ca218a89">&#9670;&nbsp;</a></span>operator+</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_addition.html">MatrixAddition</a>&lt; typename M1::Expr, <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &gt; operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const M1 &amp;&#160;</td>
+          <td class="paramname"><em>m1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>m2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89233e9112bd3d52fab264c1f12effa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89233e9112bd3d52fab264c1f12effa1">&#9670;&nbsp;</a></span>operator-</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html">MatrixSubstraction</a>&lt; typename M1::Expr, <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &gt; operator- </td>
+          <td>(</td>
+          <td class="paramtype">const M1 &amp;&#160;</td>
+          <td class="paramname"><em>m1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html#ab1d6bcf361e376d3b2e9b9718fd522bf">Expr</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>m2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>linearalgebra</b></li><li class="navelem"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:11:26 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1linearalgebra.html">linearalgebra</a></li><li class="navelem"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_expr.html">MatrixExpr</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:34 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

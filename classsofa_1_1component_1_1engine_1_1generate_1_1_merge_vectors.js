@@ -5,6 +5,7 @@ var classsofa_1_1component_1_1engine_1_1generate_1_1_merge_vectors =
     [ "MergeVectors", "classsofa_1_1component_1_1engine_1_1generate_1_1_merge_vectors.html#a8dcb45e82885dbfe05dae7bcc6ed53dd", null ],
     [ "~MergeVectors", "classsofa_1_1component_1_1engine_1_1generate_1_1_merge_vectors.html#a710438a63943d5fd15a465dbb02fb383", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1generate_1_1_merge_vectors.html#a4daa2dc990606f6f13a82f619a13358a", null ],
+    [ "GetCustomTemplateName", "classsofa_1_1component_1_1engine_1_1generate_1_1_merge_vectors.html#a9f0a1353fd09a665e1ec169bbbde8d6d", null ],
     [ "init", "classsofa_1_1component_1_1engine_1_1generate_1_1_merge_vectors.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "parse", "classsofa_1_1component_1_1engine_1_1generate_1_1_merge_vectors.html#a01457d399e0cf40aa8f4fc775c6b257a", null ],
     [ "parseFields", "classsofa_1_1component_1_1engine_1_1generate_1_1_merge_vectors.html#ab5b530bfd6c499649d2b652ae0a52abf", null ],

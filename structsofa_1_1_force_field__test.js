@@ -19,5 +19,7 @@ var structsofa_1_1_force_field__test =
     [ "errorMax", "structsofa_1_1_force_field__test.html#a9c8cbadc7482fe6dd564505a4439e525", null ],
     [ "flags", "structsofa_1_1_force_field__test.html#a78ac89a4a0f57ffa7c2ecf31749aa390", null ],
     [ "force", "structsofa_1_1_force_field__test.html#a8945fd71f89c88954ea21a3f7b09947e", null ],
-    [ "node", "structsofa_1_1_force_field__test.html#a005f803497457f0a64033b59b7c0ad4f", null ]
+    [ "node", "structsofa_1_1_force_field__test.html#a005f803497457f0a64033b59b7c0ad4f", null ],
+    [ "TEST_ALL", "structsofa_1_1_force_field__test.html#a6bd249e45c9f6ba8c3b440e7549babbf", null ],
+    [ "TEST_POTENTIAL_ENERGY", "structsofa_1_1_force_field__test.html#a6d5cca280a8f7418533b20d244f5efe1", null ]
 ];

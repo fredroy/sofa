@@ -1,0 +1,4 @@
+var namespacesofa_1_1component_1_1mapping_1_1linear_1_1__topologybarycentricmapper__ =
+[
+    [ "TopologyBarycentricMapper", "classsofa_1_1component_1_1mapping_1_1linear_1_1__topologybarycentricmapper___1_1_topology_barycentric_mapper.html", "classsofa_1_1component_1_1mapping_1_1linear_1_1__topologybarycentricmapper___1_1_topology_barycentric_mapper" ]
+];

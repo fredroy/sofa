@@ -5,6 +5,7 @@ var classsofa_1_1gui_1_1common_1_1_add_suture_operation =
     [ "configurePerformer", "classsofa_1_1gui_1_1common_1_1_add_suture_operation.html#a069cc65a355898552d5f25bcfd86f333", null ],
     [ "defaultPerformerType", "classsofa_1_1gui_1_1common_1_1_add_suture_operation.html#afb25885b8de98da5a8a7d0157d8bf445", null ],
     [ "getDamping", "classsofa_1_1gui_1_1common_1_1_add_suture_operation.html#a8776caae0c273e29dc442a2899584dcb", null ],
+    [ "getDescription", "classsofa_1_1gui_1_1common_1_1_add_suture_operation.html#a025bef3a2dadf6a272b146e0697e9bb2", null ],
     [ "getStiffness", "classsofa_1_1gui_1_1common_1_1_add_suture_operation.html#ab52cbac824767b462f8ded0f7677e919", null ],
     [ "setDamping", "classsofa_1_1gui_1_1common_1_1_add_suture_operation.html#ad00e638ce2140e6b81f4a44f390d7c6b", null ],
     [ "setStiffness", "classsofa_1_1gui_1_1common_1_1_add_suture_operation.html#a9b5c5edb2c8d8f027fad033e4300ee3a", null ],

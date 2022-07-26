@@ -12,11 +12,13 @@ var classsofa_1_1gui_1_1common_1_1_operation =
     [ "execution", "classsofa_1_1gui_1_1common_1_1_operation.html#ab9504c1e84b8ad60d107d77d6923f057", null ],
     [ "getId", "classsofa_1_1gui_1_1common_1_1_operation.html#a0cb7e1cbd1727bd4f68e15183b22bed9", null ],
     [ "getMouseButton", "classsofa_1_1gui_1_1common_1_1_operation.html#a3922ba16614a7968783e727f9236d38f", null ],
+    [ "GetMouseId", "classsofa_1_1gui_1_1common_1_1_operation.html#ab84f531e88c8a108850a1f900e0a5016", null ],
     [ "setSetting", "classsofa_1_1gui_1_1common_1_1_operation.html#a4c63182f11fd5ad7f6e3bd85bb3945d9", null ],
     [ "start", "classsofa_1_1gui_1_1common_1_1_operation.html#a60de64d75454385b23995437f1d72669", null ],
     [ "wait", "classsofa_1_1gui_1_1common_1_1_operation.html#a62ae0d5009f24bfb7e5bbd86f13db66f", null ],
     [ "OperationFactory", "classsofa_1_1gui_1_1common_1_1_operation.html#ae2e45baea3a37900b6c516193ab278ac", null ],
     [ "button", "classsofa_1_1gui_1_1common_1_1_operation.html#a462bb64078af68a4482112b61881baca", null ],
+    [ "id", "classsofa_1_1gui_1_1common_1_1_operation.html#afd0d68c6d31ff249f3ae8662162663c3", null ],
     [ "mbsetting", "classsofa_1_1gui_1_1common_1_1_operation.html#a72b49bd8567b07f1d962beee9b971a8a", null ],
     [ "performer", "classsofa_1_1gui_1_1common_1_1_operation.html#abd99ac46e2453622f8c7f8342e447390", null ],
     [ "pickHandle", "classsofa_1_1gui_1_1common_1_1_operation.html#ad4517cd1c2b569c5f266809dc41e32f2", null ]

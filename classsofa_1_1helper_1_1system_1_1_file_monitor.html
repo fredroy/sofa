@@ -89,37 +89,211 @@ $(document).ready(function(){initNavTree('classsofa_1_1helper_1_1system_1_1_file
 <div class="title">FileMonitor Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_file_monitor_8h_source.html">FileMonitor.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a81b593f40cdaf29ee56a2a5060b136bc"><td class="memItemLeft" align="right" valign="top"><a id="a81b593f40cdaf29ee56a2a5060b136bc"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#a81b593f40cdaf29ee56a2a5060b136bc">addFile</a> (const std::string &amp;filename, <a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html">FileEventListener</a> *listener)</td></tr>
-<tr class="memdesc:a81b593f40cdaf29ee56a2a5060b136bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a new filepath to monitor and a listener to be triggered in case of change. returns &gt;= 0 if the file was successfully added returns &lt; 0 in case of error. <br /></td></tr>
+<tr class="memitem:a81b593f40cdaf29ee56a2a5060b136bc"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#a81b593f40cdaf29ee56a2a5060b136bc">addFile</a> (const std::string &amp;filename, <a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html">FileEventListener</a> *listener)</td></tr>
+<tr class="memdesc:a81b593f40cdaf29ee56a2a5060b136bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a new filepath to monitor and a listener to be triggered in case of change. returns &gt;= 0 if the file was successfully added returns &lt; 0 in case of error.  <a href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#a81b593f40cdaf29ee56a2a5060b136bc">More...</a><br /></td></tr>
 <tr class="separator:a81b593f40cdaf29ee56a2a5060b136bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa691c5044ee4648dd64c76f1680b77a8"><td class="memItemLeft" align="right" valign="top"><a id="aa691c5044ee4648dd64c76f1680b77a8"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#aa691c5044ee4648dd64c76f1680b77a8">addFile</a> (const std::string &amp;directoryname, const std::string &amp;filename, <a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html">FileEventListener</a> *listener)</td></tr>
-<tr class="memdesc:aa691c5044ee4648dd64c76f1680b77a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a new path and file to monitor and a listener to be triggered in case of change. returns &gt;= 0 if the file was successfully added returns &lt; 0 in case of error. <br /></td></tr>
+<tr class="memitem:aa691c5044ee4648dd64c76f1680b77a8"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#aa691c5044ee4648dd64c76f1680b77a8">addFile</a> (const std::string &amp;directoryname, const std::string &amp;filename, <a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html">FileEventListener</a> *listener)</td></tr>
+<tr class="memdesc:aa691c5044ee4648dd64c76f1680b77a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a new path and file to monitor and a listener to be triggered in case of change. returns &gt;= 0 if the file was successfully added returns &lt; 0 in case of error.  <a href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#aa691c5044ee4648dd64c76f1680b77a8">More...</a><br /></td></tr>
 <tr class="separator:aa691c5044ee4648dd64c76f1680b77a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79b919c79025754fd2b750d4e917d4e5"><td class="memItemLeft" align="right" valign="top"><a id="a79b919c79025754fd2b750d4e917d4e5"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#a79b919c79025754fd2b750d4e917d4e5">updates</a> (int timeout=1)</td></tr>
-<tr class="memdesc:a79b919c79025754fd2b750d4e917d4e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the file have changed, colalesc the similar events and notify the listener. timeout is the number of seconds to block the calling process. Can be 0 (in this case it return immediately if there is no event. return -1 in case of error return &gt;= 0 otherwise. <br /></td></tr>
+<tr class="memitem:a79b919c79025754fd2b750d4e917d4e5"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#a79b919c79025754fd2b750d4e917d4e5">updates</a> (int timeout=1)</td></tr>
+<tr class="memdesc:a79b919c79025754fd2b750d4e917d4e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the file have changed, colalesc the similar events and notify the listener. timeout is the number of seconds to block the calling process. Can be 0 (in this case it return immediately if there is no event. return -1 in case of error return &gt;= 0 otherwise.  <a href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#a79b919c79025754fd2b750d4e917d4e5">More...</a><br /></td></tr>
 <tr class="separator:a79b919c79025754fd2b750d4e917d4e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4359208ff8ba11f416f6ebc7389f8361"><td class="memItemLeft" align="right" valign="top"><a id="a4359208ff8ba11f416f6ebc7389f8361"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#a4359208ff8ba11f416f6ebc7389f8361">removeListener</a> (<a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html">FileEventListener</a> *listener)</td></tr>
-<tr class="memdesc:a4359208ff8ba11f416f6ebc7389f8361"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove the provided listener. If the listener is not existing, do nothing If the listener is nullptr, do nothing If the listener is associated with one or more file...remove all the associations. Keep in mind that the file are still monitored. <br /></td></tr>
+<tr class="memitem:a4359208ff8ba11f416f6ebc7389f8361"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#a4359208ff8ba11f416f6ebc7389f8361">removeListener</a> (<a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html">FileEventListener</a> *listener)</td></tr>
+<tr class="memdesc:a4359208ff8ba11f416f6ebc7389f8361"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove the provided listener. If the listener is not existing, do nothing If the listener is nullptr, do nothing If the listener is associated with one or more file...remove all the associations. Keep in mind that the file are still monitored.  <a href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#a4359208ff8ba11f416f6ebc7389f8361">More...</a><br /></td></tr>
 <tr class="separator:a4359208ff8ba11f416f6ebc7389f8361"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c7b4b275f7f349df9f8fef67f1a0045"><td class="memItemLeft" align="right" valign="top"><a id="a0c7b4b275f7f349df9f8fef67f1a0045"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#a0c7b4b275f7f349df9f8fef67f1a0045">removeFileListener</a> (const std::string &amp;filename, <a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html">FileEventListener</a> *listener)</td></tr>
-<tr class="memdesc:a0c7b4b275f7f349df9f8fef67f1a0045"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove the provided listener for a given file If the listener is not existing, do nothing If the listener is nullptr, do nothing If the listener is associated with one or more file...remove all the associations. Keep in mind that the file are still monitored. <br /></td></tr>
+<tr class="memitem:a0c7b4b275f7f349df9f8fef67f1a0045"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#a0c7b4b275f7f349df9f8fef67f1a0045">removeFileListener</a> (const std::string &amp;filename, <a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html">FileEventListener</a> *listener)</td></tr>
+<tr class="memdesc:a0c7b4b275f7f349df9f8fef67f1a0045"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove the provided listener for a given file If the listener is not existing, do nothing If the listener is nullptr, do nothing If the listener is associated with one or more file...remove all the associations. Keep in mind that the file are still monitored.  <a href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#a0c7b4b275f7f349df9f8fef67f1a0045">More...</a><br /></td></tr>
 <tr class="separator:a0c7b4b275f7f349df9f8fef67f1a0045"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa691c5044ee4648dd64c76f1680b77a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa691c5044ee4648dd64c76f1680b77a8">&#9670;&nbsp;</a></span>addFile() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int addFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>directoryname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html">FileEventListener</a> *&#160;</td>
+          <td class="paramname"><em>listener</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>add a new path and file to monitor and a listener to be triggered in case of change. returns &gt;= 0 if the file was successfully added returns &lt; 0 in case of error. </p>
+
+</div>
+</div>
+<a id="a81b593f40cdaf29ee56a2a5060b136bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81b593f40cdaf29ee56a2a5060b136bc">&#9670;&nbsp;</a></span>addFile() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int addFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html">FileEventListener</a> *&#160;</td>
+          <td class="paramname"><em>listener</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>add a new filepath to monitor and a listener to be triggered in case of change. returns &gt;= 0 if the file was successfully added returns &lt; 0 in case of error. </p>
+
+</div>
+</div>
+<a id="a0c7b4b275f7f349df9f8fef67f1a0045"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c7b4b275f7f349df9f8fef67f1a0045">&#9670;&nbsp;</a></span>removeFileListener()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void removeFileListener </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html">FileEventListener</a> *&#160;</td>
+          <td class="paramname"><em>listener</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>remove the provided listener for a given file If the listener is not existing, do nothing If the listener is nullptr, do nothing If the listener is associated with one or more file...remove all the associations. Keep in mind that the file are still monitored. </p>
+
+</div>
+</div>
+<a id="a4359208ff8ba11f416f6ebc7389f8361"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4359208ff8ba11f416f6ebc7389f8361">&#9670;&nbsp;</a></span>removeListener()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void removeListener </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html">FileEventListener</a> *&#160;</td>
+          <td class="paramname"><em>listener</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>remove the provided listener. If the listener is not existing, do nothing If the listener is nullptr, do nothing If the listener is associated with one or more file...remove all the associations. Keep in mind that the file are still monitored. </p>
+
+</div>
+</div>
+<a id="a79b919c79025754fd2b750d4e917d4e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79b919c79025754fd2b750d4e917d4e5">&#9670;&nbsp;</a></span>updates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int updates </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>1</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>check if the file have changed, colalesc the similar events and notify the listener. timeout is the number of seconds to block the calling process. Can be 0 (in this case it return immediately if there is no event. return -1 in case of error return &gt;= 0 otherwise. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><b>system</b></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_monitor.html">FileMonitor</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:10:54 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper_1_1system.html">system</a></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_monitor.html">FileMonitor</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

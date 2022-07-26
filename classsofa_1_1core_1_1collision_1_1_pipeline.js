@@ -2,6 +2,7 @@ var classsofa_1_1core_1_1collision_1_1_pipeline =
 [
     [ "Pipeline", "classsofa_1_1core_1_1collision_1_1_pipeline.html#a2747df48053a4a23c33c46647259f7b6", null ],
     [ "~Pipeline", "classsofa_1_1core_1_1collision_1_1_pipeline.html#a02e93aa52853184ed6586235afabe56b", null ],
+    [ "Pipeline", "classsofa_1_1core_1_1collision_1_1_pipeline.html#a01ba9c1f797cd17f057a378775f6e94f", null ],
     [ "computeCollisionDetection", "classsofa_1_1core_1_1collision_1_1_pipeline.html#aed613f5d90ca28973fccf6cf9a6315fb", null ],
     [ "computeCollisionReset", "classsofa_1_1core_1_1collision_1_1_pipeline.html#ab8792b2d8621f72df9e1943c7ebe45a9", null ],
     [ "computeCollisionResponse", "classsofa_1_1core_1_1collision_1_1_pipeline.html#a12d755753c55f889c67bade45497f337", null ],
@@ -13,6 +14,7 @@ var classsofa_1_1core_1_1collision_1_1_pipeline =
     [ "getNarrowPhaseDetection", "classsofa_1_1core_1_1collision_1_1_pipeline.html#a0d9437bbb7fcdfcde0fa24a24feea5ec", null ],
     [ "getResponseList", "classsofa_1_1core_1_1collision_1_1_pipeline.html#a706935d8638300d003a078aa2058d18f", null ],
     [ "insertInNode", "classsofa_1_1core_1_1collision_1_1_pipeline.html#ae18fc8c256b85c12cad4e9a13c9a5a53", null ],
+    [ "operator=", "classsofa_1_1core_1_1collision_1_1_pipeline.html#a327fba841aee3a601c30c699be2d51c1", null ],
     [ "removeInNode", "classsofa_1_1core_1_1collision_1_1_pipeline.html#a3a170fef94d5d32bb6ee879e7ae654d7", null ],
     [ "reset", "classsofa_1_1core_1_1collision_1_1_pipeline.html#ae1e04a3898c433d608187f5292a2c1cd", null ],
     [ "SOFA_ABSTRACT_CLASS", "classsofa_1_1core_1_1collision_1_1_pipeline.html#adc78b432c8f60c06e3051eb73a5aa43e", null ],

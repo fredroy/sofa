@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_message_8h_source.html',''); initResi
 <div class="title">Message.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_message_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -122,8 +122,8 @@ $(document).ready(function(){initNavTree('_message_8h_source.html',''); initResi
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;boost/shared_ptr.hpp&gt;</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;sofa/helper/logging/ComponentInfo.h&gt;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &lt;sofa/helper/logging/FileInfo.h&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_component_info_8h.html">sofa/helper/logging/ComponentInfo.h</a>&gt;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_file_info_8h.html">sofa/helper/logging/FileInfo.h</a>&gt;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa.html">sofa</a></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
@@ -146,13 +146,13 @@ $(document).ready(function(){initNavTree('_message_8h_source.html',''); initResi
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    Message() {}</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    Message( <span class="keyword">const</span> Message&amp; msg );</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    Message(Class mclass, Type type,</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keyword">const</span> ComponentInfo::SPtr&amp; = ComponentInfo::SPtr(),</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keyword">const</span> FileInfo::SPtr&amp; fileInfo = EmptyFileInfo) ;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keyword">const</span> <a class="code" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a>&amp; = <a class="code" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a>(),</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keyword">const</span> <a class="code" href="structsofa_1_1helper_1_1logging_1_1_file_info.html#a9a5b23bb2772f8b9bc4b2e77e143e85f">FileInfo::SPtr</a>&amp; fileInfo = <a class="code" href="namespacesofa_1_1helper_1_1logging.html#a39da5edd06cfdce426cee1faedf58395">EmptyFileInfo</a>) ;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    Message&amp; operator=( <span class="keyword">const</span> Message&amp; msg );</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">const</span> FileInfo::SPtr&amp;       fileInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_fileInfo; }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">const</span> ComponentInfo::SPtr&amp;  componentInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_componentinfo ; }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">const</span> <a class="code" href="structsofa_1_1helper_1_1logging_1_1_file_info.html#a9a5b23bb2772f8b9bc4b2e77e143e85f">FileInfo::SPtr</a>&amp;       fileInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_fileInfo; }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">const</span> <a class="code" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a>&amp;  componentInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_componentinfo ; }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">const</span> std::stringstream&amp; message()<span class="keyword"> const  </span>{ <span class="keywordflow">return</span> m_stream; }</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    Class                    context()<span class="keyword"> const  </span>{ <span class="keywordflow">return</span> m_class; }</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    Type                     type()<span class="keyword"> const     </span>{ <span class="keywordflow">return</span> m_type; }</div>
@@ -162,7 +162,7 @@ $(document).ready(function(){initNavTree('_message_8h_source.html',''); initResi
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">bool</span> empty() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    Message&amp; operator&lt;&lt;(<span class="keyword">const</span> T &amp;x)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    Message&amp; <a class="code" href="namespacesofa_1_1helper_1_1logging.html#ab72228dba5781a9b3764db0996d5440a">operator&lt;&lt;</a>(<span class="keyword">const</span> T &amp;x)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        m_stream &lt;&lt; x;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
@@ -171,8 +171,8 @@ $(document).ready(function(){initNavTree('_message_8h_source.html',''); initResi
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">static</span> Message emptyMsg ;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    ComponentInfo::SPtr m_componentinfo; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    FileInfo::SPtr      m_fileInfo; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a> m_componentinfo; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="structsofa_1_1helper_1_1logging_1_1_file_info.html#a9a5b23bb2772f8b9bc4b2e77e143e85f">FileInfo::SPtr</a>      m_fileInfo; </div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    std::stringstream   m_stream; </div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    Class               m_class; </div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    Type                m_type; </div>
@@ -181,10 +181,10 @@ $(document).ready(function(){initNavTree('_message_8h_source.html',''); initResi
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;};</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">template</span>&lt;&gt; SOFA_HELPER_API Message&amp; Message::operator&lt;&lt;(<span class="keyword">const</span> FileInfo::SPtr &amp;fi) ;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">template</span>&lt;&gt; SOFA_HELPER_API Message&amp; <a class="code" href="classsofa_1_1helper_1_1logging_1_1_message.html#a2fffa4908369d4c199e8a79671dcd4e3">Message::operator&lt;&lt;</a>(<span class="keyword">const</span> <a class="code" href="structsofa_1_1helper_1_1logging_1_1_file_info.html#a9a5b23bb2772f8b9bc4b2e77e143e85f">FileInfo::SPtr</a> &amp;fi) ;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;SOFA_HELPER_API std::ostream&amp; operator&lt;&lt; (std::ostream&amp;, <span class="keyword">const</span> Message&amp;) ;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;SOFA_HELPER_API <span class="keyword">const</span> std::string toString(<span class="keyword">const</span> <a class="code" href="classsofa_1_1helper_1_1logging_1_1_message.html#a1d1cfd8ffb84e947f82999c682b666a7">Message::Type</a> type) ;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;SOFA_HELPER_API std::ostream&amp; <a class="code" href="namespacesofa_1_1helper_1_1logging.html#ab72228dba5781a9b3764db0996d5440a">operator&lt;&lt; </a>(std::ostream&amp;, <span class="keyword">const</span> Message&amp;) ;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;SOFA_HELPER_API <span class="keyword">const</span> std::string <a class="code" href="namespacesofa_1_1helper_1_1logging.html#ab046f3e268192ab4ac6d16fcfe81edc5">toString</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1helper_1_1logging_1_1_message.html#a1d1cfd8ffb84e947f82999c682b666a7">Message::Type</a> type) ;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;} <span class="comment">// logging</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;} <span class="comment">// helper</span></div>
@@ -194,13 +194,21 @@ $(document).ready(function(){initNavTree('_message_8h_source.html',''); initResi
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif // MESSAGE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1helper_1_1logging_html_a39da5edd06cfdce426cee1faedf58395"><div class="ttname"><a href="namespacesofa_1_1helper_1_1logging.html#a39da5edd06cfdce426cee1faedf58395">sofa::helper::logging::EmptyFileInfo</a></div><div class="ttdeci">static FileInfo::SPtr EmptyFileInfo(new FileInfo(s_unknownFile, 0))</div></div>
+<div class="ttc" id="anamespacesofa_1_1helper_1_1logging_html_ab046f3e268192ab4ac6d16fcfe81edc5"><div class="ttname"><a href="namespacesofa_1_1helper_1_1logging.html#ab046f3e268192ab4ac6d16fcfe81edc5">sofa::helper::logging::toString</a></div><div class="ttdeci">const SOFA_HELPER_API std::string toString(const Message::Type type)</div><div class="ttdef"><b>Definition:</b> Message.cpp:77</div></div>
 <div class="ttc" id="anamespacesofa_html"><div class="ttname"><a href="namespacesofa.html">sofa</a></div><div class="ttdoc">This allow MeshTrian to interact with the messaging system.</div><div class="ttdef"><b>Definition:</b> ConstraintAnimationLoop.cpp:81</div></div>
+<div class="ttc" id="a_component_info_8h_html"><div class="ttname"><a href="_component_info_8h.html">ComponentInfo.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1helper_1_1logging_1_1_message_html_a1d1cfd8ffb84e947f82999c682b666a7"><div class="ttname"><a href="classsofa_1_1helper_1_1logging_1_1_message.html#a1d1cfd8ffb84e947f82999c682b666a7">sofa::helper::logging::Message::Type</a></div><div class="ttdeci">Type</div><div class="ttdoc">possible levels of messages (ordered)</div><div class="ttdef"><b>Definition:</b> Message.h:151</div></div>
+<div class="ttc" id="astructsofa_1_1helper_1_1logging_1_1_component_info_html_a9aa211af021fd1f48ed34e6e9a2d54e1"><div class="ttname"><a href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">sofa::helper::logging::ComponentInfo::SPtr</a></div><div class="ttdeci">std::shared_ptr&lt; ComponentInfo &gt; SPtr</div><div class="ttdef"><b>Definition:</b> ComponentInfo.h:106</div></div>
+<div class="ttc" id="astructsofa_1_1helper_1_1logging_1_1_file_info_html_a9a5b23bb2772f8b9bc4b2e77e143e85f"><div class="ttname"><a href="structsofa_1_1helper_1_1logging_1_1_file_info.html#a9a5b23bb2772f8b9bc4b2e77e143e85f">sofa::helper::logging::FileInfo::SPtr</a></div><div class="ttdeci">std::shared_ptr&lt; FileInfo &gt; SPtr</div><div class="ttdef"><b>Definition:</b> FileInfo.h:72</div></div>
+<div class="ttc" id="a_file_info_8h_html"><div class="ttname"><a href="_file_info_8h.html">FileInfo.h</a></div></div>
+<div class="ttc" id="anamespacesofa_1_1helper_1_1logging_html_ab72228dba5781a9b3764db0996d5440a"><div class="ttname"><a href="namespacesofa_1_1helper_1_1logging.html#ab72228dba5781a9b3764db0996d5440a">sofa::helper::logging::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const ComponentInfo &amp;nfo)</div><div class="ttdef"><b>Definition:</b> ComponentInfo.cpp:76</div></div>
+<div class="ttc" id="aclasssofa_1_1helper_1_1logging_1_1_message_html_a2fffa4908369d4c199e8a79671dcd4e3"><div class="ttname"><a href="classsofa_1_1helper_1_1logging_1_1_message.html#a2fffa4908369d4c199e8a79671dcd4e3">sofa::helper::logging::Message::operator&lt;&lt;</a></div><div class="ttdeci">Message &amp; operator&lt;&lt;(const T &amp;x)</div><div class="ttdef"><b>Definition:</b> Message.h:177</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><a class="el" href="dir_25636ab38ca0798fa9c90397ed899390.html">logging</a></li><li class="navelem"><b>Message.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:40:23 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><a class="el" href="dir_25636ab38ca0798fa9c90397ed899390.html">logging</a></li><li class="navelem"><a class="el" href="_message_8h.html">Message.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:13:17 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

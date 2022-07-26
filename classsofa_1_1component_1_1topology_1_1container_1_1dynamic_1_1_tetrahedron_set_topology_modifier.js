@@ -35,5 +35,6 @@ var classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_tetrahedron_s
     [ "renumberPointsProcess", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_tetrahedron_set_topology_modifier.html#ae3a7f42c7bbe54e9108c6d61cef5ced3", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_tetrahedron_set_topology_modifier.html#a91e2dc05a2884bc39c7c221cb2029dde", null ],
     [ "TetrahedronSetGeometryAlgorithms", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_tetrahedron_set_topology_modifier.html#a94c394beab303cea79546bbbcf5ab2f3", null ],
+    [ "m_container", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_tetrahedron_set_topology_modifier.html#a1c801195920eeed9ee690ca0f17bf22f", null ],
     [ "removeIsolated", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_tetrahedron_set_topology_modifier.html#aee1ce5247a30e3532737ec93b2cf6b2a", null ]
 ];

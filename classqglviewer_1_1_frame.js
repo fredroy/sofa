@@ -83,5 +83,9 @@ var classqglviewer_1_1_frame =
     [ "translate", "classqglviewer_1_1_frame.html#a4cb0cf5ff79e1acf0755befdaceb6f4a", null ],
     [ "translation", "classqglviewer_1_1_frame.html#af2d29a4540462e2194f93a3bf387a9ef", null ],
     [ "worldInverse", "classqglviewer_1_1_frame.html#a1fc13c8d8d5f8a89b2282d142f493f60", null ],
-    [ "worldMatrix", "classqglviewer_1_1_frame.html#a62a37fcfd943261a21bc85abbc81ca17", null ]
+    [ "worldMatrix", "classqglviewer_1_1_frame.html#a62a37fcfd943261a21bc85abbc81ca17", null ],
+    [ "constraint_", "classqglviewer_1_1_frame.html#aeac2f4c340ba30d3b2205a451c850d83", null ],
+    [ "q_", "classqglviewer_1_1_frame.html#a5465e497c44058496e89f8f3b6725949", null ],
+    [ "referenceFrame_", "classqglviewer_1_1_frame.html#a3b7ce02f2597785b1ef0f4c06c36b74b", null ],
+    [ "t_", "classqglviewer_1_1_frame.html#a854b06243fe2e39613c200abf8b26e34", null ]
 ];

@@ -1,5 +1,6 @@
 var classsofa_1_1linearalgebra_1_1_compressed_row_sparse_matrix_1_1_range =
 [
+    [ "Inherit", "classsofa_1_1linearalgebra_1_1_compressed_row_sparse_matrix_1_1_range.html#a24a15925cb1d7aa1e39c0c60a34efcb7", null ],
     [ "Range", "classsofa_1_1linearalgebra_1_1_compressed_row_sparse_matrix_1_1_range.html#afa61e339c5d7dd76c25663fc2718da8a", null ],
     [ "Range", "classsofa_1_1linearalgebra_1_1_compressed_row_sparse_matrix_1_1_range.html#ab543917b37068f0ace48012ca18a6d2a", null ],
     [ "begin", "classsofa_1_1linearalgebra_1_1_compressed_row_sparse_matrix_1_1_range.html#a67807056e1d1ab2afacf166a9751f8e6", null ],

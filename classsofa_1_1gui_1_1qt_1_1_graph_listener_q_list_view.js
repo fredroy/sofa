@@ -17,6 +17,7 @@ var classsofa_1_1gui_1_1qt_1_1_graph_listener_q_list_view =
     [ "datas", "classsofa_1_1gui_1_1qt_1_1_graph_listener_q_list_view.html#ad138bf871c4090e7650e1f7deffb7798", null ],
     [ "items", "classsofa_1_1gui_1_1qt_1_1_graph_listener_q_list_view.html#a40dc75ff54646b587de4f9299153dc56", null ],
     [ "listeners", "classsofa_1_1gui_1_1qt_1_1_graph_listener_q_list_view.html#a190b4a63b1bf216c5a91dbc3aa2abab5", null ],
+    [ "nameColor", "classsofa_1_1gui_1_1qt_1_1_graph_listener_q_list_view.html#a7dc51360f18faa2e909a4104539e2ceb", null ],
     [ "nodeWithMultipleParents", "classsofa_1_1gui_1_1qt_1_1_graph_listener_q_list_view.html#abee6ce2e60e19146a0e186a3623cb80e", null ],
     [ "widget", "classsofa_1_1gui_1_1qt_1_1_graph_listener_q_list_view.html#aff2d0aba29957e474ffb8e2200cf5fd3", null ]
 ];

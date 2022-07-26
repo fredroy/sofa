@@ -12,6 +12,7 @@ var classsofa_1_1component_1_1haptics_1_1_l_c_p_force_feedback =
     [ "VecDeriv", "classsofa_1_1component_1_1haptics_1_1_l_c_p_force_feedback.html#a83fb2b666b4e514e93d3bb221aa681ef", null ],
     [ "LCPForceFeedback", "classsofa_1_1component_1_1haptics_1_1_l_c_p_force_feedback.html#aa9a687deb7fd87418ffec877063a522a", null ],
     [ "~LCPForceFeedback", "classsofa_1_1component_1_1haptics_1_1_l_c_p_force_feedback.html#a76175a3733bac6788d5bfdf3ab31652f", null ],
+    [ "canCreate", "classsofa_1_1component_1_1haptics_1_1_l_c_p_force_feedback.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "computeForce", "classsofa_1_1component_1_1haptics_1_1_l_c_p_force_feedback.html#a98bbc1be6288ad8651a0ab3e1ac8f5ab", null ],
     [ "computeForce", "classsofa_1_1component_1_1haptics_1_1_l_c_p_force_feedback.html#a02053526185117604d43b2f960306361", null ],
     [ "computeForce", "classsofa_1_1component_1_1haptics_1_1_l_c_p_force_feedback.html#a532dbd8c48cb34725dd37c8bb195f387", null ],

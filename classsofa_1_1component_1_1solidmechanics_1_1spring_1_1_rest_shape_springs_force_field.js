@@ -46,5 +46,6 @@ var classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_rest_shape_springs_fo
     [ "m_ext_indices", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_rest_shape_springs_force_field.html#a9435d80b28d8061418f06a5e1193d54b", null ],
     [ "m_indices", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_rest_shape_springs_force_field.html#a01fc0fe2d212530d2fee77de625a9869", null ],
     [ "m_pivots", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_rest_shape_springs_force_field.html#a4b64b880adc95f5593641693b725a659", null ],
-    [ "matS", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_rest_shape_springs_force_field.html#a7dd21c608b02cfd606118174bc7a0a1b", null ]
+    [ "matS", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_rest_shape_springs_force_field.html#a7dd21c608b02cfd606118174bc7a0a1b", null ],
+    [ "useRestMState", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_rest_shape_springs_force_field.html#aea978115997df5250dc76ae960cf6e9f", null ]
 ];

@@ -86,6 +86,9 @@ $(document).ready(function(){initNavTree('classsofa_1_1component_1_1linearsolver
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">BTDLinearSolver&lt; Matrix, Vector &gt; Class Template Reference</div>  </div>
@@ -105,237 +108,194 @@ Inheritance diagram for BTDLinearSolver&lt; Matrix, Vector &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aa055f4d21408d34270f98a7d5c2520ab"><td class="memItemLeft" align="right" valign="top"><a id="aa055f4d21408d34270f98a7d5c2520ab"></a>
-typedef Vector::SubVectorType&#160;</td><td class="memItemRight" valign="bottom"><b>SubVector</b></td></tr>
+<tr class="memitem:aa055f4d21408d34270f98a7d5c2520ab"><td class="memItemLeft" align="right" valign="top">typedef Vector::SubVectorType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aa055f4d21408d34270f98a7d5c2520ab">SubVector</a></td></tr>
 <tr class="separator:aa055f4d21408d34270f98a7d5c2520ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72495232f184ac4c5cacb1d08eb297de"><td class="memItemLeft" align="right" valign="top"><a id="a72495232f184ac4c5cacb1d08eb297de"></a>
-typedef Matrix::SubMatrixType&#160;</td><td class="memItemRight" valign="bottom"><b>SubMatrix</b></td></tr>
+<tr class="memitem:a72495232f184ac4c5cacb1d08eb297de"><td class="memItemLeft" align="right" valign="top">typedef Matrix::SubMatrixType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a></td></tr>
 <tr class="separator:a72495232f184ac4c5cacb1d08eb297de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ec886d7a4ecbaeb74ba17c3c34d4c2a"><td class="memItemLeft" align="right" valign="top"><a id="a7ec886d7a4ecbaeb74ba17c3c34d4c2a"></a>
-typedef Vector::Real&#160;</td><td class="memItemRight" valign="bottom"><b>Real</b></td></tr>
+<tr class="memitem:a7ec886d7a4ecbaeb74ba17c3c34d4c2a"><td class="memItemLeft" align="right" valign="top">typedef Vector::Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a7ec886d7a4ecbaeb74ba17c3c34d4c2a">Real</a></td></tr>
 <tr class="separator:a7ec886d7a4ecbaeb74ba17c3c34d4c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d8a89da1ac48662f8d4b6e05ffba4d7"><td class="memItemLeft" align="right" valign="top"><a id="a9d8a89da1ac48662f8d4b6e05ffba4d7"></a>
-typedef Matrix::BlockType&#160;</td><td class="memItemRight" valign="bottom"><b>BlocType</b></td></tr>
+<tr class="memitem:a9d8a89da1ac48662f8d4b6e05ffba4d7"><td class="memItemLeft" align="right" valign="top">typedef Matrix::BlockType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a9d8a89da1ac48662f8d4b6e05ffba4d7">BlocType</a></td></tr>
 <tr class="separator:a9d8a89da1ac48662f8d4b6e05ffba4d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf90bea6f4e96fdcf8eb969bf807cd5d"><td class="memItemLeft" align="right" valign="top"><a id="abf90bea6f4e96fdcf8eb969bf807cd5d"></a>
-typedef sofa::SignedIndex&#160;</td><td class="memItemRight" valign="bottom"><b>Index</b></td></tr>
+<tr class="memitem:abf90bea6f4e96fdcf8eb969bf807cd5d"><td class="memItemLeft" align="right" valign="top">typedef sofa::SignedIndex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a></td></tr>
 <tr class="separator:abf90bea6f4e96fdcf8eb969bf807cd5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a54055d3b2b5f0d04074ece476ab0b5"><td class="memItemLeft" align="right" valign="top"><a id="a5a54055d3b2b5f0d04074ece476ab0b5"></a>
-typedef std::list&lt; Index &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ListIndex</b></td></tr>
+<tr class="memitem:a5a54055d3b2b5f0d04074ece476ab0b5"><td class="memItemLeft" align="right" valign="top">typedef std::list&lt; <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a5a54055d3b2b5f0d04074ece476ab0b5">ListIndex</a></td></tr>
 <tr class="separator:a5a54055d3b2b5f0d04074ece476ab0b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7c4689c8e72e6060d469810b6cee1fa"><td class="memItemLeft" align="right" valign="top"><a id="ab7c4689c8e72e6060d469810b6cee1fa"></a>
-typedef std::pair&lt; Index, Index &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>IndexPair</b></td></tr>
+<tr class="memitem:ab7c4689c8e72e6060d469810b6cee1fa"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>, <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ab7c4689c8e72e6060d469810b6cee1fa">IndexPair</a></td></tr>
 <tr class="separator:ab7c4689c8e72e6060d469810b6cee1fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a222be7dd3c7aec706d095d6246055045"><td class="memItemLeft" align="right" valign="top"><a id="a222be7dd3c7aec706d095d6246055045"></a>
-typedef std::map&lt; IndexPair, SubMatrix &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>MysparseM</b></td></tr>
+<tr class="memitem:a222be7dd3c7aec706d095d6246055045"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ab7c4689c8e72e6060d469810b6cee1fa">IndexPair</a>, <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a222be7dd3c7aec706d095d6246055045">MysparseM</a></td></tr>
 <tr class="separator:a222be7dd3c7aec706d095d6246055045"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec5fd410ac410a8727c96b26affb4dfd"><td class="memItemLeft" align="right" valign="top"><a id="aec5fd410ac410a8727c96b26affb4dfd"></a>
-typedef std::map&lt; IndexPair, SubMatrix &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><b>MysparseMit</b></td></tr>
+<tr class="memitem:aec5fd410ac410a8727c96b26affb4dfd"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ab7c4689c8e72e6060d469810b6cee1fa">IndexPair</a>, <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a> &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aec5fd410ac410a8727c96b26affb4dfd">MysparseMit</a></td></tr>
 <tr class="separator:aec5fd410ac410a8727c96b26affb4dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acbae39c88cecd2bda5f18bb9857f2312"><td class="memItemLeft" align="right" valign="top"><a id="acbae39c88cecd2bda5f18bb9857f2312"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SOFA_CLASS</b> (SOFA_TEMPLATE2(<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html">BTDLinearSolver</a>, Matrix, Vector), SOFA_TEMPLATE2(<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html">sofa::component::linearsolver::MatrixLinearSolver</a>, Matrix, Vector))</td></tr>
+<tr class="memitem:acbae39c88cecd2bda5f18bb9857f2312"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#acbae39c88cecd2bda5f18bb9857f2312">SOFA_CLASS</a> (<a class="el" href="_base_class_8h.html#a7d05f8d2caf276dcdb1ab2c83bf4d48d">SOFA_TEMPLATE2</a>(<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html">BTDLinearSolver</a>, Matrix, Vector), <a class="el" href="_base_class_8h.html#a7d05f8d2caf276dcdb1ab2c83bf4d48d">SOFA_TEMPLATE2</a>(<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html">sofa::component::linearsolver::MatrixLinearSolver</a>, Matrix, Vector))</td></tr>
 <tr class="separator:acbae39c88cecd2bda5f18bb9857f2312"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ddb4e91a1e761e6e677cdb525c469b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a5ddb4e91a1e761e6e677cdb525c469b0">my_identity</a> (SubMatrix &amp;Id, const Index size_id)</td></tr>
+<tr class="memitem:a5ddb4e91a1e761e6e677cdb525c469b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a5ddb4e91a1e761e6e677cdb525c469b0">my_identity</a> (<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a> &amp;Id, const <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> size_id)</td></tr>
 <tr class="separator:a5ddb4e91a1e761e6e677cdb525c469b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa29f102b7a766ae5c2ea20651b82ce44"><td class="memItemLeft" align="right" valign="top"><a id="aa29f102b7a766ae5c2ea20651b82ce44"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>invert</b> (SubMatrix &amp;Inv, const BlocType &amp;m)</td></tr>
+<tr class="memitem:aa29f102b7a766ae5c2ea20651b82ce44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aa29f102b7a766ae5c2ea20651b82ce44">invert</a> (<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a> &amp;Inv, const <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a9d8a89da1ac48662f8d4b6e05ffba4d7">BlocType</a> &amp;m)</td></tr>
 <tr class="separator:aa29f102b7a766ae5c2ea20651b82ce44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52af62b6a23c684e73b1512d8526fb37"><td class="memItemLeft" align="right" valign="top"><a id="a52af62b6a23c684e73b1512d8526fb37"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>invert</b> (Matrix &amp;M) override</td></tr>
+<tr class="memitem:a52af62b6a23c684e73b1512d8526fb37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a52af62b6a23c684e73b1512d8526fb37">invert</a> (Matrix &amp;M) override</td></tr>
 <tr class="separator:a52af62b6a23c684e73b1512d8526fb37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcfb2992b8bbdba77f9177de412363c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abcfb2992b8bbdba77f9177de412363c9">computeMinvBlock</a> (Index i, Index j)</td></tr>
+<tr class="memitem:abcfb2992b8bbdba77f9177de412363c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abcfb2992b8bbdba77f9177de412363c9">computeMinvBlock</a> (<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> i, <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> j)</td></tr>
 <tr class="separator:abcfb2992b8bbdba77f9177de412363c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae035d18f2253cabbf8162fde72b7c4b6"><td class="memItemLeft" align="right" valign="top"><a id="ae035d18f2253cabbf8162fde72b7c4b6"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getMinvElement</b> (Index i, Index j)</td></tr>
+<tr class="memitem:ae035d18f2253cabbf8162fde72b7c4b6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ae035d18f2253cabbf8162fde72b7c4b6">getMinvElement</a> (<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> i, <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> j)</td></tr>
 <tr class="separator:ae035d18f2253cabbf8162fde72b7c4b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a217976b02c717abfbe676bea5f3b1d06"><td class="memItemLeft" align="right" valign="top"><a id="a217976b02c717abfbe676bea5f3b1d06"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a217976b02c717abfbe676bea5f3b1d06">solve</a> (Matrix &amp;, Vector &amp;x, Vector &amp;b) override</td></tr>
-<tr class="memdesc:a217976b02c717abfbe676bea5f3b1d06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve Mx=b. <br /></td></tr>
+<tr class="memitem:a217976b02c717abfbe676bea5f3b1d06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a217976b02c717abfbe676bea5f3b1d06">solve</a> (Matrix &amp;, Vector &amp;x, Vector &amp;b) override</td></tr>
+<tr class="memdesc:a217976b02c717abfbe676bea5f3b1d06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve Mx=b.  <a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a217976b02c717abfbe676bea5f3b1d06">More...</a><br /></td></tr>
 <tr class="separator:a217976b02c717abfbe676bea5f3b1d06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae283145525540ebdf230c5a6023ba23e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ae283145525540ebdf230c5a6023ba23e">addJMInvJt</a> (<a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html">linearalgebra::BaseMatrix</a> *result, <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html">linearalgebra::BaseMatrix</a> *J, SReal fact) override</td></tr>
 <tr class="separator:ae283145525540ebdf230c5a6023ba23e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4abfb426c4b9838f67cb950f9ce2b941"><td class="memItemLeft" align="right" valign="top"><a id="a4abfb426c4b9838f67cb950f9ce2b941"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a4abfb426c4b9838f67cb950f9ce2b941">init_partial_solve</a> () override</td></tr>
-<tr class="memdesc:a4abfb426c4b9838f67cb950f9ce2b941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init the partial solve. <br /></td></tr>
+<tr class="memitem:a4abfb426c4b9838f67cb950f9ce2b941"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a4abfb426c4b9838f67cb950f9ce2b941">init_partial_solve</a> () override</td></tr>
+<tr class="memdesc:a4abfb426c4b9838f67cb950f9ce2b941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init the partial solve.  <a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a4abfb426c4b9838f67cb950f9ce2b941">More...</a><br /></td></tr>
 <tr class="separator:a4abfb426c4b9838f67cb950f9ce2b941"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95680d360b71fcd7e6fd347119003853"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a95680d360b71fcd7e6fd347119003853">partial_solve</a> (ListIndex &amp;Iout, ListIndex &amp;Iin, bool NewIn) override</td></tr>
+<tr class="memitem:a95680d360b71fcd7e6fd347119003853"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a95680d360b71fcd7e6fd347119003853">partial_solve</a> (<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a5a54055d3b2b5f0d04074ece476ab0b5">ListIndex</a> &amp;Iout, <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a5a54055d3b2b5f0d04074ece476ab0b5">ListIndex</a> &amp;Iin, bool NewIn) override</td></tr>
 <tr class="memdesc:a95680d360b71fcd7e6fd347119003853"><td class="mdescLeft">&#160;</td><td class="mdescRight">*Matrix&amp; M, Vector&amp; result, Vector&amp; rh, *&zwj;/  <a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a95680d360b71fcd7e6fd347119003853">More...</a><br /></td></tr>
 <tr class="separator:a95680d360b71fcd7e6fd347119003853"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8782ccdf188ae678999400a83437959e"><td class="memItemLeft" align="right" valign="top"><a id="a8782ccdf188ae678999400a83437959e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init_partial_inverse</b> (const Index &amp;nb, const Index &amp;bsize)</td></tr>
+<tr class="memitem:a8782ccdf188ae678999400a83437959e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a8782ccdf188ae678999400a83437959e">init_partial_inverse</a> (const <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> &amp;nb, const <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> &amp;bsize)</td></tr>
 <tr class="separator:a8782ccdf188ae678999400a83437959e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73a694b078f9c3128e0f129073c4e5ed"><td class="memTemplParams" colspan="2"><a id="a73a694b078f9c3128e0f129073c4e5ed"></a>
-template&lt;class RMatrix , class JMatrix &gt; </td></tr>
-<tr class="memitem:a73a694b078f9c3128e0f129073c4e5ed"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>addJMInvJt</b> (RMatrix &amp;result, JMatrix &amp;J, double fact)</td></tr>
+<tr class="memitem:a73a694b078f9c3128e0f129073c4e5ed"><td class="memTemplParams" colspan="2">template&lt;class RMatrix , class JMatrix &gt; </td></tr>
+<tr class="memitem:a73a694b078f9c3128e0f129073c4e5ed"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a73a694b078f9c3128e0f129073c4e5ed">addJMInvJt</a> (RMatrix &amp;result, JMatrix &amp;J, double fact)</td></tr>
 <tr class="separator:a73a694b078f9c3128e0f129073c4e5ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html">MatrixLinearSolver&lt; Matrix, Vector &gt;</a></td></tr>
-<tr class="memitem:a7c3170c26456d31621c93f0c6bfc5fa6 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a7c3170c26456d31621c93f0c6bfc5fa6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetSystem</b> ()</td></tr>
+<tr class="memitem:a7c3170c26456d31621c93f0c6bfc5fa6 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a7c3170c26456d31621c93f0c6bfc5fa6">resetSystem</a> ()</td></tr>
 <tr class="separator:a7c3170c26456d31621c93f0c6bfc5fa6 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a142bc1d9b93d683ecac81d064f43aad5 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a142bc1d9b93d683ecac81d064f43aad5"></a>
-SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>resetSystem</b> ()</td></tr>
+<tr class="memitem:a142bc1d9b93d683ecac81d064f43aad5 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a142bc1d9b93d683ecac81d064f43aad5">resetSystem</a> ()</td></tr>
 <tr class="separator:a142bc1d9b93d683ecac81d064f43aad5 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8aae64cbbdb512969f91f623a0304848 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a8aae64cbbdb512969f91f623a0304848"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resizeSystem</b> (Size)</td></tr>
+<tr class="memitem:a8aae64cbbdb512969f91f623a0304848 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a8aae64cbbdb512969f91f623a0304848">resizeSystem</a> (Size)</td></tr>
 <tr class="separator:a8aae64cbbdb512969f91f623a0304848 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59716402d3699b2306844cef797630e6 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a59716402d3699b2306844cef797630e6"></a>
-SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>resizeSystem</b> (Size)</td></tr>
+<tr class="memitem:a59716402d3699b2306844cef797630e6 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a59716402d3699b2306844cef797630e6">resizeSystem</a> (Size)</td></tr>
 <tr class="separator:a59716402d3699b2306844cef797630e6 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34363288d980bdbef83e769606c77c2c inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a34363288d980bdbef83e769606c77c2c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSystemMatrix</b> (<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_matrix.html">GraphScatteredMatrix</a> *matrix)</td></tr>
+<tr class="memitem:a34363288d980bdbef83e769606c77c2c inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a34363288d980bdbef83e769606c77c2c">setSystemMatrix</a> (<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_matrix.html">GraphScatteredMatrix</a> *matrix)</td></tr>
 <tr class="separator:a34363288d980bdbef83e769606c77c2c inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adeb73a495918e397159465e697910fe9 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="adeb73a495918e397159465e697910fe9"></a>
-SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>setSystemMatrix</b> (<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_matrix.html">GraphScatteredMatrix</a> *matrix)</td></tr>
+<tr class="memitem:adeb73a495918e397159465e697910fe9 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#adeb73a495918e397159465e697910fe9">setSystemMatrix</a> (<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_matrix.html">GraphScatteredMatrix</a> *matrix)</td></tr>
 <tr class="separator:adeb73a495918e397159465e697910fe9 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a636e40f8544b4f71e73335eff6b4a565 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a636e40f8544b4f71e73335eff6b4a565"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSystemMBKMatrix</b> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">core::MechanicalParams</a> *mparams)</td></tr>
+<tr class="memitem:a636e40f8544b4f71e73335eff6b4a565 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a636e40f8544b4f71e73335eff6b4a565">setSystemMBKMatrix</a> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">core::MechanicalParams</a> *mparams)</td></tr>
 <tr class="separator:a636e40f8544b4f71e73335eff6b4a565 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a57b9612267605067aaa64764cc66cc inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a8a57b9612267605067aaa64764cc66cc"></a>
-SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>setSystemMBKMatrix</b> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">core::MechanicalParams</a> *mparams)</td></tr>
+<tr class="memitem:a8a57b9612267605067aaa64764cc66cc inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a8a57b9612267605067aaa64764cc66cc">setSystemMBKMatrix</a> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">core::MechanicalParams</a> *mparams)</td></tr>
 <tr class="separator:a8a57b9612267605067aaa64764cc66cc inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7412433fb609d8d44c6336764002cf30 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a7412433fb609d8d44c6336764002cf30"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>rebuildSystem</b> (SReal, SReal)</td></tr>
+<tr class="memitem:a7412433fb609d8d44c6336764002cf30 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a7412433fb609d8d44c6336764002cf30">rebuildSystem</a> (SReal, SReal)</td></tr>
 <tr class="separator:a7412433fb609d8d44c6336764002cf30 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa04f7a087dbde2e717cf6e4c0626d234 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="aa04f7a087dbde2e717cf6e4c0626d234"></a>
-SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>rebuildSystem</b> (SReal massFactor, SReal forceFactor)</td></tr>
+<tr class="memitem:aa04f7a087dbde2e717cf6e4c0626d234 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#aa04f7a087dbde2e717cf6e4c0626d234">rebuildSystem</a> (SReal massFactor, SReal forceFactor)</td></tr>
 <tr class="separator:aa04f7a087dbde2e717cf6e4c0626d234 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addc28cb2ea1c18e8239b64849aaf2032 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="addc28cb2ea1c18e8239b64849aaf2032"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSystemRHVector</b> (<a class="el" href="classsofa_1_1core_1_1_t_multi_vec_id.html">core::MultiVecDerivId</a> v)</td></tr>
+<tr class="memitem:addc28cb2ea1c18e8239b64849aaf2032 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#addc28cb2ea1c18e8239b64849aaf2032">setSystemRHVector</a> (<a class="el" href="namespacesofa_1_1core.html#a59edb8c6c9ebad8af141c66b259e2ca7">core::MultiVecDerivId</a> v)</td></tr>
 <tr class="separator:addc28cb2ea1c18e8239b64849aaf2032 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a368468476b053cfdc653480409c742c2 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a368468476b053cfdc653480409c742c2"></a>
-SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>setSystemRHVector</b> (<a class="el" href="classsofa_1_1core_1_1_t_multi_vec_id.html">core::MultiVecDerivId</a> v)</td></tr>
+<tr class="memitem:a368468476b053cfdc653480409c742c2 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a368468476b053cfdc653480409c742c2">setSystemRHVector</a> (<a class="el" href="namespacesofa_1_1core.html#a59edb8c6c9ebad8af141c66b259e2ca7">core::MultiVecDerivId</a> v)</td></tr>
 <tr class="separator:a368468476b053cfdc653480409c742c2 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a912749aa42491733f28ed6b65a591fbd inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a912749aa42491733f28ed6b65a591fbd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSystemLHVector</b> (<a class="el" href="classsofa_1_1core_1_1_t_multi_vec_id.html">core::MultiVecDerivId</a> v)</td></tr>
+<tr class="memitem:a912749aa42491733f28ed6b65a591fbd inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a912749aa42491733f28ed6b65a591fbd">setSystemLHVector</a> (<a class="el" href="namespacesofa_1_1core.html#a59edb8c6c9ebad8af141c66b259e2ca7">core::MultiVecDerivId</a> v)</td></tr>
 <tr class="separator:a912749aa42491733f28ed6b65a591fbd inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a301f68706abd12ef660fa641e7483539 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a301f68706abd12ef660fa641e7483539"></a>
-SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>setSystemLHVector</b> (<a class="el" href="classsofa_1_1core_1_1_t_multi_vec_id.html">core::MultiVecDerivId</a> v)</td></tr>
+<tr class="memitem:a301f68706abd12ef660fa641e7483539 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a301f68706abd12ef660fa641e7483539">setSystemLHVector</a> (<a class="el" href="namespacesofa_1_1core.html#a59edb8c6c9ebad8af141c66b259e2ca7">core::MultiVecDerivId</a> v)</td></tr>
 <tr class="separator:a301f68706abd12ef660fa641e7483539 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ccae681e6d58b375941aae1972ff1c2 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a4ccae681e6d58b375941aae1972ff1c2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>solveSystem</b> ()</td></tr>
+<tr class="memitem:a4ccae681e6d58b375941aae1972ff1c2 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a4ccae681e6d58b375941aae1972ff1c2">solveSystem</a> ()</td></tr>
 <tr class="separator:a4ccae681e6d58b375941aae1972ff1c2 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abecc2fabf0003c8e51e30df3f87aaba3 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="abecc2fabf0003c8e51e30df3f87aaba3"></a>
-SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>solveSystem</b> ()</td></tr>
+<tr class="memitem:abecc2fabf0003c8e51e30df3f87aaba3 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#abecc2fabf0003c8e51e30df3f87aaba3">solveSystem</a> ()</td></tr>
 <tr class="separator:abecc2fabf0003c8e51e30df3f87aaba3 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0eac18c384e6b8e40eb2fae9f8798c19 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a0eac18c384e6b8e40eb2fae9f8798c19">applyConstraintForce</a> (const <a class="el" href="classsofa_1_1core_1_1_constraint_params.html">sofa::core::ConstraintParams</a> *, <a class="el" href="classsofa_1_1core_1_1_t_multi_vec_id.html">sofa::core::MultiVecDerivId</a>, const <a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *)</td></tr>
+<tr class="memitem:a0eac18c384e6b8e40eb2fae9f8798c19 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a0eac18c384e6b8e40eb2fae9f8798c19">applyConstraintForce</a> (const <a class="el" href="classsofa_1_1core_1_1_constraint_params.html">sofa::core::ConstraintParams</a> *, <a class="el" href="namespacesofa_1_1core.html#a59edb8c6c9ebad8af141c66b259e2ca7">sofa::core::MultiVecDerivId</a>, const <a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *)</td></tr>
 <tr class="separator:a0eac18c384e6b8e40eb2fae9f8798c19 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d21b5eb7f242a392c5f04958d1606cc inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a1d21b5eb7f242a392c5f04958d1606cc"></a>
-SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>applyConstraintForce</b> (const <a class="el" href="classsofa_1_1core_1_1_constraint_params.html">sofa::core::ConstraintParams</a> *, <a class="el" href="classsofa_1_1core_1_1_t_multi_vec_id.html">sofa::core::MultiVecDerivId</a>, const <a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *)</td></tr>
+<tr class="memitem:a1d21b5eb7f242a392c5f04958d1606cc inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a1d21b5eb7f242a392c5f04958d1606cc">applyConstraintForce</a> (const <a class="el" href="classsofa_1_1core_1_1_constraint_params.html">sofa::core::ConstraintParams</a> *, <a class="el" href="namespacesofa_1_1core.html#a59edb8c6c9ebad8af141c66b259e2ca7">sofa::core::MultiVecDerivId</a>, const <a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *)</td></tr>
 <tr class="separator:a1d21b5eb7f242a392c5f04958d1606cc inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0c97e4fc1b88d068b28dfcb88c50068 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="aa0c97e4fc1b88d068b28dfcb88c50068"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>computeResidual</b> (const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">core::ExecParams</a> *, <a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *)</td></tr>
+<tr class="memitem:aa0c97e4fc1b88d068b28dfcb88c50068 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#aa0c97e4fc1b88d068b28dfcb88c50068">computeResidual</a> (const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">core::ExecParams</a> *, <a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *)</td></tr>
 <tr class="separator:aa0c97e4fc1b88d068b28dfcb88c50068 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e10b1be41baf5a8ba99212c978820f1 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a4e10b1be41baf5a8ba99212c978820f1"></a>
-SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><b>computeResidual</b> (const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">core::ExecParams</a> *params, <a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *f)</td></tr>
+<tr class="memitem:a4e10b1be41baf5a8ba99212c978820f1 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a4e10b1be41baf5a8ba99212c978820f1">computeResidual</a> (const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">core::ExecParams</a> *params, <a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *f)</td></tr>
 <tr class="separator:a4e10b1be41baf5a8ba99212c978820f1 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3b448c99fb1c53f7773c6902109c2f5 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="ae3b448c99fb1c53f7773c6902109c2f5"></a>
-<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_vector.html">GraphScatteredVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createPersistentVector</b> ()</td></tr>
+<tr class="memitem:ae3b448c99fb1c53f7773c6902109c2f5 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_vector.html">GraphScatteredVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#ae3b448c99fb1c53f7773c6902109c2f5">createPersistentVector</a> ()</td></tr>
 <tr class="separator:ae3b448c99fb1c53f7773c6902109c2f5 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1f6c9bcb22f57e534ab6bba444b0f18 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="ab1f6c9bcb22f57e534ab6bba444b0f18"></a>
-SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_vector.html">GraphScatteredVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createPersistentVector</b> ()</td></tr>
+<tr class="memitem:ab1f6c9bcb22f57e534ab6bba444b0f18 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_vector.html">GraphScatteredVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#ab1f6c9bcb22f57e534ab6bba444b0f18">createPersistentVector</a> ()</td></tr>
 <tr class="separator:ab1f6c9bcb22f57e534ab6bba444b0f18 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb47d195ede2394594f9e31453620027 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="aeb47d195ede2394594f9e31453620027"></a>
-<a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html">linearalgebra::BaseMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSystemBaseMatrix</b> ()</td></tr>
+<tr class="memitem:aeb47d195ede2394594f9e31453620027 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html">linearalgebra::BaseMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#aeb47d195ede2394594f9e31453620027">getSystemBaseMatrix</a> ()</td></tr>
 <tr class="separator:aeb47d195ede2394594f9e31453620027 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7827f142616665d4bd9571a817f26150 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a7827f142616665d4bd9571a817f26150"></a>
-SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html">linearalgebra::BaseMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSystemBaseMatrix</b> ()</td></tr>
+<tr class="memitem:a7827f142616665d4bd9571a817f26150 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html">linearalgebra::BaseMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a7827f142616665d4bd9571a817f26150">getSystemBaseMatrix</a> ()</td></tr>
 <tr class="separator:a7827f142616665d4bd9571a817f26150 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03da00b4593834b1af78496e3443f01f inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a03da00b4593834b1af78496e3443f01f"></a>
-const <a class="el" href="classsofa_1_1core_1_1behavior_1_1_multi_matrix_accessor.html">core::behavior::MultiMatrixAccessor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSystemMultiMatrixAccessor</b> () const</td></tr>
+<tr class="memitem:a03da00b4593834b1af78496e3443f01f inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsofa_1_1core_1_1behavior_1_1_multi_matrix_accessor.html">core::behavior::MultiMatrixAccessor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a03da00b4593834b1af78496e3443f01f">getSystemMultiMatrixAccessor</a> () const</td></tr>
 <tr class="separator:a03da00b4593834b1af78496e3443f01f inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51145682c577a20cc8d1fc44c265c3d8 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a51145682c577a20cc8d1fc44c265c3d8"></a>
-const SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API <a class="el" href="classsofa_1_1core_1_1behavior_1_1_multi_matrix_accessor.html">core::behavior::MultiMatrixAccessor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSystemMultiMatrixAccessor</b> () const</td></tr>
+<tr class="memitem:a51145682c577a20cc8d1fc44c265c3d8 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">const SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API <a class="el" href="classsofa_1_1core_1_1behavior_1_1_multi_matrix_accessor.html">core::behavior::MultiMatrixAccessor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a51145682c577a20cc8d1fc44c265c3d8">getSystemMultiMatrixAccessor</a> () const</td></tr>
 <tr class="separator:a51145682c577a20cc8d1fc44c265c3d8 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac047ab1bafbf723130973d6adbd1cf3e inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="ac047ab1bafbf723130973d6adbd1cf3e"></a>
-<a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSystemRHBaseVector</b> ()</td></tr>
+<tr class="memitem:ac047ab1bafbf723130973d6adbd1cf3e inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#ac047ab1bafbf723130973d6adbd1cf3e">getSystemRHBaseVector</a> ()</td></tr>
 <tr class="separator:ac047ab1bafbf723130973d6adbd1cf3e inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2d810d998d132e54d6738868e67e41a inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="aa2d810d998d132e54d6738868e67e41a"></a>
-SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API <a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSystemRHBaseVector</b> ()</td></tr>
+<tr class="memitem:aa2d810d998d132e54d6738868e67e41a inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API <a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#aa2d810d998d132e54d6738868e67e41a">getSystemRHBaseVector</a> ()</td></tr>
 <tr class="separator:aa2d810d998d132e54d6738868e67e41a inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad45c5b622c06ea5cba2835408bbb0457 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="ad45c5b622c06ea5cba2835408bbb0457"></a>
-<a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSystemLHBaseVector</b> ()</td></tr>
+<tr class="memitem:ad45c5b622c06ea5cba2835408bbb0457 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#ad45c5b622c06ea5cba2835408bbb0457">getSystemLHBaseVector</a> ()</td></tr>
 <tr class="separator:ad45c5b622c06ea5cba2835408bbb0457 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63231a58250eb9665c4dfee7b63d0ec2 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top"><a id="a63231a58250eb9665c4dfee7b63d0ec2"></a>
-SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API <a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSystemLHBaseVector</b> ()</td></tr>
+<tr class="memitem:a63231a58250eb9665c4dfee7b63d0ec2 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memItemLeft" align="right" valign="top">SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API <a class="el" href="classsofa_1_1linearalgebra_1_1_base_vector.html">linearalgebra::BaseVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html#a63231a58250eb9665c4dfee7b63d0ec2">getSystemLHBaseVector</a> ()</td></tr>
 <tr class="separator:a63231a58250eb9665c4dfee7b63d0ec2 inherit pub_methods_classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:af72ac10916cf1dc11d8496d525bb9893"><td class="memItemLeft" align="right" valign="top"><a id="af72ac10916cf1dc11d8496d525bb9893"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#af72ac10916cf1dc11d8496d525bb9893">f_verbose</a></td></tr>
-<tr class="memdesc:af72ac10916cf1dc11d8496d525bb9893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump system state at each iteration. <br /></td></tr>
+<tr class="memitem:af72ac10916cf1dc11d8496d525bb9893"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#af72ac10916cf1dc11d8496d525bb9893">f_verbose</a></td></tr>
+<tr class="memdesc:af72ac10916cf1dc11d8496d525bb9893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump system state at each iteration.  <a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#af72ac10916cf1dc11d8496d525bb9893">More...</a><br /></td></tr>
 <tr class="separator:af72ac10916cf1dc11d8496d525bb9893"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3b5d1e45912e1fbd308d8595d3bc9a4"><td class="memItemLeft" align="right" valign="top"><a id="ad3b5d1e45912e1fbd308d8595d3bc9a4"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ad3b5d1e45912e1fbd308d8595d3bc9a4">problem</a></td></tr>
-<tr class="memdesc:ad3b5d1e45912e1fbd308d8595d3bc9a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">display debug informations about subpartSolve computation <br /></td></tr>
+<tr class="memitem:ad3b5d1e45912e1fbd308d8595d3bc9a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ad3b5d1e45912e1fbd308d8595d3bc9a4">problem</a></td></tr>
+<tr class="memdesc:ad3b5d1e45912e1fbd308d8595d3bc9a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">display debug informations about subpartSolve computation  <a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ad3b5d1e45912e1fbd308d8595d3bc9a4">More...</a><br /></td></tr>
 <tr class="separator:ad3b5d1e45912e1fbd308d8595d3bc9a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4650127e39f5822966fb2efa4fb8920"><td class="memItemLeft" align="right" valign="top"><a id="ad4650127e39f5822966fb2efa4fb8920"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ad4650127e39f5822966fb2efa4fb8920">subpartSolve</a></td></tr>
-<tr class="memdesc:ad4650127e39f5822966fb2efa4fb8920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows for the computation of a subpart of the system. <br /></td></tr>
+<tr class="memitem:ad4650127e39f5822966fb2efa4fb8920"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ad4650127e39f5822966fb2efa4fb8920">subpartSolve</a></td></tr>
+<tr class="memdesc:ad4650127e39f5822966fb2efa4fb8920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows for the computation of a subpart of the system.  <a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ad4650127e39f5822966fb2efa4fb8920">More...</a><br /></td></tr>
 <tr class="separator:ad4650127e39f5822966fb2efa4fb8920"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac206e8208729ab307303491ca28763ab"><td class="memItemLeft" align="right" valign="top"><a id="ac206e8208729ab307303491ca28763ab"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ac206e8208729ab307303491ca28763ab">verification</a></td></tr>
-<tr class="memdesc:ac206e8208729ab307303491ca28763ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">verification of the subpartSolve <br /></td></tr>
+<tr class="memitem:ac206e8208729ab307303491ca28763ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ac206e8208729ab307303491ca28763ab">verification</a></td></tr>
+<tr class="memdesc:ac206e8208729ab307303491ca28763ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">verification of the subpartSolve  <a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ac206e8208729ab307303491ca28763ab">More...</a><br /></td></tr>
 <tr class="separator:ac206e8208729ab307303491ca28763ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad64500f8357a9baed9ae30652dfed42a"><td class="memItemLeft" align="right" valign="top"><a id="ad64500f8357a9baed9ae30652dfed42a"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ad64500f8357a9baed9ae30652dfed42a">test_perf</a></td></tr>
-<tr class="memdesc:ad64500f8357a9baed9ae30652dfed42a"><td class="mdescLeft">&#160;</td><td class="mdescRight">verification of performance <br /></td></tr>
+<tr class="memitem:ad64500f8357a9baed9ae30652dfed42a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ad64500f8357a9baed9ae30652dfed42a">test_perf</a></td></tr>
+<tr class="memdesc:ad64500f8357a9baed9ae30652dfed42a"><td class="mdescLeft">&#160;</td><td class="mdescRight">verification of performance  <a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ad64500f8357a9baed9ae30652dfed42a">More...</a><br /></td></tr>
 <tr class="separator:ad64500f8357a9baed9ae30652dfed42a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6509f3702ad549acec4e5324b43f7bf8"><td class="memItemLeft" align="right" valign="top"><a id="a6509f3702ad549acec4e5324b43f7bf8"></a>
-<a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; SubMatrix &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>alpha_inv</b></td></tr>
+<tr class="memitem:a6509f3702ad549acec4e5324b43f7bf8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a6509f3702ad549acec4e5324b43f7bf8">alpha_inv</a></td></tr>
 <tr class="separator:a6509f3702ad549acec4e5324b43f7bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88166391f4ccd2be82bf4948dbc19d68"><td class="memItemLeft" align="right" valign="top"><a id="a88166391f4ccd2be82bf4948dbc19d68"></a>
-<a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; SubMatrix &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>lambda</b></td></tr>
+<tr class="memitem:a88166391f4ccd2be82bf4948dbc19d68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a88166391f4ccd2be82bf4948dbc19d68">lambda</a></td></tr>
 <tr class="separator:a88166391f4ccd2be82bf4948dbc19d68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac117b4f92af1eb528910fd46ac8a09e3"><td class="memItemLeft" align="right" valign="top"><a id="ac117b4f92af1eb528910fd46ac8a09e3"></a>
-<a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; SubMatrix &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>B</b></td></tr>
+<tr class="memitem:ac117b4f92af1eb528910fd46ac8a09e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ac117b4f92af1eb528910fd46ac8a09e3">B</a></td></tr>
 <tr class="separator:ac117b4f92af1eb528910fd46ac8a09e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca4f6bc298b3bcef064f09f7ca2522c7"><td class="memItemLeft" align="right" valign="top"><a id="aca4f6bc298b3bcef064f09f7ca2522c7"></a>
-Matrix::InvMatrixType&#160;</td><td class="memItemRight" valign="bottom"><b>Minv</b></td></tr>
+<tr class="memitem:aca4f6bc298b3bcef064f09f7ca2522c7"><td class="memItemLeft" align="right" valign="top">Matrix::InvMatrixType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aca4f6bc298b3bcef064f09f7ca2522c7">Minv</a></td></tr>
 <tr class="separator:aca4f6bc298b3bcef064f09f7ca2522c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a374152a5dc5b1c139b4d263e7c47ba37"><td class="memItemLeft" align="right" valign="top"><a id="a374152a5dc5b1c139b4d263e7c47ba37"></a>
-MysparseM&#160;</td><td class="memItemRight" valign="bottom"><b>H</b></td></tr>
+<tr class="memitem:a374152a5dc5b1c139b4d263e7c47ba37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a222be7dd3c7aec706d095d6246055045">MysparseM</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a374152a5dc5b1c139b4d263e7c47ba37">H</a></td></tr>
 <tr class="separator:a374152a5dc5b1c139b4d263e7c47ba37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac417a7a5cc1c318b587cc0d14172a30e"><td class="memItemLeft" align="right" valign="top"><a id="ac417a7a5cc1c318b587cc0d14172a30e"></a>
-MysparseMit&#160;</td><td class="memItemRight" valign="bottom"><b>H_it</b></td></tr>
+<tr class="memitem:ac417a7a5cc1c318b587cc0d14172a30e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aec5fd410ac410a8727c96b26affb4dfd">MysparseMit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ac417a7a5cc1c318b587cc0d14172a30e">H_it</a></td></tr>
 <tr class="separator:ac417a7a5cc1c318b587cc0d14172a30e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc0dc04a427e6a14e85ca900ca033b74"><td class="memItemLeft" align="right" valign="top"><a id="abc0dc04a427e6a14e85ca900ca033b74"></a>
-Vector&#160;</td><td class="memItemRight" valign="bottom"><b>bwdContributionOnLH</b></td></tr>
+<tr class="memitem:abc0dc04a427e6a14e85ca900ca033b74"><td class="memItemLeft" align="right" valign="top">Vector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abc0dc04a427e6a14e85ca900ca033b74">bwdContributionOnLH</a></td></tr>
 <tr class="separator:abc0dc04a427e6a14e85ca900ca033b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7bacbd7b75b3b9bf3dd2ad7e36ae574"><td class="memItemLeft" align="right" valign="top"><a id="aa7bacbd7b75b3b9bf3dd2ad7e36ae574"></a>
-Vector&#160;</td><td class="memItemRight" valign="bottom"><b>fwdContributionOnRH</b></td></tr>
+<tr class="memitem:aa7bacbd7b75b3b9bf3dd2ad7e36ae574"><td class="memItemLeft" align="right" valign="top">Vector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aa7bacbd7b75b3b9bf3dd2ad7e36ae574">fwdContributionOnRH</a></td></tr>
 <tr class="separator:aa7bacbd7b75b3b9bf3dd2ad7e36ae574"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae160c9b1f757210e775f0a6b89aca1c4"><td class="memItemLeft" align="right" valign="top"><a id="ae160c9b1f757210e775f0a6b89aca1c4"></a>
-Vector&#160;</td><td class="memItemRight" valign="bottom"><b>_rh_buf</b></td></tr>
+<tr class="memitem:ae160c9b1f757210e775f0a6b89aca1c4"><td class="memItemLeft" align="right" valign="top">Vector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ae160c9b1f757210e775f0a6b89aca1c4">_rh_buf</a></td></tr>
 <tr class="separator:ae160c9b1f757210e775f0a6b89aca1c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6e2fb879a8cb5d505d728143516aee5"><td class="memItemLeft" align="right" valign="top"><a id="ab6e2fb879a8cb5d505d728143516aee5"></a>
-SubVector&#160;</td><td class="memItemRight" valign="bottom"><b>_acc_rh_bloc</b></td></tr>
+<tr class="memitem:ab6e2fb879a8cb5d505d728143516aee5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aa055f4d21408d34270f98a7d5c2520ab">SubVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ab6e2fb879a8cb5d505d728143516aee5">_acc_rh_bloc</a></td></tr>
 <tr class="separator:ab6e2fb879a8cb5d505d728143516aee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb1aee43a64b9bbeb97043ee1dc6a54b"><td class="memItemLeft" align="right" valign="top"><a id="aeb1aee43a64b9bbeb97043ee1dc6a54b"></a>
-SubVector&#160;</td><td class="memItemRight" valign="bottom"><b>_acc_lh_bloc</b></td></tr>
+<tr class="memitem:aeb1aee43a64b9bbeb97043ee1dc6a54b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aa055f4d21408d34270f98a7d5c2520ab">SubVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aeb1aee43a64b9bbeb97043ee1dc6a54b">_acc_lh_bloc</a></td></tr>
 <tr class="separator:aeb1aee43a64b9bbeb97043ee1dc6a54b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f52d403b5e9fb498621b00b446458a1"><td class="memItemLeft" align="right" valign="top"><a id="a8f52d403b5e9fb498621b00b446458a1"></a>
-Index&#160;</td><td class="memItemRight" valign="bottom"><b>current_bloc</b></td></tr>
+<tr class="memitem:a8f52d403b5e9fb498621b00b446458a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a8f52d403b5e9fb498621b00b446458a1">current_bloc</a></td></tr>
 <tr class="separator:a8f52d403b5e9fb498621b00b446458a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a525b76065c7c5d3d3b5a0c6a78fdb042"><td class="memItemLeft" align="right" valign="top"><a id="a525b76065c7c5d3d3b5a0c6a78fdb042"></a>
-Index&#160;</td><td class="memItemRight" valign="bottom"><b>first_block</b></td></tr>
+<tr class="memitem:a525b76065c7c5d3d3b5a0c6a78fdb042"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a525b76065c7c5d3d3b5a0c6a78fdb042">first_block</a></td></tr>
 <tr class="separator:a525b76065c7c5d3d3b5a0c6a78fdb042"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4607f700d53f6ebd079b1f11114c48fb"><td class="memItemLeft" align="right" valign="top"><a id="a4607f700d53f6ebd079b1f11114c48fb"></a>
-std::vector&lt; SubVector &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Vec_dRH</b></td></tr>
+<tr class="memitem:a4607f700d53f6ebd079b1f11114c48fb"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aa055f4d21408d34270f98a7d5c2520ab">SubVector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a4607f700d53f6ebd079b1f11114c48fb">Vec_dRH</a></td></tr>
 <tr class="separator:a4607f700d53f6ebd079b1f11114c48fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae28ac64039a471fc68d689b2de7e8b32"><td class="memItemLeft" align="right" valign="top"><a id="ae28ac64039a471fc68d689b2de7e8b32"></a>
-<a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; Index &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>nBlockComputedMinv</b></td></tr>
+<tr class="memitem:ae28ac64039a471fc68d689b2de7e8b32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ae28ac64039a471fc68d689b2de7e8b32">nBlockComputedMinv</a></td></tr>
 <tr class="separator:ae28ac64039a471fc68d689b2de7e8b32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b76bd368b7f453b0770e2bc7db65244"><td class="memItemLeft" align="right" valign="top"><a id="a5b76bd368b7f453b0770e2bc7db65244"></a>
-Vector&#160;</td><td class="memItemRight" valign="bottom"><b>Y</b></td></tr>
+<tr class="memitem:a5b76bd368b7f453b0770e2bc7db65244"><td class="memItemLeft" align="right" valign="top">Vector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a5b76bd368b7f453b0770e2bc7db65244">Y</a></td></tr>
 <tr class="separator:a5b76bd368b7f453b0770e2bc7db65244"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac86ac3bbb4b8bfef59ff689eb08dbf80"><td class="memItemLeft" align="right" valign="top"><a id="ac86ac3bbb4b8bfef59ff689eb08dbf80"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ac86ac3bbb4b8bfef59ff689eb08dbf80">f_blockSize</a></td></tr>
-<tr class="memdesc:ac86ac3bbb4b8bfef59ff689eb08dbf80"><td class="mdescLeft">&#160;</td><td class="mdescRight">dimension of the blocks in the matrix <br /></td></tr>
+<tr class="memitem:ac86ac3bbb4b8bfef59ff689eb08dbf80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ac86ac3bbb4b8bfef59ff689eb08dbf80">f_blockSize</a></td></tr>
+<tr class="memdesc:ac86ac3bbb4b8bfef59ff689eb08dbf80"><td class="mdescLeft">&#160;</td><td class="mdescRight">dimension of the blocks in the matrix  <a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ac86ac3bbb4b8bfef59ff689eb08dbf80">More...</a><br /></td></tr>
 <tr class="separator:ac86ac3bbb4b8bfef59ff689eb08dbf80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:add3fe5f8ea9efb6faf92ee7a5262bd8f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#add3fe5f8ea9efb6faf92ee7a5262bd8f">BTDLinearSolver</a> ()</td></tr>
+<tr class="separator:add3fe5f8ea9efb6faf92ee7a5262bd8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:af3405163f6b233d71c077122130cdc13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#af3405163f6b233d71c077122130cdc13">bwdAccumulateRHinBloc</a> (<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> indMaxBloc)</td></tr>
+<tr class="separator:af3405163f6b233d71c077122130cdc13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1be3682f693c3bb39487323d9ae51b51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a1be3682f693c3bb39487323d9ae51b51">bwdAccumulateLHGlobal</a> ()</td></tr>
+<tr class="memdesc:a1be3682f693c3bb39487323d9ae51b51"><td class="mdescLeft">&#160;</td><td class="mdescRight">step2=&gt; accumulate LH globally to step down the value of current_bloc to 0  <a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a1be3682f693c3bb39487323d9ae51b51">More...</a><br /></td></tr>
+<tr class="separator:a1be3682f693c3bb39487323d9ae51b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5332ba5cb7dcbe06987d502e82d574c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a5332ba5cb7dcbe06987d502e82d574c3">fwdAccumulateRHGlobal</a> (<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> indMinBloc)</td></tr>
+<tr class="memdesc:a5332ba5cb7dcbe06987d502e82d574c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">step3=&gt; accumulate RH globally to step up the value of current_bloc to the smallest value needed in OutBloc  <a href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a5332ba5cb7dcbe06987d502e82d574c3">More...</a><br /></td></tr>
+<tr class="separator:a5332ba5cb7dcbe06987d502e82d574c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9effa1d428ffd5079dba573063b55fee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a9effa1d428ffd5079dba573063b55fee">fwdComputeLHinBloc</a> (<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> indMaxBloc)</td></tr>
+<tr class="separator:a9effa1d428ffd5079dba573063b55fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aa090d913721c1eac316df806a79cebbc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aa090d913721c1eac316df806a79cebbc">_indMaxNonNullForce</a></td></tr>
+<tr class="separator:aa090d913721c1eac316df806a79cebbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6582c3e1d263385c3b8990192ba3f233"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a6582c3e1d263385c3b8990192ba3f233">_indMaxFwdLHComputed</a></td></tr>
+<tr class="separator:a6582c3e1d263385c3b8990192ba3f233"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class Matrix, class Vector&gt;<br />
@@ -343,9 +303,162 @@ class sofa::component::linearsolver::direct::BTDLinearSolver&lt; Matrix, Vector 
 
 <p>Linear system solver using Thomas Algorithm for Block Tridiagonal matrices</p>
 <p>References: Conte, S.D., and deBoor, C. (1972). Elementary Numerical Analysis. McGraw-Hill, New York <a href="http://en.wikipedia.org/wiki/Tridiagonal_matrix_algorithm">http://en.wikipedia.org/wiki/Tridiagonal_matrix_algorithm</a> <a href="http://www.cfd-online.com/Wiki/Tridiagonal_matrix_algorithm_-_TDMA_(Thomas_algorithm)">http://www.cfd-online.com/Wiki/Tridiagonal_matrix_algorithm_-_TDMA_(Thomas_algorithm)</a> <a href="http://www4.ncsu.edu/eos/users/w/white/www/white/ma580/chap2.5.PDF">http://www4.ncsu.edu/eos/users/w/white/www/white/ma580/chap2.5.PDF</a> </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a9d8a89da1ac48662f8d4b6e05ffba4d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d8a89da1ac48662f8d4b6e05ffba4d7">&#9670;&nbsp;</a></span>BlocType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Matrix::BlockType <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a9d8a89da1ac48662f8d4b6e05ffba4d7">BlocType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf90bea6f4e96fdcf8eb969bf807cd5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf90bea6f4e96fdcf8eb969bf807cd5d">&#9670;&nbsp;</a></span>Index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef sofa::SignedIndex <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7c4689c8e72e6060d469810b6cee1fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7c4689c8e72e6060d469810b6cee1fa">&#9670;&nbsp;</a></span>IndexPair</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>,<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>&gt; <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ab7c4689c8e72e6060d469810b6cee1fa">IndexPair</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5a54055d3b2b5f0d04074ece476ab0b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a54055d3b2b5f0d04074ece476ab0b5">&#9670;&nbsp;</a></span>ListIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::list&lt;<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>&gt; <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a5a54055d3b2b5f0d04074ece476ab0b5">ListIndex</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a222be7dd3c7aec706d095d6246055045"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a222be7dd3c7aec706d095d6246055045">&#9670;&nbsp;</a></span>MysparseM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ab7c4689c8e72e6060d469810b6cee1fa">IndexPair</a>, <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a>&gt; <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a222be7dd3c7aec706d095d6246055045">MysparseM</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec5fd410ac410a8727c96b26affb4dfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec5fd410ac410a8727c96b26affb4dfd">&#9670;&nbsp;</a></span>MysparseMit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#ab7c4689c8e72e6060d469810b6cee1fa">IndexPair</a>, <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a>&gt;::iterator <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aec5fd410ac410a8727c96b26affb4dfd">MysparseMit</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ec886d7a4ecbaeb74ba17c3c34d4c2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ec886d7a4ecbaeb74ba17c3c34d4c2a">&#9670;&nbsp;</a></span>Real</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Vector::Real <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a7ec886d7a4ecbaeb74ba17c3c34d4c2a">Real</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a72495232f184ac4c5cacb1d08eb297de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72495232f184ac4c5cacb1d08eb297de">&#9670;&nbsp;</a></span>SubMatrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Matrix::SubMatrixType <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa055f4d21408d34270f98a7d5c2520ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa055f4d21408d34270f98a7d5c2520ab">&#9670;&nbsp;</a></span>SubVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Vector::SubVectorType <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aa055f4d21408d34270f98a7d5c2520ab">SubVector</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="add3fe5f8ea9efb6faf92ee7a5262bd8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add3fe5f8ea9efb6faf92ee7a5262bd8f">&#9670;&nbsp;</a></span>BTDLinearSolver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html">BTDLinearSolver</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae283145525540ebdf230c5a6023ba23e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae283145525540ebdf230c5a6023ba23e">&#9670;&nbsp;</a></span>addJMInvJt()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae283145525540ebdf230c5a6023ba23e">&#9670;&nbsp;</a></span>addJMInvJt() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -395,6 +508,91 @@ class sofa::component::linearsolver::direct::BTDLinearSolver&lt; Matrix, Vector 
 
 </div>
 </div>
+<a id="a73a694b078f9c3128e0f129073c4e5ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73a694b078f9c3128e0f129073c4e5ed">&#9670;&nbsp;</a></span>addJMInvJt() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool addJMInvJt </td>
+          <td>(</td>
+          <td class="paramtype">RMatrix &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">JMatrix &amp;&#160;</td>
+          <td class="paramname"><em>J</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>fact</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1be3682f693c3bb39487323d9ae51b51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1be3682f693c3bb39487323d9ae51b51">&#9670;&nbsp;</a></span>bwdAccumulateLHGlobal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bwdAccumulateLHGlobal</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>step2=&gt; accumulate LH globally to step down the value of current_bloc to 0 </p>
+
+</div>
+</div>
+<a id="af3405163f6b233d71c077122130cdc13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3405163f6b233d71c077122130cdc13">&#9670;&nbsp;</a></span>bwdAccumulateRHinBloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bwdAccumulateRHinBloc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>&#160;</td>
+          <td class="paramname"><em>indMaxBloc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>private functions for partial solve step1=&gt; accumulate RH locally for the InBloc (only if a new force is detected on RH) </p>
+
+</div>
+</div>
 <a id="abcfb2992b8bbdba77f9177de412363c9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abcfb2992b8bbdba77f9177de412363c9">&#9670;&nbsp;</a></span>computeMinvBlock()</h2>
 
@@ -404,13 +602,13 @@ class sofa::component::linearsolver::direct::BTDLinearSolver&lt; Matrix, Vector 
         <tr>
           <td class="memname">void computeMinvBlock </td>
           <td>(</td>
-          <td class="paramtype">Index&#160;</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>&#160;</td>
           <td class="paramname"><em>i</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Index&#160;</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>&#160;</td>
           <td class="paramname"><em>j</em>&#160;</td>
         </tr>
         <tr>
@@ -425,6 +623,195 @@ class sofa::component::linearsolver::direct::BTDLinearSolver&lt; Matrix, Vector 
 
 </div>
 </div>
+<a id="a5332ba5cb7dcbe06987d502e82d574c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5332ba5cb7dcbe06987d502e82d574c3">&#9670;&nbsp;</a></span>fwdAccumulateRHGlobal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fwdAccumulateRHGlobal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>&#160;</td>
+          <td class="paramname"><em>indMinBloc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>step3=&gt; accumulate RH globally to step up the value of current_bloc to the smallest value needed in OutBloc </p>
+
+</div>
+</div>
+<a id="a9effa1d428ffd5079dba573063b55fee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9effa1d428ffd5079dba573063b55fee">&#9670;&nbsp;</a></span>fwdComputeLHinBloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fwdComputeLHinBloc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>&#160;</td>
+          <td class="paramname"><em>indMaxBloc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>step4=&gt; compute solution for the indices in the bloc (and accumulate the potential local dRH (set in Vec_dRH) [set in step1] that have not been yet taken into account by the global bwd and fwd </p>
+
+</div>
+</div>
+<a id="ae035d18f2253cabbf8162fde72b7c4b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae035d18f2253cabbf8162fde72b7c4b6">&#9670;&nbsp;</a></span>getMinvElement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double getMinvElement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8782ccdf188ae678999400a83437959e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8782ccdf188ae678999400a83437959e">&#9670;&nbsp;</a></span>init_partial_inverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_partial_inverse </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> &amp;&#160;</td>
+          <td class="paramname"><em>nb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> &amp;&#160;</td>
+          <td class="paramname"><em>bsize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4abfb426c4b9838f67cb950f9ce2b941"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4abfb426c4b9838f67cb950f9ce2b941">&#9670;&nbsp;</a></span>init_partial_solve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_partial_solve</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Init the partial solve. </p>
+
+</div>
+</div>
+<a id="a52af62b6a23c684e73b1512d8526fb37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52af62b6a23c684e73b1512d8526fb37">&#9670;&nbsp;</a></span>invert() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void invert </td>
+          <td>(</td>
+          <td class="paramtype">Matrix &amp;&#160;</td>
+          <td class="paramname"><em>M</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa29f102b7a766ae5c2ea20651b82ce44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa29f102b7a766ae5c2ea20651b82ce44">&#9670;&nbsp;</a></span>invert() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void invert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a> &amp;&#160;</td>
+          <td class="paramname"><em>Inv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a9d8a89da1ac48662f8d4b6e05ffba4d7">BlocType</a> &amp;&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5ddb4e91a1e761e6e677cdb525c469b0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ddb4e91a1e761e6e677cdb525c469b0">&#9670;&nbsp;</a></span>my_identity()</h2>
 
@@ -434,13 +821,13 @@ class sofa::component::linearsolver::direct::BTDLinearSolver&lt; Matrix, Vector 
         <tr>
           <td class="memname">void my_identity </td>
           <td>(</td>
-          <td class="paramtype">SubMatrix &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a> &amp;&#160;</td>
           <td class="paramname"><em>Id</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const Index&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>&#160;</td>
           <td class="paramname"><em>size_id</em>&#160;</td>
         </tr>
         <tr>
@@ -471,13 +858,13 @@ class sofa::component::linearsolver::direct::BTDLinearSolver&lt; Matrix, Vector 
         <tr>
           <td class="memname">void partial_solve </td>
           <td>(</td>
-          <td class="paramtype">ListIndex &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a5a54055d3b2b5f0d04074ece476ab0b5">ListIndex</a> &amp;&#160;</td>
           <td class="paramname"><em>Iout</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ListIndex &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a5a54055d3b2b5f0d04074ece476ab0b5">ListIndex</a> &amp;&#160;</td>
           <td class="paramname"><em>Iin</em>, </td>
         </tr>
         <tr>
@@ -504,13 +891,450 @@ class sofa::component::linearsolver::direct::BTDLinearSolver&lt; Matrix, Vector 
 
 </div>
 </div>
+<a id="acbae39c88cecd2bda5f18bb9857f2312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbae39c88cecd2bda5f18bb9857f2312">&#9670;&nbsp;</a></span>SOFA_CLASS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SOFA_CLASS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_base_class_8h.html#a7d05f8d2caf276dcdb1ab2c83bf4d48d">SOFA_TEMPLATE2</a>(<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html">BTDLinearSolver</a>&lt; Matrix, Vector &gt;, Matrix, Vector)&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_base_class_8h.html#a7d05f8d2caf276dcdb1ab2c83bf4d48d">SOFA_TEMPLATE2</a>(<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver.html">sofa::component::linearsolver::MatrixLinearSolver</a>, Matrix, Vector)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a217976b02c717abfbe676bea5f3b1d06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a217976b02c717abfbe676bea5f3b1d06">&#9670;&nbsp;</a></span>solve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void solve </td>
+          <td>(</td>
+          <td class="paramtype">Matrix &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Solve Mx=b. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aeb1aee43a64b9bbeb97043ee1dc6a54b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb1aee43a64b9bbeb97043ee1dc6a54b">&#9670;&nbsp;</a></span>_acc_lh_bloc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aa055f4d21408d34270f98a7d5c2520ab">SubVector</a> _acc_lh_bloc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab6e2fb879a8cb5d505d728143516aee5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6e2fb879a8cb5d505d728143516aee5">&#9670;&nbsp;</a></span>_acc_rh_bloc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aa055f4d21408d34270f98a7d5c2520ab">SubVector</a> _acc_rh_bloc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6582c3e1d263385c3b8990192ba3f233"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6582c3e1d263385c3b8990192ba3f233">&#9670;&nbsp;</a></span>_indMaxFwdLHComputed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> _indMaxFwdLHComputed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa090d913721c1eac316df806a79cebbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa090d913721c1eac316df806a79cebbc">&#9670;&nbsp;</a></span>_indMaxNonNullForce</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> _indMaxNonNullForce</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae160c9b1f757210e775f0a6b89aca1c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae160c9b1f757210e775f0a6b89aca1c4">&#9670;&nbsp;</a></span>_rh_buf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector _rh_buf</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6509f3702ad549acec4e5324b43f7bf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6509f3702ad549acec4e5324b43f7bf8">&#9670;&nbsp;</a></span>alpha_inv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt;<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a>&gt; alpha_inv</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac117b4f92af1eb528910fd46ac8a09e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac117b4f92af1eb528910fd46ac8a09e3">&#9670;&nbsp;</a></span>B</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt;<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a>&gt; B</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc0dc04a427e6a14e85ca900ca033b74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc0dc04a427e6a14e85ca900ca033b74">&#9670;&nbsp;</a></span>bwdContributionOnLH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector bwdContributionOnLH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f52d403b5e9fb498621b00b446458a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f52d403b5e9fb498621b00b446458a1">&#9670;&nbsp;</a></span>current_bloc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> current_bloc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac86ac3bbb4b8bfef59ff689eb08dbf80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac86ac3bbb4b8bfef59ff689eb08dbf80">&#9670;&nbsp;</a></span>f_blockSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;int&gt; f_blockSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>dimension of the blocks in the matrix </p>
+
+</div>
+</div>
+<a id="af72ac10916cf1dc11d8496d525bb9893"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af72ac10916cf1dc11d8496d525bb9893">&#9670;&nbsp;</a></span>f_verbose</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;bool&gt; f_verbose</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dump system state at each iteration. </p>
+
+</div>
+</div>
+<a id="a525b76065c7c5d3d3b5a0c6a78fdb042"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a525b76065c7c5d3d3b5a0c6a78fdb042">&#9670;&nbsp;</a></span>first_block</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a> first_block</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa7bacbd7b75b3b9bf3dd2ad7e36ae574"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7bacbd7b75b3b9bf3dd2ad7e36ae574">&#9670;&nbsp;</a></span>fwdContributionOnRH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector fwdContributionOnRH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a374152a5dc5b1c139b4d263e7c47ba37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a374152a5dc5b1c139b4d263e7c47ba37">&#9670;&nbsp;</a></span>H</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a222be7dd3c7aec706d095d6246055045">MysparseM</a> H</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac417a7a5cc1c318b587cc0d14172a30e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac417a7a5cc1c318b587cc0d14172a30e">&#9670;&nbsp;</a></span>H_it</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aec5fd410ac410a8727c96b26affb4dfd">MysparseMit</a> H_it</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88166391f4ccd2be82bf4948dbc19d68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88166391f4ccd2be82bf4948dbc19d68">&#9670;&nbsp;</a></span>lambda</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt;<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#a72495232f184ac4c5cacb1d08eb297de">SubMatrix</a>&gt; lambda</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aca4f6bc298b3bcef064f09f7ca2522c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca4f6bc298b3bcef064f09f7ca2522c7">&#9670;&nbsp;</a></span>Minv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Matrix::InvMatrixType Minv</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae28ac64039a471fc68d689b2de7e8b32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae28ac64039a471fc68d689b2de7e8b32">&#9670;&nbsp;</a></span>nBlockComputedMinv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt;<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#abf90bea6f4e96fdcf8eb969bf807cd5d">Index</a>&gt; nBlockComputedMinv</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad3b5d1e45912e1fbd308d8595d3bc9a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3b5d1e45912e1fbd308d8595d3bc9a4">&#9670;&nbsp;</a></span>problem</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;bool&gt; problem</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>display debug informations about subpartSolve computation </p>
+
+</div>
+</div>
+<a id="ad4650127e39f5822966fb2efa4fb8920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4650127e39f5822966fb2efa4fb8920">&#9670;&nbsp;</a></span>subpartSolve</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;bool&gt; subpartSolve</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allows for the computation of a subpart of the system. </p>
+
+</div>
+</div>
+<a id="ad64500f8357a9baed9ae30652dfed42a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad64500f8357a9baed9ae30652dfed42a">&#9670;&nbsp;</a></span>test_perf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;bool&gt; test_perf</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>verification of performance </p>
+
+</div>
+</div>
+<a id="a4607f700d53f6ebd079b1f11114c48fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4607f700d53f6ebd079b1f11114c48fb">&#9670;&nbsp;</a></span>Vec_dRH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html#aa055f4d21408d34270f98a7d5c2520ab">SubVector</a>&gt; Vec_dRH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac206e8208729ab307303491ca28763ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac206e8208729ab307303491ca28763ab">&#9670;&nbsp;</a></span>verification</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;bool&gt; verification</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>verification of the subpartSolve </p>
+
+</div>
+</div>
+<a id="a5b76bd368b7f453b0770e2bc7db65244"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b76bd368b7f453b0770e2bc7db65244">&#9670;&nbsp;</a></span>Y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector Y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>component</b></li><li class="navelem"><b>linearsolver</b></li><li class="navelem"><b>direct</b></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html">BTDLinearSolver</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:52:46 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component.html">component</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1linearsolver.html">linearsolver</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1linearsolver_1_1direct.html">direct</a></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1linearsolver_1_1direct_1_1_b_t_d_linear_solver.html">BTDLinearSolver</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:25:41 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

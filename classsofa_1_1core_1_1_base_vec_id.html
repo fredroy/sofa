@@ -105,38 +105,150 @@ Inheritance diagram for BaseVecId:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a254efcb9c32db41abe59bb166f3319b7"><td class="memItemLeft" align="right" valign="top"><a id="a254efcb9c32db41abe59bb166f3319b7"></a>
-VecType&#160;</td><td class="memItemRight" valign="bottom"><b>getType</b> () const</td></tr>
+<tr class="memitem:a254efcb9c32db41abe59bb166f3319b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1core.html#ae93f92d10730a52ed3b207d5811f6a6e">VecType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_base_vec_id.html#a254efcb9c32db41abe59bb166f3319b7">getType</a> () const</td></tr>
 <tr class="separator:a254efcb9c32db41abe59bb166f3319b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a762de91e7869ca544ff034b99fc2e0a6"><td class="memItemLeft" align="right" valign="top"><a id="a762de91e7869ca544ff034b99fc2e0a6"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getIndex</b> () const</td></tr>
+<tr class="memitem:a762de91e7869ca544ff034b99fc2e0a6"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_base_vec_id.html#a762de91e7869ca544ff034b99fc2e0a6">getIndex</a> () const</td></tr>
 <tr class="separator:a762de91e7869ca544ff034b99fc2e0a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a7cf938996ec4672f5e42d449053c1662"><td class="memItemLeft" align="right" valign="top"><a id="a7cf938996ec4672f5e42d449053c1662"></a>
-VecType&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
+<tr class="memitem:a7cf938996ec4672f5e42d449053c1662"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1core.html#ae93f92d10730a52ed3b207d5811f6a6e">VecType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_base_vec_id.html#a7cf938996ec4672f5e42d449053c1662">type</a></td></tr>
 <tr class="separator:a7cf938996ec4672f5e42d449053c1662"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a589d64202487f78e3cc30dd2e04c5201"><td class="memItemLeft" align="right" valign="top"><a id="a589d64202487f78e3cc30dd2e04c5201"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>index</b></td></tr>
+<tr class="memitem:a589d64202487f78e3cc30dd2e04c5201"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_base_vec_id.html#a589d64202487f78e3cc30dd2e04c5201">index</a></td></tr>
 <tr class="separator:a589d64202487f78e3cc30dd2e04c5201"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a575aac547320fd973e2e8f592c421ab3"><td class="memItemLeft" align="right" valign="top"><a id="a575aac547320fd973e2e8f592c421ab3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>BaseVecId</b> (VecType t, unsigned int i)</td></tr>
+<tr class="memitem:a575aac547320fd973e2e8f592c421ab3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_base_vec_id.html#a575aac547320fd973e2e8f592c421ab3">BaseVecId</a> (<a class="el" href="namespacesofa_1_1core.html#ae93f92d10730a52ed3b207d5811f6a6e">VecType</a> t, unsigned int i)</td></tr>
 <tr class="separator:a575aac547320fd973e2e8f592c421ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is a base class for <a class="el" href="classsofa_1_1core_1_1_t_vec_id.html">TVecId</a> that contains all the data stored.</p>
 <dl class="section note"><dt>Note</dt><dd><a class="el" href="classsofa_1_1core_1_1_t_vec_id.html">TVecId</a> itself stores no data, in order to be able to convert between templates inplace with reinterpret_cast for performance reasons (typically when working with <a class="el" href="classsofa_1_1core_1_1_t_multi_vec_id.html">TMultiVecId</a> instances, which would otherwise copy maps of <a class="el" href="classsofa_1_1core_1_1_t_vec_id.html">TVecId</a>). This is (a little) less efficient for non V_ALL versions, but is without comparison with the loss of performance with the typical operation of passing a stored "TMultiVecId&lt;!V_ALL,V_WRITE&gt;" to a method taking a "const TMultiVecId&lt;V_ALL,V_READ&gt;&amp;". </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a575aac547320fd973e2e8f592c421ab3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a575aac547320fd973e2e8f592c421ab3">&#9670;&nbsp;</a></span>BaseVecId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_base_vec_id.html">BaseVecId</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1core.html#ae93f92d10730a52ed3b207d5811f6a6e">VecType</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a762de91e7869ca544ff034b99fc2e0a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a762de91e7869ca544ff034b99fc2e0a6">&#9670;&nbsp;</a></span>getIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int getIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a254efcb9c32db41abe59bb166f3319b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a254efcb9c32db41abe59bb166f3319b7">&#9670;&nbsp;</a></span>getType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesofa_1_1core.html#ae93f92d10730a52ed3b207d5811f6a6e">VecType</a> getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a589d64202487f78e3cc30dd2e04c5201"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a589d64202487f78e3cc30dd2e04c5201">&#9670;&nbsp;</a></span>index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int index</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7cf938996ec4672f5e42d449053c1662"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cf938996ec4672f5e42d449053c1662">&#9670;&nbsp;</a></span>type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesofa_1_1core.html#ae93f92d10730a52ed3b207d5811f6a6e">VecType</a> type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>core</b></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1_base_vec_id.html">BaseVecId</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:05:11 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1core.html">core</a></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1_base_vec_id.html">BaseVecId</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:37:20 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

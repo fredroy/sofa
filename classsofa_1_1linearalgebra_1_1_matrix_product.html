@@ -91,67 +91,356 @@ $(document).ready(function(){initNavTree('classsofa_1_1linearalgebra_1_1_matrix_
 <div class="title">MatrixProduct&lt; M1, M2 &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_linear_algebra_2src_2sofa_2linearalgebra_2_matrix_expr_8h_source.html">MatrixExpr.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a7b1472d57861c1c16e0394cd0f614182"><td class="memItemLeft" align="right" valign="top"><a id="a7b1472d57861c1c16e0394cd0f614182"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>operand</b> = 0
+<tr class="memitem:a7b1472d57861c1c16e0394cd0f614182"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#a7b1472d57861c1c16e0394cd0f614182a0b4ca4b6c617e59ffd4c61dd423b744c">operand</a> = 0
  }</td></tr>
 <tr class="separator:a7b1472d57861c1c16e0394cd0f614182"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae91638596a8955da23581d7ad008e295"><td class="memItemLeft" align="right" valign="top"><a id="ae91638596a8955da23581d7ad008e295"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>category</b> = Op::category
+<tr class="memitem:ae91638596a8955da23581d7ad008e295"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#ae91638596a8955da23581d7ad008e295ac8009b23fdaa8489a1e0ac80d90ff887">category</a> = Op::category
  }</td></tr>
 <tr class="separator:ae91638596a8955da23581d7ad008e295"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac90cc18a5f3d73a52493f2b70b0d6bb5"><td class="memItemLeft" align="right" valign="top"><a id="ac90cc18a5f3d73a52493f2b70b0d6bb5"></a>
-typedef <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html">MatrixProduct</a>&lt; M1, M2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Expr</b></td></tr>
+<tr class="memitem:ac90cc18a5f3d73a52493f2b70b0d6bb5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html">MatrixProduct</a>&lt; M1, M2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#ac90cc18a5f3d73a52493f2b70b0d6bb5">Expr</a></td></tr>
 <tr class="separator:ac90cc18a5f3d73a52493f2b70b0d6bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a993a4f1cdbed774af79e7011410db548"><td class="memItemLeft" align="right" valign="top"><a id="a993a4f1cdbed774af79e7011410db548"></a>
-typedef <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product_op.html">MatrixProductOp</a>&lt; M1, M2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Op</b></td></tr>
+<tr class="memitem:a993a4f1cdbed774af79e7011410db548"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product_op.html">MatrixProductOp</a>&lt; M1, M2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#a993a4f1cdbed774af79e7011410db548">Op</a></td></tr>
 <tr class="separator:a993a4f1cdbed774af79e7011410db548"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f58004da52b805f7cb18e1789452fb6"><td class="memItemLeft" align="right" valign="top"><a id="a8f58004da52b805f7cb18e1789452fb6"></a>
-typedef Op::matrix_type&#160;</td><td class="memItemRight" valign="bottom"><b>matrix_type</b></td></tr>
+<tr class="memitem:a8f58004da52b805f7cb18e1789452fb6"><td class="memItemLeft" align="right" valign="top">typedef Op::matrix_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#a8f58004da52b805f7cb18e1789452fb6">matrix_type</a></td></tr>
 <tr class="separator:a8f58004da52b805f7cb18e1789452fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a497960e6f073390f7052d5e8664299da"><td class="memItemLeft" align="right" valign="top"><a id="a497960e6f073390f7052d5e8664299da"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixProduct</b> (const M1 &amp;m1, const M2 &amp;m2)</td></tr>
+<tr class="memitem:a497960e6f073390f7052d5e8664299da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#a497960e6f073390f7052d5e8664299da">MatrixProduct</a> (const M1 &amp;<a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#a7999cde606548825ee28af482473a6ef">m1</a>, const M2 &amp;<a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#a42443c00c4f2f98f1b5fe0b041067408">m2</a>)</td></tr>
 <tr class="separator:a497960e6f073390f7052d5e8664299da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a315419f26d3c59fa143b49b90a019049"><td class="memItemLeft" align="right" valign="top"><a id="a315419f26d3c59fa143b49b90a019049"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>valid</b> () const</td></tr>
+<tr class="memitem:a315419f26d3c59fa143b49b90a019049"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#a315419f26d3c59fa143b49b90a019049">valid</a> () const</td></tr>
 <tr class="separator:a315419f26d3c59fa143b49b90a019049"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a7aa22fbd16e5b1ca777cda30517658"><td class="memTemplParams" colspan="2"><a id="a9a7aa22fbd16e5b1ca777cda30517658"></a>
-template&lt;class M &gt; </td></tr>
-<tr class="memitem:a9a7aa22fbd16e5b1ca777cda30517658"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>hasRef</b> (const M *m) const</td></tr>
+<tr class="memitem:a9a7aa22fbd16e5b1ca777cda30517658"><td class="memTemplParams" colspan="2">template&lt;class M &gt; </td></tr>
+<tr class="memitem:a9a7aa22fbd16e5b1ca777cda30517658"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#a9a7aa22fbd16e5b1ca777cda30517658">hasRef</a> (const M *m) const</td></tr>
 <tr class="separator:a9a7aa22fbd16e5b1ca777cda30517658"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d16f80ffef2abc5a497f99f2bc317cd"><td class="memItemLeft" align="right" valign="top"><a id="a4d16f80ffef2abc5a497f99f2bc317cd"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>rowSize</b> (void) const</td></tr>
+<tr class="memitem:a4d16f80ffef2abc5a497f99f2bc317cd"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#a4d16f80ffef2abc5a497f99f2bc317cd">rowSize</a> (void) const</td></tr>
 <tr class="separator:a4d16f80ffef2abc5a497f99f2bc317cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec8e81cbe4bafa23ef201f4284fa9f2e"><td class="memItemLeft" align="right" valign="top"><a id="aec8e81cbe4bafa23ef201f4284fa9f2e"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>colSize</b> (void) const</td></tr>
+<tr class="memitem:aec8e81cbe4bafa23ef201f4284fa9f2e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#aec8e81cbe4bafa23ef201f4284fa9f2e">colSize</a> (void) const</td></tr>
 <tr class="separator:aec8e81cbe4bafa23ef201f4284fa9f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e3e5358546f96160dae2caf6ce91f7e"><td class="memItemLeft" align="right" valign="top"><a id="a6e3e5358546f96160dae2caf6ce91f7e"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>expr</b> () const</td></tr>
+<tr class="memitem:a6e3e5358546f96160dae2caf6ce91f7e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#a6e3e5358546f96160dae2caf6ce91f7e">expr</a> () const</td></tr>
 <tr class="separator:a6e3e5358546f96160dae2caf6ce91f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc0a7d95ae81a2a3ca576bfeac41f9a3"><td class="memTemplParams" colspan="2"><a id="acc0a7d95ae81a2a3ca576bfeac41f9a3"></a>
-template&lt;class Dest &gt; </td></tr>
-<tr class="memitem:acc0a7d95ae81a2a3ca576bfeac41f9a3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>addTo</b> (Dest *d) const</td></tr>
+<tr class="memitem:acc0a7d95ae81a2a3ca576bfeac41f9a3"><td class="memTemplParams" colspan="2">template&lt;class Dest &gt; </td></tr>
+<tr class="memitem:acc0a7d95ae81a2a3ca576bfeac41f9a3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#acc0a7d95ae81a2a3ca576bfeac41f9a3">addTo</a> (Dest *d) const</td></tr>
 <tr class="separator:acc0a7d95ae81a2a3ca576bfeac41f9a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a7999cde606548825ee28af482473a6ef"><td class="memItemLeft" align="right" valign="top"><a id="a7999cde606548825ee28af482473a6ef"></a>
-const M1 &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>m1</b></td></tr>
+<tr class="memitem:a7999cde606548825ee28af482473a6ef"><td class="memItemLeft" align="right" valign="top">const M1 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#a7999cde606548825ee28af482473a6ef">m1</a></td></tr>
 <tr class="separator:a7999cde606548825ee28af482473a6ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42443c00c4f2f98f1b5fe0b041067408"><td class="memItemLeft" align="right" valign="top"><a id="a42443c00c4f2f98f1b5fe0b041067408"></a>
-const M2 &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>m2</b></td></tr>
+<tr class="memitem:a42443c00c4f2f98f1b5fe0b041067408"><td class="memItemLeft" align="right" valign="top">const M2 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#a42443c00c4f2f98f1b5fe0b041067408">m2</a></td></tr>
 <tr class="separator:a42443c00c4f2f98f1b5fe0b041067408"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ac90cc18a5f3d73a52493f2b70b0d6bb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac90cc18a5f3d73a52493f2b70b0d6bb5">&#9670;&nbsp;</a></span>Expr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html">MatrixProduct</a>&lt;M1, M2&gt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#ac90cc18a5f3d73a52493f2b70b0d6bb5">Expr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f58004da52b805f7cb18e1789452fb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f58004da52b805f7cb18e1789452fb6">&#9670;&nbsp;</a></span>matrix_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Op::matrix_type <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#a8f58004da52b805f7cb18e1789452fb6">matrix_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a993a4f1cdbed774af79e7011410db548"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a993a4f1cdbed774af79e7011410db548">&#9670;&nbsp;</a></span>Op</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product_op.html">MatrixProductOp</a>&lt;M1,M2&gt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html#a993a4f1cdbed774af79e7011410db548">Op</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a7b1472d57861c1c16e0394cd0f614182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b1472d57861c1c16e0394cd0f614182">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7b1472d57861c1c16e0394cd0f614182a0b4ca4b6c617e59ffd4c61dd423b744c"></a>operand&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ae91638596a8955da23581d7ad008e295"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae91638596a8955da23581d7ad008e295">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae91638596a8955da23581d7ad008e295ac8009b23fdaa8489a1e0ac80d90ff887"></a>category&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a497960e6f073390f7052d5e8664299da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a497960e6f073390f7052d5e8664299da">&#9670;&nbsp;</a></span>MatrixProduct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html">MatrixProduct</a> </td>
+          <td>(</td>
+          <td class="paramtype">const M1 &amp;&#160;</td>
+          <td class="paramname"><em>m1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const M2 &amp;&#160;</td>
+          <td class="paramname"><em>m2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="acc0a7d95ae81a2a3ca576bfeac41f9a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc0a7d95ae81a2a3ca576bfeac41f9a3">&#9670;&nbsp;</a></span>addTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addTo </td>
+          <td>(</td>
+          <td class="paramtype">Dest *&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec8e81cbe4bafa23ef201f4284fa9f2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec8e81cbe4bafa23ef201f4284fa9f2e">&#9670;&nbsp;</a></span>colSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int colSize </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e3e5358546f96160dae2caf6ce91f7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e3e5358546f96160dae2caf6ce91f7e">&#9670;&nbsp;</a></span>expr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string expr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a7aa22fbd16e5b1ca777cda30517658"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a7aa22fbd16e5b1ca777cda30517658">&#9670;&nbsp;</a></span>hasRef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hasRef </td>
+          <td>(</td>
+          <td class="paramtype">const M *&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d16f80ffef2abc5a497f99f2bc317cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d16f80ffef2abc5a497f99f2bc317cd">&#9670;&nbsp;</a></span>rowSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int rowSize </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a315419f26d3c59fa143b49b90a019049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a315419f26d3c59fa143b49b90a019049">&#9670;&nbsp;</a></span>valid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool valid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7999cde606548825ee28af482473a6ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7999cde606548825ee28af482473a6ef">&#9670;&nbsp;</a></span>m1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const M1&amp; m1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42443c00c4f2f98f1b5fe0b041067408"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42443c00c4f2f98f1b5fe0b041067408">&#9670;&nbsp;</a></span>m2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const M2&amp; m2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>linearalgebra</b></li><li class="navelem"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html">MatrixProduct</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:11:27 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1linearalgebra.html">linearalgebra</a></li><li class="navelem"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_product.html">MatrixProduct</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:34 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

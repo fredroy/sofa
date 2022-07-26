@@ -33,6 +33,7 @@ var classsofa_1_1linearalgebra_1_1_full_matrix =
     [ "mul", "classsofa_1_1linearalgebra_1_1_full_matrix.html#a2d35ba4fd06153803873dd606b9fab27", null ],
     [ "mulT", "classsofa_1_1linearalgebra_1_1_full_matrix.html#affe90fb976b1c3abd733e25df36eb1f6", null ],
     [ "mulT", "classsofa_1_1linearalgebra_1_1_full_matrix.html#ad4ecbb252c9818868fe83a4cc3c0bbba", null ],
+    [ "Name", "classsofa_1_1linearalgebra_1_1_full_matrix.html#a28ceceb8e81ac299b3c6992dd0a707d3", null ],
     [ "Name", "classsofa_1_1linearalgebra_1_1_full_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
     [ "Name", "classsofa_1_1linearalgebra_1_1_full_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
     [ "Name", "classsofa_1_1linearalgebra_1_1_full_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],

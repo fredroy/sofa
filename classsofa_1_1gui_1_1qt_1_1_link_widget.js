@@ -4,6 +4,7 @@ var classsofa_1_1gui_1_1qt_1_1_link_widget =
     [ "MyLink", "classsofa_1_1gui_1_1qt_1_1_link_widget.html#a2692f0d243f7291bf8eefa83d80ea91a", null ],
     [ "LinkWidget", "classsofa_1_1gui_1_1qt_1_1_link_widget.html#a7d62df7c17f3b9513dfc51c7c3c6fd71", null ],
     [ "~LinkWidget", "classsofa_1_1gui_1_1qt_1_1_link_widget.html#abee568e58711e5eb44c8bbde7feb60f4", null ],
+    [ "CreateLinkWidget", "classsofa_1_1gui_1_1qt_1_1_link_widget.html#a9c4f371754652120d5a65ec48eceaf7b", null ],
     [ "createWidgets", "classsofa_1_1gui_1_1qt_1_1_link_widget.html#a47e9538805283c749b16a6e072ddbe18", null ],
     [ "getBaseLink", "classsofa_1_1gui_1_1qt_1_1_link_widget.html#a5b35650c592c885fd62de4b19af51d58", null ],
     [ "getBaseLink", "classsofa_1_1gui_1_1qt_1_1_link_widget.html#a6a9ab1baedf327ac72d3386bf7230db8", null ],

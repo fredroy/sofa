@@ -1,5 +1,7 @@
 var classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_triangle_set_topology =
 [
+    [ "Index", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_triangle_set_topology.html#a34485df4864136107fd830e23695986c", null ],
+    [ "MappingData", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_triangle_set_topology.html#ab67917543e132e9c74f7e43290ae144c", null ],
     [ "Real", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_triangle_set_topology.html#ae6d60344352fcf1803100b52e37e1ff3", null ],
     [ "~BarycentricMapperTriangleSetTopology", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_triangle_set_topology.html#aa5c6a71aacf8680121e4adff65689d81", null ],
     [ "BarycentricMapperTriangleSetTopology", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_triangle_set_topology.html#a0f1be34c7185e638f4b30f844a2d93c0", null ],

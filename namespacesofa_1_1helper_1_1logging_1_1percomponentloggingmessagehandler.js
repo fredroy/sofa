@@ -1,5 +1,5 @@
 var namespacesofa_1_1helper_1_1logging_1_1percomponentloggingmessagehandler =
 [
-    [ "MainPerComponentLoggingMessageHandler", "classsofa_1_1helper_1_1logging_1_1percomponentloggingmessagehandler_1_1_main_per_component_logging_message_handler.html", null ],
+    [ "MainPerComponentLoggingMessageHandler", "classsofa_1_1helper_1_1logging_1_1percomponentloggingmessagehandler_1_1_main_per_component_logging_message_handler.html", "classsofa_1_1helper_1_1logging_1_1percomponentloggingmessagehandler_1_1_main_per_component_logging_message_handler" ],
     [ "PerComponentLoggingMessageHandler", "classsofa_1_1helper_1_1logging_1_1percomponentloggingmessagehandler_1_1_per_component_logging_message_handler.html", "classsofa_1_1helper_1_1logging_1_1percomponentloggingmessagehandler_1_1_per_component_logging_message_handler" ]
 ];

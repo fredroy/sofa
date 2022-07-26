@@ -5,6 +5,7 @@ var classsofa_1_1gui_1_1common_1_1_attach_operation =
     [ "configurePerformer", "classsofa_1_1gui_1_1common_1_1_attach_operation.html#a069cc65a355898552d5f25bcfd86f333", null ],
     [ "defaultPerformerType", "classsofa_1_1gui_1_1common_1_1_attach_operation.html#afb25885b8de98da5a8a7d0157d8bf445", null ],
     [ "getArrowSize", "classsofa_1_1gui_1_1common_1_1_attach_operation.html#a36c3aae867198add81070138e7596be7", null ],
+    [ "getDescription", "classsofa_1_1gui_1_1common_1_1_attach_operation.html#a025bef3a2dadf6a272b146e0697e9bb2", null ],
     [ "getShowFactorSize", "classsofa_1_1gui_1_1common_1_1_attach_operation.html#a76c50213fc909f30a29a3a59f302880a", null ],
     [ "getStiffness", "classsofa_1_1gui_1_1common_1_1_attach_operation.html#a2934c632fc6188918af580a7ecb069ed", null ],
     [ "setArrowSize", "classsofa_1_1gui_1_1common_1_1_attach_operation.html#a4c16e735baf60c4f0de64bc9bb39bac4", null ],

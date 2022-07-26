@@ -11,6 +11,7 @@ var classsofa_1_1component_1_1engine_1_1generate_1_1_generate_rigid_mass =
     [ "~GenerateRigidMass", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_rigid_mass.html#a1a3432a3af1628e88af32497e5a0c2da", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_rigid_mass.html#a4daa2dc990606f6f13a82f619a13358a", null ],
     [ "generateRigid", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_rigid_mass.html#a7f07585a21c8786315623d3174324f64", null ],
+    [ "GetCustomTemplateName", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_rigid_mass.html#a85e3085bdb5532fbf645a8e1b2211f06", null ],
     [ "init", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_rigid_mass.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "integrateMesh", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_rigid_mass.html#a6d5da44a5f4a8855a5c0c09583887eae", null ],
     [ "integrateTriangle", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_rigid_mass.html#a5b493a3e1cdc322633961275298ecb28", null ],

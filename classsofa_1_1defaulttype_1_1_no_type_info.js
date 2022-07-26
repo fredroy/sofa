@@ -6,6 +6,7 @@ var classsofa_1_1defaulttype_1_1_no_type_info =
     [ "Container", "classsofa_1_1defaulttype_1_1_no_type_info.html#a832550fd1960efaa8847e14264509486", null ],
     [ "CopyOnWrite", "classsofa_1_1defaulttype_1_1_no_type_info.html#a902cb3c5a0b085d974723b3ed5384be1", null ],
     [ "FixedSize", "classsofa_1_1defaulttype_1_1_no_type_info.html#a49ee4742b786935729108fd8fa73ed06", null ],
+    [ "Get", "classsofa_1_1defaulttype_1_1_no_type_info.html#ac4049eecd668104db20e2744e0319cb4", null ],
     [ "getBaseTypeId", "classsofa_1_1defaulttype_1_1_no_type_info.html#a584e546265efd9e0e830ee339b2bb30d", null ],
     [ "getIntegerValue", "classsofa_1_1defaulttype_1_1_no_type_info.html#afecff1ad55e50177715429fa6ec0334c", null ],
     [ "getScalarValue", "classsofa_1_1defaulttype_1_1_no_type_info.html#a66d28fa7bf2ebee4659f4e582673b7c5", null ],

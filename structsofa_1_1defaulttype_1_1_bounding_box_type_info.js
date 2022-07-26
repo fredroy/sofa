@@ -14,5 +14,17 @@ var structsofa_1_1defaulttype_1_1_bounding_box_type_info =
     [ "Text", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#a08f51f22ad2ed13a25181c2604573110a35d0dd9a40755601b657244976bfc14b", null ],
     [ "CopyOnWrite", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#afded920d42f51b77f7f86b5057dd4516a611f008a9989ce97b80ee9e701d8e2d7", null ],
     [ "Container", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#a6a688c8c331cfa005f7431b606970203a960c324d4c72aa0923e8bcac8c646b48", null ],
-    [ "Size", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#a89fa9ed16122c5ba3a10393f7c0bc5adaff9abf2b1a689f70a77a18da50c01d9f", null ]
+    [ "Size", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#a89fa9ed16122c5ba3a10393f7c0bc5adaff9abf2b1a689f70a77a18da50c01d9f", null ],
+    [ "byteSize", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#a5568572189d7edfc83572f5e5b201f6d", null ],
+    [ "getScalarValue", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#a5c6dc38db69e7e8f225950d6eac416a2", null ],
+    [ "getValue", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#a17610f5c478195e208ebc6a476907bc2", null ],
+    [ "getValuePtr", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#a90f5dcd6033ca72d788ff6eda66c4e50", null ],
+    [ "getValuePtr", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#ae663329182a256c469f89939c02dee3b", null ],
+    [ "getValueString", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#aeef964da96e4c396c571d69f2e713a89", null ],
+    [ "setScalarValue", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#aac4f2b0da38d7c656b4eb34b94250a7e", null ],
+    [ "setSize", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#a3f330487f3d7a0da16be72da86214d77", null ],
+    [ "setValue", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#a0749b8afb7f8cb835e06d1b67f39fb36", null ],
+    [ "setValueString", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#a91270cfc358936144c99c938613b5222", null ],
+    [ "size", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#aa9cf1bb1e3778c4f285e753e5bcb440e", null ],
+    [ "size", "structsofa_1_1defaulttype_1_1_bounding_box_type_info.html#afb4ad6832d7a735e80f418c3c011c235", null ]
 ];

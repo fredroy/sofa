@@ -18,5 +18,8 @@ var classsofa_1_1component_1_1odesolver_1_1backward_1_1_static_solver =
     [ "d_newton_iterations", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_static_solver.html#ac8635abf79d51e69eff8ae1d9c27813d", null ],
     [ "d_relative_correction_tolerance_threshold", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_static_solver.html#a8e06b01b1ba8b6cd9780aa301d366f9c", null ],
     [ "d_relative_residual_tolerance_threshold", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_static_solver.html#a366010be17e884b80a2b04962a16c51e", null ],
-    [ "d_should_diverge_when_residual_is_growing", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_static_solver.html#abd969006fabde667f2924a024617d388", null ]
+    [ "d_should_diverge_when_residual_is_growing", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_static_solver.html#abd969006fabde667f2924a024617d388", null ],
+    [ "p_squared_increment_norms", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_static_solver.html#a386166f638b4b50cf6d2f22f725b0ebe", null ],
+    [ "p_squared_residual_norms", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_static_solver.html#af692332b3111e14901324fc412e1fc0d", null ],
+    [ "U", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_static_solver.html#ac526aa4b78c73d9c8ab1605e7c493c69", null ]
 ];

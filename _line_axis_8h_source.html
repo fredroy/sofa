@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_line_axis_8h_source.html',''); initRe
 <div class="title">LineAxis.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_line_axis_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -110,26 +110,26 @@ $(document).ready(function(){initNavTree('_line_axis_8h_source.html',''); initRe
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;sofa/component/visual/config.h&gt;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/core/visual/VisualModel.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_visual_model_8h.html">sofa/core/visual/VisualModel.h</a>&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>sofa::component::visual</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1component_1_1visual.html">sofa::component::visual</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">class </span>SOFA_COMPONENT_VISUAL_API LineAxis : <span class="keyword">public</span> core::visual::VisualModel</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    SOFA_CLASS(LineAxis, VisualModel);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="_base_class_8h.html#a2280c1505d10a34f61f0cad38c9beeee">SOFA_CLASS</a>(LineAxis, VisualModel);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> parse( <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">sofa::core::objectmodel::BaseObjectDescription</a>* arg ) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    Data&lt;std::string&gt; d_axis; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    Data&lt;float&gt; d_size; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    Data&lt;float&gt; d_thickness; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    Data&lt;bool&gt; d_draw; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="namespacesofa_1_1core_1_1objectmodel.html#ad59cb6b9a64f4136a1d2150e97495c9a">Data&lt;bool&gt;</a> d_draw; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    LineAxis();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> init() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespacesofa_1_1component_1_1visual.html#a70015a5736b761199dfc77431e9bc4b2">init</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> reinit() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> drawVisual(<span class="keyword">const</span> core::visual::VisualParams*) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> updateVisual() <span class="keyword">override</span>;</div>
@@ -145,12 +145,17 @@ $(document).ready(function(){initNavTree('_line_axis_8h_source.html',''); initRe
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;} <span class="comment">// namespace sofa::component::visual</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1component_1_1visual_html"><div class="ttname"><a href="namespacesofa_1_1component_1_1visual.html">sofa::component::visual</a></div><div class="ttdef"><b>Definition:</b> BaseCamera.cpp:43</div></div>
+<div class="ttc" id="anamespacesofa_1_1core_1_1objectmodel_html_ad59cb6b9a64f4136a1d2150e97495c9a"><div class="ttname"><a href="namespacesofa_1_1core_1_1objectmodel.html#ad59cb6b9a64f4136a1d2150e97495c9a">sofa::core::objectmodel::Data&lt; bool &gt;</a></div><div class="ttdeci">template class SOFA_CORE_API Data&lt; bool &gt;</div><div class="ttdef"><b>Definition:</b> Data.cpp:64</div></div>
+<div class="ttc" id="a_visual_model_8h_html"><div class="ttname"><a href="_visual_model_8h.html">VisualModel.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_object_description_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html">sofa::core::objectmodel::BaseObjectDescription</a></div><div class="ttdoc">Base Interface for classes containing the description of an object, used to construct it.</div><div class="ttdef"><b>Definition:</b> BaseObjectDescription.h:108</div></div>
+<div class="ttc" id="a_base_class_8h_html_a2280c1505d10a34f61f0cad38c9beeee"><div class="ttname"><a href="_base_class_8h.html#a2280c1505d10a34f61f0cad38c9beeee">SOFA_CLASS</a></div><div class="ttdeci">#define SOFA_CLASS(T, Parent)</div><div class="ttdef"><b>Definition:</b> BaseClass.h:207</div></div>
+<div class="ttc" id="anamespacesofa_1_1component_1_1visual_html_a70015a5736b761199dfc77431e9bc4b2"><div class="ttname"><a href="namespacesofa_1_1component_1_1visual.html#a70015a5736b761199dfc77431e9bc4b2">sofa::component::visual::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> init.cpp:68</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_42ede1205723b3b890fa00e138974231.html">Component</a></li><li class="navelem"><a class="el" href="dir_b00c39814947de2df755c2052fc0f20c.html">Visual</a></li><li class="navelem"><a class="el" href="dir_d7e36a09dc7ba5600a3a83ce6635043a.html">src</a></li><li class="navelem"><a class="el" href="dir_aad967361867a8b396385d22e117b064.html">sofa</a></li><li class="navelem"><a class="el" href="dir_643d44e5687087c06cbd16a0e0fd2774.html">component</a></li><li class="navelem"><a class="el" href="dir_a2a7e940369171dab36296713742c608.html">visual</a></li><li class="navelem"><b>LineAxis.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:35:40 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_42ede1205723b3b890fa00e138974231.html">Component</a></li><li class="navelem"><a class="el" href="dir_b00c39814947de2df755c2052fc0f20c.html">Visual</a></li><li class="navelem"><a class="el" href="dir_d7e36a09dc7ba5600a3a83ce6635043a.html">src</a></li><li class="navelem"><a class="el" href="dir_aad967361867a8b396385d22e117b064.html">sofa</a></li><li class="navelem"><a class="el" href="dir_643d44e5687087c06cbd16a0e0fd2774.html">component</a></li><li class="navelem"><a class="el" href="dir_a2a7e940369171dab36296713742c608.html">visual</a></li><li class="navelem"><a class="el" href="_line_axis_8h.html">LineAxis.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:01:48 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -27,5 +27,6 @@ var classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_i_s_a_p_bo
     [ "updateMin", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_i_s_a_p_box.html#a31499e4c33b0ea790a589f8dbcdeaa59", null ],
     [ "_max", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_i_s_a_p_box.html#ac50c50786c1ab09a27166db3490031a0", null ],
     [ "_min", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_i_s_a_p_box.html#a59ce613ee85d2ebbe4af9dacdb838414", null ],
-    [ "cube", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_i_s_a_p_box.html#acca467381afd241f17ea6a0dcf183f99", null ]
+    [ "cube", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_i_s_a_p_box.html#acca467381afd241f17ea6a0dcf183f99", null ],
+    [ "tolerance", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_i_s_a_p_box.html#a97eab6d709b80585fe9e8a54b1e3da27", null ]
 ];

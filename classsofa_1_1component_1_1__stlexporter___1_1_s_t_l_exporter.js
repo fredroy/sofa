@@ -12,5 +12,8 @@ var classsofa_1_1component_1_1__stlexporter___1_1_s_t_l_exporter =
     [ "d_binaryFormat", "classsofa_1_1component_1_1__stlexporter___1_1_s_t_l_exporter.html#a7d7ff27d5ad7aeabd10484bd88575f4c", null ],
     [ "d_position", "classsofa_1_1component_1_1__stlexporter___1_1_s_t_l_exporter.html#a6f5472a1707cad8ca73b03152cb2eb35", null ],
     [ "d_quad", "classsofa_1_1component_1_1__stlexporter___1_1_s_t_l_exporter.html#a9b01b5ba947a3c9afbbc76c60b8be13b", null ],
-    [ "d_triangle", "classsofa_1_1component_1_1__stlexporter___1_1_s_t_l_exporter.html#a7c139fc59dc66e20e4aed67083512f46", null ]
+    [ "d_triangle", "classsofa_1_1component_1_1__stlexporter___1_1_s_t_l_exporter.html#a7c139fc59dc66e20e4aed67083512f46", null ],
+    [ "m_inputmstate", "classsofa_1_1component_1_1__stlexporter___1_1_s_t_l_exporter.html#a9775b01f491b8f882215ffc151bba342", null ],
+    [ "m_inputtopology", "classsofa_1_1component_1_1__stlexporter___1_1_s_t_l_exporter.html#a6d79e1da05591f57f51a800cb1883310", null ],
+    [ "m_inputvmodel", "classsofa_1_1component_1_1__stlexporter___1_1_s_t_l_exporter.html#aae6f34887dc7cac989334dafd680aac8", null ]
 ];

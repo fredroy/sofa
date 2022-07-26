@@ -84,12 +84,15 @@ $(document).ready(function(){initNavTree('classsofa_1_1component_1_1solidmechani
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">StrainInformation&lt; DataTypes &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_solid_mechanics_2_f_e_m_2_hyper_elastic_2src_2sofa_2component_2solidmechanics_2fem_2hyperelasti81fa25eb65241234962fd120c77d824e_source.html">HyperelasticMaterial.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for StrainInformation&lt; DataTypes &gt;:</div>
 <div class="dyncontent">
@@ -103,66 +106,329 @@ Inheritance diagram for StrainInformation&lt; DataTypes &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a7c0bd56aca42d0e855a400b50f3e078b"><td class="memItemLeft" align="right" valign="top"><a id="a7c0bd56aca42d0e855a400b50f3e078b"></a>
-typedef DataTypes::Coord&#160;</td><td class="memItemRight" valign="bottom"><b>Coord</b></td></tr>
+<tr class="memitem:a7c0bd56aca42d0e855a400b50f3e078b"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a433a4446e8804f24450e7f9f90cf27a5">DataTypes::Coord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a></td></tr>
 <tr class="separator:a7c0bd56aca42d0e855a400b50f3e078b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2bf7bec3beb53b1f58f6ed936c6c2a1"><td class="memItemLeft" align="right" valign="top"><a id="ae2bf7bec3beb53b1f58f6ed936c6c2a1"></a>
-typedef Coord::value_type&#160;</td><td class="memItemRight" valign="bottom"><b>Real</b></td></tr>
+<tr class="memitem:ae2bf7bec3beb53b1f58f6ed936c6c2a1"><td class="memItemLeft" align="right" valign="top">typedef Coord::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a></td></tr>
 <tr class="separator:ae2bf7bec3beb53b1f58f6ed936c6c2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a146605e2e63e6f2af41b89b8ad07678a"><td class="memItemLeft" align="right" valign="top"><a id="a146605e2e63e6f2af41b89b8ad07678a"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1_mat_sym.html">type::MatSym</a>&lt; 3, Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixSym</b></td></tr>
+<tr class="memitem:a146605e2e63e6f2af41b89b8ad07678a"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1type_1_1_mat_sym.html">type::MatSym</a>&lt; 3, <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a146605e2e63e6f2af41b89b8ad07678a">MatrixSym</a></td></tr>
 <tr class="separator:a146605e2e63e6f2af41b89b8ad07678a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c056fc9a6d995f966364c7ff3ea4892"><td class="memItemLeft" align="right" valign="top"><a id="a0c056fc9a6d995f966364c7ff3ea4892"></a>
-typedef Eigen::SelfAdjointEigenSolver&lt; Eigen::Matrix&lt; Real, 3, 3 &gt; &gt;::MatrixType&#160;</td><td class="memItemRight" valign="bottom"><b>EigenMatrix</b></td></tr>
+<tr class="memitem:a0c056fc9a6d995f966364c7ff3ea4892"><td class="memItemLeft" align="right" valign="top">typedef Eigen::SelfAdjointEigenSolver&lt; Eigen::Matrix&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a>, 3, 3 &gt; &gt;::MatrixType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a0c056fc9a6d995f966364c7ff3ea4892">EigenMatrix</a></td></tr>
 <tr class="separator:a0c056fc9a6d995f966364c7ff3ea4892"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e1f6646f8b4d36db3eb1b05812d1b21"><td class="memItemLeft" align="right" valign="top"><a id="a7e1f6646f8b4d36db3eb1b05812d1b21"></a>
-typedef Eigen::SelfAdjointEigenSolver&lt; Eigen::Matrix&lt; Real, 3, 3 &gt; &gt;::RealVectorType&#160;</td><td class="memItemRight" valign="bottom"><b>CoordEigen</b></td></tr>
+<tr class="memitem:a7e1f6646f8b4d36db3eb1b05812d1b21"><td class="memItemLeft" align="right" valign="top">typedef Eigen::SelfAdjointEigenSolver&lt; Eigen::Matrix&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a>, 3, 3 &gt; &gt;::RealVectorType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a7e1f6646f8b4d36db3eb1b05812d1b21">CoordEigen</a></td></tr>
 <tr class="separator:a7e1f6646f8b4d36db3eb1b05812d1b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a7f0b9276ef658fde3e65944015f6a444"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a7f0b9276ef658fde3e65944015f6a444">StrainInformation</a> ()</td></tr>
+<tr class="separator:a7f0b9276ef658fde3e65944015f6a444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac274bfa9da07b13aa6e389ff51d9f125"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ac274bfa9da07b13aa6e389ff51d9f125">~StrainInformation</a> ()</td></tr>
+<tr class="separator:ac274bfa9da07b13aa6e389ff51d9f125"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aa51e548242f6a4439d92a99dfa7ce6d1"><td class="memItemLeft" align="right" valign="top"><a id="aa51e548242f6a4439d92a99dfa7ce6d1"></a>
-Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#aa51e548242f6a4439d92a99dfa7ce6d1">trC</a></td></tr>
-<tr class="memdesc:aa51e548242f6a4439d92a99dfa7ce6d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trace of C = I1. <br /></td></tr>
+<tr class="memitem:aa51e548242f6a4439d92a99dfa7ce6d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#aa51e548242f6a4439d92a99dfa7ce6d1">trC</a></td></tr>
+<tr class="memdesc:aa51e548242f6a4439d92a99dfa7ce6d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trace of C = I1.  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#aa51e548242f6a4439d92a99dfa7ce6d1">More...</a><br /></td></tr>
 <tr class="separator:aa51e548242f6a4439d92a99dfa7ce6d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a925357d1b905e4d903fea63a51d45f93"><td class="memItemLeft" align="right" valign="top"><a id="a925357d1b905e4d903fea63a51d45f93"></a>
-Real&#160;</td><td class="memItemRight" valign="bottom"><b>J</b></td></tr>
+<tr class="memitem:a925357d1b905e4d903fea63a51d45f93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a925357d1b905e4d903fea63a51d45f93">J</a></td></tr>
 <tr class="separator:a925357d1b905e4d903fea63a51d45f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9b855ff315fc0864fef23960cd764a1"><td class="memItemLeft" align="right" valign="top"><a id="ae9b855ff315fc0864fef23960cd764a1"></a>
-Real&#160;</td><td class="memItemRight" valign="bottom"><b>lambda</b></td></tr>
+<tr class="memitem:ae9b855ff315fc0864fef23960cd764a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae9b855ff315fc0864fef23960cd764a1">lambda</a></td></tr>
 <tr class="separator:ae9b855ff315fc0864fef23960cd764a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a201f0c831b67be941912d41147219034"><td class="memItemLeft" align="right" valign="top"><a id="a201f0c831b67be941912d41147219034"></a>
-Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a201f0c831b67be941912d41147219034">trCsquare</a></td></tr>
-<tr class="memdesc:a201f0c831b67be941912d41147219034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trace of C^2 : I2 = (trCSquare - trC^2)/2. <br /></td></tr>
+<tr class="memitem:a201f0c831b67be941912d41147219034"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a201f0c831b67be941912d41147219034">trCsquare</a></td></tr>
+<tr class="memdesc:a201f0c831b67be941912d41147219034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trace of C^2 : I2 = (trCSquare - trC^2)/2.  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a201f0c831b67be941912d41147219034">More...</a><br /></td></tr>
 <tr class="separator:a201f0c831b67be941912d41147219034"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a015c9bc95f71007c109455666559ce38"><td class="memItemLeft" align="right" valign="top"><a id="a015c9bc95f71007c109455666559ce38"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a015c9bc95f71007c109455666559ce38">hasBeenInitialized</a></td></tr>
-<tr class="memdesc:a015c9bc95f71007c109455666559ce38"><td class="mdescLeft">&#160;</td><td class="mdescRight">boolean indicating whether the invariants have been computed <br /></td></tr>
+<tr class="memitem:a015c9bc95f71007c109455666559ce38"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a015c9bc95f71007c109455666559ce38">hasBeenInitialized</a></td></tr>
+<tr class="memdesc:a015c9bc95f71007c109455666559ce38"><td class="mdescLeft">&#160;</td><td class="mdescRight">boolean indicating whether the invariants have been computed  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a015c9bc95f71007c109455666559ce38">More...</a><br /></td></tr>
 <tr class="separator:a015c9bc95f71007c109455666559ce38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2d5099770012696e640b61d43c1f972"><td class="memItemLeft" align="right" valign="top"><a id="aa2d5099770012696e640b61d43c1f972"></a>
-<a class="el" href="classsofa_1_1type_1_1_mat_sym.html">MatrixSym</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#aa2d5099770012696e640b61d43c1f972">deformationTensor</a></td></tr>
-<tr class="memdesc:aa2d5099770012696e640b61d43c1f972"><td class="mdescLeft">&#160;</td><td class="mdescRight">right Cauchy-Green deformation tensor C (gradPhi^T gradPhi) <br /></td></tr>
+<tr class="memitem:aa2d5099770012696e640b61d43c1f972"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a146605e2e63e6f2af41b89b8ad07678a">MatrixSym</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#aa2d5099770012696e640b61d43c1f972">deformationTensor</a></td></tr>
+<tr class="memdesc:aa2d5099770012696e640b61d43c1f972"><td class="mdescLeft">&#160;</td><td class="mdescRight">right Cauchy-Green deformation tensor C (gradPhi^T gradPhi)  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#aa2d5099770012696e640b61d43c1f972">More...</a><br /></td></tr>
 <tr class="separator:aa2d5099770012696e640b61d43c1f972"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0528d7f2ca9bcc6cebca2b32836584fe"><td class="memItemLeft" align="right" valign="top"><a id="a0528d7f2ca9bcc6cebca2b32836584fe"></a>
-EigenMatrix&#160;</td><td class="memItemRight" valign="bottom"><b>Evect</b></td></tr>
+<tr class="memitem:a0528d7f2ca9bcc6cebca2b32836584fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a0c056fc9a6d995f966364c7ff3ea4892">EigenMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a0528d7f2ca9bcc6cebca2b32836584fe">Evect</a></td></tr>
 <tr class="separator:a0528d7f2ca9bcc6cebca2b32836584fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c4400c0b78ea462ecf05ac04ec6f7f5"><td class="memItemLeft" align="right" valign="top"><a id="a5c4400c0b78ea462ecf05ac04ec6f7f5"></a>
-CoordEigen&#160;</td><td class="memItemRight" valign="bottom"><b>Evalue</b></td></tr>
+<tr class="memitem:a5c4400c0b78ea462ecf05ac04ec6f7f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a7e1f6646f8b4d36db3eb1b05812d1b21">CoordEigen</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a5c4400c0b78ea462ecf05ac04ec6f7f5">Evalue</a></td></tr>
 <tr class="separator:a5c4400c0b78ea462ecf05ac04ec6f7f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96b09cb9b79b7f5446784ee15a25c4e8"><td class="memItemLeft" align="right" valign="top"><a id="a96b09cb9b79b7f5446784ee15a25c4e8"></a>
-Real&#160;</td><td class="memItemRight" valign="bottom"><b>logJ</b></td></tr>
+<tr class="memitem:a96b09cb9b79b7f5446784ee15a25c4e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a96b09cb9b79b7f5446784ee15a25c4e8">logJ</a></td></tr>
 <tr class="separator:a96b09cb9b79b7f5446784ee15a25c4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07c76738a5c231dd849f4689053ad09e"><td class="memItemLeft" align="right" valign="top"><a id="a07c76738a5c231dd849f4689053ad09e"></a>
-<a class="el" href="classsofa_1_1type_1_1_mat_sym.html">MatrixSym</a>&#160;</td><td class="memItemRight" valign="bottom"><b>E</b></td></tr>
+<tr class="memitem:a07c76738a5c231dd849f4689053ad09e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a146605e2e63e6f2af41b89b8ad07678a">MatrixSym</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a07c76738a5c231dd849f4689053ad09e">E</a></td></tr>
 <tr class="separator:a07c76738a5c231dd849f4689053ad09e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a7c0bd56aca42d0e855a400b50f3e078b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c0bd56aca42d0e855a400b50f3e078b">&#9670;&nbsp;</a></span>Coord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a433a4446e8804f24450e7f9f90cf27a5">DataTypes::Coord</a> <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e1f6646f8b4d36db3eb1b05812d1b21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e1f6646f8b4d36db3eb1b05812d1b21">&#9670;&nbsp;</a></span>CoordEigen</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Eigen::SelfAdjointEigenSolver&lt;Eigen::Matrix&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a>,3,3&gt; &gt;::RealVectorType <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a7e1f6646f8b4d36db3eb1b05812d1b21">CoordEigen</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c056fc9a6d995f966364c7ff3ea4892"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c056fc9a6d995f966364c7ff3ea4892">&#9670;&nbsp;</a></span>EigenMatrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Eigen::SelfAdjointEigenSolver&lt;Eigen::Matrix&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a>,3,3&gt; &gt;::MatrixType <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a0c056fc9a6d995f966364c7ff3ea4892">EigenMatrix</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a146605e2e63e6f2af41b89b8ad07678a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a146605e2e63e6f2af41b89b8ad07678a">&#9670;&nbsp;</a></span>MatrixSym</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1type_1_1_mat_sym.html">type::MatSym</a>&lt;3,<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a>&gt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a146605e2e63e6f2af41b89b8ad07678a">MatrixSym</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2bf7bec3beb53b1f58f6ed936c6c2a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2bf7bec3beb53b1f58f6ed936c6c2a1">&#9670;&nbsp;</a></span>Real</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Coord::value_type <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7f0b9276ef658fde3e65944015f6a444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f0b9276ef658fde3e65944015f6a444">&#9670;&nbsp;</a></span>StrainInformation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html">StrainInformation</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac274bfa9da07b13aa6e389ff51d9f125"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac274bfa9da07b13aa6e389ff51d9f125">&#9670;&nbsp;</a></span>~StrainInformation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ~<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html">StrainInformation</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa2d5099770012696e640b61d43c1f972"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2d5099770012696e640b61d43c1f972">&#9670;&nbsp;</a></span>deformationTensor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a146605e2e63e6f2af41b89b8ad07678a">MatrixSym</a> deformationTensor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>right Cauchy-Green deformation tensor C (gradPhi^T gradPhi) </p>
+
+</div>
+</div>
+<a id="a07c76738a5c231dd849f4689053ad09e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07c76738a5c231dd849f4689053ad09e">&#9670;&nbsp;</a></span>E</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a146605e2e63e6f2af41b89b8ad07678a">MatrixSym</a> E</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5c4400c0b78ea462ecf05ac04ec6f7f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c4400c0b78ea462ecf05ac04ec6f7f5">&#9670;&nbsp;</a></span>Evalue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a7e1f6646f8b4d36db3eb1b05812d1b21">CoordEigen</a> Evalue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0528d7f2ca9bcc6cebca2b32836584fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0528d7f2ca9bcc6cebca2b32836584fe">&#9670;&nbsp;</a></span>Evect</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#a0c056fc9a6d995f966364c7ff3ea4892">EigenMatrix</a> Evect</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a015c9bc95f71007c109455666559ce38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a015c9bc95f71007c109455666559ce38">&#9670;&nbsp;</a></span>hasBeenInitialized</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hasBeenInitialized</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>boolean indicating whether the invariants have been computed </p>
+
+</div>
+</div>
+<a id="a925357d1b905e4d903fea63a51d45f93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a925357d1b905e4d903fea63a51d45f93">&#9670;&nbsp;</a></span>J</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a> J</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae9b855ff315fc0864fef23960cd764a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9b855ff315fc0864fef23960cd764a1">&#9670;&nbsp;</a></span>lambda</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a> lambda</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a96b09cb9b79b7f5446784ee15a25c4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96b09cb9b79b7f5446784ee15a25c4e8">&#9670;&nbsp;</a></span>logJ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a> logJ</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa51e548242f6a4439d92a99dfa7ce6d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa51e548242f6a4439d92a99dfa7ce6d1">&#9670;&nbsp;</a></span>trC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a> trC</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Trace of C = I1. </p>
+
+</div>
+</div>
+<a id="a201f0c831b67be941912d41147219034"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a201f0c831b67be941912d41147219034">&#9670;&nbsp;</a></span>trCsquare</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a> trCsquare</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Trace of C^2 : I2 = (trCSquare - trC^2)/2. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>component</b></li><li class="navelem"><b>solidmechanics</b></li><li class="navelem"><b>fem</b></li><li class="navelem"><b>hyperelastic</b></li><li class="navelem"><b>material</b></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html">StrainInformation</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:02:08 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component.html">component</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1solidmechanics.html">solidmechanics</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1solidmechanics_1_1fem.html">fem</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic.html">hyperelastic</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material.html">material</a></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_strain_information.html">StrainInformation</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:33:14 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -6,6 +6,7 @@ var classsofa_1_1gui_1_1qt_1_1_q_display_data_widget =
     [ "dataValueChanged", "classsofa_1_1gui_1_1qt_1_1_q_display_data_widget.html#aeffe9ae1c391db53f609214cc05aed95", null ],
     [ "flag", "classsofa_1_1gui_1_1qt_1_1_q_display_data_widget.html#a2db8c7f4d1aaaf40928ed0422d3a1976", null ],
     [ "getNumWidgets", "classsofa_1_1gui_1_1qt_1_1_q_display_data_widget.html#ad83e136bf159c6138d2cf328f13fc951", null ],
+    [ "RefreshIcon", "classsofa_1_1gui_1_1qt_1_1_q_display_data_widget.html#a60184c0668dc3b46fefa8cc0a2833621", null ],
     [ "UpdateData", "classsofa_1_1gui_1_1qt_1_1_q_display_data_widget.html#a356221666a9aab0ff6cd76642163ffd4", null ],
     [ "UpdateWidgets", "classsofa_1_1gui_1_1qt_1_1_q_display_data_widget.html#a66ca80bf65cb4e008da3c1a9da3db9be", null ],
     [ "WidgetDirty", "classsofa_1_1gui_1_1qt_1_1_q_display_data_widget.html#a21c9a21090f823be18cc92a3e32157f6", null ],

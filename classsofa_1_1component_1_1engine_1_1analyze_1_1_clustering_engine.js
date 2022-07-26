@@ -11,10 +11,17 @@ var classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine =
     [ "VVI", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a1a7351e8f3ccd9580aeab22ca1de3bca", null ],
     [ "ClusteringEngine", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#af932310f9c6c93e17394eff1807466a8", null ],
     [ "~ClusteringEngine", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a1d20af0912dc739c806c98675adb2d63", null ],
+    [ "AddNeighborhoodFromNeighborhood", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#ab16a46df38b1c8f4f926526560cf4c97", null ],
+    [ "dijkstra", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a2acb577a59856ad132bc2e48b22945e3", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a4daa2dc990606f6f13a82f619a13358a", null ],
     [ "draw", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a8673433953792026ae9baf91b348d7da", null ],
+    [ "farthestPointSampling", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#afb7f0786a2196fbf7d60088a74a9c765", null ],
     [ "init", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#ad72eef1561c7a53b19b048397d4ef570", null ],
+    [ "LLoyd", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a605493d3e72c35d4c29c66425ffa0395", null ],
+    [ "load", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a330b63d6fdbfd3e27d25f3258a2d2d1a", null ],
+    [ "save", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a69458f4271dc75dfcceabe6c7b2776b8", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a19dfead29f70471c3eaedfdc35c875bc", null ],
+    [ "Voronoi", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#ad0bc5a18492308ea93af25676973b0a8", null ],
     [ "d_cluster", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a20867f06d2b90f5e0291acbe1c6c05a3", null ],
     [ "d_fixedPosition", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a231785f1fc0200dfec5330ba1cb67b5b", null ],
     [ "d_fixedRadius", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a6099a395d274cfb740575ea53b3de799", null ],
@@ -23,5 +30,8 @@ var classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine =
     [ "d_radius", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#aa8b8ebbadfa7096fa530603efc8fdf36", null ],
     [ "d_useTopo", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a0e2765822e6dbf94ea43010fc23e8a95", null ],
     [ "input_filename", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a3118869a1ef6512d94024139eebcd8df", null ],
-    [ "output_filename", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a7d4274e3f86ff92a93ab2df16bfd0dc1", null ]
+    [ "loadedFilename", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a2d32a3981a5490075625c4600a69c323", null ],
+    [ "mstate", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#af14e145e08f59faaf066c8ba3a3abfed", null ],
+    [ "output_filename", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#a7d4274e3f86ff92a93ab2df16bfd0dc1", null ],
+    [ "topo", "classsofa_1_1component_1_1engine_1_1analyze_1_1_clustering_engine.html#abd5bfeb4660d81ebbcd923fd67075f5d", null ]
 ];

@@ -8,5 +8,6 @@ var classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_internal_dat
     [ "getLocalJ", "classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_internal_data.html#af65d6e47170176cdc72ad95b56228495", null ],
     [ "getLocalJ", "classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_internal_data.html#ab132ea221e6a5a866c2df362ad596f42", null ],
     [ "getLocalRes", "classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_internal_data.html#af193f8fcefbc0722499aebdfee6e3e12", null ],
-    [ "projectForceInConstraintSpace", "classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_internal_data.html#a7d51598849dee1c4d505d2d89c0aff57", null ]
+    [ "projectForceInConstraintSpace", "classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_internal_data.html#a7d51598849dee1c4d505d2d89c0aff57", null ],
+    [ "J_local", "classsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_internal_data.html#ac6248d1c6ebde22d2e6ea8ac6e9f2718", null ]
 ];

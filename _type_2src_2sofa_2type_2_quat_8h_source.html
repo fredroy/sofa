@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_quat_8h_sourc
 <div class="title">Quat.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_type_2src_2sofa_2type_2_quat_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -110,7 +110,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_quat_8h_sourc
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/type/config.h&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/type/fwd.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="framework_2_type_2src_2sofa_2type_2fwd_8h.html">sofa/type/fwd.h</a>&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;iosfwd&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
@@ -123,9 +123,9 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_quat_8h_sourc
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    Real _q[4];</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">typedef</span> type::Vec&lt;3, Real&gt; Vec3;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">typedef</span> type::Mat&lt;3,3, Real&gt; Mat3x3;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">typedef</span> type::Mat&lt;4,4, Real&gt; Mat4x4;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">typedef</span> type::Vec&lt;3, Real&gt; <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">typedef</span> type::Mat&lt;3,3, Real&gt; <a class="code" href="namespacesofa_1_1type.html#ae4332875e3cb0b4f51e19dafa545a7c1">Mat3x3</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">typedef</span> type::Mat&lt;4,4, Real&gt; <a class="code" href="namespacesofa_1_1type.html#a2c0b6ce3f2a92aedf49744db0d83c412">Mat4x4</a>;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">typedef</span> Real value_type;</div>
@@ -141,9 +141,9 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_quat_8h_sourc
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Real2&gt;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    Quat(<span class="keyword">const</span> Quat&lt;Real2&gt;&amp; q) { <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;4; i++) _q[i] = Real(q[i]); }</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    Quat( <span class="keyword">const</span> Vec3&amp; axis, Real angle );</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    Quat( <span class="keyword">const</span> <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>&amp; axis, Real angle );</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    Quat(<span class="keyword">const</span> Vec3&amp; vFrom, <span class="keyword">const</span> Vec3&amp; vTo);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    Quat(<span class="keyword">const</span> <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>&amp; vFrom, <span class="keyword">const</span> <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>&amp; vTo);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">static</span> Quat identity()</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
@@ -159,12 +159,12 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_quat_8h_sourc
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">const</span> Real* ptr()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">return</span> this-&gt;_q;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_quat.html#ae6297c0a431291219ce74e9fee34cbab">   78</a></span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_quat.html#a8a6077f53bbf9cb0780603d919022bbd">   79</a></span>&#160;        <span class="keywordflow">return</span> this-&gt;_q;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_quat.html#a6ad4fca179bfef5f0a1c5edcfaa02647">   80</a></span>&#160;    }</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    Real* ptr()</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_quat.html#a64a1ba313ad4c1fd58bf5887c366df5a">   83</a></span>&#160;    Real* ptr()</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_quat.html#af32611b865c4b497f9f92843456f7ec9">   84</a></span>&#160;    {</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">return</span> this-&gt;_q;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
@@ -172,36 +172,36 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_quat_8h_sourc
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> normalize();</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> clear()</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_quat.html#ab2dcceb86afb800169f0f793120972fc">   94</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="_q_sofa_recorder_8cpp.html#adc2a83d174f742e14902972009913e84">clear</a>()</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        set(0.0,0.0,0.0,1);</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> fromFrame(<span class="keyword">const</span> Vec3&amp; x, <span class="keyword">const</span> Vec3&amp;y, <span class="keyword">const</span> Vec3&amp;z);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> fromFrame(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>&amp; x, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>&amp;y, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>&amp;z);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">void</span> fromMatrix(<span class="keyword">const</span> Mat3x3 &amp;m);</div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_quat.html#ab4432f85f66386028df0d56c04cecd71">  103</a></span>&#160;    <span class="keywordtype">void</span> fromMatrix(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat3x3</a> &amp;m);</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> toMatrix(Mat3x3 &amp;m) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> toMatrix(<a class="code" href="classsofa_1_1type_1_1_mat.html">Mat3x3</a> &amp;m) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    SOFA_ATTRIBUTE_DEPRECATED__QUAT_API(<span class="stringliteral">&quot;Function toMatrix(mat4x4) will be removed. Use toHomogeneousMatrix() instead&quot;</span>)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    void toMatrix(Mat4x4 &amp;m)<span class="keyword"> const </span>{ toHomogeneousMatrix(m); }</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_quat.html#a77b275d372dd620390e34ac7c4e17f51">  108</a></span>&#160;    SOFA_ATTRIBUTE_DEPRECATED__QUAT_API(<span class="stringliteral">&quot;Function toMatrix(mat4x4) will be removed. Use toHomogeneousMatrix() instead&quot;</span>)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    void toMatrix(<a class="code" href="classsofa_1_1type_1_1_mat.html">Mat4x4</a> &amp;m)<span class="keyword"> const </span>{ toHomogeneousMatrix(m); }</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">void</span> toHomogeneousMatrix(Mat4x4 &amp;m) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">void</span> toHomogeneousMatrix(<a class="code" href="classsofa_1_1type_1_1_mat.html">Mat4x4</a> &amp;m) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">auto</span> rotate( <span class="keyword">const</span> Vec3&amp; v ) <span class="keyword">const</span> -&gt; Vec3;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">auto</span> <a class="code" href="namespacesofa_1_1defaulttype.html#abed48e217039b3e7c2ee4d86908b414c">rotate</a>( <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>&amp; v ) <span class="keyword">const</span> -&gt; <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>;</div>
 <div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_quat.html#ac6e760f4357422662fb0c62fe3ee2dd1">  117</a></span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">auto</span> inverseRotate( <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>&amp; v ) <span class="keyword">const</span> -&gt; <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">auto</span> inverseRotate( <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>&amp; v ) <span class="keyword">const</span> -&gt; <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">auto</span> operator+(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a> &amp;q1) <span class="keyword">const</span> -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keyword">auto</span> operator*(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a> &amp;q1) <span class="keyword">const</span> -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">auto</span> <a class="code" href="namespacesofa_1_1type_1_1pairwise.html#a3062109a0f11c486fb01b127480cbaf7">operator+</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a> &amp;q1) <span class="keyword">const</span> -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keyword">auto</span> <a class="code" href="namespacesofa_1_1type.html#a8aa06d2dc7af4961bb39ef2f9586990c">operator*</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a> &amp;q1) <span class="keyword">const</span> -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keyword">auto</span> operator*(<span class="keyword">const</span> Real &amp;r) <span class="keyword">const</span> -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">auto</span> operator/(<span class="keyword">const</span> Real &amp;r) <span class="keyword">const</span> -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keyword">auto</span> <a class="code" href="namespacesofa_1_1type.html#a8aa06d2dc7af4961bb39ef2f9586990c">operator*</a>(<span class="keyword">const</span> Real &amp;r) <span class="keyword">const</span> -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">auto</span> <a class="code" href="namespacesofa_1_1defaulttype.html#ad68ad55c3252d02e993f9c2a39953533">operator/</a>(<span class="keyword">const</span> Real &amp;r) <span class="keyword">const</span> -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> operator*=(<span class="keyword">const</span> Real &amp;r);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> operator/=(<span class="keyword">const</span> Real &amp;r);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keyword">auto</span> quatVectMult(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>&amp; vect) <span class="keyword">const</span> -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keyword">auto</span> vectQuatMult(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>&amp; vect) <span class="keyword">const</span> -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_quat.html#ac8bb3912a3ce86b15842e79d0b421204">  134</a></span>&#160;    <span class="keyword">auto</span> vectQuatMult(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>&amp; vect) <span class="keyword">const</span> -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    Real&amp; operator[](Size index)</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    {</div>
@@ -215,7 +215,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_quat_8h_sourc
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordflow">return</span> _q[index];</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    }</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keyword">auto</span> inverse() const -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_quat.html#a3ec9b1f80a1985debb2d75f70f4407b9">  148</a></span>&#160;    <span class="keyword">auto</span> inverse() const -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    auto quatToRotationVector() const -&gt; <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>;</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    auto toEulerVector() const -&gt; <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>;</div>
@@ -232,27 +232,27 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_quat_8h_sourc
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    static auto createQuaterFromFrame(const <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;lox, const <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;loy,const <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;loz) -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    static auto createFromRotationVector(const <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>&amp; a) -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    enum class EulerOrder</div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_quat.html#a3fcf12bbe039fa14ade97350f7a2c5b3">  176</a></span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    enum class <a class="code" href="classsofa_1_1type_1_1_quat.html#ad0e17a21b66e37aa0aaf0cd669bb2cbc">EulerOrder</a></div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    {</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        XYZ, YXZ, ZXY, ZYX, YZX, XZY</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    };</div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_quat.html#ad500f1099844722e120e265f0fe60b17">  182</a></span>&#160;    };</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> createQuaterFromEuler(<span class="keyword">const</span> Vec3&amp; v, EulerOrder order = EulerOrder::ZYX) -&gt; Quat;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> createQuaterFromEuler(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>&amp; v, EulerOrder order = EulerOrder::ZYX) -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> fromEuler( Real alpha, Real beta, Real gamma, EulerOrder order = EulerOrder::ZYX ) -&gt; Quat;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> fromEuler( Real alpha, Real beta, Real gamma, EulerOrder order = EulerOrder::ZYX ) -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> createFromRotationVector(Real a0, Real a1, Real a2 ) -&gt; Quat;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> createFromRotationVector(Real a0, Real a1, Real a2 ) -&gt; <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>;</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> set(<span class="keyword">const</span> Vec3&amp; a) { <span class="keywordflow">return</span> createFromRotationVector(a); }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> set(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>&amp; a) { <span class="keywordflow">return</span> createFromRotationVector(a); }</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> set(Real a0, Real a1, Real a2) { <span class="keywordflow">return</span> createFromRotationVector(a0,a1,a2); }</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> quatDiff( Quat a, <span class="keyword">const</span> Quat&amp; b) -&gt; Quat;</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> angularDisplacement( <span class="keyword">const</span> Quat&amp; a, <span class="keyword">const</span> Quat&amp; b) -&gt; Vec3;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> angularDisplacement( <span class="keyword">const</span> Quat&amp; a, <span class="keyword">const</span> Quat&amp; b) -&gt; <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>;</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordtype">void</span> setFromUnitVectors(<span class="keyword">const</span> Vec3&amp; vFrom, <span class="keyword">const</span> Vec3&amp; vTo);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordtype">void</span> setFromUnitVectors(<span class="keyword">const</span> <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>&amp; vFrom, <span class="keyword">const</span> <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>&amp; vTo);</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    SOFA_ATTRIBUTE_DEPRECATED__QUAT_API(<span class="stringliteral">&quot;This function will be removed. use iostream operators instead.&quot;</span>)</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    void print();</div>
@@ -273,9 +273,9 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_quat_8h_sourc
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">static</span> constexpr Size spatial_dimensions = 3;</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;};</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> Real&gt; SOFA_TYPE_API std::ostream&amp; operator &lt;&lt; ( std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat&lt;Real&gt;</a>&amp; v );</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> Real&gt; SOFA_TYPE_API std::ostream&amp; <a class="code" href="namespacesofa_1_1type.html#a217531c3da1b353db4bcec2b43197958">operator &lt;&lt; </a>( std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat&lt;Real&gt;</a>&amp; v );</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> Real&gt; SOFA_TYPE_API std::istream&amp; operator &gt;&gt; (std::istream&amp; in, <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat&lt;Real&gt;</a>&amp; v);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> Real&gt; SOFA_TYPE_API std::istream&amp; <a class="code" href="namespacesofa_1_1type.html#a777026676dbb68c4c0e9685da2d91919">operator &gt;&gt; </a>(std::istream&amp; in, <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat&lt;Real&gt;</a>&amp; v);</div>
 <div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_quat.html#adc90bedea60c4cbb9e52b641bc15e8fb">  233</a></span>&#160; </div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="preprocessor">#if !defined(SOFA_TYPE_QUAT_CPP)</span></div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span>SOFA_TYPE_API <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat&lt;double&gt;</a>;</div>
@@ -285,14 +285,27 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_quat_8h_sourc
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;} <span class="comment">// namespace sofa::type</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1defaulttype_html_abed48e217039b3e7c2ee4d86908b414c"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html#abed48e217039b3e7c2ee4d86908b414c">sofa::defaulttype::rotate</a></div><div class="ttdeci">static void rotate(V1 &amp;v, Rot rotation)</div><div class="ttdoc">Apply the given translation and rotation to each entry of vector v.</div><div class="ttdef"><b>Definition:</b> RigidTypes.h:1934</div></div>
+<div class="ttc" id="aclasssofa_1_1type_1_1_mat_html"><div class="ttname"><a href="classsofa_1_1type_1_1_mat.html">sofa::type::Mat&lt; 3, 3, SReal &gt;</a></div></div>
+<div class="ttc" id="anamespacesofa_1_1type_html_a777026676dbb68c4c0e9685da2d91919"><div class="ttname"><a href="namespacesofa_1_1type.html#a777026676dbb68c4c0e9685da2d91919">sofa::type::operator&gt;&gt;</a></div><div class="ttdeci">std::istream &amp; operator&gt;&gt;(std::istream &amp;in, Mat&lt; L, C, real &gt; &amp;m)</div><div class="ttdef"><b>Definition:</b> Mat.h:987</div></div>
+<div class="ttc" id="anamespacesofa_1_1type_html_a8aa06d2dc7af4961bb39ef2f9586990c"><div class="ttname"><a href="namespacesofa_1_1type.html#a8aa06d2dc7af4961bb39ef2f9586990c">sofa::type::operator*</a></div><div class="ttdeci">constexpr Vec&lt; N, real &gt; operator*(const double &amp;a, const Vec&lt; N, real &gt; &amp;V) noexcept</div><div class="ttdef"><b>Definition:</b> Vec.h:639</div></div>
+<div class="ttc" id="anamespacesofa_1_1type_html_a84aea2c81a0c09781db1480502dad042"><div class="ttname"><a href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a></div><div class="ttdeci">Vec&lt; 3, SReal &gt; Vec3</div><div class="ttdef"><b>Definition:</b> fwd.h:70</div></div>
+<div class="ttc" id="aframework_2_type_2src_2sofa_2type_2fwd_8h_html"><div class="ttname"><a href="framework_2_type_2src_2sofa_2type_2fwd_8h.html">fwd.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_vec_html"><div class="ttname"><a href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec&lt; 3, SReal &gt;</a></div></div>
+<div class="ttc" id="anamespacesofa_1_1type_html_a2c0b6ce3f2a92aedf49744db0d83c412"><div class="ttname"><a href="namespacesofa_1_1type.html#a2c0b6ce3f2a92aedf49744db0d83c412">sofa::type::Mat4x4</a></div><div class="ttdeci">Mat&lt; 4, 4, SReal &gt; Mat4x4</div><div class="ttdef"><b>Definition:</b> fwd.h:114</div></div>
+<div class="ttc" id="anamespacesofa_1_1type_1_1pairwise_html_a3062109a0f11c486fb01b127480cbaf7"><div class="ttname"><a href="namespacesofa_1_1type_1_1pairwise.html#a3062109a0f11c486fb01b127480cbaf7">sofa::type::pairwise::operator+</a></div><div class="ttdeci">T operator+(const T &amp;l, const T &amp;r)</div><div class="ttdoc">pairwise add of two fixed_array</div><div class="ttdef"><b>Definition:</b> fixed_array_algorithms.h:73</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_quat_html"><div class="ttname"><a href="classsofa_1_1type_1_1_quat.html">sofa::type::Quat</a></div><div class="ttdef"><b>Definition:</b> fwd.h:120</div></div>
+<div class="ttc" id="aclasssofa_1_1type_1_1_quat_html_ad0e17a21b66e37aa0aaf0cd669bb2cbc"><div class="ttname"><a href="classsofa_1_1type_1_1_quat.html#ad0e17a21b66e37aa0aaf0cd669bb2cbc">sofa::type::Quat&lt; SReal &gt;::EulerOrder</a></div><div class="ttdeci">EulerOrder</div><div class="ttdef"><b>Definition:</b> Quat.h:219</div></div>
+<div class="ttc" id="anamespacesofa_1_1type_html_ae4332875e3cb0b4f51e19dafa545a7c1"><div class="ttname"><a href="namespacesofa_1_1type.html#ae4332875e3cb0b4f51e19dafa545a7c1">sofa::type::Mat3x3</a></div><div class="ttdeci">Mat&lt; 3, 3, SReal &gt; Mat3x3</div><div class="ttdef"><b>Definition:</b> fwd.h:113</div></div>
+<div class="ttc" id="a_q_sofa_recorder_8cpp_html_adc2a83d174f742e14902972009913e84"><div class="ttname"><a href="_q_sofa_recorder_8cpp.html#adc2a83d174f742e14902972009913e84">clear</a></div><div class="ttdeci">fpsLabel clear()</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html"><div class="ttname"><a href="namespacesofa_1_1type.html">sofa::type</a></div><div class="ttdoc">for std::pair</div><div class="ttdef"><b>Definition:</b> BoundingBox.cpp:27</div></div>
+<div class="ttc" id="anamespacesofa_1_1type_html_a217531c3da1b353db4bcec2b43197958"><div class="ttname"><a href="namespacesofa_1_1type.html#a217531c3da1b353db4bcec2b43197958">sofa::type::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const sofa::type::Frame &amp;c)</div><div class="ttdef"><b>Definition:</b> Frame.cpp:173</div></div>
+<div class="ttc" id="anamespacesofa_1_1defaulttype_html_ad68ad55c3252d02e993f9c2a39953533"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html#ad68ad55c3252d02e993f9c2a39953533">sofa::defaulttype::operator/</a></div><div class="ttdeci">RigidDeriv&lt; 3, real &gt; operator/(RigidDeriv&lt; 3, real &gt; r, real2 a)</div><div class="ttdef"><b>Definition:</b> RigidTypes.h:322</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_f952eb3b438e9453a2f5655056abb290.html">Type</a></li><li class="navelem"><a class="el" href="dir_8aa759aadb20f2635db8c61303b9b849.html">src</a></li><li class="navelem"><a class="el" href="dir_78b83bb765cda7d746578ac350d06d39.html">sofa</a></li><li class="navelem"><a class="el" href="dir_863403d1a96f2534cd37b5b5b93b2f40.html">type</a></li><li class="navelem"><b>Quat.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:35:40 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_f952eb3b438e9453a2f5655056abb290.html">Type</a></li><li class="navelem"><a class="el" href="dir_8aa759aadb20f2635db8c61303b9b849.html">src</a></li><li class="navelem"><a class="el" href="dir_78b83bb765cda7d746578ac350d06d39.html">sofa</a></li><li class="navelem"><a class="el" href="dir_863403d1a96f2534cd37b5b5b93b2f40.html">type</a></li><li class="navelem"><a class="el" href="_type_2src_2sofa_2type_2_quat_8h.html">Quat.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:01:48 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

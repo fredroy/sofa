@@ -90,98 +90,719 @@ $(document).ready(function(){initNavTree('classsofa_1_1gui_1_1qt_1_1flat__struct
 <div class="title">flat_struct_data_trait&lt; T, 0 &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_q_model_view_table_data_container_8h_source.html">QModelViewTableDataContainer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aded9ca14dda7907d5a7b2bf085928aaf"><td class="memItemLeft" align="right" valign="top"><a id="aded9ca14dda7907d5a7b2bf085928aaf"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_struct</b> = 1
+<tr class="memitem:aded9ca14dda7907d5a7b2bf085928aaf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#ae6cdb622357fec6e889e47579a078524a67749cad3fa05c9d291c7b6a6acb9dce">is_struct</a> = 1
  }</td></tr>
 <tr class="separator:aded9ca14dda7907d5a7b2bf085928aaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf031a18714fab9c47677ce9eba30e70"><td class="memItemLeft" align="right" valign="top"><a id="acf031a18714fab9c47677ce9eba30e70"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_vector</b> = 0
+<tr class="memitem:acf031a18714fab9c47677ce9eba30e70"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a6b1af8ba72fb238659a469ca5d2ef52ba51ec0d99146a1c7d602126da97f6d53e">is_vector</a> = 0
  }</td></tr>
 <tr class="separator:acf031a18714fab9c47677ce9eba30e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af01802ada3cad45fab403a42f8a2e9c2"><td class="memItemLeft" align="right" valign="top"><a id="af01802ada3cad45fab403a42f8a2e9c2"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_single</b> = 0
+<tr class="memitem:af01802ada3cad45fab403a42f8a2e9c2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a3cf72ed4749da6539b6eb4c6fc18e392a74b4f3fce22f1709099e994fe7ef94a1">is_single</a> = 0
  }</td></tr>
 <tr class="separator:af01802ada3cad45fab403a42f8a2e9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0ead9a390ae1a2e9537f8ea60f4f355"><td class="memItemLeft" align="right" valign="top"><a id="aa0ead9a390ae1a2e9537f8ea60f4f355"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_default</b> = ((struct_data_trait&lt;T&gt;::NVAR &gt; 1) ? 1 : 0)
+<tr class="memitem:aa0ead9a390ae1a2e9537f8ea60f4f355"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a2f540bcfdd4fc37daf6a2ce293262088a42560d649446d3c82327a06d9e03f545">is_default</a> = ((struct_data_trait&lt;T&gt;::NVAR &gt; 1) ? 1 : 0)
  }</td></tr>
 <tr class="separator:aa0ead9a390ae1a2e9537f8ea60f4f355"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6cdb622357fec6e889e47579a078524"><td class="memItemLeft" align="right" valign="top"><a id="ae6cdb622357fec6e889e47579a078524"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_struct</b> = 1
+<tr class="memitem:ae6cdb622357fec6e889e47579a078524"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#ae6cdb622357fec6e889e47579a078524a67749cad3fa05c9d291c7b6a6acb9dce">is_struct</a> = 1
  }</td></tr>
 <tr class="separator:ae6cdb622357fec6e889e47579a078524"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b1af8ba72fb238659a469ca5d2ef52b"><td class="memItemLeft" align="right" valign="top"><a id="a6b1af8ba72fb238659a469ca5d2ef52b"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_vector</b> = 0
+<tr class="memitem:a6b1af8ba72fb238659a469ca5d2ef52b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a6b1af8ba72fb238659a469ca5d2ef52ba51ec0d99146a1c7d602126da97f6d53e">is_vector</a> = 0
  }</td></tr>
 <tr class="separator:a6b1af8ba72fb238659a469ca5d2ef52b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cf72ed4749da6539b6eb4c6fc18e392"><td class="memItemLeft" align="right" valign="top"><a id="a3cf72ed4749da6539b6eb4c6fc18e392"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_single</b> = 0
+<tr class="memitem:a3cf72ed4749da6539b6eb4c6fc18e392"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a3cf72ed4749da6539b6eb4c6fc18e392a74b4f3fce22f1709099e994fe7ef94a1">is_single</a> = 0
  }</td></tr>
 <tr class="separator:a3cf72ed4749da6539b6eb4c6fc18e392"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f540bcfdd4fc37daf6a2ce293262088"><td class="memItemLeft" align="right" valign="top"><a id="a2f540bcfdd4fc37daf6a2ce293262088"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>is_default</b> = ((struct_data_trait&lt;T&gt;::NVAR &gt; 1) ? 1 : 0)
+<tr class="memitem:a2f540bcfdd4fc37daf6a2ce293262088"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a2f540bcfdd4fc37daf6a2ce293262088a42560d649446d3c82327a06d9e03f545">is_default</a> = ((struct_data_trait&lt;T&gt;::NVAR &gt; 1) ? 1 : 0)
  }</td></tr>
 <tr class="separator:a2f540bcfdd4fc37daf6a2ce293262088"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cff5e5153c81f5a22e8c97d3f8ae0f1"><td class="memItemLeft" align="right" valign="top"><a id="a1cff5e5153c81f5a22e8c97d3f8ae0f1"></a>
-typedef T&#160;</td><td class="memItemRight" valign="bottom"><b>data_type</b></td></tr>
+<tr class="memitem:a1cff5e5153c81f5a22e8c97d3f8ae0f1"><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a></td></tr>
 <tr class="separator:a1cff5e5153c81f5a22e8c97d3f8ae0f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4388f40bf933b7cfbf56d47d06cc0a1b"><td class="memItemLeft" align="right" valign="top"><a id="a4388f40bf933b7cfbf56d47d06cc0a1b"></a>
-typedef std::string&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b></td></tr>
+<tr class="memitem:a4388f40bf933b7cfbf56d47d06cc0a1b"><td class="memItemLeft" align="right" valign="top">typedef std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a4388f40bf933b7cfbf56d47d06cc0a1b">value_type</a></td></tr>
 <tr class="separator:a4388f40bf933b7cfbf56d47d06cc0a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe67befc122528831804d8d2263856fc"><td class="memItemLeft" align="right" valign="top"><a id="afe67befc122528831804d8d2263856fc"></a>
-typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1struct__data__trait.html">struct_data_trait</a>&lt; data_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>shelper</b></td></tr>
+<tr class="memitem:afe67befc122528831804d8d2263856fc"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1struct__data__trait.html">struct_data_trait</a>&lt; <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#afe67befc122528831804d8d2263856fc">shelper</a></td></tr>
 <tr class="separator:afe67befc122528831804d8d2263856fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cff5e5153c81f5a22e8c97d3f8ae0f1"><td class="memItemLeft" align="right" valign="top"><a id="a1cff5e5153c81f5a22e8c97d3f8ae0f1"></a>
-typedef T&#160;</td><td class="memItemRight" valign="bottom"><b>data_type</b></td></tr>
+<tr class="memitem:a1cff5e5153c81f5a22e8c97d3f8ae0f1"><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a></td></tr>
 <tr class="separator:a1cff5e5153c81f5a22e8c97d3f8ae0f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4388f40bf933b7cfbf56d47d06cc0a1b"><td class="memItemLeft" align="right" valign="top"><a id="a4388f40bf933b7cfbf56d47d06cc0a1b"></a>
-typedef std::string&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b></td></tr>
+<tr class="memitem:a4388f40bf933b7cfbf56d47d06cc0a1b"><td class="memItemLeft" align="right" valign="top">typedef std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a4388f40bf933b7cfbf56d47d06cc0a1b">value_type</a></td></tr>
 <tr class="separator:a4388f40bf933b7cfbf56d47d06cc0a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe67befc122528831804d8d2263856fc"><td class="memItemLeft" align="right" valign="top"><a id="afe67befc122528831804d8d2263856fc"></a>
-typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1struct__data__trait.html">struct_data_trait</a>&lt; data_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>shelper</b></td></tr>
+<tr class="memitem:afe67befc122528831804d8d2263856fc"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1struct__data__trait.html">struct_data_trait</a>&lt; <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#afe67befc122528831804d8d2263856fc">shelper</a></td></tr>
 <tr class="separator:afe67befc122528831804d8d2263856fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad689cc5178c3aede6c74f9061d291d7d"><td class="memItemLeft" align="right" valign="top"><a id="ad689cc5178c3aede6c74f9061d291d7d"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> ()</td></tr>
+<tr class="memitem:ad689cc5178c3aede6c74f9061d291d7d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#ad689cc5178c3aede6c74f9061d291d7d">size</a> ()</td></tr>
 <tr class="separator:ad689cc5178c3aede6c74f9061d291d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a273ac1ea9c43b2282326800e0e1338fe"><td class="memItemLeft" align="right" valign="top"><a id="a273ac1ea9c43b2282326800e0e1338fe"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> (const data_type &amp;)</td></tr>
+<tr class="memitem:a273ac1ea9c43b2282326800e0e1338fe"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a273ac1ea9c43b2282326800e0e1338fe">size</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;)</td></tr>
 <tr class="separator:a273ac1ea9c43b2282326800e0e1338fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa24d251062939cfcc337e4acb4827ccb"><td class="memItemLeft" align="right" valign="top"><a id="aa24d251062939cfcc337e4acb4827ccb"></a>
-static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>header</b> (const data_type &amp;, int=0)</td></tr>
+<tr class="memitem:aa24d251062939cfcc337e4acb4827ccb"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#aa24d251062939cfcc337e4acb4827ccb">header</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;, int=0)</td></tr>
 <tr class="separator:aa24d251062939cfcc337e4acb4827ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5804fb85ada978b5f4a351a57b36c8a"><td class="memItemLeft" align="right" valign="top"><a id="ae5804fb85ada978b5f4a351a57b36c8a"></a>
-static value_type *&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> (const data_type &amp;, int=0)</td></tr>
+<tr class="memitem:ae5804fb85ada978b5f4a351a57b36c8a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a4388f40bf933b7cfbf56d47d06cc0a1b">value_type</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#ae5804fb85ada978b5f4a351a57b36c8a">get</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;, int=0)</td></tr>
 <tr class="separator:ae5804fb85ada978b5f4a351a57b36c8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51f1cbc553d7c029ab296e070f4468dc"><td class="memItemLeft" align="right" valign="top"><a id="a51f1cbc553d7c029ab296e070f4468dc"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>setS</b> (const std::string &amp;, data_type &amp;, int=0)</td></tr>
+<tr class="memitem:a51f1cbc553d7c029ab296e070f4468dc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a51f1cbc553d7c029ab296e070f4468dc">setS</a> (const std::string &amp;, <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;, int=0)</td></tr>
 <tr class="separator:a51f1cbc553d7c029ab296e070f4468dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b5a56ab5b912a5cd135c7ff6fba6407"><td class="memItemLeft" align="right" valign="top"><a id="a6b5a56ab5b912a5cd135c7ff6fba6407"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> (const value_type &amp;, data_type &amp;, int=0)</td></tr>
+<tr class="memitem:a6b5a56ab5b912a5cd135c7ff6fba6407"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a6b5a56ab5b912a5cd135c7ff6fba6407">set</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a4388f40bf933b7cfbf56d47d06cc0a1b">value_type</a> &amp;, <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;, int=0)</td></tr>
 <tr class="separator:a6b5a56ab5b912a5cd135c7ff6fba6407"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad689cc5178c3aede6c74f9061d291d7d"><td class="memItemLeft" align="right" valign="top"><a id="ad689cc5178c3aede6c74f9061d291d7d"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> ()</td></tr>
+<tr class="memitem:ad689cc5178c3aede6c74f9061d291d7d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#ad689cc5178c3aede6c74f9061d291d7d">size</a> ()</td></tr>
 <tr class="separator:ad689cc5178c3aede6c74f9061d291d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a273ac1ea9c43b2282326800e0e1338fe"><td class="memItemLeft" align="right" valign="top"><a id="a273ac1ea9c43b2282326800e0e1338fe"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> (const data_type &amp;)</td></tr>
+<tr class="memitem:a273ac1ea9c43b2282326800e0e1338fe"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a273ac1ea9c43b2282326800e0e1338fe">size</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;)</td></tr>
 <tr class="separator:a273ac1ea9c43b2282326800e0e1338fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa24d251062939cfcc337e4acb4827ccb"><td class="memItemLeft" align="right" valign="top"><a id="aa24d251062939cfcc337e4acb4827ccb"></a>
-static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>header</b> (const data_type &amp;, int=0)</td></tr>
+<tr class="memitem:aa24d251062939cfcc337e4acb4827ccb"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#aa24d251062939cfcc337e4acb4827ccb">header</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;, int=0)</td></tr>
 <tr class="separator:aa24d251062939cfcc337e4acb4827ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5804fb85ada978b5f4a351a57b36c8a"><td class="memItemLeft" align="right" valign="top"><a id="ae5804fb85ada978b5f4a351a57b36c8a"></a>
-static value_type *&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> (const data_type &amp;, int=0)</td></tr>
+<tr class="memitem:ae5804fb85ada978b5f4a351a57b36c8a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a4388f40bf933b7cfbf56d47d06cc0a1b">value_type</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#ae5804fb85ada978b5f4a351a57b36c8a">get</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;, int=0)</td></tr>
 <tr class="separator:ae5804fb85ada978b5f4a351a57b36c8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51f1cbc553d7c029ab296e070f4468dc"><td class="memItemLeft" align="right" valign="top"><a id="a51f1cbc553d7c029ab296e070f4468dc"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>setS</b> (const std::string &amp;, data_type &amp;, int=0)</td></tr>
+<tr class="memitem:a51f1cbc553d7c029ab296e070f4468dc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a51f1cbc553d7c029ab296e070f4468dc">setS</a> (const std::string &amp;, <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;, int=0)</td></tr>
 <tr class="separator:a51f1cbc553d7c029ab296e070f4468dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b5a56ab5b912a5cd135c7ff6fba6407"><td class="memItemLeft" align="right" valign="top"><a id="a6b5a56ab5b912a5cd135c7ff6fba6407"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> (const value_type &amp;, data_type &amp;, int=0)</td></tr>
+<tr class="memitem:a6b5a56ab5b912a5cd135c7ff6fba6407"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a6b5a56ab5b912a5cd135c7ff6fba6407">set</a> (const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a4388f40bf933b7cfbf56d47d06cc0a1b">value_type</a> &amp;, <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;, int=0)</td></tr>
 <tr class="separator:a6b5a56ab5b912a5cd135c7ff6fba6407"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a1cff5e5153c81f5a22e8c97d3f8ae0f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cff5e5153c81f5a22e8c97d3f8ae0f1">&#9670;&nbsp;</a></span>data_type <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef T <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1cff5e5153c81f5a22e8c97d3f8ae0f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cff5e5153c81f5a22e8c97d3f8ae0f1">&#9670;&nbsp;</a></span>data_type <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef T <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe67befc122528831804d8d2263856fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe67befc122528831804d8d2263856fc">&#9670;&nbsp;</a></span>shelper <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1struct__data__trait.html">struct_data_trait</a>&lt;<a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a>&gt; <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#afe67befc122528831804d8d2263856fc">shelper</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe67befc122528831804d8d2263856fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe67befc122528831804d8d2263856fc">&#9670;&nbsp;</a></span>shelper <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1gui_1_1qt_1_1struct__data__trait.html">struct_data_trait</a>&lt;<a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a>&gt; <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#afe67befc122528831804d8d2263856fc">shelper</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4388f40bf933b7cfbf56d47d06cc0a1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4388f40bf933b7cfbf56d47d06cc0a1b">&#9670;&nbsp;</a></span>value_type <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::string <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a4388f40bf933b7cfbf56d47d06cc0a1b">value_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4388f40bf933b7cfbf56d47d06cc0a1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4388f40bf933b7cfbf56d47d06cc0a1b">&#9670;&nbsp;</a></span>value_type <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::string <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a4388f40bf933b7cfbf56d47d06cc0a1b">value_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="aded9ca14dda7907d5a7b2bf085928aaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aded9ca14dda7907d5a7b2bf085928aaf">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae6cdb622357fec6e889e47579a078524a67749cad3fa05c9d291c7b6a6acb9dce"></a>is_struct&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="acf031a18714fab9c47677ce9eba30e70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf031a18714fab9c47677ce9eba30e70">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6b1af8ba72fb238659a469ca5d2ef52ba51ec0d99146a1c7d602126da97f6d53e"></a>is_vector&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="af01802ada3cad45fab403a42f8a2e9c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af01802ada3cad45fab403a42f8a2e9c2">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3cf72ed4749da6539b6eb4c6fc18e392a74b4f3fce22f1709099e994fe7ef94a1"></a>is_single&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="aa0ead9a390ae1a2e9537f8ea60f4f355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0ead9a390ae1a2e9537f8ea60f4f355">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2f540bcfdd4fc37daf6a2ce293262088a42560d649446d3c82327a06d9e03f545"></a>is_default&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ae6cdb622357fec6e889e47579a078524"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6cdb622357fec6e889e47579a078524">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae6cdb622357fec6e889e47579a078524a67749cad3fa05c9d291c7b6a6acb9dce"></a>is_struct&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a6b1af8ba72fb238659a469ca5d2ef52b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b1af8ba72fb238659a469ca5d2ef52b">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6b1af8ba72fb238659a469ca5d2ef52ba51ec0d99146a1c7d602126da97f6d53e"></a>is_vector&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a3cf72ed4749da6539b6eb4c6fc18e392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cf72ed4749da6539b6eb4c6fc18e392">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3cf72ed4749da6539b6eb4c6fc18e392a74b4f3fce22f1709099e994fe7ef94a1"></a>is_single&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a2f540bcfdd4fc37daf6a2ce293262088"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f540bcfdd4fc37daf6a2ce293262088">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2f540bcfdd4fc37daf6a2ce293262088a42560d649446d3c82327a06d9e03f545"></a>is_default&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae5804fb85ada978b5f4a351a57b36c8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5804fb85ada978b5f4a351a57b36c8a">&#9670;&nbsp;</a></span>get() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a4388f40bf933b7cfbf56d47d06cc0a1b">value_type</a>* get </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae5804fb85ada978b5f4a351a57b36c8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5804fb85ada978b5f4a351a57b36c8a">&#9670;&nbsp;</a></span>get() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a4388f40bf933b7cfbf56d47d06cc0a1b">value_type</a>* get </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa24d251062939cfcc337e4acb4827ccb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa24d251062939cfcc337e4acb4827ccb">&#9670;&nbsp;</a></span>header() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const char* header </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa24d251062939cfcc337e4acb4827ccb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa24d251062939cfcc337e4acb4827ccb">&#9670;&nbsp;</a></span>header() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const char* header </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b5a56ab5b912a5cd135c7ff6fba6407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b5a56ab5b912a5cd135c7ff6fba6407">&#9670;&nbsp;</a></span>set() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void set </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a4388f40bf933b7cfbf56d47d06cc0a1b">value_type</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b5a56ab5b912a5cd135c7ff6fba6407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b5a56ab5b912a5cd135c7ff6fba6407">&#9670;&nbsp;</a></span>set() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void set </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a4388f40bf933b7cfbf56d47d06cc0a1b">value_type</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51f1cbc553d7c029ab296e070f4468dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51f1cbc553d7c029ab296e070f4468dc">&#9670;&nbsp;</a></span>setS() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void setS </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51f1cbc553d7c029ab296e070f4468dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51f1cbc553d7c029ab296e070f4468dc">&#9670;&nbsp;</a></span>setS() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void setS </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad689cc5178c3aede6c74f9061d291d7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad689cc5178c3aede6c74f9061d291d7d">&#9670;&nbsp;</a></span>size() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad689cc5178c3aede6c74f9061d291d7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad689cc5178c3aede6c74f9061d291d7d">&#9670;&nbsp;</a></span>size() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a273ac1ea9c43b2282326800e0e1338fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a273ac1ea9c43b2282326800e0e1338fe">&#9670;&nbsp;</a></span>size() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int size </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a273ac1ea9c43b2282326800e0e1338fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a273ac1ea9c43b2282326800e0e1338fe">&#9670;&nbsp;</a></span>size() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int size </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1">data_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>gui</b></li><li class="navelem"><b>qt</b></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html">flat_struct_data_trait&lt; T, 0 &gt;</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:52 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui.html">gui</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui_1_1qt.html">qt</a></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1flat__struct__data__trait_3_01_t_00_010_01_4.html">flat_struct_data_trait&lt; T, 0 &gt;</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:39 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

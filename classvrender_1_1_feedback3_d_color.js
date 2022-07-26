@@ -9,6 +9,7 @@ var classvrender_1_1_feedback3_d_color =
     [ "operator+", "classvrender_1_1_feedback3_d_color.html#a02a364c73c635e94c36dd30da2f358ae", null ],
     [ "pos", "classvrender_1_1_feedback3_d_color.html#a5524dd6d756641f65a5345ff7b17a60e", null ],
     [ "red", "classvrender_1_1_feedback3_d_color.html#a5709c294e1fa87806e8257b635fa99c9", null ],
+    [ "sizeInBuffer", "classvrender_1_1_feedback3_d_color.html#a7bd038732f4dda2f01ec76ad101a1a04", null ],
     [ "x", "classvrender_1_1_feedback3_d_color.html#a3c81012f71afd1e03e003166c4f98974", null ],
     [ "y", "classvrender_1_1_feedback3_d_color.html#a395899c02293d3a286bf9735c89d4c31", null ],
     [ "z", "classvrender_1_1_feedback3_d_color.html#a9b49ca6f258a34a36ad87543a1dfce63", null ],

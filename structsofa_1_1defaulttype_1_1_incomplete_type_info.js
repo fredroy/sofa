@@ -15,5 +15,17 @@ var structsofa_1_1defaulttype_1_1_incomplete_type_info =
     [ "Text", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#a0a28cf10bf72f80c90de5e5e1e698bfba35d0dd9a40755601b657244976bfc14b", null ],
     [ "CopyOnWrite", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#a85c7862086c1f92e4fb4108e176d8140a611f008a9989ce97b80ee9e701d8e2d7", null ],
     [ "Container", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#a52864abcf6ebd8d120995b36fe6ce06ea960c324d4c72aa0923e8bcac8c646b48", null ],
-    [ "Size", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#a4d29ca5db06e2ae647d1ec22548a9d2aaff9abf2b1a689f70a77a18da50c01d9f", null ]
+    [ "Size", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#a4d29ca5db06e2ae647d1ec22548a9d2aaff9abf2b1a689f70a77a18da50c01d9f", null ],
+    [ "byteSize", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#a5568572189d7edfc83572f5e5b201f6d", null ],
+    [ "GetTypeName", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#a26c35b672795bbface6f446ee596129c", null ],
+    [ "getValue", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#afb9e8e4c998b3af5318c73aaee6136a6", null ],
+    [ "getValuePtr", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#a12eff7f35f01ac1c2cf3645d29b8cb75", null ],
+    [ "getValuePtr", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#ab3d7c9fa357f87680eca9658a98b2016", null ],
+    [ "getValueString", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#a9cb8f418290ce3f27c6f96ab6afe41f3", null ],
+    [ "name", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#a94960f47a8a5a5db6ee7785c171252f4", null ],
+    [ "setSize", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#a3f330487f3d7a0da16be72da86214d77", null ],
+    [ "setValue", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#a50e7650668b2ff1cd973ee60ba2862f5", null ],
+    [ "setValueString", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#a91270cfc358936144c99c938613b5222", null ],
+    [ "size", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#aa9cf1bb1e3778c4f285e753e5bcb440e", null ],
+    [ "size", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html#afb4ad6832d7a735e80f418c3c011c235", null ]
 ];

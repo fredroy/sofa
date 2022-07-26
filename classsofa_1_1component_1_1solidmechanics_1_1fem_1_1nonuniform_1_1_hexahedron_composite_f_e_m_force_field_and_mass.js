@@ -30,11 +30,22 @@ var classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron
     [ "SOFA_CLASS", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#ad965c3acc53a539b8e7360bd97c7cf88", null ],
     [ "_finalWeights", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#a9ff33b95d91029d9d33e9e3966ba070d", null ],
     [ "_weights", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#a6f1794a385d743d61462e3b46cf15b49", null ],
+    [ "CoarseToFine", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#a6a68daf42f34fbd9951dea2979aff796", null ],
     [ "d_completeInterpolation", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#ae63076c41af6253a7875be7dad382043", null ],
     [ "d_drawColor", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#a512a50a134c32978b0cdb4a4cec488ba", null ],
     [ "d_drawSize", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#a73567bee7afe98463b1c03a53084c92e", null ],
     [ "d_drawType", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#abd346ea12d9816621e831ab8bc551710", null ],
     [ "d_finestToCoarse", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#a61f2a02560f3bfce17dfdad9205ea9ef", null ],
     [ "d_homogenizationMethod", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#a4f3688fad043231c1076c746780e36d0", null ],
-    [ "d_useRamification", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#a8c3a6065e5cde7e6853454a317d09a8e", null ]
+    [ "d_useRamification", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#a8c3a6065e5cde7e6853454a317d09a8e", null ],
+    [ "FINE_ELEM_IN_COARSE_IN_ASS_FRAME", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#ab09df4533ed4be9aa38583c176519006", null ],
+    [ "FineHexa_FineNode_IndiceForAssembling", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#a59cddfbef23242c7490e7bc70296d91f", null ],
+    [ "FineHexa_FineNode_IndiceForCutAssembling_27", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#a85cdf93633512a7f4e35b98773cc3fe6", null ],
+    [ "IS_CONSTRAINED_27", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#ae4934d9bb14c0eb6fbc79f1df3c41d64", null ],
+    [ "MIDDLE_AXES", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#a44c92a5e19ce888519757d4631dde0f4", null ],
+    [ "MIDDLE_INTERPOLATION", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#a466449dfdb88dba0d6d14058a76aabc1", null ],
+    [ "RIGID_STIFFNESS", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#af3304585edfc4df05892b612fa6e72e4", null ],
+    [ "WEIGHT_MASK", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#a9bdae612394bca847d2a0434d924091a", null ],
+    [ "WEIGHT_MASK_CROSSED", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#aaa9c4f53bb7f4ca3a895630a39a8284f", null ],
+    [ "WEIGHT_MASK_CROSSED_DIFF", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html#a8951c772b9ce703cf483f583f475c38a", null ]
 ];

@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_collision_model_8h_source.html',''); 
 <div class="title">CollisionModel.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_collision_model_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -110,11 +110,11 @@ $(document).ready(function(){initNavTree('_collision_model_8h_source.html',''); 
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#ifndef SOFA_CORE_COLLISIONMODEL_H</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define SOFA_CORE_COLLISIONMODEL_H</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/core/objectmodel/BaseObject.h&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sofa/core/CollisionElement.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_base_object_8h.html">sofa/core/objectmodel/BaseObject.h</a>&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_collision_element_8h.html">sofa/core/CollisionElement.h</a>&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">//todo(dmarchal 2018-06-19) I really wonder why a collision model has a dependency to a RGBAColors.</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;sofa/type/RGBAColor.h&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_type_2src_2sofa_2type_2_r_g_b_a_color_8h.html">sofa/type/RGBAColor.h</a>&gt;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa.html">sofa</a></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
@@ -131,17 +131,17 @@ $(document).ready(function(){initNavTree('_collision_model_8h_source.html',''); 
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">class </span>CollisionElementActiver</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    CollisionElementActiver() {}</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> ~CollisionElementActiver() {}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isCollElemActive(sofa::Index <span class="comment">/*index*/</span>, core::CollisionModel * <span class="comment">/*cm*/</span> = <span class="keyword">nullptr</span>) { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">static</span> CollisionElementActiver* getDefaultActiver() { <span class="keyword">static</span> CollisionElementActiver defaultActiver; <span class="keywordflow">return</span> &amp;defaultActiver; }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classsofa_1_1core_1_1_collision_element_activer.html#a8e0ee57967ac20621686b2841143dc84">CollisionElementActiver</a>() {}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classsofa_1_1core_1_1_collision_element_activer.html#a91419dc750aa2e008348277a42873558">~CollisionElementActiver</a>() {}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classsofa_1_1core_1_1_collision_element_activer.html#a78b9beac2d198247b77fe1e4e9307262">isCollElemActive</a>(sofa::Index <span class="comment">/*index*/</span>, core::CollisionModel * <span class="comment">/*cm*/</span> = <span class="keyword">nullptr</span>) { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">static</span> <a class="code" href="classsofa_1_1core_1_1_collision_element_activer.html#a8e0ee57967ac20621686b2841143dc84">CollisionElementActiver</a>* <a class="code" href="classsofa_1_1core_1_1_collision_element_activer.html#aaa39ee76b821a5d5240e1e1de9cfa9a6">getDefaultActiver</a>() { <span class="keyword">static</span> <a class="code" href="classsofa_1_1core_1_1_collision_element_activer.html#a8e0ee57967ac20621686b2841143dc84">CollisionElementActiver</a> defaultActiver; <span class="keywordflow">return</span> &amp;defaultActiver; }</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">class </span>SOFA_CORE_API CollisionModel : <span class="keyword">public</span> <span class="keyword">virtual</span> objectmodel::BaseObject</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    SOFA_ABSTRACT_CLASS(CollisionModel, objectmodel::BaseObject);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    SOFA_BASE_CAST_IMPLEMENTATION(CollisionModel)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="_base_class_8h.html#ab9812e5557717240cf4d8590e3e61064">SOFA_ABSTRACT_CLASS</a>(CollisionModel, objectmodel::BaseObject);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="_base_8h.html#a8e99e1681f46323f510aa90b136dab0a">SOFA_BASE_CAST_IMPLEMENTATION</a>(CollisionModel)</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">enum</span>{</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        AABB_TYPE = 0,</div>
@@ -149,10 +149,10 @@ $(document).ready(function(){initNavTree('_collision_model_8h_source.html',''); 
 <div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_element_activer.html">   83</a></span>&#160;        CAPSULE_TYPE,</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        SPHERE_TYPE,</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        TRIANGLE_TYPE,</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        LINE_TYPE,</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        POINT_TYPE,</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        TETRAHEDRON_TYPE,</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        RDISTANCE_GRIDE_TYPE,</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_element_activer.html#a8e0ee57967ac20621686b2841143dc84">   86</a></span>&#160;        LINE_TYPE,</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_element_activer.html#a91419dc750aa2e008348277a42873558">   87</a></span>&#160;        POINT_TYPE,</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_element_activer.html#a78b9beac2d198247b77fe1e4e9307262">   88</a></span>&#160;        TETRAHEDRON_TYPE,</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_element_activer.html#aaa39ee76b821a5d5240e1e1de9cfa9a6">   89</a></span>&#160;        RDISTANCE_GRIDE_TYPE,</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        FFDDISTANCE_GRIDE_TYPE,</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        CYLINDER_TYPE,</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        ENUM_TYPE_SIZE</div>
@@ -180,29 +180,29 @@ $(document).ready(function(){initNavTree('_collision_model_8h_source.html',''); 
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    Size getSize()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">return</span> size;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">bool</span> getSelfCollision()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">return</span> bSelfCollision.getValue();</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> setSelfCollision(<span class="keywordtype">bool</span> _bSelfCollision)</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        bSelfCollision = _bSelfCollision ;</div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa841dafae5a5d44d551bb02bf53564e8a">  121</a></span>&#160;    }</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa2468d165d17f9c2fc8dd4a91bc87164f">  122</a></span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa5191c26f296d667c9679f0ffc0fc49cb">  124</a></span>&#160;    <span class="keywordtype">bool</span> getSelfCollision()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa4c2a4f2390184a0af5b85cd42b922624">  125</a></span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa0b92806c697eef470a64ab9ad93699ed">  126</a></span>&#160;        <span class="keywordflow">return</span> bSelfCollision.getValue();</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aac192c7d3b0603ae3e69c8b6e99dd6a1c">  127</a></span>&#160;    }</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa575f92b81642beeab2734ffdbd2f2c92">  128</a></span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aac406f621262ed06a24e9cd966faa1f38">  130</a></span>&#160;    <span class="keywordtype">void</span> setSelfCollision(<span class="keywordtype">bool</span> _bSelfCollision)</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aab31d17b0ae3d2f304525e17d57f90d91">  131</a></span>&#160;    {</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa0775d4a11c1ec946633a3667030e10bc">  132</a></span>&#160;        bSelfCollision = _bSelfCollision ;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    }</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    Size getNumberOfContacts()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keywordflow">return</span> d_numberOfContacts.getValue();</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    }</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#ad188c9f785cb63ef00d2b84f8d82aea1">  136</a></span>&#160;    <a class="code" href="classsofa_1_1core_1_1_collision_model.html#a10370b92bde00025355309634445af72">Size</a> getNumberOfContacts()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#a2ce9836ea5d955008f317b730892d9c1">  137</a></span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#a34485df4864136107fd830e23695986c">  138</a></span>&#160;        <span class="keywordflow">return</span> d_numberOfContacts.getValue();</div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#a10370b92bde00025355309634445af72">  139</a></span>&#160;    }</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">void</span> setNumberOfContacts(Size i)</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    {</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        d_numberOfContacts.setValue(i);</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    }</div>
 <div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#af784c0dee93853c16c395616a5584459">  146</a></span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> resize(Size s)</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> resize(<a class="code" href="classsofa_1_1core_1_1_collision_model.html#a10370b92bde00025355309634445af72">Size</a> s)</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    {</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        size = s;</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    }</div>
@@ -227,7 +227,7 @@ $(document).ready(function(){initNavTree('_collision_model_8h_source.html',''); 
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keywordflow">return</span> previous.get();</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    }</div>
 <div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#a2b81a4e8541f0ca0a5e18923e611e313">  176</a></span>&#160; </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">void</span> setPrevious(CollisionModel::SPtr val) ;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">void</span> setPrevious(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">CollisionModel::SPtr</a> val) ;</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isActive()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> bActive.getValue() &amp;&amp; getContext()-&gt;isActive(); }</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
@@ -255,7 +255,7 @@ $(document).ready(function(){initNavTree('_collision_model_8h_source.html',''); 
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="keywordflow">return</span> std::make_pair(CollisionElementIterator(),CollisionElementIterator());</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    }</div>
 <div class="line"><a name="l00243"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#aa82ee8f586c9c3d4d74a6e34c874837b">  243</a></span>&#160; </div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isLeaf(Index <span class="comment">/*index*/</span> )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isLeaf(<a class="code" href="classsofa_1_1core_1_1_collision_model.html#a34485df4864136107fd830e23695986c">Index</a> <span class="comment">/*index*/</span> )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;  <span class="comment">//e.g. Triangle will return true</span></div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    }</div>
@@ -275,23 +275,23 @@ $(document).ready(function(){initNavTree('_collision_model_8h_source.html',''); 
 <div class="line"><a name="l00288"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#a03c785b47587e9c9555e8d6c06602ecf">  288</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> DerivedModel&gt;</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    DerivedModel* createPrevious()</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    {</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        CollisionModel::SPtr prev = previous.get();</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">CollisionModel::SPtr</a> prev = previous.get();</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keyword">typename</span> DerivedModel::SPtr pmodel = <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_s_ptr__dynamic__cast.html">sofa::core::objectmodel::SPtr_dynamic_cast&lt;DerivedModel&gt;</a>(prev);</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keywordflow">if</span> (pmodel.get() == <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        {</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            <span class="keywordtype">int</span> level = 0;</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            <a class="code" href="classsofa_1_1core_1_1_collision_model.html">CollisionModel</a> *cm = getNext();</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            <a class="code" href="classsofa_1_1core_1_1_collision_model.html">CollisionModel</a>* root = <span class="keyword">this</span>;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            <a class="code" href="classsofa_1_1core_1_1_collision_model.html">CollisionModel</a>* <a class="code" href="_bilateral_interaction_constraint__test_8cpp.html#ae4921ba1b53a64ac407621370dec9883">root</a> = <span class="keyword">this</span>;</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            <span class="keywordflow">while</span> (cm) </div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;            {</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                root = cm;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                <a class="code" href="_bilateral_interaction_constraint__test_8cpp.html#ae4921ba1b53a64ac407621370dec9883">root</a> = cm;</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                cm = cm-&gt;<a class="code" href="classsofa_1_1core_1_1_collision_model.html#a8f018bf22c9cf3d854615db4e0597e1f">getNext</a>();</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                ++level;</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            }</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            pmodel = <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_new.html">sofa::core::objectmodel::New&lt;DerivedModel&gt;</a>();</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            pmodel-&gt;setName(<span class="stringliteral">&quot;BVLevel&quot;</span>, level);</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            root-&gt;addSlave(pmodel); </div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            <a class="code" href="_bilateral_interaction_constraint__test_8cpp.html#ae4921ba1b53a64ac407621370dec9883">root</a>-&gt;addSlave(pmodel); </div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;            pmodel-&gt;setMoving(isMoving());</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            pmodel-&gt;setSimulated(isSimulated());</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;            pmodel-&gt;proximity.setParent(&amp;proximity);</div>
@@ -309,7 +309,7 @@ $(document).ready(function(){initNavTree('_collision_model_8h_source.html',''); 
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    SReal getProximity() { <span class="keywordflow">return</span> proximity.getValue(); }</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
-<div class="line"><a name="l00329"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#a81026a0a5250d502516bb79746424ff0">  329</a></span>&#160;    SReal getContactStiffness(Index <span class="comment">/*index*/</span>) { <span class="keywordflow">return</span> contactStiffness.getValue(); }</div>
+<div class="line"><a name="l00329"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#a81026a0a5250d502516bb79746424ff0">  329</a></span>&#160;    SReal getContactStiffness(<a class="code" href="classsofa_1_1core_1_1_collision_model.html#a34485df4864136107fd830e23695986c">Index</a> <span class="comment">/*index*/</span>) { <span class="keywordflow">return</span> contactStiffness.getValue(); }</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordtype">void</span> setContactStiffness(SReal stiffness) { contactStiffness.setValue(stiffness); }</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    SReal getContactFriction(Index <span class="comment">/*index*/</span>) { <span class="keywordflow">return</span> contactFriction.getValue(); }</div>
@@ -356,10 +356,10 @@ $(document).ready(function(){initNavTree('_collision_model_8h_source.html',''); 
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data&lt;std::string&gt;</a> contactResponse;</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
 <div class="line"><a name="l00406"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#a04270192da305a624052f321af35c886">  406</a></span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data&lt;sofa::type::RGBAColor&gt;</a> color;</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160; </div>
+<div class="line"><a name="l00407"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#aee11cb79bf4078bad13508646909da7b">  407</a></span>&#160; </div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data&lt; std::set&lt;int&gt;</a> &gt; group;</div>
 <div class="line"><a name="l00411"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#a2967e18f58126627974fee744038459c">  411</a></span>&#160; </div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    Size size;</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <a class="code" href="classsofa_1_1core_1_1_collision_model.html#a10370b92bde00025355309634445af72">Size</a> size;</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
 <div class="line"><a name="l00416"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_collision_model.html#a2bb25a3dfaf9add5c1e71492576252d7">  416</a></span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data&lt;Size&gt;</a> d_numberOfContacts;</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160; </div>
@@ -388,24 +388,37 @@ $(document).ready(function(){initNavTree('_collision_model_8h_source.html',''); 
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="a_base_object_8h_html"><div class="ttname"><a href="_base_object_8h.html">BaseObject.h</a></div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_html_ab57acce1b994c39fb8ad8014583a8bbd"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">sofa::core::objectmodel::Base::SPtr</a></div><div class="ttdeci">sptr&lt; Base &gt; SPtr</div><div class="ttdef"><b>Definition:</b> Base.h:120</div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1_collision_element_activer_html_a91419dc750aa2e008348277a42873558"><div class="ttname"><a href="classsofa_1_1core_1_1_collision_element_activer.html#a91419dc750aa2e008348277a42873558">sofa::core::CollisionElementActiver::~CollisionElementActiver</a></div><div class="ttdeci">virtual ~CollisionElementActiver()</div><div class="ttdef"><b>Definition:</b> CollisionModel.h:87</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_new_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_new.html">sofa::core::objectmodel::New</a></div><div class="ttdoc">new operator for classes with smart pointers (such as all components deriving from Base)</div><div class="ttdef"><b>Definition:</b> SPtr.h:112</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_s_ptr__dynamic__cast_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_s_ptr__dynamic__cast.html">sofa::core::objectmodel::SPtr_dynamic_cast</a></div><div class="ttdoc">dynamic_cast operator for SPtr</div><div class="ttdef"><b>Definition:</b> SPtr.h:121</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1topology_1_1_topology_html"><div class="ttname"><a href="classsofa_1_1core_1_1topology_1_1_topology.html">sofa::core::topology::Topology</a></div><div class="ttdef"><b>Definition:</b> Topology.h:66</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_collision_model_html_a8f018bf22c9cf3d854615db4e0597e1f"><div class="ttname"><a href="classsofa_1_1core_1_1_collision_model.html#a8f018bf22c9cf3d854615db4e0597e1f">sofa::core::CollisionModel::getNext</a></div><div class="ttdeci">CollisionModel * getNext()</div><div class="ttdoc">Return the next (finer / lower / child level) CollisionModel in the hierarchy.</div><div class="ttdef"><b>Definition:</b> CollisionModel.h:206</div></div>
+<div class="ttc" id="a_type_2src_2sofa_2type_2_r_g_b_a_color_8h_html"><div class="ttname"><a href="_type_2src_2sofa_2type_2_r_g_b_a_color_8h.html">RGBAColor.h</a></div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1_collision_element_activer_html_a8e0ee57967ac20621686b2841143dc84"><div class="ttname"><a href="classsofa_1_1core_1_1_collision_element_activer.html#a8e0ee57967ac20621686b2841143dc84">sofa::core::CollisionElementActiver::CollisionElementActiver</a></div><div class="ttdeci">CollisionElementActiver()</div><div class="ttdef"><b>Definition:</b> CollisionModel.h:86</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_node_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">sofa::core::objectmodel::BaseNode</a></div><div class="ttdoc">Base class for simulation nodes.</div><div class="ttdef"><b>Definition:</b> BaseNode.h:107</div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1_collision_model_html_a10370b92bde00025355309634445af72"><div class="ttname"><a href="classsofa_1_1core_1_1_collision_model.html#a10370b92bde00025355309634445af72">sofa::core::CollisionModel::Size</a></div><div class="ttdeci">sofa::Size Size</div><div class="ttdef"><b>Definition:</b> CollisionModel.h:139</div></div>
 <div class="ttc" id="anamespacesofa_html"><div class="ttname"><a href="namespacesofa.html">sofa</a></div><div class="ttdoc">This allow MeshTrian to interact with the messaging system.</div><div class="ttdef"><b>Definition:</b> ConstraintAnimationLoop.cpp:81</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_data_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_data.html">sofa::core::objectmodel::Data&lt; bool &gt;</a></div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1topology_1_1_base_mesh_topology_html"><div class="ttname"><a href="classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html">sofa::core::topology::BaseMeshTopology</a></div><div class="ttdef"><b>Definition:</b> BaseMeshTopology.h:98</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_single_link_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_single_link.html">sofa::core::objectmodel::SingleLink</a></div><div class="ttdoc">Container of single links in the scenegraph, from a given type of object (Owner) to another (Dest)</div><div class="ttdef"><b>Definition:</b> Link.h:715</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_collision_element_iterator_html"><div class="ttname"><a href="classsofa_1_1core_1_1_collision_element_iterator.html">sofa::core::CollisionElementIterator</a></div><div class="ttdoc">Reference to an abstract collision element.</div><div class="ttdef"><b>Definition:</b> CollisionElement.h:349</div></div>
+<div class="ttc" id="a_base_8h_html_a8e99e1681f46323f510aa90b136dab0a"><div class="ttname"><a href="_base_8h.html#a8e99e1681f46323f510aa90b136dab0a">SOFA_BASE_CAST_IMPLEMENTATION</a></div><div class="ttdeci">#define SOFA_BASE_CAST_IMPLEMENTATION(CLASSNAME)</div><div class="ttdef"><b>Definition:</b> Base.h:100</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_collision_element_activer_html"><div class="ttname"><a href="classsofa_1_1core_1_1_collision_element_activer.html">sofa::core::CollisionElementActiver</a></div><div class="ttdef"><b>Definition:</b> CollisionModel.h:83</div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1_collision_model_html_a34485df4864136107fd830e23695986c"><div class="ttname"><a href="classsofa_1_1core_1_1_collision_model.html#a34485df4864136107fd830e23695986c">sofa::core::CollisionModel::Index</a></div><div class="ttdeci">sofa::Index Index</div><div class="ttdef"><b>Definition:</b> CollisionModel.h:138</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1visual_1_1_visual_params_html"><div class="ttname"><a href="classsofa_1_1core_1_1visual_1_1_visual_params.html">sofa::core::visual::VisualParams</a></div><div class="ttdoc">Class gathering parameters used by visual components and by the draw method of each component....</div><div class="ttdef"><b>Definition:</b> VisualParams.h:65</div></div>
+<div class="ttc" id="a_base_class_8h_html_ab9812e5557717240cf4d8590e3e61064"><div class="ttname"><a href="_base_class_8h.html#ab9812e5557717240cf4d8590e3e61064">SOFA_ABSTRACT_CLASS</a></div><div class="ttdeci">#define SOFA_ABSTRACT_CLASS(T, Parent)</div><div class="ttdef"><b>Definition:</b> BaseClass.h:214</div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1_collision_element_activer_html_a78b9beac2d198247b77fe1e4e9307262"><div class="ttname"><a href="classsofa_1_1core_1_1_collision_element_activer.html#a78b9beac2d198247b77fe1e4e9307262">sofa::core::CollisionElementActiver::isCollElemActive</a></div><div class="ttdeci">virtual bool isCollElemActive(sofa::Index, core::CollisionModel *=nullptr)</div><div class="ttdef"><b>Definition:</b> CollisionModel.h:88</div></div>
+<div class="ttc" id="a_collision_element_8h_html"><div class="ttname"><a href="_collision_element_8h.html">CollisionElement.h</a></div></div>
+<div class="ttc" id="a_bilateral_interaction_constraint__test_8cpp_html_ae4921ba1b53a64ac407621370dec9883"><div class="ttname"><a href="_bilateral_interaction_constraint__test_8cpp.html#ae4921ba1b53a64ac407621370dec9883">root</a></div><div class="ttdeci">simulation::Node::SPtr root</div><div class="ttdoc">Root of the scene graph, created by the constructor an re-used in the tests.</div><div class="ttdef"><b>Definition:</b> BilateralInteractionConstraint_test.cpp:66</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_collision_model_html"><div class="ttname"><a href="classsofa_1_1core_1_1_collision_model.html">sofa::core::CollisionModel</a></div><div class="ttdoc">Abstract CollisionModel interface.</div><div class="ttdef"><b>Definition:</b> CollisionModel.h:114</div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1_collision_element_activer_html_aaa39ee76b821a5d5240e1e1de9cfa9a6"><div class="ttname"><a href="classsofa_1_1core_1_1_collision_element_activer.html#aaa39ee76b821a5d5240e1e1de9cfa9a6">sofa::core::CollisionElementActiver::getDefaultActiver</a></div><div class="ttdeci">static CollisionElementActiver * getDefaultActiver()</div><div class="ttdef"><b>Definition:</b> CollisionModel.h:89</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_60e01685828ffd7c41f36858d8896f33.html">Core</a></li><li class="navelem"><a class="el" href="dir_1796a5980b33da4b9881c7f7295ea624.html">src</a></li><li class="navelem"><a class="el" href="dir_29474acf678dce4aed010bf0162b5a34.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b2ea3abd78d86d2c623df4c62fb6cf9b.html">core</a></li><li class="navelem"><b>CollisionModel.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:36:26 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_60e01685828ffd7c41f36858d8896f33.html">Core</a></li><li class="navelem"><a class="el" href="dir_1796a5980b33da4b9881c7f7295ea624.html">src</a></li><li class="navelem"><a class="el" href="dir_29474acf678dce4aed010bf0162b5a34.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b2ea3abd78d86d2c623df4c62fb6cf9b.html">core</a></li><li class="navelem"><a class="el" href="_collision_model_8h.html">CollisionModel.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:04:07 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

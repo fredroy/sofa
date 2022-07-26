@@ -7,6 +7,7 @@ var classsofa_1_1defaulttype_1_1_data_type_info_dynamic_wrapper =
     [ "Container", "classsofa_1_1defaulttype_1_1_data_type_info_dynamic_wrapper.html#a832550fd1960efaa8847e14264509486", null ],
     [ "CopyOnWrite", "classsofa_1_1defaulttype_1_1_data_type_info_dynamic_wrapper.html#a902cb3c5a0b085d974723b3ed5384be1", null ],
     [ "FixedSize", "classsofa_1_1defaulttype_1_1_data_type_info_dynamic_wrapper.html#a49ee4742b786935729108fd8fa73ed06", null ],
+    [ "get", "classsofa_1_1defaulttype_1_1_data_type_info_dynamic_wrapper.html#a144d27c361052d6acc34842b1555e0d6", null ],
     [ "getBaseTypeId", "classsofa_1_1defaulttype_1_1_data_type_info_dynamic_wrapper.html#a584e546265efd9e0e830ee339b2bb30d", null ],
     [ "getIntegerValue", "classsofa_1_1defaulttype_1_1_data_type_info_dynamic_wrapper.html#ad6d80442b71d5d45cc28aff5b5a04c08", null ],
     [ "getScalarValue", "classsofa_1_1defaulttype_1_1_data_type_info_dynamic_wrapper.html#a81d94d5ce85f9182f7022c265aad14f9", null ],

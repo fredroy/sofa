@@ -23,6 +23,16 @@ var classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching =
     [ "fixedPosition0", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a95a577240a9e98906c55d01690a8428e", null ],
     [ "fixedweight", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a135bbca500241c5f900cbea7a1d54749", null ],
     [ "iterations", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a1c77ee3ae0fc963a4563f0d34843d2f0", null ],
+    [ "mstate", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#af14e145e08f59faaf066c8ba3a3abfed", null ],
+    [ "nbClust", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#aa81a8943da1fb69602d4ddd49284eeec", null ],
+    [ "oldfixedweight", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#aaa3d1802d79477885bf8c0c9c6fb259e", null ],
+    [ "oldRestPositionSize", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#aabd20db6197f852fe65f6dc33067160e", null ],
     [ "position", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a9eecb5f0e9d8b3e53decface4506262b", null ],
-    [ "targetPosition", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#afc660cd39cba2ba320ffeff97967e782", null ]
+    [ "Qxinv", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a027ef9a06fc098cc1814645ee44ef8c7", null ],
+    [ "T", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a34ff0d838969b1f199fb3efd1da6d26d", null ],
+    [ "targetPosition", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#afc660cd39cba2ba320ffeff97967e782", null ],
+    [ "topo", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#abd5bfeb4660d81ebbcd923fd67075f5d", null ],
+    [ "W", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#ab09f9995ed3978929a5a33aa6083c50c", null ],
+    [ "Xcm", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a8e45e06db2bbb79b3433240a4413708a", null ],
+    [ "Xcm0", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#afcbc86120d19e790e4b48171ac8529a0", null ]
 ];

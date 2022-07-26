@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_file_system_8h_source.html',''); init
 <div class="title">FileSystem.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_file_system_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -136,11 +136,11 @@ $(document).ready(function(){initNavTree('_file_system_8h_source.html',''); init
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> listDirectory(<span class="keyword">const</span> std::string&amp; directoryPath,</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                          std::vector&lt;std::string&gt;&amp; outputFilenames,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                          <span class="keyword">const</span> std::string&amp; extension);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                          <span class="keyword">const</span> std::string&amp; <a class="code" href="save_snapshot_8cpp.html#a1ce7e66096dadf951062dd29a482decc">extension</a>);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">static</span> <span class="keywordtype">int</span> findFiles(<span class="keyword">const</span> std::string&amp; directoryPath,</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                          std::vector&lt;std::string&gt;&amp; outputFilePaths,</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                          <span class="keyword">const</span> std::string&amp; extension, <span class="keyword">const</span> <span class="keywordtype">int</span> depth = 0);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                          <span class="keyword">const</span> std::string&amp; <a class="code" href="save_snapshot_8cpp.html#a1ce7e66096dadf951062dd29a482decc">extension</a>, <span class="keyword">const</span> <span class="keywordtype">int</span> depth = 0);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> createDirectory(<span class="keyword">const</span> std::string&amp; path);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
@@ -166,7 +166,7 @@ $(document).ready(function(){initNavTree('_file_system_8h_source.html',''); init
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keyword">static</span> std::string removeExtraBackSlashes(<span class="keyword">const</span> std::string&amp; path);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keyword">static</span> std::string cleanPath(<span class="keyword">const</span> std::string&amp; path, separator s = SLASH);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keyword">static</span> std::string <a class="code" href="namespacesofa_1_1helper_1_1system.html#aa75fd1346e6d322f8d40b017efae7892">cleanPath</a>(<span class="keyword">const</span> std::string&amp; path, <a class="code" href="classsofa_1_1helper_1_1system_1_1_file_system.html#a54fbe08a3729cd283fc4d415bd4ea90c">separator</a> s = SLASH);</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keyword">static</span> std::string getParentDirectory(<span class="keyword">const</span> std::string&amp; path);</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
@@ -178,16 +178,19 @@ $(document).ready(function(){initNavTree('_file_system_8h_source.html',''); init
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;} <span class="comment">// namespace system</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;} <span class="comment">// namespace helper</span></div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;} <span class="comment">// namespace sofa</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1system_1_1_file_system.html#a54fbe08a3729cd283fc4d415bd4ea90caaabdfe7000ca535236502bb0c87ad944">  150</a></span>&#160; </div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="asave_snapshot_8cpp_html_a1ce7e66096dadf951062dd29a482decc"><div class="ttname"><a href="save_snapshot_8cpp.html#a1ce7e66096dadf951062dd29a482decc">extension</a></div><div class="ttdeci">static QMap&lt; QString, QString &gt; extension</div><div class="ttdef"><b>Definition:</b> saveSnapshot.cpp:54</div></div>
 <div class="ttc" id="anamespacesofa_html"><div class="ttname"><a href="namespacesofa.html">sofa</a></div><div class="ttdoc">This allow MeshTrian to interact with the messaging system.</div><div class="ttdef"><b>Definition:</b> ConstraintAnimationLoop.cpp:81</div></div>
+<div class="ttc" id="anamespacesofa_1_1helper_1_1system_html_aa75fd1346e6d322f8d40b017efae7892"><div class="ttname"><a href="namespacesofa_1_1helper_1_1system.html#aa75fd1346e6d322f8d40b017efae7892">sofa::helper::system::cleanPath</a></div><div class="ttdeci">std::string cleanPath(const std::string &amp;path)</div><div class="ttdef"><b>Definition:</b> FileRepository.cpp:62</div></div>
+<div class="ttc" id="aclasssofa_1_1helper_1_1system_1_1_file_system_html_a54fbe08a3729cd283fc4d415bd4ea90c"><div class="ttname"><a href="classsofa_1_1helper_1_1system_1_1_file_system.html#a54fbe08a3729cd283fc4d415bd4ea90c">sofa::helper::system::FileSystem::separator</a></div><div class="ttdeci">separator</div><div class="ttdef"><b>Definition:</b> FileSystem.h:130</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><a class="el" href="dir_fc466feef2df996a6bc7955f87c4296d.html">system</a></li><li class="navelem"><b>FileSystem.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:41:48 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><a class="el" href="dir_fc466feef2df996a6bc7955f87c4296d.html">system</a></li><li class="navelem"><a class="el" href="_file_system_8h.html">FileSystem.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:14:59 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

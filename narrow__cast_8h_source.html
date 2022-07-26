@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('narrow__cast_8h_source.html',''); init
 <div class="title">narrow_cast.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="narrow__cast_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('narrow__cast_8h_source.html',''); init
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">struct </span>narrowing_error : <span class="keyword">public</span> std::exception</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespacesofa_1_1helper.html#a854d2e8c8402b3413e75a659e5a1c6e2">   52</a></span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* what() const noexcept<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;narrowing_error&quot;</span>; }</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespacesofa_1_1helper.html#a854d2e8c8402b3413e75a659e5a1c6e2">   52</a></span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="structsofa_1_1helper_1_1narrowing__error.html#aac1c33909e01e1dfc85617cf2477d3eb">what</a>() const noexcept<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;narrowing_error&quot;</span>; }</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    };</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> U&gt;</div>
@@ -143,11 +143,11 @@ $(document).ready(function(){initNavTree('narrow__cast_8h_source.html',''); init
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="structsofa_1_1helper_1_1narrowing__error.html">narrowing_error</a>{};</div>
 <div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structsofa_1_1helper_1_1narrowing__error.html">   70</a></span>&#160;        }</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span> constexpr (std::is_arithmetic_v&lt;T&gt; &amp;&amp; std::is_signed_v&lt;T&gt; != std::is_signed_v&lt;U_decay&gt;)</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="structsofa_1_1helper_1_1narrowing__error.html#aac1c33909e01e1dfc85617cf2477d3eb">   72</a></span>&#160;        <span class="keywordflow">if</span> constexpr (std::is_arithmetic_v&lt;T&gt; &amp;&amp; std::is_signed_v&lt;T&gt; != std::is_signed_v&lt;U_decay&gt;)</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">if</span> ((t &lt; T{}) != (u &lt; U_decay{}))</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">throw</span> narrowing_error{};</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="structsofa_1_1helper_1_1narrowing__error.html">narrowing_error</a>{};</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            }</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
@@ -171,6 +171,7 @@ $(document).ready(function(){initNavTree('narrow__cast_8h_source.html',''); init
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="astructsofa_1_1helper_1_1narrowing__error_html_aac1c33909e01e1dfc85617cf2477d3eb"><div class="ttname"><a href="structsofa_1_1helper_1_1narrowing__error.html#aac1c33909e01e1dfc85617cf2477d3eb">sofa::helper::narrowing_error::what</a></div><div class="ttdeci">const char * what() const noexcept override</div><div class="ttdef"><b>Definition:</b> narrow_cast.h:72</div></div>
 <div class="ttc" id="anamespacesofa_1_1helper_html_a8e3f433ee2b3ca95addfc311995652b1"><div class="ttname"><a href="namespacesofa_1_1helper.html#a8e3f433ee2b3ca95addfc311995652b1">sofa::helper::narrow_cast_nocheck</a></div><div class="ttdeci">constexpr T narrow_cast_nocheck(U &amp;&amp;u) noexcept</div><div class="ttdoc">Explicit narrow conversion Inspired by the Guidelines Support Library (https://github....</div><div class="ttdef"><b>Definition:</b> narrow_cast.h:65</div></div>
 <div class="ttc" id="anamespacesofa_1_1helper_html_a854d2e8c8402b3413e75a659e5a1c6e2"><div class="ttname"><a href="namespacesofa_1_1helper.html#a854d2e8c8402b3413e75a659e5a1c6e2">sofa::helper::forceNarrowCastChecking</a></div><div class="ttdeci">constexpr bool forceNarrowCastChecking</div><div class="ttdoc">If true, narrow_cast will check if the value changed after the narrow conversion. Otherwise,...</div><div class="ttdef"><b>Definition:</b> narrow_cast.h:52</div></div>
 <div class="ttc" id="anamespacesofa_1_1helper_html_a5d4afac91defb0a53c84a5baaa009854"><div class="ttname"><a href="namespacesofa_1_1helper.html#a5d4afac91defb0a53c84a5baaa009854">sofa::helper::narrow_cast_check</a></div><div class="ttdeci">constexpr T narrow_cast_check(U u)</div><div class="ttdef"><b>Definition:</b> narrow_cast.h:81</div></div>
@@ -180,8 +181,8 @@ $(document).ready(function(){initNavTree('narrow__cast_8h_source.html',''); init
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><b>narrow_cast.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:41:47 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><a class="el" href="narrow__cast_8h.html">narrow_cast.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:14:59 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

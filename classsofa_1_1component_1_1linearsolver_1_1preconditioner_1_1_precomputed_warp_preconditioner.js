@@ -14,6 +14,7 @@ var classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_war
     [ "VecDeriv", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_warp_preconditioner.html#a9e6d1c076dba163453c1db3811d43d5f", null ],
     [ "PrecomputedWarpPreconditioner", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_warp_preconditioner.html#a2e3492a07024c6640ded28dad5aab882", null ],
     [ "addJMInvJt", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_warp_preconditioner.html#ae283145525540ebdf230c5a6023ba23e", null ],
+    [ "canCreate", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_warp_preconditioner.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "computeActiveDofs", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_warp_preconditioner.html#a95b176d89a8b9c149e0dae5d2c87179d", null ],
     [ "ComputeResult", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_warp_preconditioner.html#af0436c20224c29a5bfc6c142cbe1b471", null ],
     [ "draw", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_warp_preconditioner.html#a8673433953792026ae9baf91b348d7da", null ],

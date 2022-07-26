@@ -7,5 +7,7 @@ var classsofa_1_1helper_1_1io_1_1_image_r_a_w =
     [ "getHeaderSize", "classsofa_1_1helper_1_1io_1_1_image_r_a_w.html#a2c1fb9f0de54189e26dd48b2b24d480f", null ],
     [ "initHeader", "classsofa_1_1helper_1_1io_1_1_image_r_a_w.html#abd9533fd634fb2859ad9829a578e8eb7", null ],
     [ "load", "classsofa_1_1helper_1_1io_1_1_image_r_a_w.html#ab72f3053b85913cd60bc489d75dc6efd", null ],
-    [ "save", "classsofa_1_1helper_1_1io_1_1_image_r_a_w.html#ac4be0d632fd777bf44dcd03e7582bac0", null ]
+    [ "save", "classsofa_1_1helper_1_1io_1_1_image_r_a_w.html#ac4be0d632fd777bf44dcd03e7582bac0", null ],
+    [ "header", "classsofa_1_1helper_1_1io_1_1_image_r_a_w.html#a350b93bcf9b3371a1bdf9cd84eb9f114", null ],
+    [ "headerSize", "classsofa_1_1helper_1_1io_1_1_image_r_a_w.html#a0aa4315cac07f081f0d845235ee8df33", null ]
 ];

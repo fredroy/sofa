@@ -53,5 +53,6 @@ var classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_polynomial_springs_fo
     [ "m_springLength", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_polynomial_springs_force_field.html#a945af56939d2160bef56a0860b5b54ab", null ],
     [ "m_strainSign", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_polynomial_springs_force_field.html#a5423824061e5b898633b539e530bb44d", null ],
     [ "m_strainValue", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_polynomial_springs_force_field.html#ab964f9cfb542833d4d503846107095cd", null ],
-    [ "m_weightedCoordinateDifference", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_polynomial_springs_force_field.html#a950a5db2e30ce9e520d7692349517a4f", null ]
+    [ "m_weightedCoordinateDifference", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_polynomial_springs_force_field.html#a950a5db2e30ce9e520d7692349517a4f", null ],
+    [ "MATH_PI", "classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_polynomial_springs_force_field.html#ae48627374a13c599957512f5b7dddcf9", null ]
 ];

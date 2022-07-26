@@ -26,5 +26,7 @@ var classsofa_1_1component_1_1engine_1_1generate_1_1_mesh_barycentric_mapper_eng
     [ "d_interpolationValues", "classsofa_1_1component_1_1engine_1_1generate_1_1_mesh_barycentric_mapper_engine.html#ac0cd4e7f2fa069ed08acea9794579bc9", null ],
     [ "d_mappedPointPositions", "classsofa_1_1component_1_1engine_1_1generate_1_1_mesh_barycentric_mapper_engine.html#ab3a61fb0efe966d55f20a6c5f3627d28", null ],
     [ "d_tableElements", "classsofa_1_1component_1_1engine_1_1generate_1_1_mesh_barycentric_mapper_engine.html#a6ee1fa2bce57d323e5d969ef8f5ab37c", null ],
-    [ "l_topology", "classsofa_1_1component_1_1engine_1_1generate_1_1_mesh_barycentric_mapper_engine.html#aa933413c2408972f395c2b4805f4db4e", null ]
+    [ "l_topology", "classsofa_1_1component_1_1engine_1_1generate_1_1_mesh_barycentric_mapper_engine.html#aa933413c2408972f395c2b4805f4db4e", null ],
+    [ "linearInterpolIndices", "classsofa_1_1component_1_1engine_1_1generate_1_1_mesh_barycentric_mapper_engine.html#a1cbe6ff7d1bea8deec720ba83c517344", null ],
+    [ "linearInterpolValues", "classsofa_1_1component_1_1engine_1_1generate_1_1_mesh_barycentric_mapper_engine.html#a585ec983ee51d0f86e663c2cabb96bda", null ]
 ];

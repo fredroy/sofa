@@ -26,5 +26,6 @@ var classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_quad_set_topo
     [ "removeQuadsWarning", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_quad_set_topology_modifier.html#a91c6119b900921e7daccf1d1389a7555", null ],
     [ "renumberPointsProcess", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_quad_set_topology_modifier.html#a9fd3bb7ed1f83e909c98f3d67c4d8b17", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_quad_set_topology_modifier.html#a710cb71405eb797b5fe15cdb88f0bfe9", null ],
-    [ "QuadSetGeometryAlgorithms", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_quad_set_topology_modifier.html#a9c3958975c210278c8b701269582b972", null ]
+    [ "QuadSetGeometryAlgorithms", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_quad_set_topology_modifier.html#a9c3958975c210278c8b701269582b972", null ],
+    [ "m_container", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_quad_set_topology_modifier.html#a73231894fd54f596e4a66359eeba0741", null ]
 ];

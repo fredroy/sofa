@@ -15,5 +15,15 @@ var structsofa_1_1defaulttype_1_1_fixed_array_type_info =
     [ "Text", "structsofa_1_1defaulttype_1_1_fixed_array_type_info.html#a7ada2556f3c386db5f31969fb6d4d002a35d0dd9a40755601b657244976bfc14b", null ],
     [ "CopyOnWrite", "structsofa_1_1defaulttype_1_1_fixed_array_type_info.html#a25e50be5c73e0b2fab54944e68dd48c2a611f008a9989ce97b80ee9e701d8e2d7", null ],
     [ "Container", "structsofa_1_1defaulttype_1_1_fixed_array_type_info.html#a97f905ac94bfebd46e50e32c7389e6eba960c324d4c72aa0923e8bcac8c646b48", null ],
-    [ "Size", "structsofa_1_1defaulttype_1_1_fixed_array_type_info.html#a9b29769343da78881f442e657eb62b6eaff9abf2b1a689f70a77a18da50c01d9f", null ]
+    [ "Size", "structsofa_1_1defaulttype_1_1_fixed_array_type_info.html#a9b29769343da78881f442e657eb62b6eaff9abf2b1a689f70a77a18da50c01d9f", null ],
+    [ "byteSize", "structsofa_1_1defaulttype_1_1_fixed_array_type_info.html#a5568572189d7edfc83572f5e5b201f6d", null ],
+    [ "getValue", "structsofa_1_1defaulttype_1_1_fixed_array_type_info.html#a17610f5c478195e208ebc6a476907bc2", null ],
+    [ "getValuePtr", "structsofa_1_1defaulttype_1_1_fixed_array_type_info.html#af4329814b5bfba1f9414a3e1cf9b3feb", null ],
+    [ "getValuePtr", "structsofa_1_1defaulttype_1_1_fixed_array_type_info.html#ae52f1edf1af18ff12ab42c8f987f7538", null ],
+    [ "getValueString", "structsofa_1_1defaulttype_1_1_fixed_array_type_info.html#aeef964da96e4c396c571d69f2e713a89", null ],
+    [ "setSize", "structsofa_1_1defaulttype_1_1_fixed_array_type_info.html#a960f28d1f0e879937b92c0acf6a3263c", null ],
+    [ "setValue", "structsofa_1_1defaulttype_1_1_fixed_array_type_info.html#a0749b8afb7f8cb835e06d1b67f39fb36", null ],
+    [ "setValueString", "structsofa_1_1defaulttype_1_1_fixed_array_type_info.html#a91270cfc358936144c99c938613b5222", null ],
+    [ "size", "structsofa_1_1defaulttype_1_1_fixed_array_type_info.html#aa9cf1bb1e3778c4f285e753e5bcb440e", null ],
+    [ "size", "structsofa_1_1defaulttype_1_1_fixed_array_type_info.html#a29d99a0bde5494dc3bdf8b3a1b33d0f5", null ]
 ];

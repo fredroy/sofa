@@ -7,6 +7,8 @@ var classsofa_1_1core_1_1behavior_1_1_default_multi_matrix_accessor =
     [ "addMechanicalState", "classsofa_1_1core_1_1behavior_1_1_default_multi_matrix_accessor.html#ac36b024f1d7b105b3eb316ba75a309db", null ],
     [ "clear", "classsofa_1_1core_1_1behavior_1_1_default_multi_matrix_accessor.html#ac8bb3912a3ce86b15842e79d0b421204", null ],
     [ "computeGlobalMatrix", "classsofa_1_1core_1_1behavior_1_1_default_multi_matrix_accessor.html#a42602604b319a0c1cb9786e13e7021ff", null ],
+    [ "createMatrix", "classsofa_1_1core_1_1behavior_1_1_default_multi_matrix_accessor.html#a881a10bca39dc7fbdf27663951bdd6f1", null ],
+    [ "createMatrixImpl", "classsofa_1_1core_1_1behavior_1_1_default_multi_matrix_accessor.html#a842b4f378659638505cc6be763df3ba0", null ],
     [ "getGlobalDimension", "classsofa_1_1core_1_1behavior_1_1_default_multi_matrix_accessor.html#abf7707d54296a71e5a5a611329cb5ed7", null ],
     [ "getGlobalOffset", "classsofa_1_1core_1_1behavior_1_1_default_multi_matrix_accessor.html#ab732fb2e3f74944e6829c7da1e9c8446", null ],
     [ "getMatrix", "classsofa_1_1core_1_1behavior_1_1_default_multi_matrix_accessor.html#a6c0b9cc9f4efd0de92c923ccea1adb5d", null ],

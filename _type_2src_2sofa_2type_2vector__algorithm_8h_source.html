@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2vector__algori
 <div class="title">vector_algorithm.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_type_2src_2sofa_2type_2vector__algorithm_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -110,7 +110,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2vector__algori
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/type/vector_T.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="vector___t_8h.html">sofa/type/vector_T.h</a>&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1type.html">sofa::type</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
@@ -143,10 +143,10 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2vector__algori
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keyword">class</span> TT&gt;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacesofa_1_1type.html#a6de0d66f80740729d4c43033f00e17b2">removeIndex</a>( std::vector&lt;T,TT&gt;&amp; v, <span class="keywordtype">size_t</span> index )</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">if</span> constexpr(sofa::type::isEnabledVectorAccessChecking)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">if</span> constexpr(<a class="code" href="namespacesofa_1_1type.html#abd2f18c7274437bd6c372d1ca5bb81f1">sofa::type::isEnabledVectorAccessChecking</a>)</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">if</span> (index&gt;=v.size())</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            vector_access_failure(&amp;v, v.size(), index, <span class="keyword">typeid</span>(T));</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <a class="code" href="namespacesofa_1_1type.html#a6341c05de4120bd3c3181aed41131871">vector_access_failure</a>(&amp;v, v.size(), index, <span class="keyword">typeid</span>(T));</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
 <div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="namespacesofa_1_1type.html#ad66b5de725d213f4ac2f0e625072bc82">   71</a></span>&#160;    <span class="keywordflow">if</span> (index != v.size()-1)</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        v[index] = v.back();</div>
@@ -156,15 +156,18 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2vector__algori
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;} <span class="comment">// namespace sofa::type</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1type_html_abd2f18c7274437bd6c372d1ca5bb81f1"><div class="ttname"><a href="namespacesofa_1_1type.html#abd2f18c7274437bd6c372d1ca5bb81f1">sofa::type::isEnabledVectorAccessChecking</a></div><div class="ttdeci">static constexpr bool isEnabledVectorAccessChecking</div><div class="ttdef"><b>Definition:</b> vector_T.h:41</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html_a1e94c44696690aff693a27ad09eabbc6"><div class="ttname"><a href="namespacesofa_1_1type.html#a1e94c44696690aff693a27ad09eabbc6">sofa::type::remove</a></div><div class="ttdeci">void remove(T1 &amp;v, const T2 &amp;elem)</div><div class="ttdef"><b>Definition:</b> vector_algorithm.h:53</div></div>
+<div class="ttc" id="avector___t_8h_html"><div class="ttname"><a href="vector___t_8h.html">vector_T.h</a></div></div>
+<div class="ttc" id="anamespacesofa_1_1type_html_a6341c05de4120bd3c3181aed41131871"><div class="ttname"><a href="namespacesofa_1_1type.html#a6341c05de4120bd3c3181aed41131871">sofa::type::vector_access_failure</a></div><div class="ttdeci">void SOFA_TYPE_API vector_access_failure(const void *vec, const std::size_t size, const std::size_t i, const std::type_info &amp;type)</div><div class="ttdef"><b>Definition:</b> vector.cpp:30</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html_a6de0d66f80740729d4c43033f00e17b2"><div class="ttname"><a href="namespacesofa_1_1type.html#a6de0d66f80740729d4c43033f00e17b2">sofa::type::removeIndex</a></div><div class="ttdeci">void removeIndex(std::vector&lt; T, TT &gt; &amp;v, size_t index)</div><div class="ttdoc">Remove value at given index, replace it by the value at the last index, other values are not changed.</div><div class="ttdef"><b>Definition:</b> vector_algorithm.h:84</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html"><div class="ttname"><a href="namespacesofa_1_1type.html">sofa::type</a></div><div class="ttdoc">for std::pair</div><div class="ttdef"><b>Definition:</b> BoundingBox.cpp:27</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html_ad66b5de725d213f4ac2f0e625072bc82"><div class="ttname"><a href="namespacesofa_1_1type.html#ad66b5de725d213f4ac2f0e625072bc82">sofa::type::removeValue</a></div><div class="ttdeci">void removeValue(T1 &amp;v, const T2 &amp;elem)</div><div class="ttdef"><b>Definition:</b> vector_algorithm.h:71</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_f952eb3b438e9453a2f5655056abb290.html">Type</a></li><li class="navelem"><a class="el" href="dir_8aa759aadb20f2635db8c61303b9b849.html">src</a></li><li class="navelem"><a class="el" href="dir_78b83bb765cda7d746578ac350d06d39.html">sofa</a></li><li class="navelem"><a class="el" href="dir_863403d1a96f2534cd37b5b5b93b2f40.html">type</a></li><li class="navelem"><b>vector_algorithm.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:35:50 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_f952eb3b438e9453a2f5655056abb290.html">Type</a></li><li class="navelem"><a class="el" href="dir_8aa759aadb20f2635db8c61303b9b849.html">src</a></li><li class="navelem"><a class="el" href="dir_78b83bb765cda7d746578ac350d06d39.html">sofa</a></li><li class="navelem"><a class="el" href="dir_863403d1a96f2534cd37b5b5b93b2f40.html">type</a></li><li class="navelem"><a class="el" href="_type_2src_2sofa_2type_2vector__algorithm_8h.html">vector_algorithm.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:01:59 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

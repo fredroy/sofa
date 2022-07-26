@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('framework_2_geometry_2src_2sofa_2geome
 <div class="title">init.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="framework_2_geometry_2src_2sofa_2geometry_2init_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -113,32 +113,39 @@ $(document).ready(function(){initNavTree('framework_2_geometry_2src_2sofa_2geome
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>sofa::geometry</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1geometry.html">sofa::geometry</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;SOFA_GEOMETRY_API <span class="keywordtype">void</span> init();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;SOFA_GEOMETRY_API <span class="keywordtype">void</span> <a class="code" href="namespacesofa_1_1geometry.html#aac3a2799527438e7111a3e02cf1639b9">init</a>();</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;SOFA_GEOMETRY_API <span class="keywordtype">bool</span> isInitialized();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;SOFA_GEOMETRY_API <span class="keywordtype">bool</span> <a class="code" href="namespacesofa_1_1geometry.html#ab4f6194ee65521160965acb639122289">isInitialized</a>();</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;SOFA_GEOMETRY_API <span class="keywordtype">void</span> cleanup();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;SOFA_GEOMETRY_API <span class="keywordtype">void</span> <a class="code" href="namespacesofa_1_1geometry.html#aec0cd75a64b86d1125e634436bb04088">cleanup</a>();</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;SOFA_GEOMETRY_API <span class="keywordtype">bool</span> isCleanedUp();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;SOFA_GEOMETRY_API <span class="keywordtype">bool</span> <a class="code" href="namespacesofa_1_1geometry.html#a4bfc573e646d0cf66bb5cbfc2f35ee4e">isCleanedUp</a>();</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;SOFA_GEOMETRY_API <span class="keywordtype">void</span> printUninitializedLibraryWarning(<span class="keyword">const</span> std::string&amp; library,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;SOFA_GEOMETRY_API <span class="keywordtype">void</span> <a class="code" href="namespacesofa_1_1geometry.html#acbee8bf737708c7c956dcc9c5eeaad49">printUninitializedLibraryWarning</a>(<span class="keyword">const</span> std::string&amp; library,</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                                      <span class="keyword">const</span> std::string&amp; initFunction);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;SOFA_GEOMETRY_API <span class="keywordtype">void</span> printLibraryNotCleanedUpWarning(<span class="keyword">const</span> std::string&amp; library,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;SOFA_GEOMETRY_API <span class="keywordtype">void</span> <a class="code" href="namespacesofa_1_1geometry.html#a3c4d311f38b5d25a14538a6ff0dce3ee">printLibraryNotCleanedUpWarning</a>(<span class="keyword">const</span> std::string&amp; library,</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                                     <span class="keyword">const</span> std::string&amp; cleanupFunction);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">// namespace sofa::geometry</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1geometry_html_a4bfc573e646d0cf66bb5cbfc2f35ee4e"><div class="ttname"><a href="namespacesofa_1_1geometry.html#a4bfc573e646d0cf66bb5cbfc2f35ee4e">sofa::geometry::isCleanedUp</a></div><div class="ttdeci">SOFA_GEOMETRY_API bool isCleanedUp()</div><div class="ttdoc">Return true if and only if the Sofa.Geometry library has been cleaned up.</div><div class="ttdef"><b>Definition:</b> init.cpp:73</div></div>
+<div class="ttc" id="anamespacesofa_1_1geometry_html_ab4f6194ee65521160965acb639122289"><div class="ttname"><a href="namespacesofa_1_1geometry.html#ab4f6194ee65521160965acb639122289">sofa::geometry::isInitialized</a></div><div class="ttdeci">SOFA_GEOMETRY_API bool isInitialized()</div><div class="ttdoc">Return true if and only if the Sofa.Geometry library has been initialized.</div><div class="ttdef"><b>Definition:</b> init.cpp:60</div></div>
+<div class="ttc" id="anamespacesofa_1_1geometry_html_aec0cd75a64b86d1125e634436bb04088"><div class="ttname"><a href="namespacesofa_1_1geometry.html#aec0cd75a64b86d1125e634436bb04088">sofa::geometry::cleanup</a></div><div class="ttdeci">SOFA_GEOMETRY_API void cleanup()</div><div class="ttdoc">Clean up the resources used by the Sofa.Geometry library.</div><div class="ttdef"><b>Definition:</b> init.cpp:65</div></div>
+<div class="ttc" id="anamespacesofa_1_1geometry_html_acbee8bf737708c7c956dcc9c5eeaad49"><div class="ttname"><a href="namespacesofa_1_1geometry.html#acbee8bf737708c7c956dcc9c5eeaad49">sofa::geometry::printUninitializedLibraryWarning</a></div><div class="ttdeci">SOFA_GEOMETRY_API void printUninitializedLibraryWarning(const std::string &amp;library, const std::string &amp;initFunction)</div><div class="ttdoc">Print a warning about a library not being initialized (meant for internal use).</div><div class="ttdef"><b>Definition:</b> init.cpp:78</div></div>
+<div class="ttc" id="anamespacesofa_1_1geometry_html_aac3a2799527438e7111a3e02cf1639b9"><div class="ttname"><a href="namespacesofa_1_1geometry.html#aac3a2799527438e7111a3e02cf1639b9">sofa::geometry::init</a></div><div class="ttdeci">SOFA_GEOMETRY_API void init()</div><div class="ttdoc">Initialize the Sofa.Geometry library.</div><div class="ttdef"><b>Definition:</b> init.cpp:52</div></div>
+<div class="ttc" id="anamespacesofa_1_1geometry_html_a3c4d311f38b5d25a14538a6ff0dce3ee"><div class="ttname"><a href="namespacesofa_1_1geometry.html#a3c4d311f38b5d25a14538a6ff0dce3ee">sofa::geometry::printLibraryNotCleanedUpWarning</a></div><div class="ttdeci">SOFA_GEOMETRY_API void printLibraryNotCleanedUpWarning(const std::string &amp;library, const std::string &amp;cleanupFunction)</div><div class="ttdoc">Print a warning about a library not being cleaned up (meant for internal use).</div><div class="ttdef"><b>Definition:</b> init.cpp:86</div></div>
+<div class="ttc" id="anamespacesofa_1_1geometry_html"><div class="ttname"><a href="namespacesofa_1_1geometry.html">sofa::geometry</a></div><div class="ttdef"><b>Definition:</b> Edge.h:32</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_e4c1f116cc2455b3b3f8f9a35ad77584.html">Geometry</a></li><li class="navelem"><a class="el" href="dir_6f58e753a67df6b61bcdab0cf0d1b354.html">src</a></li><li class="navelem"><a class="el" href="dir_7eed1b1401cbf30e5183e5be957a6f60.html">sofa</a></li><li class="navelem"><a class="el" href="dir_8b3227a93d893dddc274ba5c4e2fcb6a.html">geometry</a></li><li class="navelem"><b>init.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:28:34 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_e4c1f116cc2455b3b3f8f9a35ad77584.html">Geometry</a></li><li class="navelem"><a class="el" href="dir_6f58e753a67df6b61bcdab0cf0d1b354.html">src</a></li><li class="navelem"><a class="el" href="dir_7eed1b1401cbf30e5183e5be957a6f60.html">sofa</a></li><li class="navelem"><a class="el" href="dir_8b3227a93d893dddc274ba5c4e2fcb6a.html">geometry</a></li><li class="navelem"><a class="el" href="framework_2_geometry_2src_2sofa_2geometry_2init_8h.html">init.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 06:38:43 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

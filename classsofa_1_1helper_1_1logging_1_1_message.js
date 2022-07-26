@@ -32,6 +32,8 @@ var classsofa_1_1helper_1_1logging_1_1_message =
     [ "operator=", "classsofa_1_1helper_1_1logging_1_1_message.html#acffab531c71d50482ad36c2a099cef3f", null ],
     [ "sender", "classsofa_1_1helper_1_1logging_1_1_message.html#ae63a74eb26fa89e749f3afeb6ce19efc", null ],
     [ "type", "classsofa_1_1helper_1_1logging_1_1_message.html#adf4a6727c689e0038cf2cdd158d5ed2c", null ],
+    [ "AnyTypes", "classsofa_1_1helper_1_1logging_1_1_message.html#a3f71964a9fce42dc2629386a281d7f0e", null ],
+    [ "emptyMsg", "classsofa_1_1helper_1_1logging_1_1_message.html#af9881b5ed168d39008924bd76afd812b", null ],
     [ "m_class", "classsofa_1_1helper_1_1logging_1_1_message.html#a4f8fd9b6722ce3f0440fb2665b02a972", null ],
     [ "m_componentinfo", "classsofa_1_1helper_1_1logging_1_1_message.html#acc259dae1f4c70a83476e9c8ab7f5dce", null ],
     [ "m_fileInfo", "classsofa_1_1helper_1_1logging_1_1_message.html#a795650bf120c8d0054ae7b7171dc76a9", null ],

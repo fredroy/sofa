@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('src_2sofa_2gui_2common_2_operation_fac
 <div class="title">OperationFactory.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="src_2sofa_2gui_2common_2_operation_factory_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -109,31 +109,31 @@ $(document).ready(function(){initNavTree('src_2sofa_2gui_2common_2_operation_fac
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">******************************************************************************/</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;sofa/gui/common/config.h&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/gui/common/MouseOperations.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="src_2sofa_2gui_2common_2_mouse_operations_8h.html">sofa/gui/common/MouseOperations.h</a>&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>sofa::gui::common</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1gui_1_1common.html">sofa::gui::common</a></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>OperationCreator</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span><a class="code" href="namespacesofa_1_1gui.html#a2c0b5f4200737f0419a7c805fc1a4136">OperationCreator</a></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> ~OperationCreator() {}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> Operation* create() <span class="keyword">const</span> =0;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> std::string getDescription() <span class="keyword">const</span>=0;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classsofa_1_1gui_1_1common_1_1_operation_creator.html#ad6985ec081657c7cd7a0e2ecd1e86cea">~OperationCreator</a>() {}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="namespacesofa_1_1gui.html#a4e60ac5484ddf62d4805f6f42fdfeacc">Operation</a>* <a class="code" href="classsofa_1_1gui_1_1common_1_1_operation_creator.html#a2708c9141e2a57d675a4d4c58bea189b">create</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="classsofa_1_1gui_1_1common_1_1_operation_creator.html#a995f039d80c328770b8634c19d41f756">getDescription</a>() <span class="keyword">const</span>=0;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> RealOperation&gt;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">class </span>TOperationCreator: <span class="keyword">public</span> OperationCreator</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">class </span><a class="code" href="namespacesofa_1_1gui.html#aa78f6fc999325475797b469fdc035fe8">TOperationCreator</a>: <span class="keyword">public</span> <a class="code" href="namespacesofa_1_1gui.html#a2c0b5f4200737f0419a7c805fc1a4136">OperationCreator</a></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    Operation* create()<span class="keyword"> const override </span>{<span class="keywordflow">return</span> <span class="keyword">new</span> RealOperation();}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::string getDescription()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> RealOperation::getDescription();}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="namespacesofa_1_1gui.html#a4e60ac5484ddf62d4805f6f42fdfeacc">Operation</a>* <a class="code" href="classsofa_1_1gui_1_1common_1_1_t_operation_creator.html#ad259925fc4ba195b50c5cc13b7176234">create</a>()<span class="keyword"> const override </span>{<span class="keywordflow">return</span> <span class="keyword">new</span> RealOperation();}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::string <a class="code" href="classsofa_1_1gui_1_1common_1_1_t_operation_creator.html#a0e9cc0369c3c073d3af057efccf66337">getDescription</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> RealOperation::getDescription();}</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">class </span>SOFA_GUI_COMMON_API OperationFactory</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">class </span>SOFA_GUI_COMMON_API <a class="code" href="namespacesofa_1_1gui.html#af887cc81e6d575fb8a614bd16b0b160e">OperationFactory</a></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">typedef</span> std::map&lt; std::string, OperationCreator* &gt; RegisterStorage;</div>
@@ -147,25 +147,25 @@ $(document).ready(function(){initNavTree('src_2sofa_2gui_2common_2_operation_fac
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">static</span> std::string GetDescription(<span class="keyword">const</span> std::string &amp;name)</div>
 <div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1common_1_1_t_operation_creator.html">   61</a></span>&#160;    {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">const</span> RegisterStorage &amp;reg = getInstance()-&gt;registry;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">const</span> RegisterStorage &amp;reg = getInstance()-&gt;<a class="code" href="classsofa_1_1gui_1_1common_1_1_operation_factory.html#a39a7f4e7a172a89688f639c68d8428a1">registry</a>;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">const</span> RegisterStorage::const_iterator it = reg.find(name);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span> (it != reg.end())</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1common_1_1_t_operation_creator.html#ad259925fc4ba195b50c5cc13b7176234">   64</a></span>&#160;        <span class="keywordflow">if</span> (it != reg.end())</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1common_1_1_t_operation_creator.html#a0e9cc0369c3c073d3af057efccf66337">   65</a></span>&#160;        {</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">return</span> it-&gt;second-&gt;getDescription();</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
 <div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1common_1_1_operation_factory.html">   68</a></span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">return</span> std::string();</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">static</span> <a class="code" href="classsofa_1_1gui_1_1common_1_1_operation.html">Operation</a>* Instanciate(<span class="keyword">const</span> std::string &amp;name)</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1common_1_1_operation_factory.html#a578d3609e062c41ae9ff0d984fc59f7b">   71</a></span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1common_1_1_operation_factory.html#a39a7f4e7a172a89688f639c68d8428a1">   72</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="classsofa_1_1gui_1_1common_1_1_operation.html">Operation</a>* Instanciate(<span class="keyword">const</span> std::string &amp;name)</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">const</span> RegisterStorage &amp;reg = getInstance()-&gt;registry;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        RegisterStorage::const_iterator it = reg.find(name);</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1common_1_1_operation_factory.html#aa3d9a28100d664a032d5fad4ae171739">   74</a></span>&#160;        <span class="keyword">const</span> <a class="code" href="classsofa_1_1gui_1_1common_1_1_operation_factory.html#a578d3609e062c41ae9ff0d984fc59f7b">RegisterStorage</a> &amp;reg = <a class="code" href="classsofa_1_1gui_1_1common_1_1_operation_factory.html#aa3d9a28100d664a032d5fad4ae171739">getInstance</a>()-&gt;<a class="code" href="classsofa_1_1gui_1_1common_1_1_operation_factory.html#a39a7f4e7a172a89688f639c68d8428a1">registry</a>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1common_1_1_operation_creator.html#ad6985ec081657c7cd7a0e2ecd1e86cea">   75</a></span>&#160;        RegisterStorage::const_iterator it = reg.find(name);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> (it != reg.end())</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        {</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keyword">const</span> <a class="code" href="classsofa_1_1gui_1_1common_1_1_operation_creator.html">OperationCreator</a> *creator=it-&gt;second;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <a class="code" href="classsofa_1_1gui_1_1common_1_1_operation.html">Operation</a>* op=creator-&gt;create();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">if</span> (op) op-&gt;id=name;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1common_1_1_operation_factory.html#ad90ba6862242e3a2eb3e293ad4da185b">   80</a></span>&#160;            <span class="keywordflow">if</span> (op) op-&gt;<a class="code" href="classsofa_1_1gui_1_1common_1_1_operation.html#afd0d68c6d31ff249f3ae8662162663c3">id</a>=name;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">return</span> op;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
@@ -173,13 +173,13 @@ $(document).ready(function(){initNavTree('src_2sofa_2gui_2common_2_operation_fac
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">class </span>SOFA_GUI_COMMON_API RegisterOperation</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">class </span>SOFA_GUI_COMMON_API <a class="code" href="namespacesofa_1_1gui.html#a4aeee3e3aa48823f91d1a40a2d2fe856">RegisterOperation</a></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    std::string name;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    OperationCreator *creator;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1common_1_1_operation_factory.html#a48bfb94e791327b49f1009098f2cc20a">   92</a></span>&#160;    <a class="code" href="classsofa_1_1gui_1_1common_1_1_operation_creator.html">OperationCreator</a> *creator;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    RegisterOperation(<span class="keyword">const</span> std::string &amp;n)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="namespacesofa_1_1gui.html#a4aeee3e3aa48823f91d1a40a2d2fe856">RegisterOperation</a>(<span class="keyword">const</span> std::string &amp;n)</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        name = n;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
@@ -187,8 +187,8 @@ $(document).ready(function(){initNavTree('src_2sofa_2gui_2common_2_operation_fac
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> TOperation&gt;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">int</span> add()</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        creator = <span class="keyword">new</span> TOperationCreator&lt; TOperation &gt;();</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        OperationFactory::getInstance()-&gt;registry.insert(std::make_pair(name, creator));</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        creator = <span class="keyword">new</span> <a class="code" href="classsofa_1_1gui_1_1common_1_1_t_operation_creator.html">TOperationCreator&lt; TOperation &gt;</a>();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="classsofa_1_1gui_1_1common_1_1_operation_factory.html#aa3d9a28100d664a032d5fad4ae171739">OperationFactory::getInstance</a>()-&gt;<a class="code" href="classsofa_1_1gui_1_1common_1_1_operation_factory.html#a39a7f4e7a172a89688f639c68d8428a1">registry</a>.insert(std::make_pair(name, creator));</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">return</span> 0; <span class="comment">// we return an int so that this method can be called from static variable initializers</span></div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;};</div>
@@ -197,14 +197,31 @@ $(document).ready(function(){initNavTree('src_2sofa_2gui_2common_2_operation_fac
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;} <span class="comment">// namespace sofa::gui::common</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclasssofa_1_1gui_1_1common_1_1_operation_html_afd0d68c6d31ff249f3ae8662162663c3"><div class="ttname"><a href="classsofa_1_1gui_1_1common_1_1_operation.html#afd0d68c6d31ff249f3ae8662162663c3">sofa::gui::common::Operation::id</a></div><div class="ttdeci">std::string id</div><div class="ttdef"><b>Definition:</b> MouseOperations.h:94</div></div>
 <div class="ttc" id="aclasssofa_1_1gui_1_1common_1_1_operation_factory_html"><div class="ttname"><a href="classsofa_1_1gui_1_1common_1_1_operation_factory.html">sofa::gui::common::OperationFactory</a></div><div class="ttdef"><b>Definition:</b> OperationFactory.h:68</div></div>
+<div class="ttc" id="anamespacesofa_1_1gui_html_a2c0b5f4200737f0419a7c805fc1a4136"><div class="ttname"><a href="namespacesofa_1_1gui.html#a2c0b5f4200737f0419a7c805fc1a4136">sofa::gui::OperationCreator</a></div><div class="ttdeci">sofa::gui::common::OperationCreator OperationCreator</div><div class="ttdef"><b>Definition:</b> OperationFactory.h:49</div></div>
+<div class="ttc" id="asrc_2sofa_2gui_2common_2_mouse_operations_8h_html"><div class="ttname"><a href="src_2sofa_2gui_2common_2_mouse_operations_8h.html">MouseOperations.h</a></div></div>
+<div class="ttc" id="anamespacesofa_1_1gui_html_af887cc81e6d575fb8a614bd16b0b160e"><div class="ttname"><a href="namespacesofa_1_1gui.html#af887cc81e6d575fb8a614bd16b0b160e">sofa::gui::OperationFactory</a></div><div class="ttdeci">sofa::gui::common::OperationFactory OperationFactory</div><div class="ttdef"><b>Definition:</b> OperationFactory.h:52</div></div>
+<div class="ttc" id="anamespacesofa_1_1gui_html_aa78f6fc999325475797b469fdc035fe8"><div class="ttname"><a href="namespacesofa_1_1gui.html#aa78f6fc999325475797b469fdc035fe8">sofa::gui::TOperationCreator</a></div><div class="ttdeci">sofa::gui::common::TOperationCreator&lt; RealOperation &gt; TOperationCreator</div><div class="ttdef"><b>Definition:</b> OperationFactory.h:51</div></div>
+<div class="ttc" id="aclasssofa_1_1gui_1_1common_1_1_t_operation_creator_html_ad259925fc4ba195b50c5cc13b7176234"><div class="ttname"><a href="classsofa_1_1gui_1_1common_1_1_t_operation_creator.html#ad259925fc4ba195b50c5cc13b7176234">sofa::gui::common::TOperationCreator::create</a></div><div class="ttdeci">Operation * create() const override</div><div class="ttdef"><b>Definition:</b> OperationFactory.h:64</div></div>
 <div class="ttc" id="aclasssofa_1_1gui_1_1common_1_1_operation_creator_html"><div class="ttname"><a href="classsofa_1_1gui_1_1common_1_1_operation_creator.html">sofa::gui::common::OperationCreator</a></div><div class="ttdef"><b>Definition:</b> OperationFactory.h:52</div></div>
+<div class="ttc" id="aclasssofa_1_1gui_1_1common_1_1_t_operation_creator_html_a0e9cc0369c3c073d3af057efccf66337"><div class="ttname"><a href="classsofa_1_1gui_1_1common_1_1_t_operation_creator.html#a0e9cc0369c3c073d3af057efccf66337">sofa::gui::common::TOperationCreator::getDescription</a></div><div class="ttdeci">std::string getDescription() const override</div><div class="ttdef"><b>Definition:</b> OperationFactory.h:65</div></div>
+<div class="ttc" id="aclasssofa_1_1gui_1_1common_1_1_operation_factory_html_aa3d9a28100d664a032d5fad4ae171739"><div class="ttname"><a href="classsofa_1_1gui_1_1common_1_1_operation_factory.html#aa3d9a28100d664a032d5fad4ae171739">sofa::gui::common::OperationFactory::getInstance</a></div><div class="ttdeci">static OperationFactory * getInstance()</div><div class="ttdef"><b>Definition:</b> OperationFactory.h:74</div></div>
+<div class="ttc" id="aclasssofa_1_1gui_1_1common_1_1_operation_factory_html_a39a7f4e7a172a89688f639c68d8428a1"><div class="ttname"><a href="classsofa_1_1gui_1_1common_1_1_operation_factory.html#a39a7f4e7a172a89688f639c68d8428a1">sofa::gui::common::OperationFactory::registry</a></div><div class="ttdeci">RegisterStorage registry</div><div class="ttdef"><b>Definition:</b> OperationFactory.h:72</div></div>
+<div class="ttc" id="aclasssofa_1_1gui_1_1common_1_1_operation_creator_html_a2708c9141e2a57d675a4d4c58bea189b"><div class="ttname"><a href="classsofa_1_1gui_1_1common_1_1_operation_creator.html#a2708c9141e2a57d675a4d4c58bea189b">sofa::gui::common::OperationCreator::create</a></div><div class="ttdeci">virtual Operation * create() const =0</div></div>
+<div class="ttc" id="aclasssofa_1_1gui_1_1common_1_1_operation_creator_html_ad6985ec081657c7cd7a0e2ecd1e86cea"><div class="ttname"><a href="classsofa_1_1gui_1_1common_1_1_operation_creator.html#ad6985ec081657c7cd7a0e2ecd1e86cea">sofa::gui::common::OperationCreator::~OperationCreator</a></div><div class="ttdeci">virtual ~OperationCreator()</div><div class="ttdef"><b>Definition:</b> OperationFactory.h:75</div></div>
+<div class="ttc" id="anamespacesofa_1_1gui_html_a4aeee3e3aa48823f91d1a40a2d2fe856"><div class="ttname"><a href="namespacesofa_1_1gui.html#a4aeee3e3aa48823f91d1a40a2d2fe856">sofa::gui::RegisterOperation</a></div><div class="ttdeci">sofa::gui::common::RegisterOperation RegisterOperation</div><div class="ttdef"><b>Definition:</b> OperationFactory.h:53</div></div>
+<div class="ttc" id="anamespacesofa_1_1gui_html_a4e60ac5484ddf62d4805f6f42fdfeacc"><div class="ttname"><a href="namespacesofa_1_1gui.html#a4e60ac5484ddf62d4805f6f42fdfeacc">sofa::gui::Operation</a></div><div class="ttdeci">sofa::gui::common::Operation Operation</div><div class="ttdef"><b>Definition:</b> MouseOperations.h:50</div></div>
+<div class="ttc" id="aclasssofa_1_1gui_1_1common_1_1_t_operation_creator_html"><div class="ttname"><a href="classsofa_1_1gui_1_1common_1_1_t_operation_creator.html">sofa::gui::common::TOperationCreator</a></div><div class="ttdef"><b>Definition:</b> OperationFactory.h:61</div></div>
+<div class="ttc" id="aclasssofa_1_1gui_1_1common_1_1_operation_creator_html_a995f039d80c328770b8634c19d41f756"><div class="ttname"><a href="classsofa_1_1gui_1_1common_1_1_operation_creator.html#a995f039d80c328770b8634c19d41f756">sofa::gui::common::OperationCreator::getDescription</a></div><div class="ttdeci">virtual std::string getDescription() const =0</div></div>
 <div class="ttc" id="aclasssofa_1_1gui_1_1common_1_1_operation_html"><div class="ttname"><a href="classsofa_1_1gui_1_1common_1_1_operation.html">sofa::gui::common::Operation</a></div><div class="ttdef"><b>Definition:</b> MouseOperations.h:56</div></div>
+<div class="ttc" id="anamespacesofa_1_1gui_1_1common_html"><div class="ttname"><a href="namespacesofa_1_1gui_1_1common.html">sofa::gui::common</a></div><div class="ttdef"><b>Definition:</b> BatchGUI.h:30</div></div>
+<div class="ttc" id="aclasssofa_1_1gui_1_1common_1_1_operation_factory_html_a578d3609e062c41ae9ff0d984fc59f7b"><div class="ttname"><a href="classsofa_1_1gui_1_1common_1_1_operation_factory.html#a578d3609e062c41ae9ff0d984fc59f7b">sofa::gui::common::OperationFactory::RegisterStorage</a></div><div class="ttdeci">std::map&lt; std::string, OperationCreator * &gt; RegisterStorage</div><div class="ttdef"><b>Definition:</b> OperationFactory.h:71</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_927152f1403da9b2afd274b3e3ae770d.html">GUI</a></li><li class="navelem"><a class="el" href="dir_98ade69eb825018024c4ccc893c908ed.html">Common</a></li><li class="navelem"><a class="el" href="dir_843358a6d244c2786c2e974b5f55c377.html">src</a></li><li class="navelem"><a class="el" href="dir_221a8e75ba7df44eaff129f13507418b.html">sofa</a></li><li class="navelem"><a class="el" href="dir_7d0a1c170e57a806cc3492f337818bac.html">gui</a></li><li class="navelem"><a class="el" href="dir_f6552edf80faa66ad51d36152af32e62.html">common</a></li><li class="navelem"><b>OperationFactory.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:42:47 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_927152f1403da9b2afd274b3e3ae770d.html">GUI</a></li><li class="navelem"><a class="el" href="dir_98ade69eb825018024c4ccc893c908ed.html">Common</a></li><li class="navelem"><a class="el" href="dir_843358a6d244c2786c2e974b5f55c377.html">src</a></li><li class="navelem"><a class="el" href="dir_221a8e75ba7df44eaff129f13507418b.html">sofa</a></li><li class="navelem"><a class="el" href="dir_7d0a1c170e57a806cc3492f337818bac.html">gui</a></li><li class="navelem"><a class="el" href="dir_f6552edf80faa66ad51d36152af32e62.html">common</a></li><li class="navelem"><a class="el" href="src_2sofa_2gui_2common_2_operation_factory_8h.html">OperationFactory.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:18:20 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

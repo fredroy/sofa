@@ -20,6 +20,17 @@ var classsofa_1_1helper_1_1_l_c_p =
     [ "setTol", "classsofa_1_1helper_1_1_l_c_p.html#af8909c12f590c0045fc819e1f26a8078", null ],
     [ "solveNLCP", "classsofa_1_1helper_1_1_l_c_p.html#a33112e57b292da14142751f547b0a56a", null ],
     [ "useInitialGuess", "classsofa_1_1helper_1_1_l_c_p.html#ad2dd917da880bcee62853058a6a5a87b", null ],
+    [ "d", "classsofa_1_1helper_1_1_l_c_p.html#ae6261d15419eb591b3f65c5f8cd7b8cb", null ],
+    [ "dfree", "classsofa_1_1helper_1_1_l_c_p.html#af579edfaac6c8330f8890c8e99454b3d", null ],
+    [ "dim", "classsofa_1_1helper_1_1_l_c_p.html#a70b5e28b5bc3d1b63a7435c5fe50b837", null ],
     [ "error", "classsofa_1_1helper_1_1_l_c_p.html#a1ec236df65b93a338aecdf3fa64790f9", null ],
-    [ "it", "classsofa_1_1helper_1_1_l_c_p.html#a1c8eaa1d6295ca42a151b5f00be6b6dc", null ]
+    [ "f", "classsofa_1_1helper_1_1_l_c_p.html#a60a9fecb85dadf4277c6093aa2800749", null ],
+    [ "f_1", "classsofa_1_1helper_1_1_l_c_p.html#a0faa8226b884d37bbd0f442fc3e99413", null ],
+    [ "it", "classsofa_1_1helper_1_1_l_c_p.html#a1c8eaa1d6295ca42a151b5f00be6b6dc", null ],
+    [ "maxConst", "classsofa_1_1helper_1_1_l_c_p.html#a2121ccf9d1f9aacce0440ee30f184728", null ],
+    [ "mu", "classsofa_1_1helper_1_1_l_c_p.html#a74577585cf12d1712ab9c57616d49205", null ],
+    [ "numItMax", "classsofa_1_1helper_1_1_l_c_p.html#a4389aedeea62c64502a559654758f496", null ],
+    [ "tol", "classsofa_1_1helper_1_1_l_c_p.html#a2687e4b3cb5da7dbd00e565343f66c6c", null ],
+    [ "useInitialF", "classsofa_1_1helper_1_1_l_c_p.html#a9e4b5dd6e8e0351badca1817684f8028", null ],
+    [ "W", "classsofa_1_1helper_1_1_l_c_p.html#adfb8b7216d10d0672f8116483ef116cb", null ]
 ];

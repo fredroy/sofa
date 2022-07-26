@@ -4,6 +4,8 @@ var classsofa_1_1gui_1_1qt_1_1_data_widget =
     [ "MyData", "classsofa_1_1gui_1_1qt_1_1_data_widget.html#a4f1452eff5326da8921a4e0beb3125bc", null ],
     [ "DataWidget", "classsofa_1_1gui_1_1qt_1_1_data_widget.html#a6d8be4c3e47cf73ba93a7bb73699cdc2", null ],
     [ "~DataWidget", "classsofa_1_1gui_1_1qt_1_1_data_widget.html#aba09d0627853d8f44f1aa27e8d9db3cb", null ],
+    [ "create", "classsofa_1_1gui_1_1qt_1_1_data_widget.html#a641ef465e00c29634bbda262f4975d79", null ],
+    [ "CreateDataWidget", "classsofa_1_1gui_1_1qt_1_1_data_widget.html#a42d489e91ab0b039ccc94acc076bd120", null ],
     [ "createWidgets", "classsofa_1_1gui_1_1qt_1_1_data_widget.html#a47e9538805283c749b16a6e072ddbe18", null ],
     [ "DataOwnerDirty", "classsofa_1_1gui_1_1qt_1_1_data_widget.html#a67cf55fd56a52ed5af18733b7308727d", null ],
     [ "dataValueChanged", "classsofa_1_1gui_1_1qt_1_1_data_widget.html#a38e76031c68003356138e00c0ca3ebb6", null ],

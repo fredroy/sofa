@@ -25,5 +25,6 @@ var classsofa_1_1component_1_1linearsolver_1_1direct_1_1_eigen_direct_sparse_sol
     [ "m_solver", "classsofa_1_1component_1_1linearsolver_1_1direct_1_1_eigen_direct_sparse_solver.html#aca2e3fef578d01d11948e2e54b2e2fba", null ],
     [ "Mfiltered", "classsofa_1_1component_1_1linearsolver_1_1direct_1_1_eigen_direct_sparse_solver.html#a38906b641411c90ea9540dd03b18b11f", null ],
     [ "MfilteredcolsIndex", "classsofa_1_1component_1_1linearsolver_1_1direct_1_1_eigen_direct_sparse_solver.html#ac55f5b4d9ff1f5d5743bf50e849e9f40", null ],
-    [ "MfilteredrowBegin", "classsofa_1_1component_1_1linearsolver_1_1direct_1_1_eigen_direct_sparse_solver.html#aa80bc12c8a96581af749f7fe52590843", null ]
+    [ "MfilteredrowBegin", "classsofa_1_1component_1_1linearsolver_1_1direct_1_1_eigen_direct_sparse_solver.html#aa80bc12c8a96581af749f7fe52590843", null ],
+    [ "s_defaultOrderingMethod", "classsofa_1_1component_1_1linearsolver_1_1direct_1_1_eigen_direct_sparse_solver.html#abba8cf7e1e8eff72b4925840e8b0a7cc", null ]
 ];

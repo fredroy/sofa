@@ -96,6 +96,8 @@ $(document).ready(function(){initNavTree('classsofa_1_1component_1_1solidmechani
 <div class="title">FastTetrahedralCorotationalForceField&lt; DataTypes &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_solid_mechanics_2_f_e_m_2_elastic_2src_2sofa_2component_2solidmechanics_2fem_2elastic_2_fast_te68458d3f75fda2378417bd4ecafc6f40_source.html">FastTetrahedralCorotationalForceField.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -105,207 +107,525 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a47fa80edebebf0be53efc1f171496e27"><td class="memItemLeft" align="right" valign="top"><a id="a47fa80edebebf0be53efc1f171496e27"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>RotationDecompositionMethod</b> { <b>POLAR_DECOMPOSITION</b>, 
-<b>QR_DECOMPOSITION</b>, 
-<b>POLAR_DECOMPOSITION_MODIFIED</b>, 
-<b>LINEAR_ELASTIC</b>
+<tr class="memitem:a47fa80edebebf0be53efc1f171496e27"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a47fa80edebebf0be53efc1f171496e27">RotationDecompositionMethod</a> { <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a47fa80edebebf0be53efc1f171496e27ad3dbb3fbb4725760ce2f9829fa9b903b">POLAR_DECOMPOSITION</a>, 
+<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a47fa80edebebf0be53efc1f171496e27aae7c084b4d4ee4b831177248d070d6a2">QR_DECOMPOSITION</a>, 
+<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a47fa80edebebf0be53efc1f171496e27a8a4a7b5bec992b99213d145a82e3c787">POLAR_DECOMPOSITION_MODIFIED</a>, 
+<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a47fa80edebebf0be53efc1f171496e27a4d1dd2ca5b1d978848c4608ff328c9f9">LINEAR_ELASTIC</a>
  }</td></tr>
 <tr class="separator:a47fa80edebebf0be53efc1f171496e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11525b4ccfe85d89a218b650d0997a30"><td class="memItemLeft" align="right" valign="top"><a id="a11525b4ccfe85d89a218b650d0997a30"></a>
-typedef <a class="el" href="classsofa_1_1core_1_1behavior_1_1_force_field.html">core::behavior::ForceField</a>&lt; <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html">DataTypes</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Inherited</b></td></tr>
+<tr class="memitem:a11525b4ccfe85d89a218b650d0997a30"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1behavior_1_1_force_field.html">core::behavior::ForceField</a>&lt; <a class="el" href="namespacesofa.html#a74df6d045de2e36fbc9678f0946ddecc">DataTypes</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a11525b4ccfe85d89a218b650d0997a30">Inherited</a></td></tr>
 <tr class="separator:a11525b4ccfe85d89a218b650d0997a30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf523069e5b1497cffac17511dcd3b1e"><td class="memItemLeft" align="right" valign="top"><a id="acf523069e5b1497cffac17511dcd3b1e"></a>
-typedef DataTypes::Real&#160;</td><td class="memItemRight" valign="bottom"><b>Real</b></td></tr>
+<tr class="memitem:acf523069e5b1497cffac17511dcd3b1e"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a032e30a7559178ebc4240c12ef02ec56">DataTypes::Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a></td></tr>
 <tr class="separator:acf523069e5b1497cffac17511dcd3b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c0bd56aca42d0e855a400b50f3e078b"><td class="memItemLeft" align="right" valign="top"><a id="a7c0bd56aca42d0e855a400b50f3e078b"></a>
-typedef DataTypes::Coord&#160;</td><td class="memItemRight" valign="bottom"><b>Coord</b></td></tr>
+<tr class="memitem:a7c0bd56aca42d0e855a400b50f3e078b"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a433a4446e8804f24450e7f9f90cf27a5">DataTypes::Coord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a></td></tr>
 <tr class="separator:a7c0bd56aca42d0e855a400b50f3e078b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a705fac58c33b23c20e6bac3fd2b0bb87"><td class="memItemLeft" align="right" valign="top"><a id="a705fac58c33b23c20e6bac3fd2b0bb87"></a>
-typedef DataTypes::Deriv&#160;</td><td class="memItemRight" valign="bottom"><b>Deriv</b></td></tr>
+<tr class="memitem:a705fac58c33b23c20e6bac3fd2b0bb87"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a8ea6da29f450c7a8fcceed1d0e3c4cfc">DataTypes::Deriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a705fac58c33b23c20e6bac3fd2b0bb87">Deriv</a></td></tr>
 <tr class="separator:a705fac58c33b23c20e6bac3fd2b0bb87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05882e2e9ba8d707ab531ab94a1f39e0"><td class="memItemLeft" align="right" valign="top"><a id="a05882e2e9ba8d707ab531ab94a1f39e0"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1vector.html">DataTypes::VecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><b>VecCoord</b></td></tr>
+<tr class="memitem:a05882e2e9ba8d707ab531ab94a1f39e0"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a06eb712afb67c0ee7c25eb52a2f5cf5f">DataTypes::VecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a></td></tr>
 <tr class="separator:a05882e2e9ba8d707ab531ab94a1f39e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83fb2b666b4e514e93d3bb221aa681ef"><td class="memItemLeft" align="right" valign="top"><a id="a83fb2b666b4e514e93d3bb221aa681ef"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1vector.html">DataTypes::VecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><b>VecDeriv</b></td></tr>
+<tr class="memitem:a83fb2b666b4e514e93d3bb221aa681ef"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a87984e2bbae86596548eb282b5624420">DataTypes::VecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a></td></tr>
 <tr class="separator:a83fb2b666b4e514e93d3bb221aa681ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac65f29d77ab27fa6f97c3c8d9e10b2af"><td class="memItemLeft" align="right" valign="top"><a id="ac65f29d77ab27fa6f97c3c8d9e10b2af"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1vector.html">DataTypes::VecReal</a>&#160;</td><td class="memItemRight" valign="bottom"><b>VecReal</b></td></tr>
+<tr class="memitem:ac65f29d77ab27fa6f97c3c8d9e10b2af"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a6c0d252670960c4ead435e98ff168952">DataTypes::VecReal</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ac65f29d77ab27fa6f97c3c8d9e10b2af">VecReal</a></td></tr>
 <tr class="separator:ac65f29d77ab27fa6f97c3c8d9e10b2af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a233811a9601bc665853394a95c35d219"><td class="memItemLeft" align="right" valign="top"><a id="a233811a9601bc665853394a95c35d219"></a>
-typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1type_1_1vector.html">VecCoord</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>DataVecCoord</b></td></tr>
+<tr class="memitem:a233811a9601bc665853394a95c35d219"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a233811a9601bc665853394a95c35d219">DataVecCoord</a></td></tr>
 <tr class="separator:a233811a9601bc665853394a95c35d219"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10f14e5926a8258b586fff5ef010df18"><td class="memItemLeft" align="right" valign="top"><a id="a10f14e5926a8258b586fff5ef010df18"></a>
-typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1type_1_1vector.html">VecDeriv</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>DataVecDeriv</b></td></tr>
+<tr class="memitem:a10f14e5926a8258b586fff5ef010df18"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a10f14e5926a8258b586fff5ef010df18">DataVecDeriv</a></td></tr>
 <tr class="separator:a10f14e5926a8258b586fff5ef010df18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a576eead581ccb08be4ac0947ae0f5f9c"><td class="memItemLeft" align="right" valign="top"><a id="a576eead581ccb08be4ac0947ae0f5f9c"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Mat3x3</b> = <a class="el" href="classsofa_1_1type_1_1_mat.html">type::Mat</a>&lt; 3, 3, Real &gt;</td></tr>
+<tr class="memitem:a576eead581ccb08be4ac0947ae0f5f9c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a576eead581ccb08be4ac0947ae0f5f9c">Mat3x3</a> = <a class="el" href="classsofa_1_1type_1_1_mat.html">type::Mat</a>&lt; 3, 3, <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> &gt;</td></tr>
 <tr class="separator:a576eead581ccb08be4ac0947ae0f5f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8912c79e0a55f6f84f627b6e61b85ab"><td class="memItemLeft" align="right" valign="top"><a id="ad8912c79e0a55f6f84f627b6e61b85ab"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Mat3x3NoInit</b> = <a class="el" href="classsofa_1_1type_1_1_mat_no_init.html">type::MatNoInit</a>&lt; 3, 3, Real &gt;</td></tr>
+<tr class="memitem:ad8912c79e0a55f6f84f627b6e61b85ab"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ad8912c79e0a55f6f84f627b6e61b85ab">Mat3x3NoInit</a> = <a class="el" href="classsofa_1_1type_1_1_mat_no_init.html">type::MatNoInit</a>&lt; 3, 3, <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> &gt;</td></tr>
 <tr class="separator:ad8912c79e0a55f6f84f627b6e61b85ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88be3993e8701165ea7336c5d79959d1"><td class="memItemLeft" align="right" valign="top"><a id="a88be3993e8701165ea7336c5d79959d1"></a>
-typedef <a class="el" href="structsofa_1_1topology_1_1_element.html">core::topology::BaseMeshTopology::Tetra</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Tetra</b></td></tr>
+<tr class="memitem:a88be3993e8701165ea7336c5d79959d1"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1topology_1_1_topology.html#a39e11db82c74bb7de69bb89787649584">core::topology::BaseMeshTopology::Tetra</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a88be3993e8701165ea7336c5d79959d1">Tetra</a></td></tr>
 <tr class="separator:a88be3993e8701165ea7336c5d79959d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d20f9d64fbb43dd3faa823650cbc303"><td class="memItemLeft" align="right" valign="top"><a id="a5d20f9d64fbb43dd3faa823650cbc303"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1fixed__array.html">core::topology::BaseMeshTopology::EdgesInTetrahedron</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EdgesInTetrahedron</b></td></tr>
+<tr class="memitem:a5d20f9d64fbb43dd3faa823650cbc303"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html#a4d370f84b203464d5ef0d837509bd56f">core::topology::BaseMeshTopology::EdgesInTetrahedron</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a5d20f9d64fbb43dd3faa823650cbc303">EdgesInTetrahedron</a></td></tr>
 <tr class="separator:a5d20f9d64fbb43dd3faa823650cbc303"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e31bde43a29204138d41ce0eff83fdc"><td class="memItemLeft" align="right" valign="top"><a id="a8e31bde43a29204138d41ce0eff83fdc"></a>
-typedef <a class="el" href="structsofa_1_1topology_1_1_element.html">core::topology::BaseMeshTopology::Tetra</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Tetrahedron</b></td></tr>
+<tr class="memitem:a8e31bde43a29204138d41ce0eff83fdc"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1topology_1_1_topology.html#a39e11db82c74bb7de69bb89787649584">core::topology::BaseMeshTopology::Tetra</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a8e31bde43a29204138d41ce0eff83fdc">Tetrahedron</a></td></tr>
 <tr class="separator:a8e31bde43a29204138d41ce0eff83fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a142bcfa1a77048ae32cc6b8470cb7fea"><td class="memItemLeft" align="right" valign="top"><a id="a142bcfa1a77048ae32cc6b8470cb7fea"></a>
-typedef sofa::Index&#160;</td><td class="memItemRight" valign="bottom"><b>Index</b></td></tr>
+<tr class="memitem:a142bcfa1a77048ae32cc6b8470cb7fea"><td class="memItemLeft" align="right" valign="top">typedef sofa::Index&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a142bcfa1a77048ae32cc6b8470cb7fea">Index</a></td></tr>
 <tr class="separator:a142bcfa1a77048ae32cc6b8470cb7fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a575df022a3bd88ca296b9d072f1467b8"><td class="memItemLeft" align="right" valign="top"><a id="a575df022a3bd88ca296b9d072f1467b8"></a>
-typedef VecCoord::template rebind&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_for61007de5689b896ba934034e84420a35.html">TetrahedronRestInformation</a> &gt;::other&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a575df022a3bd88ca296b9d072f1467b8">VecTetrahedronRestInformation</a></td></tr>
-<tr class="memdesc:a575df022a3bd88ca296b9d072f1467b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Topology Data. <br /></td></tr>
+<tr class="memitem:a575df022a3bd88ca296b9d072f1467b8"><td class="memItemLeft" align="right" valign="top">typedef VecCoord::template rebind&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_for61007de5689b896ba934034e84420a35.html">TetrahedronRestInformation</a> &gt;::other&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a575df022a3bd88ca296b9d072f1467b8">VecTetrahedronRestInformation</a></td></tr>
+<tr class="memdesc:a575df022a3bd88ca296b9d072f1467b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Topology Data.  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a575df022a3bd88ca296b9d072f1467b8">More...</a><br /></td></tr>
 <tr class="separator:a575df022a3bd88ca296b9d072f1467b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3d0a7d4e6cdee456439fa65eb1146d0"><td class="memItemLeft" align="right" valign="top"><a id="ae3d0a7d4e6cdee456439fa65eb1146d0"></a>
-typedef VecCoord::template rebind&lt; <a class="el" href="classsofa_1_1type_1_1_mat.html">Mat3x3</a> &gt;::other&#160;</td><td class="memItemRight" valign="bottom"><b>VecMat3x3</b></td></tr>
+<tr class="memitem:ae3d0a7d4e6cdee456439fa65eb1146d0"><td class="memItemLeft" align="right" valign="top">typedef VecCoord::template rebind&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a576eead581ccb08be4ac0947ae0f5f9c">Mat3x3</a> &gt;::other&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ae3d0a7d4e6cdee456439fa65eb1146d0">VecMat3x3</a></td></tr>
 <tr class="separator:ae3d0a7d4e6cdee456439fa65eb1146d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a870b8f5c1fac7821c682bad94e69b7a2"><td class="memItemLeft" align="right" valign="top"><a id="a870b8f5c1fac7821c682bad94e69b7a2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SOFA_CLASS</b> (SOFA_TEMPLATE(<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html">FastTetrahedralCorotationalForceField</a>, <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html">DataTypes</a>), SOFA_TEMPLATE(<a class="el" href="classsofa_1_1core_1_1behavior_1_1_force_field.html">core::behavior::ForceField</a>, <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html">DataTypes</a>))</td></tr>
+<tr class="memitem:a870b8f5c1fac7821c682bad94e69b7a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a870b8f5c1fac7821c682bad94e69b7a2">SOFA_CLASS</a> (<a class="el" href="_base_class_8h.html#a31cd2291b906a5b1d94ae43b3bf80d61">SOFA_TEMPLATE</a>(<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html">FastTetrahedralCorotationalForceField</a>, <a class="el" href="namespacesofa.html#a74df6d045de2e36fbc9678f0946ddecc">DataTypes</a>), <a class="el" href="_base_class_8h.html#a31cd2291b906a5b1d94ae43b3bf80d61">SOFA_TEMPLATE</a>(<a class="el" href="classsofa_1_1core_1_1behavior_1_1_force_field.html">core::behavior::ForceField</a>, <a class="el" href="namespacesofa.html#a74df6d045de2e36fbc9678f0946ddecc">DataTypes</a>))</td></tr>
 <tr class="separator:a870b8f5c1fac7821c682bad94e69b7a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7579898bd01ce0a5ed46376c0226d01"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ab7579898bd01ce0a5ed46376c0226d01">FastTetrahedralCorotationalForceField</a> ()</td></tr>
+<tr class="separator:ab7579898bd01ce0a5ed46376c0226d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c134c5179817cec60fe0953da21b598"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a4c134c5179817cec60fe0953da21b598">~FastTetrahedralCorotationalForceField</a> ()</td></tr>
+<tr class="separator:a4c134c5179817cec60fe0953da21b598"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad72eef1561c7a53b19b048397d4ef570"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ad72eef1561c7a53b19b048397d4ef570">init</a> () override</td></tr>
 <tr class="separator:ad72eef1561c7a53b19b048397d4ef570"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa9158471ae766406dc025c8ecf2d379"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#afa9158471ae766406dc025c8ecf2d379">addForce</a> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">sofa::core::MechanicalParams</a> *, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">DataVecDeriv</a> &amp;dataF, const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">DataVecCoord</a> &amp;dataX, const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">DataVecDeriv</a> &amp;dataV) override</td></tr>
+<tr class="memitem:afa9158471ae766406dc025c8ecf2d379"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#afa9158471ae766406dc025c8ecf2d379">addForce</a> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">sofa::core::MechanicalParams</a> *, <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a10f14e5926a8258b586fff5ef010df18">DataVecDeriv</a> &amp;dataF, const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a233811a9601bc665853394a95c35d219">DataVecCoord</a> &amp;dataX, const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a10f14e5926a8258b586fff5ef010df18">DataVecDeriv</a> &amp;dataV) override</td></tr>
 <tr class="separator:afa9158471ae766406dc025c8ecf2d379"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74be35fe84e38b63692897e1e50b81dd"><td class="memItemLeft" align="right" valign="top"><a id="a74be35fe84e38b63692897e1e50b81dd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addDForce</b> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">sofa::core::MechanicalParams</a> *, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">DataVecDeriv</a> &amp;datadF, const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">DataVecDeriv</a> &amp;datadX) override</td></tr>
+<tr class="memitem:a74be35fe84e38b63692897e1e50b81dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a74be35fe84e38b63692897e1e50b81dd">addDForce</a> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">sofa::core::MechanicalParams</a> *, <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a10f14e5926a8258b586fff5ef010df18">DataVecDeriv</a> &amp;datadF, const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a10f14e5926a8258b586fff5ef010df18">DataVecDeriv</a> &amp;datadX) override</td></tr>
 <tr class="separator:a74be35fe84e38b63692897e1e50b81dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa8122c0a2c84ed9b847fd6467bc85e7"><td class="memItemLeft" align="right" valign="top"><a id="aaa8122c0a2c84ed9b847fd6467bc85e7"></a>
-SReal&#160;</td><td class="memItemRight" valign="bottom"><b>getPotentialEnergy</b> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">core::MechanicalParams</a> *, const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">DataVecCoord</a> &amp;) const override</td></tr>
+<tr class="memitem:aaa8122c0a2c84ed9b847fd6467bc85e7"><td class="memItemLeft" align="right" valign="top">SReal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#aaa8122c0a2c84ed9b847fd6467bc85e7">getPotentialEnergy</a> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">core::MechanicalParams</a> *, const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a233811a9601bc665853394a95c35d219">DataVecCoord</a> &amp;) const override</td></tr>
 <tr class="separator:aaa8122c0a2c84ed9b847fd6467bc85e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6850158a05f04eafcd5237be40722de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#af6850158a05f04eafcd5237be40722de">addKToMatrix</a> (<a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html">sofa::linearalgebra::BaseMatrix</a> *m, SReal kFactor, unsigned int &amp;offset) override</td></tr>
 <tr class="separator:af6850158a05f04eafcd5237be40722de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8689f5fd210a47ba9ce27218ad0a2ce"><td class="memItemLeft" align="right" valign="top"><a id="ac8689f5fd210a47ba9ce27218ad0a2ce"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addKToMatrix</b> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">core::MechanicalParams</a> *, const <a class="el" href="classsofa_1_1core_1_1behavior_1_1_multi_matrix_accessor.html">sofa::core::behavior::MultiMatrixAccessor</a> *) override</td></tr>
+<tr class="memitem:ac8689f5fd210a47ba9ce27218ad0a2ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ac8689f5fd210a47ba9ce27218ad0a2ce">addKToMatrix</a> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">core::MechanicalParams</a> *, const <a class="el" href="classsofa_1_1core_1_1behavior_1_1_multi_matrix_accessor.html">sofa::core::behavior::MultiMatrixAccessor</a> *) override</td></tr>
 <tr class="separator:ac8689f5fd210a47ba9ce27218ad0a2ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a4ccc1d944179bb6c700ede803df917"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a5a4ccc1d944179bb6c700ede803df917">updateTopologyInformation</a> ()</td></tr>
 <tr class="separator:a5a4ccc1d944179bb6c700ede803df917"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a83e5feb99cad95aaed79feb8ef66b2"><td class="memItemLeft" align="right" valign="top"><a id="a5a83e5feb99cad95aaed79feb8ef66b2"></a>
-virtual Real&#160;</td><td class="memItemRight" valign="bottom"><b>getLambda</b> () const</td></tr>
+<tr class="memitem:a5a83e5feb99cad95aaed79feb8ef66b2"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a5a83e5feb99cad95aaed79feb8ef66b2">getLambda</a> () const</td></tr>
 <tr class="separator:a5a83e5feb99cad95aaed79feb8ef66b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e4fe91ee4f338b21938e5209682d930"><td class="memItemLeft" align="right" valign="top"><a id="a3e4fe91ee4f338b21938e5209682d930"></a>
-virtual Real&#160;</td><td class="memItemRight" valign="bottom"><b>getMu</b> () const</td></tr>
+<tr class="memitem:a3e4fe91ee4f338b21938e5209682d930"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a3e4fe91ee4f338b21938e5209682d930">getMu</a> () const</td></tr>
 <tr class="separator:a3e4fe91ee4f338b21938e5209682d930"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0685f08296ecb72a687d2575fdb33e6c"><td class="memItemLeft" align="right" valign="top"><a id="a0685f08296ecb72a687d2575fdb33e6c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setYoungModulus</b> (const Real modulus)</td></tr>
+<tr class="memitem:a0685f08296ecb72a687d2575fdb33e6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a0685f08296ecb72a687d2575fdb33e6c">setYoungModulus</a> (const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> modulus)</td></tr>
 <tr class="separator:a0685f08296ecb72a687d2575fdb33e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58669b46ed10ba03a3932a1273a0ff6a"><td class="memItemLeft" align="right" valign="top"><a id="a58669b46ed10ba03a3932a1273a0ff6a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPoissonRatio</b> (const Real ratio)</td></tr>
+<tr class="memitem:a58669b46ed10ba03a3932a1273a0ff6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a58669b46ed10ba03a3932a1273a0ff6a">setPoissonRatio</a> (const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> ratio)</td></tr>
 <tr class="separator:a58669b46ed10ba03a3932a1273a0ff6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7217d75489a653468422f243a7bbcff4"><td class="memItemLeft" align="right" valign="top"><a id="a7217d75489a653468422f243a7bbcff4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setRotationDecompositionMethod</b> (const RotationDecompositionMethod m)</td></tr>
+<tr class="memitem:a7217d75489a653468422f243a7bbcff4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a7217d75489a653468422f243a7bbcff4">setRotationDecompositionMethod</a> (const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a47fa80edebebf0be53efc1f171496e27">RotationDecompositionMethod</a> m)</td></tr>
 <tr class="separator:a7217d75489a653468422f243a7bbcff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8673433953792026ae9baf91b348d7da"><td class="memItemLeft" align="right" valign="top"><a id="a8673433953792026ae9baf91b348d7da"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (const <a class="el" href="classsofa_1_1core_1_1visual_1_1_visual_params.html">core::visual::VisualParams</a> *vparams) override</td></tr>
+<tr class="memitem:a8673433953792026ae9baf91b348d7da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a8673433953792026ae9baf91b348d7da">draw</a> (const <a class="el" href="classsofa_1_1core_1_1visual_1_1_visual_params.html">core::visual::VisualParams</a> *vparams) override</td></tr>
 <tr class="separator:a8673433953792026ae9baf91b348d7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4a13bca3667f218b6169be7b33ccebb"><td class="memItemLeft" align="right" valign="top"><a id="ab4a13bca3667f218b6169be7b33ccebb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ab4a13bca3667f218b6169be7b33ccebb">updateLameCoefficients</a> ()</td></tr>
-<tr class="memdesc:ab4a13bca3667f218b6169be7b33ccebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute lambda and mu based on the Young modulus and Poisson ratio <br /></td></tr>
+<tr class="memitem:ab4a13bca3667f218b6169be7b33ccebb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ab4a13bca3667f218b6169be7b33ccebb">updateLameCoefficients</a> ()</td></tr>
+<tr class="memdesc:ab4a13bca3667f218b6169be7b33ccebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute lambda and mu based on the Young modulus and Poisson ratio  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ab4a13bca3667f218b6169be7b33ccebb">More...</a><br /></td></tr>
 <tr class="separator:ab4a13bca3667f218b6169be7b33ccebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a97afe3561f581b38da35d4cd50908716"><td class="memItemLeft" align="right" valign="top"><a id="a97afe3561f581b38da35d4cd50908716"></a>
-<a class="el" href="classsofa_1_1core_1_1topology_1_1_topology_data.html">core::topology::PointData</a>&lt; VecMat3x3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a97afe3561f581b38da35d4cd50908716">pointInfo</a></td></tr>
-<tr class="memdesc:a97afe3561f581b38da35d4cd50908716"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal point data. <br /></td></tr>
+<tr class="memitem:a97afe3561f581b38da35d4cd50908716"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1core_1_1topology.html#abd17b257c9489777685b10f3819b647f">core::topology::PointData</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ae3d0a7d4e6cdee456439fa65eb1146d0">VecMat3x3</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a97afe3561f581b38da35d4cd50908716">pointInfo</a></td></tr>
+<tr class="memdesc:a97afe3561f581b38da35d4cd50908716"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal point data.  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a97afe3561f581b38da35d4cd50908716">More...</a><br /></td></tr>
 <tr class="separator:a97afe3561f581b38da35d4cd50908716"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0241473cbf412b692f9c3e7a2868bc1e"><td class="memItemLeft" align="right" valign="top"><a id="a0241473cbf412b692f9c3e7a2868bc1e"></a>
-<a class="el" href="classsofa_1_1core_1_1topology_1_1_topology_data.html">core::topology::EdgeData</a>&lt; VecMat3x3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a0241473cbf412b692f9c3e7a2868bc1e">edgeInfo</a></td></tr>
-<tr class="memdesc:a0241473cbf412b692f9c3e7a2868bc1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal edge data. <br /></td></tr>
+<tr class="memitem:a0241473cbf412b692f9c3e7a2868bc1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1core_1_1topology.html#a152c9d299f551632177c26a8b6a47b42">core::topology::EdgeData</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ae3d0a7d4e6cdee456439fa65eb1146d0">VecMat3x3</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a0241473cbf412b692f9c3e7a2868bc1e">edgeInfo</a></td></tr>
+<tr class="memdesc:a0241473cbf412b692f9c3e7a2868bc1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal edge data.  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a0241473cbf412b692f9c3e7a2868bc1e">More...</a><br /></td></tr>
 <tr class="separator:a0241473cbf412b692f9c3e7a2868bc1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0c5b8316f78b1c1545a09d693246b3e"><td class="memItemLeft" align="right" valign="top"><a id="ac0c5b8316f78b1c1545a09d693246b3e"></a>
-<a class="el" href="classsofa_1_1core_1_1topology_1_1_topology_data.html">core::topology::TetrahedronData</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a575df022a3bd88ca296b9d072f1467b8">VecTetrahedronRestInformation</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ac0c5b8316f78b1c1545a09d693246b3e">tetrahedronInfo</a></td></tr>
-<tr class="memdesc:ac0c5b8316f78b1c1545a09d693246b3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal tetrahedron data. <br /></td></tr>
+<tr class="memitem:ac0c5b8316f78b1c1545a09d693246b3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1core_1_1topology.html#a3b245e88053aa48be7412cd07e91d254">core::topology::TetrahedronData</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a575df022a3bd88ca296b9d072f1467b8">VecTetrahedronRestInformation</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ac0c5b8316f78b1c1545a09d693246b3e">tetrahedronInfo</a></td></tr>
+<tr class="memdesc:ac0c5b8316f78b1c1545a09d693246b3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal tetrahedron data.  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ac0c5b8316f78b1c1545a09d693246b3e">More...</a><br /></td></tr>
 <tr class="separator:ac0c5b8316f78b1c1545a09d693246b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6c9f9e7279f09e4b8e4dcf25fb09cc9"><td class="memItemLeft" align="right" valign="top"><a id="af6c9f9e7279f09e4b8e4dcf25fb09cc9"></a>
-<a class="el" href="classsofa_1_1type_1_1vector.html">VecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#af6c9f9e7279f09e4b8e4dcf25fb09cc9">_initialPoints</a></td></tr>
-<tr class="memdesc:af6c9f9e7279f09e4b8e4dcf25fb09cc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">the intial positions of the points <br /></td></tr>
+<tr class="memitem:af6c9f9e7279f09e4b8e4dcf25fb09cc9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#af6c9f9e7279f09e4b8e4dcf25fb09cc9">_initialPoints</a></td></tr>
+<tr class="memdesc:af6c9f9e7279f09e4b8e4dcf25fb09cc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">the intial positions of the points  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#af6c9f9e7279f09e4b8e4dcf25fb09cc9">More...</a><br /></td></tr>
 <tr class="separator:af6c9f9e7279f09e4b8e4dcf25fb09cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0da92b5a2a4945c96b26f6bd95e370d8"><td class="memItemLeft" align="right" valign="top"><a id="a0da92b5a2a4945c96b26f6bd95e370d8"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a0da92b5a2a4945c96b26f6bd95e370d8">f_method</a></td></tr>
-<tr class="memdesc:a0da92b5a2a4945c96b26f6bd95e370d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">the computation method of the displacements <br /></td></tr>
+<tr class="memitem:a0da92b5a2a4945c96b26f6bd95e370d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a0da92b5a2a4945c96b26f6bd95e370d8">f_method</a></td></tr>
+<tr class="memdesc:a0da92b5a2a4945c96b26f6bd95e370d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">the computation method of the displacements  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a0da92b5a2a4945c96b26f6bd95e370d8">More...</a><br /></td></tr>
 <tr class="separator:a0da92b5a2a4945c96b26f6bd95e370d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a987b900812579b40ed626f4a9b515b14"><td class="memItemLeft" align="right" valign="top"><a id="a987b900812579b40ed626f4a9b515b14"></a>
-RotationDecompositionMethod&#160;</td><td class="memItemRight" valign="bottom"><b>m_decompositionMethod</b></td></tr>
+<tr class="memitem:a987b900812579b40ed626f4a9b515b14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a47fa80edebebf0be53efc1f171496e27">RotationDecompositionMethod</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a987b900812579b40ed626f4a9b515b14">m_decompositionMethod</a></td></tr>
 <tr class="separator:a987b900812579b40ed626f4a9b515b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6bd7cfb6a1f5d2588bb9f186a976967"><td class="memItemLeft" align="right" valign="top"><a id="ac6bd7cfb6a1f5d2588bb9f186a976967"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ac6bd7cfb6a1f5d2588bb9f186a976967">f_poissonRatio</a></td></tr>
-<tr class="memdesc:ac6bd7cfb6a1f5d2588bb9f186a976967"><td class="mdescLeft">&#160;</td><td class="mdescRight">Poisson ratio in Hooke's law. <br /></td></tr>
+<tr class="memitem:ac6bd7cfb6a1f5d2588bb9f186a976967"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ac6bd7cfb6a1f5d2588bb9f186a976967">f_poissonRatio</a></td></tr>
+<tr class="memdesc:ac6bd7cfb6a1f5d2588bb9f186a976967"><td class="mdescLeft">&#160;</td><td class="mdescRight">Poisson ratio in Hooke's law.  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ac6bd7cfb6a1f5d2588bb9f186a976967">More...</a><br /></td></tr>
 <tr class="separator:ac6bd7cfb6a1f5d2588bb9f186a976967"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7d7c2e0b5ca9ed0078de60dfb847a78"><td class="memItemLeft" align="right" valign="top"><a id="ab7d7c2e0b5ca9ed0078de60dfb847a78"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ab7d7c2e0b5ca9ed0078de60dfb847a78">f_youngModulus</a></td></tr>
-<tr class="memdesc:ab7d7c2e0b5ca9ed0078de60dfb847a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Young modulus in Hooke's law. <br /></td></tr>
+<tr class="memitem:ab7d7c2e0b5ca9ed0078de60dfb847a78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ab7d7c2e0b5ca9ed0078de60dfb847a78">f_youngModulus</a></td></tr>
+<tr class="memdesc:ab7d7c2e0b5ca9ed0078de60dfb847a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Young modulus in Hooke's law.  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ab7d7c2e0b5ca9ed0078de60dfb847a78">More...</a><br /></td></tr>
 <tr class="separator:ab7d7c2e0b5ca9ed0078de60dfb847a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9b855ff315fc0864fef23960cd764a1"><td class="memItemLeft" align="right" valign="top"><a id="ae9b855ff315fc0864fef23960cd764a1"></a>
-Real&#160;</td><td class="memItemRight" valign="bottom"><b>lambda</b></td></tr>
+<tr class="memitem:ae9b855ff315fc0864fef23960cd764a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ae9b855ff315fc0864fef23960cd764a1">lambda</a></td></tr>
 <tr class="separator:ae9b855ff315fc0864fef23960cd764a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe9e5f3a279c1eb4a78062ca3f563e20"><td class="memItemLeft" align="right" valign="top"><a id="afe9e5f3a279c1eb4a78062ca3f563e20"></a>
-Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#afe9e5f3a279c1eb4a78062ca3f563e20">mu</a></td></tr>
-<tr class="memdesc:afe9e5f3a279c1eb4a78062ca3f563e20"><td class="mdescLeft">&#160;</td><td class="mdescRight">first Lame coefficient <br /></td></tr>
+<tr class="memitem:afe9e5f3a279c1eb4a78062ca3f563e20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#afe9e5f3a279c1eb4a78062ca3f563e20">mu</a></td></tr>
+<tr class="memdesc:afe9e5f3a279c1eb4a78062ca3f563e20"><td class="mdescLeft">&#160;</td><td class="mdescRight">first Lame coefficient  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#afe9e5f3a279c1eb4a78062ca3f563e20">More...</a><br /></td></tr>
 <tr class="separator:afe9e5f3a279c1eb4a78062ca3f563e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20d307ff3c076f9b72306e73e20839d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a20d307ff3c076f9b72306e73e20839d0">f_drawing</a></td></tr>
 <tr class="memdesc:a20d307ff3c076f9b72306e73e20839d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">second Lame coefficient  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a20d307ff3c076f9b72306e73e20839d0">More...</a><br /></td></tr>
 <tr class="separator:a20d307ff3c076f9b72306e73e20839d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ef4a1c64fa02a98185de5b7931d3453"><td class="memItemLeft" align="right" valign="top"><a id="a3ef4a1c64fa02a98185de5b7931d3453"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1type_1_1_r_g_b_a_color.html">sofa::type::RGBAColor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a3ef4a1c64fa02a98185de5b7931d3453">drawColor1</a></td></tr>
-<tr class="memdesc:a3ef4a1c64fa02a98185de5b7931d3453"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw color for faces 1 <br /></td></tr>
+<tr class="memitem:a3ef4a1c64fa02a98185de5b7931d3453"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1type_1_1_r_g_b_a_color.html">sofa::type::RGBAColor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a3ef4a1c64fa02a98185de5b7931d3453">drawColor1</a></td></tr>
+<tr class="memdesc:a3ef4a1c64fa02a98185de5b7931d3453"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw color for faces 1  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a3ef4a1c64fa02a98185de5b7931d3453">More...</a><br /></td></tr>
 <tr class="separator:a3ef4a1c64fa02a98185de5b7931d3453"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37e5978e252e9b140901b3085c97c66e"><td class="memItemLeft" align="right" valign="top"><a id="a37e5978e252e9b140901b3085c97c66e"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1type_1_1_r_g_b_a_color.html">sofa::type::RGBAColor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a37e5978e252e9b140901b3085c97c66e">drawColor2</a></td></tr>
-<tr class="memdesc:a37e5978e252e9b140901b3085c97c66e"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw color for faces 2 <br /></td></tr>
+<tr class="memitem:a37e5978e252e9b140901b3085c97c66e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1type_1_1_r_g_b_a_color.html">sofa::type::RGBAColor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a37e5978e252e9b140901b3085c97c66e">drawColor2</a></td></tr>
+<tr class="memdesc:a37e5978e252e9b140901b3085c97c66e"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw color for faces 2  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a37e5978e252e9b140901b3085c97c66e">More...</a><br /></td></tr>
 <tr class="separator:a37e5978e252e9b140901b3085c97c66e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c7086148da4667b7dade375df865189"><td class="memItemLeft" align="right" valign="top"><a id="a7c7086148da4667b7dade375df865189"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1type_1_1_r_g_b_a_color.html">sofa::type::RGBAColor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a7c7086148da4667b7dade375df865189">drawColor3</a></td></tr>
-<tr class="memdesc:a7c7086148da4667b7dade375df865189"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw color for faces 3 <br /></td></tr>
+<tr class="memitem:a7c7086148da4667b7dade375df865189"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1type_1_1_r_g_b_a_color.html">sofa::type::RGBAColor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a7c7086148da4667b7dade375df865189">drawColor3</a></td></tr>
+<tr class="memdesc:a7c7086148da4667b7dade375df865189"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw color for faces 3  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a7c7086148da4667b7dade375df865189">More...</a><br /></td></tr>
 <tr class="separator:a7c7086148da4667b7dade375df865189"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cfbfd68e858799905c9c6b81df2ccee"><td class="memItemLeft" align="right" valign="top"><a id="a3cfbfd68e858799905c9c6b81df2ccee"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1type_1_1_r_g_b_a_color.html">sofa::type::RGBAColor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a3cfbfd68e858799905c9c6b81df2ccee">drawColor4</a></td></tr>
-<tr class="memdesc:a3cfbfd68e858799905c9c6b81df2ccee"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw color for faces 4 <br /></td></tr>
+<tr class="memitem:a3cfbfd68e858799905c9c6b81df2ccee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1type_1_1_r_g_b_a_color.html">sofa::type::RGBAColor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a3cfbfd68e858799905c9c6b81df2ccee">drawColor4</a></td></tr>
+<tr class="memdesc:a3cfbfd68e858799905c9c6b81df2ccee"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw color for faces 4  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a3cfbfd68e858799905c9c6b81df2ccee">More...</a><br /></td></tr>
 <tr class="separator:a3cfbfd68e858799905c9c6b81df2ccee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab734780035473f1585069c30359af074"><td class="memItemLeft" align="right" valign="top"><a id="ab734780035473f1585069c30359af074"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_single_link.html">SingleLink</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html">FastTetrahedralCorotationalForceField</a>&lt; <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html">DataTypes</a> &gt;, <a class="el" href="classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html">sofa::core::topology::BaseMeshTopology</a>, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html#ac560a88f1ec319db6a8a0f8377f3d24bada48d1a0b2fc7bacd0135e622e8f43c7">BaseLink::FLAG_STOREPATH</a>|<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html#ac560a88f1ec319db6a8a0f8377f3d24bacdec56601538250d849a49abd01f09c6">BaseLink::FLAG_STRONGLINK</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ab734780035473f1585069c30359af074">l_topology</a></td></tr>
-<tr class="memdesc:ab734780035473f1585069c30359af074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Link to be set to the topology container in the component graph. <br /></td></tr>
+<tr class="memitem:ab734780035473f1585069c30359af074"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_single_link.html">SingleLink</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html">FastTetrahedralCorotationalForceField</a>&lt; <a class="el" href="namespacesofa.html#a74df6d045de2e36fbc9678f0946ddecc">DataTypes</a> &gt;, <a class="el" href="classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html">sofa::core::topology::BaseMeshTopology</a>, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html#ac560a88f1ec319db6a8a0f8377f3d24bada48d1a0b2fc7bacd0135e622e8f43c7">BaseLink::FLAG_STOREPATH</a>|<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html#ac560a88f1ec319db6a8a0f8377f3d24bacdec56601538250d849a49abd01f09c6">BaseLink::FLAG_STRONGLINK</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ab734780035473f1585069c30359af074">l_topology</a></td></tr>
+<tr class="memdesc:ab734780035473f1585069c30359af074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Link to be set to the topology container in the component graph.  <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ab734780035473f1585069c30359af074">More...</a><br /></td></tr>
 <tr class="separator:ab734780035473f1585069c30359af074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
 Protected Types</h2></td></tr>
-<tr class="memitem:a7471d6f3b6f9c7de1d130835bd93e3f3"><td class="memItemLeft" align="right" valign="top"><a id="a7471d6f3b6f9c7de1d130835bd93e3f3"></a>
-typedef <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field_data.html">FastTetrahedralCorotationalForceFieldData</a>&lt; <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html">DataTypes</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ExtraData</b></td></tr>
+<tr class="memitem:a7471d6f3b6f9c7de1d130835bd93e3f3"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field_data.html">FastTetrahedralCorotationalForceFieldData</a>&lt; <a class="el" href="namespacesofa.html#a74df6d045de2e36fbc9678f0946ddecc">DataTypes</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a7471d6f3b6f9c7de1d130835bd93e3f3">ExtraData</a></td></tr>
 <tr class="separator:a7471d6f3b6f9c7de1d130835bd93e3f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a6d52c23264a938a6767df32decc77d21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a6d52c23264a938a6767df32decc77d21">createTetrahedronRestInformation</a> (Index, <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_for61007de5689b896ba934034e84420a35.html">TetrahedronRestInformation</a> &amp;t, const <a class="el" href="structsofa_1_1topology_1_1_element.html">core::topology::BaseMeshTopology::Tetrahedron</a> &amp;, const <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; Index &gt; &amp;, const <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; SReal &gt; &amp;)</td></tr>
+<tr class="memitem:a6d52c23264a938a6767df32decc77d21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a6d52c23264a938a6767df32decc77d21">createTetrahedronRestInformation</a> (<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a142bcfa1a77048ae32cc6b8470cb7fea">Index</a>, <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_for61007de5689b896ba934034e84420a35.html">TetrahedronRestInformation</a> &amp;t, const <a class="el" href="classsofa_1_1core_1_1topology_1_1_topology.html#aa14541bec796e742444946b2159ed75b">core::topology::BaseMeshTopology::Tetrahedron</a> &amp;, const <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a142bcfa1a77048ae32cc6b8470cb7fea">Index</a> &gt; &amp;, const <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; SReal &gt; &amp;)</td></tr>
 <tr class="separator:a6d52c23264a938a6767df32decc77d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a713d4c39d138c9839f4e66d95edcb783"><td class="memItemLeft" align="right" valign="top"><a id="a713d4c39d138c9839f4e66d95edcb783"></a>
-<a class="el" href="classsofa_1_1core_1_1topology_1_1_topology_data.html">core::topology::EdgeData</a>&lt; VecMat3x3 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEdgeInfo</b> ()</td></tr>
+<tr class="memitem:a713d4c39d138c9839f4e66d95edcb783"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1core_1_1topology.html#a152c9d299f551632177c26a8b6a47b42">core::topology::EdgeData</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ae3d0a7d4e6cdee456439fa65eb1146d0">VecMat3x3</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a713d4c39d138c9839f4e66d95edcb783">getEdgeInfo</a> ()</td></tr>
 <tr class="separator:a713d4c39d138c9839f4e66d95edcb783"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:a342d3a47bd4793d196fa7520c44d297e"><td class="memItemLeft" align="right" valign="top"><a id="a342d3a47bd4793d196fa7520c44d297e"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>computeQRRotation</b> (<a class="el" href="classsofa_1_1type_1_1_mat.html">Mat3x3</a> &amp;r, const Coord *dp)</td></tr>
+<tr class="memitem:a342d3a47bd4793d196fa7520c44d297e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a342d3a47bd4793d196fa7520c44d297e">computeQRRotation</a> (<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a576eead581ccb08be4ac0947ae0f5f9c">Mat3x3</a> &amp;r, const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a> *dp)</td></tr>
 <tr class="separator:a342d3a47bd4793d196fa7520c44d297e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:af844fbe9a803458c15315a7ddcd62bd7"><td class="memItemLeft" align="right" valign="top"><a id="af844fbe9a803458c15315a7ddcd62bd7"></a>
-<a class="el" href="classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html">sofa::core::topology::BaseMeshTopology</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_topology</b></td></tr>
+<tr class="memitem:af844fbe9a803458c15315a7ddcd62bd7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html">sofa::core::topology::BaseMeshTopology</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#af844fbe9a803458c15315a7ddcd62bd7">m_topology</a></td></tr>
 <tr class="separator:af844fbe9a803458c15315a7ddcd62bd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd825c94b5c44188b1c66086b67b3b49"><td class="memItemLeft" align="right" valign="top"><a id="afd825c94b5c44188b1c66086b67b3b49"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>updateMatrix</b></td></tr>
+<tr class="memitem:afd825c94b5c44188b1c66086b67b3b49"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#afd825c94b5c44188b1c66086b67b3b49">updateMatrix</a></td></tr>
 <tr class="separator:afd825c94b5c44188b1c66086b67b3b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c6ed17d25e50c5f008b95e82e2ad085"><td class="memItemLeft" align="right" valign="top"><a id="a2c6ed17d25e50c5f008b95e82e2ad085"></a>
-<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field_data.html">ExtraData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_data</b></td></tr>
+<tr class="memitem:a2c6ed17d25e50c5f008b95e82e2ad085"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a7471d6f3b6f9c7de1d130835bd93e3f3">ExtraData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a2c6ed17d25e50c5f008b95e82e2ad085">m_data</a></td></tr>
 <tr class="separator:a2c6ed17d25e50c5f008b95e82e2ad085"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a7c0bd56aca42d0e855a400b50f3e078b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c0bd56aca42d0e855a400b50f3e078b">&#9670;&nbsp;</a></span>Coord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a433a4446e8804f24450e7f9f90cf27a5">DataTypes::Coord</a> <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a233811a9601bc665853394a95c35d219"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a233811a9601bc665853394a95c35d219">&#9670;&nbsp;</a></span>DataVecCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a>&gt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a233811a9601bc665853394a95c35d219">DataVecCoord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10f14e5926a8258b586fff5ef010df18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10f14e5926a8258b586fff5ef010df18">&#9670;&nbsp;</a></span>DataVecDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a>&gt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a10f14e5926a8258b586fff5ef010df18">DataVecDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a705fac58c33b23c20e6bac3fd2b0bb87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a705fac58c33b23c20e6bac3fd2b0bb87">&#9670;&nbsp;</a></span>Deriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a8ea6da29f450c7a8fcceed1d0e3c4cfc">DataTypes::Deriv</a> <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a705fac58c33b23c20e6bac3fd2b0bb87">Deriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d20f9d64fbb43dd3faa823650cbc303"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d20f9d64fbb43dd3faa823650cbc303">&#9670;&nbsp;</a></span>EdgesInTetrahedron</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html#a4d370f84b203464d5ef0d837509bd56f">core::topology::BaseMeshTopology::EdgesInTetrahedron</a> <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a5d20f9d64fbb43dd3faa823650cbc303">EdgesInTetrahedron</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7471d6f3b6f9c7de1d130835bd93e3f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7471d6f3b6f9c7de1d130835bd93e3f3">&#9670;&nbsp;</a></span>ExtraData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field_data.html">FastTetrahedralCorotationalForceFieldData</a>&lt;<a class="el" href="namespacesofa.html#a74df6d045de2e36fbc9678f0946ddecc">DataTypes</a>&gt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a7471d6f3b6f9c7de1d130835bd93e3f3">ExtraData</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a142bcfa1a77048ae32cc6b8470cb7fea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a142bcfa1a77048ae32cc6b8470cb7fea">&#9670;&nbsp;</a></span>Index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef sofa::Index <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a142bcfa1a77048ae32cc6b8470cb7fea">Index</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a11525b4ccfe85d89a218b650d0997a30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11525b4ccfe85d89a218b650d0997a30">&#9670;&nbsp;</a></span>Inherited</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1core_1_1behavior_1_1_force_field.html">core::behavior::ForceField</a>&lt;<a class="el" href="namespacesofa.html#a74df6d045de2e36fbc9678f0946ddecc">DataTypes</a>&gt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a11525b4ccfe85d89a218b650d0997a30">Inherited</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a576eead581ccb08be4ac0947ae0f5f9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a576eead581ccb08be4ac0947ae0f5f9c">&#9670;&nbsp;</a></span>Mat3x3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a576eead581ccb08be4ac0947ae0f5f9c">Mat3x3</a> =  <a class="el" href="classsofa_1_1type_1_1_mat.html">type::Mat</a>&lt;3, 3, <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad8912c79e0a55f6f84f627b6e61b85ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8912c79e0a55f6f84f627b6e61b85ab">&#9670;&nbsp;</a></span>Mat3x3NoInit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ad8912c79e0a55f6f84f627b6e61b85ab">Mat3x3NoInit</a> =  <a class="el" href="classsofa_1_1type_1_1_mat_no_init.html">type::MatNoInit</a>&lt;3, 3, <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acf523069e5b1497cffac17511dcd3b1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf523069e5b1497cffac17511dcd3b1e">&#9670;&nbsp;</a></span>Real</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a032e30a7559178ebc4240c12ef02ec56">DataTypes::Real</a> <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88be3993e8701165ea7336c5d79959d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88be3993e8701165ea7336c5d79959d1">&#9670;&nbsp;</a></span>Tetra</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1core_1_1topology_1_1_topology.html#a39e11db82c74bb7de69bb89787649584">core::topology::BaseMeshTopology::Tetra</a> <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a88be3993e8701165ea7336c5d79959d1">Tetra</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e31bde43a29204138d41ce0eff83fdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e31bde43a29204138d41ce0eff83fdc">&#9670;&nbsp;</a></span>Tetrahedron</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1core_1_1topology_1_1_topology.html#a39e11db82c74bb7de69bb89787649584">core::topology::BaseMeshTopology::Tetra</a> <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a8e31bde43a29204138d41ce0eff83fdc">Tetrahedron</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05882e2e9ba8d707ab531ab94a1f39e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05882e2e9ba8d707ab531ab94a1f39e0">&#9670;&nbsp;</a></span>VecCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a06eb712afb67c0ee7c25eb52a2f5cf5f">DataTypes::VecCoord</a> <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83fb2b666b4e514e93d3bb221aa681ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83fb2b666b4e514e93d3bb221aa681ef">&#9670;&nbsp;</a></span>VecDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a87984e2bbae86596548eb282b5624420">DataTypes::VecDeriv</a> <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae3d0a7d4e6cdee456439fa65eb1146d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3d0a7d4e6cdee456439fa65eb1146d0">&#9670;&nbsp;</a></span>VecMat3x3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef VecCoord::template rebind&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a576eead581ccb08be4ac0947ae0f5f9c">Mat3x3</a>&gt;::other <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ae3d0a7d4e6cdee456439fa65eb1146d0">VecMat3x3</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac65f29d77ab27fa6f97c3c8d9e10b2af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac65f29d77ab27fa6f97c3c8d9e10b2af">&#9670;&nbsp;</a></span>VecReal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a6c0d252670960c4ead435e98ff168952">DataTypes::VecReal</a> <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ac65f29d77ab27fa6f97c3c8d9e10b2af">VecReal</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a575df022a3bd88ca296b9d072f1467b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a575df022a3bd88ca296b9d072f1467b8">&#9670;&nbsp;</a></span>VecTetrahedronRestInformation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef VecCoord::template rebind&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_for61007de5689b896ba934034e84420a35.html">TetrahedronRestInformation</a>&gt;::other <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a575df022a3bd88ca296b9d072f1467b8">VecTetrahedronRestInformation</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Topology Data. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a47fa80edebebf0be53efc1f171496e27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47fa80edebebf0be53efc1f171496e27">&#9670;&nbsp;</a></span>RotationDecompositionMethod</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a47fa80edebebf0be53efc1f171496e27">RotationDecompositionMethod</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a47fa80edebebf0be53efc1f171496e27ad3dbb3fbb4725760ce2f9829fa9b903b"></a>POLAR_DECOMPOSITION&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a47fa80edebebf0be53efc1f171496e27aae7c084b4d4ee4b831177248d070d6a2"></a>QR_DECOMPOSITION&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a47fa80edebebf0be53efc1f171496e27a8a4a7b5bec992b99213d145a82e3c787"></a>POLAR_DECOMPOSITION_MODIFIED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a47fa80edebebf0be53efc1f171496e27a4d1dd2ca5b1d978848c4608ff328c9f9"></a>LINEAR_ELASTIC&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab7579898bd01ce0a5ed46376c0226d01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7579898bd01ce0a5ed46376c0226d01">&#9670;&nbsp;</a></span>FastTetrahedralCorotationalForceField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html">FastTetrahedralCorotationalForceField</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4c134c5179817cec60fe0953da21b598"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c134c5179817cec60fe0953da21b598">&#9670;&nbsp;</a></span>~FastTetrahedralCorotationalForceField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html">FastTetrahedralCorotationalForceField</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a74be35fe84e38b63692897e1e50b81dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74be35fe84e38b63692897e1e50b81dd">&#9670;&nbsp;</a></span>addDForce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addDForce </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">sofa::core::MechanicalParams</a> *&#160;</td>
+          <td class="paramname"><em>mparams</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a10f14e5926a8258b586fff5ef010df18">DataVecDeriv</a> &amp;&#160;</td>
+          <td class="paramname"><em>datadF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a10f14e5926a8258b586fff5ef010df18">DataVecDeriv</a> &amp;&#160;</td>
+          <td class="paramname"><em>datadX</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="afa9158471ae766406dc025c8ecf2d379"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afa9158471ae766406dc025c8ecf2d379">&#9670;&nbsp;</a></span>addForce()</h2>
 
@@ -324,19 +644,19 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>updateMatrix</b></td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">DataVecDeriv</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a10f14e5926a8258b586fff5ef010df18">DataVecDeriv</a> &amp;&#160;</td>
           <td class="paramname"><em>dataF</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">DataVecCoord</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a233811a9601bc665853394a95c35d219">DataVecCoord</a> &amp;&#160;</td>
           <td class="paramname"><em>dataX</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">DataVecDeriv</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a10f14e5926a8258b586fff5ef010df18">DataVecDeriv</a> &amp;&#160;</td>
           <td class="paramname"><em>dataV</em>&#160;</td>
         </tr>
         <tr>
@@ -355,8 +675,44 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>updateMatrix</b></td>
 
 </div>
 </div>
+<a id="ac8689f5fd210a47ba9ce27218ad0a2ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8689f5fd210a47ba9ce27218ad0a2ce">&#9670;&nbsp;</a></span>addKToMatrix() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addKToMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">core::MechanicalParams</a> *&#160;</td>
+          <td class="paramname"><em>mparams</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1behavior_1_1_multi_matrix_accessor.html">sofa::core::behavior::MultiMatrixAccessor</a> *&#160;</td>
+          <td class="paramname"><em>matrix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af6850158a05f04eafcd5237be40722de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6850158a05f04eafcd5237be40722de">&#9670;&nbsp;</a></span>addKToMatrix()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af6850158a05f04eafcd5237be40722de">&#9670;&nbsp;</a></span>addKToMatrix() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -401,6 +757,42 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>updateMatrix</b></td>
 
 </div>
 </div>
+<a id="a342d3a47bd4793d196fa7520c44d297e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a342d3a47bd4793d196fa7520c44d297e">&#9670;&nbsp;</a></span>computeQRRotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void computeQRRotation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a576eead581ccb08be4ac0947ae0f5f9c">Mat3x3</a> &amp;&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a> *&#160;</td>
+          <td class="paramname"><em>dp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6d52c23264a938a6767df32decc77d21"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6d52c23264a938a6767df32decc77d21">&#9670;&nbsp;</a></span>createTetrahedronRestInformation()</h2>
 
@@ -413,7 +805,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>updateMatrix</b></td>
         <tr>
           <td class="memname">void createTetrahedronRestInformation </td>
           <td>(</td>
-          <td class="paramtype">Index&#160;</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a142bcfa1a77048ae32cc6b8470cb7fea">Index</a>&#160;</td>
           <td class="paramname"><em>tetrahedronIndex</em>, </td>
         </tr>
         <tr>
@@ -425,13 +817,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>updateMatrix</b></td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structsofa_1_1topology_1_1_element.html">core::topology::BaseMeshTopology::Tetrahedron</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1topology_1_1_topology.html#aa14541bec796e742444946b2159ed75b">core::topology::BaseMeshTopology::Tetrahedron</a> &amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; Index &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a142bcfa1a77048ae32cc6b8470cb7fea">Index</a> &gt; &amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -452,7 +844,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>updateMatrix</b></td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Method to initialize </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_for61007de5689b896ba934034e84420a35.html" title="data structure stored for each tetrahedron">TetrahedronRestInformation</a> when a new Tetrahedron is created. Will be set as creation callback in the TetrahedronData </dd>
+<p>Method to initialize </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_for61007de5689b896ba934034e84420a35.html" title="data structure stored for each tetrahedron">TetrahedronRestInformation</a> when a new <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a8e31bde43a29204138d41ce0eff83fdc">Tetrahedron</a> <a class="el" href="_x_m_l_8cpp.html#a4a454be8c181b559177e292f04845a84">is</a> created. Will be set as creation callback in the TetrahedronData </dd>
 <dd>
 <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ac0c5b8316f78b1c1545a09d693246b3e" title="Internal tetrahedron data.">tetrahedronInfo</a> </dd></dl>
 <p>describe the indices of the 4 tetrahedron vertices</p>
@@ -460,6 +852,143 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>updateMatrix</b></td>
 <p>store the rest volume</p>
 <p>compute the vertex stiffness of the linear elastic material, needed for addKToMatrix</p>
 <p>compute the edge stiffness of the linear elastic material</p>
+
+</div>
+</div>
+<a id="a8673433953792026ae9baf91b348d7da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8673433953792026ae9baf91b348d7da">&#9670;&nbsp;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void draw </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1visual_1_1_visual_params.html">core::visual::VisualParams</a> *&#160;</td>
+          <td class="paramname"><em>vparams</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a713d4c39d138c9839f4e66d95edcb783"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a713d4c39d138c9839f4e66d95edcb783">&#9670;&nbsp;</a></span>getEdgeInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesofa_1_1core_1_1topology.html#a152c9d299f551632177c26a8b6a47b42">core::topology::EdgeData</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ae3d0a7d4e6cdee456439fa65eb1146d0">VecMat3x3</a> &gt;&amp; getEdgeInfo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5a83e5feb99cad95aaed79feb8ef66b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a83e5feb99cad95aaed79feb8ef66b2">&#9670;&nbsp;</a></span>getLambda()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> getLambda </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e4fe91ee4f338b21938e5209682d930"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e4fe91ee4f338b21938e5209682d930">&#9670;&nbsp;</a></span>getMu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> getMu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa8122c0a2c84ed9b847fd6467bc85e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa8122c0a2c84ed9b847fd6467bc85e7">&#9670;&nbsp;</a></span>getPotentialEnergy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SReal getPotentialEnergy </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">core::MechanicalParams</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a233811a9601bc665853394a95c35d219">DataVecCoord</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -489,6 +1018,128 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>updateMatrix</b></td>
 
 </div>
 </div>
+<a id="a58669b46ed10ba03a3932a1273a0ff6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58669b46ed10ba03a3932a1273a0ff6a">&#9670;&nbsp;</a></span>setPoissonRatio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setPoissonRatio </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a>&#160;</td>
+          <td class="paramname"><em>ratio</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7217d75489a653468422f243a7bbcff4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7217d75489a653468422f243a7bbcff4">&#9670;&nbsp;</a></span>setRotationDecompositionMethod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setRotationDecompositionMethod </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a47fa80edebebf0be53efc1f171496e27">RotationDecompositionMethod</a>&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0685f08296ecb72a687d2575fdb33e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0685f08296ecb72a687d2575fdb33e6c">&#9670;&nbsp;</a></span>setYoungModulus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setYoungModulus </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a>&#160;</td>
+          <td class="paramname"><em>modulus</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a870b8f5c1fac7821c682bad94e69b7a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a870b8f5c1fac7821c682bad94e69b7a2">&#9670;&nbsp;</a></span>SOFA_CLASS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SOFA_CLASS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_base_class_8h.html#a31cd2291b906a5b1d94ae43b3bf80d61">SOFA_TEMPLATE</a>(<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html">FastTetrahedralCorotationalForceField</a>&lt; <a class="el" href="namespacesofa.html#a74df6d045de2e36fbc9678f0946ddecc">DataTypes</a> &gt;, <a class="el" href="namespacesofa.html#a74df6d045de2e36fbc9678f0946ddecc">DataTypes</a>)&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_base_class_8h.html#a31cd2291b906a5b1d94ae43b3bf80d61">SOFA_TEMPLATE</a>(<a class="el" href="classsofa_1_1core_1_1behavior_1_1_force_field.html">core::behavior::ForceField</a>, <a class="el" href="namespacesofa.html#a74df6d045de2e36fbc9678f0946ddecc">DataTypes</a>)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab4a13bca3667f218b6169be7b33ccebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4a13bca3667f218b6169be7b33ccebb">&#9670;&nbsp;</a></span>updateLameCoefficients()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateLameCoefficients</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compute lambda and mu based on the Young modulus and Poisson ratio </p>
+
+</div>
+</div>
 <a id="a5a4ccc1d944179bb6c700ede803df917"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a4ccc1d944179bb6c700ede803df917">&#9670;&nbsp;</a></span>updateTopologyInformation()</h2>
 
@@ -507,6 +1158,102 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>updateMatrix</b></td>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="af6c9f9e7279f09e4b8e4dcf25fb09cc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6c9f9e7279f09e4b8e4dcf25fb09cc9">&#9670;&nbsp;</a></span>_initialPoints</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a> _initialPoints</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>the intial positions of the points </p>
+
+</div>
+</div>
+<a id="a3ef4a1c64fa02a98185de5b7931d3453"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ef4a1c64fa02a98185de5b7931d3453">&#9670;&nbsp;</a></span>drawColor1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1type_1_1_r_g_b_a_color.html">sofa::type::RGBAColor</a>&gt; drawColor1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>draw color for faces 1 </p>
+
+</div>
+</div>
+<a id="a37e5978e252e9b140901b3085c97c66e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37e5978e252e9b140901b3085c97c66e">&#9670;&nbsp;</a></span>drawColor2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1type_1_1_r_g_b_a_color.html">sofa::type::RGBAColor</a>&gt; drawColor2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>draw color for faces 2 </p>
+
+</div>
+</div>
+<a id="a7c7086148da4667b7dade375df865189"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c7086148da4667b7dade375df865189">&#9670;&nbsp;</a></span>drawColor3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1type_1_1_r_g_b_a_color.html">sofa::type::RGBAColor</a>&gt; drawColor3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>draw color for faces 3 </p>
+
+</div>
+</div>
+<a id="a3cfbfd68e858799905c9c6b81df2ccee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cfbfd68e858799905c9c6b81df2ccee">&#9670;&nbsp;</a></span>drawColor4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1type_1_1_r_g_b_a_color.html">sofa::type::RGBAColor</a>&gt; drawColor4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>draw color for faces 4 </p>
+
+</div>
+</div>
+<a id="a0241473cbf412b692f9c3e7a2868bc1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0241473cbf412b692f9c3e7a2868bc1e">&#9670;&nbsp;</a></span>edgeInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesofa_1_1core_1_1topology.html#a152c9d299f551632177c26a8b6a47b42">core::topology::EdgeData</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ae3d0a7d4e6cdee456439fa65eb1146d0">VecMat3x3</a> &gt; edgeInfo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Internal edge data. </p>
+
+</div>
+</div>
 <a id="a20d307ff3c076f9b72306e73e20839d0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a20d307ff3c076f9b72306e73e20839d0">&#9670;&nbsp;</a></span>f_drawing</h2>
 
@@ -524,13 +1271,219 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>updateMatrix</b></td>
 
 </div>
 </div>
+<a id="a0da92b5a2a4945c96b26f6bd95e370d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0da92b5a2a4945c96b26f6bd95e370d8">&#9670;&nbsp;</a></span>f_method</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;std::string&gt; f_method</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>the computation method of the displacements </p>
+
+</div>
+</div>
+<a id="ac6bd7cfb6a1f5d2588bb9f186a976967"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6bd7cfb6a1f5d2588bb9f186a976967">&#9670;&nbsp;</a></span>f_poissonRatio</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a>&gt; f_poissonRatio</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Poisson ratio in Hooke's law. </p>
+
+</div>
+</div>
+<a id="ab7d7c2e0b5ca9ed0078de60dfb847a78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7d7c2e0b5ca9ed0078de60dfb847a78">&#9670;&nbsp;</a></span>f_youngModulus</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a>&gt; f_youngModulus</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Young modulus in Hooke's law. </p>
+
+</div>
+</div>
+<a id="ab734780035473f1585069c30359af074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab734780035473f1585069c30359af074">&#9670;&nbsp;</a></span>l_topology</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_single_link.html">SingleLink</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html">FastTetrahedralCorotationalForceField</a>&lt;<a class="el" href="namespacesofa.html#a74df6d045de2e36fbc9678f0946ddecc">DataTypes</a>&gt;, <a class="el" href="classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html">sofa::core::topology::BaseMeshTopology</a>, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html#ac560a88f1ec319db6a8a0f8377f3d24bada48d1a0b2fc7bacd0135e622e8f43c7">BaseLink::FLAG_STOREPATH</a> | <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html#ac560a88f1ec319db6a8a0f8377f3d24bacdec56601538250d849a49abd01f09c6">BaseLink::FLAG_STRONGLINK</a>&gt; l_topology</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Link to be set to the topology container in the component graph. </p>
+
+</div>
+</div>
+<a id="ae9b855ff315fc0864fef23960cd764a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9b855ff315fc0864fef23960cd764a1">&#9670;&nbsp;</a></span>lambda</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> lambda</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c6ed17d25e50c5f008b95e82e2ad085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c6ed17d25e50c5f008b95e82e2ad085">&#9670;&nbsp;</a></span>m_data</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a7471d6f3b6f9c7de1d130835bd93e3f3">ExtraData</a> m_data</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a987b900812579b40ed626f4a9b515b14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a987b900812579b40ed626f4a9b515b14">&#9670;&nbsp;</a></span>m_decompositionMethod</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a47fa80edebebf0be53efc1f171496e27">RotationDecompositionMethod</a> m_decompositionMethod</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af844fbe9a803458c15315a7ddcd62bd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af844fbe9a803458c15315a7ddcd62bd7">&#9670;&nbsp;</a></span>m_topology</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html">sofa::core::topology::BaseMeshTopology</a>* m_topology</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe9e5f3a279c1eb4a78062ca3f563e20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe9e5f3a279c1eb4a78062ca3f563e20">&#9670;&nbsp;</a></span>mu</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> mu</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>first Lame coefficient </p>
+
+</div>
+</div>
+<a id="a97afe3561f581b38da35d4cd50908716"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97afe3561f581b38da35d4cd50908716">&#9670;&nbsp;</a></span>pointInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesofa_1_1core_1_1topology.html#abd17b257c9489777685b10f3819b647f">core::topology::PointData</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ae3d0a7d4e6cdee456439fa65eb1146d0">VecMat3x3</a> &gt; pointInfo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Internal point data. </p>
+
+</div>
+</div>
+<a id="ac0c5b8316f78b1c1545a09d693246b3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0c5b8316f78b1c1545a09d693246b3e">&#9670;&nbsp;</a></span>tetrahedronInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesofa_1_1core_1_1topology.html#a3b245e88053aa48be7412cd07e91d254">core::topology::TetrahedronData</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a575df022a3bd88ca296b9d072f1467b8">VecTetrahedronRestInformation</a> &gt; tetrahedronInfo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Internal tetrahedron data. </p>
+
+</div>
+</div>
+<a id="afd825c94b5c44188b1c66086b67b3b49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd825c94b5c44188b1c66086b67b3b49">&#9670;&nbsp;</a></span>updateMatrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool updateMatrix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>component</b></li><li class="navelem"><b>solidmechanics</b></li><li class="navelem"><b>fem</b></li><li class="navelem"><b>elastic</b></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html">FastTetrahedralCorotationalForceField</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:00:15 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component.html">component</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1solidmechanics.html">solidmechanics</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1solidmechanics_1_1fem.html">fem</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic.html">elastic</a></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html">FastTetrahedralCorotationalForceField</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:30:40 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

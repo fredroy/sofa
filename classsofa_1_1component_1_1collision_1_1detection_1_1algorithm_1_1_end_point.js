@@ -10,5 +10,6 @@ var classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_end_point 
     [ "setMin", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_end_point.html#acf2638e8558d89797082e8f1d4d78a35", null ],
     [ "setMinAndBoxID", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_end_point.html#a1f5834eae6305a247c80e7b137cdf840", null ],
     [ "show", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_end_point.html#aa73509cd21d8b95c712f5cd2de77933e", null ],
+    [ "data", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_end_point.html#a9eab91667db4d35c7231dcddf7b89a76", null ],
     [ "value", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_end_point.html#aee90379adb0307effb138f4871edbc5c", null ]
 ];

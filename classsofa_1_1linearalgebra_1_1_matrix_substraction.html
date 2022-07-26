@@ -92,6 +92,8 @@ $(document).ready(function(){initNavTree('classsofa_1_1linearalgebra_1_1_matrix_
 <div class="title">MatrixSubstraction&lt; M1, M2 &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_linear_algebra_2src_2sofa_2linearalgebra_2_matrix_expr_8h_source.html">MatrixExpr.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -100,64 +102,355 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a71e6f8c0381e3283cc05b722216c4794"><td class="memItemLeft" align="right" valign="top"><a id="a71e6f8c0381e3283cc05b722216c4794"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>operand</b> = 0
+<tr class="memitem:a71e6f8c0381e3283cc05b722216c4794"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a71e6f8c0381e3283cc05b722216c4794a0b4ca4b6c617e59ffd4c61dd423b744c">operand</a> = 0
  }</td></tr>
 <tr class="separator:a71e6f8c0381e3283cc05b722216c4794"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ae95ea8e60178fe99580d5142f0ec7e"><td class="memItemLeft" align="right" valign="top"><a id="a2ae95ea8e60178fe99580d5142f0ec7e"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>category</b> = ((int)M1::category&gt;(int)M2::category) ? (int)M1::category : (int)M2::category
+<tr class="memitem:a2ae95ea8e60178fe99580d5142f0ec7e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a2ae95ea8e60178fe99580d5142f0ec7eac8009b23fdaa8489a1e0ac80d90ff887">category</a> = ((int)M1::category&gt;(int)M2::category) ? (int)M1::category : (int)M2::category
  }</td></tr>
 <tr class="separator:a2ae95ea8e60178fe99580d5142f0ec7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a981a6142498d6bd59cd78e93a36a0d11"><td class="memItemLeft" align="right" valign="top"><a id="a981a6142498d6bd59cd78e93a36a0d11"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>m_index</b> = (((int)M1::category&gt;(int)M2::category)?0:1)
+<tr class="memitem:a981a6142498d6bd59cd78e93a36a0d11"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a981a6142498d6bd59cd78e93a36a0d11a08ec9ea6b45976b8cd9ef28da2c4ca4f">m_index</a> = (((int)M1::category&gt;(int)M2::category)?0:1)
  }</td></tr>
 <tr class="separator:a981a6142498d6bd59cd78e93a36a0d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ff9f554a39e0228b9ec59c9c96b8f35"><td class="memItemLeft" align="right" valign="top"><a id="a0ff9f554a39e0228b9ec59c9c96b8f35"></a>
-typedef <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html">MatrixSubstraction</a>&lt; M1, M2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Expr</b></td></tr>
+<tr class="memitem:a0ff9f554a39e0228b9ec59c9c96b8f35"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html">MatrixSubstraction</a>&lt; M1, M2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a0ff9f554a39e0228b9ec59c9c96b8f35">Expr</a></td></tr>
 <tr class="separator:a0ff9f554a39e0228b9ec59c9c96b8f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83d2c6c477f7867b42f1a2b3eb52d226"><td class="memItemLeft" align="right" valign="top"><a id="a83d2c6c477f7867b42f1a2b3eb52d226"></a>
-typedef <a class="el" href="classsofa_1_1linearalgebra_1_1type__selector.html">type_selector</a>&lt; m_index, typename M1::matrix_type, typename M2::matrix_type &gt;::T&#160;</td><td class="memItemRight" valign="bottom"><b>matrix_type</b></td></tr>
+<tr class="memitem:a83d2c6c477f7867b42f1a2b3eb52d226"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1linearalgebra_1_1type__selector.html">type_selector</a>&lt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a981a6142498d6bd59cd78e93a36a0d11a08ec9ea6b45976b8cd9ef28da2c4ca4f">m_index</a>, typename M1::matrix_type, typename M2::matrix_type &gt;::T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a83d2c6c477f7867b42f1a2b3eb52d226">matrix_type</a></td></tr>
 <tr class="separator:a83d2c6c477f7867b42f1a2b3eb52d226"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab5aed9ba8b4894582ef669c228cac278"><td class="memItemLeft" align="right" valign="top"><a id="ab5aed9ba8b4894582ef669c228cac278"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixSubstraction</b> (const M1 &amp;m1, const M2 &amp;m2)</td></tr>
+<tr class="memitem:ab5aed9ba8b4894582ef669c228cac278"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#ab5aed9ba8b4894582ef669c228cac278">MatrixSubstraction</a> (const M1 &amp;<a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a7999cde606548825ee28af482473a6ef">m1</a>, const M2 &amp;<a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a42443c00c4f2f98f1b5fe0b041067408">m2</a>)</td></tr>
 <tr class="separator:ab5aed9ba8b4894582ef669c228cac278"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a315419f26d3c59fa143b49b90a019049"><td class="memItemLeft" align="right" valign="top"><a id="a315419f26d3c59fa143b49b90a019049"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>valid</b> () const</td></tr>
+<tr class="memitem:a315419f26d3c59fa143b49b90a019049"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a315419f26d3c59fa143b49b90a019049">valid</a> () const</td></tr>
 <tr class="separator:a315419f26d3c59fa143b49b90a019049"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a7aa22fbd16e5b1ca777cda30517658"><td class="memTemplParams" colspan="2"><a id="a9a7aa22fbd16e5b1ca777cda30517658"></a>
-template&lt;class M &gt; </td></tr>
-<tr class="memitem:a9a7aa22fbd16e5b1ca777cda30517658"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>hasRef</b> (const M *m) const</td></tr>
+<tr class="memitem:a9a7aa22fbd16e5b1ca777cda30517658"><td class="memTemplParams" colspan="2">template&lt;class M &gt; </td></tr>
+<tr class="memitem:a9a7aa22fbd16e5b1ca777cda30517658"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a9a7aa22fbd16e5b1ca777cda30517658">hasRef</a> (const M *m) const</td></tr>
 <tr class="separator:a9a7aa22fbd16e5b1ca777cda30517658"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d16f80ffef2abc5a497f99f2bc317cd"><td class="memItemLeft" align="right" valign="top"><a id="a4d16f80ffef2abc5a497f99f2bc317cd"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>rowSize</b> (void) const</td></tr>
+<tr class="memitem:a4d16f80ffef2abc5a497f99f2bc317cd"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a4d16f80ffef2abc5a497f99f2bc317cd">rowSize</a> (void) const</td></tr>
 <tr class="separator:a4d16f80ffef2abc5a497f99f2bc317cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec8e81cbe4bafa23ef201f4284fa9f2e"><td class="memItemLeft" align="right" valign="top"><a id="aec8e81cbe4bafa23ef201f4284fa9f2e"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>colSize</b> (void) const</td></tr>
+<tr class="memitem:aec8e81cbe4bafa23ef201f4284fa9f2e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#aec8e81cbe4bafa23ef201f4284fa9f2e">colSize</a> (void) const</td></tr>
 <tr class="separator:aec8e81cbe4bafa23ef201f4284fa9f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e3e5358546f96160dae2caf6ce91f7e"><td class="memItemLeft" align="right" valign="top"><a id="a6e3e5358546f96160dae2caf6ce91f7e"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>expr</b> () const</td></tr>
+<tr class="memitem:a6e3e5358546f96160dae2caf6ce91f7e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a6e3e5358546f96160dae2caf6ce91f7e">expr</a> () const</td></tr>
 <tr class="separator:a6e3e5358546f96160dae2caf6ce91f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc0a7d95ae81a2a3ca576bfeac41f9a3"><td class="memTemplParams" colspan="2"><a id="acc0a7d95ae81a2a3ca576bfeac41f9a3"></a>
-template&lt;class Dest &gt; </td></tr>
-<tr class="memitem:acc0a7d95ae81a2a3ca576bfeac41f9a3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>addTo</b> (Dest *d) const</td></tr>
+<tr class="memitem:acc0a7d95ae81a2a3ca576bfeac41f9a3"><td class="memTemplParams" colspan="2">template&lt;class Dest &gt; </td></tr>
+<tr class="memitem:acc0a7d95ae81a2a3ca576bfeac41f9a3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#acc0a7d95ae81a2a3ca576bfeac41f9a3">addTo</a> (Dest *d) const</td></tr>
 <tr class="separator:acc0a7d95ae81a2a3ca576bfeac41f9a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a7999cde606548825ee28af482473a6ef"><td class="memItemLeft" align="right" valign="top"><a id="a7999cde606548825ee28af482473a6ef"></a>
-const M1 &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>m1</b></td></tr>
+<tr class="memitem:a7999cde606548825ee28af482473a6ef"><td class="memItemLeft" align="right" valign="top">const M1 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a7999cde606548825ee28af482473a6ef">m1</a></td></tr>
 <tr class="separator:a7999cde606548825ee28af482473a6ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42443c00c4f2f98f1b5fe0b041067408"><td class="memItemLeft" align="right" valign="top"><a id="a42443c00c4f2f98f1b5fe0b041067408"></a>
-const M2 &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>m2</b></td></tr>
+<tr class="memitem:a42443c00c4f2f98f1b5fe0b041067408"><td class="memItemLeft" align="right" valign="top">const M2 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a42443c00c4f2f98f1b5fe0b041067408">m2</a></td></tr>
 <tr class="separator:a42443c00c4f2f98f1b5fe0b041067408"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a0ff9f554a39e0228b9ec59c9c96b8f35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ff9f554a39e0228b9ec59c9c96b8f35">&#9670;&nbsp;</a></span>Expr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html">MatrixSubstraction</a>&lt;M1, M2&gt; <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a0ff9f554a39e0228b9ec59c9c96b8f35">Expr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83d2c6c477f7867b42f1a2b3eb52d226"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83d2c6c477f7867b42f1a2b3eb52d226">&#9670;&nbsp;</a></span>matrix_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1linearalgebra_1_1type__selector.html">type_selector</a>&lt;<a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a981a6142498d6bd59cd78e93a36a0d11a08ec9ea6b45976b8cd9ef28da2c4ca4f">m_index</a>,typename M1::matrix_type,typename M2::matrix_type&gt;::T <a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html#a83d2c6c477f7867b42f1a2b3eb52d226">matrix_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a71e6f8c0381e3283cc05b722216c4794"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71e6f8c0381e3283cc05b722216c4794">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a71e6f8c0381e3283cc05b722216c4794a0b4ca4b6c617e59ffd4c61dd423b744c"></a>operand&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a2ae95ea8e60178fe99580d5142f0ec7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ae95ea8e60178fe99580d5142f0ec7e">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2ae95ea8e60178fe99580d5142f0ec7eac8009b23fdaa8489a1e0ac80d90ff887"></a>category&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a981a6142498d6bd59cd78e93a36a0d11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a981a6142498d6bd59cd78e93a36a0d11">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a981a6142498d6bd59cd78e93a36a0d11a08ec9ea6b45976b8cd9ef28da2c4ca4f"></a>m_index&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab5aed9ba8b4894582ef669c228cac278"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5aed9ba8b4894582ef669c228cac278">&#9670;&nbsp;</a></span>MatrixSubstraction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html">MatrixSubstraction</a> </td>
+          <td>(</td>
+          <td class="paramtype">const M1 &amp;&#160;</td>
+          <td class="paramname"><em>m1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const M2 &amp;&#160;</td>
+          <td class="paramname"><em>m2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="acc0a7d95ae81a2a3ca576bfeac41f9a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc0a7d95ae81a2a3ca576bfeac41f9a3">&#9670;&nbsp;</a></span>addTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addTo </td>
+          <td>(</td>
+          <td class="paramtype">Dest *&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec8e81cbe4bafa23ef201f4284fa9f2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec8e81cbe4bafa23ef201f4284fa9f2e">&#9670;&nbsp;</a></span>colSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int colSize </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e3e5358546f96160dae2caf6ce91f7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e3e5358546f96160dae2caf6ce91f7e">&#9670;&nbsp;</a></span>expr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string expr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a7aa22fbd16e5b1ca777cda30517658"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a7aa22fbd16e5b1ca777cda30517658">&#9670;&nbsp;</a></span>hasRef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hasRef </td>
+          <td>(</td>
+          <td class="paramtype">const M *&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d16f80ffef2abc5a497f99f2bc317cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d16f80ffef2abc5a497f99f2bc317cd">&#9670;&nbsp;</a></span>rowSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int rowSize </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a315419f26d3c59fa143b49b90a019049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a315419f26d3c59fa143b49b90a019049">&#9670;&nbsp;</a></span>valid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool valid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7999cde606548825ee28af482473a6ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7999cde606548825ee28af482473a6ef">&#9670;&nbsp;</a></span>m1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const M1&amp; m1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42443c00c4f2f98f1b5fe0b041067408"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42443c00c4f2f98f1b5fe0b041067408">&#9670;&nbsp;</a></span>m2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const M2&amp; m2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>linearalgebra</b></li><li class="navelem"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html">MatrixSubstraction</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:11:27 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1linearalgebra.html">linearalgebra</a></li><li class="navelem"><a class="el" href="classsofa_1_1linearalgebra_1_1_matrix_substraction.html">MatrixSubstraction</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:34 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

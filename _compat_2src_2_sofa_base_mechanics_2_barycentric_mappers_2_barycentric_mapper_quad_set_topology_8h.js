@@ -1,0 +1,4 @@
+var _compat_2src_2_sofa_base_mechanics_2_barycentric_mappers_2_barycentric_mapper_quad_set_topology_8h =
+[
+    [ "BarycentricMapperQuadSetTopology", "_compat_2src_2_sofa_base_mechanics_2_barycentric_mappers_2_barycentric_mapper_quad_set_topology_8h.html#ad52a36e26fdb26ba636a00c03fda71a4", null ]
+];

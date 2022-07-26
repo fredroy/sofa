@@ -1,0 +1,9 @@
+var _topology_2_container_2_dynamic_2src_2sofa_2component_2topology_2container_2dynamic_2_quad_set_geometry_algorithms_8h =
+[
+    [ "QuadSetGeometryAlgorithms", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_quad_set_geometry_algorithms.html", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_quad_set_geometry_algorithms" ],
+    [ "areaProduct", "_topology_2_container_2_dynamic_2src_2sofa_2component_2topology_2container_2dynamic_2_quad_set_geometry_algorithms_8h.html#a6e05a241b752741c78417acb554e0ba7", null ],
+    [ "areaProduct", "_topology_2_container_2_dynamic_2src_2sofa_2component_2topology_2container_2dynamic_2_quad_set_geometry_algorithms_8h.html#a898e91c7d33e3b6e97aa5d1f21abbb13", null ],
+    [ "areaProduct", "_topology_2_container_2_dynamic_2src_2sofa_2component_2topology_2container_2dynamic_2_quad_set_geometry_algorithms_8h.html#a55959db69ebcbdc45004215c0092077f", null ],
+    [ "is_point_in_quad", "_topology_2_container_2_dynamic_2src_2sofa_2component_2topology_2container_2dynamic_2_quad_set_geometry_algorithms_8h.html#adf2ecef45ce41bcd4a5d86ecfd7e3d1b", null ],
+    [ "snapping_test_quad", "_topology_2_container_2_dynamic_2src_2sofa_2component_2topology_2container_2dynamic_2_quad_set_geometry_algorithms_8h.html#aa54cbf5cdcb65345f57150bd04419fc7", null ]
+];

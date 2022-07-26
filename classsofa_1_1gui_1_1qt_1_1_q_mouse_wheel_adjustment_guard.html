@@ -104,27 +104,89 @@ Inheritance diagram for QMouseWheelAdjustmentGuard:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3e19f8b280241c6798a1e4aeb79fcb97"><td class="memItemLeft" align="right" valign="top"><a id="a3e19f8b280241c6798a1e4aeb79fcb97"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>QMouseWheelAdjustmentGuard</b> (QObject *parent)</td></tr>
+<tr class="memitem:a3e19f8b280241c6798a1e4aeb79fcb97"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_q_mouse_wheel_adjustment_guard.html#a3e19f8b280241c6798a1e4aeb79fcb97">QMouseWheelAdjustmentGuard</a> (QObject *parent)</td></tr>
 <tr class="separator:a3e19f8b280241c6798a1e4aeb79fcb97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a21a97d51efa77b8fced8a5939afa2ab7"><td class="memItemLeft" align="right" valign="top"><a id="a21a97d51efa77b8fced8a5939afa2ab7"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>eventFilter</b> (QObject *o, QEvent *e) override</td></tr>
+<tr class="memitem:a21a97d51efa77b8fced8a5939afa2ab7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_q_mouse_wheel_adjustment_guard.html#a21a97d51efa77b8fced8a5939afa2ab7">eventFilter</a> (QObject *o, QEvent *e) override</td></tr>
 <tr class="separator:a21a97d51efa77b8fced8a5939afa2ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Filter qt events to allows wheel event to only be accepted when the widget has focus. </p>
 <p>To use it you need to do: myWidget-&gt;setFocusPolicy(Qt::StrongFocus); myWidget-&gt;installEventFilter(new MouseWheelWidgetAdjustmentGuard(ui.comboBox));</p>
 <p>This code is grabbed from: <a href="https://stackoverflow.com/questions/5821802/qspinbox-inside-a-qscrollarea-how-to-prevent-spin-box-from-stealing-focus-when">https://stackoverflow.com/questions/5821802/qspinbox-inside-a-qscrollarea-how-to-prevent-spin-box-from-stealing-focus-when</a> </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3e19f8b280241c6798a1e4aeb79fcb97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e19f8b280241c6798a1e4aeb79fcb97">&#9670;&nbsp;</a></span>QMouseWheelAdjustmentGuard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_q_mouse_wheel_adjustment_guard.html">QMouseWheelAdjustmentGuard</a> </td>
+          <td>(</td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a21a97d51efa77b8fced8a5939afa2ab7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21a97d51efa77b8fced8a5939afa2ab7">&#9670;&nbsp;</a></span>eventFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool eventFilter </td>
+          <td>(</td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>o</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QEvent *&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>gui</b></li><li class="navelem"><b>qt</b></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_q_mouse_wheel_adjustment_guard.html">QMouseWheelAdjustmentGuard</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:52 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui.html">gui</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui_1_1qt.html">qt</a></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_q_mouse_wheel_adjustment_guard.html">QMouseWheelAdjustmentGuard</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:39 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

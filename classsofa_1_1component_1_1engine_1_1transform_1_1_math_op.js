@@ -6,6 +6,7 @@ var classsofa_1_1component_1_1engine_1_1transform_1_1_math_op =
     [ "~MathOp", "classsofa_1_1component_1_1engine_1_1transform_1_1_math_op.html#aeb38f3197ac40cfa9aa15435b74f0f26", null ],
     [ "createInputs", "classsofa_1_1component_1_1engine_1_1transform_1_1_math_op.html#ac0eb84e9be5a955f3df5f97df776c8f9", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1transform_1_1_math_op.html#a4daa2dc990606f6f13a82f619a13358a", null ],
+    [ "GetCustomTemplateName", "classsofa_1_1component_1_1engine_1_1transform_1_1_math_op.html#afdb0b86d7e7e0659ef7883376e8ab9b6", null ],
     [ "init", "classsofa_1_1component_1_1engine_1_1transform_1_1_math_op.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "parse", "classsofa_1_1component_1_1engine_1_1transform_1_1_math_op.html#a01457d399e0cf40aa8f4fc775c6b257a", null ],
     [ "parseFields", "classsofa_1_1component_1_1engine_1_1transform_1_1_math_op.html#ab5b530bfd6c499649d2b652ae0a52abf", null ],

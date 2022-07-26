@@ -13,6 +13,7 @@ var classsofa_1_1linearalgebra_1_1_rotation_matrix =
     [ "getVector", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#ae07f84d30cd9b99e949d6825aa687e15", null ],
     [ "Name", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
     [ "Name", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
+    [ "Name", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a28ceceb8e81ac299b3c6992dd0a707d3", null ],
     [ "Name", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
     [ "Name", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
     [ "opMulTM", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#aef4131b6fd0806db6a79948f9f422cc4", null ],

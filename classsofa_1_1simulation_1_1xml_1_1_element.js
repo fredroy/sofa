@@ -5,5 +5,6 @@ var classsofa_1_1simulation_1_1xml_1_1_element =
     [ "~Element", "classsofa_1_1simulation_1_1xml_1_1_element.html#af5d5a49c98ce3a0b9250eb2774eb45af", null ],
     [ "getObject", "classsofa_1_1simulation_1_1xml_1_1_element.html#a0a063813af596b25055e1ea095a61fab", null ],
     [ "getTypedObject", "classsofa_1_1simulation_1_1xml_1_1_element.html#a9c0a8fc28bade7a3f1f153f7c42a68d3", null ],
-    [ "setObject", "classsofa_1_1simulation_1_1xml_1_1_element.html#a7c277661cfc97d18ae5fec7e4644d59f", null ]
+    [ "setObject", "classsofa_1_1simulation_1_1xml_1_1_element.html#a7c277661cfc97d18ae5fec7e4644d59f", null ],
+    [ "object", "classsofa_1_1simulation_1_1xml_1_1_element.html#a9ca6b5291cf946d398984bbf28c55d5f", null ]
 ];

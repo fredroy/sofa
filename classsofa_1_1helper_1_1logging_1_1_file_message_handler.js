@@ -3,5 +3,7 @@ var classsofa_1_1helper_1_1logging_1_1_file_message_handler =
     [ "FileMessageHandler", "classsofa_1_1helper_1_1logging_1_1_file_message_handler.html#a58b763ac5c4fe5509b21ca13472c3055", null ],
     [ "~FileMessageHandler", "classsofa_1_1helper_1_1logging_1_1_file_message_handler.html#a74e0af1ba58698478bbcf0381a5b8002", null ],
     [ "isValid", "classsofa_1_1helper_1_1logging_1_1_file_message_handler.html#afe93e17ac89cd97917811068ba2af214", null ],
-    [ "process", "classsofa_1_1helper_1_1logging_1_1_file_message_handler.html#a585496ee76e58fa1382bca34ae8ebd30", null ]
+    [ "process", "classsofa_1_1helper_1_1logging_1_1_file_message_handler.html#a585496ee76e58fa1382bca34ae8ebd30", null ],
+    [ "m_formatter", "classsofa_1_1helper_1_1logging_1_1_file_message_handler.html#a7b427ed2ae5dabcd6b3a5afd702279be", null ],
+    [ "m_outFile", "classsofa_1_1helper_1_1logging_1_1_file_message_handler.html#a5da9af9b7ad4e51989657e16792a1aa9", null ]
 ];

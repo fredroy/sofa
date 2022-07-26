@@ -88,6 +88,7 @@ var classsofa_1_1component_1_1statecontainer_1_1_mechanical_object =
     [ "setTranslation", "classsofa_1_1component_1_1statecontainer_1_1_mechanical_object.html#a771b8da97f172702822ee028ab635716", null ],
     [ "setVecCoord", "classsofa_1_1component_1_1statecontainer_1_1_mechanical_object.html#af5bb41b56e238f29844428300f46c0a3", null ],
     [ "setVecDeriv", "classsofa_1_1component_1_1statecontainer_1_1_mechanical_object.html#ad0cd6b4d20d05906a1a4e6580c3f9274", null ],
+    [ "setVecIdProperties", "classsofa_1_1component_1_1statecontainer_1_1_mechanical_object.html#aa6bc31a8e513b4dff1ecde1ddd817ec8", null ],
     [ "setVecMatrixDeriv", "classsofa_1_1component_1_1statecontainer_1_1_mechanical_object.html#a39634c492579f186532fede70fd5c75f", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1statecontainer_1_1_mechanical_object.html#ab501e8ad80a4c0719b35dfc2805dd58c", null ],
     [ "storeResetState", "classsofa_1_1component_1_1statecontainer_1_1_mechanical_object.html#aaf09cb1e03ecba4d969c91fd8854cf28", null ],

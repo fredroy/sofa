@@ -3,6 +3,7 @@ var classsofa_1_1core_1_1objectmodel_1_1vector_data =
     [ "Inherit", "classsofa_1_1core_1_1objectmodel_1_1vector_data.html#aec55e6a3e430e1e28af73aebe18908d0", null ],
     [ "vectorData", "classsofa_1_1core_1_1objectmodel_1_1vector_data.html#a783585da95b6531d28413ba712b19642", null ],
     [ "~vectorData", "classsofa_1_1core_1_1objectmodel_1_1vector_data.html#a12c6a7b55c3e825cbac768617a10292d", null ],
+    [ "merge", "classsofa_1_1core_1_1objectmodel_1_1vector_data.html#a865c49aa9cda8a5fc459898ee5d09256", null ],
     [ "parseFieldsSizeData", "classsofa_1_1core_1_1objectmodel_1_1vector_data.html#aefe208068459311b940dbdaef1b6d64e", null ],
     [ "parseSizeData", "classsofa_1_1core_1_1objectmodel_1_1vector_data.html#a38babe567fe9c2d17dfb188e95422663", null ],
     [ "resize", "classsofa_1_1core_1_1objectmodel_1_1vector_data.html#a334b95cb00273a2dad840245813af17b", null ],

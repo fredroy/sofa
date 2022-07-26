@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('classsofa_1_1testing_1_1_expect_messag
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1testing_1_1_expect_message-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ExpectMessage Class Reference</div>  </div>
@@ -94,20 +95,109 @@ $(document).ready(function(){initNavTree('classsofa_1_1testing_1_1_expect_messag
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab66d673017950737547a275c7f97a054"><td class="memItemLeft" align="right" valign="top"><a id="ab66d673017950737547a275c7f97a054"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ExpectMessage</b> (<a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html#a1d1cfd8ffb84e947f82999c682b666a7">helper::logging::Message::Type</a> t, const char *filename=&quot;unknown&quot;, int lineno=0)</td></tr>
+<tr class="memitem:ab66d673017950737547a275c7f97a054"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1testing_1_1_expect_message.html#ab66d673017950737547a275c7f97a054">ExpectMessage</a> (<a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html#a1d1cfd8ffb84e947f82999c682b666a7">helper::logging::Message::Type</a> t, const char *filename=&quot;unknown&quot;, int lineno=0)</td></tr>
 <tr class="separator:ab66d673017950737547a275c7f97a054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5160eae550c0f1d9575fefb177ad979d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1testing_1_1_expect_message.html#a5160eae550c0f1d9575fefb177ad979d">~ExpectMessage</a> ()</td></tr>
+<tr class="separator:a5160eae550c0f1d9575fefb177ad979d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a345df848925d52fa08b6547483655102"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1testing_1_1_gtest_message_frame.html">GtestMessageFrame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1testing_1_1_expect_message.html#a345df848925d52fa08b6547483655102">m_frame</a></td></tr>
+<tr class="separator:a345df848925d52fa08b6547483655102"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Rise a gtest failure during the object destruction when the expected message have not been received. Better use the macro: EXPECT_MSG_EMIT(Error) as a more 'good looking' version of</p>
-<p>sofa::helper::logging::ExpectMessage failure(sofa::helper::logging::Message::Error, <b>FILE</b>, <b>LINE</b>); </p>
-</div></div><!-- contents -->
+<div class="textblock"><p>Rise a gtest failure during the object destruction when the expected message have not been received. Better use the macro: <a class="el" href="src_2sofa_2testing_2_test_message_handler_8h.html#a22f1f9f7b26b256e49d0df9210f57af3">EXPECT_MSG_EMIT(Error)</a> as a more 'good looking' version of</p>
+<p>sofa::helper::logging::ExpectMessage failure(<a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html#a1d1cfd8ffb84e947f82999c682b666a7a4dfd42ec49d09d8c6555c218301cc30f">sofa::helper::logging::Message::Error</a>, <b>FILE</b>, <b>LINE</b>); </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab66d673017950737547a275c7f97a054"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab66d673017950737547a275c7f97a054">&#9670;&nbsp;</a></span>ExpectMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1testing_1_1_expect_message.html">ExpectMessage</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html#a1d1cfd8ffb84e947f82999c682b666a7">helper::logging::Message::Type</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em> = <code>&quot;unknown&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lineno</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5160eae550c0f1d9575fefb177ad979d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5160eae550c0f1d9575fefb177ad979d">&#9670;&nbsp;</a></span>~ExpectMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1testing_1_1_expect_message.html">ExpectMessage</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a345df848925d52fa08b6547483655102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a345df848925d52fa08b6547483655102">&#9670;&nbsp;</a></span>m_frame</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1testing_1_1_gtest_message_frame.html">GtestMessageFrame</a>* m_frame</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1testing.html">testing</a></li><li class="navelem"><a class="el" href="classsofa_1_1testing_1_1_expect_message.html">ExpectMessage</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:14:16 for SOFA by
+    <li class="footer">Generated on Tue Jul 26 2022 07:46:49 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

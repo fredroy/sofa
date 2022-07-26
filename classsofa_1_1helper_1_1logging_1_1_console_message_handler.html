@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('classsofa_1_1helper_1_1logging_1_1_con
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1helper_1_1logging_1_1_console_message_handler-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ConsoleMessageHandler Class Reference</div>  </div>
@@ -105,15 +106,21 @@ Inheritance diagram for ConsoleMessageHandler:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab6fa030967da5350533b20f96f82a50f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_console_message_handler.html#ab6fa030967da5350533b20f96f82a50f">ConsoleMessageHandler</a> (<a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_formatter.html">MessageFormatter</a> *formatter=nullptr)</td></tr>
 <tr class="separator:ab6fa030967da5350533b20f96f82a50f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a585496ee76e58fa1382bca34ae8ebd30"><td class="memItemLeft" align="right" valign="top"><a id="a585496ee76e58fa1382bca34ae8ebd30"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>process</b> (<a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html">Message</a> &amp;m) override</td></tr>
+<tr class="memitem:a585496ee76e58fa1382bca34ae8ebd30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_console_message_handler.html#a585496ee76e58fa1382bca34ae8ebd30">process</a> (<a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html">Message</a> &amp;m) override</td></tr>
 <tr class="separator:a585496ee76e58fa1382bca34ae8ebd30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fe7c5a9d05dcd22ae7db7e75c78359d"><td class="memItemLeft" align="right" valign="top"><a id="a3fe7c5a9d05dcd22ae7db7e75c78359d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMessageFormatter</b> (<a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_formatter.html">MessageFormatter</a> *formatter)</td></tr>
+<tr class="memitem:a3fe7c5a9d05dcd22ae7db7e75c78359d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_console_message_handler.html#a3fe7c5a9d05dcd22ae7db7e75c78359d">setMessageFormatter</a> (<a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_formatter.html">MessageFormatter</a> *formatter)</td></tr>
 <tr class="separator:a3fe7c5a9d05dcd22ae7db7e75c78359d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classsofa_1_1helper_1_1logging_1_1_message_handler"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classsofa_1_1helper_1_1logging_1_1_message_handler')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_handler.html">MessageHandler</a></td></tr>
+<tr class="memitem:a26d4e32bdd7ba7b2342302ea0bfd9cd4 inherit pub_methods_classsofa_1_1helper_1_1logging_1_1_message_handler"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_handler.html#a26d4e32bdd7ba7b2342302ea0bfd9cd4">~MessageHandler</a> ()</td></tr>
+<tr class="separator:a26d4e32bdd7ba7b2342302ea0bfd9cd4 inherit pub_methods_classsofa_1_1helper_1_1logging_1_1_message_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a7b427ed2ae5dabcd6b3a5afd702279be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_formatter.html">MessageFormatter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_console_message_handler.html#a7b427ed2ae5dabcd6b3a5afd702279be">m_formatter</a></td></tr>
+<tr class="separator:a7b427ed2ae5dabcd6b3a5afd702279be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Print the message on the console using a specified formatter. The Message::Error, Message::Fatal are going to std:cerr while the others are going to std::cout. </p>
+<div class="textblock"><p>Print the message on the console using a specified formatter. The <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html#a1d1cfd8ffb84e947f82999c682b666a7a4dfd42ec49d09d8c6555c218301cc30f">Message::Error</a>, <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html#a1d1cfd8ffb84e947f82999c682b666a7a24d54883f5403a81c97e5ce29ee031ba">Message::Fatal</a> are going to std:cerr while the others are going to std::cout. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab6fa030967da5350533b20f96f82a50f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab6fa030967da5350533b20f96f82a50f">&#9670;&nbsp;</a></span>ConsoleMessageHandler()</h2>
@@ -134,13 +141,83 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMessageFormatter</
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a585496ee76e58fa1382bca34ae8ebd30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a585496ee76e58fa1382bca34ae8ebd30">&#9670;&nbsp;</a></span>process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void process </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html">Message</a> &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_handler.html#a2ddbc82eeae8962cda38c6c7ff8287fa">MessageHandler</a>.</p>
+
+</div>
+</div>
+<a id="a3fe7c5a9d05dcd22ae7db7e75c78359d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fe7c5a9d05dcd22ae7db7e75c78359d">&#9670;&nbsp;</a></span>setMessageFormatter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setMessageFormatter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_formatter.html">MessageFormatter</a> *&#160;</td>
+          <td class="paramname"><em>formatter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7b427ed2ae5dabcd6b3a5afd702279be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b427ed2ae5dabcd6b3a5afd702279be">&#9670;&nbsp;</a></span>m_formatter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_formatter.html">MessageFormatter</a>* m_formatter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper_1_1logging.html">logging</a></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_console_message_handler.html">ConsoleMessageHandler</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:10:54 for SOFA by
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

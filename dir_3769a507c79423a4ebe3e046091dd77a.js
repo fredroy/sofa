@@ -48,5 +48,6 @@ var dir_3769a507c79423a4ebe3e046091dd77a =
     [ "SofaSparseSolver", "dir_3536f06afba846c29dc0e9d88dc4bf00.html", "dir_3536f06afba846c29dc0e9d88dc4bf00" ],
     [ "SofaTopologyMapping", "dir_e18e14dc4356a5e6d0f37dc087cdc77f.html", "dir_e18e14dc4356a5e6d0f37dc087cdc77f" ],
     [ "SofaUserInteraction", "dir_f0ccfdbb0413aa69e480e7b11613011c.html", "dir_f0ccfdbb0413aa69e480e7b11613011c" ],
-    [ "SofaValidation", "dir_1c036a91da6390cd62717d1efb92677c.html", "dir_1c036a91da6390cd62717d1efb92677c" ]
+    [ "SofaValidation", "dir_1c036a91da6390cd62717d1efb92677c.html", "dir_1c036a91da6390cd62717d1efb92677c" ],
+    [ "init.cpp", "_component_2_compat_2src_2init_8cpp.html", "_component_2_compat_2src_2init_8cpp" ]
 ];

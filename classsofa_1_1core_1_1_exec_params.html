@@ -87,6 +87,10 @@ $(document).ready(function(){initNavTree('classsofa_1_1core_1_1_exec_params.html
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classsofa_1_1core_1_1_exec_params-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ExecParams Class Reference</div>  </div>
@@ -109,78 +113,542 @@ Inheritance diagram for ExecParams:</div>
   </map>
 </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params_1_1_exec_params_thread_storage.html">ExecParamsThreadStorage</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a217f07f1891ae897e2d60e15d41052c6"><td class="memItemLeft" align="right" valign="top"><a id="a217f07f1891ae897e2d60e15d41052c6"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a217f07f1891ae897e2d60e15d41052c6">ExecMode</a> { <br />
-&#160;&#160;<b>EXEC_NONE</b> = 0, 
-<b>EXEC_DEFAULT</b>, 
-<b>EXEC_DEBUG</b>, 
-<b>EXEC_GPU</b>, 
+<tr class="memitem:a217f07f1891ae897e2d60e15d41052c6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a217f07f1891ae897e2d60e15d41052c6">ExecMode</a> { <br />
+&#160;&#160;<a class="el" href="classsofa_1_1core_1_1_exec_params.html#a217f07f1891ae897e2d60e15d41052c6a8599391acfcb58bc4fc1030f69738c2f">EXEC_NONE</a> = 0, 
+<a class="el" href="classsofa_1_1core_1_1_exec_params.html#a217f07f1891ae897e2d60e15d41052c6abc84746580871239893e1e2b59cb965d">EXEC_DEFAULT</a>, 
+<a class="el" href="classsofa_1_1core_1_1_exec_params.html#a217f07f1891ae897e2d60e15d41052c6a441bb054b3fb36213cef151492e42eb0">EXEC_DEBUG</a>, 
+<a class="el" href="classsofa_1_1core_1_1_exec_params.html#a217f07f1891ae897e2d60e15d41052c6ae80e7fa013802ce7de22ed4d5fdb5046">EXEC_GPU</a>, 
 <br />
-&#160;&#160;<b>EXEC_GRAPH</b>
+&#160;&#160;<a class="el" href="classsofa_1_1core_1_1_exec_params.html#a217f07f1891ae897e2d60e15d41052c6a7d5f18e8bdcb9e51d4667ae222af48b3">EXEC_GRAPH</a>
 <br />
  }</td></tr>
-<tr class="memdesc:a217f07f1891ae897e2d60e15d41052c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modes of execution. <br /></td></tr>
+<tr class="memdesc:a217f07f1891ae897e2d60e15d41052c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modes of execution.  <a href="classsofa_1_1core_1_1_exec_params.html#a217f07f1891ae897e2d60e15d41052c6">More...</a><br /></td></tr>
 <tr class="separator:a217f07f1891ae897e2d60e15d41052c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afce98c53bf581cf3929ff9b8c020abc8"><td class="memItemLeft" align="right" valign="top"><a id="afce98c53bf581cf3929ff9b8c020abc8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>checkValidStorage</b> () const</td></tr>
+<tr class="memitem:afce98c53bf581cf3929ff9b8c020abc8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#afce98c53bf581cf3929ff9b8c020abc8">checkValidStorage</a> () const</td></tr>
 <tr class="separator:afce98c53bf581cf3929ff9b8c020abc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a82ab952245b73d8c5d1244f45bfdda"><td class="memItemLeft" align="right" valign="top"><a id="a4a82ab952245b73d8c5d1244f45bfdda"></a>
-<a class="el" href="classsofa_1_1core_1_1_exec_params.html#a217f07f1891ae897e2d60e15d41052c6">ExecMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a4a82ab952245b73d8c5d1244f45bfdda">execMode</a> () const</td></tr>
-<tr class="memdesc:a4a82ab952245b73d8c5d1244f45bfdda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mode of execution requested. <br /></td></tr>
+<tr class="memitem:a4a82ab952245b73d8c5d1244f45bfdda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a217f07f1891ae897e2d60e15d41052c6">ExecMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a4a82ab952245b73d8c5d1244f45bfdda">execMode</a> () const</td></tr>
+<tr class="memdesc:a4a82ab952245b73d8c5d1244f45bfdda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mode of execution requested.  <a href="classsofa_1_1core_1_1_exec_params.html#a4a82ab952245b73d8c5d1244f45bfdda">More...</a><br /></td></tr>
 <tr class="separator:a4a82ab952245b73d8c5d1244f45bfdda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a120d6ffe1cb2e01fa630af19c37db7f7"><td class="memItemLeft" align="right" valign="top"><a id="a120d6ffe1cb2e01fa630af19c37db7f7"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a120d6ffe1cb2e01fa630af19c37db7f7">threadID</a> () const</td></tr>
-<tr class="memdesc:a120d6ffe1cb2e01fa630af19c37db7f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of current thread (0 corresponding to the only thread in sequential mode, or first thread in parallel mode) <br /></td></tr>
+<tr class="memitem:a120d6ffe1cb2e01fa630af19c37db7f7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a120d6ffe1cb2e01fa630af19c37db7f7">threadID</a> () const</td></tr>
+<tr class="memdesc:a120d6ffe1cb2e01fa630af19c37db7f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of current thread (0 corresponding to the only thread in sequential mode, or first thread in parallel mode)  <a href="classsofa_1_1core_1_1_exec_params.html#a120d6ffe1cb2e01fa630af19c37db7f7">More...</a><br /></td></tr>
 <tr class="separator:a120d6ffe1cb2e01fa630af19c37db7f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a637eda77818ac1b62b77f3acb092e464"><td class="memItemLeft" align="right" valign="top"><a id="a637eda77818ac1b62b77f3acb092e464"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a637eda77818ac1b62b77f3acb092e464">nbThreads</a> () const</td></tr>
-<tr class="memdesc:a637eda77818ac1b62b77f3acb092e464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of threads currently known to Sofa. <br /></td></tr>
+<tr class="memitem:a637eda77818ac1b62b77f3acb092e464"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a637eda77818ac1b62b77f3acb092e464">nbThreads</a> () const</td></tr>
+<tr class="memdesc:a637eda77818ac1b62b77f3acb092e464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of threads currently known to Sofa.  <a href="classsofa_1_1core_1_1_exec_params.html#a637eda77818ac1b62b77f3acb092e464">More...</a><br /></td></tr>
 <tr class="separator:a637eda77818ac1b62b77f3acb092e464"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5c54df7ed3b930268c8d7752c101725"><td class="memItemLeft" align="right" valign="top"><a id="ac5c54df7ed3b930268c8d7752c101725"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#ac5c54df7ed3b930268c8d7752c101725">update</a> ()</td></tr>
-<tr class="memdesc:ac5c54df7ed3b930268c8d7752c101725"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sure this instance is up-to-date relative to the current thread. <br /></td></tr>
+<tr class="memitem:a188439146626c11beeb734dbf1db0c69"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a188439146626c11beeb734dbf1db0c69">ExecParams</a> ()</td></tr>
+<tr class="separator:a188439146626c11beeb734dbf1db0c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5c54df7ed3b930268c8d7752c101725"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#ac5c54df7ed3b930268c8d7752c101725">update</a> ()</td></tr>
+<tr class="memdesc:ac5c54df7ed3b930268c8d7752c101725"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sure this instance is up-to-date relative to the current thread.  <a href="classsofa_1_1core_1_1_exec_params.html#ac5c54df7ed3b930268c8d7752c101725">More...</a><br /></td></tr>
 <tr class="separator:ac5c54df7ed3b930268c8d7752c101725"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c3b84beaa6cfe9db169fe2aa078ce43"><td class="memItemLeft" align="right" valign="top"><a id="a4c3b84beaa6cfe9db169fe2aa078ce43"></a>
-<a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a4c3b84beaa6cfe9db169fe2aa078ce43">setExecMode</a> (<a class="el" href="classsofa_1_1core_1_1_exec_params.html#a217f07f1891ae897e2d60e15d41052c6">ExecMode</a> v)</td></tr>
-<tr class="memdesc:a4c3b84beaa6cfe9db169fe2aa078ce43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request a specific mode of execution. <br /></td></tr>
+<tr class="memitem:a4c3b84beaa6cfe9db169fe2aa078ce43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a4c3b84beaa6cfe9db169fe2aa078ce43">setExecMode</a> (<a class="el" href="classsofa_1_1core_1_1_exec_params.html#a217f07f1891ae897e2d60e15d41052c6">ExecMode</a> v)</td></tr>
+<tr class="memdesc:a4c3b84beaa6cfe9db169fe2aa078ce43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request a specific mode of execution.  <a href="classsofa_1_1core_1_1_exec_params.html#a4c3b84beaa6cfe9db169fe2aa078ce43">More...</a><br /></td></tr>
 <tr class="separator:a4c3b84beaa6cfe9db169fe2aa078ce43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f663a430095c66dbb1b20e95cfb7e3f"><td class="memItemLeft" align="right" valign="top"><a id="a3f663a430095c66dbb1b20e95cfb7e3f"></a>
-<a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a3f663a430095c66dbb1b20e95cfb7e3f">setThreadID</a> (int v)</td></tr>
-<tr class="memdesc:a3f663a430095c66dbb1b20e95cfb7e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify the index of the current thread. <br /></td></tr>
+<tr class="memitem:a3f663a430095c66dbb1b20e95cfb7e3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a3f663a430095c66dbb1b20e95cfb7e3f">setThreadID</a> (int v)</td></tr>
+<tr class="memdesc:a3f663a430095c66dbb1b20e95cfb7e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify the index of the current thread.  <a href="classsofa_1_1core_1_1_exec_params.html#a3f663a430095c66dbb1b20e95cfb7e3f">More...</a><br /></td></tr>
 <tr class="separator:a3f663a430095c66dbb1b20e95cfb7e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ff98f51f4ee1dbc3c21aaeb695a1312"><td class="memItemLeft" align="right" valign="top"><a id="a2ff98f51f4ee1dbc3c21aaeb695a1312"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>aspectID</b> () const =delete</td></tr>
+<tr class="memitem:a2ff98f51f4ee1dbc3c21aaeb695a1312"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a2ff98f51f4ee1dbc3c21aaeb695a1312">aspectID</a> () const =delete</td></tr>
 <tr class="separator:a2ff98f51f4ee1dbc3c21aaeb695a1312"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23449522309d0a7b9376f9fa0fc6d06a"><td class="memItemLeft" align="right" valign="top"><a id="a23449522309d0a7b9376f9fa0fc6d06a"></a>
-<a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>setAspectID</b> (int)=delete</td></tr>
+<tr class="memitem:a23449522309d0a7b9376f9fa0fc6d06a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a23449522309d0a7b9376f9fa0fc6d06a">setAspectID</a> (int)=delete</td></tr>
 <tr class="separator:a23449522309d0a7b9376f9fa0fc6d06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6b95ff897532ee73317f19692515beef"><td class="memItemLeft" align="right" valign="top"><a id="a6b95ff897532ee73317f19692515beef"></a>
-static <a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a6b95ff897532ee73317f19692515beef">defaultInstance</a> ()</td></tr>
-<tr class="memdesc:a6b95ff897532ee73317f19692515beef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default <a class="el" href="classsofa_1_1core_1_1_exec_params.html" title="Class gathering parameters use by most components methods, and transmitted by all visitors.">ExecParams</a>, to be used to provide a default values for method parameters. <br /></td></tr>
+<tr class="memitem:a6b95ff897532ee73317f19692515beef"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a6b95ff897532ee73317f19692515beef">defaultInstance</a> ()</td></tr>
+<tr class="memdesc:a6b95ff897532ee73317f19692515beef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default <a class="el" href="classsofa_1_1core_1_1_exec_params.html" title="Class gathering parameters use by most components methods, and transmitted by all visitors.">ExecParams</a>, to be used to provide a default values for method parameters.  <a href="classsofa_1_1core_1_1_exec_params.html#a6b95ff897532ee73317f19692515beef">More...</a><br /></td></tr>
 <tr class="separator:a6b95ff897532ee73317f19692515beef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1566a70739e3d04c5c69b2a144bb3205"><td class="memItemLeft" align="right" valign="top"><a id="a1566a70739e3d04c5c69b2a144bb3205"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>currentAspect</b> ()=delete</td></tr>
+<tr class="memitem:a1566a70739e3d04c5c69b2a144bb3205"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a1566a70739e3d04c5c69b2a144bb3205">currentAspect</a> ()=delete</td></tr>
 <tr class="separator:a1566a70739e3d04c5c69b2a144bb3205"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06b3bd2b3059521287ce80606062c541"><td class="memItemLeft" align="right" valign="top"><a id="a06b3bd2b3059521287ce80606062c541"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>currentAspect</b> (const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">core::ExecParams</a> *)=delete</td></tr>
+<tr class="memitem:a06b3bd2b3059521287ce80606062c541"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a06b3bd2b3059521287ce80606062c541">currentAspect</a> (const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">core::ExecParams</a> *)=delete</td></tr>
 <tr class="separator:a06b3bd2b3059521287ce80606062c541"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a44b8dfd87368caf7b022a73ce33ac19c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a44b8dfd87368caf7b022a73ce33ac19c">ExecParams</a> (<a class="el" href="classsofa_1_1core_1_1_exec_params_1_1_exec_params_thread_storage.html">ExecParamsThreadStorage</a> *s)</td></tr>
+<tr class="separator:a44b8dfd87368caf7b022a73ce33ac19c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:abdbeb8d883b2a32af54e0936095a1c6c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1core_1_1_exec_params_1_1_exec_params_thread_storage.html">ExecParamsThreadStorage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#abdbeb8d883b2a32af54e0936095a1c6c">threadStorage</a> ()</td></tr>
+<tr class="separator:abdbeb8d883b2a32af54e0936095a1c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a27d693701c502dbbbbadcfafb42a6549"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_exec_params_1_1_exec_params_thread_storage.html">ExecParamsThreadStorage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a27d693701c502dbbbbadcfafb42a6549">storage</a></td></tr>
+<tr class="separator:a27d693701c502dbbbbadcfafb42a6549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:abf854e0f570aede8481ebdf4547e81f1"><td class="memItemLeft" align="right" valign="top">static std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#abf854e0f570aede8481ebdf4547e81f1">g_nbThreads</a></td></tr>
+<tr class="separator:abf854e0f570aede8481ebdf4547e81f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class gathering parameters use by most components methods, and transmitted by all visitors. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a217f07f1891ae897e2d60e15d41052c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a217f07f1891ae897e2d60e15d41052c6">&#9670;&nbsp;</a></span>ExecMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classsofa_1_1core_1_1_exec_params.html#a217f07f1891ae897e2d60e15d41052c6">ExecMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Modes of execution. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a217f07f1891ae897e2d60e15d41052c6a8599391acfcb58bc4fc1030f69738c2f"></a>EXEC_NONE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a217f07f1891ae897e2d60e15d41052c6abc84746580871239893e1e2b59cb965d"></a>EXEC_DEFAULT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a217f07f1891ae897e2d60e15d41052c6a441bb054b3fb36213cef151492e42eb0"></a>EXEC_DEBUG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a217f07f1891ae897e2d60e15d41052c6ae80e7fa013802ce7de22ed4d5fdb5046"></a>EXEC_GPU&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a217f07f1891ae897e2d60e15d41052c6a7d5f18e8bdcb9e51d4667ae222af48b3"></a>EXEC_GRAPH&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a44b8dfd87368caf7b022a73ce33ac19c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44b8dfd87368caf7b022a73ce33ac19c">&#9670;&nbsp;</a></span>ExecParams() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1_exec_params_1_1_exec_params_thread_storage.html">ExecParamsThreadStorage</a> *&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a188439146626c11beeb734dbf1db0c69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a188439146626c11beeb734dbf1db0c69">&#9670;&nbsp;</a></span>ExecParams() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2ff98f51f4ee1dbc3c21aaeb695a1312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ff98f51f4ee1dbc3c21aaeb695a1312">&#9670;&nbsp;</a></span>aspectID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int aspectID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afce98c53bf581cf3929ff9b8c020abc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afce98c53bf581cf3929ff9b8c020abc8">&#9670;&nbsp;</a></span>checkValidStorage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool checkValidStorage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1566a70739e3d04c5c69b2a144bb3205"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1566a70739e3d04c5c69b2a144bb3205">&#9670;&nbsp;</a></span>currentAspect() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int currentAspect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06b3bd2b3059521287ce80606062c541"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06b3bd2b3059521287ce80606062c541">&#9670;&nbsp;</a></span>currentAspect() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int currentAspect </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">core::ExecParams</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b95ff897532ee73317f19692515beef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b95ff897532ee73317f19692515beef">&#9670;&nbsp;</a></span>defaultInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a> * defaultInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the default <a class="el" href="classsofa_1_1core_1_1_exec_params.html" title="Class gathering parameters use by most components methods, and transmitted by all visitors.">ExecParams</a>, to be used to provide a default values for method parameters. </p>
+
+</div>
+</div>
+<a id="a4a82ab952245b73d8c5d1244f45bfdda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a82ab952245b73d8c5d1244f45bfdda">&#9670;&nbsp;</a></span>execMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a217f07f1891ae897e2d60e15d41052c6">ExecMode</a> execMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mode of execution requested. </p>
+
+</div>
+</div>
+<a id="a637eda77818ac1b62b77f3acb092e464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a637eda77818ac1b62b77f3acb092e464">&#9670;&nbsp;</a></span>nbThreads()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nbThreads </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of threads currently known to Sofa. </p>
+
+</div>
+</div>
+<a id="a23449522309d0a7b9376f9fa0fc6d06a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23449522309d0a7b9376f9fa0fc6d06a">&#9670;&nbsp;</a></span>setAspectID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a>&amp; setAspectID </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4c3b84beaa6cfe9db169fe2aa078ce43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c3b84beaa6cfe9db169fe2aa078ce43">&#9670;&nbsp;</a></span>setExecMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a>&amp; setExecMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1_exec_params.html#a217f07f1891ae897e2d60e15d41052c6">ExecMode</a>&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Request a specific mode of execution. </p>
+
+</div>
+</div>
+<a id="a3f663a430095c66dbb1b20e95cfb7e3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f663a430095c66dbb1b20e95cfb7e3f">&#9670;&nbsp;</a></span>setThreadID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a>&amp; setThreadID </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Specify the index of the current thread. </p>
+
+</div>
+</div>
+<a id="a120d6ffe1cb2e01fa630af19c37db7f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a120d6ffe1cb2e01fa630af19c37db7f7">&#9670;&nbsp;</a></span>threadID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int threadID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Index of current thread (0 corresponding to the only thread in sequential mode, or first thread in parallel mode) </p>
+
+</div>
+</div>
+<a id="abdbeb8d883b2a32af54e0936095a1c6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdbeb8d883b2a32af54e0936095a1c6c">&#9670;&nbsp;</a></span>threadStorage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_exec_params_1_1_exec_params_thread_storage.html">ExecParams::ExecParamsThreadStorage</a> * threadStorage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5c54df7ed3b930268c8d7752c101725"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5c54df7ed3b930268c8d7752c101725">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Make sure this instance is up-to-date relative to the current thread. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="abf854e0f570aede8481ebdf4547e81f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf854e0f570aede8481ebdf4547e81f1">&#9670;&nbsp;</a></span>g_nbThreads</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt; int &gt; g_nbThreads</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a27d693701c502dbbbbadcfafb42a6549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27d693701c502dbbbbadcfafb42a6549">&#9670;&nbsp;</a></span>storage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_exec_params_1_1_exec_params_thread_storage.html">ExecParamsThreadStorage</a>* storage</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>core</b></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:05:12 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1core.html">core</a></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1_exec_params.html">ExecParams</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:37:20 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_component_change_8h_source.html','');
 <div class="title">ComponentChange.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_component_change_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('_component_change_8h_source.html','');
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;sofa/helper/config.h&gt;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>sofa::helper::lifecycle</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1helper_1_1lifecycle.html">sofa::helper::lifecycle</a></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">class </span>SOFA_HELPER_API ComponentChange</div>
@@ -160,9 +160,9 @@ $(document).ready(function(){initNavTree('_component_change_8h_source.html','');
 <div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1lifecycle_1_1_deprecated.html">   72</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classsofa_1_1helper_1_1lifecycle_1_1_pluginized.html">Pluginized</a>(<span class="keyword">const</span> std::string&amp; sinceVersion, <span class="keyword">const</span> std::string&amp; plugin)</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        std::stringstream output;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        output &lt;&lt; <span class="stringliteral">&quot;This component has been PLUGINIZED since SOFA &quot;</span> &lt;&lt; sinceVersion &lt;&lt; <span class="stringliteral">&quot;. &quot;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1lifecycle_1_1_deprecated.html#abc5f1413118b25d317f6b1ad6d2f54a1">   75</a></span>&#160;        output &lt;&lt; <span class="stringliteral">&quot;This component has been PLUGINIZED since SOFA &quot;</span> &lt;&lt; sinceVersion &lt;&lt; <span class="stringliteral">&quot;. &quot;</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                  <span class="stringliteral">&quot;To continue using this component you need to update you scene &quot;</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                  <span class="stringliteral">&quot;and add &lt;RequiredPlugin name=&#39;&quot;</span> &lt;&lt;  plugin &lt;&lt; <span class="stringliteral">&quot;&#39;/&gt;&quot;</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1lifecycle_1_1_component_change.html#a4f2a50ee6f7d25ce51bf8b681d661d55">   77</a></span>&#160;                  <span class="stringliteral">&quot;and add &lt;RequiredPlugin name=&#39;&quot;</span> &lt;&lt;  plugin &lt;&lt; <span class="stringliteral">&quot;&#39;/&gt;&quot;</span>;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        m_message = output.str();</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        m_changeVersion = sinceVersion;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
@@ -171,13 +171,13 @@ $(document).ready(function(){initNavTree('_component_change_8h_source.html','');
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">class </span>SOFA_HELPER_API Removed : <span class="keyword">public</span> ComponentChange</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">explicit</span> Removed(<span class="keyword">const</span> std::string&amp;  sinceVersion, <span class="keyword">const</span> std::string&amp; atVersion)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        std::stringstream output;</div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1lifecycle_1_1_pluginized.html">   89</a></span>&#160;        output &lt;&lt; <span class="stringliteral">&quot;This component has been REMOVED since SOFA &quot;</span> &lt;&lt; atVersion &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1lifecycle_1_1_component_change.html#a9b855fc7deef82b2a0ec63750d5330ba">   86</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classsofa_1_1helper_1_1lifecycle_1_1_removed.html">Removed</a>(<span class="keyword">const</span> std::string&amp;  sinceVersion, <span class="keyword">const</span> std::string&amp; atVersion)</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1lifecycle_1_1_component_change.html#a057382595be9f2fd88b3f5792d1d9512">   87</a></span>&#160;    {</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1lifecycle_1_1_component_change.html#a173bd7add622199b3205b7f2524672c8">   88</a></span>&#160;        std::stringstream output;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1lifecycle_1_1_component_change.html#a4ed176ddd88ada6e6f0dee0e214e21d6">   89</a></span>&#160;        output &lt;&lt; <span class="stringliteral">&quot;This component has been REMOVED since SOFA &quot;</span> &lt;&lt; atVersion &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                  <span class="stringliteral">&quot;(deprecated since &quot;</span> &lt;&lt; sinceVersion &lt;&lt; <span class="stringliteral">&quot;). &quot;</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                  <span class="stringliteral">&quot;Please consider updating your scene. &quot;</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                  <span class="stringliteral">&quot;If this component is crucial to you please report that to sofa-dev@ so that we can &quot;</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1lifecycle_1_1_pluginized.html#af9f0e149c11ed68e14589f88437b0483">   92</a></span>&#160;                  <span class="stringliteral">&quot;If this component is crucial to you please report that to sofa-dev@ so that we can &quot;</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                  <span class="stringliteral">&quot;reconsider this component for future re-integration.&quot;</span>;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        m_message = output.str();</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        m_changeVersion = atVersion;</div>
@@ -191,27 +191,31 @@ $(document).ready(function(){initNavTree('_component_change_8h_source.html','');
 <div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1lifecycle_1_1_removed.html">  103</a></span>&#160;    {</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        std::stringstream output;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        output &lt;&lt; <span class="stringliteral">&quot;This component has been MOVED from &quot;</span> &lt;&lt; fromPlugin &lt;&lt; <span class="stringliteral">&quot; to &quot;</span> &lt;&lt; toPlugin &lt;&lt; <span class="stringliteral">&quot; since SOFA &quot;</span> &lt;&lt; sinceVersion &lt;&lt; <span class="stringliteral">&quot;.\n&quot;</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;To continue using this component you may need to update your scene &quot;</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1lifecycle_1_1_removed.html#af5f5890d3b3ad18a386b7d31170efcc3">  106</a></span>&#160;            &lt;&lt; <span class="stringliteral">&quot;To continue using this component you may need to update your scene &quot;</span></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;by adding\n&lt;RequiredPlugin name=&#39;&quot;</span> &lt;&lt; toPlugin &lt;&lt; <span class="stringliteral">&quot;&#39;/&gt;&quot;</span>;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        m_message = output.str();</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        m_changeVersion = sinceVersion;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">extern</span> SOFA_HELPER_API <span class="keyword">const</span> std::map&lt; std::string, Deprecated, std::less&lt;&gt; &gt; deprecatedComponents;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">extern</span> SOFA_HELPER_API <span class="keyword">const</span> std::map&lt; std::string, ComponentChange, std::less&lt;&gt; &gt; uncreatableComponents;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">extern</span> SOFA_HELPER_API <span class="keyword">const</span> std::map&lt; std::string, Deprecated, std::less&lt;&gt; &gt; <a class="code" href="namespacesofa_1_1helper_1_1lifecycle.html#adcea6f578af092cff4a1e7d2e2edf825">deprecatedComponents</a>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">extern</span> SOFA_HELPER_API <span class="keyword">const</span> std::map&lt; std::string, ComponentChange, std::less&lt;&gt; &gt; <a class="code" href="namespacesofa_1_1helper_1_1lifecycle.html#a11379c9a105cd9db3d86fbf73b296f7a">uncreatableComponents</a>;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;} <span class="comment">// namespace sofa::helper::lifecycle</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1helper_1_1lifecycle_html_adcea6f578af092cff4a1e7d2e2edf825"><div class="ttname"><a href="namespacesofa_1_1helper_1_1lifecycle.html#adcea6f578af092cff4a1e7d2e2edf825">sofa::helper::lifecycle::deprecatedComponents</a></div><div class="ttdeci">const std::map&lt; std::string, Deprecated, std::less&lt;&gt; &gt; deprecatedComponents</div><div class="ttdef"><b>Definition:</b> ComponentChange.cpp:48</div></div>
 <div class="ttc" id="aclasssofa_1_1helper_1_1lifecycle_1_1_deprecated_html"><div class="ttname"><a href="classsofa_1_1helper_1_1lifecycle_1_1_deprecated.html">sofa::helper::lifecycle::Deprecated</a></div><div class="ttdef"><b>Definition:</b> ComponentChange.h:72</div></div>
 <div class="ttc" id="aclasssofa_1_1helper_1_1lifecycle_1_1_component_change_html"><div class="ttname"><a href="classsofa_1_1helper_1_1lifecycle_1_1_component_change.html">sofa::helper::lifecycle::ComponentChange</a></div><div class="ttdef"><b>Definition:</b> ComponentChange.h:53</div></div>
+<div class="ttc" id="anamespacesofa_1_1helper_1_1lifecycle_html_a11379c9a105cd9db3d86fbf73b296f7a"><div class="ttname"><a href="namespacesofa_1_1helper_1_1lifecycle.html#a11379c9a105cd9db3d86fbf73b296f7a">sofa::helper::lifecycle::uncreatableComponents</a></div><div class="ttdeci">const std::map&lt; std::string, ComponentChange, std::less&lt;&gt; &gt; uncreatableComponents</div><div class="ttdef"><b>Definition:</b> ComponentChange.cpp:56</div></div>
 <div class="ttc" id="aclasssofa_1_1helper_1_1lifecycle_1_1_pluginized_html"><div class="ttname"><a href="classsofa_1_1helper_1_1lifecycle_1_1_pluginized.html">sofa::helper::lifecycle::Pluginized</a></div><div class="ttdef"><b>Definition:</b> ComponentChange.h:89</div></div>
+<div class="ttc" id="anamespacesofa_1_1helper_1_1lifecycle_html"><div class="ttname"><a href="namespacesofa_1_1helper_1_1lifecycle.html">sofa::helper::lifecycle</a></div><div class="ttdef"><b>Definition:</b> ComponentChange.cpp:25</div></div>
+<div class="ttc" id="aclasssofa_1_1helper_1_1lifecycle_1_1_removed_html"><div class="ttname"><a href="classsofa_1_1helper_1_1lifecycle_1_1_removed.html">sofa::helper::lifecycle::Removed</a></div><div class="ttdef"><b>Definition:</b> ComponentChange.h:103</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><b>ComponentChange.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:39:15 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><a class="el" href="_component_change_8h.html">ComponentChange.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:10:38 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

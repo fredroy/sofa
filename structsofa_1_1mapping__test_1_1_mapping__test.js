@@ -36,6 +36,7 @@ var structsofa_1_1mapping__test_1_1_mapping__test =
     [ "~Mapping_test", "structsofa_1_1mapping__test_1_1_mapping__test.html#ae381a896cfd9ff8444cf1b194fd48a3f", null ],
     [ "difference", "structsofa_1_1mapping__test_1_1_mapping__test.html#aa7a8631349b3802780523de0d36518e0", null ],
     [ "difference", "structsofa_1_1mapping__test_1_1_mapping__test.html#a14c4a39e9ceb202cb1a52c0bb6cb45c9", null ],
+    [ "getMatrix", "structsofa_1_1mapping__test_1_1_mapping__test.html#a88d5d3ab7146f98dff7b739acc5b9f69", null ],
     [ "preTreatment", "structsofa_1_1mapping__test_1_1_mapping__test.html#a04b125072c02ee93c7b374597975ec76", null ],
     [ "runTest", "structsofa_1_1mapping__test_1_1_mapping__test.html#a04650eb5e391947970640d1ecd81c794", null ],
     [ "runTest", "structsofa_1_1mapping__test_1_1_mapping__test.html#a216dba37561262a176839e23d8dccfea", null ],
@@ -47,5 +48,11 @@ var structsofa_1_1mapping__test_1_1_mapping__test =
     [ "mapping", "structsofa_1_1mapping__test_1_1_mapping__test.html#aecc3642c3db2da1fccc4962c352df9c9", null ],
     [ "outDofs", "structsofa_1_1mapping__test_1_1_mapping__test.html#a51ff83d7b0d44c0d56650c8a8827efa2", null ],
     [ "root", "structsofa_1_1mapping__test_1_1_mapping__test.html#ae4921ba1b53a64ac407621370dec9883", null ],
-    [ "simulation", "structsofa_1_1mapping__test_1_1_mapping__test.html#a89530560649ee50f2a37b34839a0da33", null ]
+    [ "simulation", "structsofa_1_1mapping__test_1_1_mapping__test.html#a89530560649ee50f2a37b34839a0da33", null ],
+    [ "TEST_applyDJT", "structsofa_1_1mapping__test_1_1_mapping__test.html#ad839d992671a6447cf5580e57fce7b16", null ],
+    [ "TEST_applyJT_matrix", "structsofa_1_1mapping__test_1_1_mapping__test.html#a1b959ca6eb5f4f8542ad1286d566a8f5", null ],
+    [ "TEST_ASSEMBLY_API", "structsofa_1_1mapping__test_1_1_mapping__test.html#a05c13db1e8808142b9382561960f73db", null ],
+    [ "TEST_GEOMETRIC_STIFFNESS", "structsofa_1_1mapping__test_1_1_mapping__test.html#ae659ebe764d40bc90af7740204d9fc64", null ],
+    [ "TEST_getJs", "structsofa_1_1mapping__test_1_1_mapping__test.html#a50abb3b7873edc9b8e98e958c567a3b3", null ],
+    [ "TEST_getK", "structsofa_1_1mapping__test_1_1_mapping__test.html#a2951f8c2714c860c91b220a7363844bc", null ]
 ];

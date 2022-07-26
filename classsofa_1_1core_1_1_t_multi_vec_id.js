@@ -16,6 +16,7 @@ var classsofa_1_1core_1_1_t_multi_vec_id =
     [ "getName", "classsofa_1_1core_1_1_t_multi_vec_id.html#a8a60438a5b55d0b2ceb35c8674b9d8c5", null ],
     [ "hasIdMap", "classsofa_1_1core_1_1_t_multi_vec_id.html#a64633ebcd01e12408bb0df601b94f6a8", null ],
     [ "isNull", "classsofa_1_1core_1_1_t_multi_vec_id.html#abada6dfb33f4cbafe1e443a5cf8dc8d0", null ],
+    [ "null", "classsofa_1_1core_1_1_t_multi_vec_id.html#a831027af4efe5103bde8c46bd1191ffa", null ],
     [ "operator=", "classsofa_1_1core_1_1_t_multi_vec_id.html#a17f18981a57f18b1ededeac70cb60f7e", null ],
     [ "operator=", "classsofa_1_1core_1_1_t_multi_vec_id.html#a3024152f7f26f3fed08a429ec35c6b49", null ],
     [ "operator=", "classsofa_1_1core_1_1_t_multi_vec_id.html#a55ed0e1e490a446ef2dcde21fec87972", null ],
@@ -28,5 +29,6 @@ var classsofa_1_1core_1_1_t_multi_vec_id =
     [ "writeIdMap", "classsofa_1_1core_1_1_t_multi_vec_id.html#a7823b8a396409492565c1a4eb43e22db", null ],
     [ "operator<<", "classsofa_1_1core_1_1_t_multi_vec_id.html#a59a48ea58ec5a07e4d6382f22ca50707", null ],
     [ "TMultiVecId", "classsofa_1_1core_1_1_t_multi_vec_id.html#a50bee264c49554185edd3814da1fba6c", null ],
-    [ "defaultId", "classsofa_1_1core_1_1_t_multi_vec_id.html#ad5b4a415336255ea0f49c3ee37c99044", null ]
+    [ "defaultId", "classsofa_1_1core_1_1_t_multi_vec_id.html#ad5b4a415336255ea0f49c3ee37c99044", null ],
+    [ "idMap_ptr", "classsofa_1_1core_1_1_t_multi_vec_id.html#a9add149e9505dcf4843b2397c6c7e192", null ]
 ];

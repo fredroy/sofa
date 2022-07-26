@@ -2,6 +2,7 @@ var classsofa_1_1component_1_1playback_1_1_read_topology =
 [
     [ "ReadTopology", "classsofa_1_1component_1_1playback_1_1_read_topology.html#a7bb44ccece1dfed2054a2f6b0a8911b2", null ],
     [ "~ReadTopology", "classsofa_1_1component_1_1playback_1_1_read_topology.html#ab7e2110f356a1acb21b086f799f9adce", null ],
+    [ "canCreate", "classsofa_1_1component_1_1playback_1_1_read_topology.html#a50dbfd43bd82e05ee5f46be7d6eae2ad", null ],
     [ "handleEvent", "classsofa_1_1component_1_1playback_1_1_read_topology.html#a4543defaa0067ca36bcf42777f805d8f", null ],
     [ "init", "classsofa_1_1component_1_1playback_1_1_read_topology.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "processReadTopology", "classsofa_1_1component_1_1playback_1_1_read_topology.html#a2d636a5288dd544f9528f8bbd7c163a2", null ],

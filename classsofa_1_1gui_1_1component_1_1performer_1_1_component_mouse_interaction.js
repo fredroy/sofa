@@ -4,6 +4,7 @@ var classsofa_1_1gui_1_1component_1_1performer_1_1_component_mouse_interaction =
     [ "ComponentMouseInteraction", "classsofa_1_1gui_1_1component_1_1performer_1_1_component_mouse_interaction.html#a921b674f223c52f9177d3f743a6f4d19", null ],
     [ "~ComponentMouseInteraction", "classsofa_1_1gui_1_1component_1_1performer_1_1_component_mouse_interaction.html#a87b90c196bd1ca1cc24c91775f529723", null ],
     [ "attach", "classsofa_1_1gui_1_1component_1_1performer_1_1_component_mouse_interaction.html#a59398ecb983b62a34b388cf93266b855", null ],
+    [ "create", "classsofa_1_1gui_1_1component_1_1performer_1_1_component_mouse_interaction.html#a792356ee64e245dab8a7b2f2886a3409", null ],
     [ "createInteractionComponents", "classsofa_1_1gui_1_1component_1_1performer_1_1_component_mouse_interaction.html#a398e0b420021974cff1673f64751f113", null ],
     [ "detach", "classsofa_1_1gui_1_1component_1_1performer_1_1_component_mouse_interaction.html#ac295bade8aee589f6718dfa79edc2a34", null ],
     [ "isCompatible", "classsofa_1_1gui_1_1component_1_1performer_1_1_component_mouse_interaction.html#ae2ec3a50e92d0a2827c7dc88577e2ff1", null ],

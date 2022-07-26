@@ -10,6 +10,7 @@ var classsofa_1_1helper_1_1_triangle_octree_root =
     [ "buildOctree", "classsofa_1_1helper_1_1_triangle_octree_root.html#a063dcda7bfb45ff9659d4ffd2eb212db", null ],
     [ "calcTriangleAABB", "classsofa_1_1helper_1_1_triangle_octree_root.html#a118d0e3d673f574b7db9d36c84dea0f7", null ],
     [ "fillOctree", "classsofa_1_1helper_1_1_triangle_octree_root.html#a5393434b67b753f325e05e528348f164", null ],
+    [ "CUBE_SIZE", "classsofa_1_1helper_1_1_triangle_octree_root.html#acb0c10aab478b0e8dd28a40b7d750be0", null ],
     [ "cubeSize", "classsofa_1_1helper_1_1_triangle_octree_root.html#a091c3429811c5d213892782c244445af", null ],
     [ "octreePos", "classsofa_1_1helper_1_1_triangle_octree_root.html#a3c6a3f2e53a54ebefd5febc0e6cdd2b8", null ],
     [ "octreeRoot", "classsofa_1_1helper_1_1_triangle_octree_root.html#a2b54a1224a4e1fe976b4aa09b0984d23", null ],

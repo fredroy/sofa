@@ -12,6 +12,7 @@ var classsofa_1_1component_1_1engine_1_1select_1_1_mesh_r_o_i =
     [ "VecCoord", "classsofa_1_1component_1_1engine_1_1select_1_1_mesh_r_o_i.html#a05882e2e9ba8d707ab531ab94a1f39e0", null ],
     [ "MeshROI", "classsofa_1_1component_1_1engine_1_1select_1_1_mesh_r_o_i.html#a9a524dd09ff36847fb2ce2a208002019", null ],
     [ "~MeshROI", "classsofa_1_1component_1_1engine_1_1select_1_1_mesh_r_o_i.html#a95034e67b177a04e5194142b52563881", null ],
+    [ "canCreate", "classsofa_1_1component_1_1engine_1_1select_1_1_mesh_r_o_i.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "checkInputData", "classsofa_1_1component_1_1engine_1_1select_1_1_mesh_r_o_i.html#a004f4d7acbcf4abdfc317788ceb592a9", null ],
     [ "checkSameOrder", "classsofa_1_1component_1_1engine_1_1select_1_1_mesh_r_o_i.html#a1b7ae6457e2bfff4e0e0bdf86bf46a32", null ],
     [ "compute", "classsofa_1_1component_1_1engine_1_1select_1_1_mesh_r_o_i.html#a4993c97a669fa259c6574a18d547c117", null ],

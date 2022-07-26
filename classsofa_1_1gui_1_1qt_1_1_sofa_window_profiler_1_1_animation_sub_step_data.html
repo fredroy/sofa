@@ -91,68 +91,318 @@ $(document).ready(function(){initNavTree('classsofa_1_1gui_1_1qt_1_1_sofa_window
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html" title="The AnimationSubStepData Internal class to store data for each step of the animation....">AnimationSubStepData</a> Internal class to store data for each step of the animation. Correspond to one AdvancedTimer::begin/end Data stored/computed will be step name, its time in ms and the corresponding % inside the whole step. the total ms and percentage it represent if this step has substeps. Buffer of <a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html" title="The AnimationSubStepData Internal class to store data for each step of the animation....">AnimationSubStepData</a> corresponding to its children substeps.  
+<p>The <a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html" title="The AnimationSubStepData Internal class to store data for each step of the animation....">AnimationSubStepData</a> Internal class to store data for each step of the animation. Correspond to one <a class="el" href="classsofa_1_1helper_1_1_advanced_timer.html#a1570a08c13ebb25923decb909aa42978">AdvancedTimer::begin</a>/end Data stored/computed will be step name, its time in ms and the corresponding % inside the whole step. the total ms and percentage it represent if this step has substeps. Buffer of <a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html" title="The AnimationSubStepData Internal class to store data for each step of the animation....">AnimationSubStepData</a> corresponding to its children substeps.  
  <a href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_sofa_window_profiler_8h_source.html">SofaWindowProfiler.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3a0e8c25142df54d21360fa1c08f42f8"><td class="memItemLeft" align="right" valign="top"><a id="a3a0e8c25142df54d21360fa1c08f42f8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>AnimationSubStepData</b> (int level, std::string name, ctime_t start)</td></tr>
+<tr class="memitem:a3a0e8c25142df54d21360fa1c08f42f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#a3a0e8c25142df54d21360fa1c08f42f8">AnimationSubStepData</a> (int level, std::string name, <a class="el" href="namespacesofa_1_1helper.html#a15ee20078e5d928ea239b4df38062286">ctime_t</a> start)</td></tr>
 <tr class="separator:a3a0e8c25142df54d21360fa1c08f42f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac85ea0cf366effc7aaf4c4fb01b2c6a9"><td class="memItemLeft" align="right" valign="top"><a id="ac85ea0cf366effc7aaf4c4fb01b2c6a9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>computeTimeAndPercentage</b> (SReal invTotalMs)</td></tr>
+<tr class="memitem:af56270b978a75f348ea2e7df92632d51"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#af56270b978a75f348ea2e7df92632d51">~AnimationSubStepData</a> ()</td></tr>
+<tr class="separator:af56270b978a75f348ea2e7df92632d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac85ea0cf366effc7aaf4c4fb01b2c6a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#ac85ea0cf366effc7aaf4c4fb01b2c6a9">computeTimeAndPercentage</a> (SReal invTotalMs)</td></tr>
 <tr class="separator:ac85ea0cf366effc7aaf4c4fb01b2c6a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad20eb2d673cab16451dfcbcd1b8c8e94"><td class="memItemLeft" align="right" valign="top"><a id="ad20eb2d673cab16451dfcbcd1b8c8e94"></a>
-SReal&#160;</td><td class="memItemRight" valign="bottom"><b>getStepMs</b> (const std::string &amp;stepName, const std::string &amp;parentName)</td></tr>
+<tr class="memitem:ad20eb2d673cab16451dfcbcd1b8c8e94"><td class="memItemLeft" align="right" valign="top">SReal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#ad20eb2d673cab16451dfcbcd1b8c8e94">getStepMs</a> (const std::string &amp;stepName, const std::string &amp;parentName)</td></tr>
 <tr class="separator:ad20eb2d673cab16451dfcbcd1b8c8e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a635f3083077e169250536ce11afdd060"><td class="memItemLeft" align="right" valign="top"><a id="a635f3083077e169250536ce11afdd060"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_level</b></td></tr>
+<tr class="memitem:a635f3083077e169250536ce11afdd060"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#a635f3083077e169250536ce11afdd060">m_level</a></td></tr>
 <tr class="separator:a635f3083077e169250536ce11afdd060"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb41893ba19e889e56c559f25fc1a68a"><td class="memItemLeft" align="right" valign="top"><a id="adb41893ba19e889e56c559f25fc1a68a"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_name</b></td></tr>
+<tr class="memitem:adb41893ba19e889e56c559f25fc1a68a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#adb41893ba19e889e56c559f25fc1a68a">m_name</a></td></tr>
 <tr class="separator:adb41893ba19e889e56c559f25fc1a68a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c5e974adff312f3686dd05963b96c5a"><td class="memItemLeft" align="right" valign="top"><a id="a9c5e974adff312f3686dd05963b96c5a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_nbrCall</b></td></tr>
+<tr class="memitem:a9c5e974adff312f3686dd05963b96c5a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#a9c5e974adff312f3686dd05963b96c5a">m_nbrCall</a></td></tr>
 <tr class="separator:a9c5e974adff312f3686dd05963b96c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c7e63211a9c7053220f8625aaf7f01c"><td class="memItemLeft" align="right" valign="top"><a id="a0c7e63211a9c7053220f8625aaf7f01c"></a>
-ctime_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_start</b></td></tr>
+<tr class="memitem:a0c7e63211a9c7053220f8625aaf7f01c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1helper.html#a15ee20078e5d928ea239b4df38062286">ctime_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#a0c7e63211a9c7053220f8625aaf7f01c">m_start</a></td></tr>
 <tr class="separator:a0c7e63211a9c7053220f8625aaf7f01c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d884ddd85cdb7c4d32e7f0980cc54a5"><td class="memItemLeft" align="right" valign="top"><a id="a2d884ddd85cdb7c4d32e7f0980cc54a5"></a>
-ctime_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_end</b></td></tr>
+<tr class="memitem:a2d884ddd85cdb7c4d32e7f0980cc54a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1helper.html#a15ee20078e5d928ea239b4df38062286">ctime_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#a2d884ddd85cdb7c4d32e7f0980cc54a5">m_end</a></td></tr>
 <tr class="separator:a2d884ddd85cdb7c4d32e7f0980cc54a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a255ce75ea44e0927343b8ba28a1b46c8"><td class="memItemLeft" align="right" valign="top"><a id="a255ce75ea44e0927343b8ba28a1b46c8"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_tag</b></td></tr>
+<tr class="memitem:a255ce75ea44e0927343b8ba28a1b46c8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#a255ce75ea44e0927343b8ba28a1b46c8">m_tag</a></td></tr>
 <tr class="separator:a255ce75ea44e0927343b8ba28a1b46c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a782fe4c62be33a8374eafe75ebf76266"><td class="memItemLeft" align="right" valign="top"><a id="a782fe4c62be33a8374eafe75ebf76266"></a>
-SReal&#160;</td><td class="memItemRight" valign="bottom"><b>m_totalMs</b></td></tr>
+<tr class="memitem:a782fe4c62be33a8374eafe75ebf76266"><td class="memItemLeft" align="right" valign="top">SReal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#a782fe4c62be33a8374eafe75ebf76266">m_totalMs</a></td></tr>
 <tr class="separator:a782fe4c62be33a8374eafe75ebf76266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1928221e98c27522b3e8996c62d4330b"><td class="memItemLeft" align="right" valign="top"><a id="a1928221e98c27522b3e8996c62d4330b"></a>
-SReal&#160;</td><td class="memItemRight" valign="bottom"><b>m_totalPercent</b></td></tr>
+<tr class="memitem:a1928221e98c27522b3e8996c62d4330b"><td class="memItemLeft" align="right" valign="top">SReal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#a1928221e98c27522b3e8996c62d4330b">m_totalPercent</a></td></tr>
 <tr class="separator:a1928221e98c27522b3e8996c62d4330b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77f8848d7a45aa63aae2746c57e03bef"><td class="memItemLeft" align="right" valign="top"><a id="a77f8848d7a45aa63aae2746c57e03bef"></a>
-SReal&#160;</td><td class="memItemRight" valign="bottom"><b>m_selfMs</b></td></tr>
+<tr class="memitem:a77f8848d7a45aa63aae2746c57e03bef"><td class="memItemLeft" align="right" valign="top">SReal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#a77f8848d7a45aa63aae2746c57e03bef">m_selfMs</a></td></tr>
 <tr class="separator:a77f8848d7a45aa63aae2746c57e03bef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95136e3a33beaf0a4cecf8d5aac63a31"><td class="memItemLeft" align="right" valign="top"><a id="a95136e3a33beaf0a4cecf8d5aac63a31"></a>
-SReal&#160;</td><td class="memItemRight" valign="bottom"><b>m_selfPercent</b></td></tr>
+<tr class="memitem:a95136e3a33beaf0a4cecf8d5aac63a31"><td class="memItemLeft" align="right" valign="top">SReal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#a95136e3a33beaf0a4cecf8d5aac63a31">m_selfPercent</a></td></tr>
 <tr class="separator:a95136e3a33beaf0a4cecf8d5aac63a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a238f5f1ed171831703e6b9f4373cda2a"><td class="memItemLeft" align="right" valign="top"><a id="a238f5f1ed171831703e6b9f4373cda2a"></a>
-<a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html">AnimationSubStepData</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_children</b></td></tr>
+<tr class="memitem:a238f5f1ed171831703e6b9f4373cda2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html">AnimationSubStepData</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html#a238f5f1ed171831703e6b9f4373cda2a">m_children</a></td></tr>
 <tr class="separator:a238f5f1ed171831703e6b9f4373cda2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html" title="The AnimationSubStepData Internal class to store data for each step of the animation....">AnimationSubStepData</a> Internal class to store data for each step of the animation. Correspond to one AdvancedTimer::begin/end Data stored/computed will be step name, its time in ms and the corresponding % inside the whole step. the total ms and percentage it represent if this step has substeps. Buffer of <a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html" title="The AnimationSubStepData Internal class to store data for each step of the animation....">AnimationSubStepData</a> corresponding to its children substeps. </p>
-</div></div><!-- contents -->
+<div class="textblock"><p>The <a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html" title="The AnimationSubStepData Internal class to store data for each step of the animation....">AnimationSubStepData</a> Internal class to store data for each step of the animation. Correspond to one <a class="el" href="classsofa_1_1helper_1_1_advanced_timer.html#a1570a08c13ebb25923decb909aa42978">AdvancedTimer::begin</a>/end Data stored/computed will be step name, its time in ms and the corresponding % inside the whole step. the total ms and percentage it represent if this step has substeps. Buffer of <a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html" title="The AnimationSubStepData Internal class to store data for each step of the animation....">AnimationSubStepData</a> corresponding to its children substeps. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3a0e8c25142df54d21360fa1c08f42f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a0e8c25142df54d21360fa1c08f42f8">&#9670;&nbsp;</a></span>AnimationSubStepData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html">AnimationSubStepData</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1helper.html#a15ee20078e5d928ea239b4df38062286">ctime_t</a>&#160;</td>
+          <td class="paramname"><em>start</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af56270b978a75f348ea2e7df92632d51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af56270b978a75f348ea2e7df92632d51">&#9670;&nbsp;</a></span>~AnimationSubStepData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html">AnimationSubStepData</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac85ea0cf366effc7aaf4c4fb01b2c6a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac85ea0cf366effc7aaf4c4fb01b2c6a9">&#9670;&nbsp;</a></span>computeTimeAndPercentage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void computeTimeAndPercentage </td>
+          <td>(</td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname"><em>invTotalMs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad20eb2d673cab16451dfcbcd1b8c8e94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad20eb2d673cab16451dfcbcd1b8c8e94">&#9670;&nbsp;</a></span>getStepMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SReal getStepMs </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>stepName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>parentName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a238f5f1ed171831703e6b9f4373cda2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a238f5f1ed171831703e6b9f4373cda2a">&#9670;&nbsp;</a></span>m_children</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt;<a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html">AnimationSubStepData</a>*&gt; m_children</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2d884ddd85cdb7c4d32e7f0980cc54a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d884ddd85cdb7c4d32e7f0980cc54a5">&#9670;&nbsp;</a></span>m_end</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesofa_1_1helper.html#a15ee20078e5d928ea239b4df38062286">ctime_t</a> m_end</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a635f3083077e169250536ce11afdd060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a635f3083077e169250536ce11afdd060">&#9670;&nbsp;</a></span>m_level</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int m_level</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb41893ba19e889e56c559f25fc1a68a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb41893ba19e889e56c559f25fc1a68a">&#9670;&nbsp;</a></span>m_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string m_name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c5e974adff312f3686dd05963b96c5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c5e974adff312f3686dd05963b96c5a">&#9670;&nbsp;</a></span>m_nbrCall</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int m_nbrCall</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a77f8848d7a45aa63aae2746c57e03bef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77f8848d7a45aa63aae2746c57e03bef">&#9670;&nbsp;</a></span>m_selfMs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SReal m_selfMs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95136e3a33beaf0a4cecf8d5aac63a31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95136e3a33beaf0a4cecf8d5aac63a31">&#9670;&nbsp;</a></span>m_selfPercent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SReal m_selfPercent</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c7e63211a9c7053220f8625aaf7f01c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c7e63211a9c7053220f8625aaf7f01c">&#9670;&nbsp;</a></span>m_start</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesofa_1_1helper.html#a15ee20078e5d928ea239b4df38062286">ctime_t</a> m_start</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a255ce75ea44e0927343b8ba28a1b46c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a255ce75ea44e0927343b8ba28a1b46c8">&#9670;&nbsp;</a></span>m_tag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string m_tag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a782fe4c62be33a8374eafe75ebf76266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a782fe4c62be33a8374eafe75ebf76266">&#9670;&nbsp;</a></span>m_totalMs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SReal m_totalMs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1928221e98c27522b3e8996c62d4330b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1928221e98c27522b3e8996c62d4330b">&#9670;&nbsp;</a></span>m_totalPercent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SReal m_totalPercent</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>gui</b></li><li class="navelem"><b>qt</b></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler.html">SofaWindowProfiler</a></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html">AnimationSubStepData</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:52 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui.html">gui</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui_1_1qt.html">qt</a></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler.html">SofaWindowProfiler</a></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_window_profiler_1_1_animation_sub_step_data.html">AnimationSubStepData</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:39 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

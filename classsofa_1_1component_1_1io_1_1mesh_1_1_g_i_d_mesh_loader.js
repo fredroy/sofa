@@ -22,5 +22,13 @@ var classsofa_1_1component_1_1io_1_1mesh_1_1_g_i_d_mesh_loader =
     [ "doClearBuffers", "classsofa_1_1component_1_1io_1_1mesh_1_1_g_i_d_mesh_loader.html#a4eb241823aeac9d88fd7f0ca170c664b", null ],
     [ "doLoad", "classsofa_1_1component_1_1io_1_1mesh_1_1_g_i_d_mesh_loader.html#a40a53498462157d409026d3b0cb1659c", null ],
     [ "readGID", "classsofa_1_1component_1_1io_1_1mesh_1_1_g_i_d_mesh_loader.html#adf83fa663623416a397fd96801be6dbc", null ],
-    [ "SOFA_CLASS", "classsofa_1_1component_1_1io_1_1mesh_1_1_g_i_d_mesh_loader.html#a03e8fe9bfc37bb773c3779c01705ec53", null ]
+    [ "readHexahedralElements", "classsofa_1_1component_1_1io_1_1mesh_1_1_g_i_d_mesh_loader.html#ae9fb575732378f582efbdec1e37b92c3", null ],
+    [ "readLinearElements", "classsofa_1_1component_1_1io_1_1mesh_1_1_g_i_d_mesh_loader.html#a7841602661ee5bf075e6b8eb513eaf59", null ],
+    [ "readQuadrilateralElements", "classsofa_1_1component_1_1io_1_1mesh_1_1_g_i_d_mesh_loader.html#abef10ebc5b27be798ff036e1aa4003f5", null ],
+    [ "readTetrahedralElements", "classsofa_1_1component_1_1io_1_1mesh_1_1_g_i_d_mesh_loader.html#ad71eedc0d41fc46167b7fadebeaf9af0", null ],
+    [ "readTriangleElements", "classsofa_1_1component_1_1io_1_1mesh_1_1_g_i_d_mesh_loader.html#ae5f9fab0d784db3e9913a365c643a2a5", null ],
+    [ "SOFA_CLASS", "classsofa_1_1component_1_1io_1_1mesh_1_1_g_i_d_mesh_loader.html#a03e8fe9bfc37bb773c3779c01705ec53", null ],
+    [ "m_dimensions", "classsofa_1_1component_1_1io_1_1mesh_1_1_g_i_d_mesh_loader.html#ae3afe6046065738c9eaa3c7b94ab5e0b", null ],
+    [ "m_eltType", "classsofa_1_1component_1_1io_1_1mesh_1_1_g_i_d_mesh_loader.html#abff17921a958acee39d7f7d64c084f6b", null ],
+    [ "m_nNode", "classsofa_1_1component_1_1io_1_1mesh_1_1_g_i_d_mesh_loader.html#aae62f98783d5bc3ac38cbe3efcdbd413", null ]
 ];

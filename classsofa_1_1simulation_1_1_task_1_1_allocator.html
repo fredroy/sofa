@@ -89,6 +89,8 @@ $(document).ready(function(){initNavTree('classsofa_1_1simulation_1_1_task_1_1_a
 <div class="title">Task::Allocator Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_task_8h_source.html">Task.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Task::Allocator:</div>
 <div class="dyncontent">
@@ -101,20 +103,85 @@ Inheritance diagram for Task::Allocator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7df2bd0a06677144f4015545a9d23c85"><td class="memItemLeft" align="right" valign="top"><a id="a7df2bd0a06677144f4015545a9d23c85"></a>
-virtual void *&#160;</td><td class="memItemRight" valign="bottom"><b>allocate</b> (std::size_t sz)=0</td></tr>
+<tr class="memitem:a7df2bd0a06677144f4015545a9d23c85"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_task_1_1_allocator.html#a7df2bd0a06677144f4015545a9d23c85">allocate</a> (std::size_t sz)=0</td></tr>
 <tr class="separator:a7df2bd0a06677144f4015545a9d23c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81c634e5314c359467088c8e4a82f38e"><td class="memItemLeft" align="right" valign="top"><a id="a81c634e5314c359467088c8e4a82f38e"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>free</b> (void *ptr, std::size_t sz)=0</td></tr>
+<tr class="memitem:a81c634e5314c359467088c8e4a82f38e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_task_1_1_allocator.html#a81c634e5314c359467088c8e4a82f38e">free</a> (void *ptr, std::size_t sz)=0</td></tr>
 <tr class="separator:a81c634e5314c359467088c8e4a82f38e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7df2bd0a06677144f4015545a9d23c85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7df2bd0a06677144f4015545a9d23c85">&#9670;&nbsp;</a></span>allocate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void* allocate </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>sz</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1simulation_1_1_std_task_allocator.html#a25e9712a5584eff0d503698295eafbe0">StdTaskAllocator</a>.</p>
+
+</div>
+</div>
+<a id="a81c634e5314c359467088c8e4a82f38e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81c634e5314c359467088c8e4a82f38e">&#9670;&nbsp;</a></span>free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void free </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>sz</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1simulation_1_1_std_task_allocator.html#a7b81c490778d0e79162d85ec704d509e">StdTaskAllocator</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>simulation</b></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_task.html">Task</a></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_task_1_1_allocator.html">Allocator</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:14:04 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1simulation.html">simulation</a></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_task.html">Task</a></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_task_1_1_allocator.html">Allocator</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:46:36 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

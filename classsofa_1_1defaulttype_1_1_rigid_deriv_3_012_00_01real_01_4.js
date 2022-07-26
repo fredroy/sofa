@@ -41,8 +41,11 @@ var classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4 =
     [ "operator[]", "classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aaff8c06575571bf5a116ae04617d3798", null ],
     [ "ptr", "classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aacb0810d9993ebcb73cf306d2ae9d274", null ],
     [ "ptr", "classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a285ae2fe5ac919bc4e606924e2b946b3", null ],
+    [ "size", "classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aba2ce46c5f6ed89c0f6c7b27dc93e1a5", null ],
     [ "velocityAtRotatedPoint", "classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a96f7669053530b98c41cc38e79ebf604", null ],
     [ "operator<<", "classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aea024de92346a58d058f113674b570ad", null ],
     [ "operator>>", "classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#adc61bac741e32e8274a27e3af0e3c5f1", null ],
-    [ "RigidCoord< 2, real >", "classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#ad5334cbdc563018e1e0f2b95f03b8379", null ]
+    [ "RigidCoord< 2, real >", "classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#ad5334cbdc563018e1e0f2b95f03b8379", null ],
+    [ "vCenter", "classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a718b2bf36971b12073e486e2d4fdcab6", null ],
+    [ "vOrientation", "classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a8a9c30f1c276a2fb8dedf74ef1a891ad", null ]
 ];

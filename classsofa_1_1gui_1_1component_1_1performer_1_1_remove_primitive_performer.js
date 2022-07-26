@@ -1,5 +1,10 @@
 var classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer =
 [
+    [ "Coord", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#a7c0bd56aca42d0e855a400b50f3e078b", null ],
+    [ "Index", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#a34485df4864136107fd830e23695986c", null ],
+    [ "Real", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#acf523069e5b1497cffac17511dcd3b1e", null ],
+    [ "VecCoord", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#a05882e2e9ba8d707ab531ab94a1f39e0", null ],
+    [ "VecIds", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#a53cd7440f62963f86bf10ca93339994f", null ],
     [ "RemovePrimitivePerformer", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#ad8259b32df81d944adf424e5c6116c3d", null ],
     [ "~RemovePrimitivePerformer", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#af8cfc276cfca60a66e049ede2cb3aec6", null ],
     [ "createElementList", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#a3827fb0d58ccd0bf75b3ecd4e2af71b2", null ],
@@ -10,8 +15,12 @@ var classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer =
     [ "getNeighboorElements", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#a26c3997ff29694e7f537476ffabe89b0", null ],
     [ "start", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#a60de64d75454385b23995437f1d72669", null ],
     [ "firstClick", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#a18e90fdf6474affe97bc4bf348275a08", null ],
+    [ "mstateCollision", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#a8930b4f037a09d4d044080003a6fbca9", null ],
     [ "picked", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#af872ca6ca4a16fa60a34929ce6ac2d4e", null ],
     [ "selectedElem", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#a2851b6344193ebeac5272eb691de85ed", null ],
     [ "surfaceOnVolume", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#a9c5e7b8283f838c7952e4d56a7eee1dc", null ],
+    [ "topo_curr", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#ac84d78a365a950ad9665977df382b7ea", null ],
+    [ "topologyChangeManager", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#ac0df0c70998dd3927e744fcd360f3d48", null ],
+    [ "topoType", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#a2375691f1c2712cd7f35d8452f28db97", null ],
     [ "volumeOnSurface", "classsofa_1_1gui_1_1component_1_1performer_1_1_remove_primitive_performer.html#ab3698d9d73619e072f943d04f710e346", null ]
 ];

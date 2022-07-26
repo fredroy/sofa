@@ -24,6 +24,8 @@ var classsofa_1_1linearalgebra_1_1_bloc_full_matrix =
     [ "element", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#ab7bc07f724b55842c27a819787f45fb3", null ],
     [ "getAlignedSubMatrix", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#a73f2fed60863710b41eb3730bb173b9a", null ],
     [ "getSubMatrix", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#aadbacd3425e801792c81100dc73ff0e5", null ],
+    [ "getSubMatrixDim", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#a3fc32162ec15efe73b4b319807f577c3", null ],
+    [ "Name", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#a28ceceb8e81ac299b3c6992dd0a707d3", null ],
     [ "operator*", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#a97c150ae3b9b29805958c10c9e0ffa69", null ],
     [ "ptr", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#a0ca01814f2029a607203c080c39e2c16", null ],
     [ "ptr", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#af442322a9d8bd4a752ce1385258218f4", null ],

@@ -24,6 +24,7 @@ var classsofa_1_1component_1_1collision_1_1geometry_1_1_triangle_collision_model
     ] ],
     [ "TriangleCollisionModel", "classsofa_1_1component_1_1collision_1_1geometry_1_1_triangle_collision_model.html#a61fd65aaa66f8bafdfffd224c7db7805", null ],
     [ "canCollideWithElement", "classsofa_1_1component_1_1collision_1_1geometry_1_1_triangle_collision_model.html#a970b578cf165aa434dd78c31e92fa584", null ],
+    [ "canCreate", "classsofa_1_1component_1_1collision_1_1geometry_1_1_triangle_collision_model.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "computeBBox", "classsofa_1_1component_1_1collision_1_1geometry_1_1_triangle_collision_model.html#ac0732500bd7b34633e1df024d3f88632", null ],
     [ "computeBoundingTree", "classsofa_1_1component_1_1collision_1_1geometry_1_1_triangle_collision_model.html#af777911215040d8cd6eb282ae36ef177", null ],
     [ "computeContinuousBoundingTree", "classsofa_1_1component_1_1collision_1_1geometry_1_1_triangle_collision_model.html#a31fac534f6b52071ed1f8d380c0519f0", null ],

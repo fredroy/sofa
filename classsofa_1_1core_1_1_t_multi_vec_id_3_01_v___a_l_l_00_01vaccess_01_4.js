@@ -15,6 +15,7 @@ var classsofa_1_1core_1_1_t_multi_vec_id_3_01_v___a_l_l_00_01vaccess_01_4 =
     [ "getName", "classsofa_1_1core_1_1_t_multi_vec_id_3_01_v___a_l_l_00_01vaccess_01_4.html#a8a60438a5b55d0b2ceb35c8674b9d8c5", null ],
     [ "hasIdMap", "classsofa_1_1core_1_1_t_multi_vec_id_3_01_v___a_l_l_00_01vaccess_01_4.html#a64633ebcd01e12408bb0df601b94f6a8", null ],
     [ "isNull", "classsofa_1_1core_1_1_t_multi_vec_id_3_01_v___a_l_l_00_01vaccess_01_4.html#abada6dfb33f4cbafe1e443a5cf8dc8d0", null ],
+    [ "null", "classsofa_1_1core_1_1_t_multi_vec_id_3_01_v___a_l_l_00_01vaccess_01_4.html#a2c40a275ff7bfa2cb7c9775668b346cc", null ],
     [ "operator=", "classsofa_1_1core_1_1_t_multi_vec_id_3_01_v___a_l_l_00_01vaccess_01_4.html#a81b40bc969d061dc5a8fc7d9626f8bcb", null ],
     [ "operator=", "classsofa_1_1core_1_1_t_multi_vec_id_3_01_v___a_l_l_00_01vaccess_01_4.html#ad11cdb84653a0559aaf7483e18ef4e9a", null ],
     [ "operator=", "classsofa_1_1core_1_1_t_multi_vec_id_3_01_v___a_l_l_00_01vaccess_01_4.html#af73e908011e3cc2b52b171ce99f331ee", null ],
@@ -26,5 +27,6 @@ var classsofa_1_1core_1_1_t_multi_vec_id_3_01_v___a_l_l_00_01vaccess_01_4 =
     [ "writeIdMap", "classsofa_1_1core_1_1_t_multi_vec_id_3_01_v___a_l_l_00_01vaccess_01_4.html#a7823b8a396409492565c1a4eb43e22db", null ],
     [ "operator<<", "classsofa_1_1core_1_1_t_multi_vec_id_3_01_v___a_l_l_00_01vaccess_01_4.html#a8d1e9ef9d873835e934bd41047db1280", null ],
     [ "TMultiVecId", "classsofa_1_1core_1_1_t_multi_vec_id_3_01_v___a_l_l_00_01vaccess_01_4.html#a50bee264c49554185edd3814da1fba6c", null ],
-    [ "defaultId", "classsofa_1_1core_1_1_t_multi_vec_id_3_01_v___a_l_l_00_01vaccess_01_4.html#ad5b4a415336255ea0f49c3ee37c99044", null ]
+    [ "defaultId", "classsofa_1_1core_1_1_t_multi_vec_id_3_01_v___a_l_l_00_01vaccess_01_4.html#ad5b4a415336255ea0f49c3ee37c99044", null ],
+    [ "idMap_ptr", "classsofa_1_1core_1_1_t_multi_vec_id_3_01_v___a_l_l_00_01vaccess_01_4.html#a9add149e9505dcf4843b2397c6c7e192", null ]
 ];

@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_sorted_permutation_8h_source.html',''
 <div class="title">SortedPermutation.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_sorted_permutation_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('_sorted_permutation_8h_source.html',''
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define SOFA_HELPER_SortedPermutation_H</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;sofa/type/vector.h&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_type_2src_2sofa_2type_2vector_8h.html">sofa/type/vector.h</a>&gt;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
@@ -124,10 +124,10 @@ $(document).ready(function(){initNavTree('_sorted_permutation_8h_source.html',''
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> Container&gt;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">struct </span>CompareIndirect</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">const</span> Container&amp; values;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    CompareIndirect( <span class="keyword">const</span> Container&amp; v ):values(v) {}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">const</span> Container&amp; <a class="code" href="structsofa_1_1helper_1_1_compare_indirect.html#a196dc9d12d19f7eed988f8c97e528a18">values</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="structsofa_1_1helper_1_1_compare_indirect.html#a3d86594ec6ec901dc170b0b9efbf21fd">CompareIndirect</a>( <span class="keyword">const</span> Container&amp; v ):<a class="code" href="structsofa_1_1helper_1_1_compare_indirect.html#a196dc9d12d19f7eed988f8c97e528a18">values</a>(v) {}</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">bool</span> operator () (<span class="keywordtype">unsigned</span> i, <span class="keywordtype">unsigned</span> j)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> values[i] &lt; values[j]; }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="structsofa_1_1helper_1_1_compare_indirect.html#adf11c0605eab6798daf4b1ebb10d6282">operator () </a>(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">unsigned</span> j)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="structsofa_1_1helper_1_1_compare_indirect.html#a196dc9d12d19f7eed988f8c97e528a18">values</a>[i] &lt; <a class="code" href="structsofa_1_1helper_1_1_compare_indirect.html#a196dc9d12d19f7eed988f8c97e528a18">values</a>[j]; }</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> Container&gt;</div>
@@ -155,12 +155,16 @@ $(document).ready(function(){initNavTree('_sorted_permutation_8h_source.html',''
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacesofa_html"><div class="ttname"><a href="namespacesofa.html">sofa</a></div><div class="ttdoc">This allow MeshTrian to interact with the messaging system.</div><div class="ttdef"><b>Definition:</b> ConstraintAnimationLoop.cpp:81</div></div>
+<div class="ttc" id="astructsofa_1_1helper_1_1_compare_indirect_html_a196dc9d12d19f7eed988f8c97e528a18"><div class="ttname"><a href="structsofa_1_1helper_1_1_compare_indirect.html#a196dc9d12d19f7eed988f8c97e528a18">sofa::helper::CompareIndirect::values</a></div><div class="ttdeci">const Container &amp; values</div><div class="ttdef"><b>Definition:</b> SortedPermutation.h:107</div></div>
+<div class="ttc" id="a_type_2src_2sofa_2type_2vector_8h_html"><div class="ttname"><a href="_type_2src_2sofa_2type_2vector_8h.html">vector.h</a></div></div>
+<div class="ttc" id="astructsofa_1_1helper_1_1_compare_indirect_html_a3d86594ec6ec901dc170b0b9efbf21fd"><div class="ttname"><a href="structsofa_1_1helper_1_1_compare_indirect.html#a3d86594ec6ec901dc170b0b9efbf21fd">sofa::helper::CompareIndirect::CompareIndirect</a></div><div class="ttdeci">CompareIndirect(const Container &amp;v)</div><div class="ttdef"><b>Definition:</b> SortedPermutation.h:108</div></div>
 <div class="ttc" id="anamespacesofa_1_1helper_html_ad97e193606a62cbcdb65537cd19aa6bb"><div class="ttname"><a href="namespacesofa_1_1helper.html#ad97e193606a62cbcdb65537cd19aa6bb">sofa::helper::sortedPermutation</a></div><div class="ttdeci">type::vector&lt; unsigned &gt; sortedPermutation(const Container &amp;values)</div><div class="ttdoc">Return a sorted permutation of the container, i.e. a list of indices corresponding to increasing entr...</div><div class="ttdef"><b>Definition:</b> SortedPermutation.h:95</div></div>
+<div class="ttc" id="astructsofa_1_1helper_1_1_compare_indirect_html_adf11c0605eab6798daf4b1ebb10d6282"><div class="ttname"><a href="structsofa_1_1helper_1_1_compare_indirect.html#adf11c0605eab6798daf4b1ebb10d6282">sofa::helper::CompareIndirect::operator()</a></div><div class="ttdeci">bool operator()(unsigned i, unsigned j) const</div><div class="ttdef"><b>Definition:</b> SortedPermutation.h:110</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><b>SortedPermutation.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:41:48 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><a class="el" href="_sorted_permutation_8h.html">SortedPermutation.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:14:59 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_sparse_matrix_storage_order_8h_source
 <div class="title">SparseMatrixStorageOrder.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_sparse_matrix_storage_order_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -109,9 +109,9 @@ $(document).ready(function(){initNavTree('_sparse_matrix_storage_order_8h_source
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">******************************************************************************/</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/type/vector_T.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="vector___t_8h.html">sofa/type/vector_T.h</a>&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>sofa::linearalgebra</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1linearalgebra.html">sofa::linearalgebra</a></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> TMatrix&gt;</div>
@@ -119,28 +119,28 @@ $(document).ready(function(){initNavTree('_sparse_matrix_storage_order_8h_source
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">using</span> Index = <span class="keyword">typename</span> TMatrix::Index;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">using</span> <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a9621b07e3e4981e695d31197d155e37b">Index</a> = <span class="keyword">typename</span> TMatrix::Index;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">explicit</span> SparseMatrixStorageOrder(<span class="keyword">const</span> TMatrix* m)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        : matrix(m)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a890f4b5d124d8ffc40e56bd227ee42ce">SparseMatrixStorageOrder</a>(<span class="keyword">const</span> TMatrix* m)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        : <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a728a3ed995ddeba1b63782deef3c1e89">matrix</a>(m)</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        buildOppositeOrder();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a86520fedcc1310cb94608da3976ad09b">buildOppositeOrder</a>();</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> buildOppositeOrder();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a86520fedcc1310cb94608da3976ad09b">buildOppositeOrder</a>();</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">const</span> type::vector&lt;Index&gt;&amp; getOuterStarts()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> outerStarts; }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">const</span> type::vector&lt;Index&gt;&amp; getInnerIndices()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> innerIndices; }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">const</span> type::vector&lt;Index&gt;&amp; getPermutations()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> perm; }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">const</span> type::vector&lt;Index&gt;&amp; <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a607628213649b488001610bf359c8f94">getOuterStarts</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#af240c4ef7f286fd55800080152cffe80">outerStarts</a>; }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">const</span> type::vector&lt;Index&gt;&amp; <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a0c0fabc28f55a1343d9d2284a29dca4a">getInnerIndices</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a1968909b05229c0e95a9ab32df20efdb">innerIndices</a>; }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">const</span> type::vector&lt;Index&gt;&amp; <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#aec7a41b47ee4fa8fb0c15de89c21b065">getPermutations</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#ac2ae4b590c05e4da2635254f5784abb0">perm</a>; }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">class </span>InnerIterator;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html">   64</a></span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">const</span> TMatrix* matrix { <span class="keyword">nullptr</span> };</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">const</span> TMatrix* <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a728a3ed995ddeba1b63782deef3c1e89">matrix</a> { <span class="keyword">nullptr</span> };</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classsofa_1_1type_1_1vector.html">type::vector&lt;Index&gt;</a> outerStarts;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classsofa_1_1type_1_1vector.html">type::vector&lt;Index&gt;</a> innerIndices;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="classsofa_1_1type_1_1vector.html">type::vector&lt;Index&gt;</a> perm;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classsofa_1_1type_1_1vector.html">type::vector&lt;Index&gt;</a> <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#af240c4ef7f286fd55800080152cffe80">outerStarts</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classsofa_1_1type_1_1vector.html">type::vector&lt;Index&gt;</a> <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a1968909b05229c0e95a9ab32df20efdb">innerIndices</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="classsofa_1_1type_1_1vector.html">type::vector&lt;Index&gt;</a> <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#ac2ae4b590c05e4da2635254f5784abb0">perm</a>;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> TMatrix&gt;</div>
@@ -158,9 +158,9 @@ $(document).ready(function(){initNavTree('_sparse_matrix_storage_order_8h_source
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    InnerIterator&amp; operator++()</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        ++m_id;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a9621b07e3e4981e695d31197d155e37b">   88</a></span>&#160;        ++m_id;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a890f4b5d124d8ffc40e56bd227ee42ce">   90</a></span>&#160;    }</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    InnerIterator&amp; operator+=(<span class="keyword">const</span> <span class="keyword">typename</span> TMatrix::Index i)</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
@@ -168,27 +168,27 @@ $(document).ready(function(){initNavTree('_sparse_matrix_storage_order_8h_source
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html">InnerIterator</a> operator+(<span class="keyword">const</span> <span class="keyword">typename</span> TMatrix::Index i)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html">InnerIterator</a> result = *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html#a7ab6a2f481b69816d3263b248039ea74">   98</a></span>&#160;    <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html">InnerIterator</a> <a class="code" href="namespacesofa_1_1type_1_1pairwise.html#a3062109a0f11c486fb01b127480cbaf7">operator+</a>(<span class="keyword">const</span> <span class="keyword">typename</span> TMatrix::Index i)</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a0c0fabc28f55a1343d9d2284a29dca4a">   99</a></span>&#160;    {</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#aec7a41b47ee4fa8fb0c15de89c21b065">  100</a></span>&#160;        <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html">InnerIterator</a> result = *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        result += i;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">return</span> result;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    SReal value() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">typename</span> TMatrix::Index row() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html#a51e1d230fca374ad913edc3a9c85fe92">  106</a></span>&#160;    <span class="keyword">typename</span> TMatrix::Index row() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">typename</span> TMatrix::Index col() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">explicit</span> <span class="keyword">operator</span> bool()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#af240c4ef7f286fd55800080152cffe80">  108</a></span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a1968909b05229c0e95a9ab32df20efdb">  109</a></span>&#160;    <span class="keyword">explicit</span> <span class="keyword">operator</span> bool()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#ac2ae4b590c05e4da2635254f5784abb0">  110</a></span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">return</span> m_id &lt; m_end;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html#ac848e80f1d1493ab3b174743d1ae799a">  112</a></span>&#160;    }</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">const</span> SparseMatrixStorageOrder&lt;TMatrix&gt;&amp; m_transpose;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">const</span> <a class="code" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html">SparseMatrixStorageOrder&lt;TMatrix&gt;</a>&amp; m_transpose;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">typename</span> TMatrix::Index m_id;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keyword">typename</span> TMatrix::Index m_end;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html#a3f70bcfcde908d37828ad9f042eda5bd">  118</a></span>&#160;    <span class="keyword">typename</span> TMatrix::Index m_end;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">typename</span> TMatrix::Index m_outer;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;};</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
@@ -197,13 +197,27 @@ $(document).ready(function(){initNavTree('_sparse_matrix_storage_order_8h_source
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;} <span class="comment">// namespace sofa::linearalgebra</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="avector___t_8h_html"><div class="ttname"><a href="vector___t_8h.html">vector_T.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator_html"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html">sofa::linearalgebra::SparseMatrixStorageOrder::InnerIterator</a></div><div class="ttdef"><b>Definition:</b> SparseMatrixStorageOrder.h:94</div></div>
+<div class="ttc" id="anamespacesofa_1_1linearalgebra_html"><div class="ttname"><a href="namespacesofa_1_1linearalgebra.html">sofa::linearalgebra</a></div><div class="ttdef"><b>Definition:</b> BaseMatrix.cpp:29</div></div>
+<div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_html_a890f4b5d124d8ffc40e56bd227ee42ce"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a890f4b5d124d8ffc40e56bd227ee42ce">sofa::linearalgebra::SparseMatrixStorageOrder::SparseMatrixStorageOrder</a></div><div class="ttdeci">SparseMatrixStorageOrder(const TMatrix *m)</div><div class="ttdef"><b>Definition:</b> SparseMatrixStorageOrder.h:90</div></div>
+<div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_html_a0c0fabc28f55a1343d9d2284a29dca4a"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a0c0fabc28f55a1343d9d2284a29dca4a">sofa::linearalgebra::SparseMatrixStorageOrder::getInnerIndices</a></div><div class="ttdeci">const type::vector&lt; Index &gt; &amp; getInnerIndices() const</div><div class="ttdef"><b>Definition:</b> SparseMatrixStorageOrder.h:99</div></div>
+<div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_html_a86520fedcc1310cb94608da3976ad09b"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a86520fedcc1310cb94608da3976ad09b">sofa::linearalgebra::SparseMatrixStorageOrder::buildOppositeOrder</a></div><div class="ttdeci">void buildOppositeOrder()</div></div>
+<div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_html_aec7a41b47ee4fa8fb0c15de89c21b065"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#aec7a41b47ee4fa8fb0c15de89c21b065">sofa::linearalgebra::SparseMatrixStorageOrder::getPermutations</a></div><div class="ttdeci">const type::vector&lt; Index &gt; &amp; getPermutations() const</div><div class="ttdef"><b>Definition:</b> SparseMatrixStorageOrder.h:100</div></div>
+<div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_html"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html">sofa::linearalgebra::SparseMatrixStorageOrder</a></div><div class="ttdef"><b>Definition:</b> SparseMatrixStorageOrder.h:64</div></div>
+<div class="ttc" id="anamespacesofa_1_1type_1_1pairwise_html_a3062109a0f11c486fb01b127480cbaf7"><div class="ttname"><a href="namespacesofa_1_1type_1_1pairwise.html#a3062109a0f11c486fb01b127480cbaf7">sofa::type::pairwise::operator+</a></div><div class="ttdeci">T operator+(const T &amp;l, const T &amp;r)</div><div class="ttdoc">pairwise add of two fixed_array</div><div class="ttdef"><b>Definition:</b> fixed_array_algorithms.h:73</div></div>
+<div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_html_a9621b07e3e4981e695d31197d155e37b"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a9621b07e3e4981e695d31197d155e37b">sofa::linearalgebra::SparseMatrixStorageOrder::Index</a></div><div class="ttdeci">typename TMatrix::Index Index</div><div class="ttdef"><b>Definition:</b> SparseMatrixStorageOrder.h:88</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1vector_html"><div class="ttname"><a href="classsofa_1_1type_1_1vector.html">sofa::type::vector&lt; Index &gt;</a></div></div>
+<div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_html_ac2ae4b590c05e4da2635254f5784abb0"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#ac2ae4b590c05e4da2635254f5784abb0">sofa::linearalgebra::SparseMatrixStorageOrder::perm</a></div><div class="ttdeci">type::vector&lt; Index &gt; perm</div><div class="ttdef"><b>Definition:</b> SparseMatrixStorageOrder.h:110</div></div>
+<div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_html_af240c4ef7f286fd55800080152cffe80"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#af240c4ef7f286fd55800080152cffe80">sofa::linearalgebra::SparseMatrixStorageOrder::outerStarts</a></div><div class="ttdeci">type::vector&lt; Index &gt; outerStarts</div><div class="ttdef"><b>Definition:</b> SparseMatrixStorageOrder.h:108</div></div>
+<div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_html_a1968909b05229c0e95a9ab32df20efdb"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a1968909b05229c0e95a9ab32df20efdb">sofa::linearalgebra::SparseMatrixStorageOrder::innerIndices</a></div><div class="ttdeci">type::vector&lt; Index &gt; innerIndices</div><div class="ttdef"><b>Definition:</b> SparseMatrixStorageOrder.h:109</div></div>
+<div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_html_a607628213649b488001610bf359c8f94"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a607628213649b488001610bf359c8f94">sofa::linearalgebra::SparseMatrixStorageOrder::getOuterStarts</a></div><div class="ttdeci">const type::vector&lt; Index &gt; &amp; getOuterStarts() const</div><div class="ttdef"><b>Definition:</b> SparseMatrixStorageOrder.h:98</div></div>
+<div class="ttc" id="aclasssofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_html_a728a3ed995ddeba1b63782deef3c1e89"><div class="ttname"><a href="classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order.html#a728a3ed995ddeba1b63782deef3c1e89">sofa::linearalgebra::SparseMatrixStorageOrder::matrix</a></div><div class="ttdeci">const TMatrix * matrix</div><div class="ttdoc">The matrix to transpose.</div><div class="ttdef"><b>Definition:</b> SparseMatrixStorageOrder.h:106</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_9fb0ceffa9d96cd22e8a42402ee0a204.html">LinearAlgebra</a></li><li class="navelem"><a class="el" href="dir_7a539ff504eba330c8de6b72177c0701.html">src</a></li><li class="navelem"><a class="el" href="dir_7b2a7612d8b68ea3c5f3562ab3e86337.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b525aa2a9c678505be07c2ed6f28d295.html">linearalgebra</a></li><li class="navelem"><b>SparseMatrixStorageOrder.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:41:48 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_9fb0ceffa9d96cd22e8a42402ee0a204.html">LinearAlgebra</a></li><li class="navelem"><a class="el" href="dir_7a539ff504eba330c8de6b72177c0701.html">src</a></li><li class="navelem"><a class="el" href="dir_7b2a7612d8b68ea3c5f3562ab3e86337.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b525aa2a9c678505be07c2ed6f28d295.html">linearalgebra</a></li><li class="navelem"><a class="el" href="_sparse_matrix_storage_order_8h.html">SparseMatrixStorageOrder.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:15:32 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

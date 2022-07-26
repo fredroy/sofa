@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('hash_8h_source.html',''); initResizabl
 <div class="title">hash.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="hash_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -113,9 +113,9 @@ $(document).ready(function(){initNavTree('hash_8h_source.html',''); initResizabl
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> hash_combine(std::size_t&amp; seed, <span class="keyword">const</span> T&amp; v)</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="hash_8h.html#a04cc1b733a2f4d205f13f7a59facba64">   29</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="hash_8h.html#a04cc1b733a2f4d205f13f7a59facba64">hash_combine</a>(std::size_t&amp; <a class="code" href="_affine_movement_constraint__test_8cpp.html#affb5f34f39f7103b999d198b18ffed8e">seed</a>, <span class="keyword">const</span> T&amp; v)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  seed ^= std::hash&lt;T&gt;()(v) + 0x9e3779b9 + (seed &lt;&lt; 6) + (seed &gt;&gt; 2);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <a class="code" href="_affine_movement_constraint__test_8cpp.html#affb5f34f39f7103b999d198b18ffed8e">seed</a> ^= std::hash&lt;T&gt;()(v) + 0x9e3779b9 + (<a class="code" href="_affine_movement_constraint__test_8cpp.html#affb5f34f39f7103b999d198b18ffed8e">seed</a> &lt;&lt; 6) + (<a class="code" href="_affine_movement_constraint__test_8cpp.html#affb5f34f39f7103b999d198b18ffed8e">seed</a> &gt;&gt; 2);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
@@ -123,12 +123,12 @@ $(document).ready(function(){initNavTree('hash_8h_source.html',''); initResizabl
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
 <div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structstd_1_1hash_3_01pair_3_01_s_00_01_t_01_4_01_4.html">   38</a></span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> S, <span class="keyword">typename</span> T&gt; <span class="keyword">struct </span>hash&lt;pair&lt;S, T&gt; &gt;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">size_t</span> operator()(<span class="keyword">const</span> pair&lt;S, T&gt; &amp; v)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structstd_1_1hash_3_01pair_3_01_s_00_01_t_01_4_01_4.html#a5097676ff199ec83c3df42e3f188c0fa">   40</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code" href="structstd_1_1hash_3_01pair_3_01_s_00_01_t_01_4_01_4.html#a5097676ff199ec83c3df42e3f188c0fa">operator()</a>(<span class="keyword">const</span> pair&lt;S, T&gt; &amp; v)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keywordtype">size_t</span> seed = 0;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      ::hash_combine(seed, v.first);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      ::hash_combine(seed, v.second);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="keywordflow">return</span> seed;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keywordtype">size_t</span> <a class="code" href="_affine_movement_constraint__test_8cpp.html#affb5f34f39f7103b999d198b18ffed8e">seed</a> = 0;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <a class="code" href="hash_8h.html#a04cc1b733a2f4d205f13f7a59facba64">::hash_combine</a>(<a class="code" href="_affine_movement_constraint__test_8cpp.html#affb5f34f39f7103b999d198b18ffed8e">seed</a>, v.first);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <a class="code" href="hash_8h.html#a04cc1b733a2f4d205f13f7a59facba64">::hash_combine</a>(<a class="code" href="_affine_movement_constraint__test_8cpp.html#affb5f34f39f7103b999d198b18ffed8e">seed</a>, v.second);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="_affine_movement_constraint__test_8cpp.html#affb5f34f39f7103b999d198b18ffed8e">seed</a>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  };</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
@@ -138,12 +138,15 @@ $(document).ready(function(){initNavTree('hash_8h_source.html',''); initResizabl
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ahash_8h_html_a04cc1b733a2f4d205f13f7a59facba64"><div class="ttname"><a href="hash_8h.html#a04cc1b733a2f4d205f13f7a59facba64">hash_combine</a></div><div class="ttdeci">void hash_combine(std::size_t &amp;seed, const T &amp;v)</div><div class="ttdoc">to combine hashes (based on boost implementation)</div><div class="ttdef"><b>Definition:</b> hash.h:29</div></div>
+<div class="ttc" id="astructstd_1_1hash_3_01pair_3_01_s_00_01_t_01_4_01_4_html_a5097676ff199ec83c3df42e3f188c0fa"><div class="ttname"><a href="structstd_1_1hash_3_01pair_3_01_s_00_01_t_01_4_01_4.html#a5097676ff199ec83c3df42e3f188c0fa">std::hash&lt; pair&lt; S, T &gt; &gt;::operator()</a></div><div class="ttdeci">size_t operator()(const pair&lt; S, T &gt; &amp;v) const</div><div class="ttdef"><b>Definition:</b> hash.h:40</div></div>
+<div class="ttc" id="a_affine_movement_constraint__test_8cpp_html_affb5f34f39f7103b999d198b18ffed8e"><div class="ttname"><a href="_affine_movement_constraint__test_8cpp.html#affb5f34f39f7103b999d198b18ffed8e">seed</a></div><div class="ttdeci">long seed</div><div class="ttdoc">Seed for random value.</div><div class="ttdef"><b>Definition:</b> AffineMovementConstraint_test.cpp:68</div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">generic hash for pairs</div><div class="ttdef"><b>Definition:</b> TopologyChange.cpp:26</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><b>hash.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:39:15 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><a class="el" href="hash_8h.html">hash.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:10:38 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

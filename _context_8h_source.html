@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_context_8h_source.html',''); initResi
 <div class="title">Context.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_context_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -110,8 +110,8 @@ $(document).ready(function(){initNavTree('_context_8h_source.html',''); initResi
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#ifndef SOFA_CORE_OBJECTMODEL_CONTEXT_H</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define SOFA_CORE_OBJECTMODEL_CONTEXT_H</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/core/objectmodel/BaseContext.h&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sofa/core/objectmodel/BaseObject.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_base_context_8h.html">sofa/core/objectmodel/BaseContext.h</a>&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_base_object_8h.html">sofa/core/objectmodel/BaseObject.h</a>&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa.html">sofa</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
@@ -125,17 +125,17 @@ $(document).ready(function(){initNavTree('_context_8h_source.html',''); initResi
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">class </span>SOFA_CORE_API Context : <span class="keyword">public</span> BaseContext</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    SOFA_CLASS(Context, BaseContext);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="_base_class_8h.html#a2280c1505d10a34f61f0cad38c9beeee">SOFA_CLASS</a>(Context, BaseContext);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    Data&lt;bool&gt; is_activated; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="namespacesofa_1_1core_1_1objectmodel.html#ad59cb6b9a64f4136a1d2150e97495c9a">Data&lt;bool&gt;</a> is_activated; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    Data&lt;Vec3&gt; worldGravity_;  </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    Data&lt;SReal&gt; dt_; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    Data&lt;SReal&gt; time_; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    Data&lt;bool&gt; animate_; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        Data&lt;bool&gt; d_isSleeping;                                </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        Data&lt;bool&gt; d_canChangeSleepingState;    </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="namespacesofa_1_1core_1_1objectmodel.html#ad59cb6b9a64f4136a1d2150e97495c9a">Data&lt;bool&gt;</a> animate_; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="namespacesofa_1_1core_1_1objectmodel.html#ad59cb6b9a64f4136a1d2150e97495c9a">Data&lt;bool&gt;</a> d_isSleeping;                                </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="namespacesofa_1_1core_1_1objectmodel.html#ad59cb6b9a64f4136a1d2150e97495c9a">Data&lt;bool&gt;</a> d_canChangeSleepingState;    </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
@@ -153,17 +153,17 @@ $(document).ready(function(){initNavTree('_context_8h_source.html',''); initResi
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">bool</span> canChangeSleepingState() <span class="keyword">const override</span>;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">const</span> Vec3&amp; getGravity() <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> setGravity( <span class="keyword">const</span> Vec3&amp; ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">const</span> <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>&amp; getGravity() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> setGravity( <span class="keyword">const</span> <a class="code" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>&amp; ) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    SReal getDt() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    SReal <a class="code" href="namespacesofa_1_1core_1_1objectmodel_1_1basecontext.html#a45ebc1979fe44051ad57b341f83aba9f">getDt</a>() <span class="keyword">const override</span>;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    SReal getTime() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    SReal <a class="code" href="namespacesofa_1_1core_1_1objectmodel_1_1basecontext.html#abb651f9550ddcb8e80931c7fb5f551c1">getTime</a>() <span class="keyword">const override</span>;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">bool</span> getAnimate() <span class="keyword">const override</span>;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> setDt( SReal dt ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> setDt( SReal <a class="code" href="namespacesofa_1_1core_1_1mechanicalparams.html#abfb57985eae6b35d6f1445bb5eb0b93a">dt</a> ) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setTime( SReal t );</div>
 <div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1objectmodel_1_1_context.html">  101</a></span>&#160; </div>
@@ -191,13 +191,21 @@ $(document).ready(function(){initNavTree('_context_8h_source.html',''); initResi
 <div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1objectmodel_1_1_context.html#adb29c063b2f5be5f34d953c9c73eea4d">  130</a></span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="a_base_object_8h_html"><div class="ttname"><a href="_base_object_8h.html">BaseObject.h</a></div></div>
+<div class="ttc" id="anamespacesofa_1_1type_html_a84aea2c81a0c09781db1480502dad042"><div class="ttname"><a href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a></div><div class="ttdeci">Vec&lt; 3, SReal &gt; Vec3</div><div class="ttdef"><b>Definition:</b> fwd.h:70</div></div>
+<div class="ttc" id="anamespacesofa_1_1core_1_1mechanicalparams_html_abfb57985eae6b35d6f1445bb5eb0b93a"><div class="ttname"><a href="namespacesofa_1_1core_1_1mechanicalparams.html#abfb57985eae6b35d6f1445bb5eb0b93a">sofa::core::mechanicalparams::dt</a></div><div class="ttdeci">SReal dt(const sofa::core::MechanicalParams *mparams)</div><div class="ttdef"><b>Definition:</b> fwd.cpp:100</div></div>
 <div class="ttc" id="anamespacesofa_html"><div class="ttname"><a href="namespacesofa.html">sofa</a></div><div class="ttdoc">This allow MeshTrian to interact with the messaging system.</div><div class="ttdef"><b>Definition:</b> ConstraintAnimationLoop.cpp:81</div></div>
+<div class="ttc" id="anamespacesofa_1_1core_1_1objectmodel_1_1basecontext_html_a45ebc1979fe44051ad57b341f83aba9f"><div class="ttname"><a href="namespacesofa_1_1core_1_1objectmodel_1_1basecontext.html#a45ebc1979fe44051ad57b341f83aba9f">sofa::core::objectmodel::basecontext::getDt</a></div><div class="ttdeci">SReal getDt(sofa::core::objectmodel::BaseContext *context)</div><div class="ttdef"><b>Definition:</b> fwd.cpp:198</div></div>
+<div class="ttc" id="anamespacesofa_1_1core_1_1objectmodel_html_ad59cb6b9a64f4136a1d2150e97495c9a"><div class="ttname"><a href="namespacesofa_1_1core_1_1objectmodel.html#ad59cb6b9a64f4136a1d2150e97495c9a">sofa::core::objectmodel::Data&lt; bool &gt;</a></div><div class="ttdeci">template class SOFA_CORE_API Data&lt; bool &gt;</div><div class="ttdef"><b>Definition:</b> Data.cpp:64</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_context_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_context.html">sofa::core::objectmodel::Context</a></div><div class="ttdoc">Implementation of BaseContext, storing all shared parameters in Datas.</div><div class="ttdef"><b>Definition:</b> Context.h:101</div></div>
+<div class="ttc" id="a_base_context_8h_html"><div class="ttname"><a href="_base_context_8h.html">BaseContext.h</a></div></div>
+<div class="ttc" id="a_base_class_8h_html_a2280c1505d10a34f61f0cad38c9beeee"><div class="ttname"><a href="_base_class_8h.html#a2280c1505d10a34f61f0cad38c9beeee">SOFA_CLASS</a></div><div class="ttdeci">#define SOFA_CLASS(T, Parent)</div><div class="ttdef"><b>Definition:</b> BaseClass.h:207</div></div>
+<div class="ttc" id="anamespacesofa_1_1core_1_1objectmodel_1_1basecontext_html_abb651f9550ddcb8e80931c7fb5f551c1"><div class="ttname"><a href="namespacesofa_1_1core_1_1objectmodel_1_1basecontext.html#abb651f9550ddcb8e80931c7fb5f551c1">sofa::core::objectmodel::basecontext::getTime</a></div><div class="ttdeci">SReal getTime(sofa::core::objectmodel::BaseContext *context)</div><div class="ttdef"><b>Definition:</b> fwd.cpp:203</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_60e01685828ffd7c41f36858d8896f33.html">Core</a></li><li class="navelem"><a class="el" href="dir_1796a5980b33da4b9881c7f7295ea624.html">src</a></li><li class="navelem"><a class="el" href="dir_29474acf678dce4aed010bf0162b5a34.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b2ea3abd78d86d2c623df4c62fb6cf9b.html">core</a></li><li class="navelem"><a class="el" href="dir_be8a094f757796cdff492178e6cf3688.html">objectmodel</a></li><li class="navelem"><b>Context.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:37:03 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_60e01685828ffd7c41f36858d8896f33.html">Core</a></li><li class="navelem"><a class="el" href="dir_1796a5980b33da4b9881c7f7295ea624.html">src</a></li><li class="navelem"><a class="el" href="dir_29474acf678dce4aed010bf0162b5a34.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b2ea3abd78d86d2c623df4c62fb6cf9b.html">core</a></li><li class="navelem"><a class="el" href="dir_be8a094f757796cdff492178e6cf3688.html">objectmodel</a></li><li class="navelem"><a class="el" href="_context_8h.html">Context.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:05:10 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

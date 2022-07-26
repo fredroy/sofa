@@ -1,0 +1,4 @@
+var _compat_2src_2_sofa_base_mechanics_2_barycentric_mappers_2_barycentric_mapper_sparse_grid_topology_8h =
+[
+    [ "BarycentricMapperSparseGridTopology", "_compat_2src_2_sofa_base_mechanics_2_barycentric_mappers_2_barycentric_mapper_sparse_grid_topology_8h.html#acb3b500c81317e3f5d9bbba2ad96bef2", null ]
+];

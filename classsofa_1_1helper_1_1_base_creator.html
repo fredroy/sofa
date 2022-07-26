@@ -89,6 +89,8 @@ $(document).ready(function(){initNavTree('classsofa_1_1helper_1_1_base_creator.h
 <div class="title">BaseCreator&lt; Object, Argument, ObjectPtr &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_factory_8h_source.html">Factory.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for BaseCreator&lt; Object, Argument, ObjectPtr &gt;:</div>
 <div class="dyncontent">
@@ -102,20 +104,100 @@ Inheritance diagram for BaseCreator&lt; Object, Argument, ObjectPtr &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a465568a3d96af9645f1e8e710ef2e50c"><td class="memItemLeft" align="right" valign="top"><a id="a465568a3d96af9645f1e8e710ef2e50c"></a>
-virtual ObjectPtr&#160;</td><td class="memItemRight" valign="bottom"><b>createInstance</b> (Argument arg)=0</td></tr>
+<tr class="memitem:a4a408c6318c48e10dfc375fb3ebccd00"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_base_creator.html#a4a408c6318c48e10dfc375fb3ebccd00">~BaseCreator</a> ()</td></tr>
+<tr class="separator:a4a408c6318c48e10dfc375fb3ebccd00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a465568a3d96af9645f1e8e710ef2e50c"><td class="memItemLeft" align="right" valign="top">virtual ObjectPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_base_creator.html#a465568a3d96af9645f1e8e710ef2e50c">createInstance</a> (Argument arg)=0</td></tr>
 <tr class="separator:a465568a3d96af9645f1e8e710ef2e50c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1aef2e45db65da4f70381cac6bad584b"><td class="memItemLeft" align="right" valign="top"><a id="a1aef2e45db65da4f70381cac6bad584b"></a>
-virtual const std::type_info &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>type</b> ()=0</td></tr>
+<tr class="memitem:a1aef2e45db65da4f70381cac6bad584b"><td class="memItemLeft" align="right" valign="top">virtual const std::type_info &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_base_creator.html#a1aef2e45db65da4f70381cac6bad584b">type</a> ()=0</td></tr>
 <tr class="separator:a1aef2e45db65da4f70381cac6bad584b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4a408c6318c48e10dfc375fb3ebccd00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a408c6318c48e10dfc375fb3ebccd00">&#9670;&nbsp;</a></span>~BaseCreator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ~<a class="el" href="classsofa_1_1helper_1_1_base_creator.html">BaseCreator</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a465568a3d96af9645f1e8e710ef2e50c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a465568a3d96af9645f1e8e710ef2e50c">&#9670;&nbsp;</a></span>createInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ObjectPtr createInstance </td>
+          <td>(</td>
+          <td class="paramtype">Argument&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1aef2e45db65da4f70381cac6bad584b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aef2e45db65da4f70381cac6bad584b">&#9670;&nbsp;</a></span>type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const std::type_info&amp; type </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1helper_1_1_creator_fn.html#a981b506a60026a8153c6b4f62d9a1800">CreatorFn&lt; Factory, RealObject &gt;</a>, and <a class="el" href="classsofa_1_1helper_1_1_creator.html#a981b506a60026a8153c6b4f62d9a1800">Creator&lt; Factory, RealObject &gt;</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1_base_creator.html">BaseCreator</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:54 for SOFA by
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:40 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

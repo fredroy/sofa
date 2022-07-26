@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_
 <div class="title">constraint.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/****************************************************************************</span></div>
+<a href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_constraint_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/****************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> Copyright (C) 2002-2014 Gilles Debunne. All rights reserved.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"></span> </div>
@@ -111,14 +111,14 @@ $(document).ready(function(){initNavTree('_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifndef QGLVIEWER_CONSTRAINT_H</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define QGLVIEWER_CONSTRAINT_H</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;quaternion.h&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;vec.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="quaternion_8h.html">quaternion.h</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2vec_8h.html">vec.h</a>&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>qglviewer {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceqglviewer.html">qglviewer</a> {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">class </span>Frame;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span>Camera;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span><a class="code" href="namespacesofa_1_1component_1_1visualmodel.html#a5ffe5ffc1c406d27452e852af0fd5400">Camera</a>;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">class </span>QGLVIEWER_EXPORT Constraint {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">class </span><a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2config_8h.html#a26c8f95aa8f060675f2500a3aac614e3">QGLVIEWER_EXPORT</a> Constraint {</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keyword">virtual</span> ~Constraint() {}</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
@@ -132,23 +132,23 @@ $(document).ready(function(){initNavTree('_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  }</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;};</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="keyword">class </span>QGLVIEWER_EXPORT AxisPlaneConstraint : <span class="keyword">public</span> Constraint {</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="keyword">class </span><a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2config_8h.html#a26c8f95aa8f060675f2500a3aac614e3">QGLVIEWER_EXPORT</a> AxisPlaneConstraint : <span class="keyword">public</span> Constraint {</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  AxisPlaneConstraint();</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="keyword">virtual</span> ~AxisPlaneConstraint() {}</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  <span class="keyword">enum</span> Type { FREE, AXIS, PLANE, FORBIDDEN };</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  <span class="keyword">enum</span> Type { <a class="code" href="gpc_8cpp.html#a02048bf846e8bc87e3ce188e4957ef06">FREE</a>, AXIS, PLANE, FORBIDDEN };</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> constrainTranslation(Vec &amp;translation, Frame *<span class="keyword">const</span> frame) {</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    Q_UNUSED(translation);</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    Q_UNUSED(frame);</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  };</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  <span class="keywordtype">void</span> setTranslationConstraint(Type type, <span class="keyword">const</span> Vec &amp;direction);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  <span class="keywordtype">void</span> setTranslationConstraint(Type type, <span class="keyword">const</span> Vec &amp;<a class="code" href="_project_direction_constraint__test_8cpp.html#a3f2cebfb0ab8ca33ed6f0f3598df6112">direction</a>);</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <span class="keywordtype">void</span> setTranslationConstraintType(Type type) {</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    translationConstraintType_ = type;</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  };</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="keywordtype">void</span> setTranslationConstraintDirection(<span class="keyword">const</span> Vec &amp;direction);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="keywordtype">void</span> setTranslationConstraintDirection(<span class="keyword">const</span> Vec &amp;<a class="code" href="_project_direction_constraint__test_8cpp.html#a3f2cebfb0ab8ca33ed6f0f3598df6112">direction</a>);</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  Type translationConstraintType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> translationConstraintType_; };</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  Vec translationConstraintDirection()<span class="keyword"> const </span>{</div>
@@ -160,9 +160,9 @@ $(document).ready(function(){initNavTree('_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    Q_UNUSED(frame);</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  };</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  <span class="keywordtype">void</span> setRotationConstraint(Type type, <span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> &amp;direction);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  <span class="keywordtype">void</span> setRotationConstraint(Type type, <span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> &amp;<a class="code" href="_project_direction_constraint__test_8cpp.html#a3f2cebfb0ab8ca33ed6f0f3598df6112">direction</a>);</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  <span class="keywordtype">void</span> setRotationConstraintType(Type type);</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  <span class="keywordtype">void</span> setRotationConstraintDirection(<span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> &amp;direction);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  <span class="keywordtype">void</span> setRotationConstraintDirection(<span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> &amp;<a class="code" href="_project_direction_constraint__test_8cpp.html#a3f2cebfb0ab8ca33ed6f0f3598df6112">direction</a>);</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  Type rotationConstraintType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rotationConstraintType_; };</div>
 <div class="line"><a name="l00292"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_axis_plane_constraint.html#a5de5f38e75b58476b7926171dba4b31b">  292</a></span>&#160;  <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> rotationConstraintDirection()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rotationConstraintDir_; };</div>
@@ -176,15 +176,15 @@ $(document).ready(function(){initNavTree('_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> rotationConstraintDir_;</div>
 <div class="line"><a name="l00302"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_axis_plane_constraint.html#abc844f815c1533289f0ff81663b65786">  302</a></span>&#160;};</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
-<div class="line"><a name="l00312"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_axis_plane_constraint.html#a3c5acbdc3be38c69b26e6cb718b81d0e">  312</a></span>&#160;<span class="keyword">class </span>QGLVIEWER_EXPORT <a class="code" href="classqglviewer_1_1_local_constraint.html">LocalConstraint</a> : <span class="keyword">public</span> <a class="code" href="classqglviewer_1_1_axis_plane_constraint.html">AxisPlaneConstraint</a> {</div>
+<div class="line"><a name="l00312"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_axis_plane_constraint.html#a6099d25fba133377b7a57d4f0b37b563">  312</a></span>&#160;<span class="keyword">class </span><a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2config_8h.html#a26c8f95aa8f060675f2500a3aac614e3">QGLVIEWER_EXPORT</a> <a class="code" href="classqglviewer_1_1_local_constraint.html">LocalConstraint</a> : <span class="keyword">public</span> <a class="code" href="classqglviewer_1_1_axis_plane_constraint.html">AxisPlaneConstraint</a> {</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classqglviewer_1_1_local_constraint.html">LocalConstraint</a>(){};</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> constrainTranslation(<a class="code" href="classqglviewer_1_1_vec.html">Vec</a> &amp;translation, <a class="code" href="classqglviewer_1_1_frame.html">Frame</a> *<span class="keyword">const</span> frame);</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> constrainRotation(<a class="code" href="classqglviewer_1_1_quaternion.html">Quaternion</a> &amp;rotation, <a class="code" href="classqglviewer_1_1_frame.html">Frame</a> *<span class="keyword">const</span> frame);</div>
+<div class="line"><a name="l00318"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_axis_plane_constraint.html#ac6ea6c42dcac064e197dc9dfe88b445a">  318</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> constrainRotation(<a class="code" href="classqglviewer_1_1_quaternion.html">Quaternion</a> &amp;rotation, <a class="code" href="classqglviewer_1_1_frame.html">Frame</a> *<span class="keyword">const</span> frame);</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;};</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="keyword">class </span>QGLVIEWER_EXPORT <a class="code" href="classqglviewer_1_1_world_constraint.html">WorldConstraint</a> : <span class="keyword">public</span> <a class="code" href="classqglviewer_1_1_axis_plane_constraint.html">AxisPlaneConstraint</a> {</div>
+<div class="line"><a name="l00320"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_axis_plane_constraint.html#aabe78d5dd4b188c8ba1f95276a4e00e5">  320</a></span>&#160; </div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="keyword">class </span><a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2config_8h.html#a26c8f95aa8f060675f2500a3aac614e3">QGLVIEWER_EXPORT</a> <a class="code" href="classqglviewer_1_1_world_constraint.html">WorldConstraint</a> : <span class="keyword">public</span> <a class="code" href="classqglviewer_1_1_axis_plane_constraint.html">AxisPlaneConstraint</a> {</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classqglviewer_1_1_world_constraint.html">WorldConstraint</a>(){};</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
@@ -192,7 +192,7 @@ $(document).ready(function(){initNavTree('_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> constrainRotation(<a class="code" href="classqglviewer_1_1_quaternion.html">Quaternion</a> &amp;rotation, <a class="code" href="classqglviewer_1_1_frame.html">Frame</a> *<span class="keyword">const</span> frame);</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;};</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="keyword">class </span>QGLVIEWER_EXPORT <a class="code" href="classqglviewer_1_1_camera_constraint.html">CameraConstraint</a> : <span class="keyword">public</span> <a class="code" href="classqglviewer_1_1_axis_plane_constraint.html">AxisPlaneConstraint</a> {</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="keyword">class </span><a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2config_8h.html#a26c8f95aa8f060675f2500a3aac614e3">QGLVIEWER_EXPORT</a> <a class="code" href="classqglviewer_1_1_camera_constraint.html">CameraConstraint</a> : <span class="keyword">public</span> <a class="code" href="classqglviewer_1_1_axis_plane_constraint.html">AxisPlaneConstraint</a> {</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00350"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_world_constraint.html">  350</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classqglviewer_1_1_camera_constraint.html">CameraConstraint</a>(<span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_camera.html">Camera</a> *<span class="keyword">const</span> camera);</div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classqglviewer_1_1_camera_constraint.html">CameraConstraint</a>(){};</div>
@@ -214,16 +214,23 @@ $(document).ready(function(){initNavTree('_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_
 <div class="ttc" id="aclassqglviewer_1_1_world_constraint_html"><div class="ttname"><a href="classqglviewer_1_1_world_constraint.html">qglviewer::WorldConstraint</a></div><div class="ttdoc">An AxisPlaneConstraint defined in the world coordinate system.</div><div class="ttdef"><b>Definition:</b> constraint.h:350</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_camera_html"><div class="ttname"><a href="classqglviewer_1_1_camera.html">qglviewer::Camera</a></div><div class="ttdoc">A perspective or orthographic camera.</div><div class="ttdef"><b>Definition:</b> camera.h:93</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_camera_constraint_html"><div class="ttname"><a href="classqglviewer_1_1_camera_constraint.html">qglviewer::CameraConstraint</a></div><div class="ttdoc">An AxisPlaneConstraint defined in the camera coordinate system.</div><div class="ttdef"><b>Definition:</b> constraint.h:368</div></div>
+<div class="ttc" id="aquaternion_8h_html"><div class="ttname"><a href="quaternion_8h.html">quaternion.h</a></div></div>
+<div class="ttc" id="a_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2config_8h_html_a26c8f95aa8f060675f2500a3aac614e3"><div class="ttname"><a href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2config_8h.html#a26c8f95aa8f060675f2500a3aac614e3">QGLVIEWER_EXPORT</a></div><div class="ttdeci">#define QGLVIEWER_EXPORT</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_quaternion_html"><div class="ttname"><a href="classqglviewer_1_1_quaternion.html">qglviewer::Quaternion</a></div><div class="ttdoc">The Quaternion class represents 3D rotations and orientations.</div><div class="ttdef"><b>Definition:</b> quaternion.h:89</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_local_constraint_html"><div class="ttname"><a href="classqglviewer_1_1_local_constraint.html">qglviewer::LocalConstraint</a></div><div class="ttdoc">An AxisPlaneConstraint defined in the Frame local coordinate system.</div><div class="ttdef"><b>Definition:</b> constraint.h:332</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_frame_html"><div class="ttname"><a href="classqglviewer_1_1_frame.html">qglviewer::Frame</a></div><div class="ttdoc">The Frame class represents a coordinate system, defined by a position and an orientation.</div><div class="ttdef"><b>Definition:</b> frame.h:154</div></div>
+<div class="ttc" id="anamespaceqglviewer_html"><div class="ttname"><a href="namespaceqglviewer.html">qglviewer</a></div><div class="ttdef"><b>Definition:</b> camera.h:30</div></div>
+<div class="ttc" id="a_project_direction_constraint__test_8cpp_html_a3f2cebfb0ab8ca33ed6f0f3598df6112"><div class="ttname"><a href="_project_direction_constraint__test_8cpp.html#a3f2cebfb0ab8ca33ed6f0f3598df6112">direction</a></div><div class="ttdeci">CPos direction</div><div class="ttdoc">direction to project to</div><div class="ttdef"><b>Definition:</b> ProjectDirectionConstraint_test.cpp:67</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_vec_html"><div class="ttname"><a href="classqglviewer_1_1_vec.html">qglviewer::Vec</a></div><div class="ttdoc">The Vec class represents 3D positions and 3D vectors.</div><div class="ttdef"><b>Definition:</b> vec.h:85</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_axis_plane_constraint_html"><div class="ttname"><a href="classqglviewer_1_1_axis_plane_constraint.html">qglviewer::AxisPlaneConstraint</a></div><div class="ttdoc">An abstract class for Frame Constraints defined by an axis or a plane.</div><div class="ttdef"><b>Definition:</b> constraint.h:202</div></div>
+<div class="ttc" id="agpc_8cpp_html_a02048bf846e8bc87e3ce188e4957ef06"><div class="ttname"><a href="gpc_8cpp.html#a02048bf846e8bc87e3ce188e4957ef06">FREE</a></div><div class="ttdeci">#define FREE(p)</div><div class="ttdef"><b>Definition:</b> gpc.cpp:155</div></div>
+<div class="ttc" id="anamespacesofa_1_1component_1_1visualmodel_html_a5ffe5ffc1c406d27452e852af0fd5400"><div class="ttname"><a href="namespacesofa_1_1component_1_1visualmodel.html#a5ffe5ffc1c406d27452e852af0fd5400">sofa::component::visualmodel::Camera</a></div><div class="ttdeci">sofa::component::visual::Camera Camera</div><div class="ttdef"><b>Definition:</b> Camera.h:49</div></div>
+<div class="ttc" id="a_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2vec_8h_html"><div class="ttname"><a href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2vec_8h.html">vec.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_927152f1403da9b2afd274b3e3ae770d.html">GUI</a></li><li class="navelem"><a class="el" href="dir_1eca62023986f93910713a5e9ddcd783.html">Qt</a></li><li class="navelem"><a class="el" href="dir_f7311ca8eb3b00f9887af19adf559895.html">libQGLViewer-2.7.1</a></li><li class="navelem"><a class="el" href="dir_0fb872e7831622d7309fbbdadf113450.html">QGLViewer</a></li><li class="navelem"><b>constraint.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:36:20 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_927152f1403da9b2afd274b3e3ae770d.html">GUI</a></li><li class="navelem"><a class="el" href="dir_1eca62023986f93910713a5e9ddcd783.html">Qt</a></li><li class="navelem"><a class="el" href="dir_f7311ca8eb3b00f9887af19adf559895.html">libQGLViewer-2.7.1</a></li><li class="navelem"><a class="el" href="dir_0fb872e7831622d7309fbbdadf113450.html">QGLViewer</a></li><li class="navelem"><a class="el" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_constraint_8h.html">constraint.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:02:54 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

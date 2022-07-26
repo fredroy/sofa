@@ -1,6 +1,7 @@
 var classsofa_1_1component_1_1playback_1_1_compare_state =
 [
     [ "CompareState", "classsofa_1_1component_1_1playback_1_1_compare_state.html#aa0feaa60e5c92c357937c7f3d0e1630a", null ],
+    [ "canCreate", "classsofa_1_1component_1_1playback_1_1_compare_state.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "draw", "classsofa_1_1component_1_1playback_1_1_compare_state.html#a8673433953792026ae9baf91b348d7da", null ],
     [ "getErrorByDof", "classsofa_1_1component_1_1playback_1_1_compare_state.html#aeab90b277e9043bfec4d90a4c1c81980", null ],
     [ "getTotalError", "classsofa_1_1component_1_1playback_1_1_compare_state.html#a380165e065df5e3cd1a9108588a9a074", null ],

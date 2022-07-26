@@ -28,6 +28,9 @@ var classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_sliding_cons
     [ "d_m2a", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_sliding_constraint.html#a15a1fc05ad537cfae930787e549e5f8b", null ],
     [ "d_m2b", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_sliding_constraint.html#a340c3b8015c4655c354cd1ef868acbcd", null ],
     [ "m_cid", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_sliding_constraint.html#a336975ba42d8ba4c3749a920a8f8e086", null ],
+    [ "m_dirAxe", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_sliding_constraint.html#ab9d625892dd5c3d2c9208b137bbefeef", null ],
+    [ "m_dirOrtho", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_sliding_constraint.html#af59353ae61dcf1362a1bb6c0636ed146", null ],
+    [ "m_dirProj", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_sliding_constraint.html#a68f8093ee0a03ab24d3fed864f2f1d7c", null ],
     [ "m_dist", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_sliding_constraint.html#a254ac14c428e50c1c8f8f6f1c9597c2d", null ],
     [ "m_thirdConstraint", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1model_1_1_sliding_constraint.html#aa5cf13e7b8cd5c1b7aa7926ce6a2d71f", null ]
 ];

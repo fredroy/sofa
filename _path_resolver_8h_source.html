@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_path_resolver_8h_source.html',''); in
 <div class="title">PathResolver.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_path_resolver_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -111,9 +111,9 @@ $(document).ready(function(){initNavTree('_path_resolver_8h_source.html',''); in
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/core/config.h&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sofa/core/fwd.h&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="framework_2_core_2src_2sofa_2core_2fwd_8h.html">sofa/core/fwd.h</a>&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>sofa::core</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1core.html">sofa::core</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span>{</div>
@@ -122,7 +122,7 @@ $(document).ready(function(){initNavTree('_path_resolver_8h_source.html',''); in
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">using</span> objectmodel::BaseLink;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">using</span> objectmodel::BaseClass;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">using</span> objectmodel::AbstractDataLink;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">using</span> sofa::core::castTo;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacesofa_1_1core.html#aab4bf881b23846524c70d5396a0742fc">sofa::core::castTo</a>;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">class </span>SOFA_CORE_API PathResolver</div>
@@ -158,28 +158,32 @@ $(document).ready(function(){initNavTree('_path_resolver_8h_source.html',''); in
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> CheckPath(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">Base</a>* context, <span class="keyword">const</span> std::string&amp; path)</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span> (path.empty())</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1_path_resolver.html#a41432eded19316c0ba2f7cb88effc2bc">   81</a></span>&#160;        <span class="keywordflow">if</span> (path.empty())</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">return</span> CheckPath(context, sofa::core::objectmodel::base::GetClass&lt;T&gt;(), path);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> CheckPath(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a>* context, <span class="keyword">const</span> std::string&amp; path);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> CheckPaths(Base *context, <span class="keyword">const</span> BaseClass* linktype, <span class="keyword">const</span> std::string&amp; pathes);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> CheckPaths(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">Base</a> *context, <span class="keyword">const</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a>* linktype, <span class="keyword">const</span> std::string&amp; pathes);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> CheckPath(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a>* context, <span class="keyword">const</span> BaseClass* classType, <span class="keyword">const</span> std::string&amp; path);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> CheckPath(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a>* context, <span class="keyword">const</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">BaseClass</a>* classType, <span class="keyword">const</span> std::string&amp; path);</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_class_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_class.html">sofa::core::objectmodel::BaseClass</a></div><div class="ttdoc">Class hierarchy reflection base class.</div><div class="ttdef"><b>Definition:</b> BaseClass.h:110</div></div>
+<div class="ttc" id="anamespacesofa_1_1core_html_aab4bf881b23846524c70d5396a0742fc"><div class="ttname"><a href="namespacesofa_1_1core.html#aab4bf881b23846524c70d5396a0742fc">sofa::core::castTo</a></div><div class="ttdeci">Dest castTo(sofa::core::objectmodel::Base *base)</div><div class="ttdoc">Dynamic cast from Base* into the type parameter Dest.</div><div class="ttdef"><b>Definition:</b> fwd.h:196</div></div>
+<div class="ttc" id="aframework_2_core_2src_2sofa_2core_2fwd_8h_html"><div class="ttname"><a href="framework_2_core_2src_2sofa_2core_2fwd_8h.html">fwd.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a></div><div class="ttdoc">Base class for everything.</div><div class="ttdef"><b>Definition:</b> Base.h:115</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_link_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">sofa::core::objectmodel::BaseLink</a></div><div class="ttdoc">Abstract base class for all links in the scene grapn, independently of their type.</div><div class="ttdef"><b>Definition:</b> BaseLink.h:107</div></div>
+<div class="ttc" id="anamespacesofa_1_1core_html"><div class="ttname"><a href="namespacesofa_1_1core.html">sofa::core</a></div><div class="ttdef"><b>Definition:</b> FreeMotionAnimationLoop.h:28</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_60e01685828ffd7c41f36858d8896f33.html">Core</a></li><li class="navelem"><a class="el" href="dir_1796a5980b33da4b9881c7f7295ea624.html">src</a></li><li class="navelem"><a class="el" href="dir_29474acf678dce4aed010bf0162b5a34.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b2ea3abd78d86d2c623df4c62fb6cf9b.html">core</a></li><li class="navelem"><b>PathResolver.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:38:16 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_60e01685828ffd7c41f36858d8896f33.html">Core</a></li><li class="navelem"><a class="el" href="dir_1796a5980b33da4b9881c7f7295ea624.html">src</a></li><li class="navelem"><a class="el" href="dir_29474acf678dce4aed010bf0162b5a34.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b2ea3abd78d86d2c623df4c62fb6cf9b.html">core</a></li><li class="navelem"><a class="el" href="_path_resolver_8h.html">PathResolver.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:08:48 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

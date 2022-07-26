@@ -99,60 +99,49 @@ $(document).ready(function(){initNavTree('classsofa_1_1component_1_1topology_1_1
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ab0367a13ee21106fe79a88ab95cdb1d3"><td class="memItemLeft" align="right" valign="top"><a id="ab0367a13ee21106fe79a88ab95cdb1d3"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>QuadratureMethod</b> { <br />
-&#160;&#160;<b>GAUSS_LEGENDRE_METHOD</b> =0, 
-<b>GAUSS_LOBATO_METHOD</b> =1, 
-<b>NEWTON_COTES_METHOD</b> =2, 
-<b>GAUSS_SIMPLEX_METHOD</b> =3, 
+<tr class="memitem:ab0367a13ee21106fe79a88ab95cdb1d3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3">QuadratureMethod</a> { <br />
+&#160;&#160;<a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3a1a804ceb13bb425f0847572838245673">GAUSS_LEGENDRE_METHOD</a> =0, 
+<a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3a11ae751e3ffd79538581a3c66bafaaa4">GAUSS_LOBATO_METHOD</a> =1, 
+<a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3acc8ca587b671369aeade1bf871a45815">NEWTON_COTES_METHOD</a> =2, 
+<a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3aece08a55ff182b09b94dcce20977b43b">GAUSS_SIMPLEX_METHOD</a> =3, 
 <br />
-&#160;&#160;<b>GAUSS_QUAD_METHOD</b> =4, 
-<b>GAUSS_CUBE_METHOD</b> =5
+&#160;&#160;<a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3afddfc70e1be9f06bb20796bf877e2cc8">GAUSS_QUAD_METHOD</a> =4, 
+<a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3a4d41c91e84633cd0da15dc5d562e6b6b">GAUSS_CUBE_METHOD</a> =5
 <br />
  }</td></tr>
 <tr class="separator:ab0367a13ee21106fe79a88ab95cdb1d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae96908e32776af575a4efdb0fc109520"><td class="memItemLeft" align="right" valign="top"><a id="ae96908e32776af575a4efdb0fc109520"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec</a>&lt; N, Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>BarycentricCoordinatesType</b></td></tr>
+<tr class="memitem:ae96908e32776af575a4efdb0fc109520"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec</a>&lt; N, Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ae96908e32776af575a4efdb0fc109520">BarycentricCoordinatesType</a></td></tr>
 <tr class="separator:ae96908e32776af575a4efdb0fc109520"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01628add6ea1e9e3e076136d6649a4af"><td class="memItemLeft" align="right" valign="top"><a id="a01628add6ea1e9e3e076136d6649a4af"></a>
-typedef std::pair&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">BarycentricCoordinatesType</a>, Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>QuadraturePoint</b></td></tr>
+<tr class="memitem:a01628add6ea1e9e3e076136d6649a4af"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ae96908e32776af575a4efdb0fc109520">BarycentricCoordinatesType</a>, Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a01628add6ea1e9e3e076136d6649a4af">QuadraturePoint</a></td></tr>
 <tr class="separator:a01628add6ea1e9e3e076136d6649a4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2031a9cfd0fd1238af59fcaf93475c4d"><td class="memItemLeft" align="right" valign="top"><a id="a2031a9cfd0fd1238af59fcaf93475c4d"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; QuadraturePoint &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>QuadraturePointArray</b></td></tr>
+<tr class="memitem:a2031a9cfd0fd1238af59fcaf93475c4d"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a01628add6ea1e9e3e076136d6649a4af">QuadraturePoint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a2031a9cfd0fd1238af59fcaf93475c4d">QuadraturePointArray</a></td></tr>
 <tr class="separator:a2031a9cfd0fd1238af59fcaf93475c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a132a098c8c814b2fce7eef9bbf766f33"><td class="memItemLeft" align="right" valign="top"><a id="a132a098c8c814b2fce7eef9bbf766f33"></a>
-typedef size_t&#160;</td><td class="memItemRight" valign="bottom"><b>IntegrationOrder</b></td></tr>
+<tr class="memitem:a132a098c8c814b2fce7eef9bbf766f33"><td class="memItemLeft" align="right" valign="top">typedef size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a132a098c8c814b2fce7eef9bbf766f33">IntegrationOrder</a></td></tr>
 <tr class="separator:a132a098c8c814b2fce7eef9bbf766f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae133bf074a5032847413b0206271ada5"><td class="memItemLeft" align="right" valign="top"><a id="ae133bf074a5032847413b0206271ada5"></a>
-typedef std::pair&lt; QuadratureMethod, IntegrationOrder &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>QuadratureMethodKey</b></td></tr>
+<tr class="memitem:ae133bf074a5032847413b0206271ada5"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3">QuadratureMethod</a>, <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a132a098c8c814b2fce7eef9bbf766f33">IntegrationOrder</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ae133bf074a5032847413b0206271ada5">QuadratureMethodKey</a></td></tr>
 <tr class="separator:ae133bf074a5032847413b0206271ada5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a22c4fb93ccc225e600965459a4593fc8"><td class="memItemLeft" align="right" valign="top"><a id="a22c4fb93ccc225e600965459a4593fc8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a22c4fb93ccc225e600965459a4593fc8">NumericalIntegrationDescriptor</a> ()</td></tr>
-<tr class="memdesc:a22c4fb93ccc225e600965459a4593fc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">empty constructor <br /></td></tr>
+<tr class="memitem:a22c4fb93ccc225e600965459a4593fc8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a22c4fb93ccc225e600965459a4593fc8">NumericalIntegrationDescriptor</a> ()</td></tr>
+<tr class="memdesc:a22c4fb93ccc225e600965459a4593fc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">empty constructor  <a href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a22c4fb93ccc225e600965459a4593fc8">More...</a><br /></td></tr>
 <tr class="separator:a22c4fb93ccc225e600965459a4593fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdb2edc040843bde62885221623071f1"><td class="memItemLeft" align="right" valign="top"><a id="abdb2edc040843bde62885221623071f1"></a>
-<a class="el" href="classsofa_1_1type_1_1vector.html">QuadraturePointArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#abdb2edc040843bde62885221623071f1">getQuadratureMethod</a> (const QuadratureMethod qt, const IntegrationOrder order) const</td></tr>
-<tr class="memdesc:abdb2edc040843bde62885221623071f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the set of quadrature points associated with a given quadrature method and integration order <br /></td></tr>
+<tr class="memitem:abdb2edc040843bde62885221623071f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a2031a9cfd0fd1238af59fcaf93475c4d">QuadraturePointArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#abdb2edc040843bde62885221623071f1">getQuadratureMethod</a> (const <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3">QuadratureMethod</a> qt, const <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a132a098c8c814b2fce7eef9bbf766f33">IntegrationOrder</a> order) const</td></tr>
+<tr class="memdesc:abdb2edc040843bde62885221623071f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the set of quadrature points associated with a given quadrature method and integration order  <a href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#abdb2edc040843bde62885221623071f1">More...</a><br /></td></tr>
 <tr class="separator:abdb2edc040843bde62885221623071f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad39c2c5b0ec7aa05c469834a00856702"><td class="memItemLeft" align="right" valign="top"><a id="ad39c2c5b0ec7aa05c469834a00856702"></a>
-std::set&lt; QuadratureMethod &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ad39c2c5b0ec7aa05c469834a00856702">getQuadratureMethods</a> () const</td></tr>
-<tr class="memdesc:ad39c2c5b0ec7aa05c469834a00856702"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns all the indices corresponding to all available quadrature methods <br /></td></tr>
+<tr class="memitem:ad39c2c5b0ec7aa05c469834a00856702"><td class="memItemLeft" align="right" valign="top">std::set&lt; <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3">QuadratureMethod</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ad39c2c5b0ec7aa05c469834a00856702">getQuadratureMethods</a> () const</td></tr>
+<tr class="memdesc:ad39c2c5b0ec7aa05c469834a00856702"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns all the indices corresponding to all available quadrature methods  <a href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ad39c2c5b0ec7aa05c469834a00856702">More...</a><br /></td></tr>
 <tr class="separator:ad39c2c5b0ec7aa05c469834a00856702"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad11bfcd28ca379764004422722e44af7"><td class="memItemLeft" align="right" valign="top"><a id="ad11bfcd28ca379764004422722e44af7"></a>
-std::set&lt; IntegrationOrder &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ad11bfcd28ca379764004422722e44af7">getIntegrationOrders</a> (const QuadratureMethod qt) const</td></tr>
-<tr class="memdesc:ad11bfcd28ca379764004422722e44af7"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the quadrature integration orders available for a given method <br /></td></tr>
+<tr class="memitem:ad11bfcd28ca379764004422722e44af7"><td class="memItemLeft" align="right" valign="top">std::set&lt; <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a132a098c8c814b2fce7eef9bbf766f33">IntegrationOrder</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ad11bfcd28ca379764004422722e44af7">getIntegrationOrders</a> (const <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3">QuadratureMethod</a> qt) const</td></tr>
+<tr class="memdesc:ad11bfcd28ca379764004422722e44af7"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the quadrature integration orders available for a given method  <a href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ad11bfcd28ca379764004422722e44af7">More...</a><br /></td></tr>
 <tr class="separator:ad11bfcd28ca379764004422722e44af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a629435e14e1ddad5d8151640670d545c"><td class="memItemLeft" align="right" valign="top"><a id="a629435e14e1ddad5d8151640670d545c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a629435e14e1ddad5d8151640670d545c">addQuadratureMethod</a> (const QuadratureMethod qt, const IntegrationOrder order, <a class="el" href="classsofa_1_1type_1_1vector.html">QuadraturePointArray</a> qpa)</td></tr>
-<tr class="memdesc:a629435e14e1ddad5d8151640670d545c"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a quadrature method in the map <br /></td></tr>
+<tr class="memitem:a629435e14e1ddad5d8151640670d545c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a629435e14e1ddad5d8151640670d545c">addQuadratureMethod</a> (const <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3">QuadratureMethod</a> qt, const <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a132a098c8c814b2fce7eef9bbf766f33">IntegrationOrder</a> order, <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a2031a9cfd0fd1238af59fcaf93475c4d">QuadraturePointArray</a> qpa)</td></tr>
+<tr class="memdesc:a629435e14e1ddad5d8151640670d545c"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a quadrature method in the map  <a href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a629435e14e1ddad5d8151640670d545c">More...</a><br /></td></tr>
 <tr class="separator:a629435e14e1ddad5d8151640670d545c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a3af47ba946417c829bf691aef38adcf9"><td class="memItemLeft" align="right" valign="top"><a id="a3af47ba946417c829bf691aef38adcf9"></a>
-std::map&lt; QuadratureMethodKey, <a class="el" href="classsofa_1_1type_1_1vector.html">QuadraturePointArray</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>quadratureMap</b></td></tr>
+<tr class="memitem:a3af47ba946417c829bf691aef38adcf9"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ae133bf074a5032847413b0206271ada5">QuadratureMethodKey</a>, <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a2031a9cfd0fd1238af59fcaf93475c4d">QuadraturePointArray</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a3af47ba946417c829bf691aef38adcf9">quadratureMap</a></td></tr>
 <tr class="separator:a3af47ba946417c829bf691aef38adcf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -160,13 +149,261 @@ std::map&lt; QuadratureMethodKey, <a class="el" href="classsofa_1_1type_1_1vecto
 class sofa::component::topology::container::dynamic::NumericalIntegrationDescriptor&lt; Real, N &gt;</h3>
 
 <p>Cross product for 3-elements vectors. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ae96908e32776af575a4efdb0fc109520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae96908e32776af575a4efdb0fc109520">&#9670;&nbsp;</a></span>BarycentricCoordinatesType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec</a>&lt;N, Real&gt; <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ae96908e32776af575a4efdb0fc109520">BarycentricCoordinatesType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a132a098c8c814b2fce7eef9bbf766f33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a132a098c8c814b2fce7eef9bbf766f33">&#9670;&nbsp;</a></span>IntegrationOrder</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef size_t <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a132a098c8c814b2fce7eef9bbf766f33">IntegrationOrder</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae133bf074a5032847413b0206271ada5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae133bf074a5032847413b0206271ada5">&#9670;&nbsp;</a></span>QuadratureMethodKey</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;<a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3">QuadratureMethod</a>,<a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a132a098c8c814b2fce7eef9bbf766f33">IntegrationOrder</a>&gt; <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ae133bf074a5032847413b0206271ada5">QuadratureMethodKey</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a01628add6ea1e9e3e076136d6649a4af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01628add6ea1e9e3e076136d6649a4af">&#9670;&nbsp;</a></span>QuadraturePoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;<a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ae96908e32776af575a4efdb0fc109520">BarycentricCoordinatesType</a>,Real&gt; <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a01628add6ea1e9e3e076136d6649a4af">QuadraturePoint</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2031a9cfd0fd1238af59fcaf93475c4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2031a9cfd0fd1238af59fcaf93475c4d">&#9670;&nbsp;</a></span>QuadraturePointArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt;<a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a01628add6ea1e9e3e076136d6649a4af">QuadraturePoint</a>&gt; <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a2031a9cfd0fd1238af59fcaf93475c4d">QuadraturePointArray</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="ab0367a13ee21106fe79a88ab95cdb1d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0367a13ee21106fe79a88ab95cdb1d3">&#9670;&nbsp;</a></span>QuadratureMethod</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3">QuadratureMethod</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab0367a13ee21106fe79a88ab95cdb1d3a1a804ceb13bb425f0847572838245673"></a>GAUSS_LEGENDRE_METHOD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab0367a13ee21106fe79a88ab95cdb1d3a11ae751e3ffd79538581a3c66bafaaa4"></a>GAUSS_LOBATO_METHOD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab0367a13ee21106fe79a88ab95cdb1d3acc8ca587b671369aeade1bf871a45815"></a>NEWTON_COTES_METHOD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab0367a13ee21106fe79a88ab95cdb1d3aece08a55ff182b09b94dcce20977b43b"></a>GAUSS_SIMPLEX_METHOD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab0367a13ee21106fe79a88ab95cdb1d3afddfc70e1be9f06bb20796bf877e2cc8"></a>GAUSS_QUAD_METHOD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab0367a13ee21106fe79a88ab95cdb1d3a4d41c91e84633cd0da15dc5d562e6b6b"></a>GAUSS_CUBE_METHOD&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a22c4fb93ccc225e600965459a4593fc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22c4fb93ccc225e600965459a4593fc8">&#9670;&nbsp;</a></span>NumericalIntegrationDescriptor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html">NumericalIntegrationDescriptor</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>empty constructor </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a629435e14e1ddad5d8151640670d545c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a629435e14e1ddad5d8151640670d545c">&#9670;&nbsp;</a></span>addQuadratureMethod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addQuadratureMethod </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3">QuadratureMethod</a>&#160;</td>
+          <td class="paramname"><em>qt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a132a098c8c814b2fce7eef9bbf766f33">IntegrationOrder</a>&#160;</td>
+          <td class="paramname"><em>order</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a2031a9cfd0fd1238af59fcaf93475c4d">QuadraturePointArray</a>&#160;</td>
+          <td class="paramname"><em>qpa</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>add a quadrature method in the map </p>
+
+</div>
+</div>
+<a id="ad11bfcd28ca379764004422722e44af7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad11bfcd28ca379764004422722e44af7">&#9670;&nbsp;</a></span>getIntegrationOrders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::set&lt; typename <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html">NumericalIntegrationDescriptor</a>&lt; Real, N &gt;::<a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a132a098c8c814b2fce7eef9bbf766f33">IntegrationOrder</a> &gt; getIntegrationOrders </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3">QuadratureMethod</a>&#160;</td>
+          <td class="paramname"><em>qt</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns the quadrature integration orders available for a given method </p>
+
+</div>
+</div>
+<a id="abdb2edc040843bde62885221623071f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdb2edc040843bde62885221623071f1">&#9670;&nbsp;</a></span>getQuadratureMethod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html">NumericalIntegrationDescriptor</a>&lt; Real, N &gt;::<a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a2031a9cfd0fd1238af59fcaf93475c4d">QuadraturePointArray</a> getQuadratureMethod </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3">QuadratureMethod</a>&#160;</td>
+          <td class="paramname"><em>qt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a132a098c8c814b2fce7eef9bbf766f33">IntegrationOrder</a>&#160;</td>
+          <td class="paramname"><em>order</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns the set of quadrature points associated with a given quadrature method and integration order </p>
+
+</div>
+</div>
+<a id="ad39c2c5b0ec7aa05c469834a00856702"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad39c2c5b0ec7aa05c469834a00856702">&#9670;&nbsp;</a></span>getQuadratureMethods()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::set&lt; typename <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html">NumericalIntegrationDescriptor</a>&lt; Real, N &gt;::<a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3">QuadratureMethod</a> &gt; getQuadratureMethods</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns all the indices corresponding to all available quadrature methods </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3af47ba946417c829bf691aef38adcf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3af47ba946417c829bf691aef38adcf9">&#9670;&nbsp;</a></span>quadratureMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;<a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ae133bf074a5032847413b0206271ada5">QuadratureMethodKey</a>, <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#a2031a9cfd0fd1238af59fcaf93475c4d">QuadraturePointArray</a>&gt; quadratureMap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>component</b></li><li class="navelem"><b>topology</b></li><li class="navelem"><b>container</b></li><li class="navelem"><b>dynamic</b></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html">NumericalIntegrationDescriptor</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:04:42 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component.html">component</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1topology.html">topology</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1topology_1_1container.html">container</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1topology_1_1container_1_1dynamic.html">dynamic</a></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html">NumericalIntegrationDescriptor</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:36:41 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

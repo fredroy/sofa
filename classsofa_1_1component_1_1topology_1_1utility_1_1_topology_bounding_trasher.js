@@ -13,6 +13,7 @@ var classsofa_1_1component_1_1topology_1_1utility_1_1_topology_bounding_trasher 
     [ "filterElementsToRemove", "classsofa_1_1component_1_1topology_1_1utility_1_1_topology_bounding_trasher.html#af2206e311615c9471d2b3ab55f58a356", null ],
     [ "handleEvent", "classsofa_1_1component_1_1topology_1_1utility_1_1_topology_bounding_trasher.html#a4543defaa0067ca36bcf42777f805d8f", null ],
     [ "init", "classsofa_1_1component_1_1topology_1_1utility_1_1_topology_bounding_trasher.html#ad72eef1561c7a53b19b048397d4ef570", null ],
+    [ "isPointOutside", "classsofa_1_1component_1_1topology_1_1utility_1_1_topology_bounding_trasher.html#a8cd2f8871527dc128c33624714cf16de", null ],
     [ "reinit", "classsofa_1_1component_1_1topology_1_1utility_1_1_topology_bounding_trasher.html#ab1094b915e637faa84817a097d8d87be", null ],
     [ "removeElements", "classsofa_1_1component_1_1topology_1_1utility_1_1_topology_bounding_trasher.html#acf39209ad06263822c41c435c4393e5e", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1topology_1_1utility_1_1_topology_bounding_trasher.html#a20bb9afda05bfa1736ea0baf3545eecd", null ],

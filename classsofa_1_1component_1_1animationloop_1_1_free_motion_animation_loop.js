@@ -2,6 +2,7 @@ var classsofa_1_1component_1_1animationloop_1_1_free_motion_animation_loop =
 [
     [ "FreeMotionAnimationLoop", "classsofa_1_1component_1_1animationloop_1_1_free_motion_animation_loop.html#ad719e122bdd1a00b3d7b9c68b7d70e06", null ],
     [ "~FreeMotionAnimationLoop", "classsofa_1_1component_1_1animationloop_1_1_free_motion_animation_loop.html#a445dccf691d6ab00e3aebdcc230cad8c", null ],
+    [ "create", "classsofa_1_1component_1_1animationloop_1_1_free_motion_animation_loop.html#aa8b324d37da085008878c72c140bc52f", null ],
     [ "FreeMotionAndCollisionDetection", "classsofa_1_1component_1_1animationloop_1_1_free_motion_animation_loop.html#a694299f9dc46ac6f937205b47af71611", null ],
     [ "init", "classsofa_1_1component_1_1animationloop_1_1_free_motion_animation_loop.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "parse", "classsofa_1_1component_1_1animationloop_1_1_free_motion_animation_loop.html#a01457d399e0cf40aa8f4fc775c6b257a", null ],

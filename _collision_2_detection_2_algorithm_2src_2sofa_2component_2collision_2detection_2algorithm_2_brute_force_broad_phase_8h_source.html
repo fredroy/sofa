@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_collision_2_detection_2_algorithm_2sr
 <div class="title">BruteForceBroadPhase.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_collision_2_detection_2_algorithm_2src_2sofa_2component_2collision_2detection_2algorithm_2_brute_force_broad_phase_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -110,27 +110,27 @@ $(document).ready(function(){initNavTree('_collision_2_detection_2_algorithm_2sr
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/component/collision/detection/algorithm/config.h&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/core/collision/BroadPhaseDetection.h&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sofa/component/collision/geometry/CubeModel.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_broad_phase_detection_8h.html">sofa/core/collision/BroadPhaseDetection.h</a>&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_collision_2_geometry_2src_2sofa_2component_2collision_2geometry_2_cube_model_8h.html">sofa/component/collision/geometry/CubeModel.h</a>&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>sofa::component::collision::detection::algorithm</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1component_1_1collision_1_1detection_1_1algorithm.html">sofa::component::collision::detection::algorithm</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">class </span>SOFA_COMPONENT_COLLISION_DETECTION_ALGORITHM_API BruteForceBroadPhase : <span class="keyword">public</span> core::collision::BroadPhaseDetection</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">class </span>SOFA_COMPONENT_COLLISION_DETECTION_ALGORITHM_API <a class="code" href="namespacesofa_1_1component_1_1collision.html#a14417217802653f1c045ec5097265359">BruteForceBroadPhase</a> : <span class="keyword">public</span> core::collision::BroadPhaseDetection</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    SOFA_CLASS(BruteForceBroadPhase, core::collision::BroadPhaseDetection);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="_base_class_8h.html#a2280c1505d10a34f61f0cad38c9beeee">SOFA_CLASS</a>(<a class="code" href="namespacesofa_1_1component_1_1collision.html#a14417217802653f1c045ec5097265359">BruteForceBroadPhase</a>, core::collision::BroadPhaseDetection);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    BruteForceBroadPhase();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ~BruteForceBroadPhase() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="namespacesofa_1_1component_1_1collision.html#a14417217802653f1c045ec5097265359">BruteForceBroadPhase</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ~<a class="code" href="namespacesofa_1_1component_1_1collision.html#a14417217802653f1c045ec5097265359">BruteForceBroadPhase</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    Data&lt; type::fixed_array&lt;sofa::type::Vector3,2&gt; &gt; box;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> init() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespacesofa_1_1component_1_1collision_1_1detection_1_1algorithm.html#ae888cf3ae00c5dc2964e6b3ac5d5275a">init</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> reinit() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> beginBroadPhase() <span class="keyword">override</span>;</div>
@@ -147,16 +147,16 @@ $(document).ready(function(){initNavTree('_collision_2_detection_2_algorithm_2sr
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">bool</span> intersectWithBoxModel(core::CollisionModel *cm) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    collision::geometry::CubeCollisionModel::SPtr boxModel;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">collision::geometry::CubeCollisionModel::SPtr</a> boxModel;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">struct </span>FirstLastCollisionModel</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        core::CollisionModel* firstCollisionModel { <span class="keyword">nullptr</span> };</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_brute_force_broad_phase.html#a2b95f8b0125d3007fb7b6f56f951f137">   92</a></span>&#160; </div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="comment">// Last collision model in the hierarchy of collision models of an object. Holding more details than a bounding box</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        core::CollisionModel* lastCollisionModel { <span class="keyword">nullptr</span> };</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="classsofa_1_1core_1_1_collision_model.html">core::CollisionModel</a>* lastCollisionModel { <span class="keyword">nullptr</span> };</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        FirstLastCollisionModel(core::CollisionModel* a, core::CollisionModel* b) : firstCollisionModel(a), lastCollisionModel(b) {}</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        FirstLastCollisionModel(<a class="code" href="classsofa_1_1core_1_1_collision_model.html">core::CollisionModel</a>* a, <a class="code" href="classsofa_1_1core_1_1_collision_model.html">core::CollisionModel</a>* b) : firstCollisionModel(a), lastCollisionModel(b) {}</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    };</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="classsofa_1_1type_1_1vector.html">sofa::type::vector&lt;FirstLastCollisionModel&gt;</a> m_collisionModels;</div>
@@ -165,12 +165,20 @@ $(document).ready(function(){initNavTree('_collision_2_detection_2_algorithm_2sr
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1component_1_1collision_1_1detection_1_1algorithm_html_ae888cf3ae00c5dc2964e6b3ac5d5275a"><div class="ttname"><a href="namespacesofa_1_1component_1_1collision_1_1detection_1_1algorithm.html#ae888cf3ae00c5dc2964e6b3ac5d5275a">sofa::component::collision::detection::algorithm::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> init.cpp:69</div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_html_ab57acce1b994c39fb8ad8014583a8bbd"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">sofa::core::objectmodel::Base::SPtr</a></div><div class="ttdeci">sptr&lt; Base &gt; SPtr</div><div class="ttdef"><b>Definition:</b> Base.h:120</div></div>
+<div class="ttc" id="anamespacesofa_1_1component_1_1collision_1_1detection_1_1algorithm_html"><div class="ttname"><a href="namespacesofa_1_1component_1_1collision_1_1detection_1_1algorithm.html">sofa::component::collision::detection::algorithm</a></div><div class="ttdef"><b>Definition:</b> BruteForceBroadPhase.cpp:28</div></div>
+<div class="ttc" id="a_collision_2_geometry_2src_2sofa_2component_2collision_2geometry_2_cube_model_8h_html"><div class="ttname"><a href="_collision_2_geometry_2src_2sofa_2component_2collision_2geometry_2_cube_model_8h.html">CubeModel.h</a></div></div>
+<div class="ttc" id="anamespacesofa_1_1component_1_1collision_html_a14417217802653f1c045ec5097265359"><div class="ttname"><a href="namespacesofa_1_1component_1_1collision.html#a14417217802653f1c045ec5097265359">sofa::component::collision::BruteForceBroadPhase</a></div><div class="ttdeci">sofa::component::collision::detection::algorithm::BruteForceBroadPhase BruteForceBroadPhase</div><div class="ttdef"><b>Definition:</b> BruteForceBroadPhase.h:50</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1vector_html"><div class="ttname"><a href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a></div><div class="ttdef"><b>Definition:</b> vector_T.h:54</div></div>
+<div class="ttc" id="a_broad_phase_detection_8h_html"><div class="ttname"><a href="_broad_phase_detection_8h.html">BroadPhaseDetection.h</a></div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1_collision_model_html"><div class="ttname"><a href="classsofa_1_1core_1_1_collision_model.html">sofa::core::CollisionModel</a></div><div class="ttdoc">Abstract CollisionModel interface.</div><div class="ttdef"><b>Definition:</b> CollisionModel.h:114</div></div>
+<div class="ttc" id="a_base_class_8h_html_a2280c1505d10a34f61f0cad38c9beeee"><div class="ttname"><a href="_base_class_8h.html#a2280c1505d10a34f61f0cad38c9beeee">SOFA_CLASS</a></div><div class="ttdeci">#define SOFA_CLASS(T, Parent)</div><div class="ttdef"><b>Definition:</b> BaseClass.h:207</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_42ede1205723b3b890fa00e138974231.html">Component</a></li><li class="navelem"><a class="el" href="dir_bb848595cfe2f3891fce439845bd553b.html">Collision</a></li><li class="navelem"><a class="el" href="dir_ffd2e26408ad09931bcc60c444dbbf47.html">Detection</a></li><li class="navelem"><a class="el" href="dir_30521395fbd71fe7031699495194f4df.html">Algorithm</a></li><li class="navelem"><a class="el" href="dir_e7d961bd283606a45f28aac52f5aa3a4.html">src</a></li><li class="navelem"><a class="el" href="dir_0dc3988346d6f11b5c3a1693e923dfa1.html">sofa</a></li><li class="navelem"><a class="el" href="dir_a19644412187c6b74d927897898fc3a4.html">component</a></li><li class="navelem"><a class="el" href="dir_1414e8c756596cfd2f232d6aec70d213.html">collision</a></li><li class="navelem"><a class="el" href="dir_98e4e8e42973ec26ce72bf12e3df37ea.html">detection</a></li><li class="navelem"><a class="el" href="dir_176d0830ba743a930b3c55ae1faed495.html">algorithm</a></li><li class="navelem"><b>BruteForceBroadPhase.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:28:34 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_42ede1205723b3b890fa00e138974231.html">Component</a></li><li class="navelem"><a class="el" href="dir_bb848595cfe2f3891fce439845bd553b.html">Collision</a></li><li class="navelem"><a class="el" href="dir_ffd2e26408ad09931bcc60c444dbbf47.html">Detection</a></li><li class="navelem"><a class="el" href="dir_30521395fbd71fe7031699495194f4df.html">Algorithm</a></li><li class="navelem"><a class="el" href="dir_e7d961bd283606a45f28aac52f5aa3a4.html">src</a></li><li class="navelem"><a class="el" href="dir_0dc3988346d6f11b5c3a1693e923dfa1.html">sofa</a></li><li class="navelem"><a class="el" href="dir_a19644412187c6b74d927897898fc3a4.html">component</a></li><li class="navelem"><a class="el" href="dir_1414e8c756596cfd2f232d6aec70d213.html">collision</a></li><li class="navelem"><a class="el" href="dir_98e4e8e42973ec26ce72bf12e3df37ea.html">detection</a></li><li class="navelem"><a class="el" href="dir_176d0830ba743a930b3c55ae1faed495.html">algorithm</a></li><li class="navelem"><a class="el" href="_collision_2_detection_2_algorithm_2src_2sofa_2component_2collision_2detection_2algorithm_2_brute_force_broad_phase_8h.html">BruteForceBroadPhase.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 06:38:43 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

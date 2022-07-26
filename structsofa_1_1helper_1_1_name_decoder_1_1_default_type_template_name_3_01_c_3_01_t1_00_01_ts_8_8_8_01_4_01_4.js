@@ -1,0 +1,4 @@
+var structsofa_1_1helper_1_1_name_decoder_1_1_default_type_template_name_3_01_c_3_01_t1_00_01_ts_8_8_8_01_4_01_4 =
+[
+    [ "Get", "structsofa_1_1helper_1_1_name_decoder_1_1_default_type_template_name_3_01_c_3_01_t1_00_01_ts_8_8_8_01_4_01_4.html#a63ecc802a0d46beafa88c1d642f50465", null ]
+];

@@ -21,7 +21,9 @@ var classsofa_1_1core_1_1behavior_1_1_force_field =
     [ "addKToMatrix", "classsofa_1_1core_1_1behavior_1_1_force_field.html#a3d60cd22d26adb9b6ee439c20f542463", null ],
     [ "addKToMatrix", "classsofa_1_1core_1_1behavior_1_1_force_field.html#a45a4033fe5251444e026dce7aa1d3527", null ],
     [ "addToMatrix", "classsofa_1_1core_1_1behavior_1_1_force_field.html#af62ae99d27c81d1b7d7d798c339c11d9", null ],
+    [ "canCreate", "classsofa_1_1core_1_1behavior_1_1_force_field.html#ac65a50a3ff81bba00ec9967bc8e98a67", null ],
     [ "getPotentialEnergy", "classsofa_1_1core_1_1behavior_1_1_force_field.html#a3e85a0ff1d961981f90fb52ffb41b98f", null ],
     [ "getPotentialEnergy", "classsofa_1_1core_1_1behavior_1_1_force_field.html#a15a87109ecca7e0334a8c45f2e80ae14", null ],
+    [ "shortName", "classsofa_1_1core_1_1behavior_1_1_force_field.html#ac86db44914654a377aeb3a54a45c5fc5", null ],
     [ "SOFA_CLASS2", "classsofa_1_1core_1_1behavior_1_1_force_field.html#a2a461390470a2a988386e16a47f2180e", null ]
 ];

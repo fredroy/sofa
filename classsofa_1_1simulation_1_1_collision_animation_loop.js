@@ -8,6 +8,7 @@ var classsofa_1_1simulation_1_1_collision_animation_loop =
     [ "CollisionAnimationLoop", "classsofa_1_1simulation_1_1_collision_animation_loop.html#a2d6cc3ef0fffc05261a40438d084775b", null ],
     [ "~CollisionAnimationLoop", "classsofa_1_1simulation_1_1_collision_animation_loop.html#a2d02a12efb651b9d8cb775be6542d6ec", null ],
     [ "computeCollision", "classsofa_1_1simulation_1_1_collision_animation_loop.html#a7a0895380dc471472630bbbb9a28010b", null ],
+    [ "create", "classsofa_1_1simulation_1_1_collision_animation_loop.html#aa8b324d37da085008878c72c140bc52f", null ],
     [ "getSolverSequence", "classsofa_1_1simulation_1_1_collision_animation_loop.html#aa54cab6c7ca701b2f49446ae1821ece5", null ],
     [ "integrate", "classsofa_1_1simulation_1_1_collision_animation_loop.html#a25bcb1095072ce105ce75132eeb8b6c7", null ],
     [ "internalCollisionComputation", "classsofa_1_1simulation_1_1_collision_animation_loop.html#ad068ec241ac812b7ae2a471162d19265", null ],

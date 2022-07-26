@@ -86,6 +86,8 @@ $(document).ready(function(){initNavTree('classsofa_1_1helper_1_1system_1_1_dyna
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classsofa_1_1helper_1_1system_1_1_dynamic_library-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">DynamicLibrary Class Reference</div>  </div>
@@ -120,18 +122,51 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:abda93288e66ee85a20d64046c3ca8e4f"><td class="memItemLeft" align="right" valign="top"><a id="abda93288e66ee85a20d64046c3ca8e4f"></a>
-static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_dynamic_library.html#abda93288e66ee85a20d64046c3ca8e4f">extension</a> = &quot;so&quot;</td></tr>
-<tr class="memdesc:abda93288e66ee85a20d64046c3ca8e4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">System-specific file extension for a dynamic library (e.g. "so"). <br /></td></tr>
+<tr class="memitem:abda93288e66ee85a20d64046c3ca8e4f"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_dynamic_library.html#abda93288e66ee85a20d64046c3ca8e4f">extension</a> = &quot;so&quot;</td></tr>
+<tr class="memdesc:abda93288e66ee85a20d64046c3ca8e4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">System-specific file extension for a dynamic library (e.g. "so").  <a href="classsofa_1_1helper_1_1system_1_1_dynamic_library.html#abda93288e66ee85a20d64046c3ca8e4f">More...</a><br /></td></tr>
 <tr class="separator:abda93288e66ee85a20d64046c3ca8e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0abd588aaee05a454b90c7f20c5b7bb4"><td class="memItemLeft" align="right" valign="top"><a id="a0abd588aaee05a454b90c7f20c5b7bb4"></a>
-static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_dynamic_library.html#a0abd588aaee05a454b90c7f20c5b7bb4">prefix</a> = &quot;lib&quot;</td></tr>
-<tr class="memdesc:a0abd588aaee05a454b90c7f20c5b7bb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">System-specific file prefix for a dynamic library (e.g. "lib"). <br /></td></tr>
+<tr class="memitem:a0abd588aaee05a454b90c7f20c5b7bb4"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_dynamic_library.html#a0abd588aaee05a454b90c7f20c5b7bb4">prefix</a> = &quot;lib&quot;</td></tr>
+<tr class="memdesc:a0abd588aaee05a454b90c7f20c5b7bb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">System-specific file prefix for a dynamic library (e.g. "lib").  <a href="classsofa_1_1helper_1_1system_1_1_dynamic_library.html#a0abd588aaee05a454b90c7f20c5b7bb4">More...</a><br /></td></tr>
 <tr class="separator:a0abd588aaee05a454b90c7f20c5b7bb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a1a675f5573ca6f46144d2bb325a99bb6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_dynamic_library.html#a1a675f5573ca6f46144d2bb325a99bb6">fetchLastError</a> ()</td></tr>
+<tr class="separator:a1a675f5573ca6f46144d2bb325a99bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a7659c71d7b43442e79b7146197f89077"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_dynamic_library.html#a7659c71d7b43442e79b7146197f89077">m_lastError</a> = std::string(&quot;&quot;)</td></tr>
+<tr class="separator:a7659c71d7b43442e79b7146197f89077"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Wrapper around the dynamic library facilities of the operating system. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1a675f5573ca6f46144d2bb325a99bb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a675f5573ca6f46144d2bb325a99bb6">&#9670;&nbsp;</a></span>fetchLastError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fetchLastError </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a1719e51ac30824ff1a50a97dd449ea17"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1719e51ac30824ff1a50a97dd449ea17">&#9670;&nbsp;</a></span>getLastError()</h2>
 
@@ -276,13 +311,84 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a c
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="abda93288e66ee85a20d64046c3ca8e4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abda93288e66ee85a20d64046c3ca8e4f">&#9670;&nbsp;</a></span>extension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string extension = &quot;so&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>System-specific file extension for a dynamic library (e.g. "so"). </p>
+
+</div>
+</div>
+<a id="a7659c71d7b43442e79b7146197f89077"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7659c71d7b43442e79b7146197f89077">&#9670;&nbsp;</a></span>m_lastError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string m_lastError = std::string(&quot;&quot;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0abd588aaee05a454b90c7f20c5b7bb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0abd588aaee05a454b90c7f20c5b7bb4">&#9670;&nbsp;</a></span>prefix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string prefix = &quot;lib&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>System-specific file prefix for a dynamic library (e.g. "lib"). </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><b>system</b></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1system_1_1_dynamic_library.html">DynamicLibrary</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:10:54 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper_1_1system.html">system</a></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1system_1_1_dynamic_library.html">DynamicLibrary</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

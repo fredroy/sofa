@@ -6,11 +6,13 @@ var classsofa_1_1core_1_1objectmodel_1_1_base_object =
     [ "~BaseObject", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#ab743741d9956137689178092ebed5b5e", null ],
     [ "addSlave", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#a0c1ac81e57644546ab91049cbf2866b3", null ],
     [ "bwdInit", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#aa531d54a158009ed00adb9783eca4870", null ],
+    [ "canCreate", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#ae5ae2d1957d81fe949ceba6472fa6d44", null ],
     [ "changeContextLink", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#ad7b3cbc0e66f489eb44976f095b316d4", null ],
     [ "changeSlavesLink", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#aab1c1da78144ee2ca0eb67bceb946fb2", null ],
     [ "cleanTracker", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#a2cfbb15772553b8dc1cc9a9b30304874", null ],
     [ "cleanup", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#a4b66d5e31b5dc18b314c8a68163263bd", null ],
     [ "computeBBox", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#aaecaac539985ff54f03513a46e72718a", null ],
+    [ "create", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#aa8b324d37da085008878c72c140bc52f", null ],
     [ "doUpdateInternal", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#a6b85c16d58724bacfcc34ac111721dac", null ],
     [ "draw", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#a112e67da4a9ee5207405f0ef1ace1d85", null ],
     [ "findLinkDestClass", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#a9ebc4fed25d9eb32cde17e5d92a64386", null ],
@@ -43,5 +45,6 @@ var classsofa_1_1core_1_1objectmodel_1_1_base_object =
     [ "f_listening", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#a64f341174ee5fe0442fd47fc2de30428", null ],
     [ "l_context", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#a3e6f514cc72b6f47d138c32103dcf26a", null ],
     [ "l_master", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#adbd3a6ecdffef67462baa31ce6803114", null ],
-    [ "l_slaves", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#a83893126d1e1b27d931fdd23451cd537", null ]
+    [ "l_slaves", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#a83893126d1e1b27d931fdd23451cd537", null ],
+    [ "m_internalDataTracker", "classsofa_1_1core_1_1objectmodel_1_1_base_object.html#a30370a199bc7b491b6995d7abb9e4422", null ]
 ];

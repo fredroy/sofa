@@ -1,5 +1,6 @@
 var classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_ray_new_proximity_intersection =
 [
+    [ "OutputVector", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_ray_new_proximity_intersection.html#a4a3bbcf4f8e5ea22494863abd63a9710", null ],
     [ "RayNewProximityIntersection", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_ray_new_proximity_intersection.html#aacd3b56bcdb01342503135a5f244e577", null ],
     [ "computeIntersection", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_ray_new_proximity_intersection.html#a00c98c630f3677b118d5239fde070b19", null ],
     [ "computeIntersection", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_ray_new_proximity_intersection.html#a2873083b3b33198f47cd6958b5c93aae", null ],

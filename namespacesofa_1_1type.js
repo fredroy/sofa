@@ -1,12 +1,10 @@
 var namespacesofa_1_1type =
 [
-    [ "trait", null, [
-      [ "is_container", "structsofa_1_1type_1_1trait_1_1is__container.html", "structsofa_1_1type_1_1trait_1_1is__container" ],
-      [ "is_vector", "structsofa_1_1type_1_1trait_1_1is__vector.html", "structsofa_1_1type_1_1trait_1_1is__vector" ]
-    ] ],
+    [ "trait", "namespacesofa_1_1type_1_1trait.html", "namespacesofa_1_1type_1_1trait" ],
     [ "BoundingBox", "classsofa_1_1type_1_1_bounding_box.html", "classsofa_1_1type_1_1_bounding_box" ],
     [ "BoundingBox1D", "classsofa_1_1type_1_1_bounding_box1_d.html", "classsofa_1_1type_1_1_bounding_box1_d" ],
     [ "BoundingBox2D", "classsofa_1_1type_1_1_bounding_box2_d.html", "classsofa_1_1type_1_1_bounding_box2_d" ],
+    [ "CleanupCheck", "structsofa_1_1type_1_1_cleanup_check.html", "structsofa_1_1type_1_1_cleanup_check" ],
     [ "CPUMemoryManager", "classsofa_1_1type_1_1_c_p_u_memory_manager.html", null ],
     [ "DualQuatCoord3", "classsofa_1_1type_1_1_dual_quat_coord3.html", "classsofa_1_1type_1_1_dual_quat_coord3" ],
     [ "fixed_array", "classsofa_1_1type_1_1fixed__array.html", "classsofa_1_1type_1_1fixed__array" ],

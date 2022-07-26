@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_material_8h_s
 <div class="title">Material.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_type_2src_2sofa_2type_2_material_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -110,7 +110,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_material_8h_s
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/type/config.h&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/type/RGBAColor.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_type_2src_2sofa_2type_2_r_g_b_a_color_8h.html">sofa/type/RGBAColor.h</a>&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1type.html">sofa::type</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
@@ -135,10 +135,10 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_material_8h_s
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    std::string   textureFilename; <span class="comment">// path to the texture linked to the material</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::string   bumpTextureFilename; <span class="comment">// path to the bump texture linked to the material</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_material.html">   50</a></span>&#160;    <span class="keyword">friend</span> SOFA_TYPE_API std::ostream&amp; operator &lt;&lt; (std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_material.html">Material</a>&amp; m ) ;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">friend</span> SOFA_TYPE_API std::istream&amp; operator &gt;&gt; (std::istream&amp; in, <a class="code" href="classsofa_1_1type_1_1_material.html">Material</a> &amp;m ) ;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_material.html">   50</a></span>&#160;    <span class="keyword">friend</span> SOFA_TYPE_API std::ostream&amp; <a class="code" href="namespacesofa_1_1type.html#a217531c3da1b353db4bcec2b43197958">operator &lt;&lt; </a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_material.html">Material</a>&amp; m ) ;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">friend</span> SOFA_TYPE_API std::istream&amp; <a class="code" href="namespacesofa_1_1type.html#a777026676dbb68c4c0e9685da2d91919">operator &gt;&gt; </a>(std::istream&amp; in, <a class="code" href="classsofa_1_1type_1_1_material.html">Material</a> &amp;m ) ;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> setColor(<span class="keywordtype">float</span> r, <span class="keywordtype">float</span> g, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> a) ;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespaceinternal.html#a5fef0f928e4a489a79e0b74a22d4ccdf">setColor</a>(<span class="keywordtype">float</span> r, <span class="keywordtype">float</span> g, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> a) ;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_material.html">Material</a>() ;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_material.html">Material</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_material.html">Material</a>&amp; mat) ;</div>
@@ -148,13 +148,17 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_material_8h_s
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1type_html_a777026676dbb68c4c0e9685da2d91919"><div class="ttname"><a href="namespacesofa_1_1type.html#a777026676dbb68c4c0e9685da2d91919">sofa::type::operator&gt;&gt;</a></div><div class="ttdeci">std::istream &amp; operator&gt;&gt;(std::istream &amp;in, Mat&lt; L, C, real &gt; &amp;m)</div><div class="ttdef"><b>Definition:</b> Mat.h:987</div></div>
+<div class="ttc" id="a_type_2src_2sofa_2type_2_r_g_b_a_color_8h_html"><div class="ttname"><a href="_type_2src_2sofa_2type_2_r_g_b_a_color_8h.html">RGBAColor.h</a></div></div>
+<div class="ttc" id="anamespaceinternal_html_a5fef0f928e4a489a79e0b74a22d4ccdf"><div class="ttname"><a href="namespaceinternal.html#a5fef0f928e4a489a79e0b74a22d4ccdf">internal::setColor</a></div><div class="ttdeci">enableStd&lt; T &gt; setColor(std::ostream &amp;os, T const value)</div><div class="ttdef"><b>Definition:</b> console_internal.h:365</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_material_html"><div class="ttname"><a href="classsofa_1_1type_1_1_material.html">sofa::type::Material</a></div><div class="ttdef"><b>Definition:</b> Material.h:50</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html"><div class="ttname"><a href="namespacesofa_1_1type.html">sofa::type</a></div><div class="ttdoc">for std::pair</div><div class="ttdef"><b>Definition:</b> BoundingBox.cpp:27</div></div>
+<div class="ttc" id="anamespacesofa_1_1type_html_a217531c3da1b353db4bcec2b43197958"><div class="ttname"><a href="namespacesofa_1_1type.html#a217531c3da1b353db4bcec2b43197958">sofa::type::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const sofa::type::Frame &amp;c)</div><div class="ttdef"><b>Definition:</b> Frame.cpp:173</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_f952eb3b438e9453a2f5655056abb290.html">Type</a></li><li class="navelem"><a class="el" href="dir_8aa759aadb20f2635db8c61303b9b849.html">src</a></li><li class="navelem"><a class="el" href="dir_78b83bb765cda7d746578ac350d06d39.html">sofa</a></li><li class="navelem"><a class="el" href="dir_863403d1a96f2534cd37b5b5b93b2f40.html">type</a></li><li class="navelem"><b>Material.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:35:50 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_f952eb3b438e9453a2f5655056abb290.html">Type</a></li><li class="navelem"><a class="el" href="dir_8aa759aadb20f2635db8c61303b9b849.html">src</a></li><li class="navelem"><a class="el" href="dir_78b83bb765cda7d746578ac350d06d39.html">sofa</a></li><li class="navelem"><a class="el" href="dir_863403d1a96f2534cd37b5b5b93b2f40.html">type</a></li><li class="navelem"><a class="el" href="_type_2src_2sofa_2type_2_material_8h.html">Material.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:01:59 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

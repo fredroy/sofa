@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('classsofa_1_1simulation_1_1_cpu_task_1
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1simulation_1_1_cpu_task_1_1_status-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">CpuTask::Status Class Reference</div>  </div>
@@ -103,23 +104,136 @@ Inheritance diagram for CpuTask::Status:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad890cfa3f72244b23759818944a84582"><td class="memItemLeft" align="right" valign="top"><a id="ad890cfa3f72244b23759818944a84582"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isBusy</b> () const override final</td></tr>
+<tr class="memitem:aafde58df1b2a6a91d5b674373be3ffc5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_cpu_task_1_1_status.html#aafde58df1b2a6a91d5b674373be3ffc5">Status</a> ()</td></tr>
+<tr class="separator:aafde58df1b2a6a91d5b674373be3ffc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad890cfa3f72244b23759818944a84582"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_cpu_task_1_1_status.html#ad890cfa3f72244b23759818944a84582">isBusy</a> () const override final</td></tr>
 <tr class="separator:ad890cfa3f72244b23759818944a84582"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a930fe4b499508432a73f17e21a5c1531"><td class="memItemLeft" align="right" valign="top"><a id="a930fe4b499508432a73f17e21a5c1531"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>setBusy</b> (bool busy) override final</td></tr>
+<tr class="memitem:a930fe4b499508432a73f17e21a5c1531"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_cpu_task_1_1_status.html#a930fe4b499508432a73f17e21a5c1531">setBusy</a> (bool busy) override final</td></tr>
 <tr class="separator:a930fe4b499508432a73f17e21a5c1531"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classsofa_1_1simulation_1_1_task_1_1_status"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classsofa_1_1simulation_1_1_task_1_1_status')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classsofa_1_1simulation_1_1_task_1_1_status.html">Task::Status</a></td></tr>
+<tr class="memitem:ad1d40ebceaa9d48a70b260880a5b1b86 inherit pub_methods_classsofa_1_1simulation_1_1_task_1_1_status"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_task_1_1_status.html#ad1d40ebceaa9d48a70b260880a5b1b86">~Status</a> ()</td></tr>
+<tr class="separator:ad1d40ebceaa9d48a70b260880a5b1b86 inherit pub_methods_classsofa_1_1simulation_1_1_task_1_1_status"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4b0761d0c9505ee3d08843134e2cf5da"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_cpu_task_1_1_status.html#a4b0761d0c9505ee3d08843134e2cf5da">m_busy</a></td></tr>
+<tr class="separator:a4b0761d0c9505ee3d08843134e2cf5da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>CPU <a class="el" href="classsofa_1_1simulation_1_1_task.html">Task</a> <a class="el" href="classsofa_1_1simulation_1_1_cpu_task_1_1_status.html">Status</a> class definition: used to synchronize CPU tasks <br  />
  </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aafde58df1b2a6a91d5b674373be3ffc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafde58df1b2a6a91d5b674373be3ffc5">&#9670;&nbsp;</a></span>Status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1simulation_1_1_cpu_task_1_1_status.html">Status</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad890cfa3f72244b23759818944a84582"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad890cfa3f72244b23759818944a84582">&#9670;&nbsp;</a></span>isBusy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isBusy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classsofa_1_1simulation_1_1_task_1_1_status.html#a3b4b8b7b381018ebda54d5ed24583253">Task::Status</a>.</p>
+
+</div>
+</div>
+<a id="a930fe4b499508432a73f17e21a5c1531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a930fe4b499508432a73f17e21a5c1531">&#9670;&nbsp;</a></span>setBusy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int setBusy </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>busy</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classsofa_1_1simulation_1_1_task_1_1_status.html#ad97fbe927f28da090a0f2aa924a02783">Task::Status</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4b0761d0c9505ee3d08843134e2cf5da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b0761d0c9505ee3d08843134e2cf5da">&#9670;&nbsp;</a></span>m_busy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;int&gt; m_busy</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>simulation</b></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_cpu_task.html">CpuTask</a></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_cpu_task_1_1_status.html">Status</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:11:27 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1simulation.html">simulation</a></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_cpu_task.html">CpuTask</a></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_cpu_task_1_1_status.html">Status</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:38 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

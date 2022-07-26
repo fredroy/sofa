@@ -37,6 +37,10 @@ var classsofa_1_1component_1_1constraint_1_1projective_1_1_skeletal_motion_const
     [ "SOFA_CLASS", "classsofa_1_1component_1_1constraint_1_1projective_1_1_skeletal_motion_constraint.html#a2dada1c6c4f7235838ceb0ad84798cfb", null ],
     [ "active", "classsofa_1_1component_1_1constraint_1_1projective_1_1_skeletal_motion_constraint.html#a9f6d9697d2c64db4b3ea9013c8b7bff9", null ],
     [ "animationSpeed", "classsofa_1_1component_1_1constraint_1_1projective_1_1_skeletal_motion_constraint.html#a8974baa1b72f55c85a51b98eff03a1b2", null ],
+    [ "finished", "classsofa_1_1component_1_1constraint_1_1projective_1_1_skeletal_motion_constraint.html#a9324389a5cdc532c6417a87ccafe18ce", null ],
+    [ "nextPositions", "classsofa_1_1component_1_1constraint_1_1projective_1_1_skeletal_motion_constraint.html#a98fea5c0b1dd22f08b9f9865de35b9bf", null ],
+    [ "nextT", "classsofa_1_1component_1_1constraint_1_1projective_1_1_skeletal_motion_constraint.html#af75fd770bb2be05e1aa1c6f1bfd06c23", null ],
+    [ "prevT", "classsofa_1_1component_1_1constraint_1_1projective_1_1_skeletal_motion_constraint.html#a90345226266d04acc8ef8c741609063e", null ],
     [ "skeletonBones", "classsofa_1_1component_1_1constraint_1_1projective_1_1_skeletal_motion_constraint.html#ac052fca56dcdfcabc46b7dda15421b31", null ],
     [ "skeletonJoints", "classsofa_1_1component_1_1constraint_1_1projective_1_1_skeletal_motion_constraint.html#a69a002f19900151416f08dd9f650796d", null ]
 ];

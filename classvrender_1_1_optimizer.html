@@ -89,6 +89,8 @@ $(document).ready(function(){initNavTree('classvrender_1_1_optimizer.html',''); 
 <div class="title">Optimizer Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_optimizer_8h_source.html">Optimizer.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Optimizer:</div>
 <div class="dyncontent">
@@ -103,17 +105,83 @@ Inheritance diagram for Optimizer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af516772db4d630e6fb13ba96a3edd36c"><td class="memItemLeft" align="right" valign="top"><a id="af516772db4d630e6fb13ba96a3edd36c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>optimize</b> (std::vector&lt; <a class="el" href="classvrender_1_1_primitive.html">PtrPrimitive</a> &gt; &amp;, <a class="el" href="classvrender_1_1_v_render_params.html">VRenderParams</a> &amp;)=0</td></tr>
+<tr class="memitem:af516772db4d630e6fb13ba96a3edd36c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_optimizer.html#af516772db4d630e6fb13ba96a3edd36c">optimize</a> (std::vector&lt; <a class="el" href="namespacevrender.html#ab9717d463d3aff13abaff67d702b2dfb">PtrPrimitive</a> &gt; &amp;, <a class="el" href="classvrender_1_1_v_render_params.html">VRenderParams</a> &amp;)=0</td></tr>
 <tr class="separator:af516772db4d630e6fb13ba96a3edd36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04e4fdb1862c8bed9d697b6591853f7b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_optimizer.html#a04e4fdb1862c8bed9d697b6591853f7b">~Optimizer</a> ()</td></tr>
+<tr class="separator:a04e4fdb1862c8bed9d697b6591853f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a04e4fdb1862c8bed9d697b6591853f7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04e4fdb1862c8bed9d697b6591853f7b">&#9670;&nbsp;</a></span>~Optimizer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ~<a class="el" href="classvrender_1_1_optimizer.html">Optimizer</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af516772db4d630e6fb13ba96a3edd36c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af516772db4d630e6fb13ba96a3edd36c">&#9670;&nbsp;</a></span>optimize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void optimize </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespacevrender.html#ab9717d463d3aff13abaff67d702b2dfb">PtrPrimitive</a> &gt; &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classvrender_1_1_v_render_params.html">VRenderParams</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classvrender_1_1_back_face_culling_optimizer.html#af7519cd06021024881bda50d916610e3">BackFaceCullingOptimizer</a>, <a class="el" href="classvrender_1_1_primitive_split_optimizer.html#a8d7d36ccf5e21da1f2b6879d5c1fa3c2">PrimitiveSplitOptimizer</a>, and <a class="el" href="classvrender_1_1_visibility_optimizer.html#af7519cd06021024881bda50d916610e3">VisibilityOptimizer</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>vrender</b></li><li class="navelem"><a class="el" href="classvrender_1_1_optimizer.html">Optimizer</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:14:32 for SOFA by
+    <li class="navelem"><a class="el" href="namespacevrender.html">vrender</a></li><li class="navelem"><a class="el" href="classvrender_1_1_optimizer.html">Optimizer</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:47:05 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

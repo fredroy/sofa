@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_type_info___integer_8h_source.html','
 <div class="title">TypeInfo_Integer.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_type_info___integer_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -109,9 +109,9 @@ $(document).ready(function(){initNavTree('_type_info___integer_8h_source.html','
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">******************************************************************************/</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/defaulttype/typeinfo/models/IntegerTypeInfo.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_integer_type_info_8h.html">sofa/defaulttype/typeinfo/models/IntegerTypeInfo.h</a>&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>sofa::defaulttype</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1defaulttype.html">sofa::defaulttype</a></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
@@ -144,58 +144,60 @@ $(document).ready(function(){initNavTree('_type_info___integer_8h_source.html','
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01unsigned_01char_01_4.html">   57</a></span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">struct </span><a class="code" href="structsofa_1_1defaulttype_1_1_data_type_info.html">DataTypeInfo</a>&lt;int&gt; : <span class="keyword">public</span> <a class="code" href="structsofa_1_1defaulttype_1_1_integer_type_info.html">IntegerTypeInfo</a>&lt;int&gt;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string GetTypeName() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;int&quot;</span>; }</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01unsigned_01char_01_4.html#a26c35b672795bbface6f446ee596129c">   59</a></span>&#160;{</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01unsigned_01char_01_4.html#a94960f47a8a5a5db6ee7785c171252f4">   60</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string GetTypeName() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;int&quot;</span>; }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string name() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;i&quot;</span>; }</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01short_01_4.html">   64</a></span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">struct </span><a class="code" href="structsofa_1_1defaulttype_1_1_data_type_info.html">DataTypeInfo</a>&lt;unsigned int&gt; : <span class="keyword">public</span> <a class="code" href="structsofa_1_1defaulttype_1_1_integer_type_info.html">IntegerTypeInfo</a>&lt;unsigned int&gt;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string GetTypeName() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;unsigned int&quot;</span>; }</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01short_01_4.html#a26c35b672795bbface6f446ee596129c">   66</a></span>&#160;{</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01short_01_4.html#a94960f47a8a5a5db6ee7785c171252f4">   67</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string GetTypeName() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;unsigned int&quot;</span>; }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string name() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;I&quot;</span>; }</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01unsigned_01short_01_4.html">   71</a></span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">struct </span><a class="code" href="structsofa_1_1defaulttype_1_1_data_type_info.html">DataTypeInfo</a>&lt;long&gt; : <span class="keyword">public</span> <a class="code" href="structsofa_1_1defaulttype_1_1_integer_type_info.html">IntegerTypeInfo</a>&lt;long&gt;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string GetTypeName() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;long&quot;</span>; }</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01char_01_4.html#a26c35b672795bbface6f446ee596129c">   72</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structsofa_1_1defaulttype_1_1_data_type_info.html">DataTypeInfo</a>&lt;long&gt; : <span class="keyword">public</span> <a class="code" href="structsofa_1_1defaulttype_1_1_integer_type_info.html">IntegerTypeInfo</a>&lt;long&gt;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01char_01_4.html#a94960f47a8a5a5db6ee7785c171252f4">   73</a></span>&#160;{</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01unsigned_01short_01_4.html#a94960f47a8a5a5db6ee7785c171252f4">   74</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string GetTypeName() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;long&quot;</span>; }</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string name() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;l&quot;</span>; }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
 <div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01int_01_4.html">   78</a></span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">struct </span><a class="code" href="structsofa_1_1defaulttype_1_1_data_type_info.html">DataTypeInfo</a>&lt;unsigned long&gt; : <span class="keyword">public</span> <a class="code" href="structsofa_1_1defaulttype_1_1_integer_type_info.html">IntegerTypeInfo</a>&lt;unsigned long&gt;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string GetTypeName() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;unsigned long&quot;</span>; }</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01int_01_4.html#a26c35b672795bbface6f446ee596129c">   80</a></span>&#160;{</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01int_01_4.html#a94960f47a8a5a5db6ee7785c171252f4">   81</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string GetTypeName() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;unsigned long&quot;</span>; }</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string name() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;L&quot;</span>; }</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01unsigned_01int_01_4.html">   85</a></span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">struct </span><a class="code" href="structsofa_1_1defaulttype_1_1_data_type_info.html">DataTypeInfo</a>&lt;long long&gt; : <span class="keyword">public</span> <a class="code" href="structsofa_1_1defaulttype_1_1_integer_type_info.html">IntegerTypeInfo</a>&lt;long long&gt;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string GetTypeName() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;long long&quot;</span>; }</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01unsigned_01int_01_4.html#a26c35b672795bbface6f446ee596129c">   87</a></span>&#160;{</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01unsigned_01int_01_4.html#a94960f47a8a5a5db6ee7785c171252f4">   88</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string GetTypeName() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;long long&quot;</span>; }</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string name() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;q&quot;</span>; }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
 <div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01long_01_4.html">   92</a></span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">struct </span><a class="code" href="structsofa_1_1defaulttype_1_1_data_type_info.html">DataTypeInfo</a>&lt;unsigned long long&gt; : <span class="keyword">public</span> <a class="code" href="structsofa_1_1defaulttype_1_1_integer_type_info.html">IntegerTypeInfo</a>&lt;unsigned long long&gt;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;{</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string GetTypeName() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;unsigned long long&quot;</span>; }</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01long_01_4.html#a26c35b672795bbface6f446ee596129c">   94</a></span>&#160;{</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01long_01_4.html#a94960f47a8a5a5db6ee7785c171252f4">   95</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string GetTypeName() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;unsigned long long&quot;</span>; }</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string name() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;Q&quot;</span>; }</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;};</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
 <div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01unsigned_01long_01_4.html">   99</a></span>&#160; </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;} </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01unsigned_01long_01_4.html#a26c35b672795bbface6f446ee596129c">  101</a></span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1defaulttype_html"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html">sofa::defaulttype</a></div><div class="ttdef"><b>Definition:</b> BaseMatrix.h:29</div></div>
+<div class="ttc" id="a_integer_type_info_8h_html"><div class="ttname"><a href="_integer_type_info_8h.html">IntegerTypeInfo.h</a></div></div>
 <div class="ttc" id="astructsofa_1_1defaulttype_1_1_data_type_info_html"><div class="ttname"><a href="structsofa_1_1defaulttype_1_1_data_type_info.html">sofa::defaulttype::DataTypeInfo</a></div><div class="ttdef"><b>Definition:</b> DataTypeInfo.h:91</div></div>
 <div class="ttc" id="astructsofa_1_1defaulttype_1_1_integer_type_info_html"><div class="ttname"><a href="structsofa_1_1defaulttype_1_1_integer_type_info.html">sofa::defaulttype::IntegerTypeInfo</a></div><div class="ttdef"><b>Definition:</b> IntegerTypeInfo.h:51</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_0d107a4ec0fcd1d08023ac7b8c5ae236.html">DefaultType</a></li><li class="navelem"><a class="el" href="dir_5c2b5f7e070e96aa6f2414b8917eb71e.html">src</a></li><li class="navelem"><a class="el" href="dir_93fd527f9bee515199e824272fb626bb.html">sofa</a></li><li class="navelem"><a class="el" href="dir_1804e18a8712f79097be205dbad56bae.html">defaulttype</a></li><li class="navelem"><a class="el" href="dir_e7e1f617d3abbe82a3dc91f54340b311.html">typeinfo</a></li><li class="navelem"><b>TypeInfo_Integer.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:38:43 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_0d107a4ec0fcd1d08023ac7b8c5ae236.html">DefaultType</a></li><li class="navelem"><a class="el" href="dir_5c2b5f7e070e96aa6f2414b8917eb71e.html">src</a></li><li class="navelem"><a class="el" href="dir_93fd527f9bee515199e824272fb626bb.html">sofa</a></li><li class="navelem"><a class="el" href="dir_1804e18a8712f79097be205dbad56bae.html">defaulttype</a></li><li class="navelem"><a class="el" href="dir_e7e1f617d3abbe82a3dc91f54340b311.html">typeinfo</a></li><li class="navelem"><a class="el" href="_type_info___integer_8h.html">TypeInfo_Integer.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:09:34 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

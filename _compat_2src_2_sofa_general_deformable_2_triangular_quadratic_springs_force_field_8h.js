@@ -1,0 +1,4 @@
+var _compat_2src_2_sofa_general_deformable_2_triangular_quadratic_springs_force_field_8h =
+[
+    [ "TriangularQuadraticSpringsForceField", "_compat_2src_2_sofa_general_deformable_2_triangular_quadratic_springs_force_field_8h.html#a6a52873b1d691a1dd039de1e364e59dc", null ]
+];

@@ -1,5 +1,8 @@
 var classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver =
 [
+    [ "ComputeComplianceTask", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver_1_1_compute_compliance_task.html", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver_1_1_compute_compliance_task" ],
+    [ "list_cc", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver.html#a1d2c8263bdfde51ad4219ec095b27527", null ],
+    [ "MultiVecId", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver.html#a13363cbd8cb84de51bc51c96e5fd9623", null ],
     [ "CP_BUFFER_SIZE", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver.html#adf764cbdea00d65edcd07bb9953ad2b7a2f29fcc2ef2334ea845d135f01b2ab64", null ],
     [ "GenericConstraintSolver", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver.html#ace0e72d405e0fcabdfc77bb106576334", null ],
     [ "~GenericConstraintSolver", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver.html#a3696d0a4e76eb1df88615e0dd217ade6", null ],

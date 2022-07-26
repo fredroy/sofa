@@ -13,11 +13,14 @@ var classsofa_1_1core_1_1behavior_1_1_pair_interaction_force_field =
     [ "addDForce", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_force_field.html#a4bba3b67572d6f39252b76a5aff0b70b", null ],
     [ "addForce", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_force_field.html#acdcc6439970f3738fff9d8e6f83637b3", null ],
     [ "addForce", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_force_field.html#ac4de6eafe521515e06d1a75dcf53a1da", null ],
+    [ "canCreate", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_force_field.html#a2b65878d6e6b905ac5044f7fa7d2198d", null ],
+    [ "create", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_force_field.html#abed809561a811a3bbd1288b7d32acd81", null ],
     [ "getPathObject1", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_force_field.html#a94212a1b9015660ed31353e6ec50121e", null ],
     [ "getPathObject2", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_force_field.html#a6844d2f567a9885123f41125a0b24228", null ],
     [ "getPotentialEnergy", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_force_field.html#a15a87109ecca7e0334a8c45f2e80ae14", null ],
     [ "getPotentialEnergy", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_force_field.html#a9bb3773908d5f73f37cb0c1a8a5039e8", null ],
     [ "setPathObject1", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_force_field.html#ae5bb23bfb3513e6ea086521b4276c04e", null ],
     [ "setPathObject2", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_force_field.html#a8b9fc1de66c2b82575ba2487af698057", null ],
+    [ "shortName", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_force_field.html#ac86db44914654a377aeb3a54a45c5fc5", null ],
     [ "SOFA_ABSTRACT_CLASS2", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_force_field.html#ab9f6c59eb914449941cd89fa1992e750", null ]
 ];

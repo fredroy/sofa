@@ -62,5 +62,7 @@ var classsofa_1_1type_1_1_vec =
     [ "y", "classsofa_1_1type_1_1_vec.html#ade585484ad6840d293a3464325d78820", null ],
     [ "y", "classsofa_1_1type_1_1_vec.html#aa6a90e470f62308cd6b50db612c01825", null ],
     [ "z", "classsofa_1_1type_1_1_vec.html#a042884aea866d142b1fd1c746b05ab27", null ],
-    [ "z", "classsofa_1_1type_1_1_vec.html#a91a335b9a045f216f854966dd664311e", null ]
+    [ "z", "classsofa_1_1type_1_1_vec.html#a91a335b9a045f216f854966dd664311e", null ],
+    [ "spatial_dimensions", "classsofa_1_1type_1_1_vec.html#a7d37194ec776d0b064baebe9bd3e3657", null ],
+    [ "total_size", "classsofa_1_1type_1_1_vec.html#a961948cc6e0024845a81c394752357fc", null ]
 ];

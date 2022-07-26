@@ -1,6 +1,7 @@
 var classsofa_1_1simulation_1_1xml_1_1_base_element =
 [
     [ "child_iterator", "classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator.html", "classsofa_1_1simulation_1_1xml_1_1_base_element_1_1child__iterator" ],
+    [ "ChildList", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#a4cb849e084f62abd636bed8e359a5958", null ],
     [ "NodeFactory", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#a40634d20ae350ed0b822adbdc126f5de", null ],
     [ "BaseElement", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#afaeaa0957ee8f313dc1f96e1d68012e1", null ],
     [ "~BaseElement", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#a96354f375e43a26219ca403b260a4d23", null ],
@@ -8,6 +9,8 @@ var classsofa_1_1simulation_1_1xml_1_1_base_element =
     [ "addReplaceAttribute", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#a37107a212fec3ad0497dcd776eab8244", null ],
     [ "begin", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#a5b3d4066b2399509a3f2b5cbb50369c6", null ],
     [ "begin", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#a3c8a16f80ca2d66c16825edc4d36c9f7", null ],
+    [ "Create", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#a04b6e6084b5ed6c1da9280674acbe11f", null ],
+    [ "create", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#a84e48391686088a90ffbf995fcb2c251", null ],
     [ "end", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#a02c6dcfee1fb18596262b9487aa34522", null ],
     [ "end", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#a2b15a6316c01525295f02df7e653e320", null ],
     [ "find", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#aad1874d87acd128f132b93795ad0f795", null ],
@@ -37,5 +40,11 @@ var classsofa_1_1simulation_1_1xml_1_1_base_element =
     [ "setSrcFile", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#ac55f048a50ff11b27039acac2ad37169", null ],
     [ "setSrcLine", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#aabebe575be7aefc289f7a363f801e123", null ],
     [ "setType", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#ac4d67748b5831dcb5c273fecafd8c5bb", null ],
+    [ "basefile", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#aed0ec947e78368727bd9b232cba7bde4", null ],
+    [ "children", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#aa8705eb9f16550f41bad1af0a206f1f1", null ],
+    [ "includeNodeType", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#aa192fb7ea1c18b8c4321df63405d1541", null ],
+    [ "m_srcfile", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#a60962130e3fa22f176ab1cb314a60905", null ],
+    [ "m_srcline", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#a29fb762f01ec0c4a61f98417cf0157de", null ],
+    [ "parent", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#a467661f6f1465ecd9bd264c7a6a933b7", null ],
     [ "replaceAttribute", "classsofa_1_1simulation_1_1xml_1_1_base_element.html#a1ea196e3cd39602038744b65149ab402", null ]
 ];

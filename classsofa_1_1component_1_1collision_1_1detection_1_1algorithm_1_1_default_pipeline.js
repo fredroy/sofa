@@ -10,5 +10,6 @@ var classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_default_pi
     [ "SOFA_CLASS", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_default_pipeline.html#a387a8dbd9779e87bcd4c38110aa396bb", null ],
     [ "d_depth", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_default_pipeline.html#acdd867fe228460f39fdb808c3f2d490e", null ],
     [ "d_doDebugDraw", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_default_pipeline.html#acc71f369ec5b9ef713a35225fbdb91f5", null ],
-    [ "d_doPrintInfoMessage", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_default_pipeline.html#a9178709300ba23b30c7d8a8db4619169", null ]
+    [ "d_doPrintInfoMessage", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_default_pipeline.html#a9178709300ba23b30c7d8a8db4619169", null ],
+    [ "defaultDepthValue", "classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_default_pipeline.html#afb782079c8e2bce03ba00177470dae88", null ]
 ];

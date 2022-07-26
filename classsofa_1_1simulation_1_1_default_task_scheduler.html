@@ -86,12 +86,19 @@ $(document).ready(function(){initNavTree('classsofa_1_1simulation_1_1_default_ta
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classsofa_1_1simulation_1_1_default_task_scheduler-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">DefaultTaskScheduler Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_default_task_scheduler_8h_source.html">DefaultTaskScheduler.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for DefaultTaskScheduler:</div>
 <div class="dyncontent">
@@ -108,32 +115,27 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:add4d9c3f5184e56047464d9ef5a12db0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e607fcb012ae7e383e1b565676cc0ff"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a1e607fcb012ae7e383e1b565676cc0ff">stop</a> (void) final</td></tr>
 <tr class="separator:a1e607fcb012ae7e383e1b565676cc0ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76e78b0ebc237e196ebb80d6b24f0484"><td class="memItemLeft" align="right" valign="top"><a id="a76e78b0ebc237e196ebb80d6b24f0484"></a>
-virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getThreadCount</b> (void) const final</td></tr>
+<tr class="memitem:a76e78b0ebc237e196ebb80d6b24f0484"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a76e78b0ebc237e196ebb80d6b24f0484">getThreadCount</a> (void) const final</td></tr>
 <tr class="separator:a76e78b0ebc237e196ebb80d6b24f0484"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7db22d1cf3382dde6b17d8c052453f1"><td class="memItemLeft" align="right" valign="top"><a id="ad7db22d1cf3382dde6b17d8c052453f1"></a>
-virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>getCurrentThreadName</b> () override final</td></tr>
+<tr class="memitem:ad7db22d1cf3382dde6b17d8c052453f1"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#ad7db22d1cf3382dde6b17d8c052453f1">getCurrentThreadName</a> () override final</td></tr>
 <tr class="separator:ad7db22d1cf3382dde6b17d8c052453f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4356b3fa0a0f596aa15b9764ec55bd88"><td class="memItemLeft" align="right" valign="top"><a id="a4356b3fa0a0f596aa15b9764ec55bd88"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>getCurrentThreadType</b> () override final</td></tr>
+<tr class="memitem:a4356b3fa0a0f596aa15b9764ec55bd88"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a4356b3fa0a0f596aa15b9764ec55bd88">getCurrentThreadType</a> () override final</td></tr>
 <tr class="separator:a4356b3fa0a0f596aa15b9764ec55bd88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c1105ac1cac87100cd4ab7cf8deb246"><td class="memItemLeft" align="right" valign="top"><a id="a2c1105ac1cac87100cd4ab7cf8deb246"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>addTask</b> (<a class="el" href="classsofa_1_1simulation_1_1_task.html">Task</a> *task) override final</td></tr>
+<tr class="memitem:a2c1105ac1cac87100cd4ab7cf8deb246"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a2c1105ac1cac87100cd4ab7cf8deb246">addTask</a> (<a class="el" href="classsofa_1_1simulation_1_1_task.html">Task</a> *task) override final</td></tr>
 <tr class="separator:a2c1105ac1cac87100cd4ab7cf8deb246"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25e50f196f2caf62916ed48b15af0d2d"><td class="memItemLeft" align="right" valign="top"><a id="a25e50f196f2caf62916ed48b15af0d2d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>workUntilDone</b> (<a class="el" href="classsofa_1_1simulation_1_1_task_1_1_status.html">Task::Status</a> *status) override final</td></tr>
+<tr class="memitem:a25e50f196f2caf62916ed48b15af0d2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a25e50f196f2caf62916ed48b15af0d2d">workUntilDone</a> (<a class="el" href="classsofa_1_1simulation_1_1_task_1_1_status.html">Task::Status</a> *status) override final</td></tr>
 <tr class="separator:a25e50f196f2caf62916ed48b15af0d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69b62dda678d896d4e9fdd13bc4414bb"><td class="memItemLeft" align="right" valign="top"><a id="a69b62dda678d896d4e9fdd13bc4414bb"></a>
-<a class="el" href="classsofa_1_1simulation_1_1_task_1_1_allocator.html">Task::Allocator</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTaskAllocator</b> () override final</td></tr>
+<tr class="memitem:a69b62dda678d896d4e9fdd13bc4414bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1simulation_1_1_task_1_1_allocator.html">Task::Allocator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a69b62dda678d896d4e9fdd13bc4414bb">getTaskAllocator</a> () override final</td></tr>
 <tr class="separator:a69b62dda678d896d4e9fdd13bc4414bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classsofa_1_1simulation_1_1_task_scheduler"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classsofa_1_1simulation_1_1_task_scheduler')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">TaskScheduler</a></td></tr>
+<tr class="memitem:aca7c3a3e600f8ac777fa3e6efa4dedfe inherit pub_methods_classsofa_1_1simulation_1_1_task_scheduler"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#aca7c3a3e600f8ac777fa3e6efa4dedfe">~TaskScheduler</a> ()</td></tr>
+<tr class="separator:aca7c3a3e600f8ac777fa3e6efa4dedfe inherit pub_methods_classsofa_1_1simulation_1_1_task_scheduler"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aa6be32e0d1b4bd24f8745d1d3267b295"><td class="memItemLeft" align="right" valign="top"><a id="aa6be32e0d1b4bd24f8745d1d3267b295"></a>
-static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> ()</td></tr>
+<tr class="memitem:aa6be32e0d1b4bd24f8745d1d3267b295"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#aa6be32e0d1b4bd24f8745d1d3267b295">name</a> ()</td></tr>
 <tr class="separator:aa6be32e0d1b4bd24f8745d1d3267b295"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3150c2a499686dcd1ff6722384187ce6"><td class="memItemLeft" align="right" valign="top"><a id="a3150c2a499686dcd1ff6722384187ce6"></a>
-static <a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> ()</td></tr>
+<tr class="memitem:a3150c2a499686dcd1ff6722384187ce6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a3150c2a499686dcd1ff6722384187ce6">create</a> ()</td></tr>
 <tr class="separator:a3150c2a499686dcd1ff6722384187ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_classsofa_1_1simulation_1_1_task_scheduler"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classsofa_1_1simulation_1_1_task_scheduler')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">TaskScheduler</a></td></tr>
 <tr class="memitem:a6f6e6df4326886130b8bb1291dbab4ff inherit pub_static_methods_classsofa_1_1simulation_1_1_task_scheduler"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">TaskScheduler</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#a6f6e6df4326886130b8bb1291dbab4ff">create</a> (const char *name=&quot;&quot;)</td></tr>
@@ -147,34 +149,432 @@ static <a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.ht
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:afe35bd7edce2e8f7e8ed0e331d9e8e00"><td class="memItemLeft" align="right" valign="top"><a id="afe35bd7edce2e8f7e8ed0e331d9e8e00"></a>
-static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRegistered</b> = <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#a2d0c0fd6f22ed304e09e966aba448df7">TaskScheduler::registerScheduler</a>(DefaultTaskScheduler::name(), &amp;DefaultTaskScheduler::create)</td></tr>
+<tr class="memitem:afe35bd7edce2e8f7e8ed0e331d9e8e00"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#afe35bd7edce2e8f7e8ed0e331d9e8e00">isRegistered</a> = <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#a2d0c0fd6f22ed304e09e966aba448df7">TaskScheduler::registerScheduler</a>(<a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#aa6be32e0d1b4bd24f8745d1d3267b295">DefaultTaskScheduler::name</a>(), &amp;<a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a3150c2a499686dcd1ff6722384187ce6">DefaultTaskScheduler::create</a>)</td></tr>
 <tr class="separator:afe35bd7edce2e8f7e8ed0e331d9e8e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a52d62f1e780113658227de8a9e4c201e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a52d62f1e780113658227de8a9e4c201ea10425a75a96eb068c8f4cbd7f8540745">MAX_THREADS</a> = 16, 
+<a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a52d62f1e780113658227de8a9e4c201ea307437b1eb56d8f5b8da528766f5d0c3">STACKSIZE</a> = 64 * 1024
+ }</td></tr>
+<tr class="separator:a52d62f1e780113658227de8a9e4c201e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a04321e4762171080622518d52bc4624a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a04321e4762171080622518d52bc4624a">isInitialized</a> ()</td></tr>
+<tr class="separator:a04321e4762171080622518d52bc4624a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f1cb6de5c41e9073f574caee97954b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a2f1cb6de5c41e9073f574caee97954b1">isClosing</a> (void) const</td></tr>
+<tr class="separator:a2f1cb6de5c41e9073f574caee97954b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01916f5938b0486abc831c247d0ff547"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a01916f5938b0486abc831c247d0ff547">WaitForWorkersToBeReady</a> ()</td></tr>
+<tr class="separator:a01916f5938b0486abc831c247d0ff547"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e6be6a19367708754f235cf915d16a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a6e6be6a19367708754f235cf915d16a7">wakeUpWorkers</a> ()</td></tr>
+<tr class="separator:a6e6be6a19367708754f235cf915d16a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac74f40726142e194ed9036f513d6c487"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1simulation_1_1_worker_thread.html">WorkerThread</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#ac74f40726142e194ed9036f513d6c487">getCurrentThread</a> ()</td></tr>
+<tr class="separator:ac74f40726142e194ed9036f513d6c487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7fb4d28aef564ec6559cdb13d8aaeb3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsofa_1_1simulation_1_1_worker_thread.html">WorkerThread</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#ab7fb4d28aef564ec6559cdb13d8aaeb3">getWorkerThread</a> (const std::thread::id id)</td></tr>
+<tr class="separator:ab7fb4d28aef564ec6559cdb13d8aaeb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15620bb9bbec0b4da24066ef9be9b023"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a15620bb9bbec0b4da24066ef9be9b023">DefaultTaskScheduler</a> ()</td></tr>
+<tr class="separator:a15620bb9bbec0b4da24066ef9be9b023"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67cbbcc46195b935b3a9c62c3cbf1532"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a67cbbcc46195b935b3a9c62c3cbf1532">DefaultTaskScheduler</a> (const <a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a> &amp;)</td></tr>
+<tr class="separator:a67cbbcc46195b935b3a9c62c3cbf1532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7f022eaddf8e910fe1a24cbdefab645"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#ad7f022eaddf8e910fe1a24cbdefab645">~DefaultTaskScheduler</a> () override</td></tr>
+<tr class="separator:ad7f022eaddf8e910fe1a24cbdefab645"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7306800e82f6d3218dd06f5d2ca43dd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a7306800e82f6d3218dd06f5d2ca43dd0">start</a> (unsigned int NbThread)</td></tr>
+<tr class="separator:a7306800e82f6d3218dd06f5d2ca43dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:aae191cc2f728174f9ca2a451d37ce1ce"><td class="memItemLeft" align="right" valign="top">static unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#aae191cc2f728174f9ca2a451d37ce1ce">GetHardwareThreadsCount</a> ()</td></tr>
+<tr class="separator:aae191cc2f728174f9ca2a451d37ce1ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a8fa3878c89aa13e62f6e6531025c7cbb"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsofa_1_1simulation_1_1_task_1_1_status.html">Task::Status</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a8fa3878c89aa13e62f6e6531025c7cbb">m_mainTaskStatus</a></td></tr>
+<tr class="separator:a8fa3878c89aa13e62f6e6531025c7cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27e82050916b20a4ad3bdf1f96f8dcb9"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a27e82050916b20a4ad3bdf1f96f8dcb9">m_wakeUpMutex</a></td></tr>
+<tr class="separator:a27e82050916b20a4ad3bdf1f96f8dcb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ee379658940486a37bd41276a7e064b"><td class="memItemLeft" align="right" valign="top">std::condition_variable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a7ee379658940486a37bd41276a7e064b">m_wakeUpEvent</a></td></tr>
+<tr class="separator:a7ee379658940486a37bd41276a7e064b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a217245eec26f69d0c5b6e991937de95a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a217245eec26f69d0c5b6e991937de95a">m_isInitialized</a></td></tr>
+<tr class="separator:a217245eec26f69d0c5b6e991937de95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae21e96a2baf2bbd29ad6a3e53828386c"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#ae21e96a2baf2bbd29ad6a3e53828386c">m_workerThreadCount</a></td></tr>
+<tr class="separator:ae21e96a2baf2bbd29ad6a3e53828386c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea5939ebc08ea1230092265fbafa9a83"><td class="memItemLeft" align="right" valign="top">volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#aea5939ebc08ea1230092265fbafa9a83">m_workerThreadsIdle</a></td></tr>
+<tr class="separator:aea5939ebc08ea1230092265fbafa9a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb83e5c2afae73685282177237aa8a63"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#afb83e5c2afae73685282177237aa8a63">m_isClosing</a></td></tr>
+<tr class="separator:afb83e5c2afae73685282177237aa8a63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a209a1bae2ba630549f56967c2d645fb2"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a209a1bae2ba630549f56967c2d645fb2">m_threadCount</a></td></tr>
+<tr class="separator:a209a1bae2ba630549f56967c2d645fb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a1b003dc5cfce1a4d8f9a0c4b9b589045"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a1b003dc5cfce1a4d8f9a0c4b9b589045">_name</a></td></tr>
+<tr class="separator:a1b003dc5cfce1a4d8f9a0c4b9b589045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c4c32175c89bb89a17cd5a25173292f"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::thread::id, <a class="el" href="classsofa_1_1simulation_1_1_worker_thread.html">WorkerThread</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a1c4c32175c89bb89a17cd5a25173292f">_threads</a></td></tr>
+<tr class="separator:a1c4c32175c89bb89a17cd5a25173292f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a5cd181bfe09cfad66e8f3d87feef1439"><td class="memItemLeft" align="right" valign="top"><a id="a5cd181bfe09cfad66e8f3d87feef1439"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>WorkerThread</b></td></tr>
+<tr class="memitem:a5cd181bfe09cfad66e8f3d87feef1439"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a5cd181bfe09cfad66e8f3d87feef1439">WorkerThread</a></td></tr>
 <tr class="separator:a5cd181bfe09cfad66e8f3d87feef1439"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_types_classsofa_1_1simulation_1_1_task_scheduler"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classsofa_1_1simulation_1_1_task_scheduler')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">TaskScheduler</a></td></tr>
-<tr class="memitem:aa292fc1c5a37398c513f97084031f9e1 inherit pub_types_classsofa_1_1simulation_1_1_task_scheduler"><td class="memItemLeft" align="right" valign="top"><a id="aa292fc1c5a37398c513f97084031f9e1"></a>
-typedef std::function&lt; <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">TaskScheduler</a> *()&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>TaskSchedulerCreatorFunction</b></td></tr>
+<tr class="memitem:aa292fc1c5a37398c513f97084031f9e1 inherit pub_types_classsofa_1_1simulation_1_1_task_scheduler"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">TaskScheduler</a> *()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#aa292fc1c5a37398c513f97084031f9e1">TaskSchedulerCreatorFunction</a></td></tr>
 <tr class="separator:aa292fc1c5a37398c513f97084031f9e1 inherit pub_types_classsofa_1_1simulation_1_1_task_scheduler"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_static_attribs_classsofa_1_1simulation_1_1_task_scheduler"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_classsofa_1_1simulation_1_1_task_scheduler')"><img src="closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">TaskScheduler</a></td></tr>
-<tr class="memitem:a48e978aca6e8cb7215614c801e888ad2 inherit pro_static_attribs_classsofa_1_1simulation_1_1_task_scheduler"><td class="memItemLeft" align="right" valign="top"><a id="a48e978aca6e8cb7215614c801e888ad2"></a>
-static std::map&lt; std::string, std::function&lt; <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">TaskScheduler</a> *()&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_schedulers</b></td></tr>
+<tr class="memitem:a48e978aca6e8cb7215614c801e888ad2 inherit pro_static_attribs_classsofa_1_1simulation_1_1_task_scheduler"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, std::function&lt; <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">TaskScheduler</a> *()&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#a48e978aca6e8cb7215614c801e888ad2">_schedulers</a></td></tr>
 <tr class="separator:a48e978aca6e8cb7215614c801e888ad2 inherit pro_static_attribs_classsofa_1_1simulation_1_1_task_scheduler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96bb6eda1b1ac9e2e89aec2f04837f1e inherit pro_static_attribs_classsofa_1_1simulation_1_1_task_scheduler"><td class="memItemLeft" align="right" valign="top"><a id="a96bb6eda1b1ac9e2e89aec2f04837f1e"></a>
-static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_currentSchedulerName</b></td></tr>
+<tr class="memitem:a96bb6eda1b1ac9e2e89aec2f04837f1e inherit pro_static_attribs_classsofa_1_1simulation_1_1_task_scheduler"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#a96bb6eda1b1ac9e2e89aec2f04837f1e">_currentSchedulerName</a></td></tr>
 <tr class="separator:a96bb6eda1b1ac9e2e89aec2f04837f1e inherit pro_static_attribs_classsofa_1_1simulation_1_1_task_scheduler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e9ccd9b00a57925c6eefee7c155d8fc inherit pro_static_attribs_classsofa_1_1simulation_1_1_task_scheduler"><td class="memItemLeft" align="right" valign="top"><a id="a0e9ccd9b00a57925c6eefee7c155d8fc"></a>
-static <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">TaskScheduler</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_currentScheduler</b> = nullptr</td></tr>
+<tr class="memitem:a0e9ccd9b00a57925c6eefee7c155d8fc inherit pro_static_attribs_classsofa_1_1simulation_1_1_task_scheduler"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">TaskScheduler</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#a0e9ccd9b00a57925c6eefee7c155d8fc">_currentScheduler</a> = nullptr</td></tr>
 <tr class="separator:a0e9ccd9b00a57925c6eefee7c155d8fc inherit pro_static_attribs_classsofa_1_1simulation_1_1_task_scheduler"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a52d62f1e780113658227de8a9e4c201e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52d62f1e780113658227de8a9e4c201e">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a52d62f1e780113658227de8a9e4c201ea10425a75a96eb068c8f4cbd7f8540745"></a>MAX_THREADS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a52d62f1e780113658227de8a9e4c201ea307437b1eb56d8f5b8da528766f5d0c3"></a>STACKSIZE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a15620bb9bbec0b4da24066ef9be9b023"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15620bb9bbec0b4da24066ef9be9b023">&#9670;&nbsp;</a></span>DefaultTaskScheduler() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67cbbcc46195b935b3a9c62c3cbf1532"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67cbbcc46195b935b3a9c62c3cbf1532">&#9670;&nbsp;</a></span>DefaultTaskScheduler() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad7f022eaddf8e910fe1a24cbdefab645"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7f022eaddf8e910fe1a24cbdefab645">&#9670;&nbsp;</a></span>~DefaultTaskScheduler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2c1105ac1cac87100cd4ab7cf8deb246"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c1105ac1cac87100cd4ab7cf8deb246">&#9670;&nbsp;</a></span>addTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool addTask </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1simulation_1_1_task.html">Task</a> *&#160;</td>
+          <td class="paramname"><em>task</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#aa2d80872e40581cf87721ccd34a99fe7">TaskScheduler</a>.</p>
+
+</div>
+</div>
+<a id="a3150c2a499686dcd1ff6722384187ce6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3150c2a499686dcd1ff6722384187ce6">&#9670;&nbsp;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a> * create </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac74f40726142e194ed9036f513d6c487"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac74f40726142e194ed9036f513d6c487">&#9670;&nbsp;</a></span>getCurrentThread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1simulation_1_1_worker_thread.html">WorkerThread</a>* getCurrentThread </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad7db22d1cf3382dde6b17d8c052453f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7db22d1cf3382dde6b17d8c052453f1">&#9670;&nbsp;</a></span>getCurrentThreadName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * getCurrentThreadName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#a12c9b073f652f88a1c4bdcd091eb9cc4">TaskScheduler</a>.</p>
+
+</div>
+</div>
+<a id="a4356b3fa0a0f596aa15b9764ec55bd88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4356b3fa0a0f596aa15b9764ec55bd88">&#9670;&nbsp;</a></span>getCurrentThreadType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getCurrentThreadType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#ae733a32550171c5b7a9fdb65d6059092">TaskScheduler</a>.</p>
+
+</div>
+</div>
+<a id="aae191cc2f728174f9ca2a451d37ce1ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae191cc2f728174f9ca2a451d37ce1ce">&#9670;&nbsp;</a></span>GetHardwareThreadsCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned GetHardwareThreadsCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Assuming 2 concurrent threads by CPU core, return the number of CPU core on the system </p>
+
+</div>
+</div>
+<a id="a69b62dda678d896d4e9fdd13bc4414bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69b62dda678d896d4e9fdd13bc4414bb">&#9670;&nbsp;</a></span>getTaskAllocator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1simulation_1_1_task_1_1_allocator.html">Task::Allocator</a> * getTaskAllocator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#ace0b367530684dba8eb29dd9a9b677be">TaskScheduler</a>.</p>
+
+</div>
+</div>
+<a id="a76e78b0ebc237e196ebb80d6b24f0484"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76e78b0ebc237e196ebb80d6b24f0484">&#9670;&nbsp;</a></span>getThreadCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual unsigned int getThreadCount </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#ad21016ae5fd189343c92703fd085ff46">TaskScheduler</a>.</p>
+
+</div>
+</div>
+<a id="ab7fb4d28aef564ec6559cdb13d8aaeb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7fb4d28aef564ec6559cdb13d8aaeb3">&#9670;&nbsp;</a></span>getWorkerThread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classsofa_1_1simulation_1_1_worker_thread.html">WorkerThread</a> * getWorkerThread </td>
+          <td>(</td>
+          <td class="paramtype">const std::thread::id&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="add4d9c3f5184e56047464d9ef5a12db0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#add4d9c3f5184e56047464d9ef5a12db0">&#9670;&nbsp;</a></span>init()</h2>
 
@@ -198,14 +598,123 @@ static <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">Task
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Call <a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a1e607fcb012ae7e383e1b565676cc0ff">stop()</a> and start() if not already initialized </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Call <a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a1e607fcb012ae7e383e1b565676cc0ff">stop()</a> and <a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a7306800e82f6d3218dd06f5d2ca43dd0">start()</a> if not already initialized </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nbThread</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">TaskScheduler</a>.</p>
+<p>Implements <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#a4c1459231e1ad6a4f8a0b640eb8b4ff9">TaskScheduler</a>.</p>
+
+</div>
+</div>
+<a id="a2f1cb6de5c41e9073f574caee97954b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f1cb6de5c41e9073f574caee97954b1">&#9670;&nbsp;</a></span>isClosing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isClosing </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04321e4762171080622518d52bc4624a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04321e4762171080622518d52bc4624a">&#9670;&nbsp;</a></span>isInitialized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isInitialized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa6be32e0d1b4bd24f8745d1d3267b295"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6be32e0d1b4bd24f8745d1d3267b295">&#9670;&nbsp;</a></span>name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const char* name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7306800e82f6d3218dd06f5d2ca43dd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7306800e82f6d3218dd06f5d2ca43dd0">&#9670;&nbsp;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void start </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>NbThread</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Create worker threads If the number of required threads is 0, the number of threads will be equal to the result of <a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#aae191cc2f728174f9ca2a451d37ce1ce">GetHardwareThreadsCount()</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">NbThread</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -234,7 +743,351 @@ static <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">Task
 </div><div class="memdoc">
 <p>Wait and destroy worker threads </p>
 
-<p>Implements <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">TaskScheduler</a>.</p>
+<p>Implements <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#ae9cfd689d3af9183a7951e02044a557c">TaskScheduler</a>.</p>
+
+</div>
+</div>
+<a id="a01916f5938b0486abc831c247d0ff547"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01916f5938b0486abc831c247d0ff547">&#9670;&nbsp;</a></span>WaitForWorkersToBeReady()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WaitForWorkersToBeReady </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e6be6a19367708754f235cf915d16a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e6be6a19367708754f235cf915d16a7">&#9670;&nbsp;</a></span>wakeUpWorkers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wakeUpWorkers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a25e50f196f2caf62916ed48b15af0d2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25e50f196f2caf62916ed48b15af0d2d">&#9670;&nbsp;</a></span>workUntilDone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void workUntilDone </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1simulation_1_1_task_1_1_status.html">Task::Status</a> *&#160;</td>
+          <td class="paramname"><em>status</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#acb3d8927468ada8d4946cbc841b96802">TaskScheduler</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a5cd181bfe09cfad66e8f3d87feef1439"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cd181bfe09cfad66e8f3d87feef1439">&#9670;&nbsp;</a></span>WorkerThread</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classsofa_1_1simulation_1_1_worker_thread.html">WorkerThread</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1b003dc5cfce1a4d8f9a0c4b9b589045"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b003dc5cfce1a4d8f9a0c4b9b589045">&#9670;&nbsp;</a></span>_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string _name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c4c32175c89bb89a17cd5a25173292f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c4c32175c89bb89a17cd5a25173292f">&#9670;&nbsp;</a></span>_threads</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::thread::id, <a class="el" href="classsofa_1_1simulation_1_1_worker_thread.html">WorkerThread</a> * &gt; _threads</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe35bd7edce2e8f7e8ed0e331d9e8e00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe35bd7edce2e8f7e8ed0e331d9e8e00">&#9670;&nbsp;</a></span>isRegistered</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool isRegistered = <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html#a2d0c0fd6f22ed304e09e966aba448df7">TaskScheduler::registerScheduler</a>(<a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#aa6be32e0d1b4bd24f8745d1d3267b295">DefaultTaskScheduler::name</a>(), &amp;<a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html#a3150c2a499686dcd1ff6722384187ce6">DefaultTaskScheduler::create</a>)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb83e5c2afae73685282177237aa8a63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb83e5c2afae73685282177237aa8a63">&#9670;&nbsp;</a></span>m_isClosing</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool m_isClosing</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a217245eec26f69d0c5b6e991937de95a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a217245eec26f69d0c5b6e991937de95a">&#9670;&nbsp;</a></span>m_isInitialized</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool m_isInitialized</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8fa3878c89aa13e62f6e6531025c7cbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fa3878c89aa13e62f6e6531025c7cbb">&#9670;&nbsp;</a></span>m_mainTaskStatus</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classsofa_1_1simulation_1_1_task_1_1_status.html">Task::Status</a>* m_mainTaskStatus</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a209a1bae2ba630549f56967c2d645fb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a209a1bae2ba630549f56967c2d645fb2">&#9670;&nbsp;</a></span>m_threadCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned m_threadCount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ee379658940486a37bd41276a7e064b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ee379658940486a37bd41276a7e064b">&#9670;&nbsp;</a></span>m_wakeUpEvent</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::condition_variable m_wakeUpEvent</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a27e82050916b20a4ad3bdf1f96f8dcb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27e82050916b20a4ad3bdf1f96f8dcb9">&#9670;&nbsp;</a></span>m_wakeUpMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex m_wakeUpMutex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae21e96a2baf2bbd29ad6a3e53828386c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae21e96a2baf2bbd29ad6a3e53828386c">&#9670;&nbsp;</a></span>m_workerThreadCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned m_workerThreadCount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aea5939ebc08ea1230092265fbafa9a83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea5939ebc08ea1230092265fbafa9a83">&#9670;&nbsp;</a></span>m_workerThreadsIdle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile bool m_workerThreadsIdle</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -243,8 +1096,8 @@ static <a class="el" href="classsofa_1_1simulation_1_1_task_scheduler.html">Task
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>simulation</b></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:11:27 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1simulation.html">simulation</a></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_default_task_scheduler.html">DefaultTaskScheduler</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:38 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

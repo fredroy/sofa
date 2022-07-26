@@ -16,8 +16,13 @@ var classsofa_1_1core_1_1objectmodel_1_1_mouse_event =
     [ "MouseEvent", "classsofa_1_1core_1_1objectmodel_1_1_mouse_event.html#ac8ce499095574d625eead23f8c61782e", null ],
     [ "MouseEvent", "classsofa_1_1core_1_1objectmodel_1_1_mouse_event.html#a14131e5aaeeb7d470fa3f8cbc98f572e", null ],
     [ "~MouseEvent", "classsofa_1_1core_1_1objectmodel_1_1_mouse_event.html#a7effbead8aaf6b7de9301d01723cdd6b", null ],
+    [ "GetClassName", "classsofa_1_1core_1_1objectmodel_1_1_mouse_event.html#a19a81be23ebc80699fa8fce13a5eb660", null ],
     [ "getPosX", "classsofa_1_1core_1_1objectmodel_1_1_mouse_event.html#afead8b2598394ed8bb0b9deb97c63680", null ],
     [ "getPosY", "classsofa_1_1core_1_1objectmodel_1_1_mouse_event.html#a5bb595a0e5b4a5235beaa139372c2127", null ],
     [ "getState", "classsofa_1_1core_1_1objectmodel_1_1_mouse_event.html#aa5558eac5ed43c491a84d4378ceab414", null ],
-    [ "getWheelDelta", "classsofa_1_1core_1_1objectmodel_1_1_mouse_event.html#a6d7176a8ec9af8d884d44d0b208d7cb4", null ]
+    [ "getWheelDelta", "classsofa_1_1core_1_1objectmodel_1_1_mouse_event.html#a6d7176a8ec9af8d884d44d0b208d7cb4", null ],
+    [ "m_posX", "classsofa_1_1core_1_1objectmodel_1_1_mouse_event.html#a6515651adde7c9e05b596451baca8e68", null ],
+    [ "m_posY", "classsofa_1_1core_1_1objectmodel_1_1_mouse_event.html#ad3ac8834c4fb10da1cf83fe9d3c5798a", null ],
+    [ "m_state", "classsofa_1_1core_1_1objectmodel_1_1_mouse_event.html#a9de06aecf53410900f23dc5f7c3ec644", null ],
+    [ "m_wheelDelta", "classsofa_1_1core_1_1objectmodel_1_1_mouse_event.html#a54880b806360e245e18d71cd93309e55", null ]
 ];

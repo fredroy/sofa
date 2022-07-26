@@ -85,6 +85,8 @@ $(document).ready(function(){initNavTree('classsofa_1_1core_1_1objectmodel_1_1_w
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1core_1_1objectmodel_1_1_write_access_with_raw_ptr-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">WriteAccessWithRawPtr Class Reference</div>  </div>
@@ -95,15 +97,25 @@ $(document).ready(function(){initNavTree('classsofa_1_1core_1_1objectmodel_1_1_w
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a713e41fa70006bb8810e659f53ea51dd"><td class="memItemLeft" align="right" valign="top"><a id="a713e41fa70006bb8810e659f53ea51dd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>WriteAccessWithRawPtr</b> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_data.html">BaseData</a> *data)</td></tr>
+<tr class="memitem:a713e41fa70006bb8810e659f53ea51dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_write_access_with_raw_ptr.html#a713e41fa70006bb8810e659f53ea51dd">WriteAccessWithRawPtr</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_data.html">BaseData</a> *data)</td></tr>
 <tr class="separator:a713e41fa70006bb8810e659f53ea51dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a816cf9b070a25150d799d2639aef3b58"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_write_access_with_raw_ptr.html#a816cf9b070a25150d799d2639aef3b58">~WriteAccessWithRawPtr</a> ()</td></tr>
+<tr class="separator:a816cf9b070a25150d799d2639aef3b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:add9af9569af79ec26dd741fb226b38ba"><td class="memItemLeft" align="right" valign="top"><a id="add9af9569af79ec26dd741fb226b38ba"></a>
-void *&#160;</td><td class="memItemRight" valign="bottom"><b>ptr</b></td></tr>
+<tr class="memitem:add9af9569af79ec26dd741fb226b38ba"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_write_access_with_raw_ptr.html#add9af9569af79ec26dd741fb226b38ba">ptr</a></td></tr>
 <tr class="separator:add9af9569af79ec26dd741fb226b38ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a9f8e6d5c2fda83a87d7e15af1b0e0387"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_write_access_with_raw_ptr.html#a9f8e6d5c2fda83a87d7e15af1b0e0387">WriteAccessWithRawPtr</a> ()</td></tr>
+<tr class="separator:a9f8e6d5c2fda83a87d7e15af1b0e0387"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a402f7b4a033061ed8ac7ed9663967e18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_data.html">BaseData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_write_access_with_raw_ptr.html#a402f7b4a033061ed8ac7ed9663967e18">m_data</a></td></tr>
+<tr class="separator:a402f7b4a033061ed8ac7ed9663967e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_write_access_with_raw_ptr.html">WriteAccessWithRawPtr</a> is a RAII class, holding a reference to a given container and providing access to its data through a non-const void* ptr taking care of the beginEdit/endEdit pairs.</p>
@@ -111,13 +123,127 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>ptr</b></td></tr>
 <ul>
 <li>It can be faster that the default methods and operators of the container, as verifications and changes notifications can be handled in the accessor's constructor and destructor instead of at each item access. </li>
 </ul>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a713e41fa70006bb8810e659f53ea51dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a713e41fa70006bb8810e659f53ea51dd">&#9670;&nbsp;</a></span>WriteAccessWithRawPtr() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_write_access_with_raw_ptr.html">WriteAccessWithRawPtr</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_data.html">BaseData</a> *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a816cf9b070a25150d799d2639aef3b58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a816cf9b070a25150d799d2639aef3b58">&#9670;&nbsp;</a></span>~WriteAccessWithRawPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_write_access_with_raw_ptr.html">WriteAccessWithRawPtr</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f8e6d5c2fda83a87d7e15af1b0e0387"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f8e6d5c2fda83a87d7e15af1b0e0387">&#9670;&nbsp;</a></span>WriteAccessWithRawPtr() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_write_access_with_raw_ptr.html">WriteAccessWithRawPtr</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a402f7b4a033061ed8ac7ed9663967e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a402f7b4a033061ed8ac7ed9663967e18">&#9670;&nbsp;</a></span>m_data</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_data.html">BaseData</a>* m_data</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add9af9569af79ec26dd741fb226b38ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add9af9569af79ec26dd741fb226b38ba">&#9670;&nbsp;</a></span>ptr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* ptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>core</b></li><li class="navelem"><b>objectmodel</b></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_write_access_with_raw_ptr.html">WriteAccessWithRawPtr</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:07:08 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1core.html">core</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1core_1_1objectmodel.html">objectmodel</a></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_write_access_with_raw_ptr.html">WriteAccessWithRawPtr</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:37:58 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

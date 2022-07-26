@@ -19,6 +19,7 @@ var classsofa_1_1component_1_1collision_1_1geometry_1_1_line_collision_model =
     ] ],
     [ "LineCollisionModel", "classsofa_1_1component_1_1collision_1_1geometry_1_1_line_collision_model.html#a773d4d4bc5824575cf0bdacc758afe0d", null ],
     [ "canCollideWithElement", "classsofa_1_1component_1_1collision_1_1geometry_1_1_line_collision_model.html#a970b578cf165aa434dd78c31e92fa584", null ],
+    [ "canCreate", "classsofa_1_1component_1_1collision_1_1geometry_1_1_line_collision_model.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "computeBBox", "classsofa_1_1component_1_1collision_1_1geometry_1_1_line_collision_model.html#a3a9a7156e4a8c7ecdf57afc86c098c4a", null ],
     [ "computeBoundingTree", "classsofa_1_1component_1_1collision_1_1geometry_1_1_line_collision_model.html#af777911215040d8cd6eb282ae36ef177", null ],
     [ "computeContinuousBoundingTree", "classsofa_1_1component_1_1collision_1_1geometry_1_1_line_collision_model.html#a31fac534f6b52071ed1f8d380c0519f0", null ],

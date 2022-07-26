@@ -92,6 +92,8 @@ $(document).ready(function(){initNavTree('classsofa_1_1gui_1_1common_1_1_base_g_
 <div class="title">BaseGUI Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="src_2sofa_2gui_2common_2_base_g_u_i_8h_source.html">BaseGUI.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for BaseGUI:</div>
 <div class="dyncontent">
@@ -106,153 +108,168 @@ Inheritance diagram for BaseGUI:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a86b9156a155596cbdeea9a49fe8ced81"><td class="memItemLeft" align="right" valign="top"><a id="a86b9156a155596cbdeea9a49fe8ced81"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a86b9156a155596cbdeea9a49fe8ced81">configureGUI</a> (sofa::simulation::NodeSPtr groot)</td></tr>
-<tr class="memdesc:a86b9156a155596cbdeea9a49fe8ced81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use a component setting to configure our GUI. <br /></td></tr>
+<tr class="memitem:a86b9156a155596cbdeea9a49fe8ced81"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a86b9156a155596cbdeea9a49fe8ced81">configureGUI</a> (<a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a> groot)</td></tr>
+<tr class="memdesc:a86b9156a155596cbdeea9a49fe8ced81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use a component setting to configure our GUI.  <a href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a86b9156a155596cbdeea9a49fe8ced81">More...</a><br /></td></tr>
 <tr class="separator:a86b9156a155596cbdeea9a49fe8ced81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3e9b9293d4637b22bdfb7e75453f567"><td class="memItemLeft" align="right" valign="top"><a id="af3e9b9293d4637b22bdfb7e75453f567"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>exportGnuplot</b> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a> *node, std::string gnuplot_directory=&quot;&quot;)</td></tr>
+<tr class="memitem:af3e9b9293d4637b22bdfb7e75453f567"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#af3e9b9293d4637b22bdfb7e75453f567">exportGnuplot</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a> *node, std::string gnuplot_directory=&quot;&quot;)</td></tr>
 <tr class="separator:af3e9b9293d4637b22bdfb7e75453f567"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a613b8b51908366e64dc0bc42c448f010"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a613b8b51908366e64dc0bc42c448f010">canBeDefaultGUI</a> () const</td></tr>
 <tr class="separator:a613b8b51908366e64dc0bc42c448f010"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">methods each GUI must implement</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Start the GUI loop </p>
 </div></td></tr>
-<tr class="memitem:a274d8c29f93b0ca92a52689167945ceb"><td class="memItemLeft" align="right" valign="top"><a id="a274d8c29f93b0ca92a52689167945ceb"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>mainLoop</b> ()=0</td></tr>
+<tr class="memitem:a274d8c29f93b0ca92a52689167945ceb"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a274d8c29f93b0ca92a52689167945ceb">mainLoop</a> ()=0</td></tr>
 <tr class="separator:a274d8c29f93b0ca92a52689167945ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d0da843a30be9dea91e650b8a1e639e"><td class="memItemLeft" align="right" valign="top"><a id="a1d0da843a30be9dea91e650b8a1e639e"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a1d0da843a30be9dea91e650b8a1e639e">redraw</a> ()=0</td></tr>
-<tr class="memdesc:a1d0da843a30be9dea91e650b8a1e639e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the GUI. <br /></td></tr>
+<tr class="memitem:a1d0da843a30be9dea91e650b8a1e639e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a1d0da843a30be9dea91e650b8a1e639e">redraw</a> ()=0</td></tr>
+<tr class="memdesc:a1d0da843a30be9dea91e650b8a1e639e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the GUI.  <a href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a1d0da843a30be9dea91e650b8a1e639e">More...</a><br /></td></tr>
 <tr class="separator:a1d0da843a30be9dea91e650b8a1e639e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2199bd358ae57bbdf6704ebe814e97d"><td class="memItemLeft" align="right" valign="top"><a id="ae2199bd358ae57bbdf6704ebe814e97d"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ae2199bd358ae57bbdf6704ebe814e97d">closeGUI</a> ()=0</td></tr>
-<tr class="memdesc:ae2199bd358ae57bbdf6704ebe814e97d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the GUI. <br /></td></tr>
+<tr class="memitem:ae2199bd358ae57bbdf6704ebe814e97d"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ae2199bd358ae57bbdf6704ebe814e97d">closeGUI</a> ()=0</td></tr>
+<tr class="memdesc:ae2199bd358ae57bbdf6704ebe814e97d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the GUI.  <a href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ae2199bd358ae57bbdf6704ebe814e97d">More...</a><br /></td></tr>
 <tr class="separator:ae2199bd358ae57bbdf6704ebe814e97d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadc45283c0195523562b1cd334d4ff6c"><td class="memItemLeft" align="right" valign="top"><a id="aadc45283c0195523562b1cd334d4ff6c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#aadc45283c0195523562b1cd334d4ff6c">setScene</a> (sofa::simulation::NodeSPtr groot, const char *filename=nullptr, bool temporaryFile=false)=0</td></tr>
-<tr class="memdesc:aadc45283c0195523562b1cd334d4ff6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the scene in our GUI. <br /></td></tr>
+<tr class="memitem:aadc45283c0195523562b1cd334d4ff6c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#aadc45283c0195523562b1cd334d4ff6c">setScene</a> (<a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a> groot, const char *filename=nullptr, bool temporaryFile=false)=0</td></tr>
+<tr class="memdesc:aadc45283c0195523562b1cd334d4ff6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the scene in our GUI.  <a href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#aadc45283c0195523562b1cd334d4ff6c">More...</a><br /></td></tr>
 <tr class="separator:aadc45283c0195523562b1cd334d4ff6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3066f6f0738cc26a50abf049fd2c030"><td class="memItemLeft" align="right" valign="top"><a id="aa3066f6f0738cc26a50abf049fd2c030"></a>
-virtual <a class="el" href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#aa3066f6f0738cc26a50abf049fd2c030">currentSimulation</a> ()=0</td></tr>
-<tr class="memdesc:aa3066f6f0738cc26a50abf049fd2c030"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the rootNode of the sofa scene. <br /></td></tr>
+<tr class="memitem:aa3066f6f0738cc26a50abf049fd2c030"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#aa3066f6f0738cc26a50abf049fd2c030">currentSimulation</a> ()=0</td></tr>
+<tr class="memdesc:aa3066f6f0738cc26a50abf049fd2c030"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the rootNode of the sofa scene.  <a href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#aa3066f6f0738cc26a50abf049fd2c030">More...</a><br /></td></tr>
 <tr class="separator:aa3066f6f0738cc26a50abf049fd2c030"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">methods to configure the GUI</div></td></tr>
-<tr class="memitem:a1434eaaa8c95ca85983ac720e9da8a5c"><td class="memItemLeft" align="right" valign="top"><a id="a1434eaaa8c95ca85983ac720e9da8a5c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setDumpState</b> (bool)</td></tr>
+<tr class="memitem:a1434eaaa8c95ca85983ac720e9da8a5c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a1434eaaa8c95ca85983ac720e9da8a5c">setDumpState</a> (bool)</td></tr>
 <tr class="separator:a1434eaaa8c95ca85983ac720e9da8a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b0b37a4a39307c6a65193b64c098bae"><td class="memItemLeft" align="right" valign="top"><a id="a8b0b37a4a39307c6a65193b64c098bae"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setLogTime</b> (bool)</td></tr>
+<tr class="memitem:a8b0b37a4a39307c6a65193b64c098bae"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a8b0b37a4a39307c6a65193b64c098bae">setLogTime</a> (bool)</td></tr>
 <tr class="separator:a8b0b37a4a39307c6a65193b64c098bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a047df3272f4fc3ae9666ee88873420fe"><td class="memItemLeft" align="right" valign="top"><a id="a047df3272f4fc3ae9666ee88873420fe"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setExportState</b> (bool)</td></tr>
+<tr class="memitem:a047df3272f4fc3ae9666ee88873420fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a047df3272f4fc3ae9666ee88873420fe">setExportState</a> (bool)</td></tr>
 <tr class="separator:a047df3272f4fc3ae9666ee88873420fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0c8a64e59422186b4f30834436b7e1a"><td class="memItemLeft" align="right" valign="top"><a id="ae0c8a64e59422186b4f30834436b7e1a"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setRecordPath</b> (const std::string &amp;)</td></tr>
+<tr class="memitem:ae0c8a64e59422186b4f30834436b7e1a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ae0c8a64e59422186b4f30834436b7e1a">setRecordPath</a> (const std::string &amp;)</td></tr>
 <tr class="separator:ae0c8a64e59422186b4f30834436b7e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2385e871ccda0f743284aac1b4bea06"><td class="memItemLeft" align="right" valign="top"><a id="ac2385e871ccda0f743284aac1b4bea06"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setGnuplotPath</b> (const std::string &amp;)</td></tr>
+<tr class="memitem:ac2385e871ccda0f743284aac1b4bea06"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ac2385e871ccda0f743284aac1b4bea06">setGnuplotPath</a> (const std::string &amp;)</td></tr>
 <tr class="separator:ac2385e871ccda0f743284aac1b4bea06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3eb7e69e5cdc661f510b646ff314ce8f"><td class="memItemLeft" align="right" valign="top"><a id="a3eb7e69e5cdc661f510b646ff314ce8f"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>initViewer</b> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_base_viewer.html">BaseViewer</a> *)</td></tr>
+<tr class="memitem:a3eb7e69e5cdc661f510b646ff314ce8f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a3eb7e69e5cdc661f510b646ff314ce8f">initViewer</a> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_base_viewer.html">BaseViewer</a> *)</td></tr>
 <tr class="separator:a3eb7e69e5cdc661f510b646ff314ce8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68213251ec9dfd9cacedc3cc0c0a7ebf"><td class="memItemLeft" align="right" valign="top"><a id="a68213251ec9dfd9cacedc3cc0c0a7ebf"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setViewerConfiguration</b> (<a class="el" href="classsofa_1_1component_1_1setting_1_1_viewer_setting.html">sofa::component::setting::ViewerSetting</a> *)</td></tr>
+<tr class="memitem:a68213251ec9dfd9cacedc3cc0c0a7ebf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a68213251ec9dfd9cacedc3cc0c0a7ebf">setViewerConfiguration</a> (<a class="el" href="classsofa_1_1component_1_1setting_1_1_viewer_setting.html">sofa::component::setting::ViewerSetting</a> *)</td></tr>
 <tr class="separator:a68213251ec9dfd9cacedc3cc0c0a7ebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8698aa3010cffe786a71e5ea5f50bc8"><td class="memItemLeft" align="right" valign="top"><a id="aa8698aa3010cffe786a71e5ea5f50bc8"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setViewerResolution</b> (int, int)</td></tr>
+<tr class="memitem:aa8698aa3010cffe786a71e5ea5f50bc8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#aa8698aa3010cffe786a71e5ea5f50bc8">setViewerResolution</a> (int, int)</td></tr>
 <tr class="separator:aa8698aa3010cffe786a71e5ea5f50bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab37212c3544c38886b8f8b9b40c121e5"><td class="memItemLeft" align="right" valign="top"><a id="ab37212c3544c38886b8f8b9b40c121e5"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setFullScreen</b> ()</td></tr>
+<tr class="memitem:ab37212c3544c38886b8f8b9b40c121e5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ab37212c3544c38886b8f8b9b40c121e5">setFullScreen</a> ()</td></tr>
 <tr class="separator:ab37212c3544c38886b8f8b9b40c121e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6585ce92745a6563325aa8b33e695c6"><td class="memItemLeft" align="right" valign="top"><a id="aa6585ce92745a6563325aa8b33e695c6"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>centerWindow</b> ()</td></tr>
+<tr class="memitem:aa6585ce92745a6563325aa8b33e695c6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#aa6585ce92745a6563325aa8b33e695c6">centerWindow</a> ()</td></tr>
 <tr class="separator:aa6585ce92745a6563325aa8b33e695c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2de04c99c758d0f4319ee0d0b981fe22"><td class="memItemLeft" align="right" valign="top"><a id="a2de04c99c758d0f4319ee0d0b981fe22"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setBackgroundColor</b> (const <a class="el" href="classsofa_1_1type_1_1_r_g_b_a_color.html">sofa::type::RGBAColor</a> &amp;)</td></tr>
+<tr class="memitem:a2de04c99c758d0f4319ee0d0b981fe22"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a2de04c99c758d0f4319ee0d0b981fe22">setBackgroundColor</a> (const <a class="el" href="classsofa_1_1type_1_1_r_g_b_a_color.html">sofa::type::RGBAColor</a> &amp;)</td></tr>
 <tr class="separator:a2de04c99c758d0f4319ee0d0b981fe22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50a3e495cc753105534f201bbf183267"><td class="memItemLeft" align="right" valign="top"><a id="a50a3e495cc753105534f201bbf183267"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setBackgroundImage</b> (const std::string &amp;)</td></tr>
+<tr class="memitem:a50a3e495cc753105534f201bbf183267"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a50a3e495cc753105534f201bbf183267">setBackgroundImage</a> (const std::string &amp;)</td></tr>
 <tr class="separator:a50a3e495cc753105534f201bbf183267"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad91e3c0c228b737acebd0408ceb42577"><td class="memItemLeft" align="right" valign="top"><a id="ad91e3c0c228b737acebd0408ceb42577"></a>
-virtual <a class="el" href="classsofa_1_1gui_1_1common_1_1_base_viewer.html">BaseViewer</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getViewer</b> ()</td></tr>
+<tr class="memitem:ad91e3c0c228b737acebd0408ceb42577"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classsofa_1_1gui_1_1common_1_1_base_viewer.html">BaseViewer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ad91e3c0c228b737acebd0408ceb42577">getViewer</a> ()</td></tr>
 <tr class="separator:ad91e3c0c228b737acebd0408ceb42577"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1e7adfbecb5ac40ed277b42cf8d22f4"><td class="memItemLeft" align="right" valign="top"><a id="af1e7adfbecb5ac40ed277b42cf8d22f4"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>registerViewer</b> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_base_viewer.html">BaseViewer</a> *)</td></tr>
+<tr class="memitem:af1e7adfbecb5ac40ed277b42cf8d22f4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#af1e7adfbecb5ac40ed277b42cf8d22f4">registerViewer</a> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_base_viewer.html">BaseViewer</a> *)</td></tr>
 <tr class="separator:af1e7adfbecb5ac40ed277b42cf8d22f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2a8ee00ad68a30df0467acf9dec7875"><td class="memItemLeft" align="right" valign="top"><a id="aa2a8ee00ad68a30df0467acf9dec7875"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>saveScreenshot</b> (const std::string &amp;filename, int compression_level=-1)</td></tr>
+<tr class="memitem:aa2a8ee00ad68a30df0467acf9dec7875"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#aa2a8ee00ad68a30df0467acf9dec7875">saveScreenshot</a> (const std::string &amp;filename, int compression_level=-1)</td></tr>
 <tr class="separator:aa2a8ee00ad68a30df0467acf9dec7875"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a90ba4dfc134c475f4099c395e1e8a8"><td class="memItemLeft" align="right" valign="top"><a id="a7a90ba4dfc134c475f4099c395e1e8a8"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setMouseButtonConfiguration</b> (<a class="el" href="classsofa_1_1component_1_1setting_1_1_mouse_button_setting.html">sofa::component::setting::MouseButtonSetting</a> *)</td></tr>
+<tr class="memitem:a7a90ba4dfc134c475f4099c395e1e8a8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a7a90ba4dfc134c475f4099c395e1e8a8">setMouseButtonConfiguration</a> (<a class="el" href="classsofa_1_1component_1_1setting_1_1_mouse_button_setting.html">sofa::component::setting::MouseButtonSetting</a> *)</td></tr>
 <tr class="separator:a7a90ba4dfc134c475f4099c395e1e8a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">methods to communicate with the GUI</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Do one step of the GUI loop </p>
 </div></td></tr>
-<tr class="memitem:a6cda0e7283cd6a09401f48010b126e0f"><td class="memItemLeft" align="right" valign="top"><a id="a6cda0e7283cd6a09401f48010b126e0f"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>stepMainLoop</b> ()</td></tr>
+<tr class="memitem:a6cda0e7283cd6a09401f48010b126e0f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a6cda0e7283cd6a09401f48010b126e0f">stepMainLoop</a> ()</td></tr>
 <tr class="separator:a6cda0e7283cd6a09401f48010b126e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad39c34cac33bef852581257a55956a6f"><td class="memItemLeft" align="right" valign="top"><a id="ad39c34cac33bef852581257a55956a6f"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ad39c34cac33bef852581257a55956a6f">sendMessage</a> (const std::string &amp;, const std::string &amp;)</td></tr>
-<tr class="memdesc:ad39c34cac33bef852581257a55956a6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a (script) message. <br /></td></tr>
+<tr class="memitem:ad39c34cac33bef852581257a55956a6f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ad39c34cac33bef852581257a55956a6f">sendMessage</a> (const std::string &amp;, const std::string &amp;)</td></tr>
+<tr class="memdesc:ad39c34cac33bef852581257a55956a6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a (script) message.  <a href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ad39c34cac33bef852581257a55956a6f">More...</a><br /></td></tr>
 <tr class="separator:ad39c34cac33bef852581257a55956a6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a362b944a713be46635fe93b22520a190"><td class="memItemLeft" align="right" valign="top"><a id="a362b944a713be46635fe93b22520a190"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a362b944a713be46635fe93b22520a190">showFPS</a> (double)</td></tr>
-<tr class="memdesc:a362b944a713be46635fe93b22520a190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Force the displayed FPS value (if any) <br /></td></tr>
+<tr class="memitem:a362b944a713be46635fe93b22520a190"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a362b944a713be46635fe93b22520a190">showFPS</a> (double)</td></tr>
+<tr class="memdesc:a362b944a713be46635fe93b22520a190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Force the displayed FPS value (if any)  <a href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a362b944a713be46635fe93b22520a190">More...</a><br /></td></tr>
 <tr class="separator:a362b944a713be46635fe93b22520a190"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a75fc48fa18630a95bc42bbaf2da85cad"><td class="memItemLeft" align="right" valign="top"><a id="a75fc48fa18630a95bc42bbaf2da85cad"></a>
-static std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetGUIName</b> ()</td></tr>
+<tr class="memitem:a75fc48fa18630a95bc42bbaf2da85cad"><td class="memItemLeft" align="right" valign="top">static std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a75fc48fa18630a95bc42bbaf2da85cad">GetGUIName</a> ()</td></tr>
 <tr class="separator:a75fc48fa18630a95bc42bbaf2da85cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac686206d4b883e14d258149b3c88efe2"><td class="memItemLeft" align="right" valign="top"><a id="ac686206d4b883e14d258149b3c88efe2"></a>
-static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>GetProgramName</b> ()</td></tr>
+<tr class="memitem:ac686206d4b883e14d258149b3c88efe2"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ac686206d4b883e14d258149b3c88efe2">GetProgramName</a> ()</td></tr>
 <tr class="separator:ac686206d4b883e14d258149b3c88efe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3a7ac7b5fc09508fb50265957085df3"><td class="memItemLeft" align="right" valign="top"><a id="af3a7ac7b5fc09508fb50265957085df3"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetProgramName</b> (const char *argv0)</td></tr>
+<tr class="memitem:af3a7ac7b5fc09508fb50265957085df3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#af3a7ac7b5fc09508fb50265957085df3">SetProgramName</a> (const char *argv0)</td></tr>
 <tr class="separator:af3a7ac7b5fc09508fb50265957085df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae21a33861869d4bceaac72c4f6a3c156"><td class="memItemLeft" align="right" valign="top"><a id="ae21a33861869d4bceaac72c4f6a3c156"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetArgumentParser</b> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> *parser)</td></tr>
+<tr class="memitem:ae21a33861869d4bceaac72c4f6a3c156"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ae21a33861869d4bceaac72c4f6a3c156">SetArgumentParser</a> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> *parser)</td></tr>
 <tr class="separator:ae21a33861869d4bceaac72c4f6a3c156"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46514950951a5d8dc910ff9fd3e10ba7"><td class="memItemLeft" align="right" valign="top"><a id="a46514950951a5d8dc910ff9fd3e10ba7"></a>
-static const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getConfigDirectoryPath</b> ()</td></tr>
+<tr class="memitem:a46514950951a5d8dc910ff9fd3e10ba7"><td class="memItemLeft" align="right" valign="top">static const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a46514950951a5d8dc910ff9fd3e10ba7">getConfigDirectoryPath</a> ()</td></tr>
 <tr class="separator:a46514950951a5d8dc910ff9fd3e10ba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a671bafe7301bf1fadccf9df7653ec8"><td class="memItemLeft" align="right" valign="top"><a id="a8a671bafe7301bf1fadccf9df7653ec8"></a>
-static const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getScreenshotDirectoryPath</b> ()</td></tr>
+<tr class="memitem:a8a671bafe7301bf1fadccf9df7653ec8"><td class="memItemLeft" align="right" valign="top">static const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a8a671bafe7301bf1fadccf9df7653ec8">getScreenshotDirectoryPath</a> ()</td></tr>
 <tr class="separator:a8a671bafe7301bf1fadccf9df7653ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f8856a1fe95598a38164940a0a5f0fa"><td class="memItemLeft" align="right" valign="top"><a id="a2f8856a1fe95598a38164940a0a5f0fa"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>setConfigDirectoryPath</b> (const std::string &amp;path, bool createIfNecessary=false)</td></tr>
+<tr class="memitem:a2f8856a1fe95598a38164940a0a5f0fa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a2f8856a1fe95598a38164940a0a5f0fa">setConfigDirectoryPath</a> (const std::string &amp;path, bool createIfNecessary=false)</td></tr>
 <tr class="separator:a2f8856a1fe95598a38164940a0a5f0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24abed27cf34e2515703156266c31286"><td class="memItemLeft" align="right" valign="top"><a id="a24abed27cf34e2515703156266c31286"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>setScreenshotDirectoryPath</b> (const std::string &amp;path, bool createIfNecessary=false)</td></tr>
+<tr class="memitem:a24abed27cf34e2515703156266c31286"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a24abed27cf34e2515703156266c31286">setScreenshotDirectoryPath</a> (const std::string &amp;path, bool createIfNecessary=false)</td></tr>
 <tr class="separator:a24abed27cf34e2515703156266c31286"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a6d446fbff4ab2464198ca5f0e424552a"><td class="memItemLeft" align="right" valign="top"><a id="a6d446fbff4ab2464198ca5f0e424552a"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a6d446fbff4ab2464198ca5f0e424552a">~BaseGUI</a> ()</td></tr>
-<tr class="memdesc:a6d446fbff4ab2464198ca5f0e424552a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The destructor should not be called directly. Use the <a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ae2199bd358ae57bbdf6704ebe814e97d" title="Close the GUI.">closeGUI()</a> method instead. <br /></td></tr>
+<tr class="memitem:aab44e0addbe8f29db678df2f627d32ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#aab44e0addbe8f29db678df2f627d32ea">BaseGUI</a> ()</td></tr>
+<tr class="separator:aab44e0addbe8f29db678df2f627d32ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d446fbff4ab2464198ca5f0e424552a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a6d446fbff4ab2464198ca5f0e424552a">~BaseGUI</a> ()</td></tr>
+<tr class="memdesc:a6d446fbff4ab2464198ca5f0e424552a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The destructor should not be called directly. Use the <a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ae2199bd358ae57bbdf6704ebe814e97d" title="Close the GUI.">closeGUI()</a> method instead.  <a href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a6d446fbff4ab2464198ca5f0e424552a">More...</a><br /></td></tr>
 <tr class="separator:a6d446fbff4ab2464198ca5f0e424552a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:ab595676245d42194f56a2b058788c35d"><td class="memItemLeft" align="right" valign="top"><a id="ab595676245d42194f56a2b058788c35d"></a>
-static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>mGuiName</b> = &quot;&quot;</td></tr>
+<tr class="memitem:ab595676245d42194f56a2b058788c35d"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ab595676245d42194f56a2b058788c35d">mGuiName</a> = &quot;&quot;</td></tr>
 <tr class="separator:ab595676245d42194f56a2b058788c35d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a415d106720749eb92dee314c3bff3b01"><td class="memItemLeft" align="right" valign="top"><a id="a415d106720749eb92dee314c3bff3b01"></a>
-static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>configDirectoryPath</b> = &quot;.&quot;</td></tr>
+<tr class="memitem:a415d106720749eb92dee314c3bff3b01"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a415d106720749eb92dee314c3bff3b01">configDirectoryPath</a> = &quot;.&quot;</td></tr>
 <tr class="separator:a415d106720749eb92dee314c3bff3b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae16f7bc25ed150978428725cba3ccb6d"><td class="memItemLeft" align="right" valign="top"><a id="ae16f7bc25ed150978428725cba3ccb6d"></a>
-static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>screenshotDirectoryPath</b> = &quot;.&quot;</td></tr>
+<tr class="memitem:ae16f7bc25ed150978428725cba3ccb6d"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ae16f7bc25ed150978428725cba3ccb6d">screenshotDirectoryPath</a> = &quot;.&quot;</td></tr>
 <tr class="separator:ae16f7bc25ed150978428725cba3ccb6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55c5d3b124c4730af8b77077b5374d93"><td class="memItemLeft" align="right" valign="top"><a id="a55c5d3b124c4730af8b77077b5374d93"></a>
-static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>mProgramName</b> = nullptr</td></tr>
+<tr class="memitem:a55c5d3b124c4730af8b77077b5374d93"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#a55c5d3b124c4730af8b77077b5374d93">mProgramName</a> = nullptr</td></tr>
 <tr class="separator:a55c5d3b124c4730af8b77077b5374d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7497bb317211b727f6a40f4fa627a9f"><td class="memItemLeft" align="right" valign="top"><a id="ab7497bb317211b727f6a40f4fa627a9f"></a>
-static <a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mArgumentParser</b> = nullptr</td></tr>
+<tr class="memitem:ab7497bb317211b727f6a40f4fa627a9f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ab7497bb317211b727f6a40f4fa627a9f">mArgumentParser</a> = nullptr</td></tr>
 <tr class="separator:ab7497bb317211b727f6a40f4fa627a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aab44e0addbe8f29db678df2f627d32ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab44e0addbe8f29db678df2f627d32ea">&#9670;&nbsp;</a></span>BaseGUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html">BaseGUI</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d446fbff4ab2464198ca5f0e424552a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d446fbff4ab2464198ca5f0e424552a">&#9670;&nbsp;</a></span>~BaseGUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html">BaseGUI</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The destructor should not be called directly. Use the <a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html#ae2199bd358ae57bbdf6704ebe814e97d" title="Close the GUI.">closeGUI()</a> method instead. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a613b8b51908366e64dc0bc42c448f010"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a613b8b51908366e64dc0bc42c448f010">&#9670;&nbsp;</a></span>canBeDefaultGUI()</h2>
@@ -282,13 +299,1122 @@ static <a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">
 
 </div>
 </div>
+<a id="aa6585ce92745a6563325aa8b33e695c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6585ce92745a6563325aa8b33e695c6">&#9670;&nbsp;</a></span>centerWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void centerWindow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#a3ba90c9c905080c87c5a40344c2a6f7d">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="ae2199bd358ae57bbdf6704ebe814e97d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2199bd358ae57bbdf6704ebe814e97d">&#9670;&nbsp;</a></span>closeGUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int closeGUI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Close the GUI. </p>
+
+<p>Implemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#adbe3fa84e69e342433f17cd8f5e907de">RealGUI</a>, <a class="el" href="classsofa_1_1gui_1_1hrecorder_1_1_headless_recorder.html#adbe3fa84e69e342433f17cd8f5e907de">HeadlessRecorder</a>, and <a class="el" href="classsofa_1_1gui_1_1batch_1_1_batch_g_u_i.html#adbe3fa84e69e342433f17cd8f5e907de">BatchGUI</a>.</p>
+
+</div>
+</div>
+<a id="a86b9156a155596cbdeea9a49fe8ced81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86b9156a155596cbdeea9a49fe8ced81">&#9670;&nbsp;</a></span>configureGUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void configureGUI </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a>&#160;</td>
+          <td class="paramname"><em>groot</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use a component setting to configure our GUI. </p>
+
+</div>
+</div>
+<a id="aa3066f6f0738cc26a50abf049fd2c030"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3066f6f0738cc26a50abf049fd2c030">&#9670;&nbsp;</a></span>currentSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a>* currentSimulation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the rootNode of the sofa scene. </p>
+
+<p>Implemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#a3e1fb8b1fd42dcf2977b817c49ffb389">RealGUI</a>, <a class="el" href="classsofa_1_1gui_1_1hrecorder_1_1_headless_recorder.html#a3e1fb8b1fd42dcf2977b817c49ffb389">HeadlessRecorder</a>, and <a class="el" href="classsofa_1_1gui_1_1batch_1_1_batch_g_u_i.html#a3e1fb8b1fd42dcf2977b817c49ffb389">BatchGUI</a>.</p>
+
+</div>
+</div>
+<a id="af3e9b9293d4637b22bdfb7e75453f567"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3e9b9293d4637b22bdfb7e75453f567">&#9670;&nbsp;</a></span>exportGnuplot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void exportGnuplot </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>gnuplot_directory</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a46514950951a5d8dc910ff9fd3e10ba7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46514950951a5d8dc910ff9fd3e10ba7">&#9670;&nbsp;</a></span>getConfigDirectoryPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; getConfigDirectoryPath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75fc48fa18630a95bc42bbaf2da85cad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75fc48fa18630a95bc42bbaf2da85cad">&#9670;&nbsp;</a></span>GetGUIName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string&amp; GetGUIName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac686206d4b883e14d258149b3c88efe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac686206d4b883e14d258149b3c88efe2">&#9670;&nbsp;</a></span>GetProgramName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const char* GetProgramName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8a671bafe7301bf1fadccf9df7653ec8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a671bafe7301bf1fadccf9df7653ec8">&#9670;&nbsp;</a></span>getScreenshotDirectoryPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; getScreenshotDirectoryPath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad91e3c0c228b737acebd0408ceb42577"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad91e3c0c228b737acebd0408ceb42577">&#9670;&nbsp;</a></span>getViewer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classsofa_1_1gui_1_1common_1_1_base_viewer.html">BaseViewer</a>* getViewer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#a0a8d90b6ad8a1fdd3048f16ce7a7ee30">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="a3eb7e69e5cdc661f510b646ff314ce8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3eb7e69e5cdc661f510b646ff314ce8f">&#9670;&nbsp;</a></span>initViewer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void initViewer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_viewer.html">BaseViewer</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#a6405d53357b45157899258025264b95c">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="a274d8c29f93b0ca92a52689167945ceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a274d8c29f93b0ca92a52689167945ceb">&#9670;&nbsp;</a></span>mainLoop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int mainLoop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#a9daadfd9e7a9ab197632432a7771c9a1">RealGUI</a>, <a class="el" href="classsofa_1_1gui_1_1hrecorder_1_1_headless_recorder.html#a9daadfd9e7a9ab197632432a7771c9a1">HeadlessRecorder</a>, and <a class="el" href="classsofa_1_1gui_1_1batch_1_1_batch_g_u_i.html#a9daadfd9e7a9ab197632432a7771c9a1">BatchGUI</a>.</p>
+
+</div>
+</div>
+<a id="a1d0da843a30be9dea91e650b8a1e639e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d0da843a30be9dea91e650b8a1e639e">&#9670;&nbsp;</a></span>redraw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void redraw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Update the GUI. </p>
+
+<p>Implemented in <a class="el" href="classsofa_1_1gui_1_1hrecorder_1_1_headless_recorder.html#a18f19e021d3669eff05e3731dc3a8807">HeadlessRecorder</a>, and <a class="el" href="classsofa_1_1gui_1_1batch_1_1_batch_g_u_i.html#a18f19e021d3669eff05e3731dc3a8807">BatchGUI</a>.</p>
+
+</div>
+</div>
+<a id="af1e7adfbecb5ac40ed277b42cf8d22f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1e7adfbecb5ac40ed277b42cf8d22f4">&#9670;&nbsp;</a></span>registerViewer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void registerViewer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_viewer.html">BaseViewer</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#ad96d07d6df2833c0eadd8cb1114f3c88">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="aa2a8ee00ad68a30df0467acf9dec7875"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2a8ee00ad68a30df0467acf9dec7875">&#9670;&nbsp;</a></span>saveScreenshot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool saveScreenshot </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>compression_level</em> = <code>-1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad39c34cac33bef852581257a55956a6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad39c34cac33bef852581257a55956a6f">&#9670;&nbsp;</a></span>sendMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void sendMessage </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Send a (script) message. </p>
+
+</div>
+</div>
+<a id="ae21a33861869d4bceaac72c4f6a3c156"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae21a33861869d4bceaac72c4f6a3c156">&#9670;&nbsp;</a></span>SetArgumentParser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SetArgumentParser </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> *&#160;</td>
+          <td class="paramname"><em>parser</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2de04c99c758d0f4319ee0d0b981fe22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2de04c99c758d0f4319ee0d0b981fe22">&#9670;&nbsp;</a></span>setBackgroundColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setBackgroundColor </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_r_g_b_a_color.html">sofa::type::RGBAColor</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1hrecorder_1_1_headless_recorder.html#a7f03b21d26387e2dd3a4265302685120">HeadlessRecorder</a>, and <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#a6015d1a89ece2a6f8c72f81e3f314b62">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="a50a3e495cc753105534f201bbf183267"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50a3e495cc753105534f201bbf183267">&#9670;&nbsp;</a></span>setBackgroundImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setBackgroundImage </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#ab91c704527f64d314816d2c5fce82366">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="a2f8856a1fe95598a38164940a0a5f0fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f8856a1fe95598a38164940a0a5f0fa">&#9670;&nbsp;</a></span>setConfigDirectoryPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setConfigDirectoryPath </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>createIfNecessary</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1434eaaa8c95ca85983ac720e9da8a5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1434eaaa8c95ca85983ac720e9da8a5c">&#9670;&nbsp;</a></span>setDumpState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setDumpState </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#a2a7dc4cfa27318e489bd689bff69c083">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="a047df3272f4fc3ae9666ee88873420fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a047df3272f4fc3ae9666ee88873420fe">&#9670;&nbsp;</a></span>setExportState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setExportState </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#aca93c46de25507c027b08a7c2962b324">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="ab37212c3544c38886b8f8b9b40c121e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab37212c3544c38886b8f8b9b40c121e5">&#9670;&nbsp;</a></span>setFullScreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setFullScreen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#ad08956f2866a9c470f617ff88c54a8ed">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="ac2385e871ccda0f743284aac1b4bea06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2385e871ccda0f743284aac1b4bea06">&#9670;&nbsp;</a></span>setGnuplotPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setGnuplotPath </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#aa32051c86861146de3ec2edf7d577bef">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="a8b0b37a4a39307c6a65193b64c098bae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b0b37a4a39307c6a65193b64c098bae">&#9670;&nbsp;</a></span>setLogTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setLogTime </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#a71194f2de753f0fc74fff1845a3f6039">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="a7a90ba4dfc134c475f4099c395e1e8a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a90ba4dfc134c475f4099c395e1e8a8">&#9670;&nbsp;</a></span>setMouseButtonConfiguration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setMouseButtonConfiguration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1setting_1_1_mouse_button_setting.html">sofa::component::setting::MouseButtonSetting</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#a34045bc1ddeb865839337ebd99a55f44">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="af3a7ac7b5fc09508fb50265957085df3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3a7ac7b5fc09508fb50265957085df3">&#9670;&nbsp;</a></span>SetProgramName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SetProgramName </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>argv0</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae0c8a64e59422186b4f30834436b7e1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0c8a64e59422186b4f30834436b7e1a">&#9670;&nbsp;</a></span>setRecordPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setRecordPath </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#a0cc3e99fbcac8c984d62696ee88911c8">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="aadc45283c0195523562b1cd334d4ff6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc45283c0195523562b1cd334d4ff6c">&#9670;&nbsp;</a></span>setScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setScene </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a>&#160;</td>
+          <td class="paramname"><em>groot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>temporaryFile</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Register the scene in our GUI. </p>
+
+<p>Implemented in <a class="el" href="classsofa_1_1gui_1_1hrecorder_1_1_headless_recorder.html#affb599ed330a3669fca5dc589430c1e2">HeadlessRecorder</a>, and <a class="el" href="classsofa_1_1gui_1_1batch_1_1_batch_g_u_i.html#a318a8e4121c79e9b560ffa2fa8265564">BatchGUI</a>.</p>
+
+</div>
+</div>
+<a id="a24abed27cf34e2515703156266c31286"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24abed27cf34e2515703156266c31286">&#9670;&nbsp;</a></span>setScreenshotDirectoryPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setScreenshotDirectoryPath </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>createIfNecessary</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a68213251ec9dfd9cacedc3cc0c0a7ebf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68213251ec9dfd9cacedc3cc0c0a7ebf">&#9670;&nbsp;</a></span>setViewerConfiguration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setViewerConfiguration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1setting_1_1_viewer_setting.html">sofa::component::setting::ViewerSetting</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#a0a102a3ba47e33df7abfdbd645cc0d29">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="aa8698aa3010cffe786a71e5ea5f50bc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8698aa3010cffe786a71e5ea5f50bc8">&#9670;&nbsp;</a></span>setViewerResolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setViewerResolution </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1hrecorder_1_1_headless_recorder.html#a446e3ce78c32bb064b1e94dd33f10d86">HeadlessRecorder</a>, and <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#afdf52caaee84e25087f0ac493c5fc675">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="a362b944a713be46635fe93b22520a190"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a362b944a713be46635fe93b22520a190">&#9670;&nbsp;</a></span>showFPS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void showFPS </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Force the displayed FPS value (if any) </p>
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#a61e0cb4d8564f73bd694e141be1dcb01">RealGUI</a>.</p>
+
+</div>
+</div>
+<a id="a6cda0e7283cd6a09401f48010b126e0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cda0e7283cd6a09401f48010b126e0f">&#9670;&nbsp;</a></span>stepMainLoop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stepMainLoop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i.html#afe99cfc7bc96ae855755fab64d7179af">RealGUI</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a415d106720749eb92dee314c3bff3b01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a415d106720749eb92dee314c3bff3b01">&#9670;&nbsp;</a></span>configDirectoryPath</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string configDirectoryPath = &quot;.&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7497bb317211b727f6a40f4fa627a9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7497bb317211b727f6a40f4fa627a9f">&#9670;&nbsp;</a></span>mArgumentParser</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> * mArgumentParser = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab595676245d42194f56a2b058788c35d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab595676245d42194f56a2b058788c35d">&#9670;&nbsp;</a></span>mGuiName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string mGuiName = &quot;&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a55c5d3b124c4730af8b77077b5374d93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55c5d3b124c4730af8b77077b5374d93">&#9670;&nbsp;</a></span>mProgramName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * mProgramName = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae16f7bc25ed150978428725cba3ccb6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae16f7bc25ed150978428725cba3ccb6d">&#9670;&nbsp;</a></span>screenshotDirectoryPath</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string screenshotDirectoryPath = &quot;.&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>gui</b></li><li class="navelem"><b>common</b></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html">BaseGUI</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:34 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui.html">gui</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui_1_1common.html">common</a></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html">BaseGUI</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:22 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -106,241 +106,322 @@ Inheritance diagram for ExportDotVisitor:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1dae6462ac1a42d6e1aee07d415fdfe3"><td class="memItemLeft" align="right" valign="top"><a id="a1dae6462ac1a42d6e1aee07d415fdfe3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ExportDotVisitor</b> (const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">sofa::core::ExecParams</a> *params, std::ostream *out)</td></tr>
+<tr class="memitem:a1dae6462ac1a42d6e1aee07d415fdfe3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a1dae6462ac1a42d6e1aee07d415fdfe3">ExportDotVisitor</a> (const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">sofa::core::ExecParams</a> *<a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a411a9e574e4ee3fda502e89ace0d4c67">params</a>, std::ostream *<a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#ac1e872e3d15c0cda3b66bc218820e2cc">out</a>)</td></tr>
 <tr class="separator:a1dae6462ac1a42d6e1aee07d415fdfe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01172bf7c7ff7079e6b4f3e2042fcfad"><td class="memItemLeft" align="right" valign="top"><a id="a01172bf7c7ff7079e6b4f3e2042fcfad"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>processObject</b> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">Node</a> *node, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a> *obj)</td></tr>
+<tr class="memitem:aa96b9c8e23da5f0828ab920ad95e86fa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#aa96b9c8e23da5f0828ab920ad95e86fa">~ExportDotVisitor</a> () override</td></tr>
+<tr class="separator:aa96b9c8e23da5f0828ab920ad95e86fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01172bf7c7ff7079e6b4f3e2042fcfad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a01172bf7c7ff7079e6b4f3e2042fcfad">processObject</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">Node</a> *node, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a> *obj)</td></tr>
 <tr class="separator:a01172bf7c7ff7079e6b4f3e2042fcfad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93da9053c38136ba5796e5917f5b6fe9"><td class="memItemLeft" align="right" valign="top"><a id="a93da9053c38136ba5796e5917f5b6fe9"></a>
-Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a93da9053c38136ba5796e5917f5b6fe9">processNodeTopDown</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">Node</a> *node) override</td></tr>
-<tr class="memdesc:a93da9053c38136ba5796e5917f5b6fe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback method called when decending to a new node. Recursion will stop if this method returns RESULT_PRUNE. <br /></td></tr>
+<tr class="memitem:a93da9053c38136ba5796e5917f5b6fe9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a28287671eaf7406afd604bd055ba4066">Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a93da9053c38136ba5796e5917f5b6fe9">processNodeTopDown</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">Node</a> *node) override</td></tr>
+<tr class="memdesc:a93da9053c38136ba5796e5917f5b6fe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback method called when decending to a new node. Recursion will stop if this method returns RESULT_PRUNE.  <a href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a93da9053c38136ba5796e5917f5b6fe9">More...</a><br /></td></tr>
 <tr class="separator:a93da9053c38136ba5796e5917f5b6fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbbe07fd7046889c0a263bedfb90dd4b"><td class="memItemLeft" align="right" valign="top"><a id="acbbe07fd7046889c0a263bedfb90dd4b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#acbbe07fd7046889c0a263bedfb90dd4b">processNodeBottomUp</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">Node</a> *node) override</td></tr>
-<tr class="memdesc:acbbe07fd7046889c0a263bedfb90dd4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback method called after child node have been processed and before going back to the parent node. <br /></td></tr>
+<tr class="memitem:acbbe07fd7046889c0a263bedfb90dd4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#acbbe07fd7046889c0a263bedfb90dd4b">processNodeBottomUp</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">Node</a> *node) override</td></tr>
+<tr class="memdesc:acbbe07fd7046889c0a263bedfb90dd4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback method called after child node have been processed and before going back to the parent node.  <a href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#acbbe07fd7046889c0a263bedfb90dd4b">More...</a><br /></td></tr>
 <tr class="separator:acbbe07fd7046889c0a263bedfb90dd4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf09a670a9f753e66efb6c1c21a0df28"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#abf09a670a9f753e66efb6c1c21a0df28">getClassName</a> () const override</td></tr>
 <tr class="separator:abf09a670a9f753e66efb6c1c21a0df28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classsofa_1_1simulation_1_1_visitor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classsofa_1_1simulation_1_1_visitor')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classsofa_1_1simulation_1_1_visitor.html">Visitor</a></td></tr>
-<tr class="memitem:acb9f3327da4dcc1030e0913f5968e43e inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="acb9f3327da4dcc1030e0913f5968e43e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Visitor</b> (const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">sofa::core::ExecParams</a> *params)</td></tr>
+<tr class="memitem:acb9f3327da4dcc1030e0913f5968e43e inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#acb9f3327da4dcc1030e0913f5968e43e">Visitor</a> (const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">sofa::core::ExecParams</a> *<a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a411a9e574e4ee3fda502e89ace0d4c67">params</a>)</td></tr>
 <tr class="separator:acb9f3327da4dcc1030e0913f5968e43e inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad453e587131149f6c30b6800240e08e4 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="ad453e587131149f6c30b6800240e08e4"></a>
-const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">sofa::core::ExecParams</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>execParams</b> () const</td></tr>
+<tr class="memitem:a676c192861cc21e718ab9343383280de inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a676c192861cc21e718ab9343383280de">~Visitor</a> ()</td></tr>
+<tr class="separator:a676c192861cc21e718ab9343383280de inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad453e587131149f6c30b6800240e08e4 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">sofa::core::ExecParams</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#ad453e587131149f6c30b6800240e08e4">execParams</a> () const</td></tr>
 <tr class="separator:ad453e587131149f6c30b6800240e08e4 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03ff31b820d428d7feaa54625a33994d inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="a03ff31b820d428d7feaa54625a33994d"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a03ff31b820d428d7feaa54625a33994d">childOrderReversed</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">simulation::Node</a> *)</td></tr>
-<tr class="memdesc:a03ff31b820d428d7feaa54625a33994d inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true to reverse the order of traversal of child nodes. <br /></td></tr>
+<tr class="memitem:a03ff31b820d428d7feaa54625a33994d inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a03ff31b820d428d7feaa54625a33994d">childOrderReversed</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">simulation::Node</a> *)</td></tr>
+<tr class="memdesc:a03ff31b820d428d7feaa54625a33994d inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true to reverse the order of traversal of child nodes.  <a href="classsofa_1_1simulation_1_1_visitor.html#a03ff31b820d428d7feaa54625a33994d">More...</a><br /></td></tr>
 <tr class="separator:a03ff31b820d428d7feaa54625a33994d inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57281c13956232dd8104322c0089539d inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a57281c13956232dd8104322c0089539d">treeTraversal</a> (TreeTraversalRepetition &amp;repeat)</td></tr>
+<tr class="memitem:a57281c13956232dd8104322c0089539d inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a57281c13956232dd8104322c0089539d">treeTraversal</a> (<a class="el" href="classsofa_1_1simulation_1_1_visitor.html#ad6d0c7cad1abce82776373725b477d54">TreeTraversalRepetition</a> &amp;repeat)</td></tr>
 <tr class="separator:a57281c13956232dd8104322c0089539d inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33d8642aff3486401d92c6f5c6de8360 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a33d8642aff3486401d92c6f5c6de8360">getCategoryName</a> () const</td></tr>
 <tr class="separator:a33d8642aff3486401d92c6f5c6de8360 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab99703b674d628dbe67336b075959764 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#ab99703b674d628dbe67336b075959764">getInfos</a> () const</td></tr>
 <tr class="separator:ab99703b674d628dbe67336b075959764 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa04cc3036fb92b9fc814b05162f02855 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="aa04cc3036fb92b9fc814b05162f02855"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>testTags</b> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">sofa::core::objectmodel::BaseObject</a> *obj)</td></tr>
+<tr class="memitem:aa04cc3036fb92b9fc814b05162f02855 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#aa04cc3036fb92b9fc814b05162f02855">testTags</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">sofa::core::objectmodel::BaseObject</a> *obj)</td></tr>
 <tr class="separator:aa04cc3036fb92b9fc814b05162f02855 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2dc1233792fa79dd94e7303eb52c213 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="ab2dc1233792fa79dd94e7303eb52c213"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#ab2dc1233792fa79dd94e7303eb52c213">execute</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_context.html">sofa::core::objectmodel::BaseContext</a> *node, bool precomputedOrder=false)</td></tr>
-<tr class="memdesc:ab2dc1233792fa79dd94e7303eb52c213 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for context-&gt;executeVisitor(this) <br /></td></tr>
+<tr class="memitem:ab2dc1233792fa79dd94e7303eb52c213 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#ab2dc1233792fa79dd94e7303eb52c213">execute</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_context.html">sofa::core::objectmodel::BaseContext</a> *node, bool precomputedOrder=false)</td></tr>
+<tr class="memdesc:ab2dc1233792fa79dd94e7303eb52c213 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for context-&gt;executeVisitor(this)  <a href="classsofa_1_1simulation_1_1_visitor.html#ab2dc1233792fa79dd94e7303eb52c213">More...</a><br /></td></tr>
 <tr class="separator:ab2dc1233792fa79dd94e7303eb52c213 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee419d78257de19977a01b99ad4129d3 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual ctime_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#aee419d78257de19977a01b99ad4129d3">begin</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">simulation::Node</a> *node, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">sofa::core::objectmodel::BaseObject</a> *obj, const std::string &amp;typeInfo=std::string(&quot;type&quot;))</td></tr>
+<tr class="memitem:aee419d78257de19977a01b99ad4129d3 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a93d70724c740be5eea1e9b09929588c2">ctime_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#aee419d78257de19977a01b99ad4129d3">begin</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">simulation::Node</a> *node, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">sofa::core::objectmodel::BaseObject</a> *obj, const std::string &amp;typeInfo=std::string(&quot;type&quot;))</td></tr>
 <tr class="separator:aee419d78257de19977a01b99ad4129d3 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa77c7297ad78183577b8965395e408e inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#afa77c7297ad78183577b8965395e408e">end</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">simulation::Node</a> *node, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">sofa::core::objectmodel::BaseObject</a> *obj, ctime_t t0)</td></tr>
+<tr class="memitem:afa77c7297ad78183577b8965395e408e inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#afa77c7297ad78183577b8965395e408e">end</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">simulation::Node</a> *node, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">sofa::core::objectmodel::BaseObject</a> *obj, <a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a93d70724c740be5eea1e9b09929588c2">ctime_t</a> t0)</td></tr>
 <tr class="separator:afa77c7297ad78183577b8965395e408e inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28e11d1db0cfcd727a76d06be899fbae inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual ctime_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a28e11d1db0cfcd727a76d06be899fbae">begin</a> (<a class="el" href="classsofa_1_1simulation_1_1_visitor_1_1_visitor_context.html">simulation::Visitor::VisitorContext</a> *node, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">sofa::core::objectmodel::BaseObject</a> *obj, const std::string &amp;typeInfo=std::string(&quot;type&quot;))</td></tr>
+<tr class="memitem:a28e11d1db0cfcd727a76d06be899fbae inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a93d70724c740be5eea1e9b09929588c2">ctime_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a28e11d1db0cfcd727a76d06be899fbae">begin</a> (<a class="el" href="classsofa_1_1simulation_1_1_visitor_1_1_visitor_context.html">simulation::Visitor::VisitorContext</a> *node, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">sofa::core::objectmodel::BaseObject</a> *obj, const std::string &amp;typeInfo=std::string(&quot;type&quot;))</td></tr>
 <tr class="separator:a28e11d1db0cfcd727a76d06be899fbae inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26f4ab0e54934d9c3b3e0f33383ed768 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a26f4ab0e54934d9c3b3e0f33383ed768">end</a> (<a class="el" href="classsofa_1_1simulation_1_1_visitor_1_1_visitor_context.html">simulation::Visitor::VisitorContext</a> *node, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">sofa::core::objectmodel::BaseObject</a> *obj, ctime_t t0)</td></tr>
+<tr class="memitem:a26f4ab0e54934d9c3b3e0f33383ed768 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a26f4ab0e54934d9c3b3e0f33383ed768">end</a> (<a class="el" href="classsofa_1_1simulation_1_1_visitor_1_1_visitor_context.html">simulation::Visitor::VisitorContext</a> *node, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">sofa::core::objectmodel::BaseObject</a> *obj, <a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a93d70724c740be5eea1e9b09929588c2">ctime_t</a> t0)</td></tr>
 <tr class="separator:a26f4ab0e54934d9c3b3e0f33383ed768 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c1d0996b8bd8edf442002a2c0428241 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="a8c1d0996b8bd8edf442002a2c0428241"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a8c1d0996b8bd8edf442002a2c0428241">isThreadSafe</a> () const</td></tr>
-<tr class="memdesc:a8c1d0996b8bd8edf442002a2c0428241 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify whether this visitor can be parallelized. <br /></td></tr>
+<tr class="memitem:a8c1d0996b8bd8edf442002a2c0428241 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a8c1d0996b8bd8edf442002a2c0428241">isThreadSafe</a> () const</td></tr>
+<tr class="memdesc:a8c1d0996b8bd8edf442002a2c0428241 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify whether this visitor can be parallelized.  <a href="classsofa_1_1simulation_1_1_visitor.html#a8c1d0996b8bd8edf442002a2c0428241">More...</a><br /></td></tr>
 <tr class="separator:a8c1d0996b8bd8edf442002a2c0428241 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb2a9cc21d9cab445eb14fd286453df7 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#adb2a9cc21d9cab445eb14fd286453df7">processNodeTopDown</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">simulation::Node</a> *node, <a class="el" href="classsofa_1_1simulation_1_1_local_storage.html">LocalStorage</a> *)</td></tr>
+<tr class="memitem:adb2a9cc21d9cab445eb14fd286453df7 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a28287671eaf7406afd604bd055ba4066">Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#adb2a9cc21d9cab445eb14fd286453df7">processNodeTopDown</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">simulation::Node</a> *node, <a class="el" href="classsofa_1_1simulation_1_1_local_storage.html">LocalStorage</a> *)</td></tr>
 <tr class="separator:adb2a9cc21d9cab445eb14fd286453df7 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1da0666a3b5a5928350ae69cbcdcfdbb inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a1da0666a3b5a5928350ae69cbcdcfdbb">processNodeBottomUp</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">simulation::Node</a> *node, <a class="el" href="classsofa_1_1simulation_1_1_local_storage.html">LocalStorage</a> *)</td></tr>
 <tr class="separator:a1da0666a3b5a5928350ae69cbcdcfdbb inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5811ceb6cfe28319a051b73587549cd inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="af5811ceb6cfe28319a051b73587549cd"></a>
-<a class="el" href="classsofa_1_1simulation_1_1_visitor.html">Visitor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>setTags</b> (const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_tag_set.html">TagSet</a> &amp;t)</td></tr>
+<tr class="memitem:af5811ceb6cfe28319a051b73587549cd inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html">Visitor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#af5811ceb6cfe28319a051b73587549cd">setTags</a> (const <a class="el" href="classsofa_1_1simulation_1_1_visitor.html#acc8a9ccadb7bc9b14215f68364188978">TagSet</a> &amp;t)</td></tr>
 <tr class="separator:af5811ceb6cfe28319a051b73587549cd inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5b96324a43057d7bd76cc5f70e39ad5 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="ae5b96324a43057d7bd76cc5f70e39ad5"></a>
-<a class="el" href="classsofa_1_1simulation_1_1_visitor.html">Visitor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>addTag</b> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_tag.html">Tag</a> t)</td></tr>
+<tr class="memitem:ae5b96324a43057d7bd76cc5f70e39ad5 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html">Visitor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#ae5b96324a43057d7bd76cc5f70e39ad5">addTag</a> (<a class="el" href="classsofa_1_1simulation_1_1_visitor.html#ab56e2566445c0395303e4005d18c80b7">Tag</a> t)</td></tr>
 <tr class="separator:ae5b96324a43057d7bd76cc5f70e39ad5 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5436484bd1034cc911354cc8d9b1aba inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="aa5436484bd1034cc911354cc8d9b1aba"></a>
-<a class="el" href="classsofa_1_1simulation_1_1_visitor.html">Visitor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>removeTag</b> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_tag.html">Tag</a> t)</td></tr>
+<tr class="memitem:aa5436484bd1034cc911354cc8d9b1aba inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html">Visitor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#aa5436484bd1034cc911354cc8d9b1aba">removeTag</a> (<a class="el" href="classsofa_1_1simulation_1_1_visitor.html#ab56e2566445c0395303e4005d18c80b7">Tag</a> t)</td></tr>
 <tr class="separator:aa5436484bd1034cc911354cc8d9b1aba inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cf652eb4e55b9d37a286f4948c52d89 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplParams" colspan="2"><a id="a8cf652eb4e55b9d37a286f4948c52d89"></a>
-template&lt;class VisitorType , class VContext , class Container , typename PointedType &gt; </td></tr>
-<tr class="memitem:a8cf652eb4e55b9d37a286f4948c52d89 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>for_each</b> (VisitorType *visitor, VContext *ctx, const Container &amp;list, void(VisitorType::*task)(VContext *, PointedType *), const std::string &amp;typeInfo)</td></tr>
+<tr class="memitem:a8cf652eb4e55b9d37a286f4948c52d89 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplParams" colspan="2">template&lt;class VisitorType , class VContext , class Container , typename PointedType &gt; </td></tr>
+<tr class="memitem:a8cf652eb4e55b9d37a286f4948c52d89 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a8cf652eb4e55b9d37a286f4948c52d89">for_each</a> (VisitorType *visitor, VContext *ctx, const Container &amp;list, void(VisitorType::*task)(VContext *, PointedType *), const std::string &amp;typeInfo)</td></tr>
 <tr class="separator:a8cf652eb4e55b9d37a286f4948c52d89 inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a493b3f0f46579005db28afe7295bc7de inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplParams" colspan="2"><a id="a493b3f0f46579005db28afe7295bc7de"></a>
-template&lt;class VisitorType , class VContext , class Container , typename PointedType &gt; </td></tr>
-<tr class="memitem:a493b3f0f46579005db28afe7295bc7de inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplItemLeft" align="right" valign="top">Visitor::Result&#160;</td><td class="memTemplItemRight" valign="bottom"><b>for_each</b> (VisitorType *visitor, VContext *ctx, const Container &amp;list, Visitor::Result(VisitorType::*task)(VContext *, PointedType *), const std::string &amp;typeInfo)</td></tr>
+<tr class="memitem:a493b3f0f46579005db28afe7295bc7de inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplParams" colspan="2">template&lt;class VisitorType , class VContext , class Container , typename PointedType &gt; </td></tr>
+<tr class="memitem:a493b3f0f46579005db28afe7295bc7de inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a28287671eaf7406afd604bd055ba4066">Visitor::Result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a493b3f0f46579005db28afe7295bc7de">for_each</a> (VisitorType *visitor, VContext *ctx, const Container &amp;list, <a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a28287671eaf7406afd604bd055ba4066">Visitor::Result</a>(VisitorType::*task)(VContext *, PointedType *), const std::string &amp;typeInfo)</td></tr>
 <tr class="separator:a493b3f0f46579005db28afe7295bc7de inherit pub_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ac1e872e3d15c0cda3b66bc218820e2cc"><td class="memItemLeft" align="right" valign="top"><a id="ac1e872e3d15c0cda3b66bc218820e2cc"></a>
-std::ostream *&#160;</td><td class="memItemRight" valign="bottom"><b>out</b></td></tr>
+<tr class="memitem:ac1e872e3d15c0cda3b66bc218820e2cc"><td class="memItemLeft" align="right" valign="top">std::ostream *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#ac1e872e3d15c0cda3b66bc218820e2cc">out</a></td></tr>
 <tr class="separator:ac1e872e3d15c0cda3b66bc218820e2cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b1e9b02ab3217c2631488ab20be3e1f"><td class="memItemLeft" align="right" valign="top"><a id="a6b1e9b02ab3217c2631488ab20be3e1f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showNode</b></td></tr>
+<tr class="memitem:a6b1e9b02ab3217c2631488ab20be3e1f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a6b1e9b02ab3217c2631488ab20be3e1f">showNode</a></td></tr>
 <tr class="separator:a6b1e9b02ab3217c2631488ab20be3e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a334abefa2e614fbaaff05b6a90484980"><td class="memItemLeft" align="right" valign="top"><a id="a334abefa2e614fbaaff05b6a90484980"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showObject</b></td></tr>
+<tr class="memitem:a334abefa2e614fbaaff05b6a90484980"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a334abefa2e614fbaaff05b6a90484980">showObject</a></td></tr>
 <tr class="separator:a334abefa2e614fbaaff05b6a90484980"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04abf0fbbf15352f199e123aa4bdaf21"><td class="memItemLeft" align="right" valign="top"><a id="a04abf0fbbf15352f199e123aa4bdaf21"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showBehaviorModel</b></td></tr>
+<tr class="memitem:a04abf0fbbf15352f199e123aa4bdaf21"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a04abf0fbbf15352f199e123aa4bdaf21">showBehaviorModel</a></td></tr>
 <tr class="separator:a04abf0fbbf15352f199e123aa4bdaf21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e4ac15274e3315b01f6920d72add10c"><td class="memItemLeft" align="right" valign="top"><a id="a7e4ac15274e3315b01f6920d72add10c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showCollisionModel</b></td></tr>
+<tr class="memitem:a7e4ac15274e3315b01f6920d72add10c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a7e4ac15274e3315b01f6920d72add10c">showCollisionModel</a></td></tr>
 <tr class="separator:a7e4ac15274e3315b01f6920d72add10c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a460a0877a6d620be7ccc3bba0a4cc04f"><td class="memItemLeft" align="right" valign="top"><a id="a460a0877a6d620be7ccc3bba0a4cc04f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showVisualModel</b></td></tr>
+<tr class="memitem:a460a0877a6d620be7ccc3bba0a4cc04f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a460a0877a6d620be7ccc3bba0a4cc04f">showVisualModel</a></td></tr>
 <tr class="separator:a460a0877a6d620be7ccc3bba0a4cc04f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ef7a5dafc7398e2f532f7924ec3c077"><td class="memItemLeft" align="right" valign="top"><a id="a5ef7a5dafc7398e2f532f7924ec3c077"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showMapping</b></td></tr>
+<tr class="memitem:a5ef7a5dafc7398e2f532f7924ec3c077"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a5ef7a5dafc7398e2f532f7924ec3c077">showMapping</a></td></tr>
 <tr class="separator:a5ef7a5dafc7398e2f532f7924ec3c077"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7730ca0ef4a0946426e8e8399a132a52"><td class="memItemLeft" align="right" valign="top"><a id="a7730ca0ef4a0946426e8e8399a132a52"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showContext</b></td></tr>
+<tr class="memitem:a7730ca0ef4a0946426e8e8399a132a52"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a7730ca0ef4a0946426e8e8399a132a52">showContext</a></td></tr>
 <tr class="separator:a7730ca0ef4a0946426e8e8399a132a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a980c079d6908b12bd737e3046cc39057"><td class="memItemLeft" align="right" valign="top"><a id="a980c079d6908b12bd737e3046cc39057"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showCollisionPipeline</b></td></tr>
+<tr class="memitem:a980c079d6908b12bd737e3046cc39057"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a980c079d6908b12bd737e3046cc39057">showCollisionPipeline</a></td></tr>
 <tr class="separator:a980c079d6908b12bd737e3046cc39057"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ce1be00ec3dab5342e2ba82707d4c99"><td class="memItemLeft" align="right" valign="top"><a id="a8ce1be00ec3dab5342e2ba82707d4c99"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showSolver</b></td></tr>
+<tr class="memitem:a8ce1be00ec3dab5342e2ba82707d4c99"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a8ce1be00ec3dab5342e2ba82707d4c99">showSolver</a></td></tr>
 <tr class="separator:a8ce1be00ec3dab5342e2ba82707d4c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2982b985f27bc3bd3ae89a20298ab404"><td class="memItemLeft" align="right" valign="top"><a id="a2982b985f27bc3bd3ae89a20298ab404"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showMechanicalState</b></td></tr>
+<tr class="memitem:a2982b985f27bc3bd3ae89a20298ab404"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a2982b985f27bc3bd3ae89a20298ab404">showMechanicalState</a></td></tr>
 <tr class="separator:a2982b985f27bc3bd3ae89a20298ab404"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a233db6fb631e4006eee6a54f739a3bf4"><td class="memItemLeft" align="right" valign="top"><a id="a233db6fb631e4006eee6a54f739a3bf4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showForceField</b></td></tr>
+<tr class="memitem:a233db6fb631e4006eee6a54f739a3bf4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a233db6fb631e4006eee6a54f739a3bf4">showForceField</a></td></tr>
 <tr class="separator:a233db6fb631e4006eee6a54f739a3bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93e5d2b543b238186d9ea0bd62b15f4a"><td class="memItemLeft" align="right" valign="top"><a id="a93e5d2b543b238186d9ea0bd62b15f4a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showInteractionForceField</b></td></tr>
+<tr class="memitem:a93e5d2b543b238186d9ea0bd62b15f4a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a93e5d2b543b238186d9ea0bd62b15f4a">showInteractionForceField</a></td></tr>
 <tr class="separator:a93e5d2b543b238186d9ea0bd62b15f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a149ff4ff53234772b0f734e7e1322fb7"><td class="memItemLeft" align="right" valign="top"><a id="a149ff4ff53234772b0f734e7e1322fb7"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showConstraint</b></td></tr>
+<tr class="memitem:a149ff4ff53234772b0f734e7e1322fb7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a149ff4ff53234772b0f734e7e1322fb7">showConstraint</a></td></tr>
 <tr class="separator:a149ff4ff53234772b0f734e7e1322fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ef55f3498cf08513abe43654c59c653"><td class="memItemLeft" align="right" valign="top"><a id="a8ef55f3498cf08513abe43654c59c653"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showMass</b></td></tr>
+<tr class="memitem:a8ef55f3498cf08513abe43654c59c653"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a8ef55f3498cf08513abe43654c59c653">showMass</a></td></tr>
 <tr class="separator:a8ef55f3498cf08513abe43654c59c653"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f687f3ed6317c3e22c9554cd7863a77"><td class="memItemLeft" align="right" valign="top"><a id="a5f687f3ed6317c3e22c9554cd7863a77"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showTopology</b></td></tr>
+<tr class="memitem:a5f687f3ed6317c3e22c9554cd7863a77"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a5f687f3ed6317c3e22c9554cd7863a77">showTopology</a></td></tr>
 <tr class="separator:a5f687f3ed6317c3e22c9554cd7863a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73c6030f8e46398e1574e8fce1f7faa0"><td class="memItemLeft" align="right" valign="top"><a id="a73c6030f8e46398e1574e8fce1f7faa0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showMechanicalMapping</b></td></tr>
+<tr class="memitem:a73c6030f8e46398e1574e8fce1f7faa0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a73c6030f8e46398e1574e8fce1f7faa0">showMechanicalMapping</a></td></tr>
 <tr class="separator:a73c6030f8e46398e1574e8fce1f7faa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff44449f176a39594d18602b9d410207"><td class="memItemLeft" align="right" valign="top"><a id="aff44449f176a39594d18602b9d410207"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>labelNodeName</b></td></tr>
+<tr class="memitem:aff44449f176a39594d18602b9d410207"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#aff44449f176a39594d18602b9d410207">labelNodeName</a></td></tr>
 <tr class="separator:aff44449f176a39594d18602b9d410207"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a290fedeba5d9e175498f75b7f5ea8f8e"><td class="memItemLeft" align="right" valign="top"><a id="a290fedeba5d9e175498f75b7f5ea8f8e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>labelNodeClass</b></td></tr>
+<tr class="memitem:a290fedeba5d9e175498f75b7f5ea8f8e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a290fedeba5d9e175498f75b7f5ea8f8e">labelNodeClass</a></td></tr>
 <tr class="separator:a290fedeba5d9e175498f75b7f5ea8f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a66522121133a3532ea42f69b25211e"><td class="memItemLeft" align="right" valign="top"><a id="a0a66522121133a3532ea42f69b25211e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>labelObjectName</b></td></tr>
+<tr class="memitem:a0a66522121133a3532ea42f69b25211e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a0a66522121133a3532ea42f69b25211e">labelObjectName</a></td></tr>
 <tr class="separator:a0a66522121133a3532ea42f69b25211e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a689567c1c9b5346cf683f9cc67be02bc"><td class="memItemLeft" align="right" valign="top"><a id="a689567c1c9b5346cf683f9cc67be02bc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>labelObjectClass</b></td></tr>
+<tr class="memitem:a689567c1c9b5346cf683f9cc67be02bc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a689567c1c9b5346cf683f9cc67be02bc">labelObjectClass</a></td></tr>
 <tr class="separator:a689567c1c9b5346cf683f9cc67be02bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classsofa_1_1simulation_1_1_visitor"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classsofa_1_1simulation_1_1_visitor')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classsofa_1_1simulation_1_1_visitor.html">Visitor</a></td></tr>
-<tr class="memitem:aba04cb951715359924addb55093b1e31 inherit pub_attribs_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="aba04cb951715359924addb55093b1e31"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_tag_set.html">TagSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#aba04cb951715359924addb55093b1e31">subsetsToManage</a></td></tr>
-<tr class="memdesc:aba04cb951715359924addb55093b1e31 inherit pub_attribs_classsofa_1_1simulation_1_1_visitor"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of the subsets <br /></td></tr>
+<tr class="memitem:aba04cb951715359924addb55093b1e31 inherit pub_attribs_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#acc8a9ccadb7bc9b14215f68364188978">TagSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#aba04cb951715359924addb55093b1e31">subsetsToManage</a></td></tr>
+<tr class="memdesc:aba04cb951715359924addb55093b1e31 inherit pub_attribs_classsofa_1_1simulation_1_1_visitor"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of the subsets  <a href="classsofa_1_1simulation_1_1_visitor.html#aba04cb951715359924addb55093b1e31">More...</a><br /></td></tr>
 <tr class="separator:aba04cb951715359924addb55093b1e31 inherit pub_attribs_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cf6c099179ea7de1329adeb4f88c4dc inherit pub_attribs_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="a0cf6c099179ea7de1329adeb4f88c4dc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a0cf6c099179ea7de1329adeb4f88c4dc">canAccessSleepingNode</a></td></tr>
-<tr class="memdesc:a0cf6c099179ea7de1329adeb4f88c4dc inherit pub_attribs_classsofa_1_1simulation_1_1_visitor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Can the visitor access sleeping nodes? <br /></td></tr>
+<tr class="memitem:a0cf6c099179ea7de1329adeb4f88c4dc inherit pub_attribs_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a0cf6c099179ea7de1329adeb4f88c4dc">canAccessSleepingNode</a></td></tr>
+<tr class="memdesc:a0cf6c099179ea7de1329adeb4f88c4dc inherit pub_attribs_classsofa_1_1simulation_1_1_visitor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Can the visitor access sleeping nodes?  <a href="classsofa_1_1simulation_1_1_visitor.html#a0cf6c099179ea7de1329adeb4f88c4dc">More...</a><br /></td></tr>
 <tr class="separator:a0cf6c099179ea7de1329adeb4f88c4dc inherit pub_attribs_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a95b3f3f7104116af79a372903bb0ae97"><td class="memItemLeft" align="right" valign="top"><a id="a95b3f3f7104116af79a372903bb0ae97"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a95b3f3f7104116af79a372903bb0ae97">display</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">Node</a> *node, const char **color=nullptr)</td></tr>
-<tr class="memdesc:a95b3f3f7104116af79a372903bb0ae97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if a node should be displayed. <br /></td></tr>
+<tr class="memitem:a95b3f3f7104116af79a372903bb0ae97"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a95b3f3f7104116af79a372903bb0ae97">display</a> (<a class="el" href="classsofa_1_1simulation_1_1_node.html">Node</a> *node, const char **color=nullptr)</td></tr>
+<tr class="memdesc:a95b3f3f7104116af79a372903bb0ae97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if a node should be displayed.  <a href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a95b3f3f7104116af79a372903bb0ae97">More...</a><br /></td></tr>
 <tr class="separator:a95b3f3f7104116af79a372903bb0ae97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae567410c915b431f5076f9ba5eff0edb"><td class="memItemLeft" align="right" valign="top"><a id="ae567410c915b431f5076f9ba5eff0edb"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#ae567410c915b431f5076f9ba5eff0edb">display</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a> *obj, const char **color=nullptr)</td></tr>
-<tr class="memdesc:ae567410c915b431f5076f9ba5eff0edb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if an object should be displayed. <br /></td></tr>
+<tr class="memitem:ae567410c915b431f5076f9ba5eff0edb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#ae567410c915b431f5076f9ba5eff0edb">display</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a> *obj, const char **color=nullptr)</td></tr>
+<tr class="memdesc:ae567410c915b431f5076f9ba5eff0edb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if an object should be displayed.  <a href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#ae567410c915b431f5076f9ba5eff0edb">More...</a><br /></td></tr>
 <tr class="separator:ae567410c915b431f5076f9ba5eff0edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99f31a88e52e79b8a3a8ea1a0a681e68"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a99f31a88e52e79b8a3a8ea1a0a681e68">getParentName</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a> *obj)</td></tr>
 <tr class="separator:a99f31a88e52e79b8a3a8ea1a0a681e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab50ba61ade9db47e1e6126914854375e"><td class="memItemLeft" align="right" valign="top"><a id="ab50ba61ade9db47e1e6126914854375e"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#ab50ba61ade9db47e1e6126914854375e">getName</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">core::objectmodel::Base</a> *o, std::string prefix)</td></tr>
-<tr class="memdesc:ab50ba61ade9db47e1e6126914854375e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the name of a given node or object. <br /></td></tr>
+<tr class="memitem:ab50ba61ade9db47e1e6126914854375e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#ab50ba61ade9db47e1e6126914854375e">getName</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">core::objectmodel::Base</a> *o, std::string prefix)</td></tr>
+<tr class="memdesc:ab50ba61ade9db47e1e6126914854375e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the name of a given node or object.  <a href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#ab50ba61ade9db47e1e6126914854375e">More...</a><br /></td></tr>
 <tr class="separator:ab50ba61ade9db47e1e6126914854375e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6507d7b9bd126aa1b0bcdbd95f76944e"><td class="memItemLeft" align="right" valign="top"><a id="a6507d7b9bd126aa1b0bcdbd95f76944e"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a6507d7b9bd126aa1b0bcdbd95f76944e">getName</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">core::objectmodel::BaseNode</a> *node)</td></tr>
-<tr class="memdesc:a6507d7b9bd126aa1b0bcdbd95f76944e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the name of a given node. <br /></td></tr>
+<tr class="memitem:a6507d7b9bd126aa1b0bcdbd95f76944e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a6507d7b9bd126aa1b0bcdbd95f76944e">getName</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">core::objectmodel::BaseNode</a> *node)</td></tr>
+<tr class="memdesc:a6507d7b9bd126aa1b0bcdbd95f76944e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the name of a given node.  <a href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a6507d7b9bd126aa1b0bcdbd95f76944e">More...</a><br /></td></tr>
 <tr class="separator:a6507d7b9bd126aa1b0bcdbd95f76944e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe2cf6bc632b0dfe1446ab893ee5ecec"><td class="memItemLeft" align="right" valign="top"><a id="abe2cf6bc632b0dfe1446ab893ee5ecec"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#abe2cf6bc632b0dfe1446ab893ee5ecec">getName</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a> *obj)</td></tr>
-<tr class="memdesc:abe2cf6bc632b0dfe1446ab893ee5ecec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the name of a given object. <br /></td></tr>
+<tr class="memitem:abe2cf6bc632b0dfe1446ab893ee5ecec"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#abe2cf6bc632b0dfe1446ab893ee5ecec">getName</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a> *obj)</td></tr>
+<tr class="memdesc:abe2cf6bc632b0dfe1446ab893ee5ecec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the name of a given object.  <a href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#abe2cf6bc632b0dfe1446ab893ee5ecec">More...</a><br /></td></tr>
 <tr class="separator:abe2cf6bc632b0dfe1446ab893ee5ecec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classsofa_1_1simulation_1_1_visitor"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classsofa_1_1simulation_1_1_visitor')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classsofa_1_1simulation_1_1_visitor.html">Visitor</a></td></tr>
-<tr class="memitem:a19d03703f08ffc780d5dada467220b78 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="a19d03703f08ffc780d5dada467220b78"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>debug_write_state_before</b> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">sofa::core::objectmodel::BaseObject</a> *obj)</td></tr>
+<tr class="memitem:a19d03703f08ffc780d5dada467220b78 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a19d03703f08ffc780d5dada467220b78">debug_write_state_before</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">sofa::core::objectmodel::BaseObject</a> *obj)</td></tr>
 <tr class="separator:a19d03703f08ffc780d5dada467220b78 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae07a8fbaa418fb2b8e9fd2bc4f52f63a inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="ae07a8fbaa418fb2b8e9fd2bc4f52f63a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>debug_write_state_after</b> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">sofa::core::objectmodel::BaseObject</a> *obj)</td></tr>
+<tr class="memitem:ae07a8fbaa418fb2b8e9fd2bc4f52f63a inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#ae07a8fbaa418fb2b8e9fd2bc4f52f63a">debug_write_state_after</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">sofa::core::objectmodel::BaseObject</a> *obj)</td></tr>
 <tr class="separator:ae07a8fbaa418fb2b8e9fd2bc4f52f63a inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a083bfa1ffe40ca4d8e30515667f79063 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplParams" colspan="2">template&lt;class VisitorType , class VContext , class ObjectType &gt; </td></tr>
 <tr class="memitem:a083bfa1ffe40ca4d8e30515667f79063 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a083bfa1ffe40ca4d8e30515667f79063">runVisitorTask</a> (VisitorType *visitor, VContext *ctx, void(VisitorType::*task)(VContext *, ObjectType *), ObjectType *ptr, const std::string &amp;typeInfo=std::string(&quot;type&quot;))</td></tr>
 <tr class="separator:a083bfa1ffe40ca4d8e30515667f79063 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94726fab16f15833787650898a6b2fff inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplParams" colspan="2">template&lt;class VisitorType , class VContext , class ObjectType &gt; </td></tr>
-<tr class="memitem:a94726fab16f15833787650898a6b2fff inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplItemLeft" align="right" valign="top">Result&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a94726fab16f15833787650898a6b2fff">runVisitorTask</a> (VisitorType *visitor, VContext *ctx, Result(VisitorType::*task)(VContext *, ObjectType *), ObjectType *ptr, const std::string &amp;typeInfo=std::string(&quot;type&quot;))</td></tr>
+<tr class="memitem:a94726fab16f15833787650898a6b2fff inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a28287671eaf7406afd604bd055ba4066">Result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a94726fab16f15833787650898a6b2fff">runVisitorTask</a> (VisitorType *visitor, VContext *ctx, <a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a28287671eaf7406afd604bd055ba4066">Result</a>(VisitorType::*task)(VContext *, ObjectType *), ObjectType *ptr, const std::string &amp;typeInfo=std::string(&quot;type&quot;))</td></tr>
 <tr class="separator:a94726fab16f15833787650898a6b2fff inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5044d25bb3e79f3d51fc67be11f426c1 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplParams" colspan="2"><a id="a5044d25bb3e79f3d51fc67be11f426c1"></a>
-template&lt;class Visit , class VContext , class Container , typename PointedType  = typename Container::pointed_type&gt; </td></tr>
-<tr class="memitem:a5044d25bb3e79f3d51fc67be11f426c1 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>for_each</b> (Visit *visitor, VContext *ctx, const Container &amp;list, void(Visit::*task)(VContext *, PointedType *), const std::string &amp;typeInfo=std::string(&quot;type&quot;))</td></tr>
+<tr class="memitem:a5044d25bb3e79f3d51fc67be11f426c1 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplParams" colspan="2">template&lt;class Visit , class VContext , class Container , typename PointedType  = typename Container::pointed_type&gt; </td></tr>
+<tr class="memitem:a5044d25bb3e79f3d51fc67be11f426c1 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a5044d25bb3e79f3d51fc67be11f426c1">for_each</a> (Visit *visitor, VContext *ctx, const Container &amp;list, void(Visit::*task)(VContext *, PointedType *), const std::string &amp;typeInfo=std::string(&quot;type&quot;))</td></tr>
 <tr class="separator:a5044d25bb3e79f3d51fc67be11f426c1 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eb4e4135b0b92a5ac88ab899c0f59d5 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplParams" colspan="2"><a id="a2eb4e4135b0b92a5ac88ab899c0f59d5"></a>
-template&lt;class Visit , class VContext , class Container , typename PointedType  = typename Container::pointed_type&gt; </td></tr>
-<tr class="memitem:a2eb4e4135b0b92a5ac88ab899c0f59d5 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplItemLeft" align="right" valign="top">Visitor::Result&#160;</td><td class="memTemplItemRight" valign="bottom"><b>for_each</b> (Visit *visitor, VContext *ctx, const Container &amp;list, Visitor::Result(Visit::*task)(VContext *, PointedType *), const std::string &amp;typeInfo=std::string(&quot;type&quot;))</td></tr>
+<tr class="memitem:a2eb4e4135b0b92a5ac88ab899c0f59d5 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplParams" colspan="2">template&lt;class Visit , class VContext , class Container , typename PointedType  = typename Container::pointed_type&gt; </td></tr>
+<tr class="memitem:a2eb4e4135b0b92a5ac88ab899c0f59d5 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a28287671eaf7406afd604bd055ba4066">Visitor::Result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a2eb4e4135b0b92a5ac88ab899c0f59d5">for_each</a> (Visit *visitor, VContext *ctx, const Container &amp;list, <a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a28287671eaf7406afd604bd055ba4066">Visitor::Result</a>(Visit::*task)(VContext *, PointedType *), const std::string &amp;typeInfo=std::string(&quot;type&quot;))</td></tr>
 <tr class="separator:a2eb4e4135b0b92a5ac88ab899c0f59d5 inherit pro_methods_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:aad43bd1e780812f79de93c1981dbea75"><td class="memItemLeft" align="right" valign="top"><a id="aad43bd1e780812f79de93c1981dbea75"></a>
-std::map&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">core::objectmodel::Base</a> *, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#aad43bd1e780812f79de93c1981dbea75">names</a></td></tr>
-<tr class="memdesc:aad43bd1e780812f79de93c1981dbea75"><td class="mdescLeft">&#160;</td><td class="mdescRight">None names in output. <br /></td></tr>
+<tr class="memitem:aad43bd1e780812f79de93c1981dbea75"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">core::objectmodel::Base</a> *, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#aad43bd1e780812f79de93c1981dbea75">names</a></td></tr>
+<tr class="memdesc:aad43bd1e780812f79de93c1981dbea75"><td class="mdescLeft">&#160;</td><td class="mdescRight">None names in output.  <a href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#aad43bd1e780812f79de93c1981dbea75">More...</a><br /></td></tr>
 <tr class="separator:aad43bd1e780812f79de93c1981dbea75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22535dc7f7031135753b1208ecf0a812"><td class="memItemLeft" align="right" valign="top"><a id="a22535dc7f7031135753b1208ecf0a812"></a>
-std::map&lt; std::string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a22535dc7f7031135753b1208ecf0a812">nextIndex</a></td></tr>
-<tr class="memdesc:a22535dc7f7031135753b1208ecf0a812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Next indice available for duplicated names. <br /></td></tr>
+<tr class="memitem:a22535dc7f7031135753b1208ecf0a812"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a22535dc7f7031135753b1208ecf0a812">nextIndex</a></td></tr>
+<tr class="memdesc:a22535dc7f7031135753b1208ecf0a812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Next indice available for duplicated names.  <a href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a22535dc7f7031135753b1208ecf0a812">More...</a><br /></td></tr>
 <tr class="separator:a22535dc7f7031135753b1208ecf0a812"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classsofa_1_1simulation_1_1_visitor"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classsofa_1_1simulation_1_1_visitor')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classsofa_1_1simulation_1_1_visitor.html">Visitor</a></td></tr>
-<tr class="memitem:a411a9e574e4ee3fda502e89ace0d4c67 inherit pro_attribs_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="a411a9e574e4ee3fda502e89ace0d4c67"></a>
-const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">sofa::core::ExecParams</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>params</b></td></tr>
+<tr class="memitem:a411a9e574e4ee3fda502e89ace0d4c67 inherit pro_attribs_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">sofa::core::ExecParams</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a411a9e574e4ee3fda502e89ace0d4c67">params</a></td></tr>
 <tr class="separator:a411a9e574e4ee3fda502e89ace0d4c67 inherit pro_attribs_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_types_classsofa_1_1simulation_1_1_visitor"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classsofa_1_1simulation_1_1_visitor')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classsofa_1_1simulation_1_1_visitor.html">Visitor</a></td></tr>
-<tr class="memitem:a28287671eaf7406afd604bd055ba4066 inherit pub_types_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="a28287671eaf7406afd604bd055ba4066"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Result</b> { <b>RESULT_CONTINUE</b>, 
-<b>RESULT_PRUNE</b>
+<tr class="memitem:a28287671eaf7406afd604bd055ba4066 inherit pub_types_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a28287671eaf7406afd604bd055ba4066">Result</a> { <a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a28287671eaf7406afd604bd055ba4066ae8e341f0ae7e06d2be4a00d28f8fe8c4">RESULT_CONTINUE</a>, 
+<a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a28287671eaf7406afd604bd055ba4066a0f60492f100fedf4f0f41d5bba0b0845">RESULT_PRUNE</a>
  }</td></tr>
 <tr class="separator:a28287671eaf7406afd604bd055ba4066 inherit pub_types_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6d0c7cad1abce82776373725b477d54 inherit pub_types_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="ad6d0c7cad1abce82776373725b477d54"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>TreeTraversalRepetition</b> { <b>NO_REPETITION</b> =0, 
-<b>REPEAT_ALL</b>, 
-<b>REPEAT_ONCE</b>
+<tr class="memitem:ad6d0c7cad1abce82776373725b477d54 inherit pub_types_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#ad6d0c7cad1abce82776373725b477d54">TreeTraversalRepetition</a> { <a class="el" href="classsofa_1_1simulation_1_1_visitor.html#ad6d0c7cad1abce82776373725b477d54aa6bdf181ca125310b290a47fb6b59357">NO_REPETITION</a> =0, 
+<a class="el" href="classsofa_1_1simulation_1_1_visitor.html#ad6d0c7cad1abce82776373725b477d54aa99fc109c156c1e260b6c13be02bacce">REPEAT_ALL</a>, 
+<a class="el" href="classsofa_1_1simulation_1_1_visitor.html#ad6d0c7cad1abce82776373725b477d54aa8998d8103f0d4e758f1ebaf26d3936c">REPEAT_ONCE</a>
  }</td></tr>
 <tr class="separator:ad6d0c7cad1abce82776373725b477d54 inherit pub_types_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93d70724c740be5eea1e9b09929588c2 inherit pub_types_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="a93d70724c740be5eea1e9b09929588c2"></a>
-typedef helper::system::thread::ctime_t&#160;</td><td class="memItemRight" valign="bottom"><b>ctime_t</b></td></tr>
+<tr class="memitem:a93d70724c740be5eea1e9b09929588c2 inherit pub_types_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="namespacesofa_1_1helper_1_1system_1_1thread.html#a8132bc2c8efe014d70871182d8720d76">helper::system::thread::ctime_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a93d70724c740be5eea1e9b09929588c2">ctime_t</a></td></tr>
 <tr class="separator:a93d70724c740be5eea1e9b09929588c2 inherit pub_types_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab56e2566445c0395303e4005d18c80b7 inherit pub_types_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="ab56e2566445c0395303e4005d18c80b7"></a>
-typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_tag.html">sofa::core::objectmodel::Tag</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Tag</b></td></tr>
+<tr class="memitem:ab56e2566445c0395303e4005d18c80b7 inherit pub_types_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_tag.html">sofa::core::objectmodel::Tag</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#ab56e2566445c0395303e4005d18c80b7">Tag</a></td></tr>
 <tr class="separator:ab56e2566445c0395303e4005d18c80b7 inherit pub_types_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc8a9ccadb7bc9b14215f68364188978 inherit pub_types_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top"><a id="acc8a9ccadb7bc9b14215f68364188978"></a>
-typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_tag_set.html">sofa::core::objectmodel::TagSet</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TagSet</b></td></tr>
+<tr class="memitem:acc8a9ccadb7bc9b14215f68364188978 inherit pub_types_classsofa_1_1simulation_1_1_visitor"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_tag_set.html">sofa::core::objectmodel::TagSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#acc8a9ccadb7bc9b14215f68364188978">TagSet</a></td></tr>
 <tr class="separator:acc8a9ccadb7bc9b14215f68364188978 inherit pub_types_classsofa_1_1simulation_1_1_visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Write the graph, starting from a root <a class="el" href="classsofa_1_1simulation_1_1_node.html">Node</a>, into a std::ostream. The format is the DOT language from Graphviz (<a href="https://graphviz.org/">https://graphviz.org/</a>) </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1dae6462ac1a42d6e1aee07d415fdfe3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dae6462ac1a42d6e1aee07d415fdfe3">&#9670;&nbsp;</a></span>ExportDotVisitor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html">ExportDotVisitor</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">sofa::core::ExecParams</a> *&#160;</td>
+          <td class="paramname"><em>params</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ostream *&#160;</td>
+          <td class="paramname"><em>out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa96b9c8e23da5f0828ab920ad95e86fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa96b9c8e23da5f0828ab920ad95e86fa">&#9670;&nbsp;</a></span>~ExportDotVisitor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html">ExportDotVisitor</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae567410c915b431f5076f9ba5eff0edb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae567410c915b431f5076f9ba5eff0edb">&#9670;&nbsp;</a></span>display() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool display </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char **&#160;</td>
+          <td class="paramname"><em>color</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Test if an object should be displayed. </p>
+
+</div>
+</div>
+<a id="a95b3f3f7104116af79a372903bb0ae97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95b3f3f7104116af79a372903bb0ae97">&#9670;&nbsp;</a></span>display() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool display </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1simulation_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char **&#160;</td>
+          <td class="paramname"><em>color</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Test if a node should be displayed. </p>
+
+</div>
+</div>
 <a id="abf09a670a9f753e66efb6c1c21a0df28"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf09a670a9f753e66efb6c1c21a0df28">&#9670;&nbsp;</a></span>getClassName()</h2>
 
@@ -366,6 +447,100 @@ typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_tag_set.html">s
 <p>Return a class name for this visitor Only used for debugging / profiling purposes </p>
 
 <p>Reimplemented from <a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a03b8b5a278c33b2d9e225ceb286f350e">Visitor</a>.</p>
+
+</div>
+</div>
+<a id="ab50ba61ade9db47e1e6126914854375e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab50ba61ade9db47e1e6126914854375e">&#9670;&nbsp;</a></span>getName() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string getName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">core::objectmodel::Base</a> *&#160;</td>
+          <td class="paramname"><em>o</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>prefix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the name of a given node or object. </p>
+
+</div>
+</div>
+<a id="a6507d7b9bd126aa1b0bcdbd95f76944e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6507d7b9bd126aa1b0bcdbd95f76944e">&#9670;&nbsp;</a></span>getName() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string getName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">core::objectmodel::BaseNode</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the name of a given node. </p>
+
+</div>
+</div>
+<a id="abe2cf6bc632b0dfe1446ab893ee5ecec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe2cf6bc632b0dfe1446ab893ee5ecec">&#9670;&nbsp;</a></span>getName() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string getName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the name of a given object. </p>
 
 </div>
 </div>
@@ -397,13 +572,444 @@ typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_tag_set.html">s
 
 </div>
 </div>
+<a id="acbbe07fd7046889c0a263bedfb90dd4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbbe07fd7046889c0a263bedfb90dd4b">&#9670;&nbsp;</a></span>processNodeBottomUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void processNodeBottomUp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1simulation_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Callback method called after child node have been processed and before going back to the parent node. </p>
+
+<p>Reimplemented from <a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a35ca73716219fe9039408d78e86e4b4e">Visitor</a>.</p>
+
+</div>
+</div>
+<a id="a93da9053c38136ba5796e5917f5b6fe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93da9053c38136ba5796e5917f5b6fe9">&#9670;&nbsp;</a></span>processNodeTopDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a28287671eaf7406afd604bd055ba4066">simulation::Visitor::Result</a> processNodeTopDown </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1simulation_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Callback method called when decending to a new node. Recursion will stop if this method returns RESULT_PRUNE. </p>
+
+<p>Reimplemented from <a class="el" href="classsofa_1_1simulation_1_1_visitor.html#a25a47ef4d23387ba26ae3e9789df16d2">Visitor</a>.</p>
+
+</div>
+</div>
+<a id="a01172bf7c7ff7079e6b4f3e2042fcfad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01172bf7c7ff7079e6b4f3e2042fcfad">&#9670;&nbsp;</a></span>processObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void processObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1simulation_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a290fedeba5d9e175498f75b7f5ea8f8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a290fedeba5d9e175498f75b7f5ea8f8e">&#9670;&nbsp;</a></span>labelNodeClass</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool labelNodeClass</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff44449f176a39594d18602b9d410207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff44449f176a39594d18602b9d410207">&#9670;&nbsp;</a></span>labelNodeName</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool labelNodeName</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a689567c1c9b5346cf683f9cc67be02bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a689567c1c9b5346cf683f9cc67be02bc">&#9670;&nbsp;</a></span>labelObjectClass</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool labelObjectClass</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a66522121133a3532ea42f69b25211e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a66522121133a3532ea42f69b25211e">&#9670;&nbsp;</a></span>labelObjectName</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool labelObjectName</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad43bd1e780812f79de93c1981dbea75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad43bd1e780812f79de93c1981dbea75">&#9670;&nbsp;</a></span>names</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">core::objectmodel::Base</a>*, std::string&gt; names</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>None names in output. </p>
+
+</div>
+</div>
+<a id="a22535dc7f7031135753b1208ecf0a812"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22535dc7f7031135753b1208ecf0a812">&#9670;&nbsp;</a></span>nextIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string, int&gt; nextIndex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Next indice available for duplicated names. </p>
+
+</div>
+</div>
+<a id="ac1e872e3d15c0cda3b66bc218820e2cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1e872e3d15c0cda3b66bc218820e2cc">&#9670;&nbsp;</a></span>out</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream* out</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04abf0fbbf15352f199e123aa4bdaf21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04abf0fbbf15352f199e123aa4bdaf21">&#9670;&nbsp;</a></span>showBehaviorModel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showBehaviorModel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e4ac15274e3315b01f6920d72add10c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e4ac15274e3315b01f6920d72add10c">&#9670;&nbsp;</a></span>showCollisionModel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showCollisionModel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a980c079d6908b12bd737e3046cc39057"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a980c079d6908b12bd737e3046cc39057">&#9670;&nbsp;</a></span>showCollisionPipeline</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showCollisionPipeline</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a149ff4ff53234772b0f734e7e1322fb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a149ff4ff53234772b0f734e7e1322fb7">&#9670;&nbsp;</a></span>showConstraint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showConstraint</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7730ca0ef4a0946426e8e8399a132a52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7730ca0ef4a0946426e8e8399a132a52">&#9670;&nbsp;</a></span>showContext</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showContext</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a233db6fb631e4006eee6a54f739a3bf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a233db6fb631e4006eee6a54f739a3bf4">&#9670;&nbsp;</a></span>showForceField</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showForceField</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a93e5d2b543b238186d9ea0bd62b15f4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93e5d2b543b238186d9ea0bd62b15f4a">&#9670;&nbsp;</a></span>showInteractionForceField</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showInteractionForceField</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ef7a5dafc7398e2f532f7924ec3c077"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ef7a5dafc7398e2f532f7924ec3c077">&#9670;&nbsp;</a></span>showMapping</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showMapping</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8ef55f3498cf08513abe43654c59c653"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ef55f3498cf08513abe43654c59c653">&#9670;&nbsp;</a></span>showMass</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showMass</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a73c6030f8e46398e1574e8fce1f7faa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73c6030f8e46398e1574e8fce1f7faa0">&#9670;&nbsp;</a></span>showMechanicalMapping</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showMechanicalMapping</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2982b985f27bc3bd3ae89a20298ab404"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2982b985f27bc3bd3ae89a20298ab404">&#9670;&nbsp;</a></span>showMechanicalState</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showMechanicalState</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b1e9b02ab3217c2631488ab20be3e1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b1e9b02ab3217c2631488ab20be3e1f">&#9670;&nbsp;</a></span>showNode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showNode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a334abefa2e614fbaaff05b6a90484980"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a334abefa2e614fbaaff05b6a90484980">&#9670;&nbsp;</a></span>showObject</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showObject</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8ce1be00ec3dab5342e2ba82707d4c99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ce1be00ec3dab5342e2ba82707d4c99">&#9670;&nbsp;</a></span>showSolver</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showSolver</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5f687f3ed6317c3e22c9554cd7863a77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f687f3ed6317c3e22c9554cd7863a77">&#9670;&nbsp;</a></span>showTopology</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showTopology</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a460a0877a6d620be7ccc3bba0a4cc04f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a460a0877a6d620be7ccc3bba0a4cc04f">&#9670;&nbsp;</a></span>showVisualModel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showVisualModel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>simulation</b></li><li class="navelem"><b>graph</b></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html">ExportDotVisitor</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:14:09 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1simulation.html">simulation</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1simulation_1_1graph.html">graph</a></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html">ExportDotVisitor</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:46:41 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

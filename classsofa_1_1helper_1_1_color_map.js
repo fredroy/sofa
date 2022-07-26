@@ -8,6 +8,7 @@ var classsofa_1_1helper_1_1_color_map =
     [ "~ColorMap", "classsofa_1_1helper_1_1_color_map.html#a4d5b7dad360cf928f456bd1a93971072", null ],
     [ "getColor", "classsofa_1_1helper_1_1_color_map.html#a385a4fb67a16992faec49d56dc393074", null ],
     [ "getColorScheme", "classsofa_1_1helper_1_1_color_map.html#aa999fd16e5d8499fe5e840f797e20c2b", null ],
+    [ "getDefault", "classsofa_1_1helper_1_1_color_map.html#a73ffb580c4cc66f835d64a2c07bec4df", null ],
     [ "getEvaluator", "classsofa_1_1helper_1_1_color_map.html#ab814748856b7942babb9e6ddc3c22915", null ],
     [ "getNbColors", "classsofa_1_1helper_1_1_color_map.html#ae0336b32ac87f8c1f8eb0796305931fd", null ],
     [ "getPaletteSize", "classsofa_1_1helper_1_1_color_map.html#ac1eeebe8a092482e397f055d57601577", null ],

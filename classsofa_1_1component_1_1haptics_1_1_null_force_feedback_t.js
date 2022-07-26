@@ -1,5 +1,8 @@
 var classsofa_1_1component_1_1haptics_1_1_null_force_feedback_t =
 [
+    [ "DataTypes", "classsofa_1_1component_1_1haptics_1_1_null_force_feedback_t.html#a60d9983dc67dfef8d778a8fcd1419fa9", null ],
+    [ "VecCoord", "classsofa_1_1component_1_1haptics_1_1_null_force_feedback_t.html#a05882e2e9ba8d707ab531ab94a1f39e0", null ],
+    [ "VecDeriv", "classsofa_1_1component_1_1haptics_1_1_null_force_feedback_t.html#a83fb2b666b4e514e93d3bb221aa681ef", null ],
     [ "computeForce", "classsofa_1_1component_1_1haptics_1_1_null_force_feedback_t.html#adb9cfe6ce327b1345232f092b4cdf5a2", null ],
     [ "computeForce", "classsofa_1_1component_1_1haptics_1_1_null_force_feedback_t.html#a4e92c346cefb0a65422bd1d45366c04d", null ],
     [ "computeWrench", "classsofa_1_1component_1_1haptics_1_1_null_force_feedback_t.html#ab5fa392fd0f7dac2bc36486b7e6b5c2d", null ],

@@ -12,6 +12,7 @@ var classsofa_1_1component_1_1engine_1_1transform_1_1_displacement_matrix_engine
     [ "init", "classsofa_1_1component_1_1engine_1_1transform_1_1_displacement_matrix_engine.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "reinit", "classsofa_1_1component_1_1engine_1_1transform_1_1_displacement_matrix_engine.html#ab1094b915e637faa84817a097d8d87be", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1engine_1_1transform_1_1_displacement_matrix_engine.html#a36b4ccafd9ed0c8539df427075fa0adb", null ],
+    [ "templateName", "classsofa_1_1component_1_1engine_1_1transform_1_1_displacement_matrix_engine.html#ae1dfeff018ff21cc72cdbb1531e6f5b6", null ],
     [ "d_scales", "classsofa_1_1component_1_1engine_1_1transform_1_1_displacement_matrix_engine.html#ad6863997375441aff34a348717e0c2e7", null ],
     [ "SxInverses", "classsofa_1_1component_1_1engine_1_1transform_1_1_displacement_matrix_engine.html#a009eba13653aaa3de4926df011729161", null ]
 ];

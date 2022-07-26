@@ -7,6 +7,7 @@ var classsofa_1_1component_1_1engine_1_1select_1_1_select_connected_labels_r_o_i
     [ "SelectConnectedLabelsROI", "classsofa_1_1component_1_1engine_1_1select_1_1_select_connected_labels_r_o_i.html#a6cc74c741d1cf8b9c6b9350f12e489b8", null ],
     [ "~SelectConnectedLabelsROI", "classsofa_1_1component_1_1engine_1_1select_1_1_select_connected_labels_r_o_i.html#a6f5e675cae7cab34f5ea546dc4e6c6b5", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1select_1_1_select_connected_labels_r_o_i.html#a4daa2dc990606f6f13a82f619a13358a", null ],
+    [ "GetCustomTemplateName", "classsofa_1_1component_1_1engine_1_1select_1_1_select_connected_labels_r_o_i.html#afdb0b86d7e7e0659ef7883376e8ab9b6", null ],
     [ "init", "classsofa_1_1component_1_1engine_1_1select_1_1_select_connected_labels_r_o_i.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "parse", "classsofa_1_1component_1_1engine_1_1select_1_1_select_connected_labels_r_o_i.html#a01457d399e0cf40aa8f4fc775c6b257a", null ],
     [ "parseFields", "classsofa_1_1component_1_1engine_1_1select_1_1_select_connected_labels_r_o_i.html#ab5b530bfd6c499649d2b652ae0a52abf", null ],

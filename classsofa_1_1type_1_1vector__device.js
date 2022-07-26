@@ -73,6 +73,7 @@ var classsofa_1_1type_1_1vector__device =
     [ "clearSize", "classsofa_1_1type_1_1vector__device.html#a42fdf3177babec60832c6e431f9fc4b4", null ],
     [ "const_iterator", "classsofa_1_1type_1_1vector__device.html#a1bb214e54841e1ad694628030c30504f", null ],
     [ "const_reference", "classsofa_1_1type_1_1vector__device.html#a60924ff8cad36ca725d8a14250b6e160", null ],
+    [ "cptid", "classsofa_1_1type_1_1vector__device.html#a99e05c089cb98efdc988569c7558d8a6", null ],
     [ "deviceAllocSize", "classsofa_1_1type_1_1vector__device.html#af402f8e46ec6ae75dddaf6cb0eb9ec0c", null ],
     [ "deviceIsValid", "classsofa_1_1type_1_1vector__device.html#a12f30a71df812f2be467ede8899b97b1", null ],
     [ "devicePointer", "classsofa_1_1type_1_1vector__device.html#a27ded1dad4d751403548cf54ad6b6244", null ],

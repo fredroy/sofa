@@ -1,0 +1,5 @@
+var classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_l_c_p_constraint_solver_1_1_constraint_block_buf =
+[
+    [ "nbLines", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_l_c_p_constraint_solver_1_1_constraint_block_buf.html#a715be42cb21c32a23c3c2594f286ac91", null ],
+    [ "persistentToConstraintIdMap", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_l_c_p_constraint_solver_1_1_constraint_block_buf.html#a3703629fcb5803c6b4f82e2cc00464ba", null ]
+];

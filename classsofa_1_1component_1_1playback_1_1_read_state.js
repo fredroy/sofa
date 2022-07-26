@@ -3,6 +3,7 @@ var classsofa_1_1component_1_1playback_1_1_read_state =
     [ "ReadState", "classsofa_1_1component_1_1playback_1_1_read_state.html#a2225539beaa937a4d72d1a7ad41cd7f9", null ],
     [ "~ReadState", "classsofa_1_1component_1_1playback_1_1_read_state.html#a42e9dff9c5fb7089bfe51b3dcf5b00b1", null ],
     [ "bwdInit", "classsofa_1_1component_1_1playback_1_1_read_state.html#aac70e2eeedc06de9ab4be138cf23fae4", null ],
+    [ "canCreate", "classsofa_1_1component_1_1playback_1_1_read_state.html#a50dbfd43bd82e05ee5f46be7d6eae2ad", null ],
     [ "handleEvent", "classsofa_1_1component_1_1playback_1_1_read_state.html#a4543defaa0067ca36bcf42777f805d8f", null ],
     [ "init", "classsofa_1_1component_1_1playback_1_1_read_state.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "processReadState", "classsofa_1_1component_1_1playback_1_1_read_state.html#a7a8bd6473208e84053c61215bf7535b0", null ],

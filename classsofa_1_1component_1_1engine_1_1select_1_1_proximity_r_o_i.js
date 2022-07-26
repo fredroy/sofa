@@ -10,6 +10,7 @@ var classsofa_1_1component_1_1engine_1_1select_1_1_proximity_r_o_i =
     [ "VecCoord", "classsofa_1_1component_1_1engine_1_1select_1_1_proximity_r_o_i.html#a05882e2e9ba8d707ab531ab94a1f39e0", null ],
     [ "ProximityROI", "classsofa_1_1component_1_1engine_1_1select_1_1_proximity_r_o_i.html#a72f8229f8cd7a5ec570853a29545075d", null ],
     [ "~ProximityROI", "classsofa_1_1component_1_1engine_1_1select_1_1_proximity_r_o_i.html#a53a82e30e778f3acd9fd1c3285040764", null ],
+    [ "canCreate", "classsofa_1_1component_1_1engine_1_1select_1_1_proximity_r_o_i.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1select_1_1_proximity_r_o_i.html#a4daa2dc990606f6f13a82f619a13358a", null ],
     [ "draw", "classsofa_1_1component_1_1engine_1_1select_1_1_proximity_r_o_i.html#a8673433953792026ae9baf91b348d7da", null ],
     [ "init", "classsofa_1_1component_1_1engine_1_1select_1_1_proximity_r_o_i.html#ad72eef1561c7a53b19b048397d4ef570", null ],

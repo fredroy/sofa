@@ -1,0 +1,4 @@
+var _compat_2src_2_sofa_base_mechanics_2_barycentric_mappers_2_barycentric_mapper_edge_set_topology_8h =
+[
+    [ "BarycentricMapperEdgeSetTopology", "_compat_2src_2_sofa_base_mechanics_2_barycentric_mappers_2_barycentric_mapper_edge_set_topology_8h.html#a905c2755fdf951b0a438d824fa31ac82", null ]
+];

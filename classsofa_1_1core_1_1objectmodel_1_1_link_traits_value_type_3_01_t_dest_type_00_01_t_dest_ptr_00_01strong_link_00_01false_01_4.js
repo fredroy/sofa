@@ -1,4 +1,8 @@
 var classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01false_01_4 =
 [
-    [ "T", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01false_01_4.html#a63941b130d3c4012603d511e488230cc", null ]
+    [ "T", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01false_01_4.html#a63941b130d3c4012603d511e488230cc", null ],
+    [ "get", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01false_01_4.html#abec5423e2c2fa74241affc1671560545", null ],
+    [ "path", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01false_01_4.html#a855cc5d25a695f9764d0950ba177abe9", null ],
+    [ "set", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01false_01_4.html#aa1031859a6d10c938c32adb13c91dda2", null ],
+    [ "setPath", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01false_01_4.html#a29d013cfc4910999c36ed99b824ac2c2", null ]
 ];

@@ -9,6 +9,7 @@ var classsofa_1_1component_1_1engine_1_1select_1_1_mesh_boundary_r_o_i =
     [ "Triangle", "classsofa_1_1component_1_1engine_1_1select_1_1_mesh_boundary_r_o_i.html#a55d806ffd55a1e2f3fd9614c2b4ceed6", null ],
     [ "MeshBoundaryROI", "classsofa_1_1component_1_1engine_1_1select_1_1_mesh_boundary_r_o_i.html#ae2d16a3a51c38a3b898fe5e08e7f07f2", null ],
     [ "~MeshBoundaryROI", "classsofa_1_1component_1_1engine_1_1select_1_1_mesh_boundary_r_o_i.html#a4e1a12cfd2bc31a7d650e3d2d92f80e2", null ],
+    [ "countEdge", "classsofa_1_1component_1_1engine_1_1select_1_1_mesh_boundary_r_o_i.html#a8f78c242b7f1df82fa8c71a16dbfffec", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1select_1_1_mesh_boundary_r_o_i.html#a4daa2dc990606f6f13a82f619a13358a", null ],
     [ "init", "classsofa_1_1component_1_1engine_1_1select_1_1_mesh_boundary_r_o_i.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "inROI", "classsofa_1_1component_1_1engine_1_1select_1_1_mesh_boundary_r_o_i.html#a5643d0f66752eed5f7490f052f273953", null ],

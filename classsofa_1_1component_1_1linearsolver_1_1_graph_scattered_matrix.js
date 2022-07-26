@@ -4,6 +4,7 @@ var classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_matrix =
     [ "GraphScatteredMatrix", "classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_matrix.html#aa0949766ed36f9a1dfacc9326fc8e2af", null ],
     [ "apply", "classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_matrix.html#ada91b8b2a50448727d4c7ae7e325d6d5", null ],
     [ "colSize", "classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_matrix.html#aa4f41fa499798f4a01e067d6d4d00211", null ],
+    [ "Name", "classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_matrix.html#a28ceceb8e81ac299b3c6992dd0a707d3", null ],
     [ "operator*", "classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_matrix.html#aac8f3fe9f4a57177fa6f1a426790368d", null ],
     [ "rowSize", "classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_matrix.html#a9e490ad95aeb27aa46fffa54a17c11e0", null ],
     [ "setMBKFacts", "classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_matrix.html#a1274726793679244804c411a22e061e4", null ],

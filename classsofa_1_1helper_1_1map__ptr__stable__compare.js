@@ -14,5 +14,6 @@ var classsofa_1_1helper_1_1map__ptr__stable__compare =
     [ "value_type", "classsofa_1_1helper_1_1map__ptr__stable__compare.html#a1f3567abc1748181ae8cb663c5119df6", null ],
     [ "map_ptr_stable_compare", "classsofa_1_1helper_1_1map__ptr__stable__compare.html#a0cd7b4f4cd4431993464e3c105851364", null ],
     [ "map_ptr_stable_compare", "classsofa_1_1helper_1_1map__ptr__stable__compare.html#aa7a72b9a6a47134853cda20dbe1d0727", null ],
-    [ "map_ptr_stable_compare", "classsofa_1_1helper_1_1map__ptr__stable__compare.html#a62fe2816d661dc1be6bb50ee3dbb157e", null ]
+    [ "map_ptr_stable_compare", "classsofa_1_1helper_1_1map__ptr__stable__compare.html#a62fe2816d661dc1be6bb50ee3dbb157e", null ],
+    [ "m_stable_id_map", "classsofa_1_1helper_1_1map__ptr__stable__compare.html#a4d8fed1ca9eabfb093a932a37ec1a68b", null ]
 ];

@@ -36,5 +36,14 @@ var classsofa_1_1core_1_1topology_1_1_topology =
     [ "insertInNode", "classsofa_1_1core_1_1topology_1_1_topology.html#ae18fc8c256b85c12cad4e9a13c9a5a53", null ],
     [ "removeInNode", "classsofa_1_1core_1_1topology_1_1_topology.html#a3a170fef94d5d32bb6ee879e7ae654d7", null ],
     [ "setNbPoints", "classsofa_1_1core_1_1topology_1_1_topology.html#a56cf2b954eeac54ce3c563111a82f592", null ],
-    [ "SOFA_CLASS", "classsofa_1_1core_1_1topology_1_1_topology.html#af47aa21ccb6c205d4634e9240dda91e2", null ]
+    [ "SOFA_CLASS", "classsofa_1_1core_1_1topology_1_1_topology.html#af47aa21ccb6c205d4634e9240dda91e2", null ],
+    [ "InvalidEdge", "classsofa_1_1core_1_1topology_1_1_topology.html#abc33eb61bb7a3f069300bcab2b6eb17d", null ],
+    [ "InvalidHexahedron", "classsofa_1_1core_1_1topology_1_1_topology.html#a1882ff280ac29ae001daf884b77fb18b", null ],
+    [ "InvalidID", "classsofa_1_1core_1_1topology_1_1_topology.html#a9380629e4406955f499172200652eaaa", null ],
+    [ "InvalidPentahedron", "classsofa_1_1core_1_1topology_1_1_topology.html#a60334fa979d186f0fdcca7379052ceb5", null ],
+    [ "InvalidPyramid", "classsofa_1_1core_1_1topology_1_1_topology.html#a91d4b1cb561146059c1cb28fc33274ff", null ],
+    [ "InvalidQuad", "classsofa_1_1core_1_1topology_1_1_topology.html#a403d8770eb45396d046bcf09856de2c1", null ],
+    [ "InvalidSet", "classsofa_1_1core_1_1topology_1_1_topology.html#ab74df346af97db215ed81dccceb17299", null ],
+    [ "InvalidTetrahedron", "classsofa_1_1core_1_1topology_1_1_topology.html#aea8c33ce8d2139f5f811e43bdb9a5fda", null ],
+    [ "InvalidTriangle", "classsofa_1_1core_1_1topology_1_1_topology.html#a6cfab169e2286eff5b1b04b4db8cbaf6", null ]
 ];

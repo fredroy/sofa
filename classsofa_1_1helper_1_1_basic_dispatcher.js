@@ -9,6 +9,7 @@ var classsofa_1_1helper_1_1_basic_dispatcher =
     [ "go", "classsofa_1_1helper_1_1_basic_dispatcher.html#a57b051554c37dd4e131daf90770afd48", null ],
     [ "ignore", "classsofa_1_1helper_1_1_basic_dispatcher.html#aa90777917a8ce4342699b3120f9b8df4", null ],
     [ "ignore", "classsofa_1_1helper_1_1_basic_dispatcher.html#a9b57eb160fc7b2f6516fe150828009eb", null ],
+    [ "ignoreFn", "classsofa_1_1helper_1_1_basic_dispatcher.html#a98168a1af900c0592dfed159a8a2f1dd", null ],
     [ "isSupported", "classsofa_1_1helper_1_1_basic_dispatcher.html#a7ccfde8846bc0509714ae844ef048747", null ],
     [ "callBackMap", "classsofa_1_1helper_1_1_basic_dispatcher.html#a10429a287f457ff4e94876d87257610c", null ]
 ];

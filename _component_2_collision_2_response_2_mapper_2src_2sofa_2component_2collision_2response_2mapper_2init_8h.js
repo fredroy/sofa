@@ -1,0 +1,4 @@
+var _component_2_collision_2_response_2_mapper_2src_2sofa_2component_2collision_2response_2mapper_2init_8h =
+[
+    [ "init", "_component_2_collision_2_response_2_mapper_2src_2sofa_2component_2collision_2response_2mapper_2init_8h.html#aae1240c83ceb027a6bf7170c33051226", null ]
+];

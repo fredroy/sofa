@@ -91,6 +91,8 @@ $(document).ready(function(){initNavTree('classsofa_1_1component_1_1constraint_1
 <div class="title">GenericConstraintProblem Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_constraint_2_lagrangian_2_solver_2src_2sofa_2component_2constraint_2lagrangian_2solver_2_generic_constraint_solver_8h_source.html">GenericConstraintSolver.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GenericConstraintProblem:</div>
 <div class="dyncontent">
@@ -103,128 +105,545 @@ Inheritance diagram for GenericConstraintProblem:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a82b012912bb01eaa8a46fb1ccfd7a70d"><td class="memItemLeft" align="right" valign="top"><a id="a82b012912bb01eaa8a46fb1ccfd7a70d"></a>
-typedef std::vector&lt; <a class="el" href="classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html">core::behavior::BaseConstraintCorrection</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ConstraintCorrections</b></td></tr>
+<tr class="memitem:a82b012912bb01eaa8a46fb1ccfd7a70d"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html">core::behavior::BaseConstraintCorrection</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a82b012912bb01eaa8a46fb1ccfd7a70d">ConstraintCorrections</a></td></tr>
 <tr class="separator:a82b012912bb01eaa8a46fb1ccfd7a70d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4faf32ed4eee577bf83a9bc269dc6bf"><td class="memItemLeft" align="right" valign="top"><a id="aa4faf32ed4eee577bf83a9bc269dc6bf"></a>
-typedef std::vector&lt; <a class="el" href="classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html">core::behavior::BaseConstraintCorrection</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><b>ConstraintCorrectionIterator</b></td></tr>
+<tr class="memitem:aa4faf32ed4eee577bf83a9bc269dc6bf"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html">core::behavior::BaseConstraintCorrection</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#aa4faf32ed4eee577bf83a9bc269dc6bf">ConstraintCorrectionIterator</a></td></tr>
 <tr class="separator:aa4faf32ed4eee577bf83a9bc269dc6bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a811056a0817a21765dac44eaeb4189ed"><td class="memItemLeft" align="right" valign="top"><a id="a811056a0817a21765dac44eaeb4189ed"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> (int nbConstraints) override</td></tr>
+<tr class="memitem:a19713b0286dba115b44df0294f542bf6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a19713b0286dba115b44df0294f542bf6">GenericConstraintProblem</a> ()</td></tr>
+<tr class="separator:a19713b0286dba115b44df0294f542bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fe5f6b51de0f9cb2825ef8ee5338ea3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a4fe5f6b51de0f9cb2825ef8ee5338ea3">~GenericConstraintProblem</a> () override</td></tr>
+<tr class="separator:a4fe5f6b51de0f9cb2825ef8ee5338ea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a811056a0817a21765dac44eaeb4189ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a811056a0817a21765dac44eaeb4189ed">clear</a> (int nbConstraints) override</td></tr>
 <tr class="separator:a811056a0817a21765dac44eaeb4189ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae877f003548bc4bddf93ff602110f1d"><td class="memItemLeft" align="right" valign="top"><a id="aae877f003548bc4bddf93ff602110f1d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>freeConstraintResolutions</b> ()</td></tr>
+<tr class="memitem:aae877f003548bc4bddf93ff602110f1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#aae877f003548bc4bddf93ff602110f1d">freeConstraintResolutions</a> ()</td></tr>
 <tr class="separator:aae877f003548bc4bddf93ff602110f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a542051de9394b761e70af9cb7a4623cb"><td class="memItemLeft" align="right" valign="top"><a id="a542051de9394b761e70af9cb7a4623cb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>solveTimed</b> (SReal tol, int maxIt, SReal timeout) override</td></tr>
+<tr class="memitem:a542051de9394b761e70af9cb7a4623cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a542051de9394b761e70af9cb7a4623cb">solveTimed</a> (SReal <a class="el" href="namespacesofa.html#af479841b51c230ff33a6520d29de50ab">tol</a>, int maxIt, SReal timeout) override</td></tr>
 <tr class="separator:a542051de9394b761e70af9cb7a4623cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f686ce75f7bdac8c0fdfcba30439d5a"><td class="memItemLeft" align="right" valign="top"><a id="a2f686ce75f7bdac8c0fdfcba30439d5a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>gaussSeidel</b> (SReal timeout=0, <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver.html">GenericConstraintSolver</a> *solver=nullptr)</td></tr>
+<tr class="memitem:a2f686ce75f7bdac8c0fdfcba30439d5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a2f686ce75f7bdac8c0fdfcba30439d5a">gaussSeidel</a> (SReal timeout=0, <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver.html">GenericConstraintSolver</a> *solver=nullptr)</td></tr>
 <tr class="separator:a2f686ce75f7bdac8c0fdfcba30439d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6826d2060650c6a858669290c3323855"><td class="memItemLeft" align="right" valign="top"><a id="a6826d2060650c6a858669290c3323855"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unbuiltGaussSeidel</b> (SReal timeout=0, <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver.html">GenericConstraintSolver</a> *solver=nullptr)</td></tr>
+<tr class="memitem:a6826d2060650c6a858669290c3323855"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a6826d2060650c6a858669290c3323855">unbuiltGaussSeidel</a> (SReal timeout=0, <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver.html">GenericConstraintSolver</a> *solver=nullptr)</td></tr>
 <tr class="separator:a6826d2060650c6a858669290c3323855"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf857e8d4e5765e38df388bb8c683bf1"><td class="memItemLeft" align="right" valign="top"><a id="aaf857e8d4e5765e38df388bb8c683bf1"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumConstraints</b> ()</td></tr>
+<tr class="memitem:aaf857e8d4e5765e38df388bb8c683bf1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#aaf857e8d4e5765e38df388bb8c683bf1">getNumConstraints</a> ()</td></tr>
 <tr class="separator:aaf857e8d4e5765e38df388bb8c683bf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac68529f3e281777ec1ad926696a1cf15"><td class="memItemLeft" align="right" valign="top"><a id="ac68529f3e281777ec1ad926696a1cf15"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumConstraintGroups</b> ()</td></tr>
+<tr class="memitem:ac68529f3e281777ec1ad926696a1cf15"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#ac68529f3e281777ec1ad926696a1cf15">getNumConstraintGroups</a> ()</td></tr>
 <tr class="separator:ac68529f3e281777ec1ad926696a1cf15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html">ConstraintProblem</a></td></tr>
-<tr class="memitem:a56e1ed7f77c1dad3205d8c25e62c0432 inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top"><a id="a56e1ed7f77c1dad3205d8c25e62c0432"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getDimension</b> ()</td></tr>
+<tr class="memitem:abc040d56f581b41807765fccbef1da33 inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#abc040d56f581b41807765fccbef1da33">ConstraintProblem</a> ()</td></tr>
+<tr class="separator:abc040d56f581b41807765fccbef1da33 inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a8f7394442e8bc9960647debd1ddb8c inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#a4a8f7394442e8bc9960647debd1ddb8c">~ConstraintProblem</a> ()</td></tr>
+<tr class="separator:a4a8f7394442e8bc9960647debd1ddb8c inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56e1ed7f77c1dad3205d8c25e62c0432 inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#a56e1ed7f77c1dad3205d8c25e62c0432">getDimension</a> ()</td></tr>
 <tr class="separator:a56e1ed7f77c1dad3205d8c25e62c0432 inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba2df0f787c24f124dc5dfc0fe691210 inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top"><a id="aba2df0f787c24f124dc5dfc0fe691210"></a>
-SReal **&#160;</td><td class="memItemRight" valign="bottom"><b>getW</b> ()</td></tr>
+<tr class="memitem:aba2df0f787c24f124dc5dfc0fe691210 inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top">SReal **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#aba2df0f787c24f124dc5dfc0fe691210">getW</a> ()</td></tr>
 <tr class="separator:aba2df0f787c24f124dc5dfc0fe691210 inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe028a2818f5cf2e93bf5697ed9de0b6 inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top"><a id="afe028a2818f5cf2e93bf5697ed9de0b6"></a>
-SReal *&#160;</td><td class="memItemRight" valign="bottom"><b>getDfree</b> ()</td></tr>
+<tr class="memitem:afe028a2818f5cf2e93bf5697ed9de0b6 inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top">SReal *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#afe028a2818f5cf2e93bf5697ed9de0b6">getDfree</a> ()</td></tr>
 <tr class="separator:afe028a2818f5cf2e93bf5697ed9de0b6 inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34a4794dab4f310c835221536962fa35 inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top"><a id="a34a4794dab4f310c835221536962fa35"></a>
-SReal *&#160;</td><td class="memItemRight" valign="bottom"><b>getF</b> ()</td></tr>
+<tr class="memitem:a34a4794dab4f310c835221536962fa35 inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top">SReal *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#a34a4794dab4f310c835221536962fa35">getF</a> ()</td></tr>
 <tr class="separator:a34a4794dab4f310c835221536962fa35 inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea60b26bb6f79fd52196c272a9c5efce inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top"><a id="aea60b26bb6f79fd52196c272a9c5efce"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getProblemId</b> ()</td></tr>
+<tr class="memitem:aea60b26bb6f79fd52196c272a9c5efce inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#aea60b26bb6f79fd52196c272a9c5efce">getProblemId</a> ()</td></tr>
 <tr class="separator:aea60b26bb6f79fd52196c272a9c5efce inherit pub_methods_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a569a422a53d32f2475783a8e317d5f7a"><td class="memItemLeft" align="right" valign="top"><a id="a569a422a53d32f2475783a8e317d5f7a"></a>
-<a class="el" href="classsofa_1_1linearalgebra_1_1_full_vector.html">sofa::linearalgebra::FullVector</a>&lt; SReal &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_d</b></td></tr>
+<tr class="memitem:a569a422a53d32f2475783a8e317d5f7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_full_vector.html">sofa::linearalgebra::FullVector</a>&lt; SReal &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a569a422a53d32f2475783a8e317d5f7a">_d</a></td></tr>
 <tr class="separator:a569a422a53d32f2475783a8e317d5f7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af46f64bff545e262354b5819eb370d17"><td class="memItemLeft" align="right" valign="top"><a id="af46f64bff545e262354b5819eb370d17"></a>
-std::vector&lt; <a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html">core::behavior::ConstraintResolution</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>constraintsResolutions</b></td></tr>
+<tr class="memitem:af46f64bff545e262354b5819eb370d17"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html">core::behavior::ConstraintResolution</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#af46f64bff545e262354b5819eb370d17">constraintsResolutions</a></td></tr>
 <tr class="separator:af46f64bff545e262354b5819eb370d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a62c7d57a28def975561026d4680605"><td class="memItemLeft" align="right" valign="top"><a id="a1a62c7d57a28def975561026d4680605"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>scaleTolerance</b></td></tr>
+<tr class="memitem:a1a62c7d57a28def975561026d4680605"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a1a62c7d57a28def975561026d4680605">scaleTolerance</a></td></tr>
 <tr class="separator:a1a62c7d57a28def975561026d4680605"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae009875c73ab7a58f10f4e6a78c5e30c"><td class="memItemLeft" align="right" valign="top"><a id="ae009875c73ab7a58f10f4e6a78c5e30c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>allVerified</b></td></tr>
+<tr class="memitem:ae009875c73ab7a58f10f4e6a78c5e30c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#ae009875c73ab7a58f10f4e6a78c5e30c">allVerified</a></td></tr>
 <tr class="separator:ae009875c73ab7a58f10f4e6a78c5e30c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a280cf06823559889d42b1e87359aee8a"><td class="memItemLeft" align="right" valign="top"><a id="a280cf06823559889d42b1e87359aee8a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>unbuilt</b></td></tr>
+<tr class="memitem:a280cf06823559889d42b1e87359aee8a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a280cf06823559889d42b1e87359aee8a">unbuilt</a></td></tr>
 <tr class="separator:a280cf06823559889d42b1e87359aee8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3cc79835fb02d1b90ad000e1526f924"><td class="memItemLeft" align="right" valign="top"><a id="ac3cc79835fb02d1b90ad000e1526f924"></a>
-SReal&#160;</td><td class="memItemRight" valign="bottom"><b>sor</b></td></tr>
+<tr class="memitem:ac3cc79835fb02d1b90ad000e1526f924"><td class="memItemLeft" align="right" valign="top">SReal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#ac3cc79835fb02d1b90ad000e1526f924">sor</a></td></tr>
 <tr class="separator:ac3cc79835fb02d1b90ad000e1526f924"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d90641d56b50461970030e53dd0c902"><td class="memItemLeft" align="right" valign="top"><a id="a8d90641d56b50461970030e53dd0c902"></a>
-SReal&#160;</td><td class="memItemRight" valign="bottom"><b>sceneTime</b></td></tr>
+<tr class="memitem:a8d90641d56b50461970030e53dd0c902"><td class="memItemLeft" align="right" valign="top">SReal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a8d90641d56b50461970030e53dd0c902">sceneTime</a></td></tr>
 <tr class="separator:a8d90641d56b50461970030e53dd0c902"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5c901011cd83effdd5a8c7f84ec77b3"><td class="memItemLeft" align="right" valign="top"><a id="ad5c901011cd83effdd5a8c7f84ec77b3"></a>
-SReal&#160;</td><td class="memItemRight" valign="bottom"><b>currentError</b></td></tr>
+<tr class="memitem:ad5c901011cd83effdd5a8c7f84ec77b3"><td class="memItemLeft" align="right" valign="top">SReal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#ad5c901011cd83effdd5a8c7f84ec77b3">currentError</a></td></tr>
 <tr class="separator:ad5c901011cd83effdd5a8c7f84ec77b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b102b7ccb5988fe628dc5cee382bf75"><td class="memItemLeft" align="right" valign="top"><a id="a8b102b7ccb5988fe628dc5cee382bf75"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>currentIterations</b></td></tr>
+<tr class="memitem:a8b102b7ccb5988fe628dc5cee382bf75"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a8b102b7ccb5988fe628dc5cee382bf75">currentIterations</a></td></tr>
 <tr class="separator:a8b102b7ccb5988fe628dc5cee382bf75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9dd237e2522a0b556f6d0b4562d3f71"><td class="memItemLeft" align="right" valign="top"><a id="ad9dd237e2522a0b556f6d0b4562d3f71"></a>
-<a class="el" href="classsofa_1_1linearalgebra_1_1_sparse_matrix.html">sofa::linearalgebra::SparseMatrix</a>&lt; SReal &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Wdiag</b></td></tr>
+<tr class="memitem:ad9dd237e2522a0b556f6d0b4562d3f71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_sparse_matrix.html">sofa::linearalgebra::SparseMatrix</a>&lt; SReal &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#ad9dd237e2522a0b556f6d0b4562d3f71">Wdiag</a></td></tr>
 <tr class="separator:ad9dd237e2522a0b556f6d0b4562d3f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a438b863786be9770cd40f6ab19a20881"><td class="memItemLeft" align="right" valign="top"><a id="a438b863786be9770cd40f6ab19a20881"></a>
-std::list&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>constraints_sequence</b></td></tr>
+<tr class="memitem:a438b863786be9770cd40f6ab19a20881"><td class="memItemLeft" align="right" valign="top">std::list&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a438b863786be9770cd40f6ab19a20881">constraints_sequence</a></td></tr>
 <tr class="separator:a438b863786be9770cd40f6ab19a20881"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9abf226605b8091d4b17e7ebef970762"><td class="memItemLeft" align="right" valign="top"><a id="a9abf226605b8091d4b17e7ebef970762"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>change_sequence</b></td></tr>
+<tr class="memitem:a9abf226605b8091d4b17e7ebef970762"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a9abf226605b8091d4b17e7ebef970762">change_sequence</a></td></tr>
 <tr class="separator:a9abf226605b8091d4b17e7ebef970762"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac379cc1b3e9e428fff742890d732ba85"><td class="memItemLeft" align="right" valign="top"><a id="ac379cc1b3e9e428fff742890d732ba85"></a>
-std::vector&lt; ConstraintCorrections &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>cclist_elems</b></td></tr>
+<tr class="memitem:ac379cc1b3e9e428fff742890d732ba85"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a82b012912bb01eaa8a46fb1ccfd7a70d">ConstraintCorrections</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#ac379cc1b3e9e428fff742890d732ba85">cclist_elems</a></td></tr>
 <tr class="separator:ac379cc1b3e9e428fff742890d732ba85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html">ConstraintProblem</a></td></tr>
-<tr class="memitem:a30d4ed9d1db658bf048c757744b5ba55 inherit pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top"><a id="a30d4ed9d1db658bf048c757744b5ba55"></a>
-<a class="el" href="classsofa_1_1linearalgebra_1_1_l_ptr_full_matrix.html">sofa::linearalgebra::LPtrFullMatrix</a>&lt; SReal &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>W</b></td></tr>
+<tr class="memitem:a30d4ed9d1db658bf048c757744b5ba55 inherit pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_l_ptr_full_matrix.html">sofa::linearalgebra::LPtrFullMatrix</a>&lt; SReal &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#a30d4ed9d1db658bf048c757744b5ba55">W</a></td></tr>
 <tr class="separator:a30d4ed9d1db658bf048c757744b5ba55 inherit pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15983186683b5f236acc57fd66f6465f inherit pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top"><a id="a15983186683b5f236acc57fd66f6465f"></a>
-<a class="el" href="classsofa_1_1linearalgebra_1_1_full_vector.html">sofa::linearalgebra::FullVector</a>&lt; SReal &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>dFree</b></td></tr>
+<tr class="memitem:a15983186683b5f236acc57fd66f6465f inherit pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_full_vector.html">sofa::linearalgebra::FullVector</a>&lt; SReal &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#a15983186683b5f236acc57fd66f6465f">dFree</a></td></tr>
 <tr class="separator:a15983186683b5f236acc57fd66f6465f inherit pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02c2abee90c7618e0bfb9593d84b8b08 inherit pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top"><a id="a02c2abee90c7618e0bfb9593d84b8b08"></a>
-<a class="el" href="classsofa_1_1linearalgebra_1_1_full_vector.html">sofa::linearalgebra::FullVector</a>&lt; SReal &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>f</b></td></tr>
+<tr class="memitem:a02c2abee90c7618e0bfb9593d84b8b08 inherit pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1linearalgebra_1_1_full_vector.html">sofa::linearalgebra::FullVector</a>&lt; SReal &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#a02c2abee90c7618e0bfb9593d84b8b08">f</a></td></tr>
 <tr class="separator:a02c2abee90c7618e0bfb9593d84b8b08 inherit pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab5801baa02209371b0f5b141a205c1b inherit pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top"><a id="aab5801baa02209371b0f5b141a205c1b"></a>
-SReal&#160;</td><td class="memItemRight" valign="bottom"><b>tolerance</b></td></tr>
+<tr class="memitem:aab5801baa02209371b0f5b141a205c1b inherit pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top">SReal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#aab5801baa02209371b0f5b141a205c1b">tolerance</a></td></tr>
 <tr class="separator:aab5801baa02209371b0f5b141a205c1b inherit pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfed55b92ded4adea8686fe2014f85cb inherit pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top"><a id="adfed55b92ded4adea8686fe2014f85cb"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>maxIterations</b></td></tr>
+<tr class="memitem:adfed55b92ded4adea8686fe2014f85cb inherit pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#adfed55b92ded4adea8686fe2014f85cb">maxIterations</a></td></tr>
 <tr class="separator:adfed55b92ded4adea8686fe2014f85cb inherit pub_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html">ConstraintProblem</a></td></tr>
-<tr class="memitem:a1a8a8235879363159315091a1daed72f inherit pro_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top"><a id="a1a8a8235879363159315091a1daed72f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>dimension</b></td></tr>
+<tr class="memitem:a1a8a8235879363159315091a1daed72f inherit pro_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#a1a8a8235879363159315091a1daed72f">dimension</a></td></tr>
 <tr class="separator:a1a8a8235879363159315091a1daed72f inherit pro_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d853a94248f14f5fe29f7777f145b01 inherit pro_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top"><a id="a2d853a94248f14f5fe29f7777f145b01"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>problemId</b></td></tr>
+<tr class="memitem:a2d853a94248f14f5fe29f7777f145b01 inherit pro_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#a2d853a94248f14f5fe29f7777f145b01">problemId</a></td></tr>
 <tr class="separator:a2d853a94248f14f5fe29f7777f145b01 inherit pro_attribs_classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="aa4faf32ed4eee577bf83a9bc269dc6bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4faf32ed4eee577bf83a9bc269dc6bf">&#9670;&nbsp;</a></span>ConstraintCorrectionIterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt; <a class="el" href="classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html">core::behavior::BaseConstraintCorrection</a>* &gt;::iterator <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#aa4faf32ed4eee577bf83a9bc269dc6bf">ConstraintCorrectionIterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82b012912bb01eaa8a46fb1ccfd7a70d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82b012912bb01eaa8a46fb1ccfd7a70d">&#9670;&nbsp;</a></span>ConstraintCorrections</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt; <a class="el" href="classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html">core::behavior::BaseConstraintCorrection</a>* &gt; <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a82b012912bb01eaa8a46fb1ccfd7a70d">ConstraintCorrections</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a19713b0286dba115b44df0294f542bf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19713b0286dba115b44df0294f542bf6">&#9670;&nbsp;</a></span>GenericConstraintProblem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html">GenericConstraintProblem</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4fe5f6b51de0f9cb2825ef8ee5338ea3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fe5f6b51de0f9cb2825ef8ee5338ea3">&#9670;&nbsp;</a></span>~GenericConstraintProblem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html">GenericConstraintProblem</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a811056a0817a21765dac44eaeb4189ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a811056a0817a21765dac44eaeb4189ed">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clear </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbConstraints</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#a1e6b620a389796c07248b08c7c1573e9">ConstraintProblem</a>.</p>
+
+</div>
+</div>
+<a id="aae877f003548bc4bddf93ff602110f1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae877f003548bc4bddf93ff602110f1d">&#9670;&nbsp;</a></span>freeConstraintResolutions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void freeConstraintResolutions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f686ce75f7bdac8c0fdfcba30439d5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f686ce75f7bdac8c0fdfcba30439d5a">&#9670;&nbsp;</a></span>gaussSeidel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gaussSeidel </td>
+          <td>(</td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver.html">GenericConstraintSolver</a> *&#160;</td>
+          <td class="paramname"><em>solver</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac68529f3e281777ec1ad926696a1cf15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac68529f3e281777ec1ad926696a1cf15">&#9670;&nbsp;</a></span>getNumConstraintGroups()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getNumConstraintGroups </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf857e8d4e5765e38df388bb8c683bf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf857e8d4e5765e38df388bb8c683bf1">&#9670;&nbsp;</a></span>getNumConstraints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getNumConstraints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a542051de9394b761e70af9cb7a4623cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a542051de9394b761e70af9cb7a4623cb">&#9670;&nbsp;</a></span>solveTimed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void solveTimed </td>
+          <td>(</td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname"><em>tol</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxIt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname"><em>timeout</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html#ab3d35a7371eb2361c9c8133631720c0f">ConstraintProblem</a>.</p>
+
+</div>
+</div>
+<a id="a6826d2060650c6a858669290c3323855"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6826d2060650c6a858669290c3323855">&#9670;&nbsp;</a></span>unbuiltGaussSeidel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void unbuiltGaussSeidel </td>
+          <td>(</td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver.html">GenericConstraintSolver</a> *&#160;</td>
+          <td class="paramname"><em>solver</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a569a422a53d32f2475783a8e317d5f7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a569a422a53d32f2475783a8e317d5f7a">&#9670;&nbsp;</a></span>_d</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1linearalgebra_1_1_full_vector.html">sofa::linearalgebra::FullVector</a>&lt;SReal&gt; _d</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae009875c73ab7a58f10f4e6a78c5e30c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae009875c73ab7a58f10f4e6a78c5e30c">&#9670;&nbsp;</a></span>allVerified</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool allVerified</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac379cc1b3e9e428fff742890d732ba85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac379cc1b3e9e428fff742890d732ba85">&#9670;&nbsp;</a></span>cclist_elems</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html#a82b012912bb01eaa8a46fb1ccfd7a70d">ConstraintCorrections</a> &gt; cclist_elems</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9abf226605b8091d4b17e7ebef970762"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9abf226605b8091d4b17e7ebef970762">&#9670;&nbsp;</a></span>change_sequence</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool change_sequence</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a438b863786be9770cd40f6ab19a20881"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a438b863786be9770cd40f6ab19a20881">&#9670;&nbsp;</a></span>constraints_sequence</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt;unsigned int&gt; constraints_sequence</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af46f64bff545e262354b5819eb370d17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af46f64bff545e262354b5819eb370d17">&#9670;&nbsp;</a></span>constraintsResolutions</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classsofa_1_1core_1_1behavior_1_1_constraint_resolution.html">core::behavior::ConstraintResolution</a>*&gt; constraintsResolutions</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad5c901011cd83effdd5a8c7f84ec77b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5c901011cd83effdd5a8c7f84ec77b3">&#9670;&nbsp;</a></span>currentError</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SReal currentError</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b102b7ccb5988fe628dc5cee382bf75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b102b7ccb5988fe628dc5cee382bf75">&#9670;&nbsp;</a></span>currentIterations</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int currentIterations</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1a62c7d57a28def975561026d4680605"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a62c7d57a28def975561026d4680605">&#9670;&nbsp;</a></span>scaleTolerance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool scaleTolerance</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8d90641d56b50461970030e53dd0c902"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d90641d56b50461970030e53dd0c902">&#9670;&nbsp;</a></span>sceneTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SReal sceneTime</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac3cc79835fb02d1b90ad000e1526f924"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3cc79835fb02d1b90ad000e1526f924">&#9670;&nbsp;</a></span>sor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SReal sor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a280cf06823559889d42b1e87359aee8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a280cf06823559889d42b1e87359aee8a">&#9670;&nbsp;</a></span>unbuilt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool unbuilt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9dd237e2522a0b556f6d0b4562d3f71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9dd237e2522a0b556f6d0b4562d3f71">&#9670;&nbsp;</a></span>Wdiag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1linearalgebra_1_1_sparse_matrix.html">sofa::linearalgebra::SparseMatrix</a>&lt;SReal&gt; Wdiag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>component</b></li><li class="navelem"><b>constraint</b></li><li class="navelem"><b>lagrangian</b></li><li class="navelem"><b>solver</b></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html">GenericConstraintProblem</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:48:33 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component.html">component</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1constraint.html">constraint</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1constraint_1_1lagrangian.html">lagrangian</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1constraint_1_1lagrangian_1_1solver.html">solver</a></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_problem.html">GenericConstraintProblem</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:24:31 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -20,5 +20,11 @@ var classsofa_1_1defaulttype_1_1_solid_types =
     [ "Vec6", "classsofa_1_1defaulttype_1_1_solid_types.html#ace64ead2531b40b332a50ca40e0907c0", null ],
     [ "VecCoord", "classsofa_1_1defaulttype_1_1_solid_types.html#a749300dcac131f2efe1c8a6326423dd4", null ],
     [ "VecDeriv", "classsofa_1_1defaulttype_1_1_solid_types.html#ad9cf459efa4b72d8db63a5926eddc4a7", null ],
-    [ "VecReal", "classsofa_1_1defaulttype_1_1_solid_types.html#a2203127eb702aafa6b23ceacf1a1010a", null ]
+    [ "VecReal", "classsofa_1_1defaulttype_1_1_solid_types.html#a2203127eb702aafa6b23ceacf1a1010a", null ],
+    [ "crossM", "classsofa_1_1defaulttype_1_1_solid_types.html#a47204c983e0b235a9c578bc65e8a1e4c", null ],
+    [ "dyad", "classsofa_1_1defaulttype_1_1_solid_types.html#a5b62a12e061dade4acf338652f0ad844", null ],
+    [ "dyad", "classsofa_1_1defaulttype_1_1_solid_types.html#acb8410ecb4a6be36af17a39dc16c85bd", null ],
+    [ "mult", "classsofa_1_1defaulttype_1_1_solid_types.html#a53cb9ca7fd1a42ae2ff523799410835d", null ],
+    [ "multTrans", "classsofa_1_1defaulttype_1_1_solid_types.html#a1ad63fc1382174703a87eb6029a14d36", null ],
+    [ "Name", "classsofa_1_1defaulttype_1_1_solid_types.html#a28ceceb8e81ac299b3c6992dd0a707d3", null ]
 ];

@@ -85,11 +85,15 @@ $(document).ready(function(){initNavTree('classsofa_1_1helper_1_1io_1_1_mesh_top
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">MeshTopologyLoader Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_mesh_topology_loader_8h_source.html">MeshTopologyLoader.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MeshTopologyLoader:</div>
 <div class="dyncontent">
@@ -102,62 +106,799 @@ Inheritance diagram for MeshTopologyLoader:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a34485df4864136107fd830e23695986c"><td class="memItemLeft" align="right" valign="top"><a id="a34485df4864136107fd830e23695986c"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Index</b> = sofa::Index</td></tr>
+<tr class="memitem:a34485df4864136107fd830e23695986c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a> = sofa::Index</td></tr>
 <tr class="separator:a34485df4864136107fd830e23695986c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2eea1635b7df085d42c973352ef10355"><td class="memItemLeft" align="right" valign="top"><a id="a2eea1635b7df085d42c973352ef10355"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const char *filename)</td></tr>
+<tr class="memitem:a31e065ea9b0ed08de25ee46dc2727894"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a31e065ea9b0ed08de25ee46dc2727894">MeshTopologyLoader</a> ()</td></tr>
+<tr class="separator:a31e065ea9b0ed08de25ee46dc2727894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab23b6c4354eeab7f86c8b30317bccfd2"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#ab23b6c4354eeab7f86c8b30317bccfd2">~MeshTopologyLoader</a> ()</td></tr>
+<tr class="separator:ab23b6c4354eeab7f86c8b30317bccfd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eea1635b7df085d42c973352ef10355"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a2eea1635b7df085d42c973352ef10355">load</a> (const char *filename)</td></tr>
 <tr class="separator:a2eea1635b7df085d42c973352ef10355"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaf271dbdb4137dcbed31e357d057aee"><td class="memItemLeft" align="right" valign="top"><a id="aeaf271dbdb4137dcbed31e357d057aee"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setNbPoints</b> (Index)</td></tr>
+<tr class="memitem:aeaf271dbdb4137dcbed31e357d057aee"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#aeaf271dbdb4137dcbed31e357d057aee">setNbPoints</a> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>)</td></tr>
 <tr class="separator:aeaf271dbdb4137dcbed31e357d057aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d8a4ea452be5505a8e24e4a54adfd10"><td class="memItemLeft" align="right" valign="top"><a id="a1d8a4ea452be5505a8e24e4a54adfd10"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setNbLines</b> (Index)</td></tr>
+<tr class="memitem:a1d8a4ea452be5505a8e24e4a54adfd10"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a1d8a4ea452be5505a8e24e4a54adfd10">setNbLines</a> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>)</td></tr>
 <tr class="separator:a1d8a4ea452be5505a8e24e4a54adfd10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af35e2766810d20c2f0d4e393d43d0301"><td class="memItemLeft" align="right" valign="top"><a id="af35e2766810d20c2f0d4e393d43d0301"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setNbEdges</b> (Index)</td></tr>
+<tr class="memitem:af35e2766810d20c2f0d4e393d43d0301"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#af35e2766810d20c2f0d4e393d43d0301">setNbEdges</a> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>)</td></tr>
 <tr class="separator:af35e2766810d20c2f0d4e393d43d0301"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1126a4e3a9697f5f996996eb961fb813"><td class="memItemLeft" align="right" valign="top"><a id="a1126a4e3a9697f5f996996eb961fb813"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setNbTriangles</b> (Index)</td></tr>
+<tr class="memitem:a1126a4e3a9697f5f996996eb961fb813"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a1126a4e3a9697f5f996996eb961fb813">setNbTriangles</a> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>)</td></tr>
 <tr class="separator:a1126a4e3a9697f5f996996eb961fb813"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a186f8c249f26e12c659c014e9232d8de"><td class="memItemLeft" align="right" valign="top"><a id="a186f8c249f26e12c659c014e9232d8de"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setNbQuads</b> (Index)</td></tr>
+<tr class="memitem:a186f8c249f26e12c659c014e9232d8de"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a186f8c249f26e12c659c014e9232d8de">setNbQuads</a> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>)</td></tr>
 <tr class="separator:a186f8c249f26e12c659c014e9232d8de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e0d92519df0821723a5c7a6bb9e880c"><td class="memItemLeft" align="right" valign="top"><a id="a3e0d92519df0821723a5c7a6bb9e880c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setNbTetrahedra</b> (Index)</td></tr>
+<tr class="memitem:a3e0d92519df0821723a5c7a6bb9e880c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a3e0d92519df0821723a5c7a6bb9e880c">setNbTetrahedra</a> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>)</td></tr>
 <tr class="separator:a3e0d92519df0821723a5c7a6bb9e880c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad64a71687b6adfcfe07c7f6a80747daa"><td class="memItemLeft" align="right" valign="top"><a id="ad64a71687b6adfcfe07c7f6a80747daa"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setNbCubes</b> (Index)</td></tr>
+<tr class="memitem:ad64a71687b6adfcfe07c7f6a80747daa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#ad64a71687b6adfcfe07c7f6a80747daa">setNbCubes</a> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>)</td></tr>
 <tr class="separator:ad64a71687b6adfcfe07c7f6a80747daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11872a95464b60a1f66d178c079d940b"><td class="memItemLeft" align="right" valign="top"><a id="a11872a95464b60a1f66d178c079d940b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addPoint</b> (SReal, SReal, SReal)</td></tr>
+<tr class="memitem:a11872a95464b60a1f66d178c079d940b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a11872a95464b60a1f66d178c079d940b">addPoint</a> (SReal, SReal, SReal)</td></tr>
 <tr class="separator:a11872a95464b60a1f66d178c079d940b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f50660fc565c18be7535c074d78eec3"><td class="memItemLeft" align="right" valign="top"><a id="a3f50660fc565c18be7535c074d78eec3"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addLine</b> (Index, Index)</td></tr>
+<tr class="memitem:a3f50660fc565c18be7535c074d78eec3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a3f50660fc565c18be7535c074d78eec3">addLine</a> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>)</td></tr>
 <tr class="separator:a3f50660fc565c18be7535c074d78eec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09c7a966f4d28724b48cf8434bd96d86"><td class="memItemLeft" align="right" valign="top"><a id="a09c7a966f4d28724b48cf8434bd96d86"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addTriangle</b> (Index, Index, Index)</td></tr>
+<tr class="memitem:a09c7a966f4d28724b48cf8434bd96d86"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a09c7a966f4d28724b48cf8434bd96d86">addTriangle</a> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>)</td></tr>
 <tr class="separator:a09c7a966f4d28724b48cf8434bd96d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa87fa12e551816506526a0acec2d70c0"><td class="memItemLeft" align="right" valign="top"><a id="aa87fa12e551816506526a0acec2d70c0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addQuad</b> (Index, Index, Index, Index)</td></tr>
+<tr class="memitem:aa87fa12e551816506526a0acec2d70c0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#aa87fa12e551816506526a0acec2d70c0">addQuad</a> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>)</td></tr>
 <tr class="separator:aa87fa12e551816506526a0acec2d70c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6235823a5b991357e1550a92f0511ab7"><td class="memItemLeft" align="right" valign="top"><a id="a6235823a5b991357e1550a92f0511ab7"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addTetra</b> (Index, Index, Index, Index)</td></tr>
+<tr class="memitem:a6235823a5b991357e1550a92f0511ab7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a6235823a5b991357e1550a92f0511ab7">addTetra</a> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>)</td></tr>
 <tr class="separator:a6235823a5b991357e1550a92f0511ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84cce8fed354852a36734166fda0abbd"><td class="memItemLeft" align="right" valign="top"><a id="a84cce8fed354852a36734166fda0abbd"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addCube</b> (Index, Index, Index, Index, Index, Index, Index, Index)</td></tr>
+<tr class="memitem:a84cce8fed354852a36734166fda0abbd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a84cce8fed354852a36734166fda0abbd">addCube</a> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>)</td></tr>
 <tr class="separator:a84cce8fed354852a36734166fda0abbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a4ed378d59bd6c03702cf34f8e6bd2975"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a4ed378d59bd6c03702cf34f8e6bd2975">loadObj</a> (const char *filename)</td></tr>
+<tr class="memdesc:a4ed378d59bd6c03702cf34f8e6bd2975"><td class="mdescLeft">&#160;</td><td class="mdescRight">method will create a MeshObj which will parse the file. Then data are loaded into the current topology  <a href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a4ed378d59bd6c03702cf34f8e6bd2975">More...</a><br /></td></tr>
+<tr class="separator:a4ed378d59bd6c03702cf34f8e6bd2975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afffb1d92c34fae57f5f2beef80acd31d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#afffb1d92c34fae57f5f2beef80acd31d">loadGmsh</a> (const char *filename)</td></tr>
+<tr class="memdesc:afffb1d92c34fae57f5f2beef80acd31d"><td class="mdescLeft">&#160;</td><td class="mdescRight">method will create a <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_gmsh.html">MeshGmsh</a> which will parse the file. Then will call  <a href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#afffb1d92c34fae57f5f2beef80acd31d">More...</a><br /></td></tr>
+<tr class="separator:afffb1d92c34fae57f5f2beef80acd31d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95b0c88fbd1e2d833a85fb9f0506a32a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a95b0c88fbd1e2d833a85fb9f0506a32a">loadVtk</a> (const char *filename)</td></tr>
+<tr class="separator:a95b0c88fbd1e2d833a85fb9f0506a32a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a885206b3fd7cdd9b2d609792431aabd0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a885206b3fd7cdd9b2d609792431aabd0">loadMesh</a> (std::ifstream &amp;file)</td></tr>
+<tr class="memdesc:a885206b3fd7cdd9b2d609792431aabd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">method to load unknown format. TODO remove this method and deprecated attached format.  <a href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a885206b3fd7cdd9b2d609792431aabd0">More...</a><br /></td></tr>
+<tr class="separator:a885206b3fd7cdd9b2d609792431aabd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5248164c53553fadf8b863e096e3d494"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a5248164c53553fadf8b863e096e3d494">addMeshtoTopology</a> ()</td></tr>
+<tr class="separator:a5248164c53553fadf8b863e096e3d494"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a30c7949ff08a0ab9271bdaeb7f49a7d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh.html">helper::io::Mesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a30c7949ff08a0ab9271bdaeb7f49a7d6">m_mesh</a></td></tr>
+<tr class="separator:a30c7949ff08a0ab9271bdaeb7f49a7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a34485df4864136107fd830e23695986c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34485df4864136107fd830e23695986c">&#9670;&nbsp;</a></span>Index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a> =  sofa::Index</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a31e065ea9b0ed08de25ee46dc2727894"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31e065ea9b0ed08de25ee46dc2727894">&#9670;&nbsp;</a></span>MeshTopologyLoader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html">MeshTopologyLoader</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab23b6c4354eeab7f86c8b30317bccfd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab23b6c4354eeab7f86c8b30317bccfd2">&#9670;&nbsp;</a></span>~MeshTopologyLoader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ~<a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html">MeshTopologyLoader</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a84cce8fed354852a36734166fda0abbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84cce8fed354852a36734166fda0abbd">&#9670;&nbsp;</a></span>addCube()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void addCube </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1core_1_1topology_1_1_default_mesh_topology_loader.html#ae0252bbf548c3c9a29c317dcd5eba4ea">DefaultMeshTopologyLoader</a>.</p>
+
+</div>
+</div>
+<a id="a3f50660fc565c18be7535c074d78eec3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f50660fc565c18be7535c074d78eec3">&#9670;&nbsp;</a></span>addLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void addLine </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1core_1_1topology_1_1_default_mesh_topology_loader.html#a1d5578162f84ebb8433aca084c8990fc">DefaultMeshTopologyLoader</a>.</p>
+
+</div>
+</div>
+<a id="a5248164c53553fadf8b863e096e3d494"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5248164c53553fadf8b863e096e3d494">&#9670;&nbsp;</a></span>addMeshtoTopology()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool addMeshtoTopology </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a11872a95464b60a1f66d178c079d940b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11872a95464b60a1f66d178c079d940b">&#9670;&nbsp;</a></span>addPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void addPoint </td>
+          <td>(</td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1core_1_1topology_1_1_default_mesh_topology_loader.html#a76c94194a5fc4af09544a505b8b67778">DefaultMeshTopologyLoader</a>.</p>
+
+</div>
+</div>
+<a id="aa87fa12e551816506526a0acec2d70c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa87fa12e551816506526a0acec2d70c0">&#9670;&nbsp;</a></span>addQuad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void addQuad </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1core_1_1topology_1_1_default_mesh_topology_loader.html#a8b67168e683a23b035d6658311d43f65">DefaultMeshTopologyLoader</a>.</p>
+
+</div>
+</div>
+<a id="a6235823a5b991357e1550a92f0511ab7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6235823a5b991357e1550a92f0511ab7">&#9670;&nbsp;</a></span>addTetra()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void addTetra </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1core_1_1topology_1_1_default_mesh_topology_loader.html#a6cdbffd004632903a7e1c640b9bce14a">DefaultMeshTopologyLoader</a>.</p>
+
+</div>
+</div>
+<a id="a09c7a966f4d28724b48cf8434bd96d86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09c7a966f4d28724b48cf8434bd96d86">&#9670;&nbsp;</a></span>addTriangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void addTriangle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsofa_1_1core_1_1topology_1_1_default_mesh_topology_loader.html#adcdfd8947e1fe541bb6391c4cad7abfe">DefaultMeshTopologyLoader</a>.</p>
+
+</div>
+</div>
+<a id="a2eea1635b7df085d42c973352ef10355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eea1635b7df085d42c973352ef10355">&#9670;&nbsp;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool load </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afffb1d92c34fae57f5f2beef80acd31d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afffb1d92c34fae57f5f2beef80acd31d">&#9670;&nbsp;</a></span>loadGmsh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool loadGmsh </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>method will create a <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_gmsh.html">MeshGmsh</a> which will parse the file. Then will call </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a5248164c53553fadf8b863e096e3d494">addMeshtoTopology()</a> to add mesh data into <a class="el" href="namespacesofa_1_1topology.html">topology</a> </dd></dl>
+
+</div>
+</div>
+<a id="a885206b3fd7cdd9b2d609792431aabd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a885206b3fd7cdd9b2d609792431aabd0">&#9670;&nbsp;</a></span>loadMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool loadMesh </td>
+          <td>(</td>
+          <td class="paramtype">std::ifstream &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>method to load unknown format. TODO remove this method and deprecated attached format. </p>
+
+</div>
+</div>
+<a id="a4ed378d59bd6c03702cf34f8e6bd2975"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ed378d59bd6c03702cf34f8e6bd2975">&#9670;&nbsp;</a></span>loadObj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool loadObj </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>method will create a MeshObj which will parse the file. Then data are loaded into the current topology </p>
+<p>delete m_mesh;</p>
+
+</div>
+</div>
+<a id="a95b0c88fbd1e2d833a85fb9f0506a32a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95b0c88fbd1e2d833a85fb9f0506a32a">&#9670;&nbsp;</a></span>loadVtk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool loadVtk </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad64a71687b6adfcfe07c7f6a80747daa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad64a71687b6adfcfe07c7f6a80747daa">&#9670;&nbsp;</a></span>setNbCubes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setNbCubes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af35e2766810d20c2f0d4e393d43d0301"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af35e2766810d20c2f0d4e393d43d0301">&#9670;&nbsp;</a></span>setNbEdges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setNbEdges </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d8a4ea452be5505a8e24e4a54adfd10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d8a4ea452be5505a8e24e4a54adfd10">&#9670;&nbsp;</a></span>setNbLines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setNbLines </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeaf271dbdb4137dcbed31e357d057aee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaf271dbdb4137dcbed31e357d057aee">&#9670;&nbsp;</a></span>setNbPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setNbPoints </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a186f8c249f26e12c659c014e9232d8de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a186f8c249f26e12c659c014e9232d8de">&#9670;&nbsp;</a></span>setNbQuads()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setNbQuads </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e0d92519df0821723a5c7a6bb9e880c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e0d92519df0821723a5c7a6bb9e880c">&#9670;&nbsp;</a></span>setNbTetrahedra()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setNbTetrahedra </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1126a4e3a9697f5f996996eb961fb813"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1126a4e3a9697f5f996996eb961fb813">&#9670;&nbsp;</a></span>setNbTriangles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setNbTriangles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html#a34485df4864136107fd830e23695986c">Index</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a30c7949ff08a0ab9271bdaeb7f49a7d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30c7949ff08a0ab9271bdaeb7f49a7d6">&#9670;&nbsp;</a></span>m_mesh</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh.html">helper::io::Mesh</a>* m_mesh</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><b>io</b></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html">MeshTopologyLoader</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:10:54 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper_1_1io.html">io</a></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh_topology_loader.html">MeshTopologyLoader</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

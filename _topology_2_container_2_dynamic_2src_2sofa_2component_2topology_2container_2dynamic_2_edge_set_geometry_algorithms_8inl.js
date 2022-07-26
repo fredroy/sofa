@@ -1,0 +1,5 @@
+var _topology_2_container_2_dynamic_2src_2sofa_2component_2topology_2container_2dynamic_2_edge_set_geometry_algorithms_8inl =
+[
+    [ "compute_2points_barycoefs", "_topology_2_container_2_dynamic_2src_2sofa_2component_2topology_2container_2dynamic_2_edge_set_geometry_algorithms_8inl.html#a281830a38f9522b40f6b31a68604bb6a", null ],
+    [ "is_point_on_edge", "_topology_2_container_2_dynamic_2src_2sofa_2component_2topology_2container_2dynamic_2_edge_set_geometry_algorithms_8inl.html#a3e9c9386595f33a56c3e512f9cf9f1c9", null ]
+];

@@ -86,7 +86,8 @@ $(document).ready(function(){initNavTree('namespacesofa_1_1helper_1_1logging.htm
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">sofa::helper::logging Namespace Reference</div>  </div>
 </div><!--header-->
@@ -151,8 +152,7 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a8b3b3c275eb46680d92090efb407c5df"><td class="memItemLeft" align="right" valign="top"><a id="a8b3b3c275eb46680d92090efb407c5df"></a>
-typedef boost::tokenizer&lt; boost::char_separator&lt; char &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>tokenizer</b></td></tr>
+<tr class="memitem:a8b3b3c275eb46680d92090efb407c5df"><td class="memItemLeft" align="right" valign="top">typedef boost::tokenizer&lt; boost::char_separator&lt; char &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#a8b3b3c275eb46680d92090efb407c5df">tokenizer</a></td></tr>
 <tr class="separator:a8b3b3c275eb46680d92090efb407c5df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -160,52 +160,172 @@ Functions</h2></td></tr>
 <tr class="memitem:a82c6d1eb5384fe5c2328f48c7e59aa36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#a82c6d1eb5384fe5c2328f48c7e59aa36">simpleFormat</a> (size_t jsize, const std::string &amp;text, size_t line_length, std::ostream &amp;wrapped)</td></tr>
 <tr class="memdesc:a82c6d1eb5384fe5c2328f48c7e59aa36"><td class="mdescLeft">&#160;</td><td class="mdescRight">simpleFormat a text containing our markdown 'tags'  <a href="namespacesofa_1_1helper_1_1logging.html#a82c6d1eb5384fe5c2328f48c7e59aa36">More...</a><br /></td></tr>
 <tr class="separator:a82c6d1eb5384fe5c2328f48c7e59aa36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ff2f5e113fd3f805bf1df4ece4855bd"><td class="memItemLeft" align="right" valign="top"><a id="a2ff2f5e113fd3f805bf1df4ece4855bd"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>notMuted</b> (const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a> *t)</td></tr>
+<tr class="memitem:a2ff2f5e113fd3f805bf1df4ece4855bd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#a2ff2f5e113fd3f805bf1df4ece4855bd">notMuted</a> (const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a> *t)</td></tr>
 <tr class="separator:a2ff2f5e113fd3f805bf1df4ece4855bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a255e8bdd0048b79a46de72e34ce33315"><td class="memItemLeft" align="right" valign="top"><a id="a255e8bdd0048b79a46de72e34ce33315"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>notMuted</b> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a> *t)</td></tr>
+<tr class="memitem:a255e8bdd0048b79a46de72e34ce33315"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#a255e8bdd0048b79a46de72e34ce33315">notMuted</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a> *t)</td></tr>
 <tr class="separator:a255e8bdd0048b79a46de72e34ce33315"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4b92e6f03e395617bedf429f2815cfb"><td class="memItemLeft" align="right" valign="top"><a id="aa4b92e6f03e395617bedf429f2815cfb"></a>
-ComponentInfo::SPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#aa4b92e6f03e395617bedf429f2815cfb">getComponentInfo</a> (const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a> *t)</td></tr>
-<tr class="memdesc:aa4b92e6f03e395617bedf429f2815cfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This construct a new <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> object from a Base object. <br /></td></tr>
+<tr class="memitem:aa4b92e6f03e395617bedf429f2815cfb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#aa4b92e6f03e395617bedf429f2815cfb">getComponentInfo</a> (const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a> *t)</td></tr>
+<tr class="memdesc:aa4b92e6f03e395617bedf429f2815cfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This construct a new <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> object from a Base object.  <a href="namespacesofa_1_1helper_1_1logging.html#aa4b92e6f03e395617bedf429f2815cfb">More...</a><br /></td></tr>
 <tr class="separator:aa4b92e6f03e395617bedf429f2815cfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab72228dba5781a9b3764db0996d5440a"><td class="memItemLeft" align="right" valign="top"><a id="ab72228dba5781a9b3764db0996d5440a"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;out, const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> &amp;nfo)</td></tr>
+<tr class="memitem:ab72228dba5781a9b3764db0996d5440a"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#ab72228dba5781a9b3764db0996d5440a">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> &amp;nfo)</td></tr>
 <tr class="separator:ab72228dba5781a9b3764db0996d5440a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14d4949807be00b9cf08acedf71dea7e"><td class="memItemLeft" align="right" valign="top"><a id="a14d4949807be00b9cf08acedf71dea7e"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;out, const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> *nfo)</td></tr>
+<tr class="memitem:a14d4949807be00b9cf08acedf71dea7e"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#a14d4949807be00b9cf08acedf71dea7e">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> *nfo)</td></tr>
 <tr class="separator:a14d4949807be00b9cf08acedf71dea7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a0483b1ab0df8fa5cdb68d4f30076a6"><td class="memItemLeft" align="right" valign="top"><a id="a4a0483b1ab0df8fa5cdb68d4f30076a6"></a>
-const ComponentInfo::SPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#a4a0483b1ab0df8fa5cdb68d4f30076a6">getComponentInfo</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a4a0483b1ab0df8fa5cdb68d4f30076a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used in the msg_* macro to handle emitting case based on string. <br /></td></tr>
+<tr class="memitem:a4a0483b1ab0df8fa5cdb68d4f30076a6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#a4a0483b1ab0df8fa5cdb68d4f30076a6">getComponentInfo</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a4a0483b1ab0df8fa5cdb68d4f30076a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used in the msg_* macro to handle emitting case based on string.  <a href="namespacesofa_1_1helper_1_1logging.html#a4a0483b1ab0df8fa5cdb68d4f30076a6">More...</a><br /></td></tr>
 <tr class="separator:a4a0483b1ab0df8fa5cdb68d4f30076a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33d59357e41179254ebcd15430a03050"><td class="memItemLeft" align="right" valign="top"><a id="a33d59357e41179254ebcd15430a03050"></a>
-const ComponentInfo::SPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#a33d59357e41179254ebcd15430a03050">getComponentInfo</a> (const ComponentInfo::SPtr &amp;s)</td></tr>
-<tr class="memdesc:a33d59357e41179254ebcd15430a03050"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used in the msg_* macro to handle emitting case based on string. <br /></td></tr>
+<tr class="memitem:a33d59357e41179254ebcd15430a03050"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#a33d59357e41179254ebcd15430a03050">getComponentInfo</a> (const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a> &amp;s)</td></tr>
+<tr class="memdesc:a33d59357e41179254ebcd15430a03050"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used in the msg_* macro to handle emitting case based on string.  <a href="namespacesofa_1_1helper_1_1logging.html#a33d59357e41179254ebcd15430a03050">More...</a><br /></td></tr>
 <tr class="separator:a33d59357e41179254ebcd15430a03050"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adee0550067274d1575520b6f76027c7d"><td class="memItemLeft" align="right" valign="top"><a id="adee0550067274d1575520b6f76027c7d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>notMuted</b> (const ComponentInfo::SPtr &amp;)</td></tr>
+<tr class="memitem:adee0550067274d1575520b6f76027c7d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#adee0550067274d1575520b6f76027c7d">notMuted</a> (const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a> &amp;)</td></tr>
 <tr class="separator:adee0550067274d1575520b6f76027c7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06ba7753cba8e589beb118b766fb191f"><td class="memItemLeft" align="right" valign="top"><a id="a06ba7753cba8e589beb118b766fb191f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#a06ba7753cba8e589beb118b766fb191f">notMuted</a> (const std::string &amp;)</td></tr>
-<tr class="memdesc:a06ba7753cba8e589beb118b766fb191f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used in the msg_* macro to handle string based on string. <br /></td></tr>
+<tr class="memitem:a06ba7753cba8e589beb118b766fb191f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#a06ba7753cba8e589beb118b766fb191f">notMuted</a> (const std::string &amp;)</td></tr>
+<tr class="memdesc:a06ba7753cba8e589beb118b766fb191f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used in the msg_* macro to handle string based on string.  <a href="namespacesofa_1_1helper_1_1logging.html#a06ba7753cba8e589beb118b766fb191f">More...</a><br /></td></tr>
 <tr class="separator:a06ba7753cba8e589beb118b766fb191f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab046f3e268192ab4ac6d16fcfe81edc5"><td class="memItemLeft" align="right" valign="top"><a id="ab046f3e268192ab4ac6d16fcfe81edc5"></a>
-const SOFA_HELPER_API std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> (const <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html#a1d1cfd8ffb84e947f82999c682b666a7">Message::Type</a> type)</td></tr>
+<tr class="memitem:a39da5edd06cfdce426cee1faedf58395"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structsofa_1_1helper_1_1logging_1_1_file_info.html#a9a5b23bb2772f8b9bc4b2e77e143e85f">FileInfo::SPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#a39da5edd06cfdce426cee1faedf58395">EmptyFileInfo</a> (new <a class="el" href="structsofa_1_1helper_1_1logging_1_1_file_info.html">FileInfo</a>(<a class="el" href="namespacesofa_1_1helper_1_1logging.html#abe96d39b2f484879f3928b6e92f86e62">s_unknownFile</a>, 0))</td></tr>
+<tr class="separator:a39da5edd06cfdce426cee1faedf58395"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab046f3e268192ab4ac6d16fcfe81edc5"><td class="memItemLeft" align="right" valign="top">const SOFA_HELPER_API std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#ab046f3e268192ab4ac6d16fcfe81edc5">toString</a> (const <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html#a1d1cfd8ffb84e947f82999c682b666a7">Message::Type</a> type)</td></tr>
 <tr class="separator:ab046f3e268192ab4ac6d16fcfe81edc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac628da25dfc990ad24c72f4faec5709"><td class="memItemLeft" align="right" valign="top"><a id="aac628da25dfc990ad24c72f4faec5709"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;s, const <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html">Message</a> &amp;m)</td></tr>
+<tr class="memitem:aac628da25dfc990ad24c72f4faec5709"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#aac628da25dfc990ad24c72f4faec5709">operator&lt;&lt;</a> (std::ostream &amp;s, const <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html">Message</a> &amp;m)</td></tr>
 <tr class="separator:aac628da25dfc990ad24c72f4faec5709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3585fcf83a57ec0c5283b97d2c2b076"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_handler.html">MessageHandler</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#af3585fcf83a57ec0c5283b97d2c2b076">getDefaultMessageHandlers</a> ()</td></tr>
 <tr class="separator:af3585fcf83a57ec0c5283b97d2c2b076"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64a5dd687b8fa4d1eba4dbded276e6e9"><td class="memItemLeft" align="right" valign="top"><a id="a64a5dd687b8fa4d1eba4dbded276e6e9"></a>
-<a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_dispatcher_impl.html">MessageDispatcherImpl</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getMainInstance</b> ()</td></tr>
+<tr class="memitem:a64a5dd687b8fa4d1eba4dbded276e6e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_dispatcher_impl.html">MessageDispatcherImpl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#a64a5dd687b8fa4d1eba4dbded276e6e9">getMainInstance</a> ()</td></tr>
 <tr class="separator:a64a5dd687b8fa4d1eba4dbded276e6e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:abe96d39b2f484879f3928b6e92f86e62"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1helper_1_1logging.html#abe96d39b2f484879f3928b6e92f86e62">s_unknownFile</a> = &quot;unknown-file&quot;</td></tr>
+<tr class="separator:abe96d39b2f484879f3928b6e92f86e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This allow Base object to interact with the messaging system. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a8b3b3c275eb46680d92090efb407c5df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b3b3c275eb46680d92090efb407c5df">&#9670;&nbsp;</a></span>tokenizer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef boost::tokenizer&lt;boost::char_separator&lt;char&gt; &gt; <a class="el" href="namespacesofa_1_1helper_1_1logging.html#a8b3b3c275eb46680d92090efb407c5df">tokenizer</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a39da5edd06cfdce426cee1faedf58395"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39da5edd06cfdce426cee1faedf58395">&#9670;&nbsp;</a></span>EmptyFileInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structsofa_1_1helper_1_1logging_1_1_file_info.html#a9a5b23bb2772f8b9bc4b2e77e143e85f">FileInfo::SPtr</a> sofa::helper::logging::EmptyFileInfo </td>
+          <td>(</td>
+          <td class="paramtype">new &#160;</td>
+          <td class="paramname"><em>FileInfo</em>s_unknownFile, 0</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33d59357e41179254ebcd15430a03050"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33d59357e41179254ebcd15430a03050">&#9670;&nbsp;</a></span>getComponentInfo() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a> sofa::helper::logging::getComponentInfo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This function is used in the msg_* macro to handle emitting case based on string. </p>
+
+</div>
+</div>
+<a id="aa4b92e6f03e395617bedf429f2815cfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4b92e6f03e395617bedf429f2815cfb">&#9670;&nbsp;</a></span>getComponentInfo() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a> sofa::helper::logging::getComponentInfo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a> *&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This construct a new <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> object from a Base object. </p>
+
+</div>
+</div>
+<a id="a4a0483b1ab0df8fa5cdb68d4f30076a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a0483b1ab0df8fa5cdb68d4f30076a6">&#9670;&nbsp;</a></span>getComponentInfo() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a> sofa::helper::logging::getComponentInfo </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This function is used in the msg_* macro to handle emitting case based on string. </p>
+
+</div>
+</div>
 <a id="af3585fcf83a57ec0c5283b97d2c2b076"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3585fcf83a57ec0c5283b97d2c2b076">&#9670;&nbsp;</a></span>getDefaultMessageHandlers()</h2>
 
@@ -221,6 +341,213 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
       </table>
 </div><div class="memdoc">
 <p>Threading issues... a mutex is serializing the access to the message API. Memory management: object are passed to the message info. some of them are duplicated other get a weak reference </p>
+
+</div>
+</div>
+<a id="a64a5dd687b8fa4d1eba4dbded276e6e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64a5dd687b8fa4d1eba4dbded276e6e9">&#9670;&nbsp;</a></span>getMainInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_dispatcher_impl.html">MessageDispatcherImpl</a>* sofa::helper::logging::getMainInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adee0550067274d1575520b6f76027c7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adee0550067274d1575520b6f76027c7d">&#9670;&nbsp;</a></span>notMuted() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sofa::helper::logging::notMuted </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2ff2f5e113fd3f805bf1df4ece4855bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ff2f5e113fd3f805bf1df4ece4855bd">&#9670;&nbsp;</a></span>notMuted() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sofa::helper::logging::notMuted </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a> *&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06ba7753cba8e589beb118b766fb191f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06ba7753cba8e589beb118b766fb191f">&#9670;&nbsp;</a></span>notMuted() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sofa::helper::logging::notMuted </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This function is used in the msg_* macro to handle string based on string. </p>
+
+</div>
+</div>
+<a id="a255e8bdd0048b79a46de72e34ce33315"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a255e8bdd0048b79a46de72e34ce33315">&#9670;&nbsp;</a></span>notMuted() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sofa::helper::logging::notMuted </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a> *&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab72228dba5781a9b3764db0996d5440a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab72228dba5781a9b3764db0996d5440a">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; sofa::helper::logging::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>nfo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a14d4949807be00b9cf08acedf71dea7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14d4949807be00b9cf08acedf71dea7e">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; sofa::helper::logging::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structsofa_1_1helper_1_1logging_1_1_component_info.html">ComponentInfo</a> *&#160;</td>
+          <td class="paramname"><em>nfo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac628da25dfc990ad24c72f4faec5709"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac628da25dfc990ad24c72f4faec5709">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SOFA_HELPER_API std::ostream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html">Message</a> &amp;&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -276,13 +603,54 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 
 </div>
 </div>
+<a id="ab046f3e268192ab4ac6d16fcfe81edc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab046f3e268192ab4ac6d16fcfe81edc5">&#9670;&nbsp;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const SOFA_HELPER_API std::string toString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html#a1d1cfd8ffb84e947f82999c682b666a7">Message::Type</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="abe96d39b2f484879f3928b6e92f86e62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe96d39b2f484879f3928b6e92f86e62">&#9670;&nbsp;</a></span>s_unknownFile</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* s_unknownFile = &quot;unknown-file&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper_1_1logging.html">logging</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:10:54 for SOFA by
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

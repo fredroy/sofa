@@ -89,6 +89,8 @@ $(document).ready(function(){initNavTree('classsofa_1_1gui_1_1qt_1_1viewer_1_1_e
 <div class="title">EngineBackend Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_engine_backend_8h_source.html">EngineBackend.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for EngineBackend:</div>
 <div class="dyncontent">
@@ -101,41 +103,401 @@ Inheritance diagram for EngineBackend:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a93c297a7ede0697e911f07c1e6a84238"><td class="memItemLeft" align="right" valign="top"><a id="a93c297a7ede0697e911f07c1e6a84238"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setPickingMethod</b> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">sofa::gui::common::PickHandler</a> *pick, <a class="el" href="classsofa_1_1component_1_1setting_1_1_viewer_setting.html">sofa::component::setting::ViewerSetting</a> *viewerConf)=0</td></tr>
+<tr class="memitem:a3c6df765287ae9d36dbb896b48d13c23"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html#a3c6df765287ae9d36dbb896b48d13c23">EngineBackend</a> ()=default</td></tr>
+<tr class="separator:a3c6df765287ae9d36dbb896b48d13c23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5baece61903c02414945eec834882587"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html#a5baece61903c02414945eec834882587">~EngineBackend</a> ()=default</td></tr>
+<tr class="separator:a5baece61903c02414945eec834882587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93c297a7ede0697e911f07c1e6a84238"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html#a93c297a7ede0697e911f07c1e6a84238">setPickingMethod</a> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">sofa::gui::common::PickHandler</a> *pick, <a class="el" href="classsofa_1_1component_1_1setting_1_1_viewer_setting.html">sofa::component::setting::ViewerSetting</a> *viewerConf)=0</td></tr>
 <tr class="separator:a93c297a7ede0697e911f07c1e6a84238"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a563c5b5ec3137da2e81e4a91072223be"><td class="memItemLeft" align="right" valign="top"><a id="a563c5b5ec3137da2e81e4a91072223be"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setPrefix</b> (const std::string &amp;prefix)=0</td></tr>
+<tr class="memitem:a563c5b5ec3137da2e81e4a91072223be"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html#a563c5b5ec3137da2e81e4a91072223be">setPrefix</a> (const std::string &amp;prefix)=0</td></tr>
 <tr class="separator:a563c5b5ec3137da2e81e4a91072223be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b00346c8fb15ecf560b3230ea121e4c"><td class="memItemLeft" align="right" valign="top"><a id="a8b00346c8fb15ecf560b3230ea121e4c"></a>
-virtual const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>screenshotName</b> ()=0</td></tr>
+<tr class="memitem:a8b00346c8fb15ecf560b3230ea121e4c"><td class="memItemLeft" align="right" valign="top">virtual const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html#a8b00346c8fb15ecf560b3230ea121e4c">screenshotName</a> ()=0</td></tr>
 <tr class="separator:a8b00346c8fb15ecf560b3230ea121e4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69d5fdbee91dfad0ab58fca7d25e6c06"><td class="memItemLeft" align="right" valign="top"><a id="a69d5fdbee91dfad0ab58fca7d25e6c06"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>screenshot</b> (const std::string &amp;filename, int compression_level=-1)=0</td></tr>
+<tr class="memitem:a69d5fdbee91dfad0ab58fca7d25e6c06"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html#a69d5fdbee91dfad0ab58fca7d25e6c06">screenshot</a> (const std::string &amp;filename, int compression_level=-1)=0</td></tr>
 <tr class="separator:a69d5fdbee91dfad0ab58fca7d25e6c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1056b511975d3a93f3cc90e85d109e90"><td class="memItemLeft" align="right" valign="top"><a id="a1056b511975d3a93f3cc90e85d109e90"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setBackgroundImage</b> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_image.html">helper::io::Image</a> *image)=0</td></tr>
+<tr class="memitem:a1056b511975d3a93f3cc90e85d109e90"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html#a1056b511975d3a93f3cc90e85d109e90">setBackgroundImage</a> (<a class="el" href="classsofa_1_1helper_1_1io_1_1_image.html">helper::io::Image</a> *image)=0</td></tr>
 <tr class="separator:a1056b511975d3a93f3cc90e85d109e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b9683b30c628256c272114b2ade2402"><td class="memItemLeft" align="right" valign="top"><a id="a2b9683b30c628256c272114b2ade2402"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>drawBackgroundImage</b> (const int screenWidth, const int screenHeight)=0</td></tr>
+<tr class="memitem:a2b9683b30c628256c272114b2ade2402"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html#a2b9683b30c628256c272114b2ade2402">drawBackgroundImage</a> (const int screenWidth, const int screenHeight)=0</td></tr>
 <tr class="separator:a2b9683b30c628256c272114b2ade2402"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99c45e7d922735c536b5cdbb929810c6"><td class="memItemLeft" align="right" valign="top"><a id="a99c45e7d922735c536b5cdbb929810c6"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>initRecorder</b> (int width, int height, unsigned int framerate, unsigned int bitrate, const std::string &amp;codecExtension=&quot;&quot;, const std::string &amp;codecName=&quot;&quot;)=0</td></tr>
+<tr class="memitem:a99c45e7d922735c536b5cdbb929810c6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html#a99c45e7d922735c536b5cdbb929810c6">initRecorder</a> (int width, int height, unsigned int framerate, unsigned int bitrate, const std::string &amp;codecExtension=&quot;&quot;, const std::string &amp;codecName=&quot;&quot;)=0</td></tr>
 <tr class="separator:a99c45e7d922735c536b5cdbb929810c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a526f21eaffbae22242b31e14f1230004"><td class="memItemLeft" align="right" valign="top"><a id="a526f21eaffbae22242b31e14f1230004"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>endRecorder</b> ()=0</td></tr>
+<tr class="memitem:a526f21eaffbae22242b31e14f1230004"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html#a526f21eaffbae22242b31e14f1230004">endRecorder</a> ()=0</td></tr>
 <tr class="separator:a526f21eaffbae22242b31e14f1230004"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad03bc186898a165951be04d3ef0be86f"><td class="memItemLeft" align="right" valign="top"><a id="ad03bc186898a165951be04d3ef0be86f"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addFrameRecorder</b> ()=0</td></tr>
+<tr class="memitem:ad03bc186898a165951be04d3ef0be86f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html#ad03bc186898a165951be04d3ef0be86f">addFrameRecorder</a> ()=0</td></tr>
 <tr class="separator:ad03bc186898a165951be04d3ef0be86f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3c6df765287ae9d36dbb896b48d13c23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c6df765287ae9d36dbb896b48d13c23">&#9670;&nbsp;</a></span>EngineBackend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html">EngineBackend</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5baece61903c02414945eec834882587"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5baece61903c02414945eec834882587">&#9670;&nbsp;</a></span>~EngineBackend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ~<a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html">EngineBackend</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad03bc186898a165951be04d3ef0be86f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad03bc186898a165951be04d3ef0be86f">&#9670;&nbsp;</a></span>addFrameRecorder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void addFrameRecorder </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#aa41ad1c400d1bc6e0de0b1e54c774d5e">GLBackend</a>.</p>
+
+</div>
+</div>
+<a id="a2b9683b30c628256c272114b2ade2402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b9683b30c628256c272114b2ade2402">&#9670;&nbsp;</a></span>drawBackgroundImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void drawBackgroundImage </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>screenWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>screenHeight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#a7d19d1d087dd3bd9449e8e74415574c3">GLBackend</a>.</p>
+
+</div>
+</div>
+<a id="a526f21eaffbae22242b31e14f1230004"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a526f21eaffbae22242b31e14f1230004">&#9670;&nbsp;</a></span>endRecorder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void endRecorder </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#a3a0a071961124023237cc369777a39bc">GLBackend</a>.</p>
+
+</div>
+</div>
+<a id="a99c45e7d922735c536b5cdbb929810c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99c45e7d922735c536b5cdbb929810c6">&#9670;&nbsp;</a></span>initRecorder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool initRecorder </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>framerate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>bitrate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>codecExtension</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>codecName</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#ab8489eef41e6f26d025028bd0f851a08">GLBackend</a>.</p>
+
+</div>
+</div>
+<a id="a69d5fdbee91dfad0ab58fca7d25e6c06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69d5fdbee91dfad0ab58fca7d25e6c06">&#9670;&nbsp;</a></span>screenshot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void screenshot </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>compression_level</em> = <code>-1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#a853df7c17033f10ace87e72833a7fc28">GLBackend</a>.</p>
+
+</div>
+</div>
+<a id="a8b00346c8fb15ecf560b3230ea121e4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b00346c8fb15ecf560b3230ea121e4c">&#9670;&nbsp;</a></span>screenshotName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const std::string screenshotName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#af6157441a5643269ad18694bf4b56a9d">GLBackend</a>.</p>
+
+</div>
+</div>
+<a id="a1056b511975d3a93f3cc90e85d109e90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1056b511975d3a93f3cc90e85d109e90">&#9670;&nbsp;</a></span>setBackgroundImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setBackgroundImage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1io_1_1_image.html">helper::io::Image</a> *&#160;</td>
+          <td class="paramname"><em>image</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#a5940befb33d6b541788cf7eb00500cbc">GLBackend</a>.</p>
+
+</div>
+</div>
+<a id="a93c297a7ede0697e911f07c1e6a84238"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93c297a7ede0697e911f07c1e6a84238">&#9670;&nbsp;</a></span>setPickingMethod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setPickingMethod </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">sofa::gui::common::PickHandler</a> *&#160;</td>
+          <td class="paramname"><em>pick</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1setting_1_1_viewer_setting.html">sofa::component::setting::ViewerSetting</a> *&#160;</td>
+          <td class="paramname"><em>viewerConf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#ac0cc35dd6ff30d32c172996b5ab2e82c">GLBackend</a>.</p>
+
+</div>
+</div>
+<a id="a563c5b5ec3137da2e81e4a91072223be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a563c5b5ec3137da2e81e4a91072223be">&#9670;&nbsp;</a></span>setPrefix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setPrefix </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>prefix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_g_l_backend.html#a9fdca633333f524e073f31d7674ab1a8">GLBackend</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>gui</b></li><li class="navelem"><b>qt</b></li><li class="navelem"><b>viewer</b></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html">EngineBackend</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:54 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui.html">gui</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui_1_1qt.html">qt</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui_1_1qt_1_1viewer.html">viewer</a></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1viewer_1_1_engine_backend.html">EngineBackend</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:40 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

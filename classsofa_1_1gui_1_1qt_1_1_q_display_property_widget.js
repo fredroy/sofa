@@ -11,10 +11,17 @@ var classsofa_1_1gui_1_1qt_1_1_q_display_property_widget =
     [ "clearAll", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#a798729dca95209ecdc609807a653a2bf", null ],
     [ "clearComponentOutput", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#a0e6f7a52cb6a475a5396ecefb044a4c0", null ],
     [ "clearComponentWarning", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#ac7311601940875e1b9b400d0db106bb5", null ],
+    [ "DefaultDataGroup", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#af9ecae8170267ca7d4bf4ef550673570", null ],
+    [ "DefaultInfoGroup", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#ac17982ff011d6993bc4be5ac981e5fde", null ],
+    [ "DefaultLinkGroup", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#a0c29a523235023d894c402106d041480", null ],
+    [ "DefaultLogGroup", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#ac081fd74d868b2e213cfa33ba1245191", null ],
     [ "findComponent", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#a0118512f231a82b504d4ffa803c545a7", null ],
     [ "findGroup", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#a126b72ed53aff47c5a76b01c3fa90fa3", null ],
     [ "setConsoleOutput", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#a9f47b154efc329c2222ba7b8ed466ea7", null ],
     [ "setDescription", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#a18676beef033cc5509f859a1b086748f", null ],
     [ "GraphHistoryManager", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#ada486e158e8e64bcb323719cd0488415", null ],
-    [ "LinkComponent", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#a385262d65b80f3f518b69164e6f3f9a7", null ]
+    [ "LinkComponent", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#a385262d65b80f3f518b69164e6f3f9a7", null ],
+    [ "modifyObjectFlags", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#a3d8384cb96b080207c39d95ac7f0747f", null ],
+    [ "objects", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#a248911a05f6e32aa1830996faf4b92f3", null ],
+    [ "pinIcon", "classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#a7ca73e1694cc9887858a9b8f1f18549a", null ]
 ];

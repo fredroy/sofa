@@ -8,5 +8,6 @@ var classsofa_1_1core_1_1objectmodel_1_1_data_content_value_3_01_t_00_01false_01
     [ "getValue", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value_3_01_t_00_01false_01_4.html#a73034e5ea464a38ecef1cb72b22310d2", null ],
     [ "operator=", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value_3_01_t_00_01false_01_4.html#a6c04736ad9ed1633b36a146a3f6d38d4", null ],
     [ "release", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value_3_01_t_00_01false_01_4.html#a23b477d0e2d399f75d585d154c346591", null ],
-    [ "setValue", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value_3_01_t_00_01false_01_4.html#aeec6cb9926cb3b1c489ed8db0894ed83", null ]
+    [ "setValue", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value_3_01_t_00_01false_01_4.html#aeec6cb9926cb3b1c489ed8db0894ed83", null ],
+    [ "data", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value_3_01_t_00_01false_01_4.html#aa3ff051a47d9e18487e7b819852521c5", null ]
 ];

@@ -6,5 +6,6 @@ var classsofa_1_1simulation_1_1_collision_visitor =
     [ "getClassName", "classsofa_1_1simulation_1_1_collision_visitor.html#abf09a670a9f753e66efb6c1c21a0df28", null ],
     [ "getPrimitiveTestCount", "classsofa_1_1simulation_1_1_collision_visitor.html#af7d7db65455eaf716f6d368f7e53a027", null ],
     [ "processCollisionPipeline", "classsofa_1_1simulation_1_1_collision_visitor.html#aa99715cb25d9d6d11045acbd477f44e2", null ],
-    [ "processNodeTopDown", "classsofa_1_1simulation_1_1_collision_visitor.html#adcedbb9af741937aaf03f1d23648ca51", null ]
+    [ "processNodeTopDown", "classsofa_1_1simulation_1_1_collision_visitor.html#adcedbb9af741937aaf03f1d23648ca51", null ],
+    [ "m_primitiveTestCount", "classsofa_1_1simulation_1_1_collision_visitor.html#adc0e230002a43a48a752579c6344e0bb", null ]
 ];

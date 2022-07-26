@@ -7,6 +7,7 @@ var classsofa_1_1_l_c_p_force_feedback__test =
     [ "MecaRig", "classsofa_1_1_l_c_p_force_feedback__test.html#a22a08ec06e615dcae388e6f78ae94db9", null ],
     [ "VecCoord", "classsofa_1_1_l_c_p_force_feedback__test.html#a902231b2bdae87bdb47b5e4e4ff3f27b", null ],
     [ "VecDeriv", "classsofa_1_1_l_c_p_force_feedback__test.html#a282c2b1015b698e902cfca0477c78aab", null ],
+    [ "HapticsThread", "classsofa_1_1_l_c_p_force_feedback__test.html#a5a093ac80ae6d064c2dea560410ef9bc", null ],
     [ "loadTestScene", "classsofa_1_1_l_c_p_force_feedback__test.html#a11982729f26794049c229968e428f9d1", null ],
     [ "test_Collision", "classsofa_1_1_l_c_p_force_feedback__test.html#a75537c49d69a9f63145cf0869ca9d78e", null ],
     [ "test_InitScene", "classsofa_1_1_l_c_p_force_feedback__test.html#aace143440d060fd0b4fca855970ee631", null ],

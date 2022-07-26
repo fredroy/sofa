@@ -6,6 +6,7 @@ var classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_war
     [ "TBaseVector", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_warp_preconditioner_internal_data.html#a353140dff6cd7ddc7959a1b836267729", null ],
     [ "PrecomputedWarpPreconditionerInternalData", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_warp_preconditioner_internal_data.html#ab39b5411e639ffc0170a8dcc857b1a06", null ],
     [ "~PrecomputedWarpPreconditionerInternalData", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_warp_preconditioner_internal_data.html#aa0db9f43384a7d187d384a8bc171ddaf", null ],
+    [ "getSharedMatrix", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_warp_preconditioner_internal_data.html#a10cc204598f9c59437850cbbefddb3c1", null ],
     [ "readMinvFomFile", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_warp_preconditioner_internal_data.html#a54740527fce24b12ed8f4ac485c9c174", null ],
     [ "setMinv", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_warp_preconditioner_internal_data.html#a2f54479d7ac9df7059a5949285fd66b2", null ],
     [ "writeMinvFomFile", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_precomputed_warp_preconditioner_internal_data.html#a30b95d90e3dc1e1cb5b1178dc536666a", null ],

@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('classsofa_1_1core_1_1_component_name_h
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1core_1_1_component_name_helper-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ComponentNameHelper Class Reference</div>  </div>
@@ -95,19 +96,22 @@ $(document).ready(function(){initNavTree('classsofa_1_1core_1_1_component_name_h
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a526b59ace9a2860620157d65c685e6f1"><td class="memItemLeft" align="right" valign="top"><a id="a526b59ace9a2860620157d65c685e6f1"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Convention</b> : char { <b>xml</b>, 
-<b>python</b>
+<tr class="memitem:a526b59ace9a2860620157d65c685e6f1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_component_name_helper.html#a526b59ace9a2860620157d65c685e6f1">Convention</a> : char { <a class="el" href="classsofa_1_1core_1_1_component_name_helper.html#a526b59ace9a2860620157d65c685e6f1a0f635d0e0f3874fff8b581c132e6c7a7">xml</a>, 
+<a class="el" href="classsofa_1_1core_1_1_component_name_helper.html#a526b59ace9a2860620157d65c685e6f1a23eeeb4347bdd26bfc6b7ee9a3b755dd">python</a>
  }</td></tr>
 <tr class="separator:a526b59ace9a2860620157d65c685e6f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1eb8b0f1f516a60f38a0e028197fc27d"><td class="memItemLeft" align="right" valign="top"><a id="a1eb8b0f1f516a60f38a0e028197fc27d"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>resolveName</b> (const std::string &amp;type, const std::string &amp;name, Convention convention)</td></tr>
+<tr class="memitem:a1eb8b0f1f516a60f38a0e028197fc27d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_component_name_helper.html#a1eb8b0f1f516a60f38a0e028197fc27d">resolveName</a> (const std::string &amp;type, const std::string &amp;name, <a class="el" href="classsofa_1_1core_1_1_component_name_helper.html#a526b59ace9a2860620157d65c685e6f1">Convention</a> convention)</td></tr>
 <tr class="separator:a1eb8b0f1f516a60f38a0e028197fc27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab19b6a6d441cf0fd68d98861d3dc8aaf"><td class="memItemLeft" align="right" valign="top"><a id="ab19b6a6d441cf0fd68d98861d3dc8aaf"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>resolveName</b> (const std::string &amp;type, Convention convention)</td></tr>
+<tr class="memitem:ab19b6a6d441cf0fd68d98861d3dc8aaf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_component_name_helper.html#ab19b6a6d441cf0fd68d98861d3dc8aaf">resolveName</a> (const std::string &amp;type, <a class="el" href="classsofa_1_1core_1_1_component_name_helper.html#a526b59ace9a2860620157d65c685e6f1">Convention</a> convention)</td></tr>
 <tr class="separator:ab19b6a6d441cf0fd68d98861d3dc8aaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aa4e4a6f401367ac1c1d2883a14875609"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_component_name_helper.html#aa4e4a6f401367ac1c1d2883a14875609">m_instanceCounter</a></td></tr>
+<tr class="separator:aa4e4a6f401367ac1c1d2883a14875609"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Helper class to name a component based on its type.</p>
@@ -115,13 +119,126 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>resolveName</b
 <li>XML: use a counter to add a unique suffix at the end of the name</li>
 <li>Python: the short name of the type is returned </li>
 </ul>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a526b59ace9a2860620157d65c685e6f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a526b59ace9a2860620157d65c685e6f1">&#9670;&nbsp;</a></span>Convention</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classsofa_1_1core_1_1_component_name_helper.html#a526b59ace9a2860620157d65c685e6f1">Convention</a> : char</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a526b59ace9a2860620157d65c685e6f1a0f635d0e0f3874fff8b581c132e6c7a7"></a>xml&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a526b59ace9a2860620157d65c685e6f1a23eeeb4347bdd26bfc6b7ee9a3b755dd"></a>python&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1eb8b0f1f516a60f38a0e028197fc27d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eb8b0f1f516a60f38a0e028197fc27d">&#9670;&nbsp;</a></span>resolveName() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string resolveName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1_component_name_helper.html#a526b59ace9a2860620157d65c685e6f1">Convention</a>&#160;</td>
+          <td class="paramname"><em>convention</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab19b6a6d441cf0fd68d98861d3dc8aaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab19b6a6d441cf0fd68d98861d3dc8aaf">&#9670;&nbsp;</a></span>resolveName() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string resolveName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1_component_name_helper.html#a526b59ace9a2860620157d65c685e6f1">Convention</a>&#160;</td>
+          <td class="paramname"><em>convention</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa4e4a6f401367ac1c1d2883a14875609"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4e4a6f401367ac1c1d2883a14875609">&#9670;&nbsp;</a></span>m_instanceCounter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, unsigned int&gt; m_instanceCounter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>core</b></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1_component_name_helper.html">ComponentNameHelper</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:05:11 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1core.html">core</a></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1_component_name_helper.html">ComponentNameHelper</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:37:20 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

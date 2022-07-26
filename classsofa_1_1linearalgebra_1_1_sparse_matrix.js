@@ -43,6 +43,7 @@ var classsofa_1_1linearalgebra_1_1_sparse_matrix =
     [ "mul", "classsofa_1_1linearalgebra_1_1_sparse_matrix.html#a86e592f0f0be26aa92031f03de7886ac", null ],
     [ "mul", "classsofa_1_1linearalgebra_1_1_sparse_matrix.html#a02860f1b8ffad4c5c6b131e0de2b19db", null ],
     [ "mul", "classsofa_1_1linearalgebra_1_1_sparse_matrix.html#aa2a3d1845c1f3b91688a89d0c56fd52c", null ],
+    [ "Name", "classsofa_1_1linearalgebra_1_1_sparse_matrix.html#a28ceceb8e81ac299b3c6992dd0a707d3", null ],
     [ "Name", "classsofa_1_1linearalgebra_1_1_sparse_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
     [ "Name", "classsofa_1_1linearalgebra_1_1_sparse_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
     [ "operator*", "classsofa_1_1linearalgebra_1_1_sparse_matrix.html#a753de52d6dc8d743958cfafecce4ea2c", null ],

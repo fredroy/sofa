@@ -103,42 +103,93 @@ Inheritance diagram for MemberElementIntersector&lt; Elem1, Elem2, T &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:afda9a2430ba7bfb292b77591281fc0d8"><td class="memItemLeft" align="right" valign="top"><a id="afda9a2430ba7bfb292b77591281fc0d8"></a>
-typedef Elem1::Model&#160;</td><td class="memItemRight" valign="bottom"><b>Model1</b></td></tr>
+<tr class="memitem:afda9a2430ba7bfb292b77591281fc0d8"><td class="memItemLeft" align="right" valign="top">typedef Elem1::Model&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#afda9a2430ba7bfb292b77591281fc0d8">Model1</a></td></tr>
 <tr class="separator:afda9a2430ba7bfb292b77591281fc0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84277fa3cc0f7dbd51848f823ec084e9"><td class="memItemLeft" align="right" valign="top"><a id="a84277fa3cc0f7dbd51848f823ec084e9"></a>
-typedef Elem2::Model&#160;</td><td class="memItemRight" valign="bottom"><b>Model2</b></td></tr>
+<tr class="memitem:a84277fa3cc0f7dbd51848f823ec084e9"><td class="memItemLeft" align="right" valign="top">typedef Elem2::Model&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#a84277fa3cc0f7dbd51848f823ec084e9">Model2</a></td></tr>
 <tr class="separator:a84277fa3cc0f7dbd51848f823ec084e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a51d0a2b724875bf2ceb46b2e1b9ba6be"><td class="memItemLeft" align="right" valign="top"><a id="a51d0a2b724875bf2ceb46b2e1b9ba6be"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MemberElementIntersector</b> (T *ptr)</td></tr>
+<tr class="memitem:a51d0a2b724875bf2ceb46b2e1b9ba6be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#a51d0a2b724875bf2ceb46b2e1b9ba6be">MemberElementIntersector</a> (T *ptr)</td></tr>
 <tr class="separator:a51d0a2b724875bf2ceb46b2e1b9ba6be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae47bcdc315a935e36fbd46dcf6f3c027"><td class="memItemLeft" align="right" valign="top"><a id="ae47bcdc315a935e36fbd46dcf6f3c027"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#ae47bcdc315a935e36fbd46dcf6f3c027">canIntersect</a> (<a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> elem1, <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> elem2) override</td></tr>
-<tr class="memdesc:ae47bcdc315a935e36fbd46dcf6f3c027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if 2 elements can collide. Note that this can be conservative (i.e. return true even when no collision is present) <br /></td></tr>
+<tr class="memitem:ae47bcdc315a935e36fbd46dcf6f3c027"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#ae47bcdc315a935e36fbd46dcf6f3c027">canIntersect</a> (<a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> elem1, <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> elem2) override</td></tr>
+<tr class="memdesc:ae47bcdc315a935e36fbd46dcf6f3c027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if 2 elements can collide. Note that this can be conservative (i.e. return true even when no collision is present)  <a href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#ae47bcdc315a935e36fbd46dcf6f3c027">More...</a><br /></td></tr>
 <tr class="separator:ae47bcdc315a935e36fbd46dcf6f3c027"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2ebd99e8e399e4d67c001f874ab02ee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#ad2ebd99e8e399e4d67c001f874ab02ee">beginIntersect</a> (<a class="el" href="classsofa_1_1core_1_1_collision_model.html">core::CollisionModel</a> *model1, <a class="el" href="classsofa_1_1core_1_1_collision_model.html">core::CollisionModel</a> *model2, <a class="el" href="classsofa_1_1core_1_1collision_1_1_detection_output_vector.html">DetectionOutputVector</a> *&amp;contacts) override</td></tr>
 <tr class="separator:ad2ebd99e8e399e4d67c001f874ab02ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b3371ddfac4a9c92e94e3ccdc539d81"><td class="memItemLeft" align="right" valign="top"><a id="a8b3371ddfac4a9c92e94e3ccdc539d81"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#a8b3371ddfac4a9c92e94e3ccdc539d81">intersect</a> (<a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> elem1, <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> elem2, <a class="el" href="classsofa_1_1core_1_1collision_1_1_detection_output_vector.html">DetectionOutputVector</a> *contacts) override</td></tr>
-<tr class="memdesc:a8b3371ddfac4a9c92e94e3ccdc539d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the intersection between 2 elements. <br /></td></tr>
+<tr class="memitem:a8b3371ddfac4a9c92e94e3ccdc539d81"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#a8b3371ddfac4a9c92e94e3ccdc539d81">intersect</a> (<a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> elem1, <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> elem2, <a class="el" href="classsofa_1_1core_1_1collision_1_1_detection_output_vector.html">DetectionOutputVector</a> *contacts) override</td></tr>
+<tr class="memdesc:a8b3371ddfac4a9c92e94e3ccdc539d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the intersection between 2 elements.  <a href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#a8b3371ddfac4a9c92e94e3ccdc539d81">More...</a><br /></td></tr>
 <tr class="separator:a8b3371ddfac4a9c92e94e3ccdc539d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4f4ba750a08765e64da2d0bd473944a"><td class="memItemLeft" align="right" valign="top"><a id="aa4f4ba750a08765e64da2d0bd473944a"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> () const override</td></tr>
+<tr class="memitem:aa4f4ba750a08765e64da2d0bd473944a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#aa4f4ba750a08765e64da2d0bd473944a">name</a> () const override</td></tr>
 <tr class="separator:aa4f4ba750a08765e64da2d0bd473944a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1a0665aa6b6b300460269d1782044ef"><td class="memItemLeft" align="right" valign="top"><a id="af1a0665aa6b6b300460269d1782044ef"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#af1a0665aa6b6b300460269d1782044ef">endIntersect</a> (<a class="el" href="classsofa_1_1core_1_1_collision_model.html">core::CollisionModel</a> *model1, <a class="el" href="classsofa_1_1core_1_1_collision_model.html">core::CollisionModel</a> *model2, <a class="el" href="classsofa_1_1core_1_1collision_1_1_detection_output_vector.html">DetectionOutputVector</a> *contacts) override</td></tr>
-<tr class="memdesc:af1a0665aa6b6b300460269d1782044ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">End intersection tests between two collision models. Return the number of contacts written in the contacts vector. <br /></td></tr>
+<tr class="memitem:af1a0665aa6b6b300460269d1782044ef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#af1a0665aa6b6b300460269d1782044ef">endIntersect</a> (<a class="el" href="classsofa_1_1core_1_1_collision_model.html">core::CollisionModel</a> *model1, <a class="el" href="classsofa_1_1core_1_1_collision_model.html">core::CollisionModel</a> *model2, <a class="el" href="classsofa_1_1core_1_1collision_1_1_detection_output_vector.html">DetectionOutputVector</a> *contacts) override</td></tr>
+<tr class="memdesc:af1a0665aa6b6b300460269d1782044ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">End intersection tests between two collision models. Return the number of contacts written in the contacts vector.  <a href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#af1a0665aa6b6b300460269d1782044ef">More...</a><br /></td></tr>
 <tr class="separator:af1a0665aa6b6b300460269d1782044ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classsofa_1_1core_1_1collision_1_1_element_intersector"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classsofa_1_1core_1_1collision_1_1_element_intersector')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classsofa_1_1core_1_1collision_1_1_element_intersector.html">ElementIntersector</a></td></tr>
+<tr class="memitem:a263aff1152cafe8035f6cf2f299d0e60 inherit pub_methods_classsofa_1_1core_1_1collision_1_1_element_intersector"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1collision_1_1_element_intersector.html#a263aff1152cafe8035f6cf2f299d0e60">~ElementIntersector</a> ()</td></tr>
+<tr class="separator:a263aff1152cafe8035f6cf2f299d0e60 inherit pub_methods_classsofa_1_1core_1_1collision_1_1_element_intersector"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:aa6c41ff1028cf49de14f63ba2c94a93f"><td class="memItemLeft" align="right" valign="top"><a id="aa6c41ff1028cf49de14f63ba2c94a93f"></a>
-T *&#160;</td><td class="memItemRight" valign="bottom"><b>impl</b></td></tr>
+<tr class="memitem:aa6c41ff1028cf49de14f63ba2c94a93f"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#aa6c41ff1028cf49de14f63ba2c94a93f">impl</a></td></tr>
 <tr class="separator:aa6c41ff1028cf49de14f63ba2c94a93f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="afda9a2430ba7bfb292b77591281fc0d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afda9a2430ba7bfb292b77591281fc0d8">&#9670;&nbsp;</a></span>Model1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Elem1::Model <a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#afda9a2430ba7bfb292b77591281fc0d8">Model1</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a84277fa3cc0f7dbd51848f823ec084e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84277fa3cc0f7dbd51848f823ec084e9">&#9670;&nbsp;</a></span>Model2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Elem2::Model <a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html#a84277fa3cc0f7dbd51848f823ec084e9">Model2</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a51d0a2b724875bf2ceb46b2e1b9ba6be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d0a2b724875bf2ceb46b2e1b9ba6be">&#9670;&nbsp;</a></span>MemberElementIntersector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html">MemberElementIntersector</a> </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad2ebd99e8e399e4d67c001f874ab02ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad2ebd99e8e399e4d67c001f874ab02ee">&#9670;&nbsp;</a></span>beginIntersect()</h2>
@@ -185,13 +236,195 @@ T *&#160;</td><td class="memItemRight" valign="bottom"><b>impl</b></td></tr>
 
 </div>
 </div>
+<a id="ae47bcdc315a935e36fbd46dcf6f3c027"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae47bcdc315a935e36fbd46dcf6f3c027">&#9670;&nbsp;</a></span>canIntersect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool canIntersect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a>&#160;</td>
+          <td class="paramname"><em>elem1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a>&#160;</td>
+          <td class="paramname"><em>elem2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Test if 2 elements can collide. Note that this can be conservative (i.e. return true even when no collision is present) </p>
+
+<p>Implements <a class="el" href="classsofa_1_1core_1_1collision_1_1_element_intersector.html#ab3128c1cc5ad674584320b1fdb315fa7">ElementIntersector</a>.</p>
+
+</div>
+</div>
+<a id="af1a0665aa6b6b300460269d1782044ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1a0665aa6b6b300460269d1782044ef">&#9670;&nbsp;</a></span>endIntersect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int endIntersect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1_collision_model.html">core::CollisionModel</a> *&#160;</td>
+          <td class="paramname"><em>model1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1_collision_model.html">core::CollisionModel</a> *&#160;</td>
+          <td class="paramname"><em>model2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1collision_1_1_detection_output_vector.html">DetectionOutputVector</a> *&#160;</td>
+          <td class="paramname"><em>contacts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>End intersection tests between two collision models. Return the number of contacts written in the contacts vector. </p>
+
+<p>Implements <a class="el" href="classsofa_1_1core_1_1collision_1_1_element_intersector.html#a35ad2bb8ce700d05f2b4550fd272bfce">ElementIntersector</a>.</p>
+
+</div>
+</div>
+<a id="a8b3371ddfac4a9c92e94e3ccdc539d81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b3371ddfac4a9c92e94e3ccdc539d81">&#9670;&nbsp;</a></span>intersect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int intersect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a>&#160;</td>
+          <td class="paramname"><em>elem1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a>&#160;</td>
+          <td class="paramname"><em>elem2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1collision_1_1_detection_output_vector.html">DetectionOutputVector</a> *&#160;</td>
+          <td class="paramname"><em>contacts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the intersection between 2 elements. </p>
+
+<p>Implements <a class="el" href="classsofa_1_1core_1_1collision_1_1_element_intersector.html#a45185f2233f0703cc0c9221b1851a780">ElementIntersector</a>.</p>
+
+</div>
+</div>
+<a id="aa4f4ba750a08765e64da2d0bd473944a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4f4ba750a08765e64da2d0bd473944a">&#9670;&nbsp;</a></span>name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classsofa_1_1core_1_1collision_1_1_element_intersector.html#a7f04e718c6856c4d3d77a496b6acad0d">ElementIntersector</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa6c41ff1028cf49de14f63ba2c94a93f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6c41ff1028cf49de14f63ba2c94a93f">&#9670;&nbsp;</a></span>impl</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T* impl</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>core</b></li><li class="navelem"><b>collision</b></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html">MemberElementIntersector</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:05:41 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1core.html">core</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1core_1_1collision.html">collision</a></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1collision_1_1_member_element_intersector.html">MemberElementIntersector</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:37:36 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

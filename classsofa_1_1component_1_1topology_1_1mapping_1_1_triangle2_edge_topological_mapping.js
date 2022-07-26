@@ -5,5 +5,6 @@ var classsofa_1_1component_1_1topology_1_1mapping_1_1_triangle2_edge_topological
     [ "getFromIndex", "classsofa_1_1component_1_1topology_1_1mapping_1_1_triangle2_edge_topological_mapping.html#a326184454edf271334f02cc2265f811a", null ],
     [ "init", "classsofa_1_1component_1_1topology_1_1mapping_1_1_triangle2_edge_topological_mapping.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1topology_1_1mapping_1_1_triangle2_edge_topological_mapping.html#a42e02cfcf80555769429cbeffeddb1c2", null ],
-    [ "updateTopologicalMappingTopDown", "classsofa_1_1component_1_1topology_1_1mapping_1_1_triangle2_edge_topological_mapping.html#a4ba20f31e51a15cacf601e2500a6e499", null ]
+    [ "updateTopologicalMappingTopDown", "classsofa_1_1component_1_1topology_1_1mapping_1_1_triangle2_edge_topological_mapping.html#a4ba20f31e51a15cacf601e2500a6e499", null ],
+    [ "m_outTopoModifier", "classsofa_1_1component_1_1topology_1_1mapping_1_1_triangle2_edge_topological_mapping.html#afbbd8ecdef32bd4bdc82d72d7f171cc7", null ]
 ];

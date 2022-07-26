@@ -21,5 +21,9 @@ var classsofa_1_1component_1_1linearsolver_1_1iterative_1_1_shewchuk_p_c_g_linea
     [ "f_preconditioners", "classsofa_1_1component_1_1linearsolver_1_1iterative_1_1_shewchuk_p_c_g_linear_solver.html#a1ca9624a0712106a9adf36d1e0cf58e4", null ],
     [ "f_tolerance", "classsofa_1_1component_1_1linearsolver_1_1iterative_1_1_shewchuk_p_c_g_linear_solver.html#a919440e45c904d37c07c091ecb74609b", null ],
     [ "f_update_step", "classsofa_1_1component_1_1linearsolver_1_1iterative_1_1_shewchuk_p_c_g_linear_solver.html#a7acfe5dee5a562761a1bfa431a671f35", null ],
-    [ "f_use_precond", "classsofa_1_1component_1_1linearsolver_1_1iterative_1_1_shewchuk_p_c_g_linear_solver.html#aefd89ea3029b1e6dc04894b18fd000ba", null ]
+    [ "f_use_precond", "classsofa_1_1component_1_1linearsolver_1_1iterative_1_1_shewchuk_p_c_g_linear_solver.html#aefd89ea3029b1e6dc04894b18fd000ba", null ],
+    [ "first", "classsofa_1_1component_1_1linearsolver_1_1iterative_1_1_shewchuk_p_c_g_linear_solver.html#a77e49fc0956d412a05337460c7778c6d", null ],
+    [ "m_preconditioners", "classsofa_1_1component_1_1linearsolver_1_1iterative_1_1_shewchuk_p_c_g_linear_solver.html#aa7cd1ce80497cfffe79d4c8e65ef9594", null ],
+    [ "newton_iter", "classsofa_1_1component_1_1linearsolver_1_1iterative_1_1_shewchuk_p_c_g_linear_solver.html#a4bf930ec580f5bfca25db08f80a04d7f", null ],
+    [ "next_refresh_step", "classsofa_1_1component_1_1linearsolver_1_1iterative_1_1_shewchuk_p_c_g_linear_solver.html#ad6e5bc12c12563a634aa8dfce2616e5e", null ]
 ];

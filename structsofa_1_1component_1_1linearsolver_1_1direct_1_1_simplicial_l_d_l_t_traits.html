@@ -89,32 +89,100 @@ $(document).ready(function(){initNavTree('structsofa_1_1component_1_1linearsolve
 <div class="title">SimplicialLDLTTraits&lt; Real &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_simplicial_l_d_l_t_traits_8h_source.html">SimplicialLDLTTraits.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a6f2490f6f01898a1cc8379a2b3746977"><td class="memItemLeft" align="right" valign="top"><a id="a6f2490f6f01898a1cc8379a2b3746977"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>EigenSolver</b> = Eigen::SparseMatrix&lt; Real &gt;</td></tr>
+<tr class="memitem:a6f2490f6f01898a1cc8379a2b3746977"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1component_1_1linearsolver_1_1direct_1_1_simplicial_l_d_l_t_traits.html#a6f2490f6f01898a1cc8379a2b3746977">EigenSolver</a> = Eigen::SparseMatrix&lt; Real &gt;</td></tr>
 <tr class="separator:a6f2490f6f01898a1cc8379a2b3746977"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eb6d59431e0f5a4a9a0eca906c5637b"><td class="memItemLeft" align="right" valign="top"><a id="a2eb6d59431e0f5a4a9a0eca906c5637b"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>AMDOrderSolver</b> = Eigen::SimplicialLDLT&lt; Eigen::SparseMatrix&lt; Real &gt;, Eigen::Lower, Eigen::AMDOrdering&lt; typename EigenSolver::StorageIndex &gt; &gt;</td></tr>
+<tr class="memitem:a2eb6d59431e0f5a4a9a0eca906c5637b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1component_1_1linearsolver_1_1direct_1_1_simplicial_l_d_l_t_traits.html#a2eb6d59431e0f5a4a9a0eca906c5637b">AMDOrderSolver</a> = Eigen::SimplicialLDLT&lt; Eigen::SparseMatrix&lt; Real &gt;, Eigen::Lower, Eigen::AMDOrdering&lt; typename EigenSolver::StorageIndex &gt; &gt;</td></tr>
 <tr class="separator:a2eb6d59431e0f5a4a9a0eca906c5637b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0620c49b4748d214bc786c5cf5c36796"><td class="memItemLeft" align="right" valign="top"><a id="a0620c49b4748d214bc786c5cf5c36796"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>COLAMDOrderSolver</b> = Eigen::SimplicialLDLT&lt; Eigen::SparseMatrix&lt; Real &gt;, Eigen::Lower, Eigen::COLAMDOrdering&lt; typename EigenSolver::StorageIndex &gt; &gt;</td></tr>
+<tr class="memitem:a0620c49b4748d214bc786c5cf5c36796"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1component_1_1linearsolver_1_1direct_1_1_simplicial_l_d_l_t_traits.html#a0620c49b4748d214bc786c5cf5c36796">COLAMDOrderSolver</a> = Eigen::SimplicialLDLT&lt; Eigen::SparseMatrix&lt; Real &gt;, Eigen::Lower, Eigen::COLAMDOrdering&lt; typename EigenSolver::StorageIndex &gt; &gt;</td></tr>
 <tr class="separator:a0620c49b4748d214bc786c5cf5c36796"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4c81e2c3da4eaf2443e7c2fcf3a9523"><td class="memItemLeft" align="right" valign="top"><a id="ae4c81e2c3da4eaf2443e7c2fcf3a9523"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>NaturalOrderSolver</b> = Eigen::SimplicialLDLT&lt; Eigen::SparseMatrix&lt; Real &gt;, Eigen::Lower, Eigen::NaturalOrdering&lt; typename EigenSolver::StorageIndex &gt; &gt;</td></tr>
+<tr class="memitem:ae4c81e2c3da4eaf2443e7c2fcf3a9523"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1component_1_1linearsolver_1_1direct_1_1_simplicial_l_d_l_t_traits.html#ae4c81e2c3da4eaf2443e7c2fcf3a9523">NaturalOrderSolver</a> = Eigen::SimplicialLDLT&lt; Eigen::SparseMatrix&lt; Real &gt;, Eigen::Lower, Eigen::NaturalOrdering&lt; typename EigenSolver::StorageIndex &gt; &gt;</td></tr>
 <tr class="separator:ae4c81e2c3da4eaf2443e7c2fcf3a9523"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa08a81484c4a0321f14967930d5c72ef"><td class="memItemLeft" align="right" valign="top"><a id="aa08a81484c4a0321f14967930d5c72ef"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>MetisOrderSolver</b> = Eigen::SimplicialLDLT&lt; Eigen::SparseMatrix&lt; Real &gt;, Eigen::Lower, Eigen::MetisOrdering&lt; typename EigenSolver::StorageIndex &gt; &gt;</td></tr>
+<tr class="memitem:aa08a81484c4a0321f14967930d5c72ef"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1component_1_1linearsolver_1_1direct_1_1_simplicial_l_d_l_t_traits.html#aa08a81484c4a0321f14967930d5c72ef">MetisOrderSolver</a> = Eigen::SimplicialLDLT&lt; Eigen::SparseMatrix&lt; Real &gt;, Eigen::Lower, Eigen::MetisOrdering&lt; typename EigenSolver::StorageIndex &gt; &gt;</td></tr>
 <tr class="separator:aa08a81484c4a0321f14967930d5c72ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a2eb6d59431e0f5a4a9a0eca906c5637b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eb6d59431e0f5a4a9a0eca906c5637b">&#9670;&nbsp;</a></span>AMDOrderSolver</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structsofa_1_1component_1_1linearsolver_1_1direct_1_1_simplicial_l_d_l_t_traits.html#a2eb6d59431e0f5a4a9a0eca906c5637b">AMDOrderSolver</a> =  Eigen::SimplicialLDLT&lt;Eigen::SparseMatrix&lt;Real&gt;, Eigen::Lower, Eigen::AMDOrdering&lt;typename EigenSolver::StorageIndex&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0620c49b4748d214bc786c5cf5c36796"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0620c49b4748d214bc786c5cf5c36796">&#9670;&nbsp;</a></span>COLAMDOrderSolver</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structsofa_1_1component_1_1linearsolver_1_1direct_1_1_simplicial_l_d_l_t_traits.html#a0620c49b4748d214bc786c5cf5c36796">COLAMDOrderSolver</a> =  Eigen::SimplicialLDLT&lt;Eigen::SparseMatrix&lt;Real&gt;, Eigen::Lower, Eigen::COLAMDOrdering&lt;typename EigenSolver::StorageIndex&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f2490f6f01898a1cc8379a2b3746977"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f2490f6f01898a1cc8379a2b3746977">&#9670;&nbsp;</a></span>EigenSolver</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structsofa_1_1component_1_1linearsolver_1_1direct_1_1_simplicial_l_d_l_t_traits.html#a6f2490f6f01898a1cc8379a2b3746977">EigenSolver</a> =  Eigen::SparseMatrix&lt;Real&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa08a81484c4a0321f14967930d5c72ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa08a81484c4a0321f14967930d5c72ef">&#9670;&nbsp;</a></span>MetisOrderSolver</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structsofa_1_1component_1_1linearsolver_1_1direct_1_1_simplicial_l_d_l_t_traits.html#aa08a81484c4a0321f14967930d5c72ef">MetisOrderSolver</a> =  Eigen::SimplicialLDLT&lt;Eigen::SparseMatrix&lt;Real&gt;, Eigen::Lower, Eigen::MetisOrdering&lt;typename EigenSolver::StorageIndex&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae4c81e2c3da4eaf2443e7c2fcf3a9523"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c81e2c3da4eaf2443e7c2fcf3a9523">&#9670;&nbsp;</a></span>NaturalOrderSolver</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structsofa_1_1component_1_1linearsolver_1_1direct_1_1_simplicial_l_d_l_t_traits.html#ae4c81e2c3da4eaf2443e7c2fcf3a9523">NaturalOrderSolver</a> =  Eigen::SimplicialLDLT&lt;Eigen::SparseMatrix&lt;Real&gt;, Eigen::Lower, Eigen::NaturalOrdering&lt;typename EigenSolver::StorageIndex&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>component</b></li><li class="navelem"><b>linearsolver</b></li><li class="navelem"><b>direct</b></li><li class="navelem"><a class="el" href="structsofa_1_1component_1_1linearsolver_1_1direct_1_1_simplicial_l_d_l_t_traits.html">SimplicialLDLTTraits</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:53:13 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component.html">component</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1linearsolver.html">linearsolver</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1linearsolver_1_1direct.html">direct</a></li><li class="navelem"><a class="el" href="structsofa_1_1component_1_1linearsolver_1_1direct_1_1_simplicial_l_d_l_t_traits.html">SimplicialLDLTTraits</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:25:52 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

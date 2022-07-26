@@ -17,6 +17,7 @@ var classsofa_1_1component_1_1engine_1_1select_1_1_sphere_r_o_i =
     [ "VecCoord", "classsofa_1_1component_1_1engine_1_1select_1_1_sphere_r_o_i.html#a05882e2e9ba8d707ab531ab94a1f39e0", null ],
     [ "SphereROI", "classsofa_1_1component_1_1engine_1_1select_1_1_sphere_r_o_i.html#adcda57b01c5d7afe492d225b396271c2", null ],
     [ "~SphereROI", "classsofa_1_1component_1_1engine_1_1select_1_1_sphere_r_o_i.html#a2abf72b33688c942ecb1151042768cf3", null ],
+    [ "canCreate", "classsofa_1_1component_1_1engine_1_1select_1_1_sphere_r_o_i.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1select_1_1_sphere_r_o_i.html#a09e7bb63b4391a2e895c65d7eaae10ec", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1select_1_1_sphere_r_o_i.html#a09e7bb63b4391a2e895c65d7eaae10ec", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1select_1_1_sphere_r_o_i.html#a4daa2dc990606f6f13a82f619a13358a", null ],

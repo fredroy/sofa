@@ -22,7 +22,9 @@ var classsofa_1_1core_1_1behavior_1_1_mixed_interaction_force_field =
     [ "addDForce", "classsofa_1_1core_1_1behavior_1_1_mixed_interaction_force_field.html#a4bba3b67572d6f39252b76a5aff0b70b", null ],
     [ "addForce", "classsofa_1_1core_1_1behavior_1_1_mixed_interaction_force_field.html#a28a50dce58e682012ada4509b2c90de0", null ],
     [ "addForce", "classsofa_1_1core_1_1behavior_1_1_mixed_interaction_force_field.html#ac4de6eafe521515e06d1a75dcf53a1da", null ],
+    [ "create", "classsofa_1_1core_1_1behavior_1_1_mixed_interaction_force_field.html#abed809561a811a3bbd1288b7d32acd81", null ],
     [ "getPotentialEnergy", "classsofa_1_1core_1_1behavior_1_1_mixed_interaction_force_field.html#a15a87109ecca7e0334a8c45f2e80ae14", null ],
     [ "getPotentialEnergy", "classsofa_1_1core_1_1behavior_1_1_mixed_interaction_force_field.html#aa5d7a58f8a8040b88ae3f9d3181f89c0", null ],
+    [ "shortName", "classsofa_1_1core_1_1behavior_1_1_mixed_interaction_force_field.html#ac86db44914654a377aeb3a54a45c5fc5", null ],
     [ "SOFA_ABSTRACT_CLASS2", "classsofa_1_1core_1_1behavior_1_1_mixed_interaction_force_field.html#a650a8ebdde48c93f016d9a2461d4ee59", null ]
 ];

@@ -23,6 +23,7 @@ var classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_bar
     [ "NOut", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html#ab04a0655cd1e3bcac5e8f48c18df1a57aeb3c54c9cc425d60e15bd194e743922c", null ],
     [ "BarycentricMapper", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html#a8d2b1c4c87f7a7ddf91798909e5e24d2", null ],
     [ "~BarycentricMapper", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html#a555f64c01a0796fc4a62aca50eb87f73", null ],
+    [ "BarycentricMapper", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html#a90f6c44fe4b5d2c5fd13f0858c624445", null ],
     [ "addMatrixContrib", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html#a64c1d36d8b25570b009adbea5e1cd557", null ],
     [ "apply", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html#ab151ce50da155abb8faa8ae330d3f3ae", null ],
     [ "applyJ", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html#a8f667f9506b756dd11ccdade2e188471", null ],
@@ -35,6 +36,7 @@ var classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_bar
     [ "getJ", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html#a89e4743ef90e9a62abacb16458949458", null ],
     [ "init", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html#a02fd73d861ef2e4aabb38c0c9ff82947", null ],
     [ "init", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html#a843acb0bdfff8933e906aedceac52cb8", null ],
+    [ "operator=", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html#a26ec6e3c35ce1e4206e1bc522d04a5bc", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html#af9a27f67bf4f0a0217a8f0ac383e4ec0", null ],
     [ "operator<<", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html#af114b38d803b3b4c5766dfcd600d54d7", null ],
     [ "operator>>", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html#aedbbd5aeae40f3b45bcb9ccde25be955", null ]

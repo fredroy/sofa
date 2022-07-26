@@ -1,4 +1,9 @@
 var classsofa_1_1core_1_1objectmodel_1_1_link_traits_container_3_01_t_dest_type_00_01_t_dest_ptr_00_01_t_value_type_00_01false_01_4 =
 [
-    [ "T", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_container_3_01_t_dest_type_00_01_t_dest_ptr_00_01_t_value_type_00_01false_01_4.html#a8fe48995a7910c2a8d847c4a27f1f61c", null ]
+    [ "T", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_container_3_01_t_dest_type_00_01_t_dest_ptr_00_01_t_value_type_00_01false_01_4.html#a8fe48995a7910c2a8d847c4a27f1f61c", null ],
+    [ "add", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_container_3_01_t_dest_type_00_01_t_dest_ptr_00_01_t_value_type_00_01false_01_4.html#a60de6b1bf8a0cebdfd58c297b6c065ad", null ],
+    [ "clear", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_container_3_01_t_dest_type_00_01_t_dest_ptr_00_01_t_value_type_00_01false_01_4.html#a68d5a75dd3ddf0ac8daf4d1794e09356", null ],
+    [ "find", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_container_3_01_t_dest_type_00_01_t_dest_ptr_00_01_t_value_type_00_01false_01_4.html#a94bb453ef854b8454e3d44cf2c8d9b64", null ],
+    [ "remove", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_container_3_01_t_dest_type_00_01_t_dest_ptr_00_01_t_value_type_00_01false_01_4.html#aab63dd6a6c4b4646f32d102d6459d3a2", null ],
+    [ "resize", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_container_3_01_t_dest_type_00_01_t_dest_ptr_00_01_t_value_type_00_01false_01_4.html#a519fbf5844f55c37ff6ea4e3879bbc0c", null ]
 ];

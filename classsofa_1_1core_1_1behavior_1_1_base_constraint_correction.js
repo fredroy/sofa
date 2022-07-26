@@ -2,6 +2,7 @@ var classsofa_1_1core_1_1behavior_1_1_base_constraint_correction =
 [
     [ "BaseConstraintCorrection", "classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html#a19ae3ae304a62670ced6bb8838f01755", null ],
     [ "~BaseConstraintCorrection", "classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html#ae5261a65f9572101886a2ec3d23fac86", null ],
+    [ "BaseConstraintCorrection", "classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html#aef1f92227a16b96caefd82a8cfdbaf25", null ],
     [ "addComplianceInConstraintSpace", "classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html#a17124bfcd421e610ab57f2b099ebb894", null ],
     [ "addConstraintDisplacement", "classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html#a968e23baeda4611d31b7ef929934d613", null ],
     [ "addConstraintSolver", "classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html#a3bdacc355f91b52be3fbd584e19a6572", null ],
@@ -17,6 +18,7 @@ var classsofa_1_1core_1_1behavior_1_1_base_constraint_correction =
     [ "getComplianceWithConstraintMerge", "classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html#aa6e2e5e817209fd5d241a470da567e3a", null ],
     [ "hasConstraintNumber", "classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html#a57355099a442264b9cf918778b7b6ebf", null ],
     [ "isActive", "classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html#a62eb104f87ff88c21fa01af29dbf0ee2", null ],
+    [ "operator=", "classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html#a58b192be38d4a5e62ee99e483a272e7a", null ],
     [ "rebuildSystem", "classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html#a16ad75cf5e4da617c463d0b78d4d8a2d", null ],
     [ "removeConstraintSolver", "classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html#ab54857d266a14322f64a4365a571fc96", null ],
     [ "resetContactForce", "classsofa_1_1core_1_1behavior_1_1_base_constraint_correction.html#a25ad3b51f055457ba2fe2c9b7c529aad", null ],

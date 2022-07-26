@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_type_info___vector_8h_source.html',''
 <div class="title">TypeInfo_Vector.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_type_info___vector_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -109,10 +109,10 @@ $(document).ready(function(){initNavTree('_type_info___vector_8h_source.html',''
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">******************************************************************************/</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/type/vector.h&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/defaulttype/typeinfo/models/VectorTypeInfo.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_type_2src_2sofa_2type_2vector_8h.html">sofa/type/vector.h</a>&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_vector_type_info_8h.html">sofa/defaulttype/typeinfo/models/VectorTypeInfo.h</a>&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>sofa::defaulttype</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1defaulttype.html">sofa::defaulttype</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keyword">class</span> Alloc&gt;</div>
@@ -144,9 +144,9 @@ $(document).ready(function(){initNavTree('_type_info___vector_8h_source.html',''
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01sofa_1_1type_1_1vector_3_01bool_00_01_alloc_01_4_01_4.html">   57</a></span>&#160;    <span class="comment">// Sets the value for element at index `index`</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> setValueString(<a class="code" href="classsofa_1_1type_1_1vector.html">sofa::type::vector&lt;std::string,Alloc&gt;</a>&amp; data, sofa::Index index, <span class="keyword">const</span> std::string&amp; value)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">if</span> (data.size() &lt;= index)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            data.resize(index + 1);</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01sofa_1_1type_1_1vector_3_01bool_00_01_alloc_01_4_01_4.html#aa2baea0e4a061cf7eda1c9589fd7c4feaf1937739ad4c72f469164b51c8fbfb11">   59</a></span>&#160;    {</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01sofa_1_1type_1_1vector_3_01bool_00_01_alloc_01_4_01_4.html#a83baff23a831a63df9c3e6decc71705a">   60</a></span>&#160;        <span class="keywordflow">if</span> (data.size() &lt;= index)</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01sofa_1_1type_1_1vector_3_01bool_00_01_alloc_01_4_01_4.html#a39a658159378078bd5d12c305023416c">   61</a></span>&#160;            data.resize(index + 1);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        data[index] = value;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
@@ -154,23 +154,27 @@ $(document).ready(function(){initNavTree('_type_info___vector_8h_source.html',''
 <div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01sofa_1_1type_1_1vector_3_01std_1_1string_00_01_alloc_01_4_01_4.html">   66</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> getValueString(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1vector.html">sofa::type::vector&lt;std::string,Alloc&gt;</a>&amp; data, sofa::Index index, std::string&amp; value)</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">if</span> (data.size() &lt;= index)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            msg_error(<span class="stringliteral">&quot;DataTypeInfo&lt;type::vector&lt;std::string&gt;&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Index out of bounds for getValueString&quot;</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01sofa_1_1type_1_1vector_3_01std_1_1string_00_01_alloc_01_4_01_4.html#aa9cf1bb1e3778c4f285e753e5bcb440e">   69</a></span>&#160;            <a class="code" href="_messaging_8h.html#a9d6f71743f08f013354e955f18bd03a8">msg_error</a>(<span class="stringliteral">&quot;DataTypeInfo&lt;type::vector&lt;std::string&gt;&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Index out of bounds for getValueString&quot;</span>;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            value = data[index];</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01sofa_1_1type_1_1vector_3_01std_1_1string_00_01_alloc_01_4_01_4.html#ace9ab6d4fe3e16dec47170472c52a907">   72</a></span>&#160;    }</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;} </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="structsofa_1_1defaulttype_1_1_data_type_info_3_01sofa_1_1type_1_1vector_3_01std_1_1string_00_01_alloc_01_4_01_4.html#ac08db69f01598943c5882f66c8af77a3">   75</a></span>&#160;} </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1defaulttype_html"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html">sofa::defaulttype</a></div><div class="ttdef"><b>Definition:</b> BaseMatrix.h:29</div></div>
 <div class="ttc" id="anamespacesofa_html"><div class="ttname"><a href="namespacesofa.html">sofa</a></div><div class="ttdoc">This allow MeshTrian to interact with the messaging system.</div><div class="ttdef"><b>Definition:</b> ConstraintAnimationLoop.cpp:81</div></div>
+<div class="ttc" id="a_vector_type_info_8h_html"><div class="ttname"><a href="_vector_type_info_8h.html">VectorTypeInfo.h</a></div></div>
+<div class="ttc" id="a_type_2src_2sofa_2type_2vector_8h_html"><div class="ttname"><a href="_type_2src_2sofa_2type_2vector_8h.html">vector.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1vector_html"><div class="ttname"><a href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a></div><div class="ttdef"><b>Definition:</b> vector_T.h:54</div></div>
+<div class="ttc" id="a_messaging_8h_html_a9d6f71743f08f013354e955f18bd03a8"><div class="ttname"><a href="_messaging_8h.html#a9d6f71743f08f013354e955f18bd03a8">msg_error</a></div><div class="ttdeci">#define msg_error(...)</div><div class="ttdef"><b>Definition:</b> Messaging.h:168</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_0d107a4ec0fcd1d08023ac7b8c5ae236.html">DefaultType</a></li><li class="navelem"><a class="el" href="dir_5c2b5f7e070e96aa6f2414b8917eb71e.html">src</a></li><li class="navelem"><a class="el" href="dir_93fd527f9bee515199e824272fb626bb.html">sofa</a></li><li class="navelem"><a class="el" href="dir_1804e18a8712f79097be205dbad56bae.html">defaulttype</a></li><li class="navelem"><a class="el" href="dir_e7e1f617d3abbe82a3dc91f54340b311.html">typeinfo</a></li><li class="navelem"><b>TypeInfo_Vector.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:38:43 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_0d107a4ec0fcd1d08023ac7b8c5ae236.html">DefaultType</a></li><li class="navelem"><a class="el" href="dir_5c2b5f7e070e96aa6f2414b8917eb71e.html">src</a></li><li class="navelem"><a class="el" href="dir_93fd527f9bee515199e824272fb626bb.html">sofa</a></li><li class="navelem"><a class="el" href="dir_1804e18a8712f79097be205dbad56bae.html">defaulttype</a></li><li class="navelem"><a class="el" href="dir_e7e1f617d3abbe82a3dc91f54340b311.html">typeinfo</a></li><li class="navelem"><a class="el" href="_type_info___vector_8h.html">TypeInfo_Vector.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:09:34 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

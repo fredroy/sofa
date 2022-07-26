@@ -31,6 +31,7 @@ var classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahed
     [ "addForce", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#afa9158471ae766406dc025c8ecf2d379", null ],
     [ "addKToMatrix", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#ac8689f5fd210a47ba9ce27218ad0a2ce", null ],
     [ "addKToMatrix", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#af6850158a05f04eafcd5237be40722de", null ],
+    [ "computeQRRotation", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a342d3a47bd4793d196fa7520c44d297e", null ],
     [ "createTetrahedronRestInformation", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a6d52c23264a938a6767df32decc77d21", null ],
     [ "draw", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a8673433953792026ae9baf91b348d7da", null ],
     [ "getEdgeInfo", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html#a713d4c39d138c9839f4e66d95edcb783", null ],

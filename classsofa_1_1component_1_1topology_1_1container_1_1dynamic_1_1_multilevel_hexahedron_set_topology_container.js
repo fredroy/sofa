@@ -1,5 +1,6 @@
 var classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container =
 [
+    [ "Component", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container_1_1_component.html", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container_1_1_component" ],
     [ "Vec3i", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a01c69fa393990f19bb2e44682004354d", null ],
     [ "MultilevelHexahedronSetTopologyContainer", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a486bb2a3832f1f2a9e2a2cb344624cb7", null ],
     [ "MultilevelHexahedronSetTopologyContainer", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a18b7589857ad44b84d2e811cfc526357", null ],
@@ -7,6 +8,7 @@ var classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_he
     [ "addTopologyChangeFine", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#ad36f52abbf0f38d21cd151c4298510f9", null ],
     [ "beginChangeFine", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a0546a6eb85b8e33f2a2e46301af2ace9", null ],
     [ "clear", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#aee7cb2065b88d21ac4ad05bc997ecf82", null ],
+    [ "connectionToNodeAdjacency", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a1cc6a82441e392db38bae2167913826e", null ],
     [ "endChangeFine", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a622241cc09b4eb793716f8faecfe8200", null ],
     [ "getChangeListFine", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a9110b3f25f957ced36d14881f2a4ba15", null ],
     [ "getCoarseResolution", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a7063f4509567ce55e1bd560022abdf8b", null ],
@@ -25,9 +27,15 @@ var classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_he
     [ "getLevel", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a8f44f2787dedf1e0950319c4d06d094a", null ],
     [ "init", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "resetTopologyChangeListFine", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#adebf8ba67bf6343170570bbecc90ca36", null ],
+    [ "setCoarseResolution", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#ab87dda60c0c02e0043a070b1c34ccf0b", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#adef0ac6c28bf5a903a38ff52fb7da090", null ],
     [ "MultilevelHexahedronSetTopologyModifier", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a31ea221bcdf89fc6661a12a076cd4d03", null ],
+    [ "_coarseComponents", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a0bc32d54221cec4ae6e8d0243d000ec5", null ],
+    [ "_coarseResolution", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a6f8e42212a6728b6a23b26e3a392fa06", null ],
+    [ "_fineComponentInRegularGrid", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#aa2d706fb1de1fa2861319f5b2b274eb2", null ],
+    [ "_fineComponents", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#aaaba5f23f4133792025e12fa5c810399", null ],
     [ "_level", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#abc20e3c71d57ed2d2800b362ebd66272", null ],
     [ "fineResolution", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a73e4bbc8767fc9f21b9f1edc554bcb70", null ],
-    [ "hexaIndexInRegularGrid", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a5efdd5f98b5c83635469143dab7134be", null ]
+    [ "hexaIndexInRegularGrid", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a5efdd5f98b5c83635469143dab7134be", null ],
+    [ "m_changeListFine", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container.html#a15720e3190bd6c46a61f5be6659b1fa1", null ]
 ];

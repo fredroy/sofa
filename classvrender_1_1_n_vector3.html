@@ -84,79 +84,596 @@ $(document).ready(function(){initNavTree('classvrender_1_1_n_vector3.html',''); 
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classvrender_1_1_n_vector3-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">NVector3 Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_n_vector3_8h_source.html">NVector3.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a58a3b9eef0200c56c4d46eec567812d8"><td class="memItemLeft" align="right" valign="top"><a id="a58a3b9eef0200c56c4d46eec567812d8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#a58a3b9eef0200c56c4d46eec567812d8">NVector3</a> ()</td></tr>
-<tr class="memdesc:a58a3b9eef0200c56c4d46eec567812d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor (the default normalized vector is (1,0,0)) <br /></td></tr>
+<tr class="memitem:a58a3b9eef0200c56c4d46eec567812d8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#a58a3b9eef0200c56c4d46eec567812d8">NVector3</a> ()</td></tr>
+<tr class="memdesc:a58a3b9eef0200c56c4d46eec567812d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor (the default normalized vector is (1,0,0))  <a href="classvrender_1_1_n_vector3.html#a58a3b9eef0200c56c4d46eec567812d8">More...</a><br /></td></tr>
 <tr class="separator:a58a3b9eef0200c56c4d46eec567812d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02f7b4095e3b5734961bfcb6ae3b6044"><td class="memItemLeft" align="right" valign="top"><a id="a02f7b4095e3b5734961bfcb6ae3b6044"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#a02f7b4095e3b5734961bfcb6ae3b6044">NVector3</a> (const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;u)</td></tr>
-<tr class="memdesc:a02f7b4095e3b5734961bfcb6ae3b6044"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
+<tr class="memitem:a02f7b4095e3b5734961bfcb6ae3b6044"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#a02f7b4095e3b5734961bfcb6ae3b6044">NVector3</a> (const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;u)</td></tr>
+<tr class="memdesc:a02f7b4095e3b5734961bfcb6ae3b6044"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="classvrender_1_1_n_vector3.html#a02f7b4095e3b5734961bfcb6ae3b6044">More...</a><br /></td></tr>
 <tr class="separator:a02f7b4095e3b5734961bfcb6ae3b6044"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64d3bb180bc4dbb17ddbab002cd5ef65"><td class="memItemLeft" align="right" valign="top"><a id="a64d3bb180bc4dbb17ddbab002cd5ef65"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>NVector3</b> (double x, double y, double z, bool normalization=true)</td></tr>
+<tr class="memitem:a64d3bb180bc4dbb17ddbab002cd5ef65"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#a64d3bb180bc4dbb17ddbab002cd5ef65">NVector3</a> (double <a class="el" href="classvrender_1_1_n_vector3.html#a833e1cf314b7b7a5537b2b6a56fee6a5">x</a>, double <a class="el" href="classvrender_1_1_n_vector3.html#aca424ddaf2902c1cde483f37813d4278">y</a>, double <a class="el" href="classvrender_1_1_n_vector3.html#ae7bc7213001e326be4d4eb2d8a035c34">z</a>, bool normalization=true)</td></tr>
 <tr class="separator:a64d3bb180bc4dbb17ddbab002cd5ef65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5ce0c21f9eec8eb226521c34dae1be3"><td class="memItemLeft" align="right" valign="top"><a id="ac5ce0c21f9eec8eb226521c34dae1be3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>NVector3</b> (const <a class="el" href="classvrender_1_1_vector3.html">Vector3</a> &amp;u, bool normalization=true)</td></tr>
+<tr class="memitem:ac5ce0c21f9eec8eb226521c34dae1be3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#ac5ce0c21f9eec8eb226521c34dae1be3">NVector3</a> (const <a class="el" href="classvrender_1_1_vector3.html">Vector3</a> &amp;u, bool normalization=true)</td></tr>
 <tr class="separator:ac5ce0c21f9eec8eb226521c34dae1be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a833e1cf314b7b7a5537b2b6a56fee6a5"><td class="memItemLeft" align="right" valign="top"><a id="a833e1cf314b7b7a5537b2b6a56fee6a5"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>x</b> () const</td></tr>
+<tr class="memitem:a833e1cf314b7b7a5537b2b6a56fee6a5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#a833e1cf314b7b7a5537b2b6a56fee6a5">x</a> () const</td></tr>
 <tr class="separator:a833e1cf314b7b7a5537b2b6a56fee6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca424ddaf2902c1cde483f37813d4278"><td class="memItemLeft" align="right" valign="top"><a id="aca424ddaf2902c1cde483f37813d4278"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>y</b> () const</td></tr>
+<tr class="memitem:aca424ddaf2902c1cde483f37813d4278"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#aca424ddaf2902c1cde483f37813d4278">y</a> () const</td></tr>
 <tr class="separator:aca424ddaf2902c1cde483f37813d4278"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7bc7213001e326be4d4eb2d8a035c34"><td class="memItemLeft" align="right" valign="top"><a id="ae7bc7213001e326be4d4eb2d8a035c34"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>z</b> () const</td></tr>
+<tr class="memitem:ae7bc7213001e326be4d4eb2d8a035c34"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#ae7bc7213001e326be4d4eb2d8a035c34">z</a> () const</td></tr>
 <tr class="separator:ae7bc7213001e326be4d4eb2d8a035c34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36e8e301023d156b654b6ff852490246"><td class="memItemLeft" align="right" valign="top"><a id="a36e8e301023d156b654b6ff852490246"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#a36e8e301023d156b654b6ff852490246">setXYZ</a> (double x, double y, double z, bool normalization=true)</td></tr>
-<tr class="memdesc:a36e8e301023d156b654b6ff852490246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writing X,Y and Z coordinates. <br /></td></tr>
+<tr class="memitem:a36e8e301023d156b654b6ff852490246"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#a36e8e301023d156b654b6ff852490246">setXYZ</a> (double <a class="el" href="classvrender_1_1_n_vector3.html#a833e1cf314b7b7a5537b2b6a56fee6a5">x</a>, double <a class="el" href="classvrender_1_1_n_vector3.html#aca424ddaf2902c1cde483f37813d4278">y</a>, double <a class="el" href="classvrender_1_1_n_vector3.html#ae7bc7213001e326be4d4eb2d8a035c34">z</a>, bool normalization=true)</td></tr>
+<tr class="memdesc:a36e8e301023d156b654b6ff852490246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writing X,Y and Z coordinates.  <a href="classvrender_1_1_n_vector3.html#a36e8e301023d156b654b6ff852490246">More...</a><br /></td></tr>
 <tr class="separator:a36e8e301023d156b654b6ff852490246"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab632ea34ad8730f51b45db181e0086d9"><td class="memItemLeft" align="right" valign="top"><a id="ab632ea34ad8730f51b45db181e0086d9"></a>
-<a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#ab632ea34ad8730f51b45db181e0086d9">operator=</a> (const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;u)</td></tr>
-<tr class="memdesc:ab632ea34ad8730f51b45db181e0086d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment. <br /></td></tr>
+<tr class="memitem:ab632ea34ad8730f51b45db181e0086d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#ab632ea34ad8730f51b45db181e0086d9">operator=</a> (const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;u)</td></tr>
+<tr class="memdesc:ab632ea34ad8730f51b45db181e0086d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment.  <a href="classvrender_1_1_n_vector3.html#ab632ea34ad8730f51b45db181e0086d9">More...</a><br /></td></tr>
 <tr class="separator:ab632ea34ad8730f51b45db181e0086d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbeac4b406b78e64460863820679c14f"><td class="memItemLeft" align="right" valign="top"><a id="adbeac4b406b78e64460863820679c14f"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>norm</b> () const</td></tr>
+<tr class="memitem:adbeac4b406b78e64460863820679c14f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#adbeac4b406b78e64460863820679c14f">norm</a> () const</td></tr>
 <tr class="separator:adbeac4b406b78e64460863820679c14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aff367cd11d4eff82932b2905940c8c"><td class="memItemLeft" align="right" valign="top"><a id="a9aff367cd11d4eff82932b2905940c8c"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>squareNorm</b> () const</td></tr>
+<tr class="memitem:a9aff367cd11d4eff82932b2905940c8c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#a9aff367cd11d4eff82932b2905940c8c">squareNorm</a> () const</td></tr>
 <tr class="separator:a9aff367cd11d4eff82932b2905940c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7ce922935848df9d5a6f86e43714fc8"><td class="memItemLeft" align="right" valign="top"><a id="ab7ce922935848df9d5a6f86e43714fc8"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (int i) const</td></tr>
+<tr class="memitem:ab7ce922935848df9d5a6f86e43714fc8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#ab7ce922935848df9d5a6f86e43714fc8">operator[]</a> (int i) const</td></tr>
 <tr class="separator:ab7ce922935848df9d5a6f86e43714fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:acd0de676568888d848beb97dcc53ae47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#acd0de676568888d848beb97dcc53ae47">normalize</a> ()</td></tr>
+<tr class="separator:acd0de676568888d848beb97dcc53ae47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a018f9659256256946c566de108809752"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#a018f9659256256946c566de108809752">_n</a> [3]</td></tr>
+<tr class="memdesc:a018f9659256256946c566de108809752"><td class="mdescLeft">&#160;</td><td class="mdescRight">normalized vector  <a href="classvrender_1_1_n_vector3.html#a018f9659256256946c566de108809752">More...</a><br /></td></tr>
+<tr class="separator:a018f9659256256946c566de108809752"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a3cdd4a93d3d53db9391800c2a64799b9"><td class="memItemLeft" align="right" valign="top"><a id="a3cdd4a93d3d53db9391800c2a64799b9"></a>
-<a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;u)</td></tr>
+<tr class="memitem:a3cdd4a93d3d53db9391800c2a64799b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#a3cdd4a93d3d53db9391800c2a64799b9">operator-</a> (const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;u)</td></tr>
 <tr class="separator:a3cdd4a93d3d53db9391800c2a64799b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3cf1f5ef3d9038826d1f88490500a71"><td class="memItemLeft" align="right" valign="top"><a id="af3cf1f5ef3d9038826d1f88490500a71"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;u, const <a class="el" href="classvrender_1_1_vector3.html">Vector3</a> &amp;v)</td></tr>
+<tr class="memitem:af3cf1f5ef3d9038826d1f88490500a71"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#af3cf1f5ef3d9038826d1f88490500a71">operator*</a> (const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;u, const <a class="el" href="classvrender_1_1_vector3.html">Vector3</a> &amp;v)</td></tr>
 <tr class="separator:af3cf1f5ef3d9038826d1f88490500a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39c5af5e0a5def2deb32033dd22b85a3"><td class="memItemLeft" align="right" valign="top"><a id="a39c5af5e0a5def2deb32033dd22b85a3"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="classvrender_1_1_vector3.html">Vector3</a> &amp;u, const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;v)</td></tr>
+<tr class="memitem:a39c5af5e0a5def2deb32033dd22b85a3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#a39c5af5e0a5def2deb32033dd22b85a3">operator*</a> (const <a class="el" href="classvrender_1_1_vector3.html">Vector3</a> &amp;u, const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;v)</td></tr>
 <tr class="separator:a39c5af5e0a5def2deb32033dd22b85a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5dc304edf6551b8fde5c3ee8d0e9deb"><td class="memItemLeft" align="right" valign="top"><a id="aa5dc304edf6551b8fde5c3ee8d0e9deb"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#aa5dc304edf6551b8fde5c3ee8d0e9deb">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;u)</td></tr>
-<tr class="memdesc:aa5dc304edf6551b8fde5c3ee8d0e9deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Out stream override: prints the 3 normalized vector components. <br /></td></tr>
+<tr class="memitem:aa5dc304edf6551b8fde5c3ee8d0e9deb"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvrender_1_1_n_vector3.html#aa5dc304edf6551b8fde5c3ee8d0e9deb">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;u)</td></tr>
+<tr class="memdesc:aa5dc304edf6551b8fde5c3ee8d0e9deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Out stream override: prints the 3 normalized vector components.  <a href="classvrender_1_1_n_vector3.html#aa5dc304edf6551b8fde5c3ee8d0e9deb">More...</a><br /></td></tr>
 <tr class="separator:aa5dc304edf6551b8fde5c3ee8d0e9deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a58a3b9eef0200c56c4d46eec567812d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58a3b9eef0200c56c4d46eec567812d8">&#9670;&nbsp;</a></span>NVector3() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor (the default normalized vector is (1,0,0)) </p>
+
+</div>
+</div>
+<a id="a02f7b4095e3b5734961bfcb6ae3b6044"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02f7b4095e3b5734961bfcb6ae3b6044">&#9670;&nbsp;</a></span>NVector3() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>u</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy constructor. </p>
+
+</div>
+</div>
+<a id="a64d3bb180bc4dbb17ddbab002cd5ef65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64d3bb180bc4dbb17ddbab002cd5ef65">&#9670;&nbsp;</a></span>NVector3() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>normalization</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5ce0c21f9eec8eb226521c34dae1be3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5ce0c21f9eec8eb226521c34dae1be3">&#9670;&nbsp;</a></span>NVector3() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>normalization</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="adbeac4b406b78e64460863820679c14f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbeac4b406b78e64460863820679c14f">&#9670;&nbsp;</a></span>norm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double norm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acd0de676568888d848beb97dcc53ae47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd0de676568888d848beb97dcc53ae47">&#9670;&nbsp;</a></span>normalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void normalize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Normalization Private method to do normalization (using Norm() method of the Vector class) when it is necessary (construction of a normalized vector for exemple). </p>
+
+</div>
+</div>
+<a id="ab632ea34ad8730f51b45db181e0086d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab632ea34ad8730f51b45db181e0086d9">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp; operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>u</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assignment. </p>
+
+</div>
+</div>
+<a id="ab7ce922935848df9d5a6f86e43714fc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7ce922935848df9d5a6f86e43714fc8">&#9670;&nbsp;</a></span>operator[]()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a36e8e301023d156b654b6ff852490246"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36e8e301023d156b654b6ff852490246">&#9670;&nbsp;</a></span>setXYZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setXYZ </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>normalization</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writing X,Y and Z coordinates. </p>
+
+</div>
+</div>
+<a id="a9aff367cd11d4eff82932b2905940c8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aff367cd11d4eff82932b2905940c8c">&#9670;&nbsp;</a></span>squareNorm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double squareNorm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a833e1cf314b7b7a5537b2b6a56fee6a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a833e1cf314b7b7a5537b2b6a56fee6a5">&#9670;&nbsp;</a></span>x()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double x </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aca424ddaf2902c1cde483f37813d4278"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca424ddaf2902c1cde483f37813d4278">&#9670;&nbsp;</a></span>y()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double y </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7bc7213001e326be4d4eb2d8a035c34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7bc7213001e326be4d4eb2d8a035c34">&#9670;&nbsp;</a></span>z()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double z </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="af3cf1f5ef3d9038826d1f88490500a71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3cf1f5ef3d9038826d1f88490500a71">&#9670;&nbsp;</a></span>operator* <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a39c5af5e0a5def2deb32033dd22b85a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39c5af5e0a5def2deb32033dd22b85a3">&#9670;&nbsp;</a></span>operator* <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3cdd4a93d3d53db9391800c2a64799b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cdd4a93d3d53db9391800c2a64799b9">&#9670;&nbsp;</a></span>operator-</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>u</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5dc304edf6551b8fde5c3ee8d0e9deb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5dc304edf6551b8fde5c3ee8d0e9deb">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>u</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Out stream override: prints the 3 normalized vector components. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a018f9659256256946c566de108809752"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a018f9659256256946c566de108809752">&#9670;&nbsp;</a></span>_n</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double _n[3]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>normalized vector </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>vrender</b></li><li class="navelem"><a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:14:31 for SOFA by
+    <li class="navelem"><a class="el" href="namespacevrender.html">vrender</a></li><li class="navelem"><a class="el" href="classvrender_1_1_n_vector3.html">NVector3</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:47:05 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

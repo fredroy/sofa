@@ -10,5 +10,6 @@ var classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_add_m_b_kdx_visi
     [ "getInfos", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_add_m_b_kdx_visitor.html#a289e2649b20456f05d61d42a9c3003cd", null ],
     [ "isThreadSafe", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_add_m_b_kdx_visitor.html#ad8010fae1863771eccf33a6f8bdf36af", null ],
     [ "accumulate", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_add_m_b_kdx_visitor.html#a2d316264baea57f2d3bc15cd0e21e945", null ],
+    [ "mparamsWithoutStiffness", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_add_m_b_kdx_visitor.html#a41ceefc5fb8176f46ca7ebb4c8059699", null ],
     [ "res", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_add_m_b_kdx_visitor.html#ab8ceec6bb371b44ef345d1357d91efbe", null ]
 ];

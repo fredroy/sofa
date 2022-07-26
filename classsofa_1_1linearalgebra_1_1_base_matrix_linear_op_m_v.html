@@ -93,52 +93,449 @@ $(document).ready(function(){initNavTree('classsofa_1_1linearalgebra_1_1_base_ma
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a0e5a05fa2c3d9cf962fac13800dc9df4"><td class="memItemLeft" align="right" valign="top"><a id="a0e5a05fa2c3d9cf962fac13800dc9df4"></a>
-typedef BaseMatrix::Index&#160;</td><td class="memItemRight" valign="bottom"><b>Index</b></td></tr>
+<tr class="memitem:a0e5a05fa2c3d9cf962fac13800dc9df4"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html#abf90bea6f4e96fdcf8eb969bf807cd5d">BaseMatrix::Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a0e5a05fa2c3d9cf962fac13800dc9df4">Index</a></td></tr>
 <tr class="separator:a0e5a05fa2c3d9cf962fac13800dc9df4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a615bc5b19503c734e95166cbaf76b336"><td class="memTemplParams" colspan="2"><a id="a615bc5b19503c734e95166cbaf76b336"></a>
-template&lt;class M , class V1 , class V2 &gt; </td></tr>
-<tr class="memitem:a615bc5b19503c734e95166cbaf76b336"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>opFull</b> (const M *mat, V1 &amp;result, const V2 &amp;v)</td></tr>
+<tr class="memitem:a615bc5b19503c734e95166cbaf76b336"><td class="memTemplParams" colspan="2">template&lt;class M , class V1 , class V2 &gt; </td></tr>
+<tr class="memitem:a615bc5b19503c734e95166cbaf76b336"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a615bc5b19503c734e95166cbaf76b336">opFull</a> (const M *mat, V1 &amp;result, const V2 &amp;v)</td></tr>
 <tr class="separator:a615bc5b19503c734e95166cbaf76b336"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eb975012935fad847715363867cba19"><td class="memTemplParams" colspan="2"><a id="a2eb975012935fad847715363867cba19"></a>
-template&lt;class M , class V1 , class V2 &gt; </td></tr>
-<tr class="memitem:a2eb975012935fad847715363867cba19"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>opIdentity</b> (const M *mat, V1 &amp;result, const V2 &amp;v)</td></tr>
+<tr class="memitem:a2eb975012935fad847715363867cba19"><td class="memTemplParams" colspan="2">template&lt;class M , class V1 , class V2 &gt; </td></tr>
+<tr class="memitem:a2eb975012935fad847715363867cba19"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a2eb975012935fad847715363867cba19">opIdentity</a> (const M *mat, V1 &amp;result, const V2 &amp;v)</td></tr>
 <tr class="separator:a2eb975012935fad847715363867cba19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac2f321ea13b45f5a3e20f7794290afe"><td class="memTemplParams" colspan="2"><a id="aac2f321ea13b45f5a3e20f7794290afe"></a>
-template&lt;int NL, int NC, class M , class V1 , class V2 &gt; </td></tr>
-<tr class="memitem:aac2f321ea13b45f5a3e20f7794290afe"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>opDiagonal</b> (const M *mat, V1 &amp;result, const V2 &amp;v)</td></tr>
+<tr class="memitem:aac2f321ea13b45f5a3e20f7794290afe"><td class="memTemplParams" colspan="2">template&lt;int NL, int NC, class M , class V1 , class V2 &gt; </td></tr>
+<tr class="memitem:aac2f321ea13b45f5a3e20f7794290afe"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#aac2f321ea13b45f5a3e20f7794290afe">opDiagonal</a> (const M *mat, V1 &amp;result, const V2 &amp;v)</td></tr>
 <tr class="separator:aac2f321ea13b45f5a3e20f7794290afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50503122d552f9072e0427b508a99c4d"><td class="memTemplParams" colspan="2"><a id="a50503122d552f9072e0427b508a99c4d"></a>
-template&lt;class Real , class M , class V1 , class V2 &gt; </td></tr>
-<tr class="memitem:a50503122d552f9072e0427b508a99c4d"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>opDynamicRealDefault</b> (const M *mat, V1 &amp;result, const V2 &amp;v, Index NL, Index NC, BaseMatrix::MatrixCategory)</td></tr>
+<tr class="memitem:a50503122d552f9072e0427b508a99c4d"><td class="memTemplParams" colspan="2">template&lt;class Real , class M , class V1 , class V2 &gt; </td></tr>
+<tr class="memitem:a50503122d552f9072e0427b508a99c4d"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a50503122d552f9072e0427b508a99c4d">opDynamicRealDefault</a> (const M *mat, V1 &amp;result, const V2 &amp;v, <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a0e5a05fa2c3d9cf962fac13800dc9df4">Index</a> NL, <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a0e5a05fa2c3d9cf962fac13800dc9df4">Index</a> NC, <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html#a02226cc83a00e3ea93142edc105c35fa">BaseMatrix::MatrixCategory</a>)</td></tr>
 <tr class="separator:a50503122d552f9072e0427b508a99c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae53b0acfdb1c5d7a85b4f11d07692d4d"><td class="memTemplParams" colspan="2"><a id="ae53b0acfdb1c5d7a85b4f11d07692d4d"></a>
-template&lt;class Real , int NL, int NC, class M , class V1 , class V2 &gt; </td></tr>
-<tr class="memitem:ae53b0acfdb1c5d7a85b4f11d07692d4d"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>opDynamicRealNLNC</b> (const M *mat, V1 &amp;result, const V2 &amp;v, BaseMatrix::MatrixCategory category)</td></tr>
+<tr class="memitem:ae53b0acfdb1c5d7a85b4f11d07692d4d"><td class="memTemplParams" colspan="2">template&lt;class Real , int NL, int NC, class M , class V1 , class V2 &gt; </td></tr>
+<tr class="memitem:ae53b0acfdb1c5d7a85b4f11d07692d4d"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#ae53b0acfdb1c5d7a85b4f11d07692d4d">opDynamicRealNLNC</a> (const M *mat, V1 &amp;result, const V2 &amp;v, <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html#a02226cc83a00e3ea93142edc105c35fa">BaseMatrix::MatrixCategory</a> category)</td></tr>
 <tr class="separator:ae53b0acfdb1c5d7a85b4f11d07692d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b7eac07df5892187d41488f5afa7d55"><td class="memTemplParams" colspan="2"><a id="a1b7eac07df5892187d41488f5afa7d55"></a>
-template&lt;class Real , int NL, class M , class V1 , class V2 &gt; </td></tr>
-<tr class="memitem:a1b7eac07df5892187d41488f5afa7d55"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>opDynamicRealNL</b> (const M *mat, V1 &amp;result, const V2 &amp;v, Index NC, BaseMatrix::MatrixCategory category)</td></tr>
+<tr class="memitem:a1b7eac07df5892187d41488f5afa7d55"><td class="memTemplParams" colspan="2">template&lt;class Real , int NL, class M , class V1 , class V2 &gt; </td></tr>
+<tr class="memitem:a1b7eac07df5892187d41488f5afa7d55"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a1b7eac07df5892187d41488f5afa7d55">opDynamicRealNL</a> (const M *mat, V1 &amp;result, const V2 &amp;v, <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a0e5a05fa2c3d9cf962fac13800dc9df4">Index</a> NC, <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html#a02226cc83a00e3ea93142edc105c35fa">BaseMatrix::MatrixCategory</a> category)</td></tr>
 <tr class="separator:a1b7eac07df5892187d41488f5afa7d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c969a5255ecac59144a52bb5864591a"><td class="memTemplParams" colspan="2"><a id="a6c969a5255ecac59144a52bb5864591a"></a>
-template&lt;class Real , class M , class V1 , class V2 &gt; </td></tr>
-<tr class="memitem:a6c969a5255ecac59144a52bb5864591a"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>opDynamicReal</b> (const M *mat, V1 &amp;result, const V2 &amp;v, Index NL, Index NC, BaseMatrix::MatrixCategory category)</td></tr>
+<tr class="memitem:a6c969a5255ecac59144a52bb5864591a"><td class="memTemplParams" colspan="2">template&lt;class Real , class M , class V1 , class V2 &gt; </td></tr>
+<tr class="memitem:a6c969a5255ecac59144a52bb5864591a"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a6c969a5255ecac59144a52bb5864591a">opDynamicReal</a> (const M *mat, V1 &amp;result, const V2 &amp;v, <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a0e5a05fa2c3d9cf962fac13800dc9df4">Index</a> NL, <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a0e5a05fa2c3d9cf962fac13800dc9df4">Index</a> NC, <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html#a02226cc83a00e3ea93142edc105c35fa">BaseMatrix::MatrixCategory</a> category)</td></tr>
 <tr class="separator:a6c969a5255ecac59144a52bb5864591a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41aa714bf2d0cc61b46feb152be81cb2"><td class="memTemplParams" colspan="2"><a id="a41aa714bf2d0cc61b46feb152be81cb2"></a>
-template&lt;class M , class V1 , class V2 &gt; </td></tr>
-<tr class="memitem:a41aa714bf2d0cc61b46feb152be81cb2"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>opDynamic</b> (const M *mat, V1 &amp;result, const V2 &amp;v)</td></tr>
+<tr class="memitem:a41aa714bf2d0cc61b46feb152be81cb2"><td class="memTemplParams" colspan="2">template&lt;class M , class V1 , class V2 &gt; </td></tr>
+<tr class="memitem:a41aa714bf2d0cc61b46feb152be81cb2"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a41aa714bf2d0cc61b46feb152be81cb2">opDynamic</a> (const M *mat, V1 &amp;result, const V2 &amp;v)</td></tr>
 <tr class="separator:a41aa714bf2d0cc61b46feb152be81cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a0e5a05fa2c3d9cf962fac13800dc9df4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e5a05fa2c3d9cf962fac13800dc9df4">&#9670;&nbsp;</a></span>Index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html#abf90bea6f4e96fdcf8eb969bf807cd5d">BaseMatrix::Index</a> <a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a0e5a05fa2c3d9cf962fac13800dc9df4">Index</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aac2f321ea13b45f5a3e20f7794290afe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac2f321ea13b45f5a3e20f7794290afe">&#9670;&nbsp;</a></span>opDiagonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void opDiagonal </td>
+          <td>(</td>
+          <td class="paramtype">const M *&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">V1 &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const V2 &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41aa714bf2d0cc61b46feb152be81cb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41aa714bf2d0cc61b46feb152be81cb2">&#9670;&nbsp;</a></span>opDynamic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void opDynamic </td>
+          <td>(</td>
+          <td class="paramtype">const M *&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">V1 &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const V2 &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6c969a5255ecac59144a52bb5864591a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c969a5255ecac59144a52bb5864591a">&#9670;&nbsp;</a></span>opDynamicReal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void opDynamicReal </td>
+          <td>(</td>
+          <td class="paramtype">const M *&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">V1 &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const V2 &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a0e5a05fa2c3d9cf962fac13800dc9df4">Index</a>&#160;</td>
+          <td class="paramname"><em>NL</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a0e5a05fa2c3d9cf962fac13800dc9df4">Index</a>&#160;</td>
+          <td class="paramname"><em>NC</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html#a02226cc83a00e3ea93142edc105c35fa">BaseMatrix::MatrixCategory</a>&#160;</td>
+          <td class="paramname"><em>category</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a50503122d552f9072e0427b508a99c4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50503122d552f9072e0427b508a99c4d">&#9670;&nbsp;</a></span>opDynamicRealDefault()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void opDynamicRealDefault </td>
+          <td>(</td>
+          <td class="paramtype">const M *&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">V1 &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const V2 &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a0e5a05fa2c3d9cf962fac13800dc9df4">Index</a>&#160;</td>
+          <td class="paramname"><em>NL</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a0e5a05fa2c3d9cf962fac13800dc9df4">Index</a>&#160;</td>
+          <td class="paramname"><em>NC</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html#a02226cc83a00e3ea93142edc105c35fa">BaseMatrix::MatrixCategory</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b7eac07df5892187d41488f5afa7d55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b7eac07df5892187d41488f5afa7d55">&#9670;&nbsp;</a></span>opDynamicRealNL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void opDynamicRealNL </td>
+          <td>(</td>
+          <td class="paramtype">const M *&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">V1 &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const V2 &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html#a0e5a05fa2c3d9cf962fac13800dc9df4">Index</a>&#160;</td>
+          <td class="paramname"><em>NC</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html#a02226cc83a00e3ea93142edc105c35fa">BaseMatrix::MatrixCategory</a>&#160;</td>
+          <td class="paramname"><em>category</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae53b0acfdb1c5d7a85b4f11d07692d4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae53b0acfdb1c5d7a85b4f11d07692d4d">&#9670;&nbsp;</a></span>opDynamicRealNLNC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void opDynamicRealNLNC </td>
+          <td>(</td>
+          <td class="paramtype">const M *&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">V1 &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const V2 &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix.html#a02226cc83a00e3ea93142edc105c35fa">BaseMatrix::MatrixCategory</a>&#160;</td>
+          <td class="paramname"><em>category</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a615bc5b19503c734e95166cbaf76b336"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a615bc5b19503c734e95166cbaf76b336">&#9670;&nbsp;</a></span>opFull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void opFull </td>
+          <td>(</td>
+          <td class="paramtype">const M *&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">V1 &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const V2 &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2eb975012935fad847715363867cba19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eb975012935fad847715363867cba19">&#9670;&nbsp;</a></span>opIdentity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void opIdentity </td>
+          <td>(</td>
+          <td class="paramtype">const M *&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">V1 &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const V2 &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>linearalgebra</b></li><li class="navelem"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html">BaseMatrixLinearOpMV</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:10:54 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1linearalgebra.html">linearalgebra</a></li><li class="navelem"><a class="el" href="classsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v.html">BaseMatrixLinearOpMV</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:02 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['searchdirection_15493',['SearchDirection',['../classsofa_1_1core_1_1objectmodel_1_1_base_context.html#a0873cf1638411aa2593352cd6948c0e5',1,'sofa::core::objectmodel::BaseContext']]],
-  ['state_15494',['State',['../classsofa_1_1core_1_1objectmodel_1_1_joystick_event_1_1_hat_event.html#a5d74787dedbc4e11c1ab15bf487e61f8',1,'sofa::core::objectmodel::JoystickEvent::HatEvent::State()'],['../classsofa_1_1core_1_1objectmodel_1_1_mouse_event.html#a5d74787dedbc4e11c1ab15bf487e61f8',1,'sofa::core::objectmodel::MouseEvent::State()']]]
+  ['includenodetype_40823',['IncludeNodeType',['../namespacesofa_1_1simulation_1_1xml.html#a8c030ed0e259c23026d5349c0c0f72ab',1,'sofa::simulation::xml']]]
 ];

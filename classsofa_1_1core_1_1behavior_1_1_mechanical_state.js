@@ -16,5 +16,6 @@ var classsofa_1_1core_1_1behavior_1_1_mechanical_state =
     [ "getCoordDimension", "classsofa_1_1core_1_1behavior_1_1_mechanical_state.html#a60ed5833cc0aa389380a2f40ae2c6a4b", null ],
     [ "getDerivDimension", "classsofa_1_1core_1_1behavior_1_1_mechanical_state.html#af44371d99d0b80bb99fa0a2f6a4d0c32", null ],
     [ "getIndicesInSpace", "classsofa_1_1core_1_1behavior_1_1_mechanical_state.html#aa35416e45bc27b0aff0a01c67a788ff3", null ],
+    [ "shortName", "classsofa_1_1core_1_1behavior_1_1_mechanical_state.html#ac86db44914654a377aeb3a54a45c5fc5", null ],
     [ "SOFA_CLASS2", "classsofa_1_1core_1_1behavior_1_1_mechanical_state.html#a05e79f4315f295fcead2eca8417f9910", null ]
 ];

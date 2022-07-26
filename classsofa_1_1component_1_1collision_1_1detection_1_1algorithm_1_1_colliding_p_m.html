@@ -86,11 +86,14 @@ $(document).ready(function(){initNavTree('classsofa_1_1component_1_1collision_1_
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">CollidingPM Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_collision_2_detection_2_algorithm_2src_2sofa_2component_2collision_2detection_2algorithm_2_collision_p_m_8h_source.html">CollisionPM.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -99,35 +102,356 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a8037a0c1c436ab7da4a388f2e31adcc7"><td class="memItemLeft" align="right" valign="top"><a id="a8037a0c1c436ab7da4a388f2e31adcc7"></a>
-typedef std::unordered_map&lt; std::pair&lt; int, int &gt;, <a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_pair.html">CollidingPair</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>umap_collision</b></td></tr>
+<tr class="memitem:a8037a0c1c436ab7da4a388f2e31adcc7"><td class="memItemLeft" align="right" valign="top">typedef std::unordered_map&lt; std::pair&lt; int, int &gt;, <a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_pair.html">CollidingPair</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a8037a0c1c436ab7da4a388f2e31adcc7">umap_collision</a></td></tr>
 <tr class="separator:a8037a0c1c436ab7da4a388f2e31adcc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0b22889a0064f292110efec42c4094ba"><td class="memItemLeft" align="right" valign="top"><a id="a0b22889a0064f292110efec42c4094ba"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add</b> (Index a, Index b, const <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> &amp;elem1, const <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> &amp;elem2)</td></tr>
+<tr class="memitem:ab72e2d1ac520fe6394aa0980bfc5267b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#ab72e2d1ac520fe6394aa0980bfc5267b">CollidingPM</a> ()</td></tr>
+<tr class="separator:ab72e2d1ac520fe6394aa0980bfc5267b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b22889a0064f292110efec42c4094ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a0b22889a0064f292110efec42c4094ba">add</a> (Index a, Index b, const <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> &amp;elem1, const <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> &amp;elem2)</td></tr>
 <tr class="separator:a0b22889a0064f292110efec42c4094ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c9dfbbafdea4a402300d7111b9ac9bd"><td class="memItemLeft" align="right" valign="top"><a id="a0c9dfbbafdea4a402300d7111b9ac9bd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add</b> (<a class="el" href="classsofa_1_1core_1_1_collision_model.html">core::CollisionModel</a> *cm, <a class="el" href="classsofa_1_1core_1_1collision_1_1_intersection.html">sofa::core::collision::Intersection</a> *interMehtod)</td></tr>
+<tr class="memitem:a0c9dfbbafdea4a402300d7111b9ac9bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a0c9dfbbafdea4a402300d7111b9ac9bd">add</a> (<a class="el" href="classsofa_1_1core_1_1_collision_model.html">core::CollisionModel</a> *cm, <a class="el" href="classsofa_1_1core_1_1collision_1_1_intersection.html">sofa::core::collision::Intersection</a> *interMehtod)</td></tr>
 <tr class="separator:a0c9dfbbafdea4a402300d7111b9ac9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a955f4368df20fe9c2fe00510ff61a049"><td class="memItemLeft" align="right" valign="top"><a id="a955f4368df20fe9c2fe00510ff61a049"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b> (int a, int b, const <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> &amp;elem1, const <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> &amp;elem2)</td></tr>
+<tr class="memitem:a955f4368df20fe9c2fe00510ff61a049"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a955f4368df20fe9c2fe00510ff61a049">remove</a> (int a, int b, const <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> &amp;elem1, const <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> &amp;elem2)</td></tr>
 <tr class="separator:a955f4368df20fe9c2fe00510ff61a049"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8bb3912a3ce86b15842e79d0b421204"><td class="memItemLeft" align="right" valign="top"><a id="ac8bb3912a3ce86b15842e79d0b421204"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="memitem:ac8bb3912a3ce86b15842e79d0b421204"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#ac8bb3912a3ce86b15842e79d0b421204">clear</a> ()</td></tr>
 <tr class="separator:ac8bb3912a3ce86b15842e79d0b421204"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ce1c9a8eeaa7470cb345c0a6f0cef8c"><td class="memItemLeft" align="right" valign="top"><a id="a4ce1c9a8eeaa7470cb345c0a6f0cef8c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>intersect</b> (<a class="el" href="classsofa_1_1core_1_1collision_1_1_narrow_phase_detection.html">core::collision::NarrowPhaseDetection</a> *phase)</td></tr>
+<tr class="memitem:a4ce1c9a8eeaa7470cb345c0a6f0cef8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a4ce1c9a8eeaa7470cb345c0a6f0cef8c">intersect</a> (<a class="el" href="classsofa_1_1core_1_1collision_1_1_narrow_phase_detection.html">core::collision::NarrowPhaseDetection</a> *phase)</td></tr>
 <tr class="separator:a4ce1c9a8eeaa7470cb345c0a6f0cef8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ad8af3d77c2002771202cae060aa4706b"><td class="memItemLeft" align="right" valign="top">std::set&lt; <a class="el" href="structsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m_1_1_coll_mod_i_d.html">CollModID</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#ad8af3d77c2002771202cae060aa4706b">_addedCM</a></td></tr>
+<tr class="separator:ad8af3d77c2002771202cae060aa4706b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eade94be954d576b263789a1bcb66d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a1eade94be954d576b263789a1bcb66d0">_order</a> [<a class="el" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa0775d4a11c1ec946633a3667030e10bc">sofa::core::CollisionModel::ENUM_TYPE_SIZE</a>][<a class="el" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa0775d4a11c1ec946633a3667030e10bc">sofa::core::CollisionModel::ENUM_TYPE_SIZE</a>]</td></tr>
+<tr class="separator:a1eade94be954d576b263789a1bcb66d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63b9aff604371b339dea02798ee78b56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a8037a0c1c436ab7da4a388f2e31adcc7">umap_collision</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a63b9aff604371b339dea02798ee78b56">_coll_pairs</a> [<a class="el" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa0775d4a11c1ec946633a3667030e10bc">sofa::core::CollisionModel::ENUM_TYPE_SIZE</a>][<a class="el" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa0775d4a11c1ec946633a3667030e10bc">sofa::core::CollisionModel::ENUM_TYPE_SIZE</a>]</td></tr>
+<tr class="separator:a63b9aff604371b339dea02798ee78b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1db2ae04a2d980ff34464a8baa59c10b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1collision_1_1_element_intersector.html">core::collision::ElementIntersector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a1db2ae04a2d980ff34464a8baa59c10b">_intersectors</a> [<a class="el" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa0775d4a11c1ec946633a3667030e10bc">sofa::core::CollisionModel::ENUM_TYPE_SIZE</a>][<a class="el" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa0775d4a11c1ec946633a3667030e10bc">sofa::core::CollisionModel::ENUM_TYPE_SIZE</a>]</td></tr>
+<tr class="separator:a1db2ae04a2d980ff34464a8baa59c10b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a8037a0c1c436ab7da4a388f2e31adcc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8037a0c1c436ab7da4a388f2e31adcc7">&#9670;&nbsp;</a></span>umap_collision</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::unordered_map&lt;std::pair&lt;int,int&gt;,<a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_pair.html">CollidingPair</a>&gt; <a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a8037a0c1c436ab7da4a388f2e31adcc7">umap_collision</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab72e2d1ac520fe6394aa0980bfc5267b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab72e2d1ac520fe6394aa0980bfc5267b">&#9670;&nbsp;</a></span>CollidingPM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html">CollidingPM</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0c9dfbbafdea4a402300d7111b9ac9bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c9dfbbafdea4a402300d7111b9ac9bd">&#9670;&nbsp;</a></span>add() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1_collision_model.html">core::CollisionModel</a> *&#160;</td>
+          <td class="paramname"><em>cm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1collision_1_1_intersection.html">sofa::core::collision::Intersection</a> *&#160;</td>
+          <td class="paramname"><em>interMehtod</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0b22889a0064f292110efec42c4094ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b22889a0064f292110efec42c4094ba">&#9670;&nbsp;</a></span>add() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add </td>
+          <td>(</td>
+          <td class="paramtype">Index&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Index&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> &amp;&#160;</td>
+          <td class="paramname"><em>elem1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> &amp;&#160;</td>
+          <td class="paramname"><em>elem2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac8bb3912a3ce86b15842e79d0b421204"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8bb3912a3ce86b15842e79d0b421204">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ce1c9a8eeaa7470cb345c0a6f0cef8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ce1c9a8eeaa7470cb345c0a6f0cef8c">&#9670;&nbsp;</a></span>intersect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void intersect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1collision_1_1_narrow_phase_detection.html">core::collision::NarrowPhaseDetection</a> *&#160;</td>
+          <td class="paramname"><em>phase</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a955f4368df20fe9c2fe00510ff61a049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a955f4368df20fe9c2fe00510ff61a049">&#9670;&nbsp;</a></span>remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void remove </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> &amp;&#160;</td>
+          <td class="paramname"><em>elem1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_collision_element_iterator.html">core::CollisionElementIterator</a> &amp;&#160;</td>
+          <td class="paramname"><em>elem2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad8af3d77c2002771202cae060aa4706b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8af3d77c2002771202cae060aa4706b">&#9670;&nbsp;</a></span>_addedCM</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::set&lt;<a class="el" href="structsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m_1_1_coll_mod_i_d.html">CollModID</a>&gt; _addedCM</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63b9aff604371b339dea02798ee78b56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63b9aff604371b339dea02798ee78b56">&#9670;&nbsp;</a></span>_coll_pairs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html#a8037a0c1c436ab7da4a388f2e31adcc7">umap_collision</a> _coll_pairs[<a class="el" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa0775d4a11c1ec946633a3667030e10bc">sofa::core::CollisionModel::ENUM_TYPE_SIZE</a>][<a class="el" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa0775d4a11c1ec946633a3667030e10bc">sofa::core::CollisionModel::ENUM_TYPE_SIZE</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1db2ae04a2d980ff34464a8baa59c10b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1db2ae04a2d980ff34464a8baa59c10b">&#9670;&nbsp;</a></span>_intersectors</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1collision_1_1_element_intersector.html">core::collision::ElementIntersector</a>* _intersectors[<a class="el" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa0775d4a11c1ec946633a3667030e10bc">sofa::core::CollisionModel::ENUM_TYPE_SIZE</a>][<a class="el" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa0775d4a11c1ec946633a3667030e10bc">sofa::core::CollisionModel::ENUM_TYPE_SIZE</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1eade94be954d576b263789a1bcb66d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eade94be954d576b263789a1bcb66d0">&#9670;&nbsp;</a></span>_order</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int _order[<a class="el" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa0775d4a11c1ec946633a3667030e10bc">sofa::core::CollisionModel::ENUM_TYPE_SIZE</a>][<a class="el" href="classsofa_1_1core_1_1_collision_model.html#aa618c4d8c29ef4efe6f10c741fb1f47aa0775d4a11c1ec946633a3667030e10bc">sofa::core::CollisionModel::ENUM_TYPE_SIZE</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>component</b></li><li class="navelem"><b>collision</b></li><li class="navelem"><b>detection</b></li><li class="navelem"><b>algorithm</b></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html">CollidingPM</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:46:14 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component.html">component</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1collision.html">collision</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1collision_1_1detection.html">detection</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1collision_1_1detection_1_1algorithm.html">algorithm</a></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m.html">CollidingPM</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:22:51 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

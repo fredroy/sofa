@@ -5,6 +5,7 @@ var classsofa_1_1simulation_1_1_default_animation_loop =
     [ "Inherit", "classsofa_1_1simulation_1_1_default_animation_loop.html#a8055298fd6e908c9cd72ab378c87e326", null ],
     [ "DefaultAnimationLoop", "classsofa_1_1simulation_1_1_default_animation_loop.html#a08e8ed7bd7ca2691c1a151b83564884b", null ],
     [ "~DefaultAnimationLoop", "classsofa_1_1simulation_1_1_default_animation_loop.html#aef10d08e4d06d5b22c622ffb0ccb6735", null ],
+    [ "create", "classsofa_1_1simulation_1_1_default_animation_loop.html#aa8b324d37da085008878c72c140bc52f", null ],
     [ "init", "classsofa_1_1simulation_1_1_default_animation_loop.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "setNode", "classsofa_1_1simulation_1_1_default_animation_loop.html#a53690dce4562d6febed61e2e0af3b5d5", null ],
     [ "SOFA_CLASS", "classsofa_1_1simulation_1_1_default_animation_loop.html#ac9a65df9cc109e52675de8e59fdeef8b", null ],

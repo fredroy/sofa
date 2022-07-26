@@ -32,5 +32,9 @@ var classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterato
     [ "value", "classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html#a27e465235fded44d99ba4d9ddfdc4898", null ],
     [ "value", "classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html#a27e465235fded44d99ba4d9ddfdc4898", null ],
     [ "value", "classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html#a27e465235fded44d99ba4d9ddfdc4898", null ],
-    [ "value", "classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html#a27e465235fded44d99ba4d9ddfdc4898", null ]
+    [ "value", "classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html#a27e465235fded44d99ba4d9ddfdc4898", null ],
+    [ "m_end", "classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html#aae7f876acb90a816774a1e3e0d9f4da2", null ],
+    [ "m_id", "classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html#ad05d3e026864f6b6f6cc789e2b64cec0", null ],
+    [ "m_outer", "classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html#a263d6fc1dc2bb5b3eacb66c774fa8651", null ],
+    [ "m_transpose", "classsofa_1_1linearalgebra_1_1_sparse_matrix_storage_order_1_1_inner_iterator.html#aade4dff94f6f1341af33defd10248af7", null ]
 ];

@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_aspect_pool_8h_source.html',''); init
 <div class="title">AspectPool.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_aspect_pool_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -112,9 +112,9 @@ $(document).ready(function(){initNavTree('_aspect_pool_8h_source.html',''); init
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define SOFA_CORE_OBJECTMODEL_ASPECTPOOL_H</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sofa/core/config.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;sofa/helper/system/thread/CircularQueue.h&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;sofa/type/vector.h&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;sofa/core/sptr.h&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_circular_queue_8h.html">sofa/helper/system/thread/CircularQueue.h</a>&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_type_2src_2sofa_2type_2vector_8h.html">sofa/type/vector.h</a>&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_s_ptr_8h.html">sofa/core/sptr.h</a>&gt;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa.html">sofa</a></div>
@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('_aspect_pool_8h_source.html',''); init
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span>core</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">enum</span> { SOFA_DATA_MAX_ASPECTS = 1 };</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">enum</span> { <a class="code" href="namespacesofa_1_1core.html#ad63240694c6dc2a28c24bfc2db90ad7aa00ebd9fafe8e0131e3594bdd2fab11d7">SOFA_DATA_MAX_ASPECTS</a> = 1 };</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span>objectmodel</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
@@ -132,10 +132,10 @@ $(document).ready(function(){initNavTree('_aspect_pool_8h_source.html',''); init
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">class </span>AspectPool;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">class </span>AspectBuffer;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">using</span> AspectRef = sptr&lt;Aspect&gt;;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacesofa_1_1core_1_1objectmodel.html#ac42be24a1a961f41372d43de55b9cb7a">AspectRef</a> = sptr&lt;Aspect&gt;;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;SOFA_CORE_API <span class="keywordtype">void</span> intrusive_ptr_add_ref(Aspect* b);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;SOFA_CORE_API <span class="keywordtype">void</span> intrusive_ptr_release(Aspect* b);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;SOFA_CORE_API <span class="keywordtype">void</span> <a class="code" href="namespacesofa_1_1core_1_1objectmodel.html#a03623a2620d803ee2596925ab105536d">intrusive_ptr_add_ref</a>(Aspect* b);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;SOFA_CORE_API <span class="keywordtype">void</span> <a class="code" href="namespacesofa_1_1core_1_1objectmodel.html#a3e61080da321640dcea8824e95fa57b3">intrusive_ptr_release</a>(Aspect* b);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">class </span>SOFA_CORE_API Aspect</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
@@ -168,26 +168,26 @@ $(document).ready(function(){initNavTree('_aspect_pool_8h_source.html',''); init
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> setReleaseCallback(<span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span> (<span class="keywordtype">int</span>)&gt;&amp; callback);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    AspectRef allocate();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    AspectRef getAspect(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="namespacesofa_1_1core_1_1objectmodel.html#ac42be24a1a961f41372d43de55b9cb7a">AspectRef</a> allocate();</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1objectmodel_1_1_aspect.html#a90d2710e48419c5f0737453c4a00b008">  105</a></span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="namespacesofa_1_1core_1_1objectmodel.html#ac42be24a1a961f41372d43de55b9cb7a">AspectRef</a> getAspect(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">int</span> nbAspects()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> int(aspects.size()); }</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">int</span> getAspectCounter(<span class="keywordtype">int</span> <span class="keywordtype">id</span>)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> aspects[size_t(<span class="keywordtype">id</span>)]-&gt;counter; }</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>Aspect;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_aspect.html">Aspect</a>;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> release(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    AspectPool(<span class="keyword">const</span> AspectPool&amp; r);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    AspectPool&amp; operator=(<span class="keyword">const</span> AspectPool&amp; r);</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1objectmodel_1_1_aspect.html#aeda2bb025f5d0b6d111bd6ffe0c5264d">  119</a></span>&#160;    <span class="keywordtype">void</span> release(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1objectmodel_1_1_aspect.html#a64ae40793ade89d800a8c5646d2980fc">  120</a></span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1objectmodel_1_1_aspect.html#a8aa6efba5ee359ae8a64396750545be1">  121</a></span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html">AspectPool</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html">AspectPool</a>&amp; r);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html">AspectPool</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html">AspectPool</a>&amp; r);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keyword">typedef</span> std::atomic&lt;int&gt; AtomicInt;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">typedef</span> helper::system::thread::CircularQueue&lt;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classsofa_1_1helper_1_1system_1_1thread_1_1_circular_queue.html">helper::system::thread::CircularQueue</a>&lt;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    AtomicInt,</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    helper::system::thread::FixedPower2Size&lt;SOFA_DATA_MAX_ASPECTS&gt;::type,</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <a class="code" href="classsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size_1_1type.html">helper::system::thread::FixedPower2Size&lt;SOFA_DATA_MAX_ASPECTS&gt;::type</a>,</div>
 <div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html">  129</a></span>&#160;    <a class="code" href="classsofa_1_1helper_1_1system_1_1thread_1_1_many_threads_per_end.html">helper::system::thread::ManyThreadsPerEnd</a>&gt;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <a class="code" href="classsofa_1_1helper_1_1system_1_1thread_1_1_circular_queue.html">AspectQueue</a>;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
@@ -202,41 +202,52 @@ $(document).ready(function(){initNavTree('_aspect_pool_8h_source.html',''); init
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_buffer.html">AspectBuffer</a>(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html">AspectPool</a>&amp; pool);</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    ~<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_buffer.html">AspectBuffer</a>();</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    AspectRef allocate();</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">void</span> push(AspectRef <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">bool</span> pop(AspectRef&amp; <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html#af88a4af75788192ba229c9aac1027265">  149</a></span>&#160;    <a class="code" href="namespacesofa_1_1core_1_1objectmodel.html#ac42be24a1a961f41372d43de55b9cb7a">AspectRef</a> allocate();</div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html#a6f336d0b983634b896dabd40b182ca04">  151</a></span>&#160;    <span class="keywordtype">void</span> push(<a class="code" href="namespacesofa_1_1core_1_1objectmodel.html#ac42be24a1a961f41372d43de55b9cb7a">AspectRef</a> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">bool</span> pop(<a class="code" href="namespacesofa_1_1core_1_1objectmodel.html#ac42be24a1a961f41372d43de55b9cb7a">AspectRef</a>&amp; <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">void</span> clear();</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="_q_sofa_recorder_8cpp.html#adc2a83d174f742e14902972009913e84">clear</a>();</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">typedef</span> std::atomic&lt;int&gt; AtomicInt;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">typedef</span> std::atomic&lt;int&gt; <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html#a120ca39f4d98890b90d2c234250cdb82">AtomicInt</a>;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html">AspectPool</a>&amp; pool;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    AtomicInt latestID; </div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    AtomicInt availableID; </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html#a120ca39f4d98890b90d2c234250cdb82">AtomicInt</a> latestID; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html#a120ca39f4d98890b90d2c234250cdb82">AtomicInt</a> availableID; </div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html#a120ca39f4d98890b90d2c234250cdb82">  165</a></span>&#160; </div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;};</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;} <span class="comment">// namespace objectmodel</span></div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;} <span class="comment">// namespace core</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html#af3205431926301b2212c82b1c51bb853">  170</a></span>&#160;} <span class="comment">// namespace core</span></div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;} <span class="comment">// namespace sofa</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SOFA_CORE_OBJECTMODEL_ASPECTPOOL_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html#ac770827d6cefa77ebba68bd78f3d516c">  172</a></span>&#160;} <span class="comment">// namespace sofa</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html#a5318412da295cd6429766e9a2acbc9f4">  173</a></span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html#a449e9d3f5f348629cd0086b9af3e28d3">  174</a></span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SOFA_CORE_OBJECTMODEL_ASPECTPOOL_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclasssofa_1_1helper_1_1system_1_1thread_1_1_circular_queue_html"><div class="ttname"><a href="classsofa_1_1helper_1_1system_1_1thread_1_1_circular_queue.html">sofa::helper::system::thread::CircularQueue&lt; AtomicInt, helper::system::thread::FixedPower2Size&lt; SOFA_DATA_MAX_ASPECTS &gt;::type, helper::system::thread::ManyThreadsPerEnd &gt;</a></div></div>
+<div class="ttc" id="anamespacesofa_1_1core_1_1objectmodel_html_a3e61080da321640dcea8824e95fa57b3"><div class="ttname"><a href="namespacesofa_1_1core_1_1objectmodel.html#a3e61080da321640dcea8824e95fa57b3">sofa::core::objectmodel::intrusive_ptr_release</a></div><div class="ttdeci">void intrusive_ptr_release(Aspect *a)</div><div class="ttdef"><b>Definition:</b> AspectPool.cpp:131</div></div>
+<div class="ttc" id="aclasssofa_1_1helper_1_1system_1_1thread_1_1_circular_queue_html"><div class="ttname"><a href="classsofa_1_1helper_1_1system_1_1thread_1_1_circular_queue.html">sofa::helper::system::thread::CircularQueue</a></div><div class="ttdef"><b>Definition:</b> CircularQueue.h:129</div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_aspect_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_aspect.html">sofa::core::objectmodel::Aspect</a></div><div class="ttdef"><b>Definition:</b> AspectPool.h:98</div></div>
+<div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_aspect_pool_html_a120ca39f4d98890b90d2c234250cdb82"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html#a120ca39f4d98890b90d2c234250cdb82">sofa::core::objectmodel::AspectPool::AtomicInt</a></div><div class="ttdeci">std::atomic&lt; int &gt; AtomicInt</div><div class="ttdef"><b>Definition:</b> AspectPool.h:165</div></div>
+<div class="ttc" id="a_circular_queue_8h_html"><div class="ttname"><a href="_circular_queue_8h.html">CircularQueue.h</a></div></div>
 <div class="ttc" id="anamespacesofa_html"><div class="ttname"><a href="namespacesofa.html">sofa</a></div><div class="ttdoc">This allow MeshTrian to interact with the messaging system.</div><div class="ttdef"><b>Definition:</b> ConstraintAnimationLoop.cpp:81</div></div>
+<div class="ttc" id="a_s_ptr_8h_html"><div class="ttname"><a href="_s_ptr_8h.html">sptr.h</a></div></div>
+<div class="ttc" id="a_type_2src_2sofa_2type_2vector_8h_html"><div class="ttname"><a href="_type_2src_2sofa_2type_2vector_8h.html">vector.h</a></div></div>
+<div class="ttc" id="anamespacesofa_1_1core_1_1objectmodel_html_ac42be24a1a961f41372d43de55b9cb7a"><div class="ttname"><a href="namespacesofa_1_1core_1_1objectmodel.html#ac42be24a1a961f41372d43de55b9cb7a">sofa::core::objectmodel::AspectRef</a></div><div class="ttdeci">sptr&lt; Aspect &gt; AspectRef</div><div class="ttdef"><b>Definition:</b> AspectPool.h:87</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1vector_html"><div class="ttname"><a href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a></div><div class="ttdef"><b>Definition:</b> vector_T.h:54</div></div>
+<div class="ttc" id="a_q_sofa_recorder_8cpp_html_adc2a83d174f742e14902972009913e84"><div class="ttname"><a href="_q_sofa_recorder_8cpp.html#adc2a83d174f742e14902972009913e84">clear</a></div><div class="ttdeci">fpsLabel clear()</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_aspect_buffer_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_aspect_buffer.html">sofa::core::objectmodel::AspectBuffer</a></div><div class="ttdef"><b>Definition:</b> AspectPool.h:182</div></div>
 <div class="ttc" id="aclasssofa_1_1helper_1_1system_1_1thread_1_1_many_threads_per_end_html"><div class="ttname"><a href="classsofa_1_1helper_1_1system_1_1thread_1_1_many_threads_per_end.html">sofa::helper::system::thread::ManyThreadsPerEnd</a></div><div class="ttdef"><b>Definition:</b> CircularQueue.h:251</div></div>
+<div class="ttc" id="aclasssofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size_1_1type_html"><div class="ttname"><a href="classsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size_1_1type.html">sofa::helper::system::thread::FixedPower2Size::type</a></div><div class="ttdef"><b>Definition:</b> CircularQueue.h:194</div></div>
+<div class="ttc" id="anamespacesofa_1_1core_html_ad63240694c6dc2a28c24bfc2db90ad7aa00ebd9fafe8e0131e3594bdd2fab11d7"><div class="ttname"><a href="namespacesofa_1_1core.html#ad63240694c6dc2a28c24bfc2db90ad7aa00ebd9fafe8e0131e3594bdd2fab11d7">sofa::core::SOFA_DATA_MAX_ASPECTS</a></div><div class="ttdeci">@ SOFA_DATA_MAX_ASPECTS</div><div class="ttdef"><b>Definition:</b> AspectPool.h:98</div></div>
+<div class="ttc" id="anamespacesofa_1_1core_1_1objectmodel_html_a03623a2620d803ee2596925ab105536d"><div class="ttname"><a href="namespacesofa_1_1core_1_1objectmodel.html#a03623a2620d803ee2596925ab105536d">sofa::core::objectmodel::intrusive_ptr_add_ref</a></div><div class="ttdeci">void intrusive_ptr_add_ref(Aspect *a)</div><div class="ttdef"><b>Definition:</b> AspectPool.cpp:127</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_aspect_pool_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_aspect_pool.html">sofa::core::objectmodel::AspectPool</a></div><div class="ttdef"><b>Definition:</b> AspectPool.h:129</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_60e01685828ffd7c41f36858d8896f33.html">Core</a></li><li class="navelem"><a class="el" href="dir_1796a5980b33da4b9881c7f7295ea624.html">src</a></li><li class="navelem"><a class="el" href="dir_29474acf678dce4aed010bf0162b5a34.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b2ea3abd78d86d2c623df4c62fb6cf9b.html">core</a></li><li class="navelem"><a class="el" href="dir_be8a094f757796cdff492178e6cf3688.html">objectmodel</a></li><li class="navelem"><b>AspectPool.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:37:03 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_60e01685828ffd7c41f36858d8896f33.html">Core</a></li><li class="navelem"><a class="el" href="dir_1796a5980b33da4b9881c7f7295ea624.html">src</a></li><li class="navelem"><a class="el" href="dir_29474acf678dce4aed010bf0162b5a34.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b2ea3abd78d86d2c623df4c62fb6cf9b.html">core</a></li><li class="navelem"><a class="el" href="dir_be8a094f757796cdff492178e6cf3688.html">objectmodel</a></li><li class="navelem"><a class="el" href="_aspect_pool_8h.html">AspectPool.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:05:10 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

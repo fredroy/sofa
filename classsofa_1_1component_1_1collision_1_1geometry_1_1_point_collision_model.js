@@ -11,6 +11,7 @@ var classsofa_1_1component_1_1collision_1_1geometry_1_1_point_collision_model =
     [ "VecIndex", "classsofa_1_1component_1_1collision_1_1geometry_1_1_point_collision_model.html#afd352aa52ab33ffd56a99bed61f222b7", null ],
     [ "PointCollisionModel", "classsofa_1_1component_1_1collision_1_1geometry_1_1_point_collision_model.html#a62da297ae4259ff51ee6a5eecad77f23", null ],
     [ "canCollideWithElement", "classsofa_1_1component_1_1collision_1_1geometry_1_1_point_collision_model.html#a970b578cf165aa434dd78c31e92fa584", null ],
+    [ "canCreate", "classsofa_1_1component_1_1collision_1_1geometry_1_1_point_collision_model.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "computeBBox", "classsofa_1_1component_1_1collision_1_1geometry_1_1_point_collision_model.html#a3a9a7156e4a8c7ecdf57afc86c098c4a", null ],
     [ "computeBoundingTree", "classsofa_1_1component_1_1collision_1_1geometry_1_1_point_collision_model.html#af777911215040d8cd6eb282ae36ef177", null ],
     [ "computeContinuousBoundingTree", "classsofa_1_1component_1_1collision_1_1geometry_1_1_point_collision_model.html#a31fac534f6b52071ed1f8d380c0519f0", null ],

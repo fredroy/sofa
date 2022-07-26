@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_export_dot_visitor_8h_source.html',''
 <div class="title">ExportDotVisitor.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_export_dot_visitor_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -108,13 +108,13 @@ $(document).ready(function(){initNavTree('_export_dot_visitor_8h_source.html',''
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* Contact information: contact@sofa-framework.org                             *</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">******************************************************************************/</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;sofa/simulation/fwd.h&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/simulation/Visitor.h&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="framework_2_simulation_2_core_2src_2sofa_2simulation_2fwd_8h.html">sofa/simulation/fwd.h</a>&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_visitor_8h.html">sofa/simulation/Visitor.h</a>&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>sofa::simulation::graph</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1simulation_1_1graph.html">sofa::simulation::graph</a></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">class </span>SOFA_SIMULATION_CORE_API ExportDotVisitor : <span class="keyword">public</span> <a class="code" href="classsofa_1_1simulation_1_1_visitor.html">sofa::simulation::Visitor</a></div>
@@ -149,7 +149,7 @@ $(document).ready(function(){initNavTree('_export_dot_visitor_8h_source.html',''
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> processObject(<a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>* node, <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a>* obj);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    Result processNodeTopDown(<a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>* node) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classsofa_1_1simulation_1_1_visitor.html#a28287671eaf7406afd604bd055ba4066">Result</a> processNodeTopDown(<a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>* node) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> processNodeBottomUp(<a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>* node) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* getClassName()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;ExportDotVisitor&quot;</span>; }</div>
@@ -158,37 +158,41 @@ $(document).ready(function(){initNavTree('_export_dot_visitor_8h_source.html',''
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    std::map&lt;core::objectmodel::Base*, std::string&gt; names;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    std::map&lt;std::string, int&gt; nextIndex;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">bool</span> display(<a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>* node, <span class="keyword">const</span> <span class="keywordtype">char</span>** color=<span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">bool</span> display(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a>* obj, <span class="keyword">const</span> <span class="keywordtype">char</span>** color=<span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    std::string getParentName(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a>* obj);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    std::string getName(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">core::objectmodel::Base</a>* o, std::string prefix);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    std::string getName(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">core::objectmodel::BaseNode</a> *node);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    std::string getName(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a>* obj);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;};</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#ac1e872e3d15c0cda3b66bc218820e2cc">   79</a></span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a6b1e9b02ab3217c2631488ab20be3e1f">   81</a></span>&#160;    <span class="keywordtype">bool</span> display(<a class="code" href="classsofa_1_1simulation_1_1_node.html">Node</a>* node, <span class="keyword">const</span> <span class="keywordtype">char</span>** color=<span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a334abefa2e614fbaaff05b6a90484980">   82</a></span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a7e4ac15274e3315b01f6920d72add10c">   84</a></span>&#160;    <span class="keywordtype">bool</span> display(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a>* obj, <span class="keyword">const</span> <span class="keywordtype">char</span>** color=<span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a460a0877a6d620be7ccc3bba0a4cc04f">   85</a></span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a8ce1be00ec3dab5342e2ba82707d4c99">   89</a></span>&#160;    std::string getParentName(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a>* obj);</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a2982b985f27bc3bd3ae89a20298ab404">   90</a></span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a93e5d2b543b238186d9ea0bd62b15f4a">   92</a></span>&#160;    std::string getName(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html">core::objectmodel::Base</a>* o, std::string prefix);</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a149ff4ff53234772b0f734e7e1322fb7">   93</a></span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a5f687f3ed6317c3e22c9554cd7863a77">   95</a></span>&#160;    std::string getName(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">core::objectmodel::BaseNode</a> *node);</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a73c6030f8e46398e1574e8fce1f7faa0">   96</a></span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#aff44449f176a39594d18602b9d410207">   98</a></span>&#160;    std::string getName(<a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">core::objectmodel::BaseObject</a>* obj);</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a290fedeba5d9e175498f75b7f5ea8f8e">   99</a></span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a0a66522121133a3532ea42f69b25211e">  100</a></span>&#160;};</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html#a689567c1c9b5346cf683f9cc67be02bc">  101</a></span>&#160; </div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;} <span class="comment">// namespace sofa::simulation::graph</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclasssofa_1_1simulation_1_1graph_1_1_export_dot_visitor_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1graph_1_1_export_dot_visitor.html">sofa::simulation::graph::ExportDotVisitor</a></div><div class="ttdef"><b>Definition:</b> ExportDotVisitor.h:56</div></div>
+<div class="ttc" id="anamespacesofa_1_1simulation_1_1graph_html"><div class="ttname"><a href="namespacesofa_1_1simulation_1_1graph.html">sofa::simulation::graph</a></div><div class="ttdef"><b>Definition:</b> ExportDotVisitor.cpp:36</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_object_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_object.html">sofa::core::objectmodel::BaseObject</a></div><div class="ttdoc">Base class for simulation components.</div><div class="ttdef"><b>Definition:</b> BaseObject.h:106</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_node_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">sofa::core::objectmodel::BaseNode</a></div><div class="ttdoc">Base class for simulation nodes.</div><div class="ttdef"><b>Definition:</b> BaseNode.h:107</div></div>
 <div class="ttc" id="aclasssofa_1_1simulation_1_1_visitor_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1_visitor.html">sofa::simulation::Visitor</a></div><div class="ttdoc">Base class for visitors propagated recursively through the scenegraph.</div><div class="ttdef"><b>Definition:</b> Visitor.h:62</div></div>
+<div class="ttc" id="aclasssofa_1_1simulation_1_1_visitor_html_a28287671eaf7406afd604bd055ba4066"><div class="ttname"><a href="classsofa_1_1simulation_1_1_visitor.html#a28287671eaf7406afd604bd055ba4066">sofa::simulation::Visitor::Result</a></div><div class="ttdeci">Result</div><div class="ttdef"><b>Definition:</b> Visitor.h:83</div></div>
 <div class="ttc" id="aclasssofa_1_1simulation_1_1_node_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a></div><div class="ttdef"><b>Definition:</b> Node.h:166</div></div>
+<div class="ttc" id="a_visitor_8h_html"><div class="ttname"><a href="_visitor_8h.html">Visitor.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_exec_params_html"><div class="ttname"><a href="classsofa_1_1core_1_1_exec_params.html">sofa::core::ExecParams</a></div><div class="ttdoc">Class gathering parameters use by most components methods, and transmitted by all visitors.</div><div class="ttdef"><b>Definition:</b> ExecParams.h:80</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base.html">sofa::core::objectmodel::Base</a></div><div class="ttdoc">Base class for everything.</div><div class="ttdef"><b>Definition:</b> Base.h:115</div></div>
+<div class="ttc" id="aframework_2_simulation_2_core_2src_2sofa_2simulation_2fwd_8h_html"><div class="ttname"><a href="framework_2_simulation_2_core_2src_2sofa_2simulation_2fwd_8h.html">fwd.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ded960159c28a7f98e773d05d8cb2edb.html">Simulation</a></li><li class="navelem"><a class="el" href="dir_776c813820cf6d73d3a9c07b71d5bddc.html">Core</a></li><li class="navelem"><a class="el" href="dir_e84b8fb263c26c9bc9cb6b1ce635e120.html">src</a></li><li class="navelem"><a class="el" href="dir_0b1a735c28b1bd5121a035bd3ff7eb6a.html">sofa</a></li><li class="navelem"><a class="el" href="dir_e4887cc2fd2fae784949c25f567ec731.html">simulation</a></li><li class="navelem"><b>ExportDotVisitor.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:41:49 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ded960159c28a7f98e773d05d8cb2edb.html">Simulation</a></li><li class="navelem"><a class="el" href="dir_776c813820cf6d73d3a9c07b71d5bddc.html">Core</a></li><li class="navelem"><a class="el" href="dir_e84b8fb263c26c9bc9cb6b1ce635e120.html">src</a></li><li class="navelem"><a class="el" href="dir_0b1a735c28b1bd5121a035bd3ff7eb6a.html">sofa</a></li><li class="navelem"><a class="el" href="dir_e4887cc2fd2fae784949c25f567ec731.html">simulation</a></li><li class="navelem"><a class="el" href="_export_dot_visitor_8h.html">ExportDotVisitor.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:15:33 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

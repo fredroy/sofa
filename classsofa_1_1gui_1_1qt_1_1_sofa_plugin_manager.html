@@ -86,11 +86,15 @@ $(document).ready(function(){initNavTree('classsofa_1_1gui_1_1qt_1_1_sofa_plugin
 <a href="#pub-slots">Public Slots</a> &#124;
 <a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SofaPluginManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_sofa_plugin_manager_8h_source.html">SofaPluginManager.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SofaPluginManager:</div>
 <div class="dyncontent">
@@ -100,44 +104,338 @@ Inheritance diagram for SofaPluginManager:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
-<tr class="memitem:a549fb5fd65cb06110adefa0b8d17a684"><td class="memItemLeft" align="right" valign="top"><a id="a549fb5fd65cb06110adefa0b8d17a684"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addLibrary</b> ()</td></tr>
+<tr class="memitem:a549fb5fd65cb06110adefa0b8d17a684"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html#a549fb5fd65cb06110adefa0b8d17a684">addLibrary</a> ()</td></tr>
 <tr class="separator:a549fb5fd65cb06110adefa0b8d17a684"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9182965a4a456a9b7e4ce4483c07da8"><td class="memItemLeft" align="right" valign="top"><a id="aa9182965a4a456a9b7e4ce4483c07da8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeLibrary</b> ()</td></tr>
+<tr class="memitem:aa9182965a4a456a9b7e4ce4483c07da8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html#aa9182965a4a456a9b7e4ce4483c07da8">removeLibrary</a> ()</td></tr>
 <tr class="separator:aa9182965a4a456a9b7e4ce4483c07da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47b267efd9f82e2cbc9e345fa48d8b33"><td class="memItemLeft" align="right" valign="top"><a id="a47b267efd9f82e2cbc9e345fa48d8b33"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateComponentList</b> ()</td></tr>
+<tr class="memitem:a47b267efd9f82e2cbc9e345fa48d8b33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html#a47b267efd9f82e2cbc9e345fa48d8b33">updateComponentList</a> ()</td></tr>
 <tr class="separator:a47b267efd9f82e2cbc9e345fa48d8b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44a2c37a0f150fdda26dac13d00330ec"><td class="memItemLeft" align="right" valign="top"><a id="a44a2c37a0f150fdda26dac13d00330ec"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateDescription</b> ()</td></tr>
+<tr class="memitem:a44a2c37a0f150fdda26dac13d00330ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html#a44a2c37a0f150fdda26dac13d00330ec">updateDescription</a> ()</td></tr>
 <tr class="separator:a44a2c37a0f150fdda26dac13d00330ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
-<tr class="memitem:aefc6e200ec55e5ae7559536a000595c6"><td class="memItemLeft" align="right" valign="top"><a id="aefc6e200ec55e5ae7559536a000595c6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>libraryAdded</b> ()</td></tr>
+<tr class="memitem:aefc6e200ec55e5ae7559536a000595c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html#aefc6e200ec55e5ae7559536a000595c6">libraryAdded</a> ()</td></tr>
 <tr class="separator:aefc6e200ec55e5ae7559536a000595c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01400c312a2d476190b17f1aeb0a072d"><td class="memItemLeft" align="right" valign="top"><a id="a01400c312a2d476190b17f1aeb0a072d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>libraryRemoved</b> ()</td></tr>
+<tr class="memitem:a01400c312a2d476190b17f1aeb0a072d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html#a01400c312a2d476190b17f1aeb0a072d">libraryRemoved</a> ()</td></tr>
 <tr class="separator:a01400c312a2d476190b17f1aeb0a072d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abde0194f5d6de8ce22b3930ab5500c1e"><td class="memItemLeft" align="right" valign="top"><a id="abde0194f5d6de8ce22b3930ab5500c1e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SofaPluginManager</b> (QWidget *parent)</td></tr>
+<tr class="memitem:abde0194f5d6de8ce22b3930ab5500c1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html#abde0194f5d6de8ce22b3930ab5500c1e">SofaPluginManager</a> (QWidget *parent)</td></tr>
 <tr class="separator:abde0194f5d6de8ce22b3930ab5500c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cde3e9949e7fecfeab472a136aa3743"><td class="memItemLeft" align="right" valign="top"><a id="a0cde3e9949e7fecfeab472a136aa3743"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updatePluginsListView</b> ()</td></tr>
+<tr class="memitem:a0cde3e9949e7fecfeab472a136aa3743"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html#a0cde3e9949e7fecfeab472a136aa3743">updatePluginsListView</a> ()</td></tr>
 <tr class="separator:a0cde3e9949e7fecfeab472a136aa3743"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a7fb36ba45b99b1b99caad15a2f37e048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html#a7fb36ba45b99b1b99caad15a2f37e048">savePluginsToIniFile</a> ()</td></tr>
+<tr class="separator:a7fb36ba45b99b1b99caad15a2f37e048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab61d519b993be70ed8f3568af943f2d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html#ab61d519b993be70ed8f3568af943f2d3">loadPluginsFromIniFile</a> ()</td></tr>
+<tr class="separator:ab61d519b993be70ed8f3568af943f2d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a9cdccc45db4d466fdfb5560fad21f347"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html#a9cdccc45db4d466fdfb5560fad21f347">m_pluginsIniFile</a></td></tr>
+<tr class="memdesc:a9cdccc45db4d466fdfb5560fad21f347"><td class="mdescLeft">&#160;</td><td class="mdescRight">path to the saved/loaded list of plugins by <a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html">SofaPluginManager</a>  <a href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html#a9cdccc45db4d466fdfb5560fad21f347">More...</a><br /></td></tr>
+<tr class="separator:a9cdccc45db4d466fdfb5560fad21f347"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa53a20542bafc2599fe1c2446aff7f66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html#aa53a20542bafc2599fe1c2446aff7f66">m_loadedPlugins</a></td></tr>
+<tr class="memdesc:aa53a20542bafc2599fe1c2446aff7f66"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of plugins loaded by <a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html">SofaPluginManager</a>  <a href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html#aa53a20542bafc2599fe1c2446aff7f66">More...</a><br /></td></tr>
+<tr class="separator:aa53a20542bafc2599fe1c2446aff7f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="abde0194f5d6de8ce22b3930ab5500c1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abde0194f5d6de8ce22b3930ab5500c1e">&#9670;&nbsp;</a></span>SofaPluginManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html">SofaPluginManager</a> </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a549fb5fd65cb06110adefa0b8d17a684"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a549fb5fd65cb06110adefa0b8d17a684">&#9670;&nbsp;</a></span>addLibrary</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addLibrary </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aefc6e200ec55e5ae7559536a000595c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefc6e200ec55e5ae7559536a000595c6">&#9670;&nbsp;</a></span>libraryAdded</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libraryAdded </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a01400c312a2d476190b17f1aeb0a072d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01400c312a2d476190b17f1aeb0a072d">&#9670;&nbsp;</a></span>libraryRemoved</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libraryRemoved </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab61d519b993be70ed8f3568af943f2d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab61d519b993be70ed8f3568af943f2d3">&#9670;&nbsp;</a></span>loadPluginsFromIniFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loadPluginsFromIniFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9182965a4a456a9b7e4ce4483c07da8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9182965a4a456a9b7e4ce4483c07da8">&#9670;&nbsp;</a></span>removeLibrary</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void removeLibrary </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7fb36ba45b99b1b99caad15a2f37e048"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fb36ba45b99b1b99caad15a2f37e048">&#9670;&nbsp;</a></span>savePluginsToIniFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void savePluginsToIniFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a47b267efd9f82e2cbc9e345fa48d8b33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47b267efd9f82e2cbc9e345fa48d8b33">&#9670;&nbsp;</a></span>updateComponentList</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateComponentList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a44a2c37a0f150fdda26dac13d00330ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44a2c37a0f150fdda26dac13d00330ec">&#9670;&nbsp;</a></span>updateDescription</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateDescription </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0cde3e9949e7fecfeab472a136aa3743"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cde3e9949e7fecfeab472a136aa3743">&#9670;&nbsp;</a></span>updatePluginsListView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updatePluginsListView </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa53a20542bafc2599fe1c2446aff7f66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa53a20542bafc2599fe1c2446aff7f66">&#9670;&nbsp;</a></span>m_loadedPlugins</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt;std::string&gt; m_loadedPlugins</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>list of plugins loaded by <a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html">SofaPluginManager</a> </p>
+
+</div>
+</div>
+<a id="a9cdccc45db4d466fdfb5560fad21f347"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cdccc45db4d466fdfb5560fad21f347">&#9670;&nbsp;</a></span>m_pluginsIniFile</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string m_pluginsIniFile</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>path to the saved/loaded list of plugins by <a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html">SofaPluginManager</a> </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>gui</b></li><li class="navelem"><b>qt</b></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html">SofaPluginManager</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:52 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui.html">gui</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui_1_1qt.html">qt</a></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_sofa_plugin_manager.html">SofaPluginManager</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:39 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

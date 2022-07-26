@@ -14,6 +14,7 @@ var classsofa_1_1defaulttype_1_1_solid_types_1_1_transform =
     [ "getOrigin", "classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html#a140119c80f93248abca3ca61567e5091", null ],
     [ "getOriginOfParentInChild", "classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html#a3e08c63fb4a185e2908bb70604e0d842", null ],
     [ "getRotationMatrix", "classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html#a556e53cdc0036665889239dd9d784097", null ],
+    [ "identity", "classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html#ac2085af047c2fcc0920c82d6167afc3b", null ],
     [ "inversed", "classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html#ac224ceacfec3ceb73083552255b88e18", null ],
     [ "operator*", "classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html#a0a2b85c15851937e5c02fb391152e032", null ],
     [ "operator*", "classsofa_1_1defaulttype_1_1_solid_types_1_1_transform.html#a25b9d8cc51e97a2eab7751e301ca8453", null ],

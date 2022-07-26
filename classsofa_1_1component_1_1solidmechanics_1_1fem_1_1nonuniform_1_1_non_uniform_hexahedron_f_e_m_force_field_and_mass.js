@@ -31,5 +31,6 @@ var classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_non_unifor
     [ "d_nbVirtualFinerLevels", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_non_uniform_hexahedron_f_e_m_force_field_and_mass.html#ae0a3dace8c1b263bb4bd4c2e9a39b016", null ],
     [ "d_totalMass", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_non_uniform_hexahedron_f_e_m_force_field_and_mass.html#a054ac6cb8aa55c84c740fc391753f89a", null ],
     [ "d_useMass", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_non_uniform_hexahedron_f_e_m_force_field_and_mass.html#a78f26ea52aec5cdb178a14a94ec8b2ce", null ],
+    [ "FINE_TO_COARSE", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_non_uniform_hexahedron_f_e_m_force_field_and_mass.html#af5978d0a7c6482843da998beb5861c9d", null ],
     [ "l_topology", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_non_uniform_hexahedron_f_e_m_force_field_and_mass.html#a6702dd19445a85239504837c761fee88", null ]
 ];

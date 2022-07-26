@@ -78,6 +78,8 @@ var classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_
     [ "_drawNormalLength", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_geometry_algorithms.html#ad9f5c3e4fd127b6fb3a09519c833faac", null ],
     [ "_drawNormals", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_geometry_algorithms.html#a2d66783c50349aa8f4bc834a2168f802", null ],
     [ "initializedCubatureTables", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_geometry_algorithms.html#ac963905c1105da1dbf4fa1734492d71a", null ],
+    [ "m_container", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_geometry_algorithms.html#a66b2ba78f3a1142b1776fd01b3982092", null ],
+    [ "m_modifier", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_geometry_algorithms.html#aa126fe88751e17de36c5f843156f0a35", null ],
     [ "p_flipNormals", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_geometry_algorithms.html#aa88f36ae045b8493d7a503db744dcd0e", null ],
     [ "p_recomputeTrianglesOrientation", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_geometry_algorithms.html#abc5b0b725f7be6aa851f1999575e68f2", null ],
     [ "showTriangleIndices", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_geometry_algorithms.html#a8727e07e51e5a1b22b14d107daecd1a0", null ],

@@ -1,5 +1,6 @@
 var classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection =
 [
+    [ "OutputVector", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection.html#a4a3bbcf4f8e5ea22494863abd63a9710", null ],
     [ "MeshNewProximityIntersection", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection.html#a200a824b3f35f09178b7429b50f7dcbf", null ],
     [ "computeIntersection", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection.html#a5f93bea974aa898a2d9bfd0735d519a8", null ],
     [ "computeIntersection", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection.html#a7a28ec267f977948316aac59f7969fc4", null ],
@@ -10,6 +11,10 @@ var classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_ne
     [ "computeIntersection", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection.html#ae94f98325dc85ac0e4e7066b302c3fcc", null ],
     [ "computeIntersection", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection.html#aaac20cdd019ae5cc8d5f453cd082fdc6", null ],
     [ "computeIntersection", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection.html#a8fe94a2816bcc6b5f1ba6813e72e522e", null ],
+    [ "doIntersectionLineLine", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection.html#a4305d7fe046a5305b650060a382dd5d8", null ],
+    [ "doIntersectionLinePoint", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection.html#aa3d2c367de0af823f05f704d0ae717fb", null ],
+    [ "doIntersectionTrianglePoint", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection.html#acebfb267ec668eac2a30b08f9741c8f2", null ],
+    [ "doIntersectionTrianglePoint2", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection.html#af9ffe34cbeac20ac3306ceee3c54f517", null ],
     [ "testIntersection", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection.html#a792aed9ad4ea59f08a574cf3521538f4", null ],
     [ "testIntersection", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection.html#a9d46f431f2162e0a6196f596b519fbf0", null ],
     [ "testIntersection", "classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection.html#a6d5afcd51a891313894b461daaf2fb90", null ],

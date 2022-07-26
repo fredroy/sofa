@@ -84,31 +84,166 @@ $(document).ready(function(){initNavTree('classsofa_1_1simulation_1_1_scoped_loc
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1simulation_1_1_scoped_lock-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ScopedLock Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_locks_8h_source.html">Locks.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aeedfeacdb4f044a08c4d9ee72481ffad"><td class="memItemLeft" align="right" valign="top"><a id="aeedfeacdb4f044a08c4d9ee72481ffad"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ScopedLock</b> (<a class="el" href="classsofa_1_1simulation_1_1_spin_lock.html">SpinLock</a> &amp;lock)</td></tr>
+<tr class="memitem:aeedfeacdb4f044a08c4d9ee72481ffad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html#aeedfeacdb4f044a08c4d9ee72481ffad">ScopedLock</a> (<a class="el" href="classsofa_1_1simulation_1_1_spin_lock.html">SpinLock</a> &amp;lock)</td></tr>
 <tr class="separator:aeedfeacdb4f044a08c4d9ee72481ffad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0f0a1e7605d9c2b0bb4f3ab0b350b8a"><td class="memItemLeft" align="right" valign="top"><a id="ae0f0a1e7605d9c2b0bb4f3ab0b350b8a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ScopedLock</b> (<a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html">ScopedLock</a> const &amp;)=delete</td></tr>
+<tr class="memitem:acc8f76dda0ec82b4120a2255b8ce74b7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html#acc8f76dda0ec82b4120a2255b8ce74b7">~ScopedLock</a> ()</td></tr>
+<tr class="separator:acc8f76dda0ec82b4120a2255b8ce74b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0f0a1e7605d9c2b0bb4f3ab0b350b8a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html#ae0f0a1e7605d9c2b0bb4f3ab0b350b8a">ScopedLock</a> (<a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html">ScopedLock</a> const &amp;)=delete</td></tr>
 <tr class="separator:ae0f0a1e7605d9c2b0bb4f3ab0b350b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69b4886159c1845615cd5ca4972e3729"><td class="memItemLeft" align="right" valign="top"><a id="a69b4886159c1845615cd5ca4972e3729"></a>
-<a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html">ScopedLock</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html">ScopedLock</a> const &amp;)=delete</td></tr>
+<tr class="memitem:a69b4886159c1845615cd5ca4972e3729"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html">ScopedLock</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html#a69b4886159c1845615cd5ca4972e3729">operator=</a> (<a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html">ScopedLock</a> const &amp;)=delete</td></tr>
 <tr class="separator:a69b4886159c1845615cd5ca4972e3729"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a116b3551f1e5dbd3b06b7c35805e4544"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1simulation_1_1_spin_lock.html">SpinLock</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html#a116b3551f1e5dbd3b06b7c35805e4544">m_spinlock</a></td></tr>
+<tr class="separator:a116b3551f1e5dbd3b06b7c35805e4544"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aeedfeacdb4f044a08c4d9ee72481ffad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeedfeacdb4f044a08c4d9ee72481ffad">&#9670;&nbsp;</a></span>ScopedLock() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html">ScopedLock</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1simulation_1_1_spin_lock.html">SpinLock</a> &amp;&#160;</td>
+          <td class="paramname"><em>lock</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acc8f76dda0ec82b4120a2255b8ce74b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc8f76dda0ec82b4120a2255b8ce74b7">&#9670;&nbsp;</a></span>~ScopedLock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html">ScopedLock</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae0f0a1e7605d9c2b0bb4f3ab0b350b8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0f0a1e7605d9c2b0bb4f3ab0b350b8a">&#9670;&nbsp;</a></span>ScopedLock() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html">ScopedLock</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html">ScopedLock</a> const &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a69b4886159c1845615cd5ca4972e3729"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69b4886159c1845615cd5ca4972e3729">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html">ScopedLock</a>&amp; operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html">ScopedLock</a> const &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a116b3551f1e5dbd3b06b7c35805e4544"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a116b3551f1e5dbd3b06b7c35805e4544">&#9670;&nbsp;</a></span>m_spinlock</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1simulation_1_1_spin_lock.html">SpinLock</a>&amp; m_spinlock</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>simulation</b></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html">ScopedLock</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:14:04 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1simulation.html">simulation</a></li><li class="navelem"><a class="el" href="classsofa_1_1simulation_1_1_scoped_lock.html">ScopedLock</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:46:36 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

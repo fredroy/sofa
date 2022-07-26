@@ -14,6 +14,7 @@ var classsofa_1_1helper_1_1system_1_1_plugin =
     [ "GetModuleVersion", "classsofa_1_1helper_1_1system_1_1_plugin.html#ac5f0acae268bf7735f9a4b9b11507ee2", null ],
     [ "InitExternalModule", "classsofa_1_1helper_1_1system_1_1_plugin.html#ab5cd58c689e7c4a323cb75d9df2811cf", null ],
     [ "PluginManager", "classsofa_1_1helper_1_1system_1_1_plugin.html#ad0ccd35859b04e162412b22bf5200374", null ],
+    [ "dynamicLibrary", "classsofa_1_1helper_1_1system_1_1_plugin.html#a54e8f9bfafbe38e426fc8459080e4ea1", null ],
     [ "getModuleComponentList", "classsofa_1_1helper_1_1system_1_1_plugin.html#a83ea9e30662964a0bfd599e068a93185", null ],
     [ "getModuleDescription", "classsofa_1_1helper_1_1system_1_1_plugin.html#a16c8cee4a5f4882ebe34db3d04b7a1aa", null ],
     [ "getModuleLicense", "classsofa_1_1helper_1_1system_1_1_plugin.html#aa152daaf1701a4d411583a5d182fe7ec", null ],

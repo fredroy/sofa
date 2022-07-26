@@ -1,5 +1,6 @@
 var classsofa_1_1core_1_1objectmodel_1_1_d_d_g_node =
 [
+    [ "DirtyFlags", "structsofa_1_1core_1_1objectmodel_1_1_d_d_g_node_1_1_dirty_flags.html", "structsofa_1_1core_1_1objectmodel_1_1_d_d_g_node_1_1_dirty_flags" ],
     [ "DDGLinkContainer", "classsofa_1_1core_1_1objectmodel_1_1_d_d_g_node.html#a6c861b7ea40bd6f23af619df466141bd", null ],
     [ "DDGLinkIterator", "classsofa_1_1core_1_1objectmodel_1_1_d_d_g_node.html#a973d2a7161b066868422461b2419bbdf", null ],
     [ "DDGNode", "classsofa_1_1core_1_1objectmodel_1_1_d_d_g_node.html#a4e81c1bffbc9e684e9fec29241eaa754", null ],
@@ -29,6 +30,7 @@ var classsofa_1_1core_1_1objectmodel_1_1_d_d_g_node =
     [ "update", "classsofa_1_1core_1_1objectmodel_1_1_d_d_g_node.html#a99b02345a8a15d3c5ea2844a2253f510", null ],
     [ "updateIfDirty", "classsofa_1_1core_1_1objectmodel_1_1_d_d_g_node.html#a9aedd3015f7e39a61fcc9e805c694d9b", null ],
     [ "updateIfDirty", "classsofa_1_1core_1_1objectmodel_1_1_d_d_g_node.html#a55876367f4c5ce0efc6c54ab60e1adf1", null ],
+    [ "dirtyFlags", "classsofa_1_1core_1_1objectmodel_1_1_d_d_g_node.html#a4274a1c4454336aa6aa9afa830ca4bd5", null ],
     [ "inputs", "classsofa_1_1core_1_1objectmodel_1_1_d_d_g_node.html#a3b18cd67235f93e6b3223e24e224b1e5", null ],
     [ "outputs", "classsofa_1_1core_1_1objectmodel_1_1_d_d_g_node.html#acd5671b013efbd841eb0eedd75fd9336", null ]
 ];

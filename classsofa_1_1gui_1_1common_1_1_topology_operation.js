@@ -5,6 +5,7 @@ var classsofa_1_1gui_1_1common_1_1_topology_operation =
     [ "end", "classsofa_1_1gui_1_1common_1_1_topology_operation.html#a64e9fa75beda50a9e8400ee0d4e61984", null ],
     [ "endOperation", "classsofa_1_1gui_1_1common_1_1_topology_operation.html#a026e8bc7a84ac1b61300ad12472a5c26", null ],
     [ "execution", "classsofa_1_1gui_1_1common_1_1_topology_operation.html#ae97970bafcb6d9a09aebb6f889f7c164", null ],
+    [ "getDescription", "classsofa_1_1gui_1_1common_1_1_topology_operation.html#a025bef3a2dadf6a272b146e0697e9bb2", null ],
     [ "getScale", "classsofa_1_1gui_1_1common_1_1_topology_operation.html#adb44ab25a1467af21593471212f03219", null ],
     [ "getTopologicalOperation", "classsofa_1_1gui_1_1common_1_1_topology_operation.html#a986e16fbc85973513a166a8f54723304", null ],
     [ "getVolumicMesh", "classsofa_1_1gui_1_1common_1_1_topology_operation.html#ab67fd548c184f12d6f937d473e3b97ff", null ],

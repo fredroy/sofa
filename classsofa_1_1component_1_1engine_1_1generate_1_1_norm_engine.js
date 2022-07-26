@@ -7,6 +7,7 @@ var classsofa_1_1component_1_1engine_1_1generate_1_1_norm_engine =
     [ "NormEngine", "classsofa_1_1component_1_1engine_1_1generate_1_1_norm_engine.html#ab94218d7bb93b46993d6db8556315248", null ],
     [ "~NormEngine", "classsofa_1_1component_1_1engine_1_1generate_1_1_norm_engine.html#a098c13e83a2b0c68b9ff0063981362f0", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1generate_1_1_norm_engine.html#a4daa2dc990606f6f13a82f619a13358a", null ],
+    [ "GetCustomTemplateName", "classsofa_1_1component_1_1engine_1_1generate_1_1_norm_engine.html#a9f0a1353fd09a665e1ec169bbbde8d6d", null ],
     [ "init", "classsofa_1_1component_1_1engine_1_1generate_1_1_norm_engine.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "reinit", "classsofa_1_1component_1_1engine_1_1generate_1_1_norm_engine.html#ab1094b915e637faa84817a097d8d87be", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1engine_1_1generate_1_1_norm_engine.html#a8e861191b052bd1b83cccd34ac628a51", null ],

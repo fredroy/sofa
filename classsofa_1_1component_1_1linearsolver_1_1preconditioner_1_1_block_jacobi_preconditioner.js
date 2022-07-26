@@ -5,6 +5,7 @@ var classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_block_jacobi_pr
     [ "SubMatrix", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_block_jacobi_preconditioner.html#a30597507c77a99b48e28f3a21ddebc6c", null ],
     [ "Vector", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_block_jacobi_preconditioner.html#ad73e46a663ecfcfde3cd163b5a5fb3fe", null ],
     [ "BlockJacobiPreconditioner", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_block_jacobi_preconditioner.html#a0197472d3396181f745d2e4e649a26f1", null ],
+    [ "GetCustomTemplateName", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_block_jacobi_preconditioner.html#a9f0a1353fd09a665e1ec169bbbde8d6d", null ],
     [ "invert", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_block_jacobi_preconditioner.html#a52af62b6a23c684e73b1512d8526fb37", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_block_jacobi_preconditioner.html#a4041b653c359d9935d033f12b1848bb1", null ],
     [ "solve", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_block_jacobi_preconditioner.html#ad3989e7411eba496ee020d96e6320c45", null ],

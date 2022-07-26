@@ -85,12 +85,15 @@ $(document).ready(function(){initNavTree('classsofa_1_1component_1_1solidmechani
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">HexahedronCompositeFEMMapping&lt; BasicMapping &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_solid_mechanics_2_f_e_m_2_non_uniform_2src_2sofa_2component_2solidmechanics_2fem_2nonuniform_2_5e71ea129417e45499d6458ad9e8b0bb_source.html">HexahedronCompositeFEMMapping.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for HexahedronCompositeFEMMapping&lt; BasicMapping &gt;:</div>
 <div class="dyncontent">
@@ -100,167 +103,1115 @@ Inheritance diagram for HexahedronCompositeFEMMapping&lt; BasicMapping &gt;:</di
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a5b57639464700218089c4234dd97c2d9"><td class="memItemLeft" align="right" valign="top"><a id="a5b57639464700218089c4234dd97c2d9"></a>
-typedef BasicMapping&#160;</td><td class="memItemRight" valign="bottom"><b>Inherit</b></td></tr>
+<tr class="memitem:a5b57639464700218089c4234dd97c2d9"><td class="memItemLeft" align="right" valign="top">typedef BasicMapping&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a5b57639464700218089c4234dd97c2d9">Inherit</a></td></tr>
 <tr class="separator:a5b57639464700218089c4234dd97c2d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a911e3c61af2af8195cc4c80031bdbf0e"><td class="memItemLeft" align="right" valign="top"><a id="a911e3c61af2af8195cc4c80031bdbf0e"></a>
-typedef Inherit::In&#160;</td><td class="memItemRight" valign="bottom"><b>In</b></td></tr>
+<tr class="memitem:a911e3c61af2af8195cc4c80031bdbf0e"><td class="memItemLeft" align="right" valign="top">typedef Inherit::In&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a911e3c61af2af8195cc4c80031bdbf0e">In</a></td></tr>
 <tr class="separator:a911e3c61af2af8195cc4c80031bdbf0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4989bba46fd7efc24aed9b281ad4760"><td class="memItemLeft" align="right" valign="top"><a id="ae4989bba46fd7efc24aed9b281ad4760"></a>
-typedef <a class="el" href="classsofa_1_1core_1_1_state.html">sofa::core::State</a>&lt; In &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>ptrStateIn</b></td></tr>
+<tr class="memitem:ae4989bba46fd7efc24aed9b281ad4760"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1_state.html">sofa::core::State</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a911e3c61af2af8195cc4c80031bdbf0e">In</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#ae4989bba46fd7efc24aed9b281ad4760">ptrStateIn</a></td></tr>
 <tr class="separator:ae4989bba46fd7efc24aed9b281ad4760"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc2a070d8c0f9a32113e7fb9d41e9bbb"><td class="memItemLeft" align="right" valign="top"><a id="abc2a070d8c0f9a32113e7fb9d41e9bbb"></a>
-typedef Inherit::Out&#160;</td><td class="memItemRight" valign="bottom"><b>Out</b></td></tr>
+<tr class="memitem:abc2a070d8c0f9a32113e7fb9d41e9bbb"><td class="memItemLeft" align="right" valign="top">typedef Inherit::Out&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#abc2a070d8c0f9a32113e7fb9d41e9bbb">Out</a></td></tr>
 <tr class="separator:abc2a070d8c0f9a32113e7fb9d41e9bbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a663364396b84bb542ddcbea0544464"><td class="memItemLeft" align="right" valign="top"><a id="a5a663364396b84bb542ddcbea0544464"></a>
-typedef <a class="el" href="classsofa_1_1core_1_1_state.html">sofa::core::State</a>&lt; Out &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>ptrStateOut</b></td></tr>
+<tr class="memitem:a5a663364396b84bb542ddcbea0544464"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1_state.html">sofa::core::State</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#abc2a070d8c0f9a32113e7fb9d41e9bbb">Out</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a5a663364396b84bb542ddcbea0544464">ptrStateOut</a></td></tr>
 <tr class="separator:a5a663364396b84bb542ddcbea0544464"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8a71cd874c28bd4da62393574167b37"><td class="memItemLeft" align="right" valign="top"><a id="ae8a71cd874c28bd4da62393574167b37"></a>
-typedef Out&#160;</td><td class="memItemRight" valign="bottom"><b>OutDataTypes</b></td></tr>
+<tr class="memitem:ae8a71cd874c28bd4da62393574167b37"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#abc2a070d8c0f9a32113e7fb9d41e9bbb">Out</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#ae8a71cd874c28bd4da62393574167b37">OutDataTypes</a></td></tr>
 <tr class="separator:ae8a71cd874c28bd4da62393574167b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79b95e98d133bc35430f860d10fb93ca"><td class="memItemLeft" align="right" valign="top"><a id="a79b95e98d133bc35430f860d10fb93ca"></a>
-typedef Out::Coord&#160;</td><td class="memItemRight" valign="bottom"><b>OutCoord</b></td></tr>
+<tr class="memitem:a79b95e98d133bc35430f860d10fb93ca"><td class="memItemLeft" align="right" valign="top">typedef Out::Coord&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a79b95e98d133bc35430f860d10fb93ca">OutCoord</a></td></tr>
 <tr class="separator:a79b95e98d133bc35430f860d10fb93ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2f6f7211884834955c0ee2987d61425"><td class="memItemLeft" align="right" valign="top"><a id="ac2f6f7211884834955c0ee2987d61425"></a>
-typedef Out::Deriv&#160;</td><td class="memItemRight" valign="bottom"><b>OutDeriv</b></td></tr>
+<tr class="memitem:ac2f6f7211884834955c0ee2987d61425"><td class="memItemLeft" align="right" valign="top">typedef Out::Deriv&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#ac2f6f7211884834955c0ee2987d61425">OutDeriv</a></td></tr>
 <tr class="separator:ac2f6f7211884834955c0ee2987d61425"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cc1212debe621e2bff230472a061029"><td class="memItemLeft" align="right" valign="top"><a id="a8cc1212debe621e2bff230472a061029"></a>
-typedef Out::VecCoord&#160;</td><td class="memItemRight" valign="bottom"><b>OutVecCoord</b></td></tr>
+<tr class="memitem:a8cc1212debe621e2bff230472a061029"><td class="memItemLeft" align="right" valign="top">typedef Out::VecCoord&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a8cc1212debe621e2bff230472a061029">OutVecCoord</a></td></tr>
 <tr class="separator:a8cc1212debe621e2bff230472a061029"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a814ccfd044e4b593194c3da716c30c6a"><td class="memItemLeft" align="right" valign="top"><a id="a814ccfd044e4b593194c3da716c30c6a"></a>
-typedef Out::VecDeriv&#160;</td><td class="memItemRight" valign="bottom"><b>OutVecDeriv</b></td></tr>
+<tr class="memitem:a814ccfd044e4b593194c3da716c30c6a"><td class="memItemLeft" align="right" valign="top">typedef Out::VecDeriv&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a814ccfd044e4b593194c3da716c30c6a">OutVecDeriv</a></td></tr>
 <tr class="separator:a814ccfd044e4b593194c3da716c30c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d362ab04d389a52a8b93b4d98c4d565"><td class="memItemLeft" align="right" valign="top"><a id="a0d362ab04d389a52a8b93b4d98c4d565"></a>
-typedef In&#160;</td><td class="memItemRight" valign="bottom"><b>InDataTypes</b></td></tr>
+<tr class="memitem:a0d362ab04d389a52a8b93b4d98c4d565"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a911e3c61af2af8195cc4c80031bdbf0e">In</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a0d362ab04d389a52a8b93b4d98c4d565">InDataTypes</a></td></tr>
 <tr class="separator:a0d362ab04d389a52a8b93b4d98c4d565"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af85944cd3e94c3094112e5a015ab09b0"><td class="memItemLeft" align="right" valign="top"><a id="af85944cd3e94c3094112e5a015ab09b0"></a>
-typedef In::Coord&#160;</td><td class="memItemRight" valign="bottom"><b>InCoord</b></td></tr>
+<tr class="memitem:af85944cd3e94c3094112e5a015ab09b0"><td class="memItemLeft" align="right" valign="top">typedef In::Coord&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#af85944cd3e94c3094112e5a015ab09b0">InCoord</a></td></tr>
 <tr class="separator:af85944cd3e94c3094112e5a015ab09b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a698d60c97b389c5c8625a79ff0854e1b"><td class="memItemLeft" align="right" valign="top"><a id="a698d60c97b389c5c8625a79ff0854e1b"></a>
-typedef In::Deriv&#160;</td><td class="memItemRight" valign="bottom"><b>InDeriv</b></td></tr>
+<tr class="memitem:a698d60c97b389c5c8625a79ff0854e1b"><td class="memItemLeft" align="right" valign="top">typedef In::Deriv&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a698d60c97b389c5c8625a79ff0854e1b">InDeriv</a></td></tr>
 <tr class="separator:a698d60c97b389c5c8625a79ff0854e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03303a9cdd9fc667a392c2fa1ec38b5a"><td class="memItemLeft" align="right" valign="top"><a id="a03303a9cdd9fc667a392c2fa1ec38b5a"></a>
-typedef In::VecCoord&#160;</td><td class="memItemRight" valign="bottom"><b>InVecCoord</b></td></tr>
+<tr class="memitem:a03303a9cdd9fc667a392c2fa1ec38b5a"><td class="memItemLeft" align="right" valign="top">typedef In::VecCoord&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a03303a9cdd9fc667a392c2fa1ec38b5a">InVecCoord</a></td></tr>
 <tr class="separator:a03303a9cdd9fc667a392c2fa1ec38b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b011e7db2592e828d67c0e947acca4e"><td class="memItemLeft" align="right" valign="top"><a id="a8b011e7db2592e828d67c0e947acca4e"></a>
-typedef In::VecDeriv&#160;</td><td class="memItemRight" valign="bottom"><b>InVecDeriv</b></td></tr>
+<tr class="memitem:a8b011e7db2592e828d67c0e947acca4e"><td class="memItemLeft" align="right" valign="top">typedef In::VecDeriv&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a8b011e7db2592e828d67c0e947acca4e">InVecDeriv</a></td></tr>
 <tr class="separator:a8b011e7db2592e828d67c0e947acca4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a763831020d6597508dd724c9073df62f"><td class="memItemLeft" align="right" valign="top"><a id="a763831020d6597508dd724c9073df62f"></a>
-typedef OutCoord::value_type&#160;</td><td class="memItemRight" valign="bottom"><b>Real</b></td></tr>
+<tr class="memitem:a763831020d6597508dd724c9073df62f"><td class="memItemLeft" align="right" valign="top">typedef OutCoord::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a763831020d6597508dd724c9073df62f">Real</a></td></tr>
 <tr class="separator:a763831020d6597508dd724c9073df62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02a6190a43e2a6e2bd633f9090698f08"><td class="memItemLeft" align="right" valign="top"><a id="a02a6190a43e2a6e2bd633f9090698f08"></a>
-typedef In::MatrixDeriv&#160;</td><td class="memItemRight" valign="bottom"><b>InMatrixDeriv</b></td></tr>
+<tr class="memitem:a02a6190a43e2a6e2bd633f9090698f08"><td class="memItemLeft" align="right" valign="top">typedef In::MatrixDeriv&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a02a6190a43e2a6e2bd633f9090698f08">InMatrixDeriv</a></td></tr>
 <tr class="separator:a02a6190a43e2a6e2bd633f9090698f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c285ca15919cf69ff5a712c4a2feb8b"><td class="memItemLeft" align="right" valign="top"><a id="a3c285ca15919cf69ff5a712c4a2feb8b"></a>
-typedef Out::MatrixDeriv&#160;</td><td class="memItemRight" valign="bottom"><b>OutMatrixDeriv</b></td></tr>
+<tr class="memitem:a3c285ca15919cf69ff5a712c4a2feb8b"><td class="memItemLeft" align="right" valign="top">typedef Out::MatrixDeriv&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a3c285ca15919cf69ff5a712c4a2feb8b">OutMatrixDeriv</a></td></tr>
 <tr class="separator:a3c285ca15919cf69ff5a712c4a2feb8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01339702a3757eb46ee327a04ef16713"><td class="memItemLeft" align="right" valign="top"><a id="a01339702a3757eb46ee327a04ef16713"></a>
-typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; InVecCoord &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>InDataVecCoord</b></td></tr>
+<tr class="memitem:a01339702a3757eb46ee327a04ef16713"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a03303a9cdd9fc667a392c2fa1ec38b5a">InVecCoord</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a01339702a3757eb46ee327a04ef16713">InDataVecCoord</a></td></tr>
 <tr class="separator:a01339702a3757eb46ee327a04ef16713"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a622afbe34df296acd41a644b7589147b"><td class="memItemLeft" align="right" valign="top"><a id="a622afbe34df296acd41a644b7589147b"></a>
-typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; InVecDeriv &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>InDataVecDeriv</b></td></tr>
+<tr class="memitem:a622afbe34df296acd41a644b7589147b"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a8b011e7db2592e828d67c0e947acca4e">InVecDeriv</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a622afbe34df296acd41a644b7589147b">InDataVecDeriv</a></td></tr>
 <tr class="separator:a622afbe34df296acd41a644b7589147b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab794d1aadc6238032741fa27f0786dfc"><td class="memItemLeft" align="right" valign="top"><a id="ab794d1aadc6238032741fa27f0786dfc"></a>
-typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; InMatrixDeriv &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>InDataMatrixDeriv</b></td></tr>
+<tr class="memitem:ab794d1aadc6238032741fa27f0786dfc"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a02a6190a43e2a6e2bd633f9090698f08">InMatrixDeriv</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#ab794d1aadc6238032741fa27f0786dfc">InDataMatrixDeriv</a></td></tr>
 <tr class="separator:ab794d1aadc6238032741fa27f0786dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a767d9c6c0b9e62437c06d33ca744c90c"><td class="memItemLeft" align="right" valign="top"><a id="a767d9c6c0b9e62437c06d33ca744c90c"></a>
-typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; OutVecCoord &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>OutDataVecCoord</b></td></tr>
+<tr class="memitem:a767d9c6c0b9e62437c06d33ca744c90c"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a8cc1212debe621e2bff230472a061029">OutVecCoord</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a767d9c6c0b9e62437c06d33ca744c90c">OutDataVecCoord</a></td></tr>
 <tr class="separator:a767d9c6c0b9e62437c06d33ca744c90c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3eaa561c82784291407fb5c8814dfe60"><td class="memItemLeft" align="right" valign="top"><a id="a3eaa561c82784291407fb5c8814dfe60"></a>
-typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; OutVecDeriv &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>OutDataVecDeriv</b></td></tr>
+<tr class="memitem:a3eaa561c82784291407fb5c8814dfe60"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a814ccfd044e4b593194c3da716c30c6a">OutVecDeriv</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a3eaa561c82784291407fb5c8814dfe60">OutDataVecDeriv</a></td></tr>
 <tr class="separator:a3eaa561c82784291407fb5c8814dfe60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68b16215230b91b0463c49f1b3348d16"><td class="memItemLeft" align="right" valign="top"><a id="a68b16215230b91b0463c49f1b3348d16"></a>
-typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; OutMatrixDeriv &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>OutDataMatrixDeriv</b></td></tr>
+<tr class="memitem:a68b16215230b91b0463c49f1b3348d16"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a3c285ca15919cf69ff5a712c4a2feb8b">OutMatrixDeriv</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a68b16215230b91b0463c49f1b3348d16">OutDataMatrixDeriv</a></td></tr>
 <tr class="separator:a68b16215230b91b0463c49f1b3348d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5eb31823a4706bb5ee460d2b865b070"><td class="memItemLeft" align="right" valign="top"><a id="ab5eb31823a4706bb5ee460d2b865b070"></a>
-typedef <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html">component::topology::container::grid::SparseGridTopology</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SparseGridTopologyT</b></td></tr>
+<tr class="memitem:ab5eb31823a4706bb5ee460d2b865b070"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html">component::topology::container::grid::SparseGridTopology</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#ab5eb31823a4706bb5ee460d2b865b070">SparseGridTopologyT</a></td></tr>
 <tr class="separator:ab5eb31823a4706bb5ee460d2b865b070"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34792fbe57e4dba7ff43b78e28a93fd6"><td class="memItemLeft" align="right" valign="top"><a id="a34792fbe57e4dba7ff43b78e28a93fd6"></a>
-typedef <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html">component::solidmechanics::fem::nonuniform::HexahedronCompositeFEMForceFieldAndMass</a>&lt; In &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HexahedronCompositeFEMForceFieldAndMassT</b></td></tr>
+<tr class="memitem:a34792fbe57e4dba7ff43b78e28a93fd6"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html">component::solidmechanics::fem::nonuniform::HexahedronCompositeFEMForceFieldAndMass</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a911e3c61af2af8195cc4c80031bdbf0e">In</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a34792fbe57e4dba7ff43b78e28a93fd6">HexahedronCompositeFEMForceFieldAndMassT</a></td></tr>
 <tr class="separator:a34792fbe57e4dba7ff43b78e28a93fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a392595fa4f4d14d637e5b462053e99e5"><td class="memItemLeft" align="right" valign="top"><a id="a392595fa4f4d14d637e5b462053e99e5"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1_mat.html">type::Mat</a>&lt; 3, 8 *3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Weight</b></td></tr>
+<tr class="memitem:a392595fa4f4d14d637e5b462053e99e5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1type_1_1_mat.html">type::Mat</a>&lt; 3, 8 *3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a392595fa4f4d14d637e5b462053e99e5">Weight</a></td></tr>
 <tr class="separator:a392595fa4f4d14d637e5b462053e99e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0eeac52a37c289b32c80b9953484c14f"><td class="memItemLeft" align="right" valign="top"><a id="a0eeac52a37c289b32c80b9953484c14f"></a>
-typedef <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_hexahedron_f_e_m_force_field.html#ac1252142084e7987aaf6163bca602e7c">HexahedronCompositeFEMForceFieldAndMassT::Transformation</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Transformation</b></td></tr>
+<tr class="memitem:a0eeac52a37c289b32c80b9953484c14f"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_hexahedron_f_e_m_force_field.html#ac1252142084e7987aaf6163bca602e7c">HexahedronCompositeFEMForceFieldAndMassT::Transformation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a0eeac52a37c289b32c80b9953484c14f">Transformation</a></td></tr>
 <tr class="separator:a0eeac52a37c289b32c80b9953484c14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7825b2b4d7ecf2abc65b91deb2a0e4d0"><td class="memItemLeft" align="right" valign="top"><a id="a7825b2b4d7ecf2abc65b91deb2a0e4d0"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1fixed__array.html">type::fixed_array</a>&lt; InCoord, 8 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Nodes</b></td></tr>
+<tr class="memitem:a7825b2b4d7ecf2abc65b91deb2a0e4d0"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1type_1_1fixed__array.html">type::fixed_array</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#af85944cd3e94c3094112e5a015ab09b0">InCoord</a>, 8 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a7825b2b4d7ecf2abc65b91deb2a0e4d0">Nodes</a></td></tr>
 <tr class="separator:a7825b2b4d7ecf2abc65b91deb2a0e4d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2b1be8b31796ecc8ab82b84b590c8ada"><td class="memItemLeft" align="right" valign="top"><a id="a2b1be8b31796ecc8ab82b84b590c8ada"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SOFA_CLASS</b> (SOFA_TEMPLATE(<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html">HexahedronCompositeFEMMapping</a>, BasicMapping), BasicMapping)</td></tr>
+<tr class="memitem:a2b1be8b31796ecc8ab82b84b590c8ada"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a2b1be8b31796ecc8ab82b84b590c8ada">SOFA_CLASS</a> (<a class="el" href="_base_class_8h.html#a31cd2291b906a5b1d94ae43b3bf80d61">SOFA_TEMPLATE</a>(<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html">HexahedronCompositeFEMMapping</a>, BasicMapping), BasicMapping)</td></tr>
 <tr class="separator:a2b1be8b31796ecc8ab82b84b590c8ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad72eef1561c7a53b19b048397d4ef570"><td class="memItemLeft" align="right" valign="top"><a id="ad72eef1561c7a53b19b048397d4ef570"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> () override</td></tr>
+<tr class="memitem:a2a0751080c0ed1e223cd3fa3ee605fca"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a2a0751080c0ed1e223cd3fa3ee605fca">~HexahedronCompositeFEMMapping</a> ()</td></tr>
+<tr class="separator:a2a0751080c0ed1e223cd3fa3ee605fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72eef1561c7a53b19b048397d4ef570"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#ad72eef1561c7a53b19b048397d4ef570">init</a> () override</td></tr>
 <tr class="separator:ad72eef1561c7a53b19b048397d4ef570"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1156091468eacc23fe8082f352d9d229"><td class="memItemLeft" align="right" valign="top"><a id="a1156091468eacc23fe8082f352d9d229"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>apply</b> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">sofa::core::MechanicalParams</a> *mparams, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">OutDataVecCoord</a> &amp;out, const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">InDataVecCoord</a> &amp;in) override</td></tr>
+<tr class="memitem:a1156091468eacc23fe8082f352d9d229"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a1156091468eacc23fe8082f352d9d229">apply</a> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">sofa::core::MechanicalParams</a> *mparams, <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a767d9c6c0b9e62437c06d33ca744c90c">OutDataVecCoord</a> &amp;out, const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a01339702a3757eb46ee327a04ef16713">InDataVecCoord</a> &amp;in) override</td></tr>
 <tr class="separator:a1156091468eacc23fe8082f352d9d229"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19d952128bc56cfdebb626f8e8d32a3a"><td class="memItemLeft" align="right" valign="top"><a id="a19d952128bc56cfdebb626f8e8d32a3a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>applyJ</b> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">sofa::core::MechanicalParams</a> *mparams, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">OutDataVecDeriv</a> &amp;out, const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">InDataVecDeriv</a> &amp;in) override</td></tr>
+<tr class="memitem:a19d952128bc56cfdebb626f8e8d32a3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a19d952128bc56cfdebb626f8e8d32a3a">applyJ</a> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">sofa::core::MechanicalParams</a> *mparams, <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a3eaa561c82784291407fb5c8814dfe60">OutDataVecDeriv</a> &amp;out, const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a622afbe34df296acd41a644b7589147b">InDataVecDeriv</a> &amp;in) override</td></tr>
 <tr class="separator:a19d952128bc56cfdebb626f8e8d32a3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91e9f7d6760bd9d9fa599b57bce2b1b2"><td class="memItemLeft" align="right" valign="top"><a id="a91e9f7d6760bd9d9fa599b57bce2b1b2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>applyJT</b> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">sofa::core::MechanicalParams</a> *mparams, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">InDataVecDeriv</a> &amp;out, const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">OutDataVecDeriv</a> &amp;in) override</td></tr>
+<tr class="memitem:a91e9f7d6760bd9d9fa599b57bce2b1b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a91e9f7d6760bd9d9fa599b57bce2b1b2">applyJT</a> (const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">sofa::core::MechanicalParams</a> *mparams, <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a622afbe34df296acd41a644b7589147b">InDataVecDeriv</a> &amp;out, const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a3eaa561c82784291407fb5c8814dfe60">OutDataVecDeriv</a> &amp;in) override</td></tr>
 <tr class="separator:a91e9f7d6760bd9d9fa599b57bce2b1b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaeb00f513ce94b5945735f35e03fa2ae"><td class="memItemLeft" align="right" valign="top"><a id="aaeb00f513ce94b5945735f35e03fa2ae"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>applyJT</b> (const <a class="el" href="classsofa_1_1core_1_1_constraint_params.html">sofa::core::ConstraintParams</a> *, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">InDataMatrixDeriv</a> &amp;, const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">OutDataMatrixDeriv</a> &amp;) override</td></tr>
+<tr class="memitem:aaeb00f513ce94b5945735f35e03fa2ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#aaeb00f513ce94b5945735f35e03fa2ae">applyJT</a> (const <a class="el" href="classsofa_1_1core_1_1_constraint_params.html">sofa::core::ConstraintParams</a> *, <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#ab794d1aadc6238032741fa27f0786dfc">InDataMatrixDeriv</a> &amp;, const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a68b16215230b91b0463c49f1b3348d16">OutDataMatrixDeriv</a> &amp;) override</td></tr>
 <tr class="separator:aaeb00f513ce94b5945735f35e03fa2ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8673433953792026ae9baf91b348d7da"><td class="memItemLeft" align="right" valign="top"><a id="a8673433953792026ae9baf91b348d7da"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (const <a class="el" href="classsofa_1_1core_1_1visual_1_1_visual_params.html">core::visual::VisualParams</a> *vparams) override</td></tr>
+<tr class="memitem:a8673433953792026ae9baf91b348d7da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a8673433953792026ae9baf91b348d7da">draw</a> (const <a class="el" href="classsofa_1_1core_1_1visual_1_1_visual_params.html">core::visual::VisualParams</a> *vparams) override</td></tr>
 <tr class="separator:a8673433953792026ae9baf91b348d7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a6c647161167f81a5e3479aad538bb90c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a6c647161167f81a5e3479aad538bb90c">HexahedronCompositeFEMMapping</a> ()</td></tr>
+<tr class="separator:a6c647161167f81a5e3479aad538bb90c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a27b0595c4eda966e33afe2b94edf3523"><td class="memItemLeft" align="right" valign="top"><a id="a27b0595c4eda966e33afe2b94edf3523"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>_alreadyInit</b></td></tr>
+<tr class="memitem:a27b0595c4eda966e33afe2b94edf3523"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a27b0595c4eda966e33afe2b94edf3523">_alreadyInit</a></td></tr>
 <tr class="separator:a27b0595c4eda966e33afe2b94edf3523"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e66597353992fc25c7129972ffbc36f"><td class="memItemLeft" align="right" valign="top"><a id="a0e66597353992fc25c7129972ffbc36f"></a>
-<a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; OutCoord &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_finePos</b></td></tr>
+<tr class="memitem:a0e66597353992fc25c7129972ffbc36f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a79b95e98d133bc35430f860d10fb93ca">OutCoord</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a0e66597353992fc25c7129972ffbc36f">_finePos</a></td></tr>
 <tr class="separator:a0e66597353992fc25c7129972ffbc36f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a269ca19c7e0f53a6b7275282153ba065"><td class="memItemLeft" align="right" valign="top"><a id="a269ca19c7e0f53a6b7275282153ba065"></a>
-OutVecCoord&#160;</td><td class="memItemRight" valign="bottom"><b>_p0</b></td></tr>
+<tr class="memitem:a269ca19c7e0f53a6b7275282153ba065"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a8cc1212debe621e2bff230472a061029">OutVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a269ca19c7e0f53a6b7275282153ba065">_p0</a></td></tr>
 <tr class="separator:a269ca19c7e0f53a6b7275282153ba065"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1df6b3a2919bccb4ddb21759c084cdfb"><td class="memItemLeft" align="right" valign="top"><a id="a1df6b3a2919bccb4ddb21759c084cdfb"></a>
-InVecCoord&#160;</td><td class="memItemRight" valign="bottom"><b>_qCoarse0</b></td></tr>
+<tr class="memitem:a1df6b3a2919bccb4ddb21759c084cdfb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a03303a9cdd9fc667a392c2fa1ec38b5a">InVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a1df6b3a2919bccb4ddb21759c084cdfb">_qCoarse0</a></td></tr>
 <tr class="separator:a1df6b3a2919bccb4ddb21759c084cdfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61e00eedcbad2074d57298b2f50200d0"><td class="memItemLeft" align="right" valign="top"><a id="a61e00eedcbad2074d57298b2f50200d0"></a>
-InVecCoord&#160;</td><td class="memItemRight" valign="bottom"><b>_qFine0</b></td></tr>
+<tr class="memitem:a61e00eedcbad2074d57298b2f50200d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a03303a9cdd9fc667a392c2fa1ec38b5a">InVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a61e00eedcbad2074d57298b2f50200d0">_qFine0</a></td></tr>
 <tr class="separator:a61e00eedcbad2074d57298b2f50200d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b27b651b40406f7158c40ab795730dd"><td class="memItemLeft" align="right" valign="top"><a id="a8b27b651b40406f7158c40ab795730dd"></a>
-InVecCoord&#160;</td><td class="memItemRight" valign="bottom"><b>_qFine</b></td></tr>
+<tr class="memitem:a8b27b651b40406f7158c40ab795730dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a03303a9cdd9fc667a392c2fa1ec38b5a">InVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a8b27b651b40406f7158c40ab795730dd">_qFine</a></td></tr>
 <tr class="separator:a8b27b651b40406f7158c40ab795730dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8710ab846d70f57c3f62c4175f907004"><td class="memItemLeft" align="right" valign="top"><a id="a8710ab846d70f57c3f62c4175f907004"></a>
-<a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1_mat.html">Transformation</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_rotations</b></td></tr>
+<tr class="memitem:a8710ab846d70f57c3f62c4175f907004"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a0eeac52a37c289b32c80b9953484c14f">Transformation</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a8710ab846d70f57c3f62c4175f907004">_rotations</a></td></tr>
 <tr class="separator:a8710ab846d70f57c3f62c4175f907004"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cd5cb87c1777293dc5b45b36735e5f9"><td class="memItemLeft" align="right" valign="top"><a id="a9cd5cb87c1777293dc5b45b36735e5f9"></a>
-<a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1_mat.html">Weight</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_weights</b></td></tr>
+<tr class="memitem:a9cd5cb87c1777293dc5b45b36735e5f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a392595fa4f4d14d637e5b462053e99e5">Weight</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a9cd5cb87c1777293dc5b45b36735e5f9">_weights</a></td></tr>
 <tr class="separator:a9cd5cb87c1777293dc5b45b36735e5f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d7a74116efbce15e2ee58c660b9257f"><td class="memItemLeft" align="right" valign="top"><a id="a4d7a74116efbce15e2ee58c660b9257f"></a>
-<a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; std::pair&lt; int, <a class="el" href="classsofa_1_1type_1_1fixed__array.html">type::fixed_array</a>&lt; Real, 8 &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_finestBarycentricCoord</b></td></tr>
+<tr class="memitem:a4d7a74116efbce15e2ee58c660b9257f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; std::pair&lt; int, <a class="el" href="classsofa_1_1type_1_1fixed__array.html">type::fixed_array</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a763831020d6597508dd724c9073df62f">Real</a>, 8 &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a4d7a74116efbce15e2ee58c660b9257f">_finestBarycentricCoord</a></td></tr>
 <tr class="separator:a4d7a74116efbce15e2ee58c660b9257f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d9697ff27fdad82eb5fe6141feda8e2"><td class="memItemLeft" align="right" valign="top"><a id="a5d9697ff27fdad82eb5fe6141feda8e2"></a>
-<a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; std::map&lt; int, <a class="el" href="classsofa_1_1type_1_1_mat.html">Weight</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_finestWeights</b></td></tr>
+<tr class="memitem:a5d9697ff27fdad82eb5fe6141feda8e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; std::map&lt; int, <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a392595fa4f4d14d637e5b462053e99e5">Weight</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a5d9697ff27fdad82eb5fe6141feda8e2">_finestWeights</a></td></tr>
 <tr class="separator:a5d9697ff27fdad82eb5fe6141feda8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa02553253eddbde4c99b485a14590355"><td class="memItemLeft" align="right" valign="top"><a id="aa02553253eddbde4c99b485a14590355"></a>
-<a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html">SparseGridTopologyT</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_sparseGrid</b></td></tr>
+<tr class="memitem:aa02553253eddbde4c99b485a14590355"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#ab5eb31823a4706bb5ee460d2b865b070">SparseGridTopologyT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#aa02553253eddbde4c99b485a14590355">_sparseGrid</a></td></tr>
 <tr class="separator:aa02553253eddbde4c99b485a14590355"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e5deb3c36c51800a04d6211d9a6b6d9"><td class="memItemLeft" align="right" valign="top"><a id="a4e5deb3c36c51800a04d6211d9a6b6d9"></a>
-SparseGridTopologyT::SPtr&#160;</td><td class="memItemRight" valign="bottom"><b>_finestSparseGrid</b></td></tr>
+<tr class="memitem:a4e5deb3c36c51800a04d6211d9a6b6d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">SparseGridTopologyT::SPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a4e5deb3c36c51800a04d6211d9a6b6d9">_finestSparseGrid</a></td></tr>
 <tr class="separator:a4e5deb3c36c51800a04d6211d9a6b6d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0e585e4c1420f7aefd0f17cd8c6986b"><td class="memItemLeft" align="right" valign="top"><a id="af0e585e4c1420f7aefd0f17cd8c6986b"></a>
-<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html">HexahedronCompositeFEMForceFieldAndMassT</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_forcefield</b></td></tr>
+<tr class="memitem:af0e585e4c1420f7aefd0f17cd8c6986b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a34792fbe57e4dba7ff43b78e28a93fd6">HexahedronCompositeFEMForceFieldAndMassT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#af0e585e4c1420f7aefd0f17cd8c6986b">_forcefield</a></td></tr>
 <tr class="separator:af0e585e4c1420f7aefd0f17cd8c6986b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a34792fbe57e4dba7ff43b78e28a93fd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34792fbe57e4dba7ff43b78e28a93fd6">&#9670;&nbsp;</a></span>HexahedronCompositeFEMForceFieldAndMassT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_force_field_and_mass.html">component::solidmechanics::fem::nonuniform::HexahedronCompositeFEMForceFieldAndMass</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a911e3c61af2af8195cc4c80031bdbf0e">In</a>&gt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a34792fbe57e4dba7ff43b78e28a93fd6">HexahedronCompositeFEMForceFieldAndMassT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a911e3c61af2af8195cc4c80031bdbf0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a911e3c61af2af8195cc4c80031bdbf0e">&#9670;&nbsp;</a></span>In</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Inherit::In <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a911e3c61af2af8195cc4c80031bdbf0e">In</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af85944cd3e94c3094112e5a015ab09b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af85944cd3e94c3094112e5a015ab09b0">&#9670;&nbsp;</a></span>InCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef In::Coord <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#af85944cd3e94c3094112e5a015ab09b0">InCoord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab794d1aadc6238032741fa27f0786dfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab794d1aadc6238032741fa27f0786dfc">&#9670;&nbsp;</a></span>InDataMatrixDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a02a6190a43e2a6e2bd633f9090698f08">InMatrixDeriv</a>&gt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#ab794d1aadc6238032741fa27f0786dfc">InDataMatrixDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d362ab04d389a52a8b93b4d98c4d565"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d362ab04d389a52a8b93b4d98c4d565">&#9670;&nbsp;</a></span>InDataTypes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a911e3c61af2af8195cc4c80031bdbf0e">In</a> <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a0d362ab04d389a52a8b93b4d98c4d565">InDataTypes</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a01339702a3757eb46ee327a04ef16713"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01339702a3757eb46ee327a04ef16713">&#9670;&nbsp;</a></span>InDataVecCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a03303a9cdd9fc667a392c2fa1ec38b5a">InVecCoord</a>&gt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a01339702a3757eb46ee327a04ef16713">InDataVecCoord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a622afbe34df296acd41a644b7589147b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a622afbe34df296acd41a644b7589147b">&#9670;&nbsp;</a></span>InDataVecDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a8b011e7db2592e828d67c0e947acca4e">InVecDeriv</a>&gt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a622afbe34df296acd41a644b7589147b">InDataVecDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a698d60c97b389c5c8625a79ff0854e1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a698d60c97b389c5c8625a79ff0854e1b">&#9670;&nbsp;</a></span>InDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef In::Deriv <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a698d60c97b389c5c8625a79ff0854e1b">InDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b57639464700218089c4234dd97c2d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b57639464700218089c4234dd97c2d9">&#9670;&nbsp;</a></span>Inherit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef BasicMapping <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a5b57639464700218089c4234dd97c2d9">Inherit</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a02a6190a43e2a6e2bd633f9090698f08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02a6190a43e2a6e2bd633f9090698f08">&#9670;&nbsp;</a></span>InMatrixDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef In::MatrixDeriv <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a02a6190a43e2a6e2bd633f9090698f08">InMatrixDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03303a9cdd9fc667a392c2fa1ec38b5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03303a9cdd9fc667a392c2fa1ec38b5a">&#9670;&nbsp;</a></span>InVecCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef In::VecCoord <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a03303a9cdd9fc667a392c2fa1ec38b5a">InVecCoord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b011e7db2592e828d67c0e947acca4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b011e7db2592e828d67c0e947acca4e">&#9670;&nbsp;</a></span>InVecDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef In::VecDeriv <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a8b011e7db2592e828d67c0e947acca4e">InVecDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7825b2b4d7ecf2abc65b91deb2a0e4d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7825b2b4d7ecf2abc65b91deb2a0e4d0">&#9670;&nbsp;</a></span>Nodes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1type_1_1fixed__array.html">type::fixed_array</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#af85944cd3e94c3094112e5a015ab09b0">InCoord</a>, 8 &gt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a7825b2b4d7ecf2abc65b91deb2a0e4d0">Nodes</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc2a070d8c0f9a32113e7fb9d41e9bbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc2a070d8c0f9a32113e7fb9d41e9bbb">&#9670;&nbsp;</a></span>Out</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Inherit::Out <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#abc2a070d8c0f9a32113e7fb9d41e9bbb">Out</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79b95e98d133bc35430f860d10fb93ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79b95e98d133bc35430f860d10fb93ca">&#9670;&nbsp;</a></span>OutCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Out::Coord <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a79b95e98d133bc35430f860d10fb93ca">OutCoord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a68b16215230b91b0463c49f1b3348d16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68b16215230b91b0463c49f1b3348d16">&#9670;&nbsp;</a></span>OutDataMatrixDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a3c285ca15919cf69ff5a712c4a2feb8b">OutMatrixDeriv</a>&gt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a68b16215230b91b0463c49f1b3348d16">OutDataMatrixDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae8a71cd874c28bd4da62393574167b37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8a71cd874c28bd4da62393574167b37">&#9670;&nbsp;</a></span>OutDataTypes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#abc2a070d8c0f9a32113e7fb9d41e9bbb">Out</a> <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#ae8a71cd874c28bd4da62393574167b37">OutDataTypes</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a767d9c6c0b9e62437c06d33ca744c90c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a767d9c6c0b9e62437c06d33ca744c90c">&#9670;&nbsp;</a></span>OutDataVecCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a8cc1212debe621e2bff230472a061029">OutVecCoord</a>&gt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a767d9c6c0b9e62437c06d33ca744c90c">OutDataVecCoord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3eaa561c82784291407fb5c8814dfe60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3eaa561c82784291407fb5c8814dfe60">&#9670;&nbsp;</a></span>OutDataVecDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a814ccfd044e4b593194c3da716c30c6a">OutVecDeriv</a>&gt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a3eaa561c82784291407fb5c8814dfe60">OutDataVecDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac2f6f7211884834955c0ee2987d61425"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2f6f7211884834955c0ee2987d61425">&#9670;&nbsp;</a></span>OutDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Out::Deriv <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#ac2f6f7211884834955c0ee2987d61425">OutDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3c285ca15919cf69ff5a712c4a2feb8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c285ca15919cf69ff5a712c4a2feb8b">&#9670;&nbsp;</a></span>OutMatrixDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Out::MatrixDeriv <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a3c285ca15919cf69ff5a712c4a2feb8b">OutMatrixDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8cc1212debe621e2bff230472a061029"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cc1212debe621e2bff230472a061029">&#9670;&nbsp;</a></span>OutVecCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Out::VecCoord <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a8cc1212debe621e2bff230472a061029">OutVecCoord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a814ccfd044e4b593194c3da716c30c6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a814ccfd044e4b593194c3da716c30c6a">&#9670;&nbsp;</a></span>OutVecDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Out::VecDeriv <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a814ccfd044e4b593194c3da716c30c6a">OutVecDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae4989bba46fd7efc24aed9b281ad4760"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4989bba46fd7efc24aed9b281ad4760">&#9670;&nbsp;</a></span>ptrStateIn</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1core_1_1_state.html">sofa::core::State</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a911e3c61af2af8195cc4c80031bdbf0e">In</a>&gt;* <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#ae4989bba46fd7efc24aed9b281ad4760">ptrStateIn</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5a663364396b84bb542ddcbea0544464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a663364396b84bb542ddcbea0544464">&#9670;&nbsp;</a></span>ptrStateOut</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1core_1_1_state.html">sofa::core::State</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#abc2a070d8c0f9a32113e7fb9d41e9bbb">Out</a>&gt;* <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a5a663364396b84bb542ddcbea0544464">ptrStateOut</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a763831020d6597508dd724c9073df62f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a763831020d6597508dd724c9073df62f">&#9670;&nbsp;</a></span>Real</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef OutCoord::value_type <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a763831020d6597508dd724c9073df62f">Real</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab5eb31823a4706bb5ee460d2b865b070"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5eb31823a4706bb5ee460d2b865b070">&#9670;&nbsp;</a></span>SparseGridTopologyT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_sparse_grid_topology.html">component::topology::container::grid::SparseGridTopology</a> <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#ab5eb31823a4706bb5ee460d2b865b070">SparseGridTopologyT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0eeac52a37c289b32c80b9953484c14f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eeac52a37c289b32c80b9953484c14f">&#9670;&nbsp;</a></span>Transformation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_hexahedron_f_e_m_force_field.html#ac1252142084e7987aaf6163bca602e7c">HexahedronCompositeFEMForceFieldAndMassT::Transformation</a> <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a0eeac52a37c289b32c80b9953484c14f">Transformation</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a392595fa4f4d14d637e5b462053e99e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a392595fa4f4d14d637e5b462053e99e5">&#9670;&nbsp;</a></span>Weight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1type_1_1_mat.html">type::Mat</a>&lt;3,8*3&gt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a392595fa4f4d14d637e5b462053e99e5">Weight</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a6c647161167f81a5e3479aad538bb90c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c647161167f81a5e3479aad538bb90c">&#9670;&nbsp;</a></span>HexahedronCompositeFEMMapping()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html">HexahedronCompositeFEMMapping</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a0751080c0ed1e223cd3fa3ee605fca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a0751080c0ed1e223cd3fa3ee605fca">&#9670;&nbsp;</a></span>~HexahedronCompositeFEMMapping()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ~<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html">HexahedronCompositeFEMMapping</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1156091468eacc23fe8082f352d9d229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1156091468eacc23fe8082f352d9d229">&#9670;&nbsp;</a></span>apply()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apply </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">sofa::core::MechanicalParams</a> *&#160;</td>
+          <td class="paramname"><em>mparams</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a767d9c6c0b9e62437c06d33ca744c90c">OutDataVecCoord</a> &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a01339702a3757eb46ee327a04ef16713">InDataVecCoord</a> &amp;&#160;</td>
+          <td class="paramname"><em>in</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a19d952128bc56cfdebb626f8e8d32a3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19d952128bc56cfdebb626f8e8d32a3a">&#9670;&nbsp;</a></span>applyJ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void applyJ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">sofa::core::MechanicalParams</a> *&#160;</td>
+          <td class="paramname"><em>mparams</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a3eaa561c82784291407fb5c8814dfe60">OutDataVecDeriv</a> &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a622afbe34df296acd41a644b7589147b">InDataVecDeriv</a> &amp;&#160;</td>
+          <td class="paramname"><em>in</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaeb00f513ce94b5945735f35e03fa2ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeb00f513ce94b5945735f35e03fa2ae">&#9670;&nbsp;</a></span>applyJT() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void applyJT </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_constraint_params.html">sofa::core::ConstraintParams</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#ab794d1aadc6238032741fa27f0786dfc">InDataMatrixDeriv</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a68b16215230b91b0463c49f1b3348d16">OutDataMatrixDeriv</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91e9f7d6760bd9d9fa599b57bce2b1b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91e9f7d6760bd9d9fa599b57bce2b1b2">&#9670;&nbsp;</a></span>applyJT() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void applyJT </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_mechanical_params.html">sofa::core::MechanicalParams</a> *&#160;</td>
+          <td class="paramname"><em>mparams</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a622afbe34df296acd41a644b7589147b">InDataVecDeriv</a> &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a3eaa561c82784291407fb5c8814dfe60">OutDataVecDeriv</a> &amp;&#160;</td>
+          <td class="paramname"><em>in</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8673433953792026ae9baf91b348d7da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8673433953792026ae9baf91b348d7da">&#9670;&nbsp;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void draw </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1visual_1_1_visual_params.html">core::visual::VisualParams</a> *&#160;</td>
+          <td class="paramname"><em>vparams</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad72eef1561c7a53b19b048397d4ef570"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad72eef1561c7a53b19b048397d4ef570">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b1be8b31796ecc8ab82b84b590c8ada"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b1be8b31796ecc8ab82b84b590c8ada">&#9670;&nbsp;</a></span>SOFA_CLASS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SOFA_CLASS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_base_class_8h.html#a31cd2291b906a5b1d94ae43b3bf80d61">SOFA_TEMPLATE</a>(<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html">HexahedronCompositeFEMMapping</a>&lt; BasicMapping &gt;, BasicMapping)&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BasicMapping&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a27b0595c4eda966e33afe2b94edf3523"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27b0595c4eda966e33afe2b94edf3523">&#9670;&nbsp;</a></span>_alreadyInit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool _alreadyInit</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e66597353992fc25c7129972ffbc36f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e66597353992fc25c7129972ffbc36f">&#9670;&nbsp;</a></span>_finePos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a79b95e98d133bc35430f860d10fb93ca">OutCoord</a> &gt; _finePos</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d7a74116efbce15e2ee58c660b9257f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d7a74116efbce15e2ee58c660b9257f">&#9670;&nbsp;</a></span>_finestBarycentricCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; std::pair&lt; int, <a class="el" href="classsofa_1_1type_1_1fixed__array.html">type::fixed_array</a>&lt;<a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a763831020d6597508dd724c9073df62f">Real</a>,8&gt; &gt; &gt; _finestBarycentricCoord</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4e5deb3c36c51800a04d6211d9a6b6d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e5deb3c36c51800a04d6211d9a6b6d9">&#9670;&nbsp;</a></span>_finestSparseGrid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">SparseGridTopologyT::SPtr</a> _finestSparseGrid</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d9697ff27fdad82eb5fe6141feda8e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d9697ff27fdad82eb5fe6141feda8e2">&#9670;&nbsp;</a></span>_finestWeights</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; std::map&lt; int, <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a392595fa4f4d14d637e5b462053e99e5">Weight</a> &gt; &gt; _finestWeights</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af0e585e4c1420f7aefd0f17cd8c6986b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0e585e4c1420f7aefd0f17cd8c6986b">&#9670;&nbsp;</a></span>_forcefield</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a34792fbe57e4dba7ff43b78e28a93fd6">HexahedronCompositeFEMForceFieldAndMassT</a>* _forcefield</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a269ca19c7e0f53a6b7275282153ba065"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a269ca19c7e0f53a6b7275282153ba065">&#9670;&nbsp;</a></span>_p0</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a8cc1212debe621e2bff230472a061029">OutVecCoord</a> _p0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1df6b3a2919bccb4ddb21759c084cdfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1df6b3a2919bccb4ddb21759c084cdfb">&#9670;&nbsp;</a></span>_qCoarse0</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a03303a9cdd9fc667a392c2fa1ec38b5a">InVecCoord</a> _qCoarse0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b27b651b40406f7158c40ab795730dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b27b651b40406f7158c40ab795730dd">&#9670;&nbsp;</a></span>_qFine</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a03303a9cdd9fc667a392c2fa1ec38b5a">InVecCoord</a> _qFine</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a61e00eedcbad2074d57298b2f50200d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61e00eedcbad2074d57298b2f50200d0">&#9670;&nbsp;</a></span>_qFine0</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a03303a9cdd9fc667a392c2fa1ec38b5a">InVecCoord</a> _qFine0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8710ab846d70f57c3f62c4175f907004"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8710ab846d70f57c3f62c4175f907004">&#9670;&nbsp;</a></span>_rotations</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a0eeac52a37c289b32c80b9953484c14f">Transformation</a> &gt; _rotations</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa02553253eddbde4c99b485a14590355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa02553253eddbde4c99b485a14590355">&#9670;&nbsp;</a></span>_sparseGrid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#ab5eb31823a4706bb5ee460d2b865b070">SparseGridTopologyT</a>* _sparseGrid</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9cd5cb87c1777293dc5b45b36735e5f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cd5cb87c1777293dc5b45b36735e5f9">&#9670;&nbsp;</a></span>_weights</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html#a392595fa4f4d14d637e5b462053e99e5">Weight</a> &gt; _weights</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>component</b></li><li class="navelem"><b>solidmechanics</b></li><li class="navelem"><b>fem</b></li><li class="navelem"><b>nonuniform</b></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html">HexahedronCompositeFEMMapping</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:02:53 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component.html">component</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1solidmechanics.html">solidmechanics</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1solidmechanics_1_1fem.html">fem</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform.html">nonuniform</a></li><li class="navelem"><a class="el" href="classsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_hexahedron_composite_f_e_m_mapping.html">HexahedronCompositeFEMMapping</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:33:33 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

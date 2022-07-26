@@ -1,5 +1,7 @@
 var classsofa_1_1gui_1_1common_1_1_pick_handler =
 [
+    [ "MouseCollisionModel", "classsofa_1_1gui_1_1common_1_1_pick_handler.html#a7298e7afe4e23504f0e3c64fa9620794", null ],
+    [ "MouseContainer", "classsofa_1_1gui_1_1common_1_1_pick_handler.html#a0d180dacfda6524602edccd0164e23d0", null ],
     [ "PickingMethod", "classsofa_1_1gui_1_1common_1_1_pick_handler.html#a6a17a0a5cd36385059e0f89821caa09b", [
       [ "RAY_CASTING", "classsofa_1_1gui_1_1common_1_1_pick_handler.html#a6a17a0a5cd36385059e0f89821caa09ba0389c6c85e8680401490ef9c791d4c0c", null ],
       [ "SELECTION_BUFFER", "classsofa_1_1gui_1_1common_1_1_pick_handler.html#a6a17a0a5cd36385059e0f89821caa09ba26e1df27b72cc25a1ba9974f3fb43342", null ]
@@ -16,6 +18,7 @@ var classsofa_1_1gui_1_1common_1_1_pick_handler =
     [ "destroySelectionBuffer", "classsofa_1_1gui_1_1common_1_1_pick_handler.html#a4a8f1471f48f9ed70ff8eac8ccc2bea3", null ],
     [ "findCollision", "classsofa_1_1gui_1_1common_1_1_pick_handler.html#a29c44a88d184d15fbc1ed7b74a2b1b6e", null ],
     [ "findCollisionUsingBruteForce", "classsofa_1_1gui_1_1common_1_1_pick_handler.html#a4c42c6904a394bdc23c253c63a8e325a", null ],
+    [ "findCollisionUsingBruteForce", "classsofa_1_1gui_1_1common_1_1_pick_handler.html#ae0c2106604950c1b9c36ec52f0fc78e0", null ],
     [ "findCollisionUsingColourCoding", "classsofa_1_1gui_1_1common_1_1_pick_handler.html#ac880db513f1bfc1be14a0d6eb502d317", null ],
     [ "findCollisionUsingColourCoding", "classsofa_1_1gui_1_1common_1_1_pick_handler.html#a16c16940175d0063ec6f88d508861cb5", null ],
     [ "findCollisionUsingPipeline", "classsofa_1_1gui_1_1common_1_1_pick_handler.html#ae0fe46c835f40eda14e3062266aa266a", null ],

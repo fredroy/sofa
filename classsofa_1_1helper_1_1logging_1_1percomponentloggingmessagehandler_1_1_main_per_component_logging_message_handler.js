@@ -1,0 +1,4 @@
+var classsofa_1_1helper_1_1logging_1_1percomponentloggingmessagehandler_1_1_main_per_component_logging_message_handler =
+[
+    [ "getInstance", "classsofa_1_1helper_1_1logging_1_1percomponentloggingmessagehandler_1_1_main_per_component_logging_message_handler.html#a820d09e17d2dc138e7ac41b21c4717ca", null ]
+];

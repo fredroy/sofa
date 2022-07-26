@@ -13,6 +13,7 @@ var classsofa_1_1core_1_1visual_1_1_visual_params =
     [ "VisualParams", "classsofa_1_1core_1_1visual_1_1_visual_params.html#a216465da6fc3be31df4f0f31bdee8232", null ],
     [ "cameraType", "classsofa_1_1core_1_1visual_1_1_visual_params.html#afc3f6d625925c03e8ca9d06660b1b764", null ],
     [ "cameraType", "classsofa_1_1core_1_1visual_1_1_visual_params.html#af119a4cf909d533f8e421a307d606531", null ],
+    [ "defaultInstance", "classsofa_1_1core_1_1visual_1_1_visual_params.html#aa4cea5f73ece3b0a54a9e0c900cc0970", null ],
     [ "displayFlags", "classsofa_1_1core_1_1visual_1_1_visual_params.html#af955a9104f76675cbc2721d53d3b0cc8", null ],
     [ "displayFlags", "classsofa_1_1core_1_1visual_1_1_visual_params.html#a33780c0b2c13d554071e70b2724b0da7", null ],
     [ "drawTool", "classsofa_1_1core_1_1visual_1_1_visual_params.html#a218290f676becf6edd22df4924bb5159", null ],

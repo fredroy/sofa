@@ -19,5 +19,6 @@ var classsofa_1_1component_1_1engine_1_1transform_1_1_vertex2_frame =
     [ "d_texCoords", "classsofa_1_1component_1_1engine_1_1transform_1_1_vertex2_frame.html#ac576acfb2ad1a28d8c1ea24b53720d30", null ],
     [ "d_useNormals", "classsofa_1_1component_1_1engine_1_1transform_1_1_vertex2_frame.html#a2cb1b15bd0af0ed0102e561743731c9d", null ],
     [ "d_vertices", "classsofa_1_1component_1_1engine_1_1transform_1_1_vertex2_frame.html#a5ad616d32cdbd5762e70719e1b297d8e", null ],
+    [ "EPSILON", "classsofa_1_1component_1_1engine_1_1transform_1_1_vertex2_frame.html#a473893fe95e19259e51dff0878a1b3c4", null ],
     [ "m_mstate", "classsofa_1_1component_1_1engine_1_1transform_1_1_vertex2_frame.html#ab3d4588c2e64d68d40beac12915b9e26", null ]
 ];

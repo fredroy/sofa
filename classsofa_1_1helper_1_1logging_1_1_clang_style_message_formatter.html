@@ -86,11 +86,14 @@ $(document).ready(function(){initNavTree('classsofa_1_1helper_1_1logging_1_1_cla
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ClangStyleMessageFormatter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_clang_style_message_formatter_8h_source.html">ClangStyleMessageFormatter.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ClangStyleMessageFormatter:</div>
 <div class="dyncontent">
@@ -103,33 +106,210 @@ Inheritance diagram for ClangStyleMessageFormatter:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a540e4a53930d31b4fcaca17cec672fa8"><td class="memItemLeft" align="right" valign="top"><a id="a540e4a53930d31b4fcaca17cec672fa8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>formatMessage</b> (const <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html">Message</a> &amp;m, std::ostream &amp;out) override</td></tr>
+<tr class="memitem:a540e4a53930d31b4fcaca17cec672fa8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html#a540e4a53930d31b4fcaca17cec672fa8">formatMessage</a> (const <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html">Message</a> &amp;m, std::ostream &amp;out) override</td></tr>
 <tr class="separator:a540e4a53930d31b4fcaca17cec672fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:afc5070d715f161bcb54f2cffbca7ad8c"><td class="memItemLeft" align="right" valign="top"><a id="afc5070d715f161bcb54f2cffbca7ad8c"></a>
-static <a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html">ClangStyleMessageFormatter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> ()</td></tr>
+<tr class="memitem:afc5070d715f161bcb54f2cffbca7ad8c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html">ClangStyleMessageFormatter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html#afc5070d715f161bcb54f2cffbca7ad8c">getInstance</a> ()</td></tr>
 <tr class="separator:afc5070d715f161bcb54f2cffbca7ad8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a095d1ef8a27b0849e6a2e9f763def66e"><td class="memItemLeft" align="right" valign="top"><a id="a095d1ef8a27b0849e6a2e9f763def66e"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getPrefixText</b> (unsigned int type) const override</td></tr>
+<tr class="memitem:a095d1ef8a27b0849e6a2e9f763def66e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html#a095d1ef8a27b0849e6a2e9f763def66e">getPrefixText</a> (unsigned int type) const override</td></tr>
 <tr class="separator:a095d1ef8a27b0849e6a2e9f763def66e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classsofa_1_1helper_1_1logging_1_1_message_formatter"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classsofa_1_1helper_1_1logging_1_1_message_formatter')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_formatter.html">MessageFormatter</a></td></tr>
-<tr class="memitem:a9ca29633ff400c4a71db4b276d167402 inherit pro_methods_classsofa_1_1helper_1_1logging_1_1_message_formatter"><td class="memItemLeft" align="right" valign="top"><a id="a9ca29633ff400c4a71db4b276d167402"></a>
-virtual std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>setColor</b> (std::ostream &amp;stream, unsigned int type) const</td></tr>
+<tr class="memitem:aff9c2e814541b75f8da53e22da744083 inherit pro_methods_classsofa_1_1helper_1_1logging_1_1_message_formatter"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_formatter.html#aff9c2e814541b75f8da53e22da744083">MessageFormatter</a> ()</td></tr>
+<tr class="separator:aff9c2e814541b75f8da53e22da744083 inherit pro_methods_classsofa_1_1helper_1_1logging_1_1_message_formatter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ca29633ff400c4a71db4b276d167402 inherit pro_methods_classsofa_1_1helper_1_1logging_1_1_message_formatter"><td class="memItemLeft" align="right" valign="top">virtual std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_formatter.html#a9ca29633ff400c4a71db4b276d167402">setColor</a> (std::ostream &amp;stream, unsigned int type) const</td></tr>
 <tr class="separator:a9ca29633ff400c4a71db4b276d167402 inherit pro_methods_classsofa_1_1helper_1_1logging_1_1_message_formatter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a06dc20d6db7efacf737ee70aa86e8673"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html#a06dc20d6db7efacf737ee70aa86e8673">ClangStyleMessageFormatter</a> ()</td></tr>
+<tr class="separator:a06dc20d6db7efacf737ee70aa86e8673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01cd916666ab8c58a7ec3ce6af2c03a3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html#a01cd916666ab8c58a7ec3ce6af2c03a3">ClangStyleMessageFormatter</a> (const <a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html">ClangStyleMessageFormatter</a> &amp;)</td></tr>
+<tr class="separator:a01cd916666ab8c58a7ec3ce6af2c03a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57195fc1204d02044b1f1c1156e375eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html#a57195fc1204d02044b1f1c1156e375eb">operator=</a> (const <a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html">ClangStyleMessageFormatter</a> &amp;)</td></tr>
+<tr class="separator:a57195fc1204d02044b1f1c1156e375eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a06dc20d6db7efacf737ee70aa86e8673"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06dc20d6db7efacf737ee70aa86e8673">&#9670;&nbsp;</a></span>ClangStyleMessageFormatter() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html">ClangStyleMessageFormatter</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a01cd916666ab8c58a7ec3ce6af2c03a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01cd916666ab8c58a7ec3ce6af2c03a3">&#9670;&nbsp;</a></span>ClangStyleMessageFormatter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html">ClangStyleMessageFormatter</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html">ClangStyleMessageFormatter</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a540e4a53930d31b4fcaca17cec672fa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a540e4a53930d31b4fcaca17cec672fa8">&#9670;&nbsp;</a></span>formatMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void formatMessage </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html">Message</a> &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_formatter.html#aa99d907001df0fb3ad01731d29d8875e">MessageFormatter</a>.</p>
+
+</div>
+</div>
+<a id="afc5070d715f161bcb54f2cffbca7ad8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc5070d715f161bcb54f2cffbca7ad8c">&#9670;&nbsp;</a></span>getInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html">ClangStyleMessageFormatter</a>&amp; getInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a095d1ef8a27b0849e6a2e9f763def66e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a095d1ef8a27b0849e6a2e9f763def66e">&#9670;&nbsp;</a></span>getPrefixText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string getPrefixText </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_formatter.html#a4c343b04684e37018fd7bfa31056c53b">MessageFormatter</a>.</p>
+
+</div>
+</div>
+<a id="a57195fc1204d02044b1f1c1156e375eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57195fc1204d02044b1f1c1156e375eb">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html">ClangStyleMessageFormatter</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper_1_1logging.html">logging</a></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1logging_1_1_clang_style_message_formatter.html">ClangStyleMessageFormatter</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:10:54 for SOFA by
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

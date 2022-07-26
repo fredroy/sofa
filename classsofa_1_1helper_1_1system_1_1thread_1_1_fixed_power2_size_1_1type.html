@@ -85,34 +85,199 @@ $(document).ready(function(){initNavTree('classsofa_1_1helper_1_1system_1_1threa
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size_1_1type-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">FixedPower2Size&lt; N &gt;::type&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_circular_queue_8h_source.html">CircularQueue.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a54fc15af5f75bf891d9c0990d724a2f0"><td class="memItemLeft" align="right" valign="top"><a id="a54fc15af5f75bf891d9c0990d724a2f0"></a>
-T *&#160;</td><td class="memItemRight" valign="bottom"><b>getQueue</b> ()</td></tr>
+<tr class="memitem:a54fc15af5f75bf891d9c0990d724a2f0"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size_1_1type.html#a54fc15af5f75bf891d9c0990d724a2f0">getQueue</a> ()</td></tr>
 <tr class="separator:a54fc15af5f75bf891d9c0990d724a2f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aa694a85e0f785008b45e95d44cc2c956"><td class="memItemLeft" align="right" valign="top"><a id="aa694a85e0f785008b45e95d44cc2c956"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>maxSize</b> ()</td></tr>
+<tr class="memitem:aa694a85e0f785008b45e95d44cc2c956"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size_1_1type.html#aa694a85e0f785008b45e95d44cc2c956">maxSize</a> ()</td></tr>
 <tr class="separator:aa694a85e0f785008b45e95d44cc2c956"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad366da9e0180b913a31aca0ab5c8431f"><td class="memItemLeft" align="right" valign="top"><a id="ad366da9e0180b913a31aca0ab5c8431f"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>maxCapacity</b> ()</td></tr>
+<tr class="memitem:ad366da9e0180b913a31aca0ab5c8431f"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size_1_1type.html#ad366da9e0180b913a31aca0ab5c8431f">maxCapacity</a> ()</td></tr>
 <tr class="separator:ad366da9e0180b913a31aca0ab5c8431f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a48b7364b5ceec8a2d131dc2cf2587628"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size_1_1type.html#a48b7364b5ceec8a2d131dc2cf2587628a69750e57b4c1b436bb691a1ffa05eac9">MaxSize</a> = N
+ }</td></tr>
+<tr class="separator:a48b7364b5ceec8a2d131dc2cf2587628"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafc5993fe6fd7fec62e94ef57859c353"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size_1_1type.html#aafc5993fe6fd7fec62e94ef57859c353a70f591c54dabc93c518ffefd0a303342">MaxCapacity</a> = AlignPow2&lt;MaxSize&gt;::val
+ }</td></tr>
+<tr class="separator:aafc5993fe6fd7fec62e94ef57859c353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ad052b7284e21b833569aa708571f40a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1fixed__array.html">sofa::type::fixed_array</a>&lt; T, <a class="el" href="classsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size_1_1type.html#aafc5993fe6fd7fec62e94ef57859c353a70f591c54dabc93c518ffefd0a303342">MaxCapacity</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size_1_1type.html#ad052b7284e21b833569aa708571f40a2">array</a></td></tr>
+<tr class="separator:ad052b7284e21b833569aa708571f40a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a48b7364b5ceec8a2d131dc2cf2587628"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48b7364b5ceec8a2d131dc2cf2587628">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a48b7364b5ceec8a2d131dc2cf2587628a69750e57b4c1b436bb691a1ffa05eac9"></a>MaxSize&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="aafc5993fe6fd7fec62e94ef57859c353"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafc5993fe6fd7fec62e94ef57859c353">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aafc5993fe6fd7fec62e94ef57859c353a70f591c54dabc93c518ffefd0a303342"></a>MaxCapacity&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a54fc15af5f75bf891d9c0990d724a2f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54fc15af5f75bf891d9c0990d724a2f0">&#9670;&nbsp;</a></span>getQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T* getQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad366da9e0180b913a31aca0ab5c8431f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad366da9e0180b913a31aca0ab5c8431f">&#9670;&nbsp;</a></span>maxCapacity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int maxCapacity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa694a85e0f785008b45e95d44cc2c956"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa694a85e0f785008b45e95d44cc2c956">&#9670;&nbsp;</a></span>maxSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int maxSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad052b7284e21b833569aa708571f40a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad052b7284e21b833569aa708571f40a2">&#9670;&nbsp;</a></span>array</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1fixed__array.html">sofa::type::fixed_array</a>&lt;T, <a class="el" href="classsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size_1_1type.html#aafc5993fe6fd7fec62e94ef57859c353a70f591c54dabc93c518ffefd0a303342">MaxCapacity</a>&gt; array</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><b>system</b></li><li class="navelem"><b>thread</b></li><li class="navelem"><a class="el" href="structsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size.html">FixedPower2Size</a></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size_1_1type.html">type</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:10:54 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper_1_1system.html">system</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper_1_1system_1_1thread.html">thread</a></li><li class="navelem"><a class="el" href="structsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size.html">FixedPower2Size</a></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1system_1_1thread_1_1_fixed_power2_size_1_1type.html">type</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

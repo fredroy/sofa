@@ -7,5 +7,6 @@ var classsofa_1_1helper_1_1io_1_1_file =
     [ "close", "classsofa_1_1helper_1_1io_1_1_file.html#a5ae591df94fc66ccb85cbb6565368bca", null ],
     [ "open", "classsofa_1_1helper_1_1io_1_1_file.html#ab4c9576c26213def1c72669df7aea953", null ],
     [ "readAll", "classsofa_1_1helper_1_1io_1_1_file.html#aed26342835aa0709cc3d2cf55ac7000d", null ],
-    [ "streambuf", "classsofa_1_1helper_1_1io_1_1_file.html#a2f6e8150455277488e0cedcaaa19977c", null ]
+    [ "streambuf", "classsofa_1_1helper_1_1io_1_1_file.html#a2f6e8150455277488e0cedcaaa19977c", null ],
+    [ "myFileAccess", "classsofa_1_1helper_1_1io_1_1_file.html#ae147a31ee1959c483fc1b9411707179d", null ]
 ];

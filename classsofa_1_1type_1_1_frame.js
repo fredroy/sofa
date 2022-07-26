@@ -11,6 +11,7 @@ var classsofa_1_1type_1_1_frame =
     [ "getBasis", "classsofa_1_1type_1_1_frame.html#ab155d483bf42d6dd2a4dc315ca85a95b", null ],
     [ "getOrigin", "classsofa_1_1type_1_1_frame.html#a280c7e302758017786110b17220910af", null ],
     [ "getOrigin", "classsofa_1_1type_1_1_frame.html#a278143e185bfc424d1470a8ff80befc3", null ],
+    [ "identity", "classsofa_1_1type_1_1_frame.html#a08af1c6f619f288edd2acc127a39e4ce", null ],
     [ "inversed", "classsofa_1_1type_1_1_frame.html#ab3c891d7151dc1b2e8c684e8531e87c0", null ],
     [ "mult", "classsofa_1_1type_1_1_frame.html#a197d306ddbc5019f1d436cd463fc8d54", null ],
     [ "multRight", "classsofa_1_1type_1_1_frame.html#a2e95b8e38e5f60d9c2e6d5a7ea95708e", null ],
@@ -21,5 +22,7 @@ var classsofa_1_1type_1_1_frame =
     [ "setTransform", "classsofa_1_1type_1_1_frame.html#a75aa2d33cb726449d698a3800dadbe41", null ],
     [ "writeOpenGlMatrix", "classsofa_1_1type_1_1_frame.html#a1d0a06e002e9c845bfcefad745893ad0", null ],
     [ "writeOpenGlMatrix", "classsofa_1_1type_1_1_frame.html#a3724d53c16e280adfcfefb32f6baa49f", null ],
-    [ "operator<<", "classsofa_1_1type_1_1_frame.html#a158d43e2c74a31e922e05d28f994a5a6", null ]
+    [ "operator<<", "classsofa_1_1type_1_1_frame.html#a158d43e2c74a31e922e05d28f994a5a6", null ],
+    [ "basis_", "classsofa_1_1type_1_1_frame.html#abebf02d6935854b7a0d76fa4827d468f", null ],
+    [ "origin_", "classsofa_1_1type_1_1_frame.html#aece359308e1b373ff8e5e78451b85cb6", null ]
 ];

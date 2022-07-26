@@ -28,6 +28,7 @@ var classsofa_1_1linearalgebra_1_1_full_vector =
     [ "eq", "classsofa_1_1linearalgebra_1_1_full_vector.html#a184c12125619312783735d59dd52432f", null ],
     [ "fastResize", "classsofa_1_1linearalgebra_1_1_full_vector.html#a2cc878cc3c41aded3664a369f2eedf02", null ],
     [ "getsub", "classsofa_1_1linearalgebra_1_1_full_vector.html#a52b4b62da78d8e0c37f5f82a8110c02d", null ],
+    [ "Name", "classsofa_1_1linearalgebra_1_1_full_vector.html#a28ceceb8e81ac299b3c6992dd0a707d3", null ],
     [ "norm", "classsofa_1_1linearalgebra_1_1_full_vector.html#adbeac4b406b78e64460863820679c14f", null ],
     [ "operator*=", "classsofa_1_1linearalgebra_1_1_full_vector.html#ac0af47032970b8e73c378397178c09d5", null ],
     [ "operator+=", "classsofa_1_1linearalgebra_1_1_full_vector.html#afc70b171198adb824b5a58504a0ae18a", null ],

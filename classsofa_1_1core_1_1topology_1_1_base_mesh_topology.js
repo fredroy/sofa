@@ -124,5 +124,11 @@ var classsofa_1_1core_1_1topology_1_1_base_mesh_topology =
     [ "reOrientateTriangle", "classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html#a073f4bfc04613a977ce5ef1a9bb40e05", null ],
     [ "SOFA_ABSTRACT_CLASS", "classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html#a65a732fe8cc602681b35e64db6cceaff", null ],
     [ "SOFA_ATTRIBUTE_DISABLED", "classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html#a9df9288f70f76df7e9c8bd0c8afdc6a5", null ],
-    [ "fileTopology", "classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html#a34d1be8b5a749add956cbf057e11e70f", null ]
+    [ "fileTopology", "classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html#a34d1be8b5a749add956cbf057e11e70f", null ],
+    [ "InvalidEdgesInHexahedron", "classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html#a6c3b01df4f75c8831a343f3f2648a534", null ],
+    [ "InvalidEdgesInQuad", "classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html#afb0563ca706e84501311f295055f6780", null ],
+    [ "InvalidEdgesInTetrahedron", "classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html#a64a8ea07a3bf288e99a6cd4830e3cab0", null ],
+    [ "InvalidEdgesInTriangles", "classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html#a23bd899af4baef900f1129137255c4a6", null ],
+    [ "InvalidQuadsInHexahedron", "classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html#a9a4b9a416eda1b98e89628e32c47f5b5", null ],
+    [ "InvalidTrianglesInTetrahedron", "classsofa_1_1core_1_1topology_1_1_base_mesh_topology.html#af34f5fdeb8e92358b25cf780b996d78e", null ]
 ];

@@ -2,6 +2,7 @@ var namespacesofa_1_1testing =
 [
     [ "BaseSimulationTest", "classsofa_1_1testing_1_1_base_simulation_test.html", "classsofa_1_1testing_1_1_base_simulation_test" ],
     [ "BaseTest", "classsofa_1_1testing_1_1_base_test.html", "classsofa_1_1testing_1_1_base_test" ],
+    [ "CleanupCheck", "structsofa_1_1testing_1_1_cleanup_check.html", "structsofa_1_1testing_1_1_cleanup_check" ],
     [ "data_traits", "structsofa_1_1testing_1_1data__traits.html", "structsofa_1_1testing_1_1data__traits" ],
     [ "ExpectMessage", "classsofa_1_1testing_1_1_expect_message.html", "classsofa_1_1testing_1_1_expect_message" ],
     [ "GtestMessageFrame", "classsofa_1_1testing_1_1_gtest_message_frame.html", "classsofa_1_1testing_1_1_gtest_message_frame" ],
@@ -10,13 +11,13 @@ var namespacesofa_1_1testing =
     [ "GtestMessageFrameIgnore", "classsofa_1_1testing_1_1_gtest_message_frame_ignore.html", "classsofa_1_1testing_1_1_gtest_message_frame_ignore" ],
     [ "GtestMessageHandler", "classsofa_1_1testing_1_1_gtest_message_handler.html", "classsofa_1_1testing_1_1_gtest_message_handler" ],
     [ "IgnoreMessage", "classsofa_1_1testing_1_1_ignore_message.html", "classsofa_1_1testing_1_1_ignore_message" ],
-    [ "MainGtestMessageHandler", "classsofa_1_1testing_1_1_main_gtest_message_handler.html", null ],
-    [ "MainGtestMessageHandlerPrivate", "classsofa_1_1testing_1_1_main_gtest_message_handler_private.html", null ],
+    [ "MainGtestMessageHandler", "classsofa_1_1testing_1_1_main_gtest_message_handler.html", "classsofa_1_1testing_1_1_main_gtest_message_handler" ],
+    [ "MainGtestMessageHandlerPrivate", "classsofa_1_1testing_1_1_main_gtest_message_handler_private.html", "classsofa_1_1testing_1_1_main_gtest_message_handler_private" ],
     [ "MessageAsTestFailure", "classsofa_1_1testing_1_1_message_as_test_failure.html", "classsofa_1_1testing_1_1_message_as_test_failure" ],
     [ "NumericTest", "structsofa_1_1testing_1_1_numeric_test.html", "structsofa_1_1testing_1_1_numeric_test" ],
-    [ "setRotWrapper", "structsofa_1_1testing_1_1set_rot_wrapper.html", null ],
-    [ "setRotWrapper< DataTypes, 2, false >", "structsofa_1_1testing_1_1set_rot_wrapper_3_01_data_types_00_012_00_01false_01_4.html", null ],
-    [ "setRotWrapper< DataTypes, N, false >", "structsofa_1_1testing_1_1set_rot_wrapper_3_01_data_types_00_01_n_00_01false_01_4.html", null ],
-    [ "setRotWrapper< DataTypes, N, true >", "structsofa_1_1testing_1_1set_rot_wrapper_3_01_data_types_00_01_n_00_01true_01_4.html", null ],
-    [ "SparseMatrixTest", "structsofa_1_1testing_1_1_sparse_matrix_test.html", null ]
+    [ "setRotWrapper", "structsofa_1_1testing_1_1set_rot_wrapper.html", "structsofa_1_1testing_1_1set_rot_wrapper" ],
+    [ "setRotWrapper< DataTypes, 2, false >", "structsofa_1_1testing_1_1set_rot_wrapper_3_01_data_types_00_012_00_01false_01_4.html", "structsofa_1_1testing_1_1set_rot_wrapper_3_01_data_types_00_012_00_01false_01_4" ],
+    [ "setRotWrapper< DataTypes, N, false >", "structsofa_1_1testing_1_1set_rot_wrapper_3_01_data_types_00_01_n_00_01false_01_4.html", "structsofa_1_1testing_1_1set_rot_wrapper_3_01_data_types_00_01_n_00_01false_01_4" ],
+    [ "setRotWrapper< DataTypes, N, true >", "structsofa_1_1testing_1_1set_rot_wrapper_3_01_data_types_00_01_n_00_01true_01_4.html", "structsofa_1_1testing_1_1set_rot_wrapper_3_01_data_types_00_01_n_00_01true_01_4" ],
+    [ "SparseMatrixTest", "structsofa_1_1testing_1_1_sparse_matrix_test.html", "structsofa_1_1testing_1_1_sparse_matrix_test" ]
 ];

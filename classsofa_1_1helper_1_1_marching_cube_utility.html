@@ -86,83 +86,657 @@ $(document).ready(function(){initNavTree('classsofa_1_1helper_1_1_marching_cube_
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsofa_1_1helper_1_1_marching_cube_utility-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">MarchingCubeUtility Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_marching_cube_utility_8h_source.html">MarchingCubeUtility.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_bounding_box.html">BoundingBox</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_grid_cell.html">GridCell</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:abd03b9f598727fe7b41221876da4d20f"><td class="memItemLeft" align="right" valign="top"><a id="abd03b9f598727fe7b41221876da4d20f"></a>
-typedef sofa::Index&#160;</td><td class="memItemRight" valign="bottom"><b>PointID</b></td></tr>
+<tr class="memitem:abd03b9f598727fe7b41221876da4d20f"><td class="memItemLeft" align="right" valign="top">typedef sofa::Index&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a></td></tr>
 <tr class="separator:abd03b9f598727fe7b41221876da4d20f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74e31971fad3f15c116871a594975d70"><td class="memItemLeft" align="right" valign="top"><a id="a74e31971fad3f15c116871a594975d70"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec</a>&lt; 3, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Vec3i</b></td></tr>
+<tr class="memitem:a74e31971fad3f15c116871a594975d70"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec</a>&lt; 3, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a></td></tr>
 <tr class="separator:a74e31971fad3f15c116871a594975d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55045ab237639763b99c97962a6e451a"><td class="memItemLeft" align="right" valign="top"><a id="a55045ab237639763b99c97962a6e451a"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec</a>&lt; 6, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Vec6i</b></td></tr>
+<tr class="memitem:a55045ab237639763b99c97962a6e451a"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec</a>&lt; 6, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a55045ab237639763b99c97962a6e451a">Vec6i</a></td></tr>
 <tr class="separator:a55045ab237639763b99c97962a6e451a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a674e46c371cd6107c6c03286acb4319b"><td class="memItemLeft" align="right" valign="top"><a id="a674e46c371cd6107c6c03286acb4319b"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Vector3</b> = <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec3</a></td></tr>
+<tr class="memitem:a674e46c371cd6107c6c03286acb4319b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> = <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a></td></tr>
 <tr class="separator:a674e46c371cd6107c6c03286acb4319b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ade3eda79b863961231819c466a0fd3b9"><td class="memItemLeft" align="right" valign="top"><a id="ade3eda79b863961231819c466a0fd3b9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDataResolution</b> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3i</a> &amp;resolution)</td></tr>
+<tr class="memitem:ad8ef0c099154d18a54cbf44c46e9d0fa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#ad8ef0c099154d18a54cbf44c46e9d0fa">MarchingCubeUtility</a> ()</td></tr>
+<tr class="separator:ad8ef0c099154d18a54cbf44c46e9d0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3973df2c110c7821e6fb5bb12197fc5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#ae3973df2c110c7821e6fb5bb12197fc5">~MarchingCubeUtility</a> ()</td></tr>
+<tr class="separator:ae3973df2c110c7821e6fb5bb12197fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade3eda79b863961231819c466a0fd3b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#ade3eda79b863961231819c466a0fd3b9">setDataResolution</a> (const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;resolution)</td></tr>
 <tr class="separator:ade3eda79b863961231819c466a0fd3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e1c6413a07dd0561e25a5b5b94adcce"><td class="memItemLeft" align="right" valign="top"><a id="a0e1c6413a07dd0561e25a5b5b94adcce"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDataVoxelSize</b> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vector3</a> &amp;voxelSize)</td></tr>
+<tr class="memitem:a0e1c6413a07dd0561e25a5b5b94adcce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a0e1c6413a07dd0561e25a5b5b94adcce">setDataVoxelSize</a> (const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &amp;voxelSize)</td></tr>
 <tr class="separator:a0e1c6413a07dd0561e25a5b5b94adcce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fdb982e59548f44dcbeaf2cb38f5089"><td class="memItemLeft" align="right" valign="top"><a id="a4fdb982e59548f44dcbeaf2cb38f5089"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setStep</b> (const unsigned int step)</td></tr>
+<tr class="memitem:a4fdb982e59548f44dcbeaf2cb38f5089"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a4fdb982e59548f44dcbeaf2cb38f5089">setStep</a> (const unsigned int step)</td></tr>
 <tr class="separator:a4fdb982e59548f44dcbeaf2cb38f5089"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02630697451b5d7d32d582abb98b675d"><td class="memItemLeft" align="right" valign="top"><a id="a02630697451b5d7d32d582abb98b675d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setConvolutionSize</b> (const unsigned int convolutionSize)</td></tr>
+<tr class="memitem:a02630697451b5d7d32d582abb98b675d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a02630697451b5d7d32d582abb98b675d">setConvolutionSize</a> (const unsigned int <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a736fbcb7c380415de8787a17476dc8bf">convolutionSize</a>)</td></tr>
 <tr class="separator:a02630697451b5d7d32d582abb98b675d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4468f39df93fabdeb61a2b2c9089e60"><td class="memItemLeft" align="right" valign="top"><a id="aa4468f39df93fabdeb61a2b2c9089e60"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#aa4468f39df93fabdeb61a2b2c9089e60">setBoundingBoxFromRealCoords</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vector3</a> &amp;min, const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vector3</a> &amp;max)</td></tr>
-<tr class="memdesc:aa4468f39df93fabdeb61a2b2c9089e60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the bounding box from real coords to apply mCube localy. <br /></td></tr>
+<tr class="memitem:aa4468f39df93fabdeb61a2b2c9089e60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#aa4468f39df93fabdeb61a2b2c9089e60">setBoundingBoxFromRealCoords</a> (const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &amp;min, const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &amp;max)</td></tr>
+<tr class="memdesc:aa4468f39df93fabdeb61a2b2c9089e60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the bounding box from real coords to apply mCube localy.  <a href="classsofa_1_1helper_1_1_marching_cube_utility.html#aa4468f39df93fabdeb61a2b2c9089e60">More...</a><br /></td></tr>
 <tr class="separator:aa4468f39df93fabdeb61a2b2c9089e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79659c65aedd821103eaf1420d4ad5a8"><td class="memItemLeft" align="right" valign="top"><a id="a79659c65aedd821103eaf1420d4ad5a8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a79659c65aedd821103eaf1420d4ad5a8">setROI</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3i</a> &amp;min, const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3i</a> &amp;max)</td></tr>
-<tr class="memdesc:a79659c65aedd821103eaf1420d4ad5a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the bounding box (in the data space) to apply mCube localy. <br /></td></tr>
+<tr class="memitem:a79659c65aedd821103eaf1420d4ad5a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a79659c65aedd821103eaf1420d4ad5a8">setROI</a> (const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;min, const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;max)</td></tr>
+<tr class="memdesc:a79659c65aedd821103eaf1420d4ad5a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the bounding box (in the data space) to apply mCube localy.  <a href="classsofa_1_1helper_1_1_marching_cube_utility.html#a79659c65aedd821103eaf1420d4ad5a8">More...</a><br /></td></tr>
 <tr class="separator:a79659c65aedd821103eaf1420d4ad5a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56c3783393dcb2886530634127078ee6"><td class="memItemLeft" align="right" valign="top"><a id="a56c3783393dcb2886530634127078ee6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a56c3783393dcb2886530634127078ee6">setBoundingBox</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec6i</a> &amp;roi)</td></tr>
-<tr class="memdesc:a56c3783393dcb2886530634127078ee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the bounding box (in the data space) to apply mCube localy. <br /></td></tr>
+<tr class="memitem:a56c3783393dcb2886530634127078ee6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a56c3783393dcb2886530634127078ee6">setBoundingBox</a> (const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a55045ab237639763b99c97962a6e451a">Vec6i</a> &amp;<a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#aaf42876af1e58299bf9bac0efbcd393b">roi</a>)</td></tr>
+<tr class="memdesc:a56c3783393dcb2886530634127078ee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the bounding box (in the data space) to apply mCube localy.  <a href="classsofa_1_1helper_1_1_marching_cube_utility.html#a56c3783393dcb2886530634127078ee6">More...</a><br /></td></tr>
 <tr class="separator:a56c3783393dcb2886530634127078ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a947ef806f73cf13b6b1e9d48d8d182"><td class="memItemLeft" align="right" valign="top"><a id="a6a947ef806f73cf13b6b1e9d48d8d182"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a6a947ef806f73cf13b6b1e9d48d8d182">setBoundingBox</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3i</a> &amp;min, const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3i</a> &amp;max)</td></tr>
-<tr class="memdesc:a6a947ef806f73cf13b6b1e9d48d8d182"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the bounding box (in the data space) to apply mCube localy. <br /></td></tr>
+<tr class="memitem:a6a947ef806f73cf13b6b1e9d48d8d182"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a6a947ef806f73cf13b6b1e9d48d8d182">setBoundingBox</a> (const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;min, const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;max)</td></tr>
+<tr class="memdesc:a6a947ef806f73cf13b6b1e9d48d8d182"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the bounding box (in the data space) to apply mCube localy.  <a href="classsofa_1_1helper_1_1_marching_cube_utility.html#a6a947ef806f73cf13b6b1e9d48d8d182">More...</a><br /></td></tr>
 <tr class="separator:a6a947ef806f73cf13b6b1e9d48d8d182"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0347b39f9b0aa6bff30dca4fb8fcfca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#ac0347b39f9b0aa6bff30dca4fb8fcfca">run</a> (unsigned char *data, const float isolevel, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; PointID &gt; &amp;triangles, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">Vector3</a> &gt; &amp;vertices, <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; unsigned int &gt; &gt; *triangleIndexInRegularGrid=nullptr) const</td></tr>
+<tr class="memitem:ac0347b39f9b0aa6bff30dca4fb8fcfca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#ac0347b39f9b0aa6bff30dca4fb8fcfca">run</a> (unsigned char *data, const float isolevel, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;triangles, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &gt; &amp;vertices, <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; unsigned int &gt; &gt; *triangleIndexInRegularGrid=nullptr) const</td></tr>
 <tr class="separator:ac0347b39f9b0aa6bff30dca4fb8fcfca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65b8f09622b45076d69d4e19dd460c4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a65b8f09622b45076d69d4e19dd460c4f">run</a> (unsigned char *_data, const <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3i</a> &gt; &amp;seeds, const float isolevel, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; PointID &gt; &amp;mesh, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">Vector3</a> &gt; &amp;vertices, std::map&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">Vector3</a>, PointID &gt; &amp;map_vertices, <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; unsigned int &gt; &gt; *triangleIndexInRegularGrid, bool propagate) const</td></tr>
+<tr class="memitem:a65b8f09622b45076d69d4e19dd460c4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a65b8f09622b45076d69d4e19dd460c4f">run</a> (unsigned char *_data, const <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &gt; &amp;seeds, const float isolevel, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;mesh, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &gt; &amp;vertices, std::map&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a>, <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;map_vertices, <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; unsigned int &gt; &gt; *triangleIndexInRegularGrid, bool propagate) const</td></tr>
 <tr class="separator:a65b8f09622b45076d69d4e19dd460c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add05556b3c8b2b2d25b280d26ffcc9d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#add05556b3c8b2b2d25b280d26ffcc9d8">run</a> (unsigned char *data, const <a class="el" href="classsofa_1_1type_1_1vector.html">vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3i</a> &gt; &amp;seeds, const float isolevel, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; PointID &gt; &amp;triangles, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">Vector3</a> &gt; &amp;vertices, <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; unsigned int &gt; &gt; *triangleIndexInRegularGrid=nullptr, bool propagate=true) const</td></tr>
+<tr class="memitem:add05556b3c8b2b2d25b280d26ffcc9d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#add05556b3c8b2b2d25b280d26ffcc9d8">run</a> (unsigned char *data, const <a class="el" href="classsofa_1_1type_1_1vector.html">vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &gt; &amp;seeds, const float isolevel, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;triangles, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &gt; &amp;vertices, <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; unsigned int &gt; &gt; *triangleIndexInRegularGrid=nullptr, bool propagate=true) const</td></tr>
 <tr class="separator:add05556b3c8b2b2d25b280d26ffcc9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb041925797dd397f32c58d54026136b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#adb041925797dd397f32c58d54026136b">run</a> (unsigned char *data, const float isolevel, <a class="el" href="classsofa_1_1helper_1_1io_1_1_mesh.html">sofa::helper::io::Mesh</a> &amp;m) const</td></tr>
 <tr class="separator:adb041925797dd397f32c58d54026136b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0df74952cdf543587c6f83d9647e44b6"><td class="memItemLeft" align="right" valign="top"><a id="a0df74952cdf543587c6f83d9647e44b6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a0df74952cdf543587c6f83d9647e44b6">findSeeds</a> (<a class="el" href="classsofa_1_1type_1_1vector.html">vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3i</a> &gt; &amp;seeds, const float isoValue, unsigned char *_data)</td></tr>
-<tr class="memdesc:a0df74952cdf543587c6f83d9647e44b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">given a set of data, find seeds to run quickly. <br /></td></tr>
+<tr class="memitem:a0df74952cdf543587c6f83d9647e44b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a0df74952cdf543587c6f83d9647e44b6">findSeeds</a> (<a class="el" href="classsofa_1_1type_1_1vector.html">vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &gt; &amp;seeds, const float isoValue, unsigned char *_data)</td></tr>
+<tr class="memdesc:a0df74952cdf543587c6f83d9647e44b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">given a set of data, find seeds to run quickly.  <a href="classsofa_1_1helper_1_1_marching_cube_utility.html#a0df74952cdf543587c6f83d9647e44b6">More...</a><br /></td></tr>
 <tr class="separator:a0df74952cdf543587c6f83d9647e44b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8d79f7fc82f00379ae249370444db84"><td class="memItemLeft" align="right" valign="top"><a id="aa8d79f7fc82f00379ae249370444db84"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#aa8d79f7fc82f00379ae249370444db84">findSeedsFromRealCoords</a> (<a class="el" href="classsofa_1_1type_1_1vector.html">vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3i</a> &gt; &amp;mCubeCoords, const <a class="el" href="classsofa_1_1type_1_1vector.html">vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">Vector3</a> &gt; &amp;realCoords) const</td></tr>
-<tr class="memdesc:aa8d79f7fc82f00379ae249370444db84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given coords in the scene, find seeds coords. <br /></td></tr>
+<tr class="memitem:aa8d79f7fc82f00379ae249370444db84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#aa8d79f7fc82f00379ae249370444db84">findSeedsFromRealCoords</a> (<a class="el" href="classsofa_1_1type_1_1vector.html">vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &gt; &amp;mCubeCoords, const <a class="el" href="classsofa_1_1type_1_1vector.html">vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &gt; &amp;realCoords) const</td></tr>
+<tr class="memdesc:aa8d79f7fc82f00379ae249370444db84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given coords in the scene, find seeds coords.  <a href="classsofa_1_1helper_1_1_marching_cube_utility.html#aa8d79f7fc82f00379ae249370444db84">More...</a><br /></td></tr>
 <tr class="separator:aa8d79f7fc82f00379ae249370444db84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1fd702887b475ae8699f324a71308cb"><td class="memItemLeft" align="right" valign="top"><a id="ad1fd702887b475ae8699f324a71308cb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#ad1fd702887b475ae8699f324a71308cb">setVerticesIndexOffset</a> (unsigned int verticesIndexOffset)</td></tr>
-<tr class="memdesc:ad1fd702887b475ae8699f324a71308cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the offset to add to each new vertex index in the triangles array. <br /></td></tr>
+<tr class="memitem:ad1fd702887b475ae8699f324a71308cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#ad1fd702887b475ae8699f324a71308cb">setVerticesIndexOffset</a> (unsigned int <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a9f18618fd1f953ad18fdd2b7e72b4278">verticesIndexOffset</a>)</td></tr>
+<tr class="memdesc:ad1fd702887b475ae8699f324a71308cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the offset to add to each new vertex index in the triangles array.  <a href="classsofa_1_1helper_1_1_marching_cube_utility.html#ad1fd702887b475ae8699f324a71308cb">More...</a><br /></td></tr>
 <tr class="separator:ad1fd702887b475ae8699f324a71308cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2b10d0e5cffcc2b8f695956c9612135"><td class="memItemLeft" align="right" valign="top"><a id="af2b10d0e5cffcc2b8f695956c9612135"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#af2b10d0e5cffcc2b8f695956c9612135">setVerticesTranslation</a> (<a class="el" href="classsofa_1_1type_1_1_vec.html">Vector3</a> verticesTranslation)</td></tr>
-<tr class="memdesc:af2b10d0e5cffcc2b8f695956c9612135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the translation to add to each new vertex in the triangles array. <br /></td></tr>
+<tr class="memitem:af2b10d0e5cffcc2b8f695956c9612135"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#af2b10d0e5cffcc2b8f695956c9612135">setVerticesTranslation</a> (<a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#ae09a0836832a807bca7fbe9b0bb2d87a">verticesTranslation</a>)</td></tr>
+<tr class="memdesc:af2b10d0e5cffcc2b8f695956c9612135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the translation to add to each new vertex in the triangles array.  <a href="classsofa_1_1helper_1_1_marching_cube_utility.html#af2b10d0e5cffcc2b8f695956c9612135">More...</a><br /></td></tr>
 <tr class="separator:af2b10d0e5cffcc2b8f695956c9612135"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a93de0f0771e6a9b731b34c4864c1d824"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a93de0f0771e6a9b731b34c4864c1d824">initCell</a> (<a class="el" href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_grid_cell.html">GridCell</a> &amp;cell, const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;coord, const unsigned char *data, const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &amp;gridStep, const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;dataGridStep) const</td></tr>
+<tr class="separator:a93de0f0771e6a9b731b34c4864c1d824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11f2546560dc1b3ce8922780e62b675d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a11f2546560dc1b3ce8922780e62b675d">vertexInterp</a> (<a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &amp;p, const float isolevel, const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &amp;p1, const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &amp;p2, const float valp1, const float valp2) const</td></tr>
+<tr class="separator:a11f2546560dc1b3ce8922780e62b675d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a285d105358494bd9e37836b63ceb54bd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a285d105358494bd9e37836b63ceb54bd">testGrid</a> (const float v, const float isolevel) const</td></tr>
+<tr class="separator:a285d105358494bd9e37836b63ceb54bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ce36bced4b2863884fead8c082048e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a9ce36bced4b2863884fead8c082048e6">updateTriangleInRegularGridVector</a> (<a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; unsigned int &gt; &gt; &amp;triangleIndexInRegularGrid, const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;coord, const <a class="el" href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_grid_cell.html">GridCell</a> &amp;cell, unsigned int nbTriangles) const</td></tr>
+<tr class="separator:a9ce36bced4b2863884fead8c082048e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9819a4ee4b597a22ad8ef0f912bb33de"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a9819a4ee4b597a22ad8ef0f912bb33de">polygonise</a> (const <a class="el" href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_grid_cell.html">GridCell</a> &amp;grid, int &amp;cubeConf, const float isolevel, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;triangles, std::map&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a>, <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;map_vertices, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &gt; &amp;map_indices) const</td></tr>
+<tr class="separator:a9819a4ee4b597a22ad8ef0f912bb33de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e23c3c185ef5802444db29cd41175e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a7e23c3c185ef5802444db29cd41175e7">getVoxel</a> (unsigned int index, const unsigned char *dataVoxels) const</td></tr>
+<tr class="separator:a7e23c3c185ef5802444db29cd41175e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0fc1094d75b17c5b560328cb2e87209"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#af0fc1094d75b17c5b560328cb2e87209">findConnectedVoxels</a> (std::set&lt; unsigned int &gt; &amp;connectedVoxels, const float isoValue, const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;from, unsigned char *data)</td></tr>
+<tr class="separator:af0fc1094d75b17c5b560328cb2e87209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd3f7782a1fca17625552c0c42442253"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#acd3f7782a1fca17625552c0c42442253">createGaussianConvolutionKernel</a> (<a class="el" href="classsofa_1_1type_1_1vector.html">vector</a>&lt; float &gt; &amp;convolutionKernel) const</td></tr>
+<tr class="separator:acd3f7782a1fca17625552c0c42442253"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa4f4aa29d8c96067ef74074b7b837cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#afa4f4aa29d8c96067ef74074b7b837cf">applyConvolution</a> (const float *convolutionKernel, unsigned int x, unsigned int y, unsigned int z, const unsigned char *input_data, unsigned char *output_data) const</td></tr>
+<tr class="separator:afa4f4aa29d8c96067ef74074b7b837cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d9daf2ef23aa5cb75bb87313e5c9352"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a0d9daf2ef23aa5cb75bb87313e5c9352">smoothData</a> (unsigned char *data) const</td></tr>
+<tr class="separator:a0d9daf2ef23aa5cb75bb87313e5c9352"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a247aafcb3612c6ffc97612a7c2571da0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a247aafcb3612c6ffc97612a7c2571da0">propagateFrom</a> (const <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &gt; &amp;coord, unsigned char *data, const float isolevel, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;triangles, <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &gt; &amp;vertices, std::set&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &gt; &amp;generatedCubes, std::map&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a>, <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;map_vertices, <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; unsigned int &gt; &gt; *triangleIndexInRegularGrid=nullptr, bool propagate=true) const</td></tr>
+<tr class="memdesc:a247aafcb3612c6ffc97612a7c2571da0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate the triangulation surface creation from a cell.  <a href="classsofa_1_1helper_1_1_marching_cube_utility.html#a247aafcb3612c6ffc97612a7c2571da0">More...</a><br /></td></tr>
+<tr class="separator:a247aafcb3612c6ffc97612a7c2571da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a6b3791bd5075092e7455f453ca6e8860"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a6b3791bd5075092e7455f453ca6e8860">cubeStep</a></td></tr>
+<tr class="separator:a6b3791bd5075092e7455f453ca6e8860"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a736fbcb7c380415de8787a17476dc8bf"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a736fbcb7c380415de8787a17476dc8bf">convolutionSize</a></td></tr>
+<tr class="separator:a736fbcb7c380415de8787a17476dc8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49747bf19b04638e192a3add35693805"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a49747bf19b04638e192a3add35693805">dataResolution</a></td></tr>
+<tr class="separator:a49747bf19b04638e192a3add35693805"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad082417fc723504c1471a9e8888366d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#ad082417fc723504c1471a9e8888366d0">dataVoxelSize</a></td></tr>
+<tr class="separator:ad082417fc723504c1471a9e8888366d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91d3665f31fb2157d4b0b78224132971"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_bounding_box.html">BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a91d3665f31fb2157d4b0b78224132971">bbox</a></td></tr>
+<tr class="separator:a91d3665f31fb2157d4b0b78224132971"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf42876af1e58299bf9bac0efbcd393b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_bounding_box.html">BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#aaf42876af1e58299bf9bac0efbcd393b">roi</a></td></tr>
+<tr class="separator:aaf42876af1e58299bf9bac0efbcd393b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f18618fd1f953ad18fdd2b7e72b4278"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a9f18618fd1f953ad18fdd2b7e72b4278">verticesIndexOffset</a></td></tr>
+<tr class="separator:a9f18618fd1f953ad18fdd2b7e72b4278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae09a0836832a807bca7fbe9b0bb2d87a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#ae09a0836832a807bca7fbe9b0bb2d87a">verticesTranslation</a></td></tr>
+<tr class="separator:ae09a0836832a807bca7fbe9b0bb2d87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="abd03b9f598727fe7b41221876da4d20f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd03b9f598727fe7b41221876da4d20f">&#9670;&nbsp;</a></span>PointID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef sofa::Index <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a74e31971fad3f15c116871a594975d70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74e31971fad3f15c116871a594975d70">&#9670;&nbsp;</a></span>Vec3i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec</a>&lt;3, int&gt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a55045ab237639763b99c97962a6e451a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55045ab237639763b99c97962a6e451a">&#9670;&nbsp;</a></span>Vec6i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec</a>&lt;6, int&gt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a55045ab237639763b99c97962a6e451a">Vec6i</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a674e46c371cd6107c6c03286acb4319b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a674e46c371cd6107c6c03286acb4319b">&#9670;&nbsp;</a></span>Vector3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> =  <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad8ef0c099154d18a54cbf44c46e9d0fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8ef0c099154d18a54cbf44c46e9d0fa">&#9670;&nbsp;</a></span>MarchingCubeUtility()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html">MarchingCubeUtility</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae3973df2c110c7821e6fb5bb12197fc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3973df2c110c7821e6fb5bb12197fc5">&#9670;&nbsp;</a></span>~MarchingCubeUtility()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html">MarchingCubeUtility</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="afa4f4aa29d8c96067ef74074b7b837cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa4f4aa29d8c96067ef74074b7b837cf">&#9670;&nbsp;</a></span>applyConvolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void applyConvolution </td>
+          <td>(</td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>convolutionKernel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char *&#160;</td>
+          <td class="paramname"><em>input_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>output_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acd3f7782a1fca17625552c0c42442253"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd3f7782a1fca17625552c0c42442253">&#9670;&nbsp;</a></span>createGaussianConvolutionKernel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void createGaussianConvolutionKernel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">vector</a>&lt; float &gt; &amp;&#160;</td>
+          <td class="paramname"><em>convolutionKernel</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af0fc1094d75b17c5b560328cb2e87209"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0fc1094d75b17c5b560328cb2e87209">&#9670;&nbsp;</a></span>findConnectedVoxels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void findConnectedVoxels </td>
+          <td>(</td>
+          <td class="paramtype">std::set&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>connectedVoxels</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>isoValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0df74952cdf543587c6f83d9647e44b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0df74952cdf543587c6f83d9647e44b6">&#9670;&nbsp;</a></span>findSeeds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void findSeeds </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>seeds</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>isoValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>given a set of data, find seeds to run quickly. </p>
+
+</div>
+</div>
+<a id="aa8d79f7fc82f00379ae249370444db84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8d79f7fc82f00379ae249370444db84">&#9670;&nbsp;</a></span>findSeedsFromRealCoords()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void findSeedsFromRealCoords </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mCubeCoords</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1vector.html">vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>realCoords</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Given coords in the scene, find seeds coords. </p>
+
+</div>
+</div>
+<a id="a7e23c3c185ef5802444db29cd41175e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e23c3c185ef5802444db29cd41175e7">&#9670;&nbsp;</a></span>getVoxel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool getVoxel </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char *&#160;</td>
+          <td class="paramname"><em>dataVoxels</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a93de0f0771e6a9b731b34c4864c1d824"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93de0f0771e6a9b731b34c4864c1d824">&#9670;&nbsp;</a></span>initCell()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initCell </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_grid_cell.html">GridCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>cell</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;&#160;</td>
+          <td class="paramname"><em>coord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>gridStep</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;&#160;</td>
+          <td class="paramname"><em>dataGridStep</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9819a4ee4b597a22ad8ef0f912bb33de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9819a4ee4b597a22ad8ef0f912bb33de">&#9670;&nbsp;</a></span>polygonise()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int polygonise </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_grid_cell.html">GridCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>cubeConf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>isolevel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>triangles</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a>, <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>map_vertices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>map_indices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a247aafcb3612c6ffc97612a7c2571da0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a247aafcb3612c6ffc97612a7c2571da0">&#9670;&nbsp;</a></span>propagateFrom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void propagateFrom </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>coord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>isolevel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>triangles</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vertices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::set&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>generatedCubes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a>, <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>map_vertices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; unsigned int &gt; &gt; *&#160;</td>
+          <td class="paramname"><em>triangleIndexInRegularGrid</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>propagate</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Propagate the triangulation surface creation from a cell. </p>
+
+</div>
+</div>
 <a id="a65b8f09622b45076d69d4e19dd460c4f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a65b8f09622b45076d69d4e19dd460c4f">&#9670;&nbsp;</a></span>run() <span class="overload">[1/4]</span></h2>
 
@@ -178,7 +752,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3i</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>seeds</em>, </td>
         </tr>
         <tr>
@@ -190,19 +764,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; PointID &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>mesh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">Vector3</a> &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>vertices</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::map&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">Vector3</a>, PointID &gt; &amp;&#160;</td>
+          <td class="paramtype">std::map&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a>, <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>map_vertices</em>, </td>
         </tr>
         <tr>
@@ -284,13 +858,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; PointID &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>triangles</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">Vector3</a> &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>vertices</em>, </td>
         </tr>
         <tr>
@@ -325,7 +899,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1vector.html">vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3i</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1vector.html">vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>seeds</em>, </td>
         </tr>
         <tr>
@@ -337,13 +911,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; PointID &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#abd03b9f598727fe7b41221876da4d20f">PointID</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>triangles</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">Vector3</a> &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>&lt; <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>vertices</em>, </td>
         </tr>
         <tr>
@@ -369,13 +943,646 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a id="a6a947ef806f73cf13b6b1e9d48d8d182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a947ef806f73cf13b6b1e9d48d8d182">&#9670;&nbsp;</a></span>setBoundingBox() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setBoundingBox </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;&#160;</td>
+          <td class="paramname"><em>min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;&#160;</td>
+          <td class="paramname"><em>max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the bounding box (in the data space) to apply mCube localy. </p>
+
+</div>
+</div>
+<a id="a56c3783393dcb2886530634127078ee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56c3783393dcb2886530634127078ee6">&#9670;&nbsp;</a></span>setBoundingBox() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setBoundingBox </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a55045ab237639763b99c97962a6e451a">Vec6i</a> &amp;&#160;</td>
+          <td class="paramname"><em>roi</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the bounding box (in the data space) to apply mCube localy. </p>
+
+</div>
+</div>
+<a id="aa4468f39df93fabdeb61a2b2c9089e60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4468f39df93fabdeb61a2b2c9089e60">&#9670;&nbsp;</a></span>setBoundingBoxFromRealCoords()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setBoundingBoxFromRealCoords </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the bounding box from real coords to apply mCube localy. </p>
+
+</div>
+</div>
+<a id="a02630697451b5d7d32d582abb98b675d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02630697451b5d7d32d582abb98b675d">&#9670;&nbsp;</a></span>setConvolutionSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setConvolutionSize </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>convolutionSize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade3eda79b863961231819c466a0fd3b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade3eda79b863961231819c466a0fd3b9">&#9670;&nbsp;</a></span>setDataResolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setDataResolution </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;&#160;</td>
+          <td class="paramname"><em>resolution</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e1c6413a07dd0561e25a5b5b94adcce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e1c6413a07dd0561e25a5b5b94adcce">&#9670;&nbsp;</a></span>setDataVoxelSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setDataVoxelSize </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>voxelSize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79659c65aedd821103eaf1420d4ad5a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79659c65aedd821103eaf1420d4ad5a8">&#9670;&nbsp;</a></span>setROI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setROI </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;&#160;</td>
+          <td class="paramname"><em>min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;&#160;</td>
+          <td class="paramname"><em>max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the bounding box (in the data space) to apply mCube localy. </p>
+
+</div>
+</div>
+<a id="a4fdb982e59548f44dcbeaf2cb38f5089"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fdb982e59548f44dcbeaf2cb38f5089">&#9670;&nbsp;</a></span>setStep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setStep </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>step</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad1fd702887b475ae8699f324a71308cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1fd702887b475ae8699f324a71308cb">&#9670;&nbsp;</a></span>setVerticesIndexOffset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setVerticesIndexOffset </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>verticesIndexOffset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the offset to add to each new vertex index in the triangles array. </p>
+
+</div>
+</div>
+<a id="af2b10d0e5cffcc2b8f695956c9612135"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2b10d0e5cffcc2b8f695956c9612135">&#9670;&nbsp;</a></span>setVerticesTranslation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setVerticesTranslation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a>&#160;</td>
+          <td class="paramname"><em>verticesTranslation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the translation to add to each new vertex in the triangles array. </p>
+
+</div>
+</div>
+<a id="a0d9daf2ef23aa5cb75bb87313e5c9352"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d9daf2ef23aa5cb75bb87313e5c9352">&#9670;&nbsp;</a></span>smoothData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void smoothData </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a285d105358494bd9e37836b63ceb54bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a285d105358494bd9e37836b63ceb54bd">&#9670;&nbsp;</a></span>testGrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool testGrid </td>
+          <td>(</td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>isolevel</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ce36bced4b2863884fead8c082048e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ce36bced4b2863884fead8c082048e6">&#9670;&nbsp;</a></span>updateTriangleInRegularGridVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateTriangleInRegularGridVector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; unsigned int &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>triangleIndexInRegularGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> &amp;&#160;</td>
+          <td class="paramname"><em>coord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_grid_cell.html">GridCell</a> &amp;&#160;</td>
+          <td class="paramname"><em>cell</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>nbTriangles</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a11f2546560dc1b3ce8922780e62b675d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11f2546560dc1b3ce8922780e62b675d">&#9670;&nbsp;</a></span>vertexInterp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vertexInterp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>isolevel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>valp1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>valp2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a91d3665f31fb2157d4b0b78224132971"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91d3665f31fb2157d4b0b78224132971">&#9670;&nbsp;</a></span>bbox</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_bounding_box.html">BoundingBox</a> <a class="el" href="gpc_8cpp.html#a14ebf0e28206eb1ec6f3f985d5923af4">bbox</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a736fbcb7c380415de8787a17476dc8bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a736fbcb7c380415de8787a17476dc8bf">&#9670;&nbsp;</a></span>convolutionSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int convolutionSize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b3791bd5075092e7455f453ca6e8860"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b3791bd5075092e7455f453ca6e8860">&#9670;&nbsp;</a></span>cubeStep</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int cubeStep</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a49747bf19b04638e192a3add35693805"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49747bf19b04638e192a3add35693805">&#9670;&nbsp;</a></span>dataResolution</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a74e31971fad3f15c116871a594975d70">Vec3i</a> dataResolution</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad082417fc723504c1471a9e8888366d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad082417fc723504c1471a9e8888366d0">&#9670;&nbsp;</a></span>dataVoxelSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> dataVoxelSize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf42876af1e58299bf9bac0efbcd393b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf42876af1e58299bf9bac0efbcd393b">&#9670;&nbsp;</a></span>roi</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_bounding_box.html">BoundingBox</a> roi</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f18618fd1f953ad18fdd2b7e72b4278"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f18618fd1f953ad18fdd2b7e72b4278">&#9670;&nbsp;</a></span>verticesIndexOffset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int verticesIndexOffset</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae09a0836832a807bca7fbe9b0bb2d87a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae09a0836832a807bca7fbe9b0bb2d87a">&#9670;&nbsp;</a></span>verticesTranslation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a674e46c371cd6107c6c03286acb4319b">Vector3</a> verticesTranslation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1_marching_cube_utility.html">MarchingCubeUtility</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:09:01 for SOFA by
+    <li class="footer">Generated on Tue Jul 26 2022 07:40:25 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

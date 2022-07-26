@@ -581,7 +581,12 @@ var hierarchy =
           [ "TransformEngine< DataTypes >", "classsofa_1_1component_1_1engine_1_1transform_1_1_transform_engine.html", null ],
           [ "TransformPosition< DataTypes >", "classsofa_1_1component_1_1engine_1_1transform_1_1_transform_position.html", null ],
           [ "Vertex2Frame< DataTypes >", "classsofa_1_1component_1_1engine_1_1transform_1_1_vertex2_frame.html", null ],
-          [ "MeshTopology::PrimitiveUpdate", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology_1_1_primitive_update.html", null ],
+          [ "MeshTopology::PrimitiveUpdate", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology_1_1_primitive_update.html", [
+            [ "MeshTopology::EdgeUpdate", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology_1_1_edge_update.html", null ],
+            [ "MeshTopology::QuadUpdate", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology_1_1_quad_update.html", null ],
+            [ "MeshTopology::TriangleUpdate", "classsofa_1_1component_1_1topology_1_1container_1_1constant_1_1_mesh_topology_1_1_triangle_update.html", null ]
+          ] ],
+          [ "GridTopology::GridUpdate", "classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_grid_topology_1_1_grid_update.html", null ],
           [ "SphereROI< _DataTypes >", "classsofa_1_1component_1_1engine_1_1select_1_1_sphere_r_o_i.html", [
             [ "SphereROI_test< _DataTypes >", "structsofa_1_1_sphere_r_o_i__test.html", null ]
           ] ],
@@ -1471,6 +1476,7 @@ var hierarchy =
     [ "BoolTypeInfo", "structsofa_1_1defaulttype_1_1_bool_type_info.html", [
       [ "DataTypeInfo< bool >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01bool_01_4.html", null ]
     ] ],
+    [ "MarchingCubeUtility::BoundingBox", "structsofa_1_1helper_1_1_marching_cube_utility_1_1_bounding_box.html", null ],
     [ "BoundingBox", "classsofa_1_1type_1_1_bounding_box.html", [
       [ "TBoundingBox< TReal >", "classsofa_1_1type_1_1_t_bounding_box.html", null ]
     ] ],
@@ -1500,6 +1506,18 @@ var hierarchy =
     [ "ClassInfo", "classsofa_1_1core_1_1objectmodel_1_1_class_info.html", [
       [ "TClassInfo< T >", "classsofa_1_1core_1_1objectmodel_1_1_t_class_info.html", null ]
     ] ],
+    [ "CleanupCheck", "structsofa_1_1defaulttype_1_1_cleanup_check.html", null ],
+    [ "CleanupCheck", "structsofa_1_1geometry_1_1_cleanup_check.html", null ],
+    [ "CleanupCheck", "structsofa_1_1helper_1_1_cleanup_check.html", null ],
+    [ "CleanupCheck", "structsofa_1_1linearalgebra_1_1_cleanup_check.html", null ],
+    [ "CleanupCheck", "structsofa_1_1simulation_1_1common_1_1_cleanup_check.html", null ],
+    [ "CleanupCheck", "structsofa_1_1simulation_1_1core_1_1_cleanup_check.html", null ],
+    [ "CleanupCheck", "structsofa_1_1simulation_1_1graph_1_1_cleanup_check.html", null ],
+    [ "CleanupCheck", "structsofa_1_1testing_1_1_cleanup_check.html", null ],
+    [ "CleanupCheck", "structsofa_1_1topology_1_1_cleanup_check.html", null ],
+    [ "CleanupCheck", "structsofa_1_1type_1_1_cleanup_check.html", null ],
+    [ "CleanupCheck", "structsofa_1_1core_1_1_cleanup_check.html", null ],
+    [ "QGLViewer::ClickBindingPrivate", "struct_q_g_l_viewer_1_1_click_binding_private.html", null ],
     [ "MovieOptionsWidget::Codec", "structsofa_1_1gui_1_1qt_1_1_movie_options_widget_1_1_codec.html", null ],
     [ "BaseMatrix::ColBlockConstIterator", "classsofa_1_1linearalgebra_1_1_base_matrix_1_1_col_block_const_iterator.html", null ],
     [ "MapMapSparseMatrix< T >::ColConstIterator", "classsofa_1_1defaulttype_1_1_map_map_sparse_matrix_1_1_col_const_iterator.html", null ],
@@ -1511,6 +1529,7 @@ var hierarchy =
     [ "CollidingPM::CollModID", "structsofa_1_1component_1_1collision_1_1detection_1_1algorithm_1_1_colliding_p_m_1_1_coll_mod_i_d.html", null ],
     [ "ColorMap", "classsofa_1_1helper_1_1_color_map.html", null ],
     [ "CompareIndirect< Container >", "structsofa_1_1helper_1_1_compare_indirect.html", null ],
+    [ "MultilevelHexahedronSetTopologyContainer::Component", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_multilevel_hexahedron_set_topology_container_1_1_component.html", null ],
     [ "ComponentChange", "classsofa_1_1helper_1_1lifecycle_1_1_component_change.html", [
       [ "Deprecated", "classsofa_1_1helper_1_1lifecycle_1_1_deprecated.html", null ],
       [ "Moved", "classsofa_1_1helper_1_1lifecycle_1_1_moved.html", null ],
@@ -1538,6 +1557,7 @@ var hierarchy =
     ] ],
     [ "ConstraintActivation", "structsofa_1_1component_1_1constraint_1_1lagrangian_1_1correction_1_1_constraint_activation.html", null ],
     [ "BaseMechanicalState::ConstraintBlock", "classsofa_1_1core_1_1behavior_1_1_base_mechanical_state_1_1_constraint_block.html", null ],
+    [ "LCPConstraintSolver::ConstraintBlockBuf", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_l_c_p_constraint_solver_1_1_constraint_block_buf.html", null ],
     [ "BaseConstraint::ConstraintBlockInfo", "classsofa_1_1core_1_1behavior_1_1_base_constraint_1_1_constraint_block_info.html", null ],
     [ "ConstraintProblem", "classsofa_1_1component_1_1animationloop_1_1_constraint_problem.html", null ],
     [ "ConstraintProblem", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_constraint_problem.html", [
@@ -1964,7 +1984,6 @@ var hierarchy =
             [ "TopologyData< sofa::type::vector< BarycentricMapper< In, Out >::MappingData1D > >", "classsofa_1_1core_1_1topology_1_1_topology_data.html", null ],
             [ "TopologyData< sofa::type::vector< BarycentricMapper< In, Out >::MappingData2D > >", "classsofa_1_1core_1_1topology_1_1_topology_data.html", null ],
             [ "TopologyData< sofa::type::vector< BarycentricMapper< In, Out >::MappingData3D > >", "classsofa_1_1core_1_1topology_1_1_topology_data.html", null ],
-            [ "TopologyData< sofa::type::vector< Component * > >", "classsofa_1_1core_1_1topology_1_1_topology_data.html", null ],
             [ "TopologyData< sofa::type::vector< Coord > >", "classsofa_1_1core_1_1topology_1_1_topology_data.html", null ],
             [ "TopologyData< sofa::type::vector< Index > >", "classsofa_1_1core_1_1topology_1_1_topology_data.html", null ],
             [ "TopologyData< sofa::type::vector< MappingData > >", "classsofa_1_1core_1_1topology_1_1_topology_data.html", null ],
@@ -2002,6 +2021,7 @@ var hierarchy =
             [ "TopologyData< sofa::type::vector< sofa::component::solidmechanics::spring::TriangularQuadraticSpringsForceField::TriangleRestInformation > >", "classsofa_1_1core_1_1topology_1_1_topology_data.html", null ],
             [ "TopologyData< sofa::type::vector< sofa::component::solidmechanics::spring::VectorSpringForceField::Spring > >", "classsofa_1_1core_1_1topology_1_1_topology_data.html", null ],
             [ "TopologyData< sofa::type::vector< sofa::component::solidmechanics::tensormass::TriangularTensorMassForceField::EdgeRestInformation > >", "classsofa_1_1core_1_1topology_1_1_topology_data.html", null ],
+            [ "TopologyData< sofa::type::vector< sofa::component::topology::container::dynamic::MultilevelHexahedronSetTopologyContainer::Component * > >", "classsofa_1_1core_1_1topology_1_1_topology_data.html", null ],
             [ "TopologyData< sofa::type::vector< sofa::type::fixed_array > >", "classsofa_1_1core_1_1topology_1_1_topology_data.html", null ],
             [ "TopologyData< sofa::type::vector< sofa::type::fixed_array< Index, 8 > > >", "classsofa_1_1core_1_1topology_1_1_topology_data.html", null ],
             [ "TopologyData< sofa::type::vector< sofa::type::Mat > >", "classsofa_1_1core_1_1topology_1_1_topology_data.html", null ],
@@ -2062,6 +2082,7 @@ var hierarchy =
     [ "DiagonalMassInternalData< DataTypes, TMassType, GeometricalTypes >", "classsofa_1_1component_1_1mass_1_1_diagonal_mass_internal_data.html", null ],
     [ "DiagonalMassInternalData< DataTypes, TMassType, DataTypes >", "classsofa_1_1component_1_1mass_1_1_diagonal_mass_internal_data.html", null ],
     [ "DiagonalMassInternalData< sofa::defaulttype::StdVectorTypes, TMassType, GeometricalTypes >", "classsofa_1_1component_1_1mass_1_1_diagonal_mass_internal_data.html", null ],
+    [ "DDGNode::DirtyFlags", "structsofa_1_1core_1_1objectmodel_1_1_d_d_g_node_1_1_dirty_flags.html", null ],
     [ "BlocMatrixWriter< TBloc >::DispatcherForceField_addKToMatrix< FF >", "structsofa_1_1core_1_1behavior_1_1_bloc_matrix_writer_1_1_dispatcher_force_field__add_k_to_matrix.html", null ],
     [ "DisplayFlags", "classsofa_1_1core_1_1visual_1_1_display_flags.html", null ],
     [ "DistanceFromTargetMappingInternalData< InDataTypes, OutDataTypes >", "classsofa_1_1component_1_1mapping_1_1nonlinear_1_1_distance_from_target_mapping_internal_data.html", null ],
@@ -2151,6 +2172,7 @@ var hierarchy =
       [ "MechanicalParams", "classsofa_1_1core_1_1_mechanical_params.html", null ],
       [ "VisualParams", "classsofa_1_1core_1_1visual_1_1_visual_params.html", null ]
     ] ],
+    [ "ExecParams::ExecParamsThreadStorage", "classsofa_1_1core_1_1_exec_params_1_1_exec_params_thread_storage.html", null ],
     [ "ExpectMessage", "classsofa_1_1testing_1_1_expect_message.html", null ],
     [ "Exporter", "classvrender_1_1_exporter.html", [
       [ "EPSExporter", "classvrender_1_1_e_p_s_exporter.html", [
@@ -2341,6 +2363,7 @@ var hierarchy =
       [ "GraphWidget< DataType >", "classsofa_1_1gui_1_1qt_1_1_graph_widget.html", null ]
     ] ],
     [ "GraphVisitor", "classsofa_1_1gui_1_1qt_1_1_graph_visitor.html", null ],
+    [ "MarchingCubeUtility::GridCell", "structsofa_1_1helper_1_1_marching_cube_utility_1_1_grid_cell.html", null ],
     [ "GtestMessageFrame", "classsofa_1_1testing_1_1_gtest_message_frame.html", [
       [ "GtestMessageFrameFailure", "classsofa_1_1testing_1_1_gtest_message_frame_failure.html", null ],
       [ "GtestMessageFrameFailureWhenMissing", "classsofa_1_1testing_1_1_gtest_message_frame_failure_when_missing.html", null ],
@@ -2394,6 +2417,7 @@ var hierarchy =
     [ "InciseAlongPathPerformerConfiguration", "classsofa_1_1gui_1_1component_1_1performer_1_1_incise_along_path_performer_configuration.html", [
       [ "InciseAlongPathPerformer", "classsofa_1_1gui_1_1component_1_1performer_1_1_incise_along_path_performer.html", null ]
     ] ],
+    [ "TopologicalChangeManager::Incision", "structsofa_1_1gui_1_1component_1_1performer_1_1_topological_change_manager_1_1_incision.html", null ],
     [ "IncompleteTypeInfo< TDataType >", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html", null ],
     [ "IncompleteTypeInfo< RigidMass< N, real > >", "structsofa_1_1defaulttype_1_1_incomplete_type_info.html", [
       [ "DataTypeInfo< sofa::defaulttype::RigidMass< N, real > >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01sofa_1_1defaulttype_1_1_rigid_mass_3_01_n_00_01real_01_4_01_4.html", null ]
@@ -2403,6 +2427,8 @@ var hierarchy =
     ] ],
     [ "CompressedRowSparseMatrix< TBlock, TVecBlock, TVecIndex >::IndexedBlock", "structsofa_1_1linearalgebra_1_1_compressed_row_sparse_matrix_1_1_indexed_block.html", null ],
     [ "IndexOpenMP< T >", "structsofa_1_1helper_1_1_index_open_m_p.html", null ],
+    [ "LineSetSkinningMapping< TIn, TOut >::influencedLineType", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping_1_1influenced_line_type.html", null ],
+    [ "LineSetSkinningMapping< TIn, TOut >::influencedVerticeType", "classsofa_1_1component_1_1mapping_1_1linear_1_1_line_set_skinning_mapping_1_1influenced_vertice_type.html", null ],
     [ "Info", null, [
       [ "DataTypeInfoDynamicWrapper< Info >", "classsofa_1_1defaulttype_1_1_data_type_info_dynamic_wrapper.html", null ]
     ] ],
@@ -2492,6 +2518,7 @@ var hierarchy =
       [ "CreatorFn< Factory, RealObject >", "classsofa_1_1helper_1_1_creator_fn.html", null ]
     ] ],
     [ "BarycentricMapperTopologyContainer< In, Out, MappingDataType, Element >::Key", "structsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmappertopologycontainer___1_1_baryc994f843c09969ea35668d3eabbc7220d.html", null ],
+    [ "KeyFrameInterpolator::KeyFrame", "classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html", null ],
     [ "LCP", "classsofa_1_1helper_1_1_l_c_p.html", null ],
     [ "less< sofa::type::Vec< N, T > >", "structstd_1_1less_3_01sofa_1_1type_1_1_vec_3_01_n_00_01_t_01_4_01_4.html", null ],
     [ "LinearForceFieldInternalData< DataTypes >", "classsofa_1_1component_1_1mechanicalload_1_1_linear_force_field_internal_data.html", null ],
@@ -2578,6 +2605,7 @@ var hierarchy =
     [ "Mat< N, N, Real >", "classsofa_1_1type_1_1_mat.html", null ],
     [ "Mat< N, N, Real1 >", "classsofa_1_1type_1_1_mat.html", null ],
     [ "Mat< NbRows, NbCols, Real >", "classsofa_1_1type_1_1_mat.html", null ],
+    [ "NonUniformHexahedralFEMForceFieldAndMass< DataTypes >::Material", "structsofa_1_1component_1_1solidmechanics_1_1fem_1_1nonuniform_1_1_non_uniform_hexahedral_f_e_m_b394fed606f9c66bf465a0203ca5f9cf.html", null ],
     [ "Material", "classsofa_1_1type_1_1_material.html", null ],
     [ "MaterialParameters< DataTypes >", "structsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_material_parameters.html", null ],
     [ "MaterialParameters< sofa::defaulttype::StdVectorTypes >", "structsofa_1_1component_1_1solidmechanics_1_1fem_1_1hyperelastic_1_1material_1_1_material_parameters.html", null ],
@@ -2741,6 +2769,8 @@ var hierarchy =
     [ "Plugin::ModuleIsInitialized", "structsofa_1_1helper_1_1system_1_1_plugin_1_1_module_is_initialized.html", null ],
     [ "MonitoredFile", "classsofa_1_1helper_1_1system_1_1_monitored_file.html", null ],
     [ "Monomial_LD< Real, N >", "classsofa_1_1helper_1_1_monomial___l_d.html", null ],
+    [ "QGLViewer::MouseActionPrivate", "struct_q_g_l_viewer_1_1_mouse_action_private.html", null ],
+    [ "QGLViewer::MouseBindingPrivate", "struct_q_g_l_viewer_1_1_mouse_binding_private.html", null ],
     [ "MouseGrabber", "classqglviewer_1_1_mouse_grabber.html", [
       [ "ManipulatedFrame", "classqglviewer_1_1_manipulated_frame.html", [
         [ "ManipulatedCameraFrame", "classqglviewer_1_1_manipulated_camera_frame.html", null ]
@@ -2893,6 +2923,8 @@ var hierarchy =
       [ "WindowVisitor", "classsofa_1_1gui_1_1qt_1_1_window_visitor.html", null ],
       [ "VRenderInterface", "class_v_render_interface.html", null ]
     ] ],
+    [ "QDataSimpleEdit::QEditWidgetPtr", "unionsofa_1_1gui_1_1qt_1_1_q_data_simple_edit_1_1_q_edit_widget_ptr.html", null ],
+    [ "QLinkSimpleEdit::QEditWidgetPtr", "unionsofa_1_1gui_1_1qt_1_1_q_link_simple_edit_1_1_q_edit_widget_ptr.html", null ],
     [ "QGroupBox", null, [
       [ "QDisplayDataWidget", "classsofa_1_1gui_1_1qt_1_1_q_display_data_widget.html", null ],
       [ "QDisplayLinkWidget", "classsofa_1_1gui_1_1qt_1_1_q_display_link_widget.html", null ],
@@ -2924,6 +2956,8 @@ var hierarchy =
     [ "QPushButton", null, [
       [ "QPushButtonUpdater", "classsofa_1_1gui_1_1qt_1_1_q_push_button_updater.html", null ]
     ] ],
+    [ "QDataSimpleEdit::QSimpleEdit", "structsofa_1_1gui_1_1qt_1_1_q_data_simple_edit_1_1_q_simple_edit.html", null ],
+    [ "QLinkSimpleEdit::QSimpleEdit", "structsofa_1_1gui_1_1qt_1_1_q_link_simple_edit_1_1_q_simple_edit.html", null ],
     [ "QStandardItemModel", null, [
       [ "QTableModelUpdater", "classsofa_1_1gui_1_1qt_1_1_q_table_model_updater.html", null ]
     ] ],
@@ -3174,6 +3208,7 @@ var hierarchy =
     [ "Task", "classsofa_1_1simulation_1_1_task.html", [
       [ "CpuTask", "classsofa_1_1simulation_1_1_cpu_task.html", [
         [ "FreeMotionTask", "classsofa_1_1component_1_1animationloop_1_1_free_motion_task.html", null ],
+        [ "GenericConstraintSolver::ComputeComplianceTask", "classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver_1_1_compute_compliance_task.html", null ],
         [ "MechanicalMatrixMapper< TDataTypes1, TDataTypes2 >::JacobianTask", "classsofa_1_1component_1_1mapping_1_1mappedmatrix_1_1_mechanical_matrix_mapper_1_1_jacobian_task.html", null ],
         [ "InitPerThreadDataTask", "classsofa_1_1simulation_1_1_init_per_thread_data_task.html", null ],
         [ "SolveVisitorTask", "classsofa_1_1simulation_1_1_solve_visitor_task.html", null ]
@@ -3365,6 +3400,7 @@ var hierarchy =
     [ "ThreadAccessPolicy", null, [
       [ "CircularQueue< T, StoragePolicy, ThreadAccessPolicy >", "classsofa_1_1helper_1_1system_1_1thread_1_1_circular_queue.html", null ]
     ] ],
+    [ "QGLViewer::TileRegion", "class_q_g_l_viewer_1_1_tile_region.html", null ],
     [ "AdvancedTimer::Timer", "classsofa_1_1helper_1_1_advanced_timer_1_1_timer.html", [
       [ "AdvancedTimer::Id< Timer >", "classsofa_1_1helper_1_1_advanced_timer_1_1_id.html", null ]
     ] ],
@@ -3581,7 +3617,6 @@ var hierarchy =
       [ "vector< bool >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< CollisionModelPair >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< Color >", "classsofa_1_1type_1_1vector.html", null ],
-      [ "vector< Component * >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< CompressedValue >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< const sofa::core::behavior::BaseMass * >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< const sofa::core::objectmodel::BaseClass * >", "classsofa_1_1type_1_1vector.html", null ],
@@ -3673,6 +3708,7 @@ var hierarchy =
       [ "vector< sofa::component::io::mesh::basevtkreader::BaseVTKReader::BaseVTKDataIO * >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::component::solidmechanics::spring::LinearSpring >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::component::statecontainer::MechanicalObject * >", "classsofa_1_1type_1_1vector.html", null ],
+      [ "vector< sofa::component::topology::container::dynamic::MultilevelHexahedronSetTopologyContainer::Component * >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::core::collision::BroadPhaseDetection * >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::core::collision::CollisionGroupManager * >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::core::collision::ContactManager * >", "classsofa_1_1type_1_1vector.html", null ],
@@ -3718,10 +3754,10 @@ var hierarchy =
       [ "vector< sofa::type::VecNoInit >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::type::vector >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::type::vector< Index > >", "classsofa_1_1type_1_1vector.html", null ],
-      [ "vector< sofa::type::vector< influencedLineType > >", "classsofa_1_1type_1_1vector.html", null ],
-      [ "vector< sofa::type::vector< influencedVerticeType > >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::type::vector< OutCoord > >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::type::vector< Real > >", "classsofa_1_1type_1_1vector.html", null ],
+      [ "vector< sofa::type::vector< sofa::component::mapping::linear::LineSetSkinningMapping::influencedLineType > >", "classsofa_1_1type_1_1vector.html", null ],
+      [ "vector< sofa::type::vector< sofa::component::mapping::linear::LineSetSkinningMapping::influencedVerticeType > >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::type::vector< sofa::component::topology::container::grid::SparseGridRamificationTopology::Connexion * > >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::type::vector< sofa::core::collision::DetectionOutput > >", "classsofa_1_1type_1_1vector.html", null ],
       [ "vector< sofa::type::vector< sofa::Index > >", "classsofa_1_1type_1_1vector.html", null ],
@@ -3823,8 +3859,8 @@ var hierarchy =
     [ "VectorTypeInfo< sofa::type::vector< T, Alloc > >", "structsofa_1_1defaulttype_1_1_vector_type_info.html", [
       [ "DataTypeInfo< sofa::type::vector< T, Alloc > >", "structsofa_1_1defaulttype_1_1_data_type_info_3_01sofa_1_1type_1_1vector_3_01_t_00_01_alloc_01_4_01_4.html", null ]
     ] ],
-    [ "TriangularFEMForceField< DataTypes >::VertexInformation", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangular_f_e_m_force_field_1_1_vertex_information.html", null ],
     [ "QuadBendingFEMForceField< DataTypes >::VertexInformation", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_quad_bending_f_e_m_force_field_1_1_vertex_information.html", null ],
+    [ "TriangularFEMForceField< DataTypes >::VertexInformation", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_triangular_f_e_m_force_field_1_1_vertex_information.html", null ],
     [ "Visitor", "classsofa_1_1simulation_1_1_visitor.html", [
       [ "GetAssembledSizeVisitor", "classsofa_1_1component_1_1odesolver_1_1testing_1_1_get_assembled_size_visitor.html", null ],
       [ "GetVectorVisitor", "classsofa_1_1component_1_1odesolver_1_1testing_1_1_get_vector_visitor.html", null ],
@@ -3966,6 +4002,7 @@ var hierarchy =
       [ "VRenderInterface", "class_v_render_interface.html", null ]
     ] ],
     [ "VRenderParams", "classvrender_1_1_v_render_params.html", null ],
+    [ "QGLViewer::WheelBindingPrivate", "struct_q_g_l_viewer_1_1_wheel_binding_private.html", null ],
     [ "WithParamInterface", null, [
       [ "RegularGridTopology_test", "struct_regular_grid_topology__test.html", null ]
     ] ],

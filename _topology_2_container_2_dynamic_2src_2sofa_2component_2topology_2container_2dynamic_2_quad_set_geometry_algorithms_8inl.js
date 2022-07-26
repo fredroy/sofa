@@ -1,0 +1,4 @@
+var _topology_2_container_2_dynamic_2src_2sofa_2component_2topology_2container_2dynamic_2_quad_set_geometry_algorithms_8inl =
+[
+    [ "is_point_in_quad", "_topology_2_container_2_dynamic_2src_2sofa_2component_2topology_2container_2dynamic_2_quad_set_geometry_algorithms_8inl.html#adf2ecef45ce41bcd4a5d86ecfd7e3d1b", null ]
+];

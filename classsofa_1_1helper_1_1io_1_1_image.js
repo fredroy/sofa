@@ -32,6 +32,8 @@ var classsofa_1_1helper_1_1io_1_1_image =
     [ "~Image", "classsofa_1_1helper_1_1io_1_1_image.html#a70dc073ff2e26a6752dee2a6d2b609a8", null ],
     [ "Image", "classsofa_1_1helper_1_1io_1_1_image.html#a96b679aabc6b36defd6d73d6111c0a58", null ],
     [ "clear", "classsofa_1_1helper_1_1io_1_1_image.html#ac8bb3912a3ce86b15842e79d0b421204", null ],
+    [ "create", "classsofa_1_1helper_1_1io_1_1_image.html#a486748759cd5a66d2ae4d2cebf42389a", null ],
+    [ "Create", "classsofa_1_1helper_1_1io_1_1_image.html#aa9909f1dc99a8bfc19582c8153d2de0f", null ],
     [ "get3DSliceMipmapPixels", "classsofa_1_1helper_1_1io_1_1_image.html#adda48b3e6f18a44180067a0267b7e610", null ],
     [ "getBytesPerBlock", "classsofa_1_1helper_1_1io_1_1_image.html#abe716c0ae5e810cf658fbb7773914ff5", null ],
     [ "getBytesPerChannel", "classsofa_1_1helper_1_1io_1_1_image.html#afe1f35c31a3dbe747af88cbb1966a111", null ],
@@ -58,5 +60,15 @@ var classsofa_1_1helper_1_1io_1_1_image =
     [ "load", "classsofa_1_1helper_1_1io_1_1_image.html#a8c0d40d58087a38c7740ae7fb47a8e0b", null ],
     [ "operator=", "classsofa_1_1helper_1_1io_1_1_image.html#aaa22a93e104bf78524bab0ac53e62e84", null ],
     [ "save", "classsofa_1_1helper_1_1io_1_1_image.html#a979817acdbebc158e0c64e8946dbf85e", null ],
-    [ "m_bLoaded", "classsofa_1_1helper_1_1io_1_1_image.html#a29cd05f014af3db3454bbcb995dddc9a", null ]
+    [ "channelFormat", "classsofa_1_1helper_1_1io_1_1_image.html#a9b4d1fdd51afa6b8146152e7b1095eee", null ],
+    [ "data", "classsofa_1_1helper_1_1io_1_1_image.html#ac24cea2bfcc927fd29bc74d1086707d8", null ],
+    [ "dataType", "classsofa_1_1helper_1_1io_1_1_image.html#ae15dc0dc7f2ba75df54ce3ac0a5af4f6", null ],
+    [ "depth", "classsofa_1_1helper_1_1io_1_1_image.html#ae2664ba3cf6162e7c15933d083553f52", null ],
+    [ "height", "classsofa_1_1helper_1_1io_1_1_image.html#aca36c0160c03c1526c37eb18fff3fe3d", null ],
+    [ "m_bLoaded", "classsofa_1_1helper_1_1io_1_1_image.html#a29cd05f014af3db3454bbcb995dddc9a", null ],
+    [ "mipmaps", "classsofa_1_1helper_1_1io_1_1_image.html#ad2476f751fdd95299b4c8867b47b5359", null ],
+    [ "strFromChannelFormat", "classsofa_1_1helper_1_1io_1_1_image.html#a692783a4f09f8d5814de0b91aeb52215", null ],
+    [ "strFromDataType", "classsofa_1_1helper_1_1io_1_1_image.html#ac2d77b6fd2e18e721525624878ecb253", null ],
+    [ "strFromTextureType", "classsofa_1_1helper_1_1io_1_1_image.html#a1232c43dbab50df28fed6f0557c640ea", null ],
+    [ "width", "classsofa_1_1helper_1_1io_1_1_image.html#a7fa72fbc1c4226b0615406b9d8f540ed", null ]
 ];

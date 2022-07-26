@@ -106,8 +106,9 @@ Inheritance diagram for FileEventListener:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ade1cdd417e5f9aee5fb8e81fff5eb734"><td class="memItemLeft" align="right" valign="top"><a id="ade1cdd417e5f9aee5fb8e81fff5eb734"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>fileHasChanged</b> (const std::string &amp;filename)=0</td></tr>
+<tr class="memitem:a8473f58c2ae83cca890be88d8e753d0b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html#a8473f58c2ae83cca890be88d8e753d0b">~FileEventListener</a> ()</td></tr>
+<tr class="separator:a8473f58c2ae83cca890be88d8e753d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade1cdd417e5f9aee5fb8e81fff5eb734"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html#ade1cdd417e5f9aee5fb8e81fff5eb734">fileHasChanged</a> (const std::string &amp;filename)=0</td></tr>
 <tr class="separator:ade1cdd417e5f9aee5fb8e81fff5eb734"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -116,13 +117,68 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>fileHasChange
 <p>This set of functions is not meant to be complete, but it can be completed if need be.</p>
 <p>Example of use: 1) implement the <a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html" title="Contains an event-based API to monitor file changes.">FileEventListener</a> interface 2) register the files you want to monitor using <a class="el" href="classsofa_1_1helper_1_1system_1_1_file_monitor.html#a81b593f40cdaf29ee56a2a5060b136bc" title="add a new filepath to monitor and a listener to be triggered in case of change. returns &gt;= 0 if the f...">FileMonitor::addFile</a>("mypath/to/file", &amp;mylistener); 3) call the update function to process &amp; trigger the events.</p>
 <p>The system does not contains any hidden thread. If you request the monitoring to happens in an hidden thread you can implement it externally. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8473f58c2ae83cca890be88d8e753d0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8473f58c2ae83cca890be88d8e753d0b">&#9670;&nbsp;</a></span>~FileEventListener()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ~<a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html">FileEventListener</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ade1cdd417e5f9aee5fb8e81fff5eb734"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade1cdd417e5f9aee5fb8e81fff5eb734">&#9670;&nbsp;</a></span>fileHasChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void fileHasChanged </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1gui_1_1qt_1_1_real_g_u_i_file_listener.html#aafa0c46dbfa3487cc078a2296feb27d7">RealGUIFileListener</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><b>system</b></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html">FileEventListener</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:10:54 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper_1_1system.html">system</a></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1system_1_1_file_event_listener.html">FileEventListener</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

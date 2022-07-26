@@ -37,5 +37,6 @@ var classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_
     [ "renumberPointsProcess", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_topology_modifier.html#a9fd3bb7ed1f83e909c98f3d67c4d8b17", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_topology_modifier.html#a65afadacb71c99b5e1c3eeb2826ae541", null ],
     [ "TriangleSetGeometryAlgorithms", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_topology_modifier.html#a255684ed47540a8501cb549a1957b1cc", null ],
-    [ "list_Out", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_topology_modifier.html#a296ea2ff3e81ec10087bab9a9fe77546", null ]
+    [ "list_Out", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_topology_modifier.html#a296ea2ff3e81ec10087bab9a9fe77546", null ],
+    [ "m_container", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_triangle_set_topology_modifier.html#a66b2ba78f3a1142b1776fd01b3982092", null ]
 ];

@@ -57,6 +57,8 @@ var classsofa_1_1core_1_1loader_1_1_mesh_loader =
     [ "clearBuffers", "classsofa_1_1core_1_1loader_1_1_mesh_loader.html#ad52beb3dcc87daf806b24dc358271e69", null ],
     [ "copyMeshToData", "classsofa_1_1core_1_1loader_1_1_mesh_loader.html#a2672766e0c8f8660de8f43438a563b8c", null ],
     [ "copyMeshToData", "classsofa_1_1core_1_1loader_1_1_mesh_loader.html#a1c050e2ec6968168653194ea1e64fc60", null ],
+    [ "doClearBuffers", "classsofa_1_1core_1_1loader_1_1_mesh_loader.html#acc291fb83a9e4520df5bf1e97a876c2a", null ],
+    [ "doLoad", "classsofa_1_1core_1_1loader_1_1_mesh_loader.html#af6ec4ea7d9d6a7e9470c9bc1748e7914", null ],
     [ "getRotation", "classsofa_1_1core_1_1loader_1_1_mesh_loader.html#aa78b95038d19ed44cd8d82686e46bde2", null ],
     [ "getScale", "classsofa_1_1core_1_1loader_1_1_mesh_loader.html#a68e1fec6628eb04fddc0ec971e24daf5", null ],
     [ "getTransformation", "classsofa_1_1core_1_1loader_1_1_mesh_loader.html#a0612f8de14b0f4377c99c11f30cf82be", null ],

@@ -84,29 +84,170 @@ $(document).ready(function(){initNavTree('class_eigen_1_1_sparse_time_dense_prod
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_eigen_1_1_sparse_time_dense_product___m_t-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SparseTimeDenseProduct_MT&lt; Lhs, Rhs &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_linear_algebra_2src_2sofa_2linearalgebra_2_eigen_base_sparse_matrix___m_t_8h_source.html">EigenBaseSparseMatrix_MT.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab583b2df3d97d77d554caf179cc86ec6"><td class="memItemLeft" align="right" valign="top"><a id="ab583b2df3d97d77d554caf179cc86ec6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SparseTimeDenseProduct_MT</b> (const Lhs &amp;lhs, const Rhs &amp;rhs, unsigned nbThreads)</td></tr>
+<tr class="memitem:ab583b2df3d97d77d554caf179cc86ec6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eigen_1_1_sparse_time_dense_product___m_t.html#ab583b2df3d97d77d554caf179cc86ec6">SparseTimeDenseProduct_MT</a> (const Lhs &amp;lhs, const Rhs &amp;rhs, unsigned nbThreads)</td></tr>
 <tr class="separator:ab583b2df3d97d77d554caf179cc86ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d12c779a285542c342cbd9c329cc99f"><td class="memTemplParams" colspan="2"><a id="a1d12c779a285542c342cbd9c329cc99f"></a>
-template&lt;typename Dest &gt; </td></tr>
-<tr class="memitem:a1d12c779a285542c342cbd9c329cc99f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>scaleAndAddTo</b> (Dest &amp;dest, const Scalar &amp;alpha) const</td></tr>
+<tr class="memitem:a1d12c779a285542c342cbd9c329cc99f"><td class="memTemplParams" colspan="2">template&lt;typename Dest &gt; </td></tr>
+<tr class="memitem:a1d12c779a285542c342cbd9c329cc99f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_eigen_1_1_sparse_time_dense_product___m_t.html#a1d12c779a285542c342cbd9c329cc99f">scaleAndAddTo</a> (Dest &amp;dest, const Scalar &amp;alpha) const</td></tr>
 <tr class="separator:a1d12c779a285542c342cbd9c329cc99f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a7ec2ff8a6e565723d1756a06bfa1589f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_eigen_1_1_sparse_time_dense_product___m_t.html">SparseTimeDenseProduct_MT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eigen_1_1_sparse_time_dense_product___m_t.html#a7ec2ff8a6e565723d1756a06bfa1589f">operator=</a> (const <a class="el" href="class_eigen_1_1_sparse_time_dense_product___m_t.html">SparseTimeDenseProduct_MT</a> &amp;)</td></tr>
+<tr class="separator:a7ec2ff8a6e565723d1756a06bfa1589f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aba391035edcd17d8392ba5ca125e1679"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eigen_1_1_sparse_time_dense_product___m_t.html#aba391035edcd17d8392ba5ca125e1679">m_nbThreads</a></td></tr>
+<tr class="separator:aba391035edcd17d8392ba5ca125e1679"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab583b2df3d97d77d554caf179cc86ec6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab583b2df3d97d77d554caf179cc86ec6">&#9670;&nbsp;</a></span>SparseTimeDenseProduct_MT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_eigen_1_1_sparse_time_dense_product___m_t.html">SparseTimeDenseProduct_MT</a> </td>
+          <td>(</td>
+          <td class="paramtype">const Lhs &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Rhs &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>nbThreads</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7ec2ff8a6e565723d1756a06bfa1589f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ec2ff8a6e565723d1756a06bfa1589f">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_eigen_1_1_sparse_time_dense_product___m_t.html">SparseTimeDenseProduct_MT</a>&amp; operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_eigen_1_1_sparse_time_dense_product___m_t.html">SparseTimeDenseProduct_MT</a>&lt; Lhs, Rhs &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d12c779a285542c342cbd9c329cc99f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d12c779a285542c342cbd9c329cc99f">&#9670;&nbsp;</a></span>scaleAndAddTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scaleAndAddTo </td>
+          <td>(</td>
+          <td class="paramtype">Dest &amp;&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Scalar &amp;&#160;</td>
+          <td class="paramname"><em>alpha</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aba391035edcd17d8392ba5ca125e1679"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba391035edcd17d8392ba5ca125e1679">&#9670;&nbsp;</a></span>m_nbThreads</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned m_nbThreads</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_eigen.html">Eigen</a></li><li class="navelem"><a class="el" href="class_eigen_1_1_sparse_time_dense_product___m_t.html">SparseTimeDenseProduct_MT</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:43:28 for SOFA by
+    <li class="footer">Generated on Tue Jul 26 2022 07:20:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

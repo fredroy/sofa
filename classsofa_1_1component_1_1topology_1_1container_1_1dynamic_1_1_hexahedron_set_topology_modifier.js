@@ -33,5 +33,6 @@ var classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_hexahedron_se
     [ "renumberPointsProcess", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_hexahedron_set_topology_modifier.html#a9fd3bb7ed1f83e909c98f3d67c4d8b17", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_hexahedron_set_topology_modifier.html#ae4911a667cde9484bd22527829e3c25f", null ],
     [ "HexahedronSetGeometryAlgorithms", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_hexahedron_set_topology_modifier.html#a913e7bffb74c3038bfb8d3c5e932d365", null ],
+    [ "m_container", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_hexahedron_set_topology_modifier.html#acade679c65e78b53c158c79f040dac68", null ],
     [ "removeIsolated", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_hexahedron_set_topology_modifier.html#aee1ce5247a30e3532737ec93b2cf6b2a", null ]
 ];

@@ -93,6 +93,8 @@ $(document).ready(function(){initNavTree('classsofa_1_1gui_1_1common_1_1_g_u_i_m
 <div class="title">GUIManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="src_2sofa_2gui_2common_2_g_u_i_manager_8h_source.html">GUIManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -101,69 +103,50 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a52333ed2878133e3da99d03b990a80db"><td class="memItemLeft" align="right" valign="top"><a id="a52333ed2878133e3da99d03b990a80db"></a>
-typedef <a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html">BaseGUI</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>CreateGUIFn</b>(const char *name, sofa::simulation::NodeSPtr groot, const char *filename)</td></tr>
+<tr class="memitem:a52333ed2878133e3da99d03b990a80db"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html">BaseGUI</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a52333ed2878133e3da99d03b990a80db">CreateGUIFn</a>(const char *name, <a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a> groot, const char *filename)</td></tr>
 <tr class="separator:a52333ed2878133e3da99d03b990a80db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae599abf9f4b9581c99c667844e683370"><td class="memItemLeft" align="right" valign="top"><a id="ae599abf9f4b9581c99c667844e683370"></a>
-typedef int&#160;</td><td class="memItemRight" valign="bottom"><b>RegisterGUIParameters</b>(<a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> *argumentParser)</td></tr>
+<tr class="memitem:ae599abf9f4b9581c99c667844e683370"><td class="memItemLeft" align="right" valign="top">typedef int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#ae599abf9f4b9581c99c667844e683370">RegisterGUIParameters</a>(<a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> *argumentParser)</td></tr>
 <tr class="separator:ae599abf9f4b9581c99c667844e683370"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a3b8a8d85aff78b06a47b266709fad18e"><td class="memItemLeft" align="right" valign="top"><a id="a3b8a8d85aff78b06a47b266709fad18e"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (const char *argv0, const char *name=&quot;&quot;)</td></tr>
+<tr class="memitem:a3b8a8d85aff78b06a47b266709fad18e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a3b8a8d85aff78b06a47b266709fad18e">Init</a> (const char *argv0, const char *name=&quot;&quot;)</td></tr>
 <tr class="separator:a3b8a8d85aff78b06a47b266709fad18e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89d95ff7e0b156cd46582dab89b6ae41"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a89d95ff7e0b156cd46582dab89b6ae41">RegisterGUI</a> (const char *name, CreateGUIFn *creator, RegisterGUIParameters *parameters=nullptr, int priority=0)</td></tr>
+<tr class="memitem:a89d95ff7e0b156cd46582dab89b6ae41"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a89d95ff7e0b156cd46582dab89b6ae41">RegisterGUI</a> (const char *name, <a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a52333ed2878133e3da99d03b990a80db">CreateGUIFn</a> *creator, <a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#ae599abf9f4b9581c99c667844e683370">RegisterGUIParameters</a> *parameters=nullptr, int priority=0)</td></tr>
 <tr class="memdesc:a89d95ff7e0b156cd46582dab89b6ae41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set parameter for a gui creation and Store in the guiCreators list.  <a href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a89d95ff7e0b156cd46582dab89b6ae41">More...</a><br /></td></tr>
 <tr class="separator:a89d95ff7e0b156cd46582dab89b6ae41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbfa76b569aa498f49ac5000cacaf2dc"><td class="memItemLeft" align="right" valign="top"><a id="abbfa76b569aa498f49ac5000cacaf2dc"></a>
-static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>GetValidGUIName</b> ()</td></tr>
+<tr class="memitem:abbfa76b569aa498f49ac5000cacaf2dc"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#abbfa76b569aa498f49ac5000cacaf2dc">GetValidGUIName</a> ()</td></tr>
 <tr class="separator:abbfa76b569aa498f49ac5000cacaf2dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acaacb3d1cc66e41464832edf1a02d467"><td class="memItemLeft" align="right" valign="top"><a id="acaacb3d1cc66e41464832edf1a02d467"></a>
-static const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetCurrentGUIName</b> ()</td></tr>
+<tr class="memitem:acaacb3d1cc66e41464832edf1a02d467"><td class="memItemLeft" align="right" valign="top">static const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#acaacb3d1cc66e41464832edf1a02d467">GetCurrentGUIName</a> ()</td></tr>
 <tr class="separator:acaacb3d1cc66e41464832edf1a02d467"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac67d51311e52c9f0962fde9a3a85b49d"><td class="memItemLeft" align="right" valign="top"><a id="ac67d51311e52c9f0962fde9a3a85b49d"></a>
-static std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ListSupportedGUI</b> ()</td></tr>
+<tr class="memitem:ac67d51311e52c9f0962fde9a3a85b49d"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#ac67d51311e52c9f0962fde9a3a85b49d">ListSupportedGUI</a> ()</td></tr>
 <tr class="separator:ac67d51311e52c9f0962fde9a3a85b49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44381f044c4510feea6b3d157248ef59"><td class="memItemLeft" align="right" valign="top"><a id="a44381f044c4510feea6b3d157248ef59"></a>
-static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ListSupportedGUI</b> (char separator)</td></tr>
+<tr class="memitem:a44381f044c4510feea6b3d157248ef59"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a44381f044c4510feea6b3d157248ef59">ListSupportedGUI</a> (char separator)</td></tr>
 <tr class="separator:a44381f044c4510feea6b3d157248ef59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8156f328359920543b2db86ef5fcc590"><td class="memItemLeft" align="right" valign="top"><a id="a8156f328359920543b2db86ef5fcc590"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>RegisterParameters</b> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> *parser)</td></tr>
+<tr class="memitem:a8156f328359920543b2db86ef5fcc590"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a8156f328359920543b2db86ef5fcc590">RegisterParameters</a> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> *parser)</td></tr>
 <tr class="separator:a8156f328359920543b2db86ef5fcc590"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a121cb493da3485c4d985301a7ffe03ac"><td class="memItemLeft" align="right" valign="top"><a id="a121cb493da3485c4d985301a7ffe03ac"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>createGUI</b> (sofa::simulation::NodeSPtr groot=nullptr, const char *filename=nullptr)</td></tr>
+<tr class="memitem:a121cb493da3485c4d985301a7ffe03ac"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a121cb493da3485c4d985301a7ffe03ac">createGUI</a> (<a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a> groot=nullptr, const char *filename=nullptr)</td></tr>
 <tr class="separator:a121cb493da3485c4d985301a7ffe03ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ae989a7cbc049c589adc6b08fb9317b"><td class="memItemLeft" align="right" valign="top"><a id="a3ae989a7cbc049c589adc6b08fb9317b"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>closeGUI</b> ()</td></tr>
+<tr class="memitem:a3ae989a7cbc049c589adc6b08fb9317b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a3ae989a7cbc049c589adc6b08fb9317b">closeGUI</a> ()</td></tr>
 <tr class="separator:a3ae989a7cbc049c589adc6b08fb9317b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59b0f8771b1dc640f165416d1d6d2aa3"><td class="memItemLeft" align="right" valign="top"><a id="a59b0f8771b1dc640f165416d1d6d2aa3"></a>
-static <a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html">BaseGUI</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getGUI</b> ()</td></tr>
+<tr class="memitem:a59b0f8771b1dc640f165416d1d6d2aa3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html">BaseGUI</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a59b0f8771b1dc640f165416d1d6d2aa3">getGUI</a> ()</td></tr>
 <tr class="separator:a59b0f8771b1dc640f165416d1d6d2aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Static methods for direct access to GUI</div></td></tr>
-<tr class="memitem:a92563a8e8bd0c5dce9a90c966353095b"><td class="memItemLeft" align="right" valign="top"><a id="a92563a8e8bd0c5dce9a90c966353095b"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>MainLoop</b> (sofa::simulation::NodeSPtr groot=nullptr, const char *filename=nullptr)</td></tr>
+<tr class="memitem:a92563a8e8bd0c5dce9a90c966353095b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a92563a8e8bd0c5dce9a90c966353095b">MainLoop</a> (<a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a> groot=nullptr, const char *filename=nullptr)</td></tr>
 <tr class="separator:a92563a8e8bd0c5dce9a90c966353095b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb6b3ccab84333a2dfaa3e87cfc3c3ab"><td class="memItemLeft" align="right" valign="top"><a id="abb6b3ccab84333a2dfaa3e87cfc3c3ab"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>Redraw</b> ()</td></tr>
+<tr class="memitem:abb6b3ccab84333a2dfaa3e87cfc3c3ab"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#abb6b3ccab84333a2dfaa3e87cfc3c3ab">Redraw</a> ()</td></tr>
 <tr class="separator:abb6b3ccab84333a2dfaa3e87cfc3c3ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad26876978fb4b6332ef78023f4c06211"><td class="memItemLeft" align="right" valign="top"><a id="ad26876978fb4b6332ef78023f4c06211"></a>
-static <a class="el" href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>CurrentSimulation</b> ()</td></tr>
+<tr class="memitem:ad26876978fb4b6332ef78023f4c06211"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#ad26876978fb4b6332ef78023f4c06211">CurrentSimulation</a> ()</td></tr>
 <tr class="separator:ad26876978fb4b6332ef78023f4c06211"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7481c370a273eac9c82db09b579ca87e"><td class="memItemLeft" align="right" valign="top"><a id="a7481c370a273eac9c82db09b579ca87e"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetScene</b> (sofa::simulation::NodeSPtr groot, const char *filename=nullptr, bool temporaryFile=false)</td></tr>
+<tr class="memitem:a7481c370a273eac9c82db09b579ca87e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a7481c370a273eac9c82db09b579ca87e">SetScene</a> (<a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a> groot, const char *filename=nullptr, bool temporaryFile=false)</td></tr>
 <tr class="separator:a7481c370a273eac9c82db09b579ca87e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0da5a2d9f3f514907b0e3c08b032c006"><td class="memItemLeft" align="right" valign="top"><a id="a0da5a2d9f3f514907b0e3c08b032c006"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDimension</b> (int width, int height)</td></tr>
+<tr class="memitem:a0da5a2d9f3f514907b0e3c08b032c006"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a0da5a2d9f3f514907b0e3c08b032c006">SetDimension</a> (int width, int height)</td></tr>
 <tr class="separator:a0da5a2d9f3f514907b0e3c08b032c006"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae78c7f87a18cc97fa5f9c0f443c104f1"><td class="memItemLeft" align="right" valign="top"><a id="ae78c7f87a18cc97fa5f9c0f443c104f1"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFullScreen</b> ()</td></tr>
+<tr class="memitem:ae78c7f87a18cc97fa5f9c0f443c104f1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#ae78c7f87a18cc97fa5f9c0f443c104f1">SetFullScreen</a> ()</td></tr>
 <tr class="separator:ae78c7f87a18cc97fa5f9c0f443c104f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa876a4f568c7adfbcc2840b3456a769d"><td class="memItemLeft" align="right" valign="top"><a id="aa876a4f568c7adfbcc2840b3456a769d"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>CenterWindow</b> ()</td></tr>
+<tr class="memitem:aa876a4f568c7adfbcc2840b3456a769d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#aa876a4f568c7adfbcc2840b3456a769d">CenterWindow</a> ()</td></tr>
 <tr class="separator:aa876a4f568c7adfbcc2840b3456a769d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a91ca7af5d53c5f431f032db7a7a843"><td class="memItemLeft" align="right" valign="top"><a id="a5a91ca7af5d53c5f431f032db7a7a843"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>SaveScreenshot</b> (const char *filename)</td></tr>
+<tr class="memitem:a5a91ca7af5d53c5f431f032db7a7a843"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a5a91ca7af5d53c5f431f032db7a7a843">SaveScreenshot</a> (const char *filename)</td></tr>
 <tr class="separator:a5a91ca7af5d53c5f431f032db7a7a843"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
@@ -174,23 +157,208 @@ Static Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a898541dfea16f1cd0db6fa3e57575879"><td class="memItemLeft" align="right" valign="top"><a id="a898541dfea16f1cd0db6fa3e57575879"></a>
-static std::list&lt; <a class="el" href="structsofa_1_1gui_1_1common_1_1_g_u_i_manager_1_1_g_u_i_creator.html">GUICreator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>guiCreators</b></td></tr>
+<tr class="memitem:a898541dfea16f1cd0db6fa3e57575879"><td class="memItemLeft" align="right" valign="top">static std::list&lt; <a class="el" href="structsofa_1_1gui_1_1common_1_1_g_u_i_manager_1_1_g_u_i_creator.html">GUICreator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a898541dfea16f1cd0db6fa3e57575879">guiCreators</a></td></tr>
 <tr class="separator:a898541dfea16f1cd0db6fa3e57575879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd233bbce0b10d615de9deb1425dbf18"><td class="memItemLeft" align="right" valign="top"><a id="afd233bbce0b10d615de9deb1425dbf18"></a>
-static std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>guiOptions</b></td></tr>
+<tr class="memitem:afd233bbce0b10d615de9deb1425dbf18"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#afd233bbce0b10d615de9deb1425dbf18">guiOptions</a></td></tr>
 <tr class="separator:afd233bbce0b10d615de9deb1425dbf18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec0f02137bc6fd038af1de0aa234f5cb"><td class="memItemLeft" align="right" valign="top"><a id="aec0f02137bc6fd038af1de0aa234f5cb"></a>
-static <a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html">BaseGUI</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>currentGUI</b> = nullptr</td></tr>
+<tr class="memitem:aec0f02137bc6fd038af1de0aa234f5cb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html">BaseGUI</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#aec0f02137bc6fd038af1de0aa234f5cb">currentGUI</a> = nullptr</td></tr>
 <tr class="separator:aec0f02137bc6fd038af1de0aa234f5cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b10189359f874f002181076524dc120"><td class="memItemLeft" align="right" valign="top"><a id="a3b10189359f874f002181076524dc120"></a>
-static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>valid_guiname</b> = &quot;&quot;</td></tr>
+<tr class="memitem:a3b10189359f874f002181076524dc120"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a3b10189359f874f002181076524dc120">valid_guiname</a> = &quot;&quot;</td></tr>
 <tr class="separator:a3b10189359f874f002181076524dc120"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb13649096c10c06bd2c73304367a990"><td class="memItemLeft" align="right" valign="top"><a id="afb13649096c10c06bd2c73304367a990"></a>
-static <a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>currentArgumentParser</b> = nullptr</td></tr>
+<tr class="memitem:afb13649096c10c06bd2c73304367a990"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#afb13649096c10c06bd2c73304367a990">currentArgumentParser</a> = nullptr</td></tr>
 <tr class="separator:afb13649096c10c06bd2c73304367a990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a52333ed2878133e3da99d03b990a80db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52333ed2878133e3da99d03b990a80db">&#9670;&nbsp;</a></span>CreateGUIFn</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html">BaseGUI</a>* CreateGUIFn(const char *name, <a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a> groot, const char *filename)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae599abf9f4b9581c99c667844e683370"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae599abf9f4b9581c99c667844e683370">&#9670;&nbsp;</a></span>RegisterGUIParameters</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef int RegisterGUIParameters(<a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> *argumentParser)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa876a4f568c7adfbcc2840b3456a769d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa876a4f568c7adfbcc2840b3456a769d">&#9670;&nbsp;</a></span>CenterWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CenterWindow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3ae989a7cbc049c589adc6b08fb9317b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ae989a7cbc049c589adc6b08fb9317b">&#9670;&nbsp;</a></span>closeGUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void closeGUI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a121cb493da3485c4d985301a7ffe03ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a121cb493da3485c4d985301a7ffe03ac">&#9670;&nbsp;</a></span>createGUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int createGUI </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a>&#160;</td>
+          <td class="paramname"><em>groot</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad26876978fb4b6332ef78023f4c06211"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad26876978fb4b6332ef78023f4c06211">&#9670;&nbsp;</a></span>CurrentSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a> * CurrentSimulation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acaacb3d1cc66e41464832edf1a02d467"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaacb3d1cc66e41464832edf1a02d467">&#9670;&nbsp;</a></span>GetCurrentGUIName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; GetCurrentGUIName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59b0f8771b1dc640f165416d1d6d2aa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59b0f8771b1dc640f165416d1d6d2aa3">&#9670;&nbsp;</a></span>getGUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html">BaseGUI</a> * getGUI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7e0990995bb056b3eaffc02df9d14ef1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7e0990995bb056b3eaffc02df9d14ef1">&#9670;&nbsp;</a></span>GetGUICreator()</h2>
 
@@ -226,6 +394,179 @@ static <a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">
 
 </div>
 </div>
+<a id="abbfa76b569aa498f49ac5000cacaf2dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbfa76b569aa498f49ac5000cacaf2dc">&#9670;&nbsp;</a></span>GetValidGUIName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * GetValidGUIName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b8a8d85aff78b06a47b266709fad18e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b8a8d85aff78b06a47b266709fad18e">&#9670;&nbsp;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Init </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>argv0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac67d51311e52c9f0962fde9a3a85b49d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac67d51311e52c9f0962fde9a3a85b49d">&#9670;&nbsp;</a></span>ListSupportedGUI() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; ListSupportedGUI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a44381f044c4510feea6b3d157248ef59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44381f044c4510feea6b3d157248ef59">&#9670;&nbsp;</a></span>ListSupportedGUI() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ListSupportedGUI </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>separator</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92563a8e8bd0c5dce9a90c966353095b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92563a8e8bd0c5dce9a90c966353095b">&#9670;&nbsp;</a></span>MainLoop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MainLoop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a>&#160;</td>
+          <td class="paramname"><em>groot</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb6b3ccab84333a2dfaa3e87cfc3c3ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb6b3ccab84333a2dfaa3e87cfc3c3ab">&#9670;&nbsp;</a></span>Redraw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Redraw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a89d95ff7e0b156cd46582dab89b6ae41"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a89d95ff7e0b156cd46582dab89b6ae41">&#9670;&nbsp;</a></span>RegisterGUI()</h2>
 
@@ -244,13 +585,13 @@ static <a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">CreateGUIFn *&#160;</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a52333ed2878133e3da99d03b990a80db">CreateGUIFn</a> *&#160;</td>
           <td class="paramname"><em>creator</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">RegisterGUIParameters *&#160;</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#ae599abf9f4b9581c99c667844e683370">RegisterGUIParameters</a> *&#160;</td>
           <td class="paramname"><em>parameters</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
@@ -276,13 +617,279 @@ static <a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>: It is the name of your gui. This name is compared with the name parameter when you set GUIManager::Init(name). It must be the same. </td></tr>
-    <tr><td class="paramname">creator</td><td>: The pointer function which call when GUIManager::createGUI() </td></tr>
-    <tr><td class="paramname">init</td><td>: The pointer function which call when GUIManager::Init() </td></tr>
-    <tr><td class="paramname">priority</td><td>: If nothing is given as name GUIManager::Init parameter GUIManager::valid_guiname is automaticly set compared with the priority </td></tr>
+    <tr><td class="paramname">creator</td><td>: The pointer function which call when <a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a121cb493da3485c4d985301a7ffe03ac">GUIManager::createGUI()</a> </td></tr>
+    <tr><td class="paramname">init</td><td>: The pointer function which call when <a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a3b8a8d85aff78b06a47b266709fad18e">GUIManager::Init()</a> </td></tr>
+    <tr><td class="paramname">priority</td><td>: If nothing is given as name <a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a3b8a8d85aff78b06a47b266709fad18e">GUIManager::Init</a> parameter <a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html#a3b10189359f874f002181076524dc120">GUIManager::valid_guiname</a> is automaticly set compared with the priority </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if the name is already used (failed), 0 if restry succed </dd></dl>
+
+</div>
+</div>
+<a id="a8156f328359920543b2db86ef5fcc590"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8156f328359920543b2db86ef5fcc590">&#9670;&nbsp;</a></span>RegisterParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RegisterParameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> *&#160;</td>
+          <td class="paramname"><em>parser</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5a91ca7af5d53c5f431f032db7a7a843"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a91ca7af5d53c5f431f032db7a7a843">&#9670;&nbsp;</a></span>SaveScreenshot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SaveScreenshot </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0da5a2d9f3f514907b0e3c08b032c006"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0da5a2d9f3f514907b0e3c08b032c006">&#9670;&nbsp;</a></span>SetDimension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetDimension </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae78c7f87a18cc97fa5f9c0f443c104f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae78c7f87a18cc97fa5f9c0f443c104f1">&#9670;&nbsp;</a></span>SetFullScreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetFullScreen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7481c370a273eac9c82db09b579ca87e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7481c370a273eac9c82db09b579ca87e">&#9670;&nbsp;</a></span>SetScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetScene </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a>&#160;</td>
+          <td class="paramname"><em>groot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>temporaryFile</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="afb13649096c10c06bd2c73304367a990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb13649096c10c06bd2c73304367a990">&#9670;&nbsp;</a></span>currentArgumentParser</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">ArgumentParser</a> * currentArgumentParser = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec0f02137bc6fd038af1de0aa234f5cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec0f02137bc6fd038af1de0aa234f5cb">&#9670;&nbsp;</a></span>currentGUI</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1gui_1_1common_1_1_base_g_u_i.html">BaseGUI</a> * currentGUI = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a898541dfea16f1cd0db6fa3e57575879"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a898541dfea16f1cd0db6fa3e57575879">&#9670;&nbsp;</a></span>guiCreators</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt; <a class="el" href="structsofa_1_1gui_1_1common_1_1_g_u_i_manager_1_1_g_u_i_creator.html">GUIManager::GUICreator</a> &gt; guiCreators</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afd233bbce0b10d615de9deb1425dbf18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd233bbce0b10d615de9deb1425dbf18">&#9670;&nbsp;</a></span>guiOptions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; guiOptions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b10189359f874f002181076524dc120"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b10189359f874f002181076524dc120">&#9670;&nbsp;</a></span>valid_guiname</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string valid_guiname = &quot;&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -291,8 +898,8 @@ static <a class="el" href="classsofa_1_1gui_1_1common_1_1_argument_parser.html">
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>gui</b></li><li class="navelem"><b>common</b></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html">GUIManager</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:34 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui.html">gui</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui_1_1common.html">common</a></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1common_1_1_g_u_i_manager.html">GUIManager</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:22 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

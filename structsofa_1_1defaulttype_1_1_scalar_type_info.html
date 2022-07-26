@@ -90,103 +90,695 @@ $(document).ready(function(){initNavTree('structsofa_1_1defaulttype_1_1_scalar_t
 <div class="title">ScalarTypeInfo&lt; TDataType &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_scalar_type_info_8h_source.html">ScalarTypeInfo.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a8feb5a39a55448c86e0dfc20f53a6c1d"><td class="memItemLeft" align="right" valign="top"><a id="a8feb5a39a55448c86e0dfc20f53a6c1d"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>ValidInfo</b> = 1
+<tr class="memitem:a8feb5a39a55448c86e0dfc20f53a6c1d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a8feb5a39a55448c86e0dfc20f53a6c1da2e7c6d9d9457b9a31291105f16219b89">ValidInfo</a> = 1
  }</td></tr>
 <tr class="separator:a8feb5a39a55448c86e0dfc20f53a6c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa1faf9307efabe7471b4443de4ba66b"><td class="memItemLeft" align="right" valign="top"><a id="aaa1faf9307efabe7471b4443de4ba66b"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>FixedSize</b> = 1
+<tr class="memitem:aaa1faf9307efabe7471b4443de4ba66b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#aaa1faf9307efabe7471b4443de4ba66ba2cd2b0d16cc34392f24a972a139e0be0">FixedSize</a> = 1
  }</td></tr>
 <tr class="separator:aaa1faf9307efabe7471b4443de4ba66b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14061dd054afd472999a4f4f6cdf3923"><td class="memItemLeft" align="right" valign="top"><a id="a14061dd054afd472999a4f4f6cdf3923"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>ZeroConstructor</b> = 1
+<tr class="memitem:a14061dd054afd472999a4f4f6cdf3923"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a14061dd054afd472999a4f4f6cdf3923aa09500aa34f1ab66f166bad6ed0161c7">ZeroConstructor</a> = 1
  }</td></tr>
 <tr class="separator:a14061dd054afd472999a4f4f6cdf3923"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5584fee7841d9376fb0394600e9ed81a"><td class="memItemLeft" align="right" valign="top"><a id="a5584fee7841d9376fb0394600e9ed81a"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>SimpleCopy</b> = 1
+<tr class="memitem:a5584fee7841d9376fb0394600e9ed81a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a5584fee7841d9376fb0394600e9ed81aabd37ce845298f0c4156391b71cb28776">SimpleCopy</a> = 1
  }</td></tr>
 <tr class="separator:a5584fee7841d9376fb0394600e9ed81a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e66f304417530ef056f13a6a6dc668a"><td class="memItemLeft" align="right" valign="top"><a id="a5e66f304417530ef056f13a6a6dc668a"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>SimpleLayout</b> = 1
+<tr class="memitem:a5e66f304417530ef056f13a6a6dc668a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a5e66f304417530ef056f13a6a6dc668aaf1937739ad4c72f469164b51c8fbfb11">SimpleLayout</a> = 1
  }</td></tr>
 <tr class="separator:a5e66f304417530ef056f13a6a6dc668a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af77d65ab56b38a820b1efc0bcafbd4fb"><td class="memItemLeft" align="right" valign="top"><a id="af77d65ab56b38a820b1efc0bcafbd4fb"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Integer</b> = 0
+<tr class="memitem:af77d65ab56b38a820b1efc0bcafbd4fb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#af77d65ab56b38a820b1efc0bcafbd4fba1e2f89e867cd91c3de2ea9fbd2ef96a3">Integer</a> = 0
  }</td></tr>
 <tr class="separator:af77d65ab56b38a820b1efc0bcafbd4fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0724528cce39d640312f4a7ad1a893f7"><td class="memItemLeft" align="right" valign="top"><a id="a0724528cce39d640312f4a7ad1a893f7"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Scalar</b> = 1
+<tr class="memitem:a0724528cce39d640312f4a7ad1a893f7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a0724528cce39d640312f4a7ad1a893f7ad589986008e8fea1b1726f564d17dd13">Scalar</a> = 1
  }</td></tr>
 <tr class="separator:a0724528cce39d640312f4a7ad1a893f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac72f7803394f05658258f8a2b76f53aa"><td class="memItemLeft" align="right" valign="top"><a id="ac72f7803394f05658258f8a2b76f53aa"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Text</b> = 0
+<tr class="memitem:ac72f7803394f05658258f8a2b76f53aa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#ac72f7803394f05658258f8a2b76f53aaa35d0dd9a40755601b657244976bfc14b">Text</a> = 0
  }</td></tr>
 <tr class="separator:ac72f7803394f05658258f8a2b76f53aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a425be5f49e9c31d8d13d53190a3e7bc2"><td class="memItemLeft" align="right" valign="top"><a id="a425be5f49e9c31d8d13d53190a3e7bc2"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>CopyOnWrite</b> = 0
+<tr class="memitem:a425be5f49e9c31d8d13d53190a3e7bc2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a425be5f49e9c31d8d13d53190a3e7bc2a611f008a9989ce97b80ee9e701d8e2d7">CopyOnWrite</a> = 0
  }</td></tr>
 <tr class="separator:a425be5f49e9c31d8d13d53190a3e7bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6739788b75165c40c5fa298fbd9c18bd"><td class="memItemLeft" align="right" valign="top"><a id="a6739788b75165c40c5fa298fbd9c18bd"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Container</b> = 0
+<tr class="memitem:a6739788b75165c40c5fa298fbd9c18bd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a6739788b75165c40c5fa298fbd9c18bda960c324d4c72aa0923e8bcac8c646b48">Container</a> = 0
  }</td></tr>
 <tr class="separator:a6739788b75165c40c5fa298fbd9c18bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab98c672c5aaffb98a9189cd99e58ff23"><td class="memItemLeft" align="right" valign="top"><a id="ab98c672c5aaffb98a9189cd99e58ff23"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Size</b> = 1
+<tr class="memitem:ab98c672c5aaffb98a9189cd99e58ff23"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#ab98c672c5aaffb98a9189cd99e58ff23aff9abf2b1a689f70a77a18da50c01d9f">Size</a> = 1
  }</td></tr>
 <tr class="separator:ab98c672c5aaffb98a9189cd99e58ff23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ebb03dba98a3e2017dadca894b04313"><td class="memItemLeft" align="right" valign="top"><a id="a4ebb03dba98a3e2017dadca894b04313"></a>
-typedef TDataType&#160;</td><td class="memItemRight" valign="bottom"><b>DataType</b></td></tr>
+<tr class="memitem:a4ebb03dba98a3e2017dadca894b04313"><td class="memItemLeft" align="right" valign="top">typedef TDataType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a></td></tr>
 <tr class="separator:a4ebb03dba98a3e2017dadca894b04313"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f1030958cae3f5c7b16c4baf2374a63"><td class="memItemLeft" align="right" valign="top"><a id="a2f1030958cae3f5c7b16c4baf2374a63"></a>
-typedef DataType&#160;</td><td class="memItemRight" valign="bottom"><b>BaseType</b></td></tr>
+<tr class="memitem:a2f1030958cae3f5c7b16c4baf2374a63"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a2f1030958cae3f5c7b16c4baf2374a63">BaseType</a></td></tr>
 <tr class="separator:a2f1030958cae3f5c7b16c4baf2374a63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7486b7c85d04e4a515fde127fd781570"><td class="memItemLeft" align="right" valign="top"><a id="a7486b7c85d04e4a515fde127fd781570"></a>
-typedef DataType&#160;</td><td class="memItemRight" valign="bottom"><b>ValueType</b></td></tr>
+<tr class="memitem:a7486b7c85d04e4a515fde127fd781570"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a7486b7c85d04e4a515fde127fd781570">ValueType</a></td></tr>
 <tr class="separator:a7486b7c85d04e4a515fde127fd781570"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92cdbe7aea63f760a5d85e8317833815"><td class="memItemLeft" align="right" valign="top"><a id="a92cdbe7aea63f760a5d85e8317833815"></a>
-typedef long long&#160;</td><td class="memItemRight" valign="bottom"><b>ConvType</b></td></tr>
+<tr class="memitem:a92cdbe7aea63f760a5d85e8317833815"><td class="memItemLeft" align="right" valign="top">typedef long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a92cdbe7aea63f760a5d85e8317833815">ConvType</a></td></tr>
 <tr class="separator:a92cdbe7aea63f760a5d85e8317833815"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6319166aa9f48fd47a34fe7bd44d8d45"><td class="memItemLeft" align="right" valign="top"><a id="a6319166aa9f48fd47a34fe7bd44d8d45"></a>
-typedef <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html">ScalarTypeInfo</a>&lt; TDataType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>BaseTypeInfo</b></td></tr>
+<tr class="memitem:a6319166aa9f48fd47a34fe7bd44d8d45"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html">ScalarTypeInfo</a>&lt; TDataType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a6319166aa9f48fd47a34fe7bd44d8d45">BaseTypeInfo</a></td></tr>
 <tr class="separator:a6319166aa9f48fd47a34fe7bd44d8d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5ef4233890512c24f619307f84f71f6"><td class="memItemLeft" align="right" valign="top"><a id="ab5ef4233890512c24f619307f84f71f6"></a>
-typedef <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html">ScalarTypeInfo</a>&lt; TDataType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ValueTypeInfo</b></td></tr>
+<tr class="memitem:ab5ef4233890512c24f619307f84f71f6"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html">ScalarTypeInfo</a>&lt; TDataType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#ab5ef4233890512c24f619307f84f71f6">ValueTypeInfo</a></td></tr>
 <tr class="separator:ab5ef4233890512c24f619307f84f71f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aa9cf1bb1e3778c4f285e753e5bcb440e"><td class="memItemLeft" align="right" valign="top"><a id="aa9cf1bb1e3778c4f285e753e5bcb440e"></a>
-static sofa::Size&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> ()</td></tr>
+<tr class="memitem:aa9cf1bb1e3778c4f285e753e5bcb440e"><td class="memItemLeft" align="right" valign="top">static sofa::Size&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#aa9cf1bb1e3778c4f285e753e5bcb440e">size</a> ()</td></tr>
 <tr class="separator:aa9cf1bb1e3778c4f285e753e5bcb440e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5568572189d7edfc83572f5e5b201f6d"><td class="memItemLeft" align="right" valign="top"><a id="a5568572189d7edfc83572f5e5b201f6d"></a>
-static sofa::Size&#160;</td><td class="memItemRight" valign="bottom"><b>byteSize</b> ()</td></tr>
+<tr class="memitem:a5568572189d7edfc83572f5e5b201f6d"><td class="memItemLeft" align="right" valign="top">static sofa::Size&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a5568572189d7edfc83572f5e5b201f6d">byteSize</a> ()</td></tr>
 <tr class="separator:a5568572189d7edfc83572f5e5b201f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb4ad6832d7a735e80f418c3c011c235"><td class="memItemLeft" align="right" valign="top"><a id="afb4ad6832d7a735e80f418c3c011c235"></a>
-static sofa::Size&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> (const DataType &amp;)</td></tr>
+<tr class="memitem:afb4ad6832d7a735e80f418c3c011c235"><td class="memItemLeft" align="right" valign="top">static sofa::Size&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#afb4ad6832d7a735e80f418c3c011c235">size</a> (const <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;)</td></tr>
 <tr class="separator:afb4ad6832d7a735e80f418c3c011c235"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f330487f3d7a0da16be72da86214d77"><td class="memItemLeft" align="right" valign="top"><a id="a3f330487f3d7a0da16be72da86214d77"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>setSize</b> (DataType &amp;, sofa::Size)</td></tr>
+<tr class="memitem:a3f330487f3d7a0da16be72da86214d77"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a3f330487f3d7a0da16be72da86214d77">setSize</a> (<a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;, sofa::Size)</td></tr>
 <tr class="separator:a3f330487f3d7a0da16be72da86214d77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17610f5c478195e208ebc6a476907bc2"><td class="memTemplParams" colspan="2"><a id="a17610f5c478195e208ebc6a476907bc2"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a17610f5c478195e208ebc6a476907bc2"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>getValue</b> (const DataType &amp;data, sofa::Size index, T &amp;value)</td></tr>
+<tr class="memitem:a17610f5c478195e208ebc6a476907bc2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a17610f5c478195e208ebc6a476907bc2"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a17610f5c478195e208ebc6a476907bc2">getValue</a> (const <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;data, sofa::Size index, T &amp;value)</td></tr>
 <tr class="separator:a17610f5c478195e208ebc6a476907bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0749b8afb7f8cb835e06d1b67f39fb36"><td class="memTemplParams" colspan="2"><a id="a0749b8afb7f8cb835e06d1b67f39fb36"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a0749b8afb7f8cb835e06d1b67f39fb36"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>setValue</b> (DataType &amp;data, sofa::Size index, const T &amp;value)</td></tr>
+<tr class="memitem:a0749b8afb7f8cb835e06d1b67f39fb36"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0749b8afb7f8cb835e06d1b67f39fb36"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a0749b8afb7f8cb835e06d1b67f39fb36">setValue</a> (<a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;data, sofa::Size index, const T &amp;value)</td></tr>
 <tr class="separator:a0749b8afb7f8cb835e06d1b67f39fb36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeef964da96e4c396c571d69f2e713a89"><td class="memItemLeft" align="right" valign="top"><a id="aeef964da96e4c396c571d69f2e713a89"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>getValueString</b> (const DataType &amp;data, sofa::Size index, std::string &amp;value)</td></tr>
+<tr class="memitem:aeef964da96e4c396c571d69f2e713a89"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#aeef964da96e4c396c571d69f2e713a89">getValueString</a> (const <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;data, sofa::Size index, std::string &amp;value)</td></tr>
 <tr class="separator:aeef964da96e4c396c571d69f2e713a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91270cfc358936144c99c938613b5222"><td class="memItemLeft" align="right" valign="top"><a id="a91270cfc358936144c99c938613b5222"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>setValueString</b> (DataType &amp;data, sofa::Size index, const std::string &amp;value)</td></tr>
+<tr class="memitem:a91270cfc358936144c99c938613b5222"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a91270cfc358936144c99c938613b5222">setValueString</a> (<a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;data, sofa::Size index, const std::string &amp;value)</td></tr>
 <tr class="separator:a91270cfc358936144c99c938613b5222"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4329814b5bfba1f9414a3e1cf9b3feb"><td class="memItemLeft" align="right" valign="top"><a id="af4329814b5bfba1f9414a3e1cf9b3feb"></a>
-static const void *&#160;</td><td class="memItemRight" valign="bottom"><b>getValuePtr</b> (const DataType &amp;data)</td></tr>
+<tr class="memitem:af4329814b5bfba1f9414a3e1cf9b3feb"><td class="memItemLeft" align="right" valign="top">static const void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#af4329814b5bfba1f9414a3e1cf9b3feb">getValuePtr</a> (const <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;data)</td></tr>
 <tr class="separator:af4329814b5bfba1f9414a3e1cf9b3feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae52f1edf1af18ff12ab42c8f987f7538"><td class="memItemLeft" align="right" valign="top"><a id="ae52f1edf1af18ff12ab42c8f987f7538"></a>
-static void *&#160;</td><td class="memItemRight" valign="bottom"><b>getValuePtr</b> (DataType &amp;data)</td></tr>
+<tr class="memitem:ae52f1edf1af18ff12ab42c8f987f7538"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#ae52f1edf1af18ff12ab42c8f987f7538">getValuePtr</a> (<a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;data)</td></tr>
 <tr class="separator:ae52f1edf1af18ff12ab42c8f987f7538"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a2f1030958cae3f5c7b16c4baf2374a63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f1030958cae3f5c7b16c4baf2374a63">&#9670;&nbsp;</a></span>BaseType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a2f1030958cae3f5c7b16c4baf2374a63">BaseType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6319166aa9f48fd47a34fe7bd44d8d45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6319166aa9f48fd47a34fe7bd44d8d45">&#9670;&nbsp;</a></span>BaseTypeInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html">ScalarTypeInfo</a>&lt;TDataType&gt; <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a6319166aa9f48fd47a34fe7bd44d8d45">BaseTypeInfo</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92cdbe7aea63f760a5d85e8317833815"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92cdbe7aea63f760a5d85e8317833815">&#9670;&nbsp;</a></span>ConvType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef long long <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a92cdbe7aea63f760a5d85e8317833815">ConvType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ebb03dba98a3e2017dadca894b04313"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ebb03dba98a3e2017dadca894b04313">&#9670;&nbsp;</a></span>DataType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef TDataType <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7486b7c85d04e4a515fde127fd781570"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7486b7c85d04e4a515fde127fd781570">&#9670;&nbsp;</a></span>ValueType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a7486b7c85d04e4a515fde127fd781570">ValueType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab5ef4233890512c24f619307f84f71f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5ef4233890512c24f619307f84f71f6">&#9670;&nbsp;</a></span>ValueTypeInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html">ScalarTypeInfo</a>&lt;TDataType&gt; <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#ab5ef4233890512c24f619307f84f71f6">ValueTypeInfo</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a8feb5a39a55448c86e0dfc20f53a6c1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8feb5a39a55448c86e0dfc20f53a6c1d">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8feb5a39a55448c86e0dfc20f53a6c1da2e7c6d9d9457b9a31291105f16219b89"></a>ValidInfo&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="aaa1faf9307efabe7471b4443de4ba66b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa1faf9307efabe7471b4443de4ba66b">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aaa1faf9307efabe7471b4443de4ba66ba2cd2b0d16cc34392f24a972a139e0be0"></a>FixedSize&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a14061dd054afd472999a4f4f6cdf3923"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14061dd054afd472999a4f4f6cdf3923">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a14061dd054afd472999a4f4f6cdf3923aa09500aa34f1ab66f166bad6ed0161c7"></a>ZeroConstructor&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a5584fee7841d9376fb0394600e9ed81a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5584fee7841d9376fb0394600e9ed81a">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5584fee7841d9376fb0394600e9ed81aabd37ce845298f0c4156391b71cb28776"></a>SimpleCopy&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a5e66f304417530ef056f13a6a6dc668a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e66f304417530ef056f13a6a6dc668a">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5e66f304417530ef056f13a6a6dc668aaf1937739ad4c72f469164b51c8fbfb11"></a>SimpleLayout&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="af77d65ab56b38a820b1efc0bcafbd4fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af77d65ab56b38a820b1efc0bcafbd4fb">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af77d65ab56b38a820b1efc0bcafbd4fba1e2f89e867cd91c3de2ea9fbd2ef96a3"></a>Integer&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a0724528cce39d640312f4a7ad1a893f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0724528cce39d640312f4a7ad1a893f7">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a0724528cce39d640312f4a7ad1a893f7ad589986008e8fea1b1726f564d17dd13"></a>Scalar&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ac72f7803394f05658258f8a2b76f53aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac72f7803394f05658258f8a2b76f53aa">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac72f7803394f05658258f8a2b76f53aaa35d0dd9a40755601b657244976bfc14b"></a>Text&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a425be5f49e9c31d8d13d53190a3e7bc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a425be5f49e9c31d8d13d53190a3e7bc2">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a425be5f49e9c31d8d13d53190a3e7bc2a611f008a9989ce97b80ee9e701d8e2d7"></a>CopyOnWrite&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a6739788b75165c40c5fa298fbd9c18bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6739788b75165c40c5fa298fbd9c18bd">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6739788b75165c40c5fa298fbd9c18bda960c324d4c72aa0923e8bcac8c646b48"></a>Container&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ab98c672c5aaffb98a9189cd99e58ff23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab98c672c5aaffb98a9189cd99e58ff23">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab98c672c5aaffb98a9189cd99e58ff23aff9abf2b1a689f70a77a18da50c01d9f"></a>Size&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5568572189d7edfc83572f5e5b201f6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5568572189d7edfc83572f5e5b201f6d">&#9670;&nbsp;</a></span>byteSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static sofa::Size byteSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17610f5c478195e208ebc6a476907bc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17610f5c478195e208ebc6a476907bc2">&#9670;&nbsp;</a></span>getValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void getValue </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sofa::Size&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af4329814b5bfba1f9414a3e1cf9b3feb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4329814b5bfba1f9414a3e1cf9b3feb">&#9670;&nbsp;</a></span>getValuePtr() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const void* getValuePtr </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae52f1edf1af18ff12ab42c8f987f7538"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae52f1edf1af18ff12ab42c8f987f7538">&#9670;&nbsp;</a></span>getValuePtr() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void* getValuePtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeef964da96e4c396c571d69f2e713a89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeef964da96e4c396c571d69f2e713a89">&#9670;&nbsp;</a></span>getValueString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void getValueString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sofa::Size&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3f330487f3d7a0da16be72da86214d77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f330487f3d7a0da16be72da86214d77">&#9670;&nbsp;</a></span>setSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool setSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sofa::Size&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0749b8afb7f8cb835e06d1b67f39fb36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0749b8afb7f8cb835e06d1b67f39fb36">&#9670;&nbsp;</a></span>setValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void setValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sofa::Size&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91270cfc358936144c99c938613b5222"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91270cfc358936144c99c938613b5222">&#9670;&nbsp;</a></span>setValueString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void setValueString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sofa::Size&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9cf1bb1e3778c4f285e753e5bcb440e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9cf1bb1e3778c4f285e753e5bcb440e">&#9670;&nbsp;</a></span>size() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static sofa::Size size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb4ad6832d7a735e80f418c3c011c235"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb4ad6832d7a735e80f418c3c011c235">&#9670;&nbsp;</a></span>size() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static sofa::Size size </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html#a4ebb03dba98a3e2017dadca894b04313">DataType</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>defaulttype</b></li><li class="navelem"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html">ScalarTypeInfo</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:26 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1defaulttype.html">defaulttype</a></li><li class="navelem"><a class="el" href="structsofa_1_1defaulttype_1_1_scalar_type_info.html">ScalarTypeInfo</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:19 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

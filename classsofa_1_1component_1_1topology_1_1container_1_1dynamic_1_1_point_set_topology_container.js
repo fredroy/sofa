@@ -30,5 +30,7 @@ var classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_top
     [ "PointSetTopologyModifier", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_topology_container.html#a47764e68641d35cf8c4b9627886a3683", null ],
     [ "d_checkTopology", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_topology_container.html#a4363842cf138bc0df5d096ba7384052d", null ],
     [ "d_initPoints", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_topology_container.html#a79ea1fbbcc3a54865b0eaef41b169945", null ],
-    [ "m_pointTopologyDirty", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_topology_container.html#a39c5d75d15142fa04e2a0bd98538316c", null ]
+    [ "m_pointTopologyDirty", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_topology_container.html#a39c5d75d15142fa04e2a0bd98538316c", null ],
+    [ "nbPoints", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_topology_container.html#a54d7654917d0148f5547c8bb97c99c70", null ],
+    [ "points", "classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_point_set_topology_container.html#a309bec6b61b0009ad0939a986eb98531", null ]
 ];

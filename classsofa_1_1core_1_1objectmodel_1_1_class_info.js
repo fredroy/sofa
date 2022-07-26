@@ -10,5 +10,6 @@ var classsofa_1_1core_1_1objectmodel_1_1_class_info =
     [ "operator<", "classsofa_1_1core_1_1objectmodel_1_1_class_info.html#a9073df8e1e5ecdc5a43ae2847b2f48e0", null ],
     [ "operator==", "classsofa_1_1core_1_1objectmodel_1_1_class_info.html#a41cdda823be568b147f6111055424937", null ],
     [ "type", "classsofa_1_1core_1_1objectmodel_1_1_class_info.html#a3a7af0b65c803f5f209abd520c16bcd7", null ],
+    [ "classes", "classsofa_1_1core_1_1objectmodel_1_1_class_info.html#a2a23aabc1bc52ed06f0acd69a779b793", null ],
     [ "pt", "classsofa_1_1core_1_1objectmodel_1_1_class_info.html#a4bc0a808dda33ec5fc9bc861ffa829be", null ]
 ];

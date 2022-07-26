@@ -1,0 +1,4 @@
+var _component_2_collision_2_detection_2_algorithm_2src_2sofa_2component_2collision_2detection_2algorithm_2init_8h =
+[
+    [ "init", "_component_2_collision_2_detection_2_algorithm_2src_2sofa_2component_2collision_2detection_2algorithm_2init_8h.html#ae888cf3ae00c5dc2964e6b3ac5d5275a", null ]
+];

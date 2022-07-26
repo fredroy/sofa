@@ -1,6 +1,7 @@
 var classsofa_1_1component_1_1playback_1_1_compare_topology =
 [
     [ "CompareTopology", "classsofa_1_1component_1_1playback_1_1_compare_topology.html#ad2759814ba331e6b1f57ae3710514b89", null ],
+    [ "canCreate", "classsofa_1_1component_1_1playback_1_1_compare_topology.html#a2103d4c6f1acac113db7daed2cd7fa62", null ],
     [ "getErrors", "classsofa_1_1component_1_1playback_1_1_compare_topology.html#a9fe8ba5cd155e2e697d43c0027cce53c", null ],
     [ "getTotalError", "classsofa_1_1component_1_1playback_1_1_compare_topology.html#ac5aa48b9107d376e31bfbfc5be1781dd", null ],
     [ "handleEvent", "classsofa_1_1component_1_1playback_1_1_compare_topology.html#a4543defaa0067ca36bcf42777f805d8f", null ],

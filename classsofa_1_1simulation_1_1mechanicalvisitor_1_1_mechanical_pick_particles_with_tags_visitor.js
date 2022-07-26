@@ -7,6 +7,7 @@ var classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_pick_particles_w
     [ "fwdMechanicalState", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_pick_particles_with_tags_visitor.html#af3f49d376a520ac43050a448854a68d9", null ],
     [ "getClassName", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_pick_particles_with_tags_visitor.html#abf09a670a9f753e66efb6c1c21a0df28", null ],
     [ "getClosestParticle", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_pick_particles_with_tags_visitor.html#ab9ced8f04e0d9523f239a3bbaaaa13d4", null ],
+    [ "isComponentTagIncluded", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_pick_particles_with_tags_visitor.html#a58741562397f6789220eaf2ba51001a5", null ],
     [ "dRadius", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_pick_particles_with_tags_visitor.html#a3182564bd3588db398bad14aa0a5a108", null ],
     [ "mustContainAllTags", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_pick_particles_with_tags_visitor.html#aefa9df5bd0aa9865e87f1629902c1761", null ],
     [ "particles", "classsofa_1_1simulation_1_1mechanicalvisitor_1_1_mechanical_pick_particles_with_tags_visitor.html#aeb9b1306212dbbb29d02e8d032011b1d", null ],

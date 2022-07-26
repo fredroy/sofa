@@ -13,6 +13,7 @@ var classsofa_1_1core_1_1_base_collision_element_iterator =
     [ "operator++", "classsofa_1_1core_1_1_base_collision_element_iterator.html#afd613f54521f43a3ad45b83d728e5117", null ],
     [ "operator++", "classsofa_1_1core_1_1_base_collision_element_iterator.html#ae359d721b75a69b9dcff910aa1686469", null ],
     [ "operator+=", "classsofa_1_1core_1_1_base_collision_element_iterator.html#a1334f780c7e9d30716fe64032b538d2c", null ],
+    [ "emptyVector", "classsofa_1_1core_1_1_base_collision_element_iterator.html#abcf41004c2946e4227f8a83e46b86a34", null ],
     [ "index", "classsofa_1_1core_1_1_base_collision_element_iterator.html#a7875de9269063a44a5480b1c0c530a84", null ],
     [ "it", "classsofa_1_1core_1_1_base_collision_element_iterator.html#a986221689d9b223fe62a9c3a59fd2c70", null ],
     [ "itend", "classsofa_1_1core_1_1_base_collision_element_iterator.html#a8e63af5f83dcd210e09e7b7b15e611aa", null ]

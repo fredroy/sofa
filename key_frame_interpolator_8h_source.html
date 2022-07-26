@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('key_frame_interpolator_8h_source.html'
 <div class="title">keyFrameInterpolator.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/****************************************************************************</span></div>
+<a href="key_frame_interpolator_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/****************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> Copyright (C) 2002-2014 Gilles Debunne. All rights reserved.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"></span> </div>
@@ -114,18 +114,18 @@ $(document).ready(function(){initNavTree('key_frame_interpolator_8h_source.html'
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;QTimer&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;quaternion.h&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="quaternion_8h.html">quaternion.h</a>&quot;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">// Not actually needed, but some bad compilers (Microsoft VS6) complain.</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;frame.h&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_frame_8h.html">frame.h</a>&quot;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">// If you compiler complains about incomplete type, uncomment the next line</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// #include &quot;frame.h&quot;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// and comment &quot;class Frame;&quot; 3 lines below</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span>qglviewer {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">class </span>Camera;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceqglviewer.html">qglviewer</a> {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">class </span><a class="code" href="namespacesofa_1_1component_1_1visualmodel.html#a5ffe5ffc1c406d27452e852af0fd5400">Camera</a>;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">class </span>Frame;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keyword">class </span>QGLVIEWER_EXPORT KeyFrameInterpolator : <span class="keyword">public</span> QObject {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keyword">class </span><a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2config_8h.html#a26c8f95aa8f060675f2500a3aac614e3">QGLVIEWER_EXPORT</a> KeyFrameInterpolator : <span class="keyword">public</span> QObject {</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="comment">// todo closedPath, insertKeyFrames, deleteKeyFrame, replaceKeyFrame</span></div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  Q_OBJECT</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
@@ -225,11 +225,11 @@ $(document).ready(function(){initNavTree('key_frame_interpolator_8h_source.html'
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  <span class="comment">// Internal private KeyFrame representation</span></div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  <span class="keyword">class </span>KeyFrame {</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    KeyFrame(<span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_frame.html">Frame</a> &amp;fr, qreal t);</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    KeyFrame(<span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_frame.html">Frame</a> *fr, qreal t);</div>
+<div class="line"><a name="l00331"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator.html#a876883e4a79cdd24eb81c0336b21a8bb">  331</a></span>&#160;    <a class="code" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html">KeyFrame</a>(<span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_frame.html">Frame</a> &amp;fr, qreal t);</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <a class="code" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html">KeyFrame</a>(<span class="keyword">const</span> <a class="code" href="classqglviewer_1_1_frame.html">Frame</a> *fr, qreal t);</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> position()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> p_; }</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    Quaternion orientation()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> q_; }</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <a class="code" href="classqglviewer_1_1_quaternion.html">Quaternion</a> orientation()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> q_; }</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    Vec tgP()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tgP_; }</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    Quaternion tgQ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tgQ_; }</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    qreal time()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> time_; }</div>
@@ -243,48 +243,55 @@ $(document).ready(function(){initNavTree('key_frame_interpolator_8h_source.html'
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    Quaternion q_, tgQ_;</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    qreal time_;</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keyword">const</span> Frame *<span class="keyword">const</span> frame_;</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  };</div>
+<div class="line"><a name="l00349"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html">  349</a></span>&#160;  };</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;  <span class="comment">// K e y F r a m e s</span></div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  <span class="keyword">mutable</span> QList&lt;KeyFrame *&gt; keyFrame_;</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  QMutableListIterator&lt;KeyFrame *&gt; *currentFrame_[4];</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;  QList&lt;Frame&gt; path_;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160; </div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;  <span class="comment">// A s s o c i a t e d   f r a m e</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;  Frame *frame_;</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160; </div>
+<div class="line"><a name="l00354"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html#a8bd03c538c9b90a8db7ecee97332c86a">  354</a></span>&#160;  QMutableListIterator&lt;KeyFrame *&gt; *currentFrame_[4];</div>
+<div class="line"><a name="l00355"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html#a54c2837276f79bf854173c3183927da0">  355</a></span>&#160;  QList&lt;Frame&gt; path_;</div>
+<div class="line"><a name="l00356"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html#a094942149599f4b1e9d4179ea3058003">  356</a></span>&#160; </div>
+<div class="line"><a name="l00357"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html#aa857617be8fb2e57a16a219f969aa53d">  357</a></span>&#160;  <span class="comment">// A s s o c i a t e d   f r a m e</span></div>
+<div class="line"><a name="l00358"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html#ab109a542e5487be51f18e216a7c15110">  358</a></span>&#160;  <a class="code" href="classqglviewer_1_1_frame.html">Frame</a> *frame_;</div>
+<div class="line"><a name="l00359"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html#a1212a64c7056afeb41faa93032d29156">  359</a></span>&#160; </div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;  <span class="comment">// R h y t h m</span></div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;  QTimer timer_;</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;  <span class="keywordtype">int</span> period_;</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;  qreal interpolationTime_;</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;  qreal interpolationSpeed_;</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;  <span class="keywordtype">bool</span> interpolationStarted_;</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;  <span class="comment">// M i s c</span></div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;  <span class="keywordtype">bool</span> closedPath_;</div>
+<div class="line"><a name="l00365"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html#a24d32f031395457c1a1bd4ba8d0b8b33">  365</a></span>&#160;  <span class="keywordtype">bool</span> interpolationStarted_;</div>
+<div class="line"><a name="l00366"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html#a9dd540c63bbf7174868cc9e669f86147">  366</a></span>&#160; </div>
+<div class="line"><a name="l00367"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html#a41fb975113fd4c14f42caeee9573526d">  367</a></span>&#160;  <span class="comment">// M i s c</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html#a6bb86ab2f861682e885e76cc9d32346d">  368</a></span>&#160;  <span class="keywordtype">bool</span> closedPath_;</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;  <span class="keywordtype">bool</span> loopInterpolation_;</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; </div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;  <span class="comment">// C a c h e d   v a l u e s   a n d   f l a g s</span></div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  <span class="keywordtype">bool</span> pathIsValid_;</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;  <span class="keywordtype">bool</span> valuesAreValid_;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;  <span class="keywordtype">bool</span> currentFrameValid_;</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;  <span class="keywordtype">bool</span> splineCacheIsValid_;</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;  Vec v1, v2;</div>
+<div class="line"><a name="l00373"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator.html#ad6ad75f8981d2f08142427a6587fa249">  373</a></span>&#160;  <span class="keywordtype">bool</span> valuesAreValid_;</div>
+<div class="line"><a name="l00374"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator.html#adb26259c43daa8accb719624bfc919a3">  374</a></span>&#160;  <span class="keywordtype">bool</span> currentFrameValid_;</div>
+<div class="line"><a name="l00375"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator.html#a6aa545fc99a5fa517b97017cc1f79a91">  375</a></span>&#160;  <span class="keywordtype">bool</span> splineCacheIsValid_;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;  <a class="code" href="classqglviewer_1_1_vec.html">Vec</a> v1, v2;</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;};</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
+<div class="line"><a name="l00378"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator.html#a7205b5bb4e248118381da6348da686a4">  378</a></span>&#160; </div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;} <span class="comment">// namespace qglviewer</span></div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="preprocessor">#endif // QGLVIEWER_KEY_FRAME_INTERPOLATOR_H</span></div>
+<div class="line"><a name="l00381"></a><span class="lineno"><a class="line" href="classqglviewer_1_1_key_frame_interpolator.html#ad55150b2a54b3b308d2eca8c44221b5f">  381</a></span>&#160;<span class="preprocessor">#endif // QGLVIEWER_KEY_FRAME_INTERPOLATOR_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclassqglviewer_1_1_key_frame_interpolator_1_1_key_frame_html"><div class="ttname"><a href="classqglviewer_1_1_key_frame_interpolator_1_1_key_frame.html">qglviewer::KeyFrameInterpolator::KeyFrame</a></div><div class="ttdef"><b>Definition:</b> keyFrameInterpolator.h:349</div></div>
+<div class="ttc" id="a_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_frame_8h_html"><div class="ttname"><a href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_frame_8h.html">frame.h</a></div></div>
+<div class="ttc" id="aquaternion_8h_html"><div class="ttname"><a href="quaternion_8h.html">quaternion.h</a></div></div>
+<div class="ttc" id="a_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2config_8h_html_a26c8f95aa8f060675f2500a3aac614e3"><div class="ttname"><a href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2config_8h.html#a26c8f95aa8f060675f2500a3aac614e3">QGLVIEWER_EXPORT</a></div><div class="ttdeci">#define QGLVIEWER_EXPORT</div></div>
+<div class="ttc" id="aclassqglviewer_1_1_quaternion_html"><div class="ttname"><a href="classqglviewer_1_1_quaternion.html">qglviewer::Quaternion</a></div><div class="ttdoc">The Quaternion class represents 3D rotations and orientations.</div><div class="ttdef"><b>Definition:</b> quaternion.h:89</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_frame_html"><div class="ttname"><a href="classqglviewer_1_1_frame.html">qglviewer::Frame</a></div><div class="ttdoc">The Frame class represents a coordinate system, defined by a position and an orientation.</div><div class="ttdef"><b>Definition:</b> frame.h:154</div></div>
+<div class="ttc" id="anamespaceqglviewer_html"><div class="ttname"><a href="namespaceqglviewer.html">qglviewer</a></div><div class="ttdef"><b>Definition:</b> camera.h:30</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_vec_html"><div class="ttname"><a href="classqglviewer_1_1_vec.html">qglviewer::Vec</a></div><div class="ttdoc">The Vec class represents 3D positions and 3D vectors.</div><div class="ttdef"><b>Definition:</b> vec.h:85</div></div>
+<div class="ttc" id="anamespacesofa_1_1component_1_1visualmodel_html_a5ffe5ffc1c406d27452e852af0fd5400"><div class="ttname"><a href="namespacesofa_1_1component_1_1visualmodel.html#a5ffe5ffc1c406d27452e852af0fd5400">sofa::component::visualmodel::Camera</a></div><div class="ttdeci">sofa::component::visual::Camera Camera</div><div class="ttdef"><b>Definition:</b> Camera.h:49</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_927152f1403da9b2afd274b3e3ae770d.html">GUI</a></li><li class="navelem"><a class="el" href="dir_1eca62023986f93910713a5e9ddcd783.html">Qt</a></li><li class="navelem"><a class="el" href="dir_f7311ca8eb3b00f9887af19adf559895.html">libQGLViewer-2.7.1</a></li><li class="navelem"><a class="el" href="dir_0fb872e7831622d7309fbbdadf113450.html">QGLViewer</a></li><li class="navelem"><b>keyFrameInterpolator.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:42:47 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_927152f1403da9b2afd274b3e3ae770d.html">GUI</a></li><li class="navelem"><a class="el" href="dir_1eca62023986f93910713a5e9ddcd783.html">Qt</a></li><li class="navelem"><a class="el" href="dir_f7311ca8eb3b00f9887af19adf559895.html">libQGLViewer-2.7.1</a></li><li class="navelem"><a class="el" href="dir_0fb872e7831622d7309fbbdadf113450.html">QGLViewer</a></li><li class="navelem"><a class="el" href="key_frame_interpolator_8h.html">keyFrameInterpolator.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:18:21 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

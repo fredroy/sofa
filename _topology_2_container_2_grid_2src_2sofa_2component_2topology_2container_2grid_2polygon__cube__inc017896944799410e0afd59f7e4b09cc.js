@@ -1,0 +1,9 @@
+var _topology_2_container_2_grid_2src_2sofa_2component_2topology_2container_2grid_2polygon__cube__inc017896944799410e0afd59f7e4b09cc =
+[
+    [ "fast_polygon_intersects_cube", "_topology_2_container_2_grid_2src_2sofa_2component_2topology_2container_2grid_2polygon__cube__inc017896944799410e0afd59f7e4b09cc.html#acf28b1f8a4e842d8a229d03e6bafe2b7", null ],
+    [ "get_polygon_normal", "_topology_2_container_2_grid_2src_2sofa_2component_2topology_2container_2grid_2polygon__cube__inc017896944799410e0afd59f7e4b09cc.html#ae24998ec67b0d179ce4e8c7497552a53", null ],
+    [ "polygon_contains_point_3d", "_topology_2_container_2_grid_2src_2sofa_2component_2topology_2container_2grid_2polygon__cube__inc017896944799410e0afd59f7e4b09cc.html#af1374bd6bb59b7aaaa7cad502d71754c", null ],
+    [ "polygon_intersects_cube", "_topology_2_container_2_grid_2src_2sofa_2component_2topology_2container_2grid_2polygon__cube__inc017896944799410e0afd59f7e4b09cc.html#a25c0ebec15f9fccc154031e59c38b6d2", null ],
+    [ "segment_intersects_cube", "_topology_2_container_2_grid_2src_2sofa_2component_2topology_2container_2grid_2polygon__cube__inc017896944799410e0afd59f7e4b09cc.html#a5eaebe6a76599e4a01d3cb4bdeba7d9c", null ],
+    [ "trivial_vertex_tests", "_topology_2_container_2_grid_2src_2sofa_2component_2topology_2container_2grid_2polygon__cube__inc017896944799410e0afd59f7e4b09cc.html#ac7bd26748d35f0f6ff2e9503e0b20b39", null ]
+];

@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('classsofa_1_1type_1_1_frame.html','');
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classsofa_1_1type_1_1_frame-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -97,62 +98,50 @@ $(document).ready(function(){initNavTree('classsofa_1_1type_1_1_frame.html','');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ad3328bdc3b0c9264a4359be38c20845a"><td class="memItemLeft" align="right" valign="top"><a id="ad3328bdc3b0c9264a4359be38c20845a"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1_quat.html">type::Quat</a>&lt; SReal &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Quat</b></td></tr>
+<tr class="memitem:ad3328bdc3b0c9264a4359be38c20845a"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1type_1_1_quat.html">type::Quat</a>&lt; SReal &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#ad3328bdc3b0c9264a4359be38c20845a">Quat</a></td></tr>
 <tr class="separator:ad3328bdc3b0c9264a4359be38c20845a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab32aab3b564a8851045c196614b4f5aa"><td class="memItemLeft" align="right" valign="top"><a id="ab32aab3b564a8851045c196614b4f5aa"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1_mat.html">Mat</a>&lt; 3, 3, SReal &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Mat33</b></td></tr>
+<tr class="memitem:ab32aab3b564a8851045c196614b4f5aa"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1type_1_1_mat.html">Mat</a>&lt; 3, 3, SReal &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#ab32aab3b564a8851045c196614b4f5aa">Mat33</a></td></tr>
 <tr class="separator:ab32aab3b564a8851045c196614b4f5aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2cdead28882dc3dc06f1633e8151f733"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a2cdead28882dc3dc06f1633e8151f733">Frame</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;origin, const <a class="el" href="classsofa_1_1type_1_1_mat.html">Mat33</a> &amp;m)</td></tr>
+<tr class="memitem:a2cdead28882dc3dc06f1633e8151f733"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a2cdead28882dc3dc06f1633e8151f733">Frame</a> (const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;origin, const <a class="el" href="classsofa_1_1type_1_1_frame.html#ab32aab3b564a8851045c196614b4f5aa">Mat33</a> &amp;m)</td></tr>
 <tr class="separator:a2cdead28882dc3dc06f1633e8151f733"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ad9c7a42b0ad36da55c4c5e294ee78d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a1ad9c7a42b0ad36da55c4c5e294ee78d">Frame</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;origin, const <a class="el" href="classsofa_1_1type_1_1_quat.html">Quat</a> &amp;orientation, const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;scale=<a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a>(1, 1, 1))</td></tr>
+<tr class="memitem:a1ad9c7a42b0ad36da55c4c5e294ee78d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a1ad9c7a42b0ad36da55c4c5e294ee78d">Frame</a> (const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;origin, const <a class="el" href="classsofa_1_1type_1_1_frame.html#ad3328bdc3b0c9264a4359be38c20845a">Quat</a> &amp;orientation, const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;scale=<a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>(1, 1, 1))</td></tr>
 <tr class="separator:a1ad9c7a42b0ad36da55c4c5e294ee78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75904c391de49df4dc445ca117950b60"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a75904c391de49df4dc445ca117950b60">Frame</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;origin)</td></tr>
+<tr class="memitem:a75904c391de49df4dc445ca117950b60"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a75904c391de49df4dc445ca117950b60">Frame</a> (const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;origin)</td></tr>
 <tr class="separator:a75904c391de49df4dc445ca117950b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab71e6ee46f0c2593266f9a62d9c5e029"><td class="memItemLeft" align="right" valign="top"><a id="ab71e6ee46f0c2593266f9a62d9c5e029"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#ab71e6ee46f0c2593266f9a62d9c5e029">Frame</a> ()</td></tr>
-<tr class="memdesc:ab71e6ee46f0c2593266f9a62d9c5e029"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor set the transformation to identity. <br /></td></tr>
+<tr class="memitem:ab71e6ee46f0c2593266f9a62d9c5e029"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#ab71e6ee46f0c2593266f9a62d9c5e029">Frame</a> ()</td></tr>
+<tr class="memdesc:ab71e6ee46f0c2593266f9a62d9c5e029"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor set the transformation to identity.  <a href="classsofa_1_1type_1_1_frame.html#ab71e6ee46f0c2593266f9a62d9c5e029">More...</a><br /></td></tr>
 <tr class="separator:ab71e6ee46f0c2593266f9a62d9c5e029"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75aa2d33cb726449d698a3800dadbe41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a75aa2d33cb726449d698a3800dadbe41">setTransform</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;origin, const <a class="el" href="classsofa_1_1type_1_1_quat.html">Quat</a> &amp;orientation, const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;scale)</td></tr>
+<tr class="memitem:a75aa2d33cb726449d698a3800dadbe41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a75aa2d33cb726449d698a3800dadbe41">setTransform</a> (const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;origin, const <a class="el" href="classsofa_1_1type_1_1_frame.html#ad3328bdc3b0c9264a4359be38c20845a">Quat</a> &amp;orientation, const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;scale)</td></tr>
 <tr class="separator:a75aa2d33cb726449d698a3800dadbe41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8bb3912a3ce86b15842e79d0b421204"><td class="memItemLeft" align="right" valign="top"><a id="ac8bb3912a3ce86b15842e79d0b421204"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#ac8bb3912a3ce86b15842e79d0b421204">clear</a> ()</td></tr>
-<tr class="memdesc:ac8bb3912a3ce86b15842e79d0b421204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the transformation to identity. <br /></td></tr>
+<tr class="memitem:ac8bb3912a3ce86b15842e79d0b421204"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#ac8bb3912a3ce86b15842e79d0b421204">clear</a> ()</td></tr>
+<tr class="memdesc:ac8bb3912a3ce86b15842e79d0b421204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the transformation to identity.  <a href="classsofa_1_1type_1_1_frame.html#ac8bb3912a3ce86b15842e79d0b421204">More...</a><br /></td></tr>
 <tr class="separator:ac8bb3912a3ce86b15842e79d0b421204"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a280c7e302758017786110b17220910af"><td class="memItemLeft" align="right" valign="top"><a id="a280c7e302758017786110b17220910af"></a>
-<a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a280c7e302758017786110b17220910af">getOrigin</a> ()</td></tr>
-<tr class="memdesc:a280c7e302758017786110b17220910af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Origin of the local frame in the reference frame,. <br /></td></tr>
+<tr class="memitem:a280c7e302758017786110b17220910af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a280c7e302758017786110b17220910af">getOrigin</a> ()</td></tr>
+<tr class="memdesc:a280c7e302758017786110b17220910af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Origin of the local frame in the reference frame,.  <a href="classsofa_1_1type_1_1_frame.html#a280c7e302758017786110b17220910af">More...</a><br /></td></tr>
 <tr class="separator:a280c7e302758017786110b17220910af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a278143e185bfc424d1470a8ff80befc3"><td class="memItemLeft" align="right" valign="top"><a id="a278143e185bfc424d1470a8ff80befc3"></a>
-const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a278143e185bfc424d1470a8ff80befc3">getOrigin</a> () const</td></tr>
-<tr class="memdesc:a278143e185bfc424d1470a8ff80befc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Origin of the local frame in the reference frame,. <br /></td></tr>
+<tr class="memitem:a278143e185bfc424d1470a8ff80befc3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a278143e185bfc424d1470a8ff80befc3">getOrigin</a> () const</td></tr>
+<tr class="memdesc:a278143e185bfc424d1470a8ff80befc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Origin of the local frame in the reference frame,.  <a href="classsofa_1_1type_1_1_frame.html#a278143e185bfc424d1470a8ff80befc3">More...</a><br /></td></tr>
 <tr class="separator:a278143e185bfc424d1470a8ff80befc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfd30b3a016f7aa47de6d29490059151"><td class="memItemLeft" align="right" valign="top"><a id="adfd30b3a016f7aa47de6d29490059151"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#adfd30b3a016f7aa47de6d29490059151">setOrigin</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;origin)</td></tr>
-<tr class="memdesc:adfd30b3a016f7aa47de6d29490059151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the origin of the local frame in the reference frame,. <br /></td></tr>
+<tr class="memitem:adfd30b3a016f7aa47de6d29490059151"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#adfd30b3a016f7aa47de6d29490059151">setOrigin</a> (const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;origin)</td></tr>
+<tr class="memdesc:adfd30b3a016f7aa47de6d29490059151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the origin of the local frame in the reference frame,.  <a href="classsofa_1_1type_1_1_frame.html#adfd30b3a016f7aa47de6d29490059151">More...</a><br /></td></tr>
 <tr class="separator:adfd30b3a016f7aa47de6d29490059151"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd54c63760afb989917f34941a53b923"><td class="memItemLeft" align="right" valign="top"><a id="afd54c63760afb989917f34941a53b923"></a>
-<a class="el" href="classsofa_1_1type_1_1_mat.html">Mat33</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#afd54c63760afb989917f34941a53b923">getBasis</a> ()</td></tr>
-<tr class="memdesc:afd54c63760afb989917f34941a53b923"><td class="mdescLeft">&#160;</td><td class="mdescRight">The columns represent the base vectors of the local frame wrt the reference frame. <br /></td></tr>
+<tr class="memitem:afd54c63760afb989917f34941a53b923"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1_frame.html#ab32aab3b564a8851045c196614b4f5aa">Mat33</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#afd54c63760afb989917f34941a53b923">getBasis</a> ()</td></tr>
+<tr class="memdesc:afd54c63760afb989917f34941a53b923"><td class="mdescLeft">&#160;</td><td class="mdescRight">The columns represent the base vectors of the local frame wrt the reference frame.  <a href="classsofa_1_1type_1_1_frame.html#afd54c63760afb989917f34941a53b923">More...</a><br /></td></tr>
 <tr class="separator:afd54c63760afb989917f34941a53b923"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab155d483bf42d6dd2a4dc315ca85a95b"><td class="memItemLeft" align="right" valign="top"><a id="ab155d483bf42d6dd2a4dc315ca85a95b"></a>
-const <a class="el" href="classsofa_1_1type_1_1_mat.html">Mat33</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#ab155d483bf42d6dd2a4dc315ca85a95b">getBasis</a> () const</td></tr>
-<tr class="memdesc:ab155d483bf42d6dd2a4dc315ca85a95b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The columns represent the base vectors of the local frame wrt the reference frame. <br /></td></tr>
+<tr class="memitem:ab155d483bf42d6dd2a4dc315ca85a95b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsofa_1_1type_1_1_frame.html#ab32aab3b564a8851045c196614b4f5aa">Mat33</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#ab155d483bf42d6dd2a4dc315ca85a95b">getBasis</a> () const</td></tr>
+<tr class="memdesc:ab155d483bf42d6dd2a4dc315ca85a95b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The columns represent the base vectors of the local frame wrt the reference frame.  <a href="classsofa_1_1type_1_1_frame.html#ab155d483bf42d6dd2a4dc315ca85a95b">More...</a><br /></td></tr>
 <tr class="separator:ab155d483bf42d6dd2a4dc315ca85a95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d45a95a05a1c7c02a4cf95af1019dbc"><td class="memItemLeft" align="right" valign="top"><a id="a4d45a95a05a1c7c02a4cf95af1019dbc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a4d45a95a05a1c7c02a4cf95af1019dbc">setBasis</a> (const <a class="el" href="classsofa_1_1type_1_1_mat.html">Mat33</a> &amp;m)</td></tr>
-<tr class="memdesc:a4d45a95a05a1c7c02a4cf95af1019dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The columns represent the base vectors of the local frame wrt the reference frame. <br /></td></tr>
+<tr class="memitem:a4d45a95a05a1c7c02a4cf95af1019dbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a4d45a95a05a1c7c02a4cf95af1019dbc">setBasis</a> (const <a class="el" href="classsofa_1_1type_1_1_frame.html#ab32aab3b564a8851045c196614b4f5aa">Mat33</a> &amp;m)</td></tr>
+<tr class="memdesc:a4d45a95a05a1c7c02a4cf95af1019dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The columns represent the base vectors of the local frame wrt the reference frame.  <a href="classsofa_1_1type_1_1_frame.html#a4d45a95a05a1c7c02a4cf95af1019dbc">More...</a><br /></td></tr>
 <tr class="separator:a4d45a95a05a1c7c02a4cf95af1019dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e95b8e38e5f60d9c2e6d5a7ea95708e"><td class="memItemLeft" align="right" valign="top"><a id="a2e95b8e38e5f60d9c2e6d5a7ea95708e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a2e95b8e38e5f60d9c2e6d5a7ea95708e">multRight</a> (const <a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a> &amp;c)</td></tr>
-<tr class="memdesc:a2e95b8e38e5f60d9c2e6d5a7ea95708e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a transformation defined in the child frame (mult. right) <br /></td></tr>
+<tr class="memitem:a2e95b8e38e5f60d9c2e6d5a7ea95708e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a2e95b8e38e5f60d9c2e6d5a7ea95708e">multRight</a> (const <a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a> &amp;c)</td></tr>
+<tr class="memdesc:a2e95b8e38e5f60d9c2e6d5a7ea95708e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a transformation defined in the child frame (mult. right)  <a href="classsofa_1_1type_1_1_frame.html#a2e95b8e38e5f60d9c2e6d5a7ea95708e">More...</a><br /></td></tr>
 <tr class="separator:a2e95b8e38e5f60d9c2e6d5a7ea95708e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a197d306ddbc5019f1d436cd463fc8d54"><td class="memItemLeft" align="right" valign="top"><a id="a197d306ddbc5019f1d436cd463fc8d54"></a>
-<a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a197d306ddbc5019f1d436cd463fc8d54">mult</a> (const <a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a> &amp;c) const</td></tr>
-<tr class="memdesc:a197d306ddbc5019f1d436cd463fc8d54"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the product with another frame on the right <br /></td></tr>
+<tr class="memitem:a197d306ddbc5019f1d436cd463fc8d54"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a197d306ddbc5019f1d436cd463fc8d54">mult</a> (const <a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a> &amp;c) const</td></tr>
+<tr class="memdesc:a197d306ddbc5019f1d436cd463fc8d54"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the product with another frame on the right  <a href="classsofa_1_1type_1_1_frame.html#a197d306ddbc5019f1d436cd463fc8d54">More...</a><br /></td></tr>
 <tr class="separator:a197d306ddbc5019f1d436cd463fc8d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3724d53c16e280adfcfefb32f6baa49f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a3724d53c16e280adfcfefb32f6baa49f">writeOpenGlMatrix</a> (float *m) const</td></tr>
 <tr class="memdesc:a3724d53c16e280adfcfefb32f6baa49f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the OpenGL transformation matrix to a float[16].  <a href="classsofa_1_1type_1_1_frame.html#a3724d53c16e280adfcfefb32f6baa49f">More...</a><br /></td></tr>
@@ -160,15 +149,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a1d0a06e002e9c845bfcefad745893ad0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a1d0a06e002e9c845bfcefad745893ad0">writeOpenGlMatrix</a> (double *m) const</td></tr>
 <tr class="memdesc:a1d0a06e002e9c845bfcefad745893ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the OpenGL transformation matrix to a double[16].  <a href="classsofa_1_1type_1_1_frame.html#a1d0a06e002e9c845bfcefad745893ad0">More...</a><br /></td></tr>
 <tr class="separator:a1d0a06e002e9c845bfcefad745893ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee9596be3ebf515dad3263ee71ab1c7c"><td class="memTemplParams" colspan="2"><a id="aee9596be3ebf515dad3263ee71ab1c7c"></a>
-template&lt;class V &gt; </td></tr>
+<tr class="memitem:aee9596be3ebf515dad3263ee71ab1c7c"><td class="memTemplParams" colspan="2">template&lt;class V &gt; </td></tr>
 <tr class="memitem:aee9596be3ebf515dad3263ee71ab1c7c"><td class="memTemplItemLeft" align="right" valign="top">V&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#aee9596be3ebf515dad3263ee71ab1c7c">projectVector</a> (const V &amp;v) const</td></tr>
-<tr class="memdesc:aee9596be3ebf515dad3263ee71ab1c7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the projection of a vector from the local frame to the reference frame <br /></td></tr>
+<tr class="memdesc:aee9596be3ebf515dad3263ee71ab1c7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the projection of a vector from the local frame to the reference frame  <a href="classsofa_1_1type_1_1_frame.html#aee9596be3ebf515dad3263ee71ab1c7c">More...</a><br /></td></tr>
 <tr class="separator:aee9596be3ebf515dad3263ee71ab1c7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22fa100da2b3d439aa5febdd4bf84568"><td class="memTemplParams" colspan="2"><a id="a22fa100da2b3d439aa5febdd4bf84568"></a>
-template&lt;class V &gt; </td></tr>
+<tr class="memitem:a22fa100da2b3d439aa5febdd4bf84568"><td class="memTemplParams" colspan="2">template&lt;class V &gt; </td></tr>
 <tr class="memitem:a22fa100da2b3d439aa5febdd4bf84568"><td class="memTemplItemLeft" align="right" valign="top">V&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a22fa100da2b3d439aa5febdd4bf84568">projectPoint</a> (const V &amp;v) const</td></tr>
-<tr class="memdesc:a22fa100da2b3d439aa5febdd4bf84568"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the projection of a point from the local frame to the reference frame <br /></td></tr>
+<tr class="memdesc:a22fa100da2b3d439aa5febdd4bf84568"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the projection of a point from the local frame to the reference frame  <a href="classsofa_1_1type_1_1_frame.html#a22fa100da2b3d439aa5febdd4bf84568">More...</a><br /></td></tr>
 <tr class="separator:a22fa100da2b3d439aa5febdd4bf84568"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3c891d7151dc1b2e8c684e8531e87c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#ab3c891d7151dc1b2e8c684e8531e87c0">inversed</a> () const</td></tr>
 <tr class="memdesc:ab3c891d7151dc1b2e8c684e8531e87c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transformation from the reference frame to the local frame.  <a href="classsofa_1_1type_1_1_frame.html#ab3c891d7151dc1b2e8c684e8531e87c0">More...</a><br /></td></tr>
@@ -176,15 +163,20 @@ template&lt;class V &gt; </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a08af1c6f619f288edd2acc127a39e4ce"><td class="memItemLeft" align="right" valign="top"><a id="a08af1c6f619f288edd2acc127a39e4ce"></a>
-static <a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a08af1c6f619f288edd2acc127a39e4ce">identity</a> ()</td></tr>
-<tr class="memdesc:a08af1c6f619f288edd2acc127a39e4ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">The identity transform. <br /></td></tr>
+<tr class="memitem:a08af1c6f619f288edd2acc127a39e4ce"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a08af1c6f619f288edd2acc127a39e4ce">identity</a> ()</td></tr>
+<tr class="memdesc:a08af1c6f619f288edd2acc127a39e4ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">The identity transform.  <a href="classsofa_1_1type_1_1_frame.html#a08af1c6f619f288edd2acc127a39e4ce">More...</a><br /></td></tr>
 <tr class="separator:a08af1c6f619f288edd2acc127a39e4ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aece359308e1b373ff8e5e78451b85cb6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#aece359308e1b373ff8e5e78451b85cb6">origin_</a></td></tr>
+<tr class="separator:aece359308e1b373ff8e5e78451b85cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abebf02d6935854b7a0d76fa4827d468f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1_frame.html#ab32aab3b564a8851045c196614b4f5aa">Mat33</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#abebf02d6935854b7a0d76fa4827d468f">basis_</a></td></tr>
+<tr class="separator:abebf02d6935854b7a0d76fa4827d468f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a158d43e2c74a31e922e05d28f994a5a6"><td class="memItemLeft" align="right" valign="top"><a id="a158d43e2c74a31e922e05d28f994a5a6"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;out, const <a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a> &amp;c)</td></tr>
+<tr class="memitem:a158d43e2c74a31e922e05d28f994a5a6"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_frame.html#a158d43e2c74a31e922e05d28f994a5a6">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a> &amp;c)</td></tr>
 <tr class="separator:a158d43e2c74a31e922e05d28f994a5a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -192,9 +184,38 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <p>When defined using (origin, rotation, scale), the transfrom can be seen as three frame displacements starting from the reference frame: translation, then rotation along the new origin, then scale along the new axes. Conversely, the projection of a point from the local frame to the reference frame undergoes scaling, then rotation, then translation. Vectors do not undergo translation since they model directions or displacement.</p>
 <p>The product F1F2 can be seen as a frame displacement F1 starting from the reference frame followed by a frame displacement F2 starting from the new frame. It is used in frame hierarchies to model the transfromation frome frame 2 wrt the reference frame.</p>
 <dl class="section author"><dt>Author</dt><dd>Francois Faure, INRIA-UJF, 2006 </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ab32aab3b564a8851045c196614b4f5aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab32aab3b564a8851045c196614b4f5aa">&#9670;&nbsp;</a></span>Mat33</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1type_1_1_mat.html">Mat</a>&lt;3,3,SReal&gt; <a class="el" href="classsofa_1_1type_1_1_frame.html#ab32aab3b564a8851045c196614b4f5aa">Mat33</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad3328bdc3b0c9264a4359be38c20845a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3328bdc3b0c9264a4359be38c20845a">&#9670;&nbsp;</a></span>Quat</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1type_1_1_quat.html">type::Quat</a>&lt;SReal&gt; <a class="el" href="classsofa_1_1type_1_1_frame.html#ad3328bdc3b0c9264a4359be38c20845a">Quat</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2cdead28882dc3dc06f1633e8151f733"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cdead28882dc3dc06f1633e8151f733">&#9670;&nbsp;</a></span>Frame() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cdead28882dc3dc06f1633e8151f733">&#9670;&nbsp;</a></span>Frame() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -202,13 +223,13 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         <tr>
           <td class="memname"><a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;&#160;</td>
           <td class="paramname"><em>origin</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_mat.html">Mat33</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_frame.html#ab32aab3b564a8851045c196614b4f5aa">Mat33</a> &amp;&#160;</td>
           <td class="paramname"><em>m</em>&#160;</td>
         </tr>
         <tr>
@@ -223,7 +244,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 </div>
 </div>
 <a id="a1ad9c7a42b0ad36da55c4c5e294ee78d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ad9c7a42b0ad36da55c4c5e294ee78d">&#9670;&nbsp;</a></span>Frame() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ad9c7a42b0ad36da55c4c5e294ee78d">&#9670;&nbsp;</a></span>Frame() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,20 +252,20 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         <tr>
           <td class="memname"><a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;&#160;</td>
           <td class="paramname"><em>origin</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_quat.html">Quat</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_frame.html#ad3328bdc3b0c9264a4359be38c20845a">Quat</a> &amp;&#160;</td>
           <td class="paramname"><em>orientation</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;&#160;</td>
-          <td class="paramname"><em>scale</em> = <code><a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a>(1,1,1)</code>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;&#160;</td>
+          <td class="paramname"><em>scale</em> = <code><a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>(1,1,1)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -258,7 +279,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 </div>
 </div>
 <a id="a75904c391de49df4dc445ca117950b60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75904c391de49df4dc445ca117950b60">&#9670;&nbsp;</a></span>Frame() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a75904c391de49df4dc445ca117950b60">&#9670;&nbsp;</a></span>Frame() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -266,7 +287,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         <tr>
           <td class="memname"><a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;&#160;</td>
           <td class="paramname"><em>origin</em></td><td>)</td>
           <td></td>
         </tr>
@@ -276,7 +297,148 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 
 </div>
 </div>
+<a id="ab71e6ee46f0c2593266f9a62d9c5e029"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab71e6ee46f0c2593266f9a62d9c5e029">&#9670;&nbsp;</a></span>Frame() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor set the transformation to identity. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac8bb3912a3ce86b15842e79d0b421204"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8bb3912a3ce86b15842e79d0b421204">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reset the transformation to identity. </p>
+
+</div>
+</div>
+<a id="afd54c63760afb989917f34941a53b923"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd54c63760afb989917f34941a53b923">&#9670;&nbsp;</a></span>getBasis() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classsofa_1_1type_1_1_frame.html#ab32aab3b564a8851045c196614b4f5aa">Frame::Mat33</a> &amp; getBasis </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The columns represent the base vectors of the local frame wrt the reference frame. </p>
+
+</div>
+</div>
+<a id="ab155d483bf42d6dd2a4dc315ca85a95b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab155d483bf42d6dd2a4dc315ca85a95b">&#9670;&nbsp;</a></span>getBasis() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classsofa_1_1type_1_1_frame.html#ab32aab3b564a8851045c196614b4f5aa">Mat33</a>&amp; getBasis </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The columns represent the base vectors of the local frame wrt the reference frame. </p>
+
+</div>
+</div>
+<a id="a280c7e302758017786110b17220910af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a280c7e302758017786110b17220910af">&#9670;&nbsp;</a></span>getOrigin() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp; getOrigin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Origin of the local frame in the reference frame,. </p>
+
+</div>
+</div>
+<a id="a278143e185bfc424d1470a8ff80befc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a278143e185bfc424d1470a8ff80befc3">&#9670;&nbsp;</a></span>getOrigin() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a>&amp; getOrigin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Origin of the local frame in the reference frame,. </p>
+
+</div>
+</div>
+<a id="a08af1c6f619f288edd2acc127a39e4ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08af1c6f619f288edd2acc127a39e4ce">&#9670;&nbsp;</a></span>identity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a> identity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The identity transform. </p>
+
+</div>
+</div>
 <a id="ab3c891d7151dc1b2e8c684e8531e87c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab3c891d7151dc1b2e8c684e8531e87c0">&#9670;&nbsp;</a></span>inversed()</h2>
 
@@ -297,6 +459,142 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 
 </div>
 </div>
+<a id="a197d306ddbc5019f1d436cd463fc8d54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a197d306ddbc5019f1d436cd463fc8d54">&#9670;&nbsp;</a></span>mult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a> mult </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compute the product with another frame on the right </p>
+
+</div>
+</div>
+<a id="a2e95b8e38e5f60d9c2e6d5a7ea95708e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e95b8e38e5f60d9c2e6d5a7ea95708e">&#9670;&nbsp;</a></span>multRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void multRight </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Apply a transformation defined in the child frame (mult. right) </p>
+
+</div>
+</div>
+<a id="a22fa100da2b3d439aa5febdd4bf84568"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22fa100da2b3d439aa5febdd4bf84568">&#9670;&nbsp;</a></span>projectPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">V projectPoint </td>
+          <td>(</td>
+          <td class="paramtype">const V &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>compute the projection of a point from the local frame to the reference frame </p>
+
+</div>
+</div>
+<a id="aee9596be3ebf515dad3263ee71ab1c7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee9596be3ebf515dad3263ee71ab1c7c">&#9670;&nbsp;</a></span>projectVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">V projectVector </td>
+          <td>(</td>
+          <td class="paramtype">const V &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>compute the projection of a vector from the local frame to the reference frame </p>
+
+</div>
+</div>
+<a id="a4d45a95a05a1c7c02a4cf95af1019dbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d45a95a05a1c7c02a4cf95af1019dbc">&#9670;&nbsp;</a></span>setBasis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setBasis </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_frame.html#ab32aab3b564a8851045c196614b4f5aa">Mat33</a> &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The columns represent the base vectors of the local frame wrt the reference frame. </p>
+
+</div>
+</div>
+<a id="adfd30b3a016f7aa47de6d29490059151"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfd30b3a016f7aa47de6d29490059151">&#9670;&nbsp;</a></span>setOrigin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setOrigin </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;&#160;</td>
+          <td class="paramname"><em>origin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the origin of the local frame in the reference frame,. </p>
+
+</div>
+</div>
 <a id="a75aa2d33cb726449d698a3800dadbe41"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a75aa2d33cb726449d698a3800dadbe41">&#9670;&nbsp;</a></span>setTransform()</h2>
 
@@ -306,19 +604,19 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
         <tr>
           <td class="memname">void setTransform </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;&#160;</td>
           <td class="paramname"><em>origin</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_quat.html">Quat</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_frame.html#ad3328bdc3b0c9264a4359be38c20845a">Quat</a> &amp;&#160;</td>
           <td class="paramname"><em>orientation</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> &amp;&#160;</td>
           <td class="paramname"><em>scale</em>&#160;</td>
         </tr>
         <tr>
@@ -374,13 +672,95 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 
 </div>
 </div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a158d43e2c74a31e922e05d28f994a5a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a158d43e2c74a31e922e05d28f994a5a6">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="abebf02d6935854b7a0d76fa4827d468f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abebf02d6935854b7a0d76fa4827d468f">&#9670;&nbsp;</a></span>basis_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_frame.html#ab32aab3b564a8851045c196614b4f5aa">Mat33</a> basis_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aece359308e1b373ff8e5e78451b85cb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aece359308e1b373ff8e5e78451b85cb6">&#9670;&nbsp;</a></span>origin_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">Vec3</a> origin_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1type.html">type</a></li><li class="navelem"><a class="el" href="classsofa_1_1type_1_1_frame.html">Frame</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:14:17 for SOFA by
+    <li class="footer">Generated on Tue Jul 26 2022 07:46:51 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

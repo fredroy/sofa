@@ -86,11 +86,14 @@ $(document).ready(function(){initNavTree('classsofa_1_1gui_1_1qt_1_1_g_l_pick_ha
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
 <a href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">GLPickHandler Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_g_l_pick_handler_8h_source.html">GLPickHandler.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GLPickHandler:</div>
 <div class="dyncontent">
@@ -103,187 +106,451 @@ Inheritance diagram for GLPickHandler:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a6a17a0a5cd36385059e0f89821caa09b"><td class="memItemLeft" align="right" valign="top"><a id="a6a17a0a5cd36385059e0f89821caa09b"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>PickingMethod</b> { <b>RAY_CASTING</b>, 
-<b>SELECTION_BUFFER</b>
+<tr class="memitem:a6a17a0a5cd36385059e0f89821caa09b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html#a6a17a0a5cd36385059e0f89821caa09b">PickingMethod</a> { <a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html#a6a17a0a5cd36385059e0f89821caa09ba0389c6c85e8680401490ef9c791d4c0c">RAY_CASTING</a>, 
+<a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html#a6a17a0a5cd36385059e0f89821caa09ba26e1df27b72cc25a1ba9974f3fb43342">SELECTION_BUFFER</a>
  }</td></tr>
 <tr class="separator:a6a17a0a5cd36385059e0f89821caa09b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classsofa_1_1gui_1_1common_1_1_pick_handler"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classsofa_1_1gui_1_1common_1_1_pick_handler')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">PickHandler</a></td></tr>
-<tr class="memitem:a6a17a0a5cd36385059e0f89821caa09b inherit pub_types_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a6a17a0a5cd36385059e0f89821caa09b"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>PickingMethod</b> { <b>RAY_CASTING</b>, 
-<b>SELECTION_BUFFER</b>
+<tr class="memitem:a6a17a0a5cd36385059e0f89821caa09b inherit pub_types_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a6a17a0a5cd36385059e0f89821caa09b">PickingMethod</a> { <a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a6a17a0a5cd36385059e0f89821caa09ba0389c6c85e8680401490ef9c791d4c0c">RAY_CASTING</a>, 
+<a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a6a17a0a5cd36385059e0f89821caa09ba26e1df27b72cc25a1ba9974f3fb43342">SELECTION_BUFFER</a>
  }</td></tr>
 <tr class="separator:a6a17a0a5cd36385059e0f89821caa09b inherit pub_types_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acee42152c0d22c35a45d065ba66a056c"><td class="memItemLeft" align="right" valign="top"><a id="acee42152c0d22c35a45d065ba66a056c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GLPickHandler</b> (double defaultLength=1000000)</td></tr>
+<tr class="memitem:acee42152c0d22c35a45d065ba66a056c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html#acee42152c0d22c35a45d065ba66a056c">GLPickHandler</a> (double defaultLength=1000000)</td></tr>
 <tr class="separator:acee42152c0d22c35a45d065ba66a056c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4b534c223ead6a3af6283eb1a8aa7d1"><td class="memItemLeft" align="right" valign="top"><a id="ae4b534c223ead6a3af6283eb1a8aa7d1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>allocateSelectionBuffer</b> (int width, int height) override</td></tr>
+<tr class="memitem:a1a987ed58daf3ed04f7961a32d117bb4"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html#a1a987ed58daf3ed04f7961a32d117bb4">~GLPickHandler</a> () override</td></tr>
+<tr class="separator:a1a987ed58daf3ed04f7961a32d117bb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4b534c223ead6a3af6283eb1a8aa7d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html#ae4b534c223ead6a3af6283eb1a8aa7d1">allocateSelectionBuffer</a> (int width, int height) override</td></tr>
 <tr class="separator:ae4b534c223ead6a3af6283eb1a8aa7d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4462cdd146d5c598527cf84e1f6b1e09"><td class="memItemLeft" align="right" valign="top"><a id="a4462cdd146d5c598527cf84e1f6b1e09"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>destroySelectionBuffer</b> () override</td></tr>
+<tr class="memitem:a4462cdd146d5c598527cf84e1f6b1e09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html#a4462cdd146d5c598527cf84e1f6b1e09">destroySelectionBuffer</a> () override</td></tr>
 <tr class="separator:a4462cdd146d5c598527cf84e1f6b1e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46f8b0eb7cb44c3ef8da0a72c5c242df"><td class="memItemLeft" align="right" valign="top"><a id="a46f8b0eb7cb44c3ef8da0a72c5c242df"></a>
-<a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">common::BodyPicked</a>&#160;</td><td class="memItemRight" valign="bottom"><b>findCollisionUsingColourCoding</b> (const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">type::Vector3</a> &amp;origin, const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">type::Vector3</a> &amp;direction) override</td></tr>
+<tr class="memitem:a46f8b0eb7cb44c3ef8da0a72c5c242df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">common::BodyPicked</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html#a46f8b0eb7cb44c3ef8da0a72c5c242df">findCollisionUsingColourCoding</a> (const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">type::Vector3</a> &amp;origin, const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">type::Vector3</a> &amp;<a class="el" href="_project_direction_constraint__test_8cpp.html#a3f2cebfb0ab8ca33ed6f0f3598df6112">direction</a>) override</td></tr>
 <tr class="separator:a46f8b0eb7cb44c3ef8da0a72c5c242df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">PickHandler</a></td></tr>
-<tr class="memitem:a0d7312b1d5af795d51b90138d80d264a inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a0d7312b1d5af795d51b90138d80d264a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PickHandler</b> (double defaultLength=1000000)</td></tr>
+<tr class="memitem:a0d7312b1d5af795d51b90138d80d264a inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a0d7312b1d5af795d51b90138d80d264a">PickHandler</a> (double defaultLength=1000000)</td></tr>
 <tr class="separator:a0d7312b1d5af795d51b90138d80d264a inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6747d3c93902383bafe3bafef0455ad inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="ac6747d3c93902383bafe3bafef0455ad"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>activateRay</b> (int width, int height, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">core::objectmodel::BaseNode</a> *root)</td></tr>
+<tr class="memitem:a865fafb85efa224ae8fa3b8c3b7c60b7 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a865fafb85efa224ae8fa3b8c3b7c60b7">~PickHandler</a> ()</td></tr>
+<tr class="separator:a865fafb85efa224ae8fa3b8c3b7c60b7 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6747d3c93902383bafe3bafef0455ad inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#ac6747d3c93902383bafe3bafef0455ad">activateRay</a> (int width, int height, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">core::objectmodel::BaseNode</a> *<a class="el" href="_q_sofa_recorder_8cpp.html#ab4b8daf4b8ea9d39568719e1e320076f">root</a>)</td></tr>
 <tr class="separator:ac6747d3c93902383bafe3bafef0455ad inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb3ed046fc95c7097449aa17a95d7ba3 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="aeb3ed046fc95c7097449aa17a95d7ba3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>deactivateRay</b> ()</td></tr>
+<tr class="memitem:aeb3ed046fc95c7097449aa17a95d7ba3 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#aeb3ed046fc95c7097449aa17a95d7ba3">deactivateRay</a> ()</td></tr>
 <tr class="separator:aeb3ed046fc95c7097449aa17a95d7ba3 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80d988663535dc0aa527278423cde605 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a80d988663535dc0aa527278423cde605"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPickingMethod</b> (PickingMethod method)</td></tr>
+<tr class="memitem:a80d988663535dc0aa527278423cde605 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a80d988663535dc0aa527278423cde605">setPickingMethod</a> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a6a17a0a5cd36385059e0f89821caa09b">PickingMethod</a> method)</td></tr>
 <tr class="separator:a80d988663535dc0aa527278423cde605 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6956e53fa50b0a04a17a6dbda4fd069 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="aa6956e53fa50b0a04a17a6dbda4fd069"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>useSelectionBufferMethod</b> () const</td></tr>
+<tr class="memitem:aa6956e53fa50b0a04a17a6dbda4fd069 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#aa6956e53fa50b0a04a17a6dbda4fd069">useSelectionBufferMethod</a> () const</td></tr>
 <tr class="separator:aa6956e53fa50b0a04a17a6dbda4fd069 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af10d91e563c8a60c0c7a8731e3e65a7e inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="af10d91e563c8a60c0c7a8731e3e65a7e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateRay</b> (const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">sofa::type::Vector3</a> &amp;position, const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">sofa::type::Vector3</a> &amp;orientation)</td></tr>
+<tr class="memitem:af10d91e563c8a60c0c7a8731e3e65a7e inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#af10d91e563c8a60c0c7a8731e3e65a7e">updateRay</a> (const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">sofa::type::Vector3</a> &amp;position, const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">sofa::type::Vector3</a> &amp;orientation)</td></tr>
 <tr class="separator:af10d91e563c8a60c0c7a8731e3e65a7e inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a809bd25b9f5fd31c0d2c103af91bcff2 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a809bd25b9f5fd31c0d2c103af91bcff2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>handleMouseEvent</b> (MOUSE_STATUS status, MOUSE_BUTTON button)</td></tr>
+<tr class="memitem:a809bd25b9f5fd31c0d2c103af91bcff2 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a809bd25b9f5fd31c0d2c103af91bcff2">handleMouseEvent</a> (<a class="el" href="namespacesofa_1_1gui_1_1common.html#a391cd5e90794d02d8cf1ffe5d6f3b76d">MOUSE_STATUS</a> status, <a class="el" href="namespacesofa_1_1gui_1_1common.html#ac306d9f7f033a5e73e4660ace4e89b2a">MOUSE_BUTTON</a> button)</td></tr>
 <tr class="separator:a809bd25b9f5fd31c0d2c103af91bcff2 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac85307d0ca951baf30f8a85276246513 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="ac85307d0ca951baf30f8a85276246513"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">core::objectmodel::BaseNode</a> *root)</td></tr>
+<tr class="memitem:ac85307d0ca951baf30f8a85276246513 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#ac85307d0ca951baf30f8a85276246513">init</a> (<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">core::objectmodel::BaseNode</a> *<a class="el" href="_q_sofa_recorder_8cpp.html#ab4b8daf4b8ea9d39568719e1e320076f">root</a>)</td></tr>
 <tr class="separator:ac85307d0ca951baf30f8a85276246513 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad20897c5c8bd47f5d4005989bead0e55 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="ad20897c5c8bd47f5d4005989bead0e55"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr>
+<tr class="memitem:ad20897c5c8bd47f5d4005989bead0e55 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#ad20897c5c8bd47f5d4005989bead0e55">reset</a> ()</td></tr>
 <tr class="separator:ad20897c5c8bd47f5d4005989bead0e55 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75d84312cb36261792b879ffc61e7e16 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a75d84312cb36261792b879ffc61e7e16"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unload</b> ()</td></tr>
+<tr class="memitem:a75d84312cb36261792b879ffc61e7e16 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a75d84312cb36261792b879ffc61e7e16">unload</a> ()</td></tr>
 <tr class="separator:a75d84312cb36261792b879ffc61e7e16 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0092fcf6eadb1a9e8d56b7fbc7b653bf inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a0092fcf6eadb1a9e8d56b7fbc7b653bf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setColourRenderCallback</b> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_call_back_render.html">CallBackRender</a> *colourRender)</td></tr>
+<tr class="memitem:a0092fcf6eadb1a9e8d56b7fbc7b653bf inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a0092fcf6eadb1a9e8d56b7fbc7b653bf">setColourRenderCallback</a> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_call_back_render.html">CallBackRender</a> *colourRender)</td></tr>
 <tr class="separator:a0092fcf6eadb1a9e8d56b7fbc7b653bf inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7abbc6b8a579159b7b4e6be5f898f675 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a7abbc6b8a579159b7b4e6be5f898f675"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMouse2D</b> (<a class="el" href="structsofa_1_1gui_1_1common_1_1_mouse_position.html">MousePosition</a> mouse)</td></tr>
+<tr class="memitem:a7abbc6b8a579159b7b4e6be5f898f675 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a7abbc6b8a579159b7b4e6be5f898f675">updateMouse2D</a> (<a class="el" href="structsofa_1_1gui_1_1common_1_1_mouse_position.html">MousePosition</a> mouse)</td></tr>
 <tr class="separator:a7abbc6b8a579159b7b4e6be5f898f675 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e70cea115f1a09ab24c9c99da91197c inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a7e70cea115f1a09ab24c9c99da91197c"></a>
-<a class="el" href="classsofa_1_1gui_1_1common_1_1_operation.html">Operation</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getOperation</b> (MOUSE_BUTTON button)</td></tr>
+<tr class="memitem:a7e70cea115f1a09ab24c9c99da91197c inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1gui_1_1common_1_1_operation.html">Operation</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a7e70cea115f1a09ab24c9c99da91197c">getOperation</a> (<a class="el" href="namespacesofa_1_1gui_1_1common.html#ac306d9f7f033a5e73e4660ace4e89b2a">MOUSE_BUTTON</a> button)</td></tr>
 <tr class="separator:a7e70cea115f1a09ab24c9c99da91197c inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f9a0434cf7fd4c422bb695a6eec7ba6 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a7f9a0434cf7fd4c422bb695a6eec7ba6"></a>
-<a class="el" href="classsofa_1_1gui_1_1common_1_1_operation.html">Operation</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>changeOperation</b> (<a class="el" href="classsofa_1_1component_1_1setting_1_1_mouse_button_setting.html">sofa::component::setting::MouseButtonSetting</a> *setting)</td></tr>
+<tr class="memitem:a7f9a0434cf7fd4c422bb695a6eec7ba6 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1gui_1_1common_1_1_operation.html">Operation</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a7f9a0434cf7fd4c422bb695a6eec7ba6">changeOperation</a> (<a class="el" href="classsofa_1_1component_1_1setting_1_1_mouse_button_setting.html">sofa::component::setting::MouseButtonSetting</a> *setting)</td></tr>
 <tr class="separator:a7f9a0434cf7fd4c422bb695a6eec7ba6 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0772d0d16a0adb22dc1ab5e249955be0 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a0772d0d16a0adb22dc1ab5e249955be0"></a>
-<a class="el" href="classsofa_1_1gui_1_1common_1_1_operation.html">Operation</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>changeOperation</b> (MOUSE_BUTTON button, const std::string &amp;op)</td></tr>
+<tr class="memitem:a0772d0d16a0adb22dc1ab5e249955be0 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1gui_1_1common_1_1_operation.html">Operation</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a0772d0d16a0adb22dc1ab5e249955be0">changeOperation</a> (<a class="el" href="namespacesofa_1_1gui_1_1common.html#ac306d9f7f033a5e73e4660ace4e89b2a">MOUSE_BUTTON</a> button, const std::string &amp;op)</td></tr>
 <tr class="separator:a0772d0d16a0adb22dc1ab5e249955be0 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a061ac85f24ed39920f76b1ff0c751108 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a061ac85f24ed39920f76b1ff0c751108"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addCallBack</b> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_call_back_picker.html">CallBackPicker</a> *c)</td></tr>
+<tr class="memitem:a061ac85f24ed39920f76b1ff0c751108 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a061ac85f24ed39920f76b1ff0c751108">addCallBack</a> (<a class="el" href="classsofa_1_1gui_1_1common_1_1_call_back_picker.html">CallBackPicker</a> *c)</td></tr>
 <tr class="separator:a061ac85f24ed39920f76b1ff0c751108 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a838caf4acc057afc5890dab302329698 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a838caf4acc057afc5890dab302329698"></a>
-<a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1gui_1_1common_1_1_call_back_picker.html">CallBackPicker</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCallBackPicker</b> ()</td></tr>
+<tr class="memitem:a838caf4acc057afc5890dab302329698 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1gui_1_1common_1_1_call_back_picker.html">CallBackPicker</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a838caf4acc057afc5890dab302329698">getCallBackPicker</a> ()</td></tr>
 <tr class="separator:a838caf4acc057afc5890dab302329698 inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac73451601c333a8c2e6ed3f47ca1745d inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="ac73451601c333a8c2e6ed3f47ca1745d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clearCallBacks</b> ()</td></tr>
+<tr class="memitem:ac73451601c333a8c2e6ed3f47ca1745d inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#ac73451601c333a8c2e6ed3f47ca1745d">clearCallBacks</a> ()</td></tr>
 <tr class="separator:ac73451601c333a8c2e6ed3f47ca1745d inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30ca8a36c26b119f2ca8e77833f0dadb inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a30ca8a36c26b119f2ca8e77833f0dadb"></a>
-<a class="el" href="classsofa_1_1gui_1_1component_1_1performer_1_1_component_mouse_interaction.html">ComponentMouseInteraction</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getInteraction</b> ()</td></tr>
+<tr class="memitem:a30ca8a36c26b119f2ca8e77833f0dadb inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1gui_1_1component_1_1performer_1_1_component_mouse_interaction.html">ComponentMouseInteraction</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a30ca8a36c26b119f2ca8e77833f0dadb">getInteraction</a> ()</td></tr>
 <tr class="separator:a30ca8a36c26b119f2ca8e77833f0dadb inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c7018a758f7318612fdd8b1645d3e3c inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a7c7018a758f7318612fdd8b1645d3e3c"></a>
-<a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">BodyPicked</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getLastPicked</b> ()</td></tr>
+<tr class="memitem:a7c7018a758f7318612fdd8b1645d3e3c inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">BodyPicked</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a7c7018a758f7318612fdd8b1645d3e3c">getLastPicked</a> ()</td></tr>
 <tr class="separator:a7c7018a758f7318612fdd8b1645d3e3c inherit pub_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a5a6700f73184d644368d47b4b16678c7"><td class="memItemLeft" align="right" valign="top"><a id="a5a6700f73184d644368d47b4b16678c7"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>_fboAllocated</b></td></tr>
+<tr class="memitem:a5a6700f73184d644368d47b4b16678c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html#a5a6700f73184d644368d47b4b16678c7">_fboAllocated</a></td></tr>
 <tr class="separator:a5a6700f73184d644368d47b4b16678c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35fc345bfb1742ae6aeae791390b05b5"><td class="memItemLeft" align="right" valign="top"><a id="a35fc345bfb1742ae6aeae791390b05b5"></a>
-gl::FrameBufferObject&#160;</td><td class="memItemRight" valign="bottom"><b>_fbo</b></td></tr>
+<tr class="memitem:a35fc345bfb1742ae6aeae791390b05b5"><td class="memItemLeft" align="right" valign="top">gl::FrameBufferObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html#a35fc345bfb1742ae6aeae791390b05b5">_fbo</a></td></tr>
 <tr class="separator:a35fc345bfb1742ae6aeae791390b05b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a104439e59a9ead9cccf2cff4c8ae7df8"><td class="memItemLeft" align="right" valign="top"><a id="a104439e59a9ead9cccf2cff4c8ae7df8"></a>
-gl::fboParameters&#160;</td><td class="memItemRight" valign="bottom"><b>_fboParams</b></td></tr>
+<tr class="memitem:a104439e59a9ead9cccf2cff4c8ae7df8"><td class="memItemLeft" align="right" valign="top">gl::fboParameters&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html#a104439e59a9ead9cccf2cff4c8ae7df8">_fboParams</a></td></tr>
 <tr class="separator:a104439e59a9ead9cccf2cff4c8ae7df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">PickHandler</a></td></tr>
-<tr class="memitem:a620f952c8bc50e2c4441057d749ea85e inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a620f952c8bc50e2c4441057d749ea85e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>interactorInUse</b></td></tr>
+<tr class="memitem:a620f952c8bc50e2c4441057d749ea85e inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a620f952c8bc50e2c4441057d749ea85e">interactorInUse</a></td></tr>
 <tr class="separator:a620f952c8bc50e2c4441057d749ea85e inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21a12cc1c40132f5949215b261b3471f inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a21a12cc1c40132f5949215b261b3471f"></a>
-MOUSE_STATUS&#160;</td><td class="memItemRight" valign="bottom"><b>mouseStatus</b></td></tr>
+<tr class="memitem:a21a12cc1c40132f5949215b261b3471f inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1gui_1_1common.html#a391cd5e90794d02d8cf1ffe5d6f3b76d">MOUSE_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a21a12cc1c40132f5949215b261b3471f">mouseStatus</a></td></tr>
 <tr class="separator:a21a12cc1c40132f5949215b261b3471f inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29bdc7b32fd0e37a2c87e73a1c171cad inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a29bdc7b32fd0e37a2c87e73a1c171cad"></a>
-MOUSE_BUTTON&#160;</td><td class="memItemRight" valign="bottom"><b>mouseButton</b></td></tr>
+<tr class="memitem:a29bdc7b32fd0e37a2c87e73a1c171cad inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1gui_1_1common.html#ac306d9f7f033a5e73e4660ace4e89b2a">MOUSE_BUTTON</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a29bdc7b32fd0e37a2c87e73a1c171cad">mouseButton</a></td></tr>
 <tr class="separator:a29bdc7b32fd0e37a2c87e73a1c171cad inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1af4e769d2a1f4fa84d25dc075d97d7 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="aa1af4e769d2a1f4fa84d25dc075d97d7"></a>
-sofa::simulation::NodeSPtr&#160;</td><td class="memItemRight" valign="bottom"><b>mouseNode</b></td></tr>
+<tr class="memitem:aa1af4e769d2a1f4fa84d25dc075d97d7 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#aa1af4e769d2a1f4fa84d25dc075d97d7">mouseNode</a></td></tr>
 <tr class="separator:aa1af4e769d2a1f4fa84d25dc075d97d7 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c47c7d547afc57bc2239a1e8139bde0 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a8c47c7d547afc57bc2239a1e8139bde0"></a>
-MouseContainer::SPtr&#160;</td><td class="memItemRight" valign="bottom"><b>mouseContainer</b></td></tr>
+<tr class="memitem:a8c47c7d547afc57bc2239a1e8139bde0 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">MouseContainer::SPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a8c47c7d547afc57bc2239a1e8139bde0">mouseContainer</a></td></tr>
 <tr class="separator:a8c47c7d547afc57bc2239a1e8139bde0 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c9f13659d7cdf103641866bca6dd170 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a4c9f13659d7cdf103641866bca6dd170"></a>
-sofa::core::sptr&lt; <a class="el" href="classsofa_1_1component_1_1collision_1_1geometry_1_1_ray_collision_model.html">MouseCollisionModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mouseCollision</b></td></tr>
+<tr class="memitem:a4c9f13659d7cdf103641866bca6dd170 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1core.html#a7b58bcd6ecb55fa1e2cb0cdf66ff197c">sofa::core::sptr</a>&lt; <a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a7298e7afe4e23504f0e3c64fa9620794">MouseCollisionModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a4c9f13659d7cdf103641866bca6dd170">mouseCollision</a></td></tr>
 <tr class="separator:a4c9f13659d7cdf103641866bca6dd170 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47dcdef5053d924bbc490f83c26d0a6f inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a47dcdef5053d924bbc490f83c26d0a6f"></a>
-<a class="el" href="structsofa_1_1gui_1_1common_1_1_mouse_position.html">MousePosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mousePosition</b></td></tr>
+<tr class="memitem:a47dcdef5053d924bbc490f83c26d0a6f inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1gui_1_1common_1_1_mouse_position.html">MousePosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a47dcdef5053d924bbc490f83c26d0a6f">mousePosition</a></td></tr>
 <tr class="separator:a47dcdef5053d924bbc490f83c26d0a6f inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26dba65d79241cba218942bf95045259 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a26dba65d79241cba218942bf95045259"></a>
-<a class="el" href="classsofa_1_1gui_1_1component_1_1performer_1_1_component_mouse_interaction.html">ComponentMouseInteraction</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>interaction</b></td></tr>
+<tr class="memitem:a26dba65d79241cba218942bf95045259 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1gui_1_1component_1_1performer_1_1_component_mouse_interaction.html">ComponentMouseInteraction</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a26dba65d79241cba218942bf95045259">interaction</a></td></tr>
 <tr class="separator:a26dba65d79241cba218942bf95045259 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bb5fbde6e42cbc9499b1f7e1f0f7395 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a2bb5fbde6e42cbc9499b1f7e1f0f7395"></a>
-std::vector&lt; <a class="el" href="classsofa_1_1gui_1_1component_1_1performer_1_1_component_mouse_interaction.html">ComponentMouseInteraction</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>instanceComponents</b></td></tr>
+<tr class="memitem:a2bb5fbde6e42cbc9499b1f7e1f0f7395 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsofa_1_1gui_1_1component_1_1performer_1_1_component_mouse_interaction.html">ComponentMouseInteraction</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a2bb5fbde6e42cbc9499b1f7e1f0f7395">instanceComponents</a></td></tr>
 <tr class="separator:a2bb5fbde6e42cbc9499b1f7e1f0f7395 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30cbda9cfcdd1feda361d9f226bd9000 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a30cbda9cfcdd1feda361d9f226bd9000"></a>
-<a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">BodyPicked</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lastPicked</b></td></tr>
+<tr class="memitem:a30cbda9cfcdd1feda361d9f226bd9000 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">BodyPicked</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a30cbda9cfcdd1feda361d9f226bd9000">lastPicked</a></td></tr>
 <tr class="separator:a30cbda9cfcdd1feda361d9f226bd9000 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8ae1490057bbbcd655b44ec7b694507 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="ab8ae1490057bbbcd655b44ec7b694507"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>useCollisions</b></td></tr>
+<tr class="memitem:ab8ae1490057bbbcd655b44ec7b694507 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#ab8ae1490057bbbcd655b44ec7b694507">useCollisions</a></td></tr>
 <tr class="separator:ab8ae1490057bbbcd655b44ec7b694507 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39201982d7a0e43292085a1620af9985 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a39201982d7a0e43292085a1620af9985"></a>
-<a class="el" href="classsofa_1_1type_1_1fixed__array.html">type::fixed_array</a>&lt; <a class="el" href="classsofa_1_1gui_1_1common_1_1_operation.html">Operation</a> *, NONE &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operations</b></td></tr>
+<tr class="memitem:a39201982d7a0e43292085a1620af9985 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1fixed__array.html">type::fixed_array</a>&lt; <a class="el" href="classsofa_1_1gui_1_1common_1_1_operation.html">Operation</a> *, <a class="el" href="namespacesofa_1_1gui_1_1common.html#ac306d9f7f033a5e73e4660ace4e89b2aac157bdf0b85a40d2619cbc8bc1ae5fe2">NONE</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a39201982d7a0e43292085a1620af9985">operations</a></td></tr>
 <tr class="separator:a39201982d7a0e43292085a1620af9985 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a0cb0fa9adb6aa3f9e0e1630d55a1b2 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a0a0cb0fa9adb6aa3f9e0e1630d55a1b2"></a>
-<a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1gui_1_1common_1_1_call_back_picker.html">CallBackPicker</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>callbacks</b></td></tr>
+<tr class="memitem:a0a0cb0fa9adb6aa3f9e0e1630d55a1b2 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; <a class="el" href="classsofa_1_1gui_1_1common_1_1_call_back_picker.html">CallBackPicker</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a0a0cb0fa9adb6aa3f9e0e1630d55a1b2">callbacks</a></td></tr>
 <tr class="separator:a0a0cb0fa9adb6aa3f9e0e1630d55a1b2 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a140da258f01dd0c63f379b35f073ec1a inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a140da258f01dd0c63f379b35f073ec1a"></a>
-<a class="el" href="classsofa_1_1gui_1_1common_1_1_call_back_render.html">CallBackRender</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>renderCallback</b></td></tr>
+<tr class="memitem:a140da258f01dd0c63f379b35f073ec1a inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1gui_1_1common_1_1_call_back_render.html">CallBackRender</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a140da258f01dd0c63f379b35f073ec1a">renderCallback</a></td></tr>
 <tr class="separator:a140da258f01dd0c63f379b35f073ec1a inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ac6ea5dd69290abb6e56e784214042a inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a0ac6ea5dd69290abb6e56e784214042a"></a>
-PickingMethod&#160;</td><td class="memItemRight" valign="bottom"><b>pickingMethod</b></td></tr>
+<tr class="memitem:a0ac6ea5dd69290abb6e56e784214042a inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a6a17a0a5cd36385059e0f89821caa09b">PickingMethod</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a0ac6ea5dd69290abb6e56e784214042a">pickingMethod</a></td></tr>
 <tr class="separator:a0ac6ea5dd69290abb6e56e784214042a inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ce25d557ac40a3008f8f89e4d1a8224 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a8ce25d557ac40a3008f8f89e4d1a8224"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a8ce25d557ac40a3008f8f89e4d1a8224">m_defaultLength</a></td></tr>
-<tr class="memdesc:a8ce25d557ac40a3008f8f89e4d1a8224 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default length of the ray. Set by constructor. <br /></td></tr>
+<tr class="memitem:a8ce25d557ac40a3008f8f89e4d1a8224 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a8ce25d557ac40a3008f8f89e4d1a8224">m_defaultLength</a></td></tr>
+<tr class="memdesc:a8ce25d557ac40a3008f8f89e4d1a8224 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default length of the ray. Set by constructor.  <a href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a8ce25d557ac40a3008f8f89e4d1a8224">More...</a><br /></td></tr>
 <tr class="separator:a8ce25d557ac40a3008f8f89e4d1a8224 inherit pro_attribs_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a0fda52a5b1e93306f2772160d53c7c10"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">PickHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html#a0fda52a5b1e93306f2772160d53c7c10">Inherit</a></td></tr>
+<tr class="separator:a0fda52a5b1e93306f2772160d53c7c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa862fd1a7976199dcf3e2ed144d19520"><td class="memItemLeft" align="right" valign="top">typedef sofa::component::collision::model::RayCollisionModel&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html#aa862fd1a7976199dcf3e2ed144d19520">MouseCollisionModel</a></td></tr>
+<tr class="separator:aa862fd1a7976199dcf3e2ed144d19520"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d180dacfda6524602edccd0164e23d0"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1component_1_1statecontainer_1_1_mechanical_object.html">sofa::component::statecontainer::MechanicalObject</a>&lt; <a class="el" href="namespacesofa_1_1defaulttype.html#a26dc2ccf03905b53d0b25f35e570d85a">defaulttype::Vec3Types</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html#a0d180dacfda6524602edccd0164e23d0">MouseContainer</a></td></tr>
+<tr class="separator:a0d180dacfda6524602edccd0164e23d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classsofa_1_1gui_1_1common_1_1_pick_handler')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">PickHandler</a></td></tr>
-<tr class="memitem:ae0c2106604950c1b9c36ec52f0fc78e0 inherit pub_static_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="ae0c2106604950c1b9c36ec52f0fc78e0"></a>
-static <a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">BodyPicked</a>&#160;</td><td class="memItemRight" valign="bottom"><b>findCollisionUsingBruteForce</b> (const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">type::Vector3</a> &amp;origin, const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">type::Vector3</a> &amp;direction, double maxLength, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">core::objectmodel::BaseNode</a> *root)</td></tr>
+<tr class="memitem:ae0c2106604950c1b9c36ec52f0fc78e0 inherit pub_static_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">BodyPicked</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#ae0c2106604950c1b9c36ec52f0fc78e0">findCollisionUsingBruteForce</a> (const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">type::Vector3</a> &amp;origin, const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">type::Vector3</a> &amp;<a class="el" href="_project_direction_constraint__test_8cpp.html#a3f2cebfb0ab8ca33ed6f0f3598df6112">direction</a>, double maxLength, <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">core::objectmodel::BaseNode</a> *<a class="el" href="_q_sofa_recorder_8cpp.html#ab4b8daf4b8ea9d39568719e1e320076f">root</a>)</td></tr>
 <tr class="separator:ae0c2106604950c1b9c36ec52f0fc78e0 inherit pub_static_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">PickHandler</a></td></tr>
-<tr class="memitem:a29c44a88d184d15fbc1ed7b74a2b1b6e inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a29c44a88d184d15fbc1ed7b74a2b1b6e"></a>
-virtual <a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">BodyPicked</a>&#160;</td><td class="memItemRight" valign="bottom"><b>findCollision</b> ()</td></tr>
+<tr class="memitem:a29c44a88d184d15fbc1ed7b74a2b1b6e inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">BodyPicked</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a29c44a88d184d15fbc1ed7b74a2b1b6e">findCollision</a> ()</td></tr>
 <tr class="separator:a29c44a88d184d15fbc1ed7b74a2b1b6e inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0fe46c835f40eda14e3062266aa266a inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="ae0fe46c835f40eda14e3062266aa266a"></a>
-<a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">BodyPicked</a>&#160;</td><td class="memItemRight" valign="bottom"><b>findCollisionUsingPipeline</b> ()</td></tr>
+<tr class="memitem:ae0fe46c835f40eda14e3062266aa266a inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">BodyPicked</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#ae0fe46c835f40eda14e3062266aa266a">findCollisionUsingPipeline</a> ()</td></tr>
 <tr class="separator:ae0fe46c835f40eda14e3062266aa266a inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c42c6904a394bdc23c253c63a8e325a inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a4c42c6904a394bdc23c253c63a8e325a"></a>
-<a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">BodyPicked</a>&#160;</td><td class="memItemRight" valign="bottom"><b>findCollisionUsingBruteForce</b> ()</td></tr>
+<tr class="memitem:a4c42c6904a394bdc23c253c63a8e325a inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">BodyPicked</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a4c42c6904a394bdc23c253c63a8e325a">findCollisionUsingBruteForce</a> ()</td></tr>
 <tr class="separator:a4c42c6904a394bdc23c253c63a8e325a inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac880db513f1bfc1be14a0d6eb502d317 inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="ac880db513f1bfc1be14a0d6eb502d317"></a>
-<a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">BodyPicked</a>&#160;</td><td class="memItemRight" valign="bottom"><b>findCollisionUsingColourCoding</b> ()</td></tr>
+<tr class="memitem:ac880db513f1bfc1be14a0d6eb502d317 inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">BodyPicked</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#ac880db513f1bfc1be14a0d6eb502d317">findCollisionUsingColourCoding</a> ()</td></tr>
 <tr class="separator:ac880db513f1bfc1be14a0d6eb502d317 inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3dba73633d02178a4ca665d738c7735e inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="a3dba73633d02178a4ca665d738c7735e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>needToCastRay</b> ()</td></tr>
+<tr class="memitem:a3dba73633d02178a4ca665d738c7735e inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a3dba73633d02178a4ca665d738c7735e">needToCastRay</a> ()</td></tr>
 <tr class="separator:a3dba73633d02178a4ca665d738c7735e inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc6c0b124f561d2f63d705c41b61334b inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top"><a id="adc6c0b124f561d2f63d705c41b61334b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCompatibleInteractor</b> ()</td></tr>
+<tr class="memitem:adc6c0b124f561d2f63d705c41b61334b inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#adc6c0b124f561d2f63d705c41b61334b">setCompatibleInteractor</a> ()</td></tr>
 <tr class="separator:adc6c0b124f561d2f63d705c41b61334b inherit pro_methods_classsofa_1_1gui_1_1common_1_1_pick_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a0fda52a5b1e93306f2772160d53c7c10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fda52a5b1e93306f2772160d53c7c10">&#9670;&nbsp;</a></span>Inherit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html">PickHandler</a> <a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html#a0fda52a5b1e93306f2772160d53c7c10">Inherit</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa862fd1a7976199dcf3e2ed144d19520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa862fd1a7976199dcf3e2ed144d19520">&#9670;&nbsp;</a></span>MouseCollisionModel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef sofa::component::collision::model::RayCollisionModel <a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a7298e7afe4e23504f0e3c64fa9620794">MouseCollisionModel</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d180dacfda6524602edccd0164e23d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d180dacfda6524602edccd0164e23d0">&#9670;&nbsp;</a></span>MouseContainer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1component_1_1statecontainer_1_1_mechanical_object.html">sofa::component::statecontainer::MechanicalObject</a>&lt; <a class="el" href="namespacesofa_1_1defaulttype.html#a26dc2ccf03905b53d0b25f35e570d85a">defaulttype::Vec3Types</a> &gt; <a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a0d180dacfda6524602edccd0164e23d0">MouseContainer</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a6a17a0a5cd36385059e0f89821caa09b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a17a0a5cd36385059e0f89821caa09b">&#9670;&nbsp;</a></span>PickingMethod</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a6a17a0a5cd36385059e0f89821caa09b">PickingMethod</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6a17a0a5cd36385059e0f89821caa09ba0389c6c85e8680401490ef9c791d4c0c"></a>RAY_CASTING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6a17a0a5cd36385059e0f89821caa09ba26e1df27b72cc25a1ba9974f3fb43342"></a>SELECTION_BUFFER&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="acee42152c0d22c35a45d065ba66a056c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acee42152c0d22c35a45d065ba66a056c">&#9670;&nbsp;</a></span>GLPickHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html">GLPickHandler</a> </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>defaultLength</em> = <code>1000000</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1a987ed58daf3ed04f7961a32d117bb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a987ed58daf3ed04f7961a32d117bb4">&#9670;&nbsp;</a></span>~GLPickHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html">GLPickHandler</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae4b534c223ead6a3af6283eb1a8aa7d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4b534c223ead6a3af6283eb1a8aa7d1">&#9670;&nbsp;</a></span>allocateSelectionBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void allocateSelectionBuffer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#ac92125f7160702e7cfa3fc5ee9475554">PickHandler</a>.</p>
+
+</div>
+</div>
+<a id="a4462cdd146d5c598527cf84e1f6b1e09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4462cdd146d5c598527cf84e1f6b1e09">&#9670;&nbsp;</a></span>destroySelectionBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void destroySelectionBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a4a8f1471f48f9ed70ff8eac8ccc2bea3">PickHandler</a>.</p>
+
+</div>
+</div>
+<a id="a46f8b0eb7cb44c3ef8da0a72c5c242df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46f8b0eb7cb44c3ef8da0a72c5c242df">&#9670;&nbsp;</a></span>findCollisionUsingColourCoding()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsofa_1_1gui_1_1component_1_1performer_1_1_body_picked.html">BodyPicked</a> findCollisionUsingColourCoding </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">type::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>origin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">type::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classsofa_1_1gui_1_1common_1_1_pick_handler.html#a16c16940175d0063ec6f88d508861cb5">PickHandler</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a35fc345bfb1742ae6aeae791390b05b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35fc345bfb1742ae6aeae791390b05b5">&#9670;&nbsp;</a></span>_fbo</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">gl::FrameBufferObject _fbo</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5a6700f73184d644368d47b4b16678c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a6700f73184d644368d47b4b16678c7">&#9670;&nbsp;</a></span>_fboAllocated</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool _fboAllocated</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a104439e59a9ead9cccf2cff4c8ae7df8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a104439e59a9ead9cccf2cff4c8ae7df8">&#9670;&nbsp;</a></span>_fboParams</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">gl::fboParameters _fboParams</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>gui</b></li><li class="navelem"><b>qt</b></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html">GLPickHandler</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:52 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui.html">gui</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1gui_1_1qt.html">qt</a></li><li class="navelem"><a class="el" href="classsofa_1_1gui_1_1qt_1_1_g_l_pick_handler.html">GLPickHandler</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:39 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

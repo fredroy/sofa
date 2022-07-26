@@ -9,11 +9,13 @@ var classsofa_1_1core_1_1visual_1_1_shader_element =
     ] ],
     [ "ShaderElement", "classsofa_1_1core_1_1visual_1_1_shader_element.html#a7d448f5c45ccc283afbfa4dba9a20807", null ],
     [ "~ShaderElement", "classsofa_1_1core_1_1visual_1_1_shader_element.html#ac079a849779e379fe1444a97c0db08e4", null ],
+    [ "ShaderElement", "classsofa_1_1core_1_1visual_1_1_shader_element.html#ac39233921127bcd66458e1a232fae761", null ],
     [ "getSEID", "classsofa_1_1core_1_1visual_1_1_shader_element.html#a3e4ff4ae863d63efa882af60985a8edf", null ],
     [ "getSESizePerVertex", "classsofa_1_1core_1_1visual_1_1_shader_element.html#a5cc0b7cf74a4957db87137a58e39af04", null ],
     [ "getSETotalSize", "classsofa_1_1core_1_1visual_1_1_shader_element.html#a6b60fb72f8fec3b33bbc4fa60149f848", null ],
     [ "getSEType", "classsofa_1_1core_1_1visual_1_1_shader_element.html#aecf63ea0cc479307247e3763be7d0fae", null ],
     [ "getSEValue", "classsofa_1_1core_1_1visual_1_1_shader_element.html#a2905483bdefa1c36f92e0bf1a46e01e1", null ],
     [ "getSEValue", "classsofa_1_1core_1_1visual_1_1_shader_element.html#aac75d6661779c0bcdaabbb822d6e9778", null ],
+    [ "operator=", "classsofa_1_1core_1_1visual_1_1_shader_element.html#a9b1686f2bb0423433b11956e3c52a112", null ],
     [ "SOFA_ABSTRACT_CLASS", "classsofa_1_1core_1_1visual_1_1_shader_element.html#a2469faffd30ce6e11185dcfe0364faa9", null ]
 ];

@@ -21,7 +21,16 @@ var classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditi
     [ "SOFA_CLASS", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#a10512d76ac381bada5279412d53f1f02", null ],
     [ "solve", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#a8a6dbf9043c1cbf60898b9986e9caa76", null ],
     [ "updateSystemMatrix", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#a63f886fa60ccd1c222249f1d2e2e73e1", null ],
+    [ "currentSystemSize", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#a528782398f56c9ecc4a7ff86c1c597b8", null ],
     [ "d_updateStep", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#a9c8598640d6c263bb985254cc47decdc", null ],
     [ "f_useRotationFinder", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#a14a5e73c49bedfda5ae38a39a638814d", null ],
-    [ "solverName", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#af0ecb76f4f1c787004ca5498409be884", null ]
+    [ "first", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#a77e49fc0956d412a05337460c7778c6d", null ],
+    [ "indexwork", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#aa5b08bb1bb9b52b83f05614e845d09aa", null ],
+    [ "j_local", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#a77a53603766e57e5e88b4c0e3f2bad8d", null ],
+    [ "nextRefreshStep", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#aded008597a94fde9f1d1f3007832dc45", null ],
+    [ "realSolver", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#a3390f21a6b521eb26f277de6a49414d7", null ],
+    [ "rotationFinders", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#a95be2259993d2d444ea41bb9f793e02b", null ],
+    [ "rotationWork", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#a17dc1d54222d030d07da698d93c89323", null ],
+    [ "solverName", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#af0ecb76f4f1c787004ca5498409be884", null ],
+    [ "updateSystemSize", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_warp_preconditioner.html#a72b56c972846251624d7cce114ed6907", null ]
 ];

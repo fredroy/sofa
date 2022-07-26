@@ -13,6 +13,8 @@ var classsofa_1_1core_1_1behavior_1_1_pair_interaction_projective_constraint_set
     [ "~PairInteractionProjectiveConstraintSet", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_projective_constraint_set.html#a38bfc74e245171e1935c76a5714beb52", null ],
     [ "applyConstraint", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_projective_constraint_set.html#abc03fd2ffdeba8caf21159625d0e4ac0", null ],
     [ "applyConstraint", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_projective_constraint_set.html#a4ef4421478b65f23c7e6fe5b2352be43", null ],
+    [ "canCreate", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_projective_constraint_set.html#a2b65878d6e6b905ac5044f7fa7d2198d", null ],
+    [ "create", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_projective_constraint_set.html#abed809561a811a3bbd1288b7d32acd81", null ],
     [ "isActive", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_projective_constraint_set.html#a354c7d206ec624b9bdbb81f3b788f826", null ],
     [ "projectJacobianMatrix", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_projective_constraint_set.html#a4b0e4765bb5a92314b7b70d6a93c3093", null ],
     [ "projectPosition", "classsofa_1_1core_1_1behavior_1_1_pair_interaction_projective_constraint_set.html#a058bc21e4022f654d3e854054e9840a1", null ],

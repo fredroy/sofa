@@ -7,6 +7,8 @@ var classsofa_1_1core_1_1_category_library =
     [ "addComponent", "classsofa_1_1core_1_1_category_library.html#a1d818f90510fa8acf559543053b9c98d", null ],
     [ "createComponent", "classsofa_1_1core_1_1_category_library.html#a6242a8c26506e0fda4acf7398b136727", null ],
     [ "endConstruction", "classsofa_1_1core_1_1_category_library.html#a23746a9b08d9ae9a6d04aea4e3806f6b", null ],
+    [ "getCategories", "classsofa_1_1core_1_1_category_library.html#a13f5ad669e0af4cd0e24f73841114c93", null ],
+    [ "getCategories", "classsofa_1_1core_1_1_category_library.html#ac19d375e698f82fc9a956855d075f411", null ],
     [ "getComponent", "classsofa_1_1core_1_1_category_library.html#a2852553fb46f2b620bf61743dcdc931c", null ],
     [ "getComponents", "classsofa_1_1core_1_1_category_library.html#a61ef615e2aae1dfcdce9e2cd41ec7f33", null ],
     [ "getName", "classsofa_1_1core_1_1_category_library.html#a8802382fe16a9f1966b9565e38a8495a", null ],

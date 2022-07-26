@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_simulation_2_common_2src_2sofa_2simul
 <div class="title">SceneLoaderPHP.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_simulation_2_common_2src_2sofa_2simulation_2common_2_scene_loader_p_h_p_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -109,17 +109,17 @@ $(document).ready(function(){initNavTree('_simulation_2_common_2src_2sofa_2simul
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">******************************************************************************/</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;sofa/simulation/common/config.h&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/simulation/SceneLoaderFactory.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_scene_loader_factory_8h.html">sofa/simulation/SceneLoaderFactory.h</a>&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>sofa::simulation</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1simulation.html">sofa::simulation</a></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">class </span>SOFA_SIMULATION_COMMON_API SceneLoaderPHP : <span class="keyword">public</span> SceneLoader</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">bool</span> canLoadFileExtension(<span class="keyword">const</span> <span class="keywordtype">char</span> *extension) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">bool</span> canLoadFileExtension(<span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="save_snapshot_8cpp.html#a1ce7e66096dadf951062dd29a482decc">extension</a>) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> sofa::simulation::NodeSPtr doLoad(<span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; sceneArgs) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a> doLoad(<span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; sceneArgs) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> std::string getFileTypeDesc() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
@@ -129,11 +129,15 @@ $(document).ready(function(){initNavTree('_simulation_2_common_2src_2sofa_2simul
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;} <span class="comment">// namespace sofa::simulation</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1simulation_html_aea53c41e390ebac01a13b5f549abea59"><div class="ttname"><a href="namespacesofa_1_1simulation.html#aea53c41e390ebac01a13b5f549abea59">sofa::simulation::NodeSPtr</a></div><div class="ttdeci">sofa::core::sptr&lt; Node &gt; NodeSPtr</div><div class="ttdef"><b>Definition:</b> fwd.h:32</div></div>
+<div class="ttc" id="asave_snapshot_8cpp_html_a1ce7e66096dadf951062dd29a482decc"><div class="ttname"><a href="save_snapshot_8cpp.html#a1ce7e66096dadf951062dd29a482decc">extension</a></div><div class="ttdeci">static QMap&lt; QString, QString &gt; extension</div><div class="ttdef"><b>Definition:</b> saveSnapshot.cpp:54</div></div>
+<div class="ttc" id="anamespacesofa_1_1simulation_html"><div class="ttname"><a href="namespacesofa_1_1simulation.html">sofa::simulation</a></div><div class="ttdef"><b>Definition:</b> ConstraintStoreLambdaVisitor.h:28</div></div>
+<div class="ttc" id="a_scene_loader_factory_8h_html"><div class="ttname"><a href="_scene_loader_factory_8h.html">SceneLoaderFactory.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ded960159c28a7f98e773d05d8cb2edb.html">Simulation</a></li><li class="navelem"><a class="el" href="dir_71cad00ab82cc9f659f751cc1436b9cf.html">Common</a></li><li class="navelem"><a class="el" href="dir_f309850bfab2dbba8bf7997a6e066487.html">src</a></li><li class="navelem"><a class="el" href="dir_c4f9358fc9286c83a12eecbd39f640ef.html">sofa</a></li><li class="navelem"><a class="el" href="dir_11fb7a0453f03a60f186f7c00f63cba8.html">simulation</a></li><li class="navelem"><a class="el" href="dir_6a6e8991c61017f88d825770c4c84eac.html">common</a></li><li class="navelem"><b>SceneLoaderPHP.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:36:19 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ded960159c28a7f98e773d05d8cb2edb.html">Simulation</a></li><li class="navelem"><a class="el" href="dir_71cad00ab82cc9f659f751cc1436b9cf.html">Common</a></li><li class="navelem"><a class="el" href="dir_f309850bfab2dbba8bf7997a6e066487.html">src</a></li><li class="navelem"><a class="el" href="dir_c4f9358fc9286c83a12eecbd39f640ef.html">sofa</a></li><li class="navelem"><a class="el" href="dir_11fb7a0453f03a60f186f7c00f63cba8.html">simulation</a></li><li class="navelem"><a class="el" href="dir_6a6e8991c61017f88d825770c4c84eac.html">common</a></li><li class="navelem"><a class="el" href="_simulation_2_common_2src_2sofa_2simulation_2common_2_scene_loader_p_h_p_8h.html">SceneLoaderPHP.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:02:51 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_scene_utility_2src_2sofa_2component_2
 <div class="title">PauseAnimation.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_scene_utility_2src_2sofa_2component_2sceneutility_2_pause_animation_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -111,41 +111,49 @@ $(document).ready(function(){initNavTree('_scene_utility_2src_2sofa_2component_2
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/component/sceneutility/config.h&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sofa/core/objectmodel/BaseObject.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;sofa/core/behavior/MechanicalState.h&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;sofa/type/Vec.h&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_base_object_8h.html">sofa/core/objectmodel/BaseObject.h</a>&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_mechanical_state_8h.html">sofa/core/behavior/MechanicalState.h</a>&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="framework_2_type_2src_2sofa_2type_2vec_8h.html">sofa/type/Vec.h</a>&gt;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>sofa::component::sceneutility</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa_1_1component_1_1sceneutility.html">sofa::component::sceneutility</a></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">class </span>SOFA_COMPONENT_SCENEUTILITY_API PauseAnimation: <span class="keyword">public</span> core::objectmodel::BaseObject</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">class </span>SOFA_COMPONENT_SCENEUTILITY_API <a class="code" href="namespacesofa_1_1component_1_1misc.html#a016b31cc7a187c78ca4508af9691c737">PauseAnimation</a>: <span class="keyword">public</span> core::objectmodel::BaseObject</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    SOFA_ABSTRACT_CLASS(PauseAnimation, core::objectmodel::BaseObject);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="_base_class_8h.html#ab9812e5557717240cf4d8590e3e61064">SOFA_ABSTRACT_CLASS</a>(<a class="code" href="namespacesofa_1_1component_1_1misc.html#a016b31cc7a187c78ca4508af9691c737">PauseAnimation</a>, core::objectmodel::BaseObject);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    PauseAnimation ();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    ~PauseAnimation () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="namespacesofa_1_1component_1_1misc.html#a016b31cc7a187c78ca4508af9691c737">PauseAnimation</a> ();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    ~<a class="code" href="namespacesofa_1_1component_1_1misc.html#a016b31cc7a187c78ca4508af9691c737">PauseAnimation</a> () <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> init() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespacesofa_1_1component_1_1sceneutility.html#a078af75ae7f920d41eca9b4ccb165ca4">init</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isPaused() = 0;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> pause();</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">sofa::core::objectmodel::BaseNode</a>* root;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">sofa::core::objectmodel::BaseNode</a>* <a class="code" href="_bilateral_interaction_constraint__test_8cpp.html#ae4921ba1b53a64ac407621370dec9883">root</a>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">// namespace sofa::component::sceneutility</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacesofa_1_1component_1_1sceneutility_html_a078af75ae7f920d41eca9b4ccb165ca4"><div class="ttname"><a href="namespacesofa_1_1component_1_1sceneutility.html#a078af75ae7f920d41eca9b4ccb165ca4">sofa::component::sceneutility::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> init.cpp:68</div></div>
+<div class="ttc" id="a_base_object_8h_html"><div class="ttname"><a href="_base_object_8h.html">BaseObject.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_node_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_node.html">sofa::core::objectmodel::BaseNode</a></div><div class="ttdoc">Base class for simulation nodes.</div><div class="ttdef"><b>Definition:</b> BaseNode.h:107</div></div>
+<div class="ttc" id="a_mechanical_state_8h_html"><div class="ttname"><a href="_mechanical_state_8h.html">MechanicalState.h</a></div></div>
+<div class="ttc" id="anamespacesofa_1_1component_1_1misc_html_a016b31cc7a187c78ca4508af9691c737"><div class="ttname"><a href="namespacesofa_1_1component_1_1misc.html#a016b31cc7a187c78ca4508af9691c737">sofa::component::misc::PauseAnimation</a></div><div class="ttdeci">sofa::component::sceneutility::PauseAnimation PauseAnimation</div><div class="ttdef"><b>Definition:</b> PauseAnimation.h:50</div></div>
+<div class="ttc" id="anamespacesofa_1_1component_1_1sceneutility_html"><div class="ttname"><a href="namespacesofa_1_1component_1_1sceneutility.html">sofa::component::sceneutility</a></div><div class="ttdef"><b>Definition:</b> AddResourceRepository.cpp:31</div></div>
+<div class="ttc" id="aframework_2_type_2src_2sofa_2type_2vec_8h_html"><div class="ttname"><a href="framework_2_type_2src_2sofa_2type_2vec_8h.html">Vec.h</a></div></div>
+<div class="ttc" id="a_base_class_8h_html_ab9812e5557717240cf4d8590e3e61064"><div class="ttname"><a href="_base_class_8h.html#ab9812e5557717240cf4d8590e3e61064">SOFA_ABSTRACT_CLASS</a></div><div class="ttdeci">#define SOFA_ABSTRACT_CLASS(T, Parent)</div><div class="ttdef"><b>Definition:</b> BaseClass.h:214</div></div>
+<div class="ttc" id="a_bilateral_interaction_constraint__test_8cpp_html_ae4921ba1b53a64ac407621370dec9883"><div class="ttname"><a href="_bilateral_interaction_constraint__test_8cpp.html#ae4921ba1b53a64ac407621370dec9883">root</a></div><div class="ttdeci">simulation::Node::SPtr root</div><div class="ttdoc">Root of the scene graph, created by the constructor an re-used in the tests.</div><div class="ttdef"><b>Definition:</b> BilateralInteractionConstraint_test.cpp:66</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_42ede1205723b3b890fa00e138974231.html">Component</a></li><li class="navelem"><a class="el" href="dir_5527f99740dfb989704699c3355bc694.html">SceneUtility</a></li><li class="navelem"><a class="el" href="dir_6c5b33aaf6aae080220d3f7584324b7b.html">src</a></li><li class="navelem"><a class="el" href="dir_1d6964548a1f580816edfc59f7747782.html">sofa</a></li><li class="navelem"><a class="el" href="dir_7404714966484b7c6abb7cea9867e755.html">component</a></li><li class="navelem"><a class="el" href="dir_445cdd0c084156f8597ce19177e7c7e4.html">sceneutility</a></li><li class="navelem"><b>PauseAnimation.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:31:59 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_42ede1205723b3b890fa00e138974231.html">Component</a></li><li class="navelem"><a class="el" href="dir_5527f99740dfb989704699c3355bc694.html">SceneUtility</a></li><li class="navelem"><a class="el" href="dir_6c5b33aaf6aae080220d3f7584324b7b.html">src</a></li><li class="navelem"><a class="el" href="dir_1d6964548a1f580816edfc59f7747782.html">sofa</a></li><li class="navelem"><a class="el" href="dir_7404714966484b7c6abb7cea9867e755.html">component</a></li><li class="navelem"><a class="el" href="dir_445cdd0c084156f8597ce19177e7c7e4.html">sceneutility</a></li><li class="navelem"><a class="el" href="_scene_utility_2src_2sofa_2component_2sceneutility_2_pause_animation_8h.html">PauseAnimation.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 06:52:08 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

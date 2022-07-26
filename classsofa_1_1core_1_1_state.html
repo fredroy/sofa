@@ -94,187 +94,138 @@ $(document).ready(function(){initNavTree('classsofa_1_1core_1_1_state.html','');
 <p>Component storing position and velocity vectors.  
  <a href="classsofa_1_1core_1_1_state.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_state_8h_source.html">State.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_multi_vec_id_8h_source.html">MultiVecId.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a60d9983dc67dfef8d778a8fcd1419fa9"><td class="memItemLeft" align="right" valign="top"><a id="a60d9983dc67dfef8d778a8fcd1419fa9"></a>
-typedef TDataTypes&#160;</td><td class="memItemRight" valign="bottom"><b>DataTypes</b></td></tr>
+<tr class="memitem:a60d9983dc67dfef8d778a8fcd1419fa9"><td class="memItemLeft" align="right" valign="top">typedef TDataTypes&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a60d9983dc67dfef8d778a8fcd1419fa9">DataTypes</a></td></tr>
 <tr class="separator:a60d9983dc67dfef8d778a8fcd1419fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf523069e5b1497cffac17511dcd3b1e"><td class="memItemLeft" align="right" valign="top"><a id="acf523069e5b1497cffac17511dcd3b1e"></a>
-typedef DataTypes::Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#acf523069e5b1497cffac17511dcd3b1e">Real</a></td></tr>
-<tr class="memdesc:acf523069e5b1497cffac17511dcd3b1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scalar values (float or double). <br /></td></tr>
+<tr class="memitem:acf523069e5b1497cffac17511dcd3b1e"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a032e30a7559178ebc4240c12ef02ec56">DataTypes::Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#acf523069e5b1497cffac17511dcd3b1e">Real</a></td></tr>
+<tr class="memdesc:acf523069e5b1497cffac17511dcd3b1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scalar values (float or double).  <a href="classsofa_1_1core_1_1_state.html#acf523069e5b1497cffac17511dcd3b1e">More...</a><br /></td></tr>
 <tr class="separator:acf523069e5b1497cffac17511dcd3b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c0bd56aca42d0e855a400b50f3e078b"><td class="memItemLeft" align="right" valign="top"><a id="a7c0bd56aca42d0e855a400b50f3e078b"></a>
-typedef DataTypes::Coord&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a></td></tr>
-<tr class="memdesc:a7c0bd56aca42d0e855a400b50f3e078b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position values. <br /></td></tr>
+<tr class="memitem:a7c0bd56aca42d0e855a400b50f3e078b"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a433a4446e8804f24450e7f9f90cf27a5">DataTypes::Coord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a></td></tr>
+<tr class="memdesc:a7c0bd56aca42d0e855a400b50f3e078b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position values.  <a href="classsofa_1_1core_1_1_state.html#a7c0bd56aca42d0e855a400b50f3e078b">More...</a><br /></td></tr>
 <tr class="separator:a7c0bd56aca42d0e855a400b50f3e078b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a705fac58c33b23c20e6bac3fd2b0bb87"><td class="memItemLeft" align="right" valign="top"><a id="a705fac58c33b23c20e6bac3fd2b0bb87"></a>
-typedef DataTypes::Deriv&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a705fac58c33b23c20e6bac3fd2b0bb87">Deriv</a></td></tr>
-<tr class="memdesc:a705fac58c33b23c20e6bac3fd2b0bb87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derivative values (velocity, forces, displacements). <br /></td></tr>
+<tr class="memitem:a705fac58c33b23c20e6bac3fd2b0bb87"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a8ea6da29f450c7a8fcceed1d0e3c4cfc">DataTypes::Deriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a705fac58c33b23c20e6bac3fd2b0bb87">Deriv</a></td></tr>
+<tr class="memdesc:a705fac58c33b23c20e6bac3fd2b0bb87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derivative values (velocity, forces, displacements).  <a href="classsofa_1_1core_1_1_state.html#a705fac58c33b23c20e6bac3fd2b0bb87">More...</a><br /></td></tr>
 <tr class="separator:a705fac58c33b23c20e6bac3fd2b0bb87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac65f29d77ab27fa6f97c3c8d9e10b2af"><td class="memItemLeft" align="right" valign="top"><a id="ac65f29d77ab27fa6f97c3c8d9e10b2af"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1vector.html">DataTypes::VecReal</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#ac65f29d77ab27fa6f97c3c8d9e10b2af">VecReal</a></td></tr>
-<tr class="memdesc:ac65f29d77ab27fa6f97c3c8d9e10b2af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container of scalar values with the same API as <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>. <br /></td></tr>
+<tr class="memitem:ac65f29d77ab27fa6f97c3c8d9e10b2af"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a6c0d252670960c4ead435e98ff168952">DataTypes::VecReal</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#ac65f29d77ab27fa6f97c3c8d9e10b2af">VecReal</a></td></tr>
+<tr class="memdesc:ac65f29d77ab27fa6f97c3c8d9e10b2af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container of scalar values with the same API as <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>.  <a href="classsofa_1_1core_1_1_state.html#ac65f29d77ab27fa6f97c3c8d9e10b2af">More...</a><br /></td></tr>
 <tr class="separator:ac65f29d77ab27fa6f97c3c8d9e10b2af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05882e2e9ba8d707ab531ab94a1f39e0"><td class="memItemLeft" align="right" valign="top"><a id="a05882e2e9ba8d707ab531ab94a1f39e0"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1vector.html">DataTypes::VecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a></td></tr>
-<tr class="memdesc:a05882e2e9ba8d707ab531ab94a1f39e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container of Coord values with the same API as <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>. <br /></td></tr>
+<tr class="memitem:a05882e2e9ba8d707ab531ab94a1f39e0"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a06eb712afb67c0ee7c25eb52a2f5cf5f">DataTypes::VecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a></td></tr>
+<tr class="memdesc:a05882e2e9ba8d707ab531ab94a1f39e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container of Coord values with the same API as <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>.  <a href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">More...</a><br /></td></tr>
 <tr class="separator:a05882e2e9ba8d707ab531ab94a1f39e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83fb2b666b4e514e93d3bb221aa681ef"><td class="memItemLeft" align="right" valign="top"><a id="a83fb2b666b4e514e93d3bb221aa681ef"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1vector.html">DataTypes::VecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a></td></tr>
-<tr class="memdesc:a83fb2b666b4e514e93d3bb221aa681ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container of Deriv values with the same API as <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>. <br /></td></tr>
+<tr class="memitem:a83fb2b666b4e514e93d3bb221aa681ef"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a87984e2bbae86596548eb282b5624420">DataTypes::VecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a></td></tr>
+<tr class="memdesc:a83fb2b666b4e514e93d3bb221aa681ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container of Deriv values with the same API as <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>.  <a href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">More...</a><br /></td></tr>
 <tr class="separator:a83fb2b666b4e514e93d3bb221aa681ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d99d233ff686fbc18e2ecdafab7335d"><td class="memItemLeft" align="right" valign="top"><a id="a7d99d233ff686fbc18e2ecdafab7335d"></a>
-typedef <a class="el" href="classsofa_1_1defaulttype_1_1_map_map_sparse_matrix.html">DataTypes::MatrixDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a7d99d233ff686fbc18e2ecdafab7335d">MatrixDeriv</a></td></tr>
-<tr class="memdesc:a7d99d233ff686fbc18e2ecdafab7335d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of Jacobians (sparse constraint matrices). <br /></td></tr>
+<tr class="memitem:a7d99d233ff686fbc18e2ecdafab7335d"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a74ff7a2fc4bf3b57fc486380e7816bfb">DataTypes::MatrixDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a7d99d233ff686fbc18e2ecdafab7335d">MatrixDeriv</a></td></tr>
+<tr class="memdesc:a7d99d233ff686fbc18e2ecdafab7335d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of Jacobians (sparse constraint matrices).  <a href="classsofa_1_1core_1_1_state.html#a7d99d233ff686fbc18e2ecdafab7335d">More...</a><br /></td></tr>
 <tr class="separator:a7d99d233ff686fbc18e2ecdafab7335d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aacfd95e6594a227e17c0e40fe7d28bc0"><td class="memItemLeft" align="right" valign="top"><a id="aacfd95e6594a227e17c0e40fe7d28bc0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SOFA_CLASS</b> (SOFA_TEMPLATE(<a class="el" href="classsofa_1_1core_1_1_state.html">State</a>, TDataTypes), <a class="el" href="classsofa_1_1core_1_1_base_state.html">BaseState</a>)</td></tr>
+<tr class="memitem:aacfd95e6594a227e17c0e40fe7d28bc0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#aacfd95e6594a227e17c0e40fe7d28bc0">SOFA_CLASS</a> (<a class="el" href="_base_class_8h.html#a31cd2291b906a5b1d94ae43b3bf80d61">SOFA_TEMPLATE</a>(<a class="el" href="classsofa_1_1core_1_1_state.html">State</a>, TDataTypes), <a class="el" href="classsofa_1_1core_1_1_base_state.html">BaseState</a>)</td></tr>
 <tr class="separator:aacfd95e6594a227e17c0e40fe7d28bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a467163d70a78566af943439f29115954"><td class="memItemLeft" align="right" valign="top"><a id="a467163d70a78566af943439f29115954"></a>
-<a class="el" href="classsofa_1_1type_1_1_t_bounding_box.html">sofa::type::TBoundingBox</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a467163d70a78566af943439f29115954">computeBBox</a> () const</td></tr>
-<tr class="memdesc:a467163d70a78566af943439f29115954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the bounding box independently from the visibility parameters. <br /></td></tr>
+<tr class="memitem:a467163d70a78566af943439f29115954"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1_t_bounding_box.html">sofa::type::TBoundingBox</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a467163d70a78566af943439f29115954">computeBBox</a> () const</td></tr>
+<tr class="memdesc:a467163d70a78566af943439f29115954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the bounding box independently from the visibility parameters.  <a href="classsofa_1_1core_1_1_state.html#a467163d70a78566af943439f29115954">More...</a><br /></td></tr>
 <tr class="separator:a467163d70a78566af943439f29115954"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0732500bd7b34633e1df024d3f88632"><td class="memItemLeft" align="right" valign="top"><a id="ac0732500bd7b34633e1df024d3f88632"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>computeBBox</b> (const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">core::ExecParams</a> *params, bool onlyVisible=false) override</td></tr>
+<tr class="memitem:ac0732500bd7b34633e1df024d3f88632"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#ac0732500bd7b34633e1df024d3f88632">computeBBox</a> (const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">core::ExecParams</a> *params, bool onlyVisible=false) override</td></tr>
 <tr class="separator:ac0732500bd7b34633e1df024d3f88632"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">New vectors access API based on VecId</div></td></tr>
-<tr class="memitem:a1cefb25d532122bf9b038dcd4c701bb1"><td class="memItemLeft" align="right" valign="top"><a id="a1cefb25d532122bf9b038dcd4c701bb1"></a>
-virtual <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (<a class="el" href="classsofa_1_1core_1_1_t_vec_id.html">VecCoordId</a> v)=0</td></tr>
+<tr class="memitem:a1cefb25d532122bf9b038dcd4c701bb1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a1cefb25d532122bf9b038dcd4c701bb1">write</a> (<a class="el" href="namespacesofa_1_1core.html#a09f9c7331691363bf533a9114bc79585">VecCoordId</a> v)=0</td></tr>
 <tr class="separator:a1cefb25d532122bf9b038dcd4c701bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a724214fcf6992707e680cc5d7165d789"><td class="memItemLeft" align="right" valign="top"><a id="a724214fcf6992707e680cc5d7165d789"></a>
-virtual const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> (<a class="el" href="classsofa_1_1core_1_1_t_vec_id.html">ConstVecCoordId</a> v) const =0</td></tr>
+<tr class="memitem:a724214fcf6992707e680cc5d7165d789"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a724214fcf6992707e680cc5d7165d789">read</a> (<a class="el" href="namespacesofa_1_1core.html#a2b2b607ff59a75de678372f308a98826">ConstVecCoordId</a> v) const =0</td></tr>
 <tr class="separator:a724214fcf6992707e680cc5d7165d789"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad119164605ff5daf125bfea27986d599"><td class="memItemLeft" align="right" valign="top"><a id="ad119164605ff5daf125bfea27986d599"></a>
-virtual <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (<a class="el" href="classsofa_1_1core_1_1_t_vec_id.html">VecDerivId</a> v)=0</td></tr>
+<tr class="memitem:ad119164605ff5daf125bfea27986d599"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#ad119164605ff5daf125bfea27986d599">write</a> (<a class="el" href="namespacesofa_1_1core.html#a65ed5c6a4c154e10683635c9e31d6beb">VecDerivId</a> v)=0</td></tr>
 <tr class="separator:ad119164605ff5daf125bfea27986d599"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad24312f804518e4aa3b87f3a3ef97502"><td class="memItemLeft" align="right" valign="top"><a id="ad24312f804518e4aa3b87f3a3ef97502"></a>
-virtual const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> (<a class="el" href="classsofa_1_1core_1_1_t_vec_id.html">ConstVecDerivId</a> v) const =0</td></tr>
+<tr class="memitem:ad24312f804518e4aa3b87f3a3ef97502"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#ad24312f804518e4aa3b87f3a3ef97502">read</a> (<a class="el" href="namespacesofa_1_1core.html#aa3981b8acdaacad3321f199458adef92">ConstVecDerivId</a> v) const =0</td></tr>
 <tr class="separator:ad24312f804518e4aa3b87f3a3ef97502"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79424ce387b8b50721d0ec9291efef65"><td class="memItemLeft" align="right" valign="top"><a id="a79424ce387b8b50721d0ec9291efef65"></a>
-virtual <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a7d99d233ff686fbc18e2ecdafab7335d">MatrixDeriv</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (<a class="el" href="classsofa_1_1core_1_1_t_vec_id.html">MatrixDerivId</a> v)=0</td></tr>
+<tr class="memitem:a79424ce387b8b50721d0ec9291efef65"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a7d99d233ff686fbc18e2ecdafab7335d">MatrixDeriv</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a79424ce387b8b50721d0ec9291efef65">write</a> (<a class="el" href="namespacesofa_1_1core.html#a257b9ced0c3d2e8f014d2b34cbc73eee">MatrixDerivId</a> v)=0</td></tr>
 <tr class="separator:a79424ce387b8b50721d0ec9291efef65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae098c9733e5901d47230379343af6ad5"><td class="memItemLeft" align="right" valign="top"><a id="ae098c9733e5901d47230379343af6ad5"></a>
-virtual const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a7d99d233ff686fbc18e2ecdafab7335d">MatrixDeriv</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> (<a class="el" href="classsofa_1_1core_1_1_t_vec_id.html">ConstMatrixDerivId</a> v) const =0</td></tr>
+<tr class="memitem:ae098c9733e5901d47230379343af6ad5"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a7d99d233ff686fbc18e2ecdafab7335d">MatrixDeriv</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#ae098c9733e5901d47230379343af6ad5">read</a> (<a class="el" href="namespacesofa_1_1core.html#a4094695849f4a6f61f194b37b78ac4a1">ConstMatrixDerivId</a> v) const =0</td></tr>
 <tr class="separator:ae098c9733e5901d47230379343af6ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">BaseData vectors access API based on VecId</div></td></tr>
-<tr class="memitem:a0a7928dc4b3252f7a18a5f3f4dc001f9"><td class="memItemLeft" align="right" valign="top"><a id="a0a7928dc4b3252f7a18a5f3f4dc001f9"></a>
-<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_data.html">objectmodel::BaseData</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>baseWrite</b> (<a class="el" href="classsofa_1_1core_1_1_t_vec_id.html">VecId</a> v) override</td></tr>
+<tr class="memitem:a0a7928dc4b3252f7a18a5f3f4dc001f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_data.html">objectmodel::BaseData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a0a7928dc4b3252f7a18a5f3f4dc001f9">baseWrite</a> (<a class="el" href="namespacesofa_1_1core.html#a9458be9178684009a0cd4fff100a7184">VecId</a> v) override</td></tr>
 <tr class="separator:a0a7928dc4b3252f7a18a5f3f4dc001f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ddb6d085d1646afe3390d9539f01a34"><td class="memItemLeft" align="right" valign="top"><a id="a4ddb6d085d1646afe3390d9539f01a34"></a>
-const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_data.html">objectmodel::BaseData</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>baseRead</b> (<a class="el" href="classsofa_1_1core_1_1_t_vec_id.html">ConstVecId</a> v) const override</td></tr>
+<tr class="memitem:a4ddb6d085d1646afe3390d9539f01a34"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_data.html">objectmodel::BaseData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a4ddb6d085d1646afe3390d9539f01a34">baseRead</a> (<a class="el" href="namespacesofa_1_1core.html#ad9a73eb296016ca4cd4b829dcff37d78">ConstVecId</a> v) const override</td></tr>
 <tr class="separator:a4ddb6d085d1646afe3390d9539f01a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Accessors</h2></td></tr>
 <tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp04cb611d2bf0c8edd5b113799b30e174"></a>Types and functions to ease data access </p>
 </td></tr>
-<tr class="memitem:a4e1fb4373c6c1b96be474c39991977b9"><td class="memItemLeft" align="right" valign="top"><a id="a4e1fb4373c6c1b96be474c39991977b9"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadReal</b></td></tr>
+<tr class="memitem:a4e1fb4373c6c1b96be474c39991977b9"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a4e1fb4373c6c1b96be474c39991977b9">ReadReal</a></td></tr>
 <tr class="separator:a4e1fb4373c6c1b96be474c39991977b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3954be5b60a3a9fa14d384d01e6b47f8"><td class="memItemLeft" align="right" valign="top"><a id="a3954be5b60a3a9fa14d384d01e6b47f8"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WriteReal</b></td></tr>
+<tr class="memitem:a3954be5b60a3a9fa14d384d01e6b47f8"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#acf523069e5b1497cffac17511dcd3b1e">Real</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a3954be5b60a3a9fa14d384d01e6b47f8">WriteReal</a></td></tr>
 <tr class="separator:a3954be5b60a3a9fa14d384d01e6b47f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a786af346da0a47902cc9be85e72683a6"><td class="memItemLeft" align="right" valign="top"><a id="a786af346da0a47902cc9be85e72683a6"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#ac65f29d77ab27fa6f97c3c8d9e10b2af">VecReal</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadVecReal</b></td></tr>
+<tr class="memitem:a786af346da0a47902cc9be85e72683a6"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#ac65f29d77ab27fa6f97c3c8d9e10b2af">VecReal</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a786af346da0a47902cc9be85e72683a6">ReadVecReal</a></td></tr>
 <tr class="separator:a786af346da0a47902cc9be85e72683a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae9b4703621d085aaac495248aad3b52"><td class="memItemLeft" align="right" valign="top"><a id="aae9b4703621d085aaac495248aad3b52"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#ac65f29d77ab27fa6f97c3c8d9e10b2af">VecReal</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WriteVecReal</b></td></tr>
+<tr class="memitem:aae9b4703621d085aaac495248aad3b52"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#ac65f29d77ab27fa6f97c3c8d9e10b2af">VecReal</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#aae9b4703621d085aaac495248aad3b52">WriteVecReal</a></td></tr>
 <tr class="separator:aae9b4703621d085aaac495248aad3b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94eb6f79741ecfd6a5443bcf6c707856"><td class="memItemLeft" align="right" valign="top"><a id="a94eb6f79741ecfd6a5443bcf6c707856"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadCoord</b></td></tr>
+<tr class="memitem:a94eb6f79741ecfd6a5443bcf6c707856"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a94eb6f79741ecfd6a5443bcf6c707856">ReadCoord</a></td></tr>
 <tr class="separator:a94eb6f79741ecfd6a5443bcf6c707856"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef8ca1856af5fa7cf6a85960cf46b1a2"><td class="memItemLeft" align="right" valign="top"><a id="aef8ca1856af5fa7cf6a85960cf46b1a2"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WriteCoord</b></td></tr>
+<tr class="memitem:aef8ca1856af5fa7cf6a85960cf46b1a2"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#aef8ca1856af5fa7cf6a85960cf46b1a2">WriteCoord</a></td></tr>
 <tr class="separator:aef8ca1856af5fa7cf6a85960cf46b1a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4173303da898e43ce2b9cfc1f7242a09"><td class="memItemLeft" align="right" valign="top"><a id="a4173303da898e43ce2b9cfc1f7242a09"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">helper::WriteOnlyAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WriteOnlyCoord</b></td></tr>
+<tr class="memitem:a4173303da898e43ce2b9cfc1f7242a09"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">helper::WriteOnlyAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a4173303da898e43ce2b9cfc1f7242a09">WriteOnlyCoord</a></td></tr>
 <tr class="separator:a4173303da898e43ce2b9cfc1f7242a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a269e793afd9afde7745264b62b2d5f5d"><td class="memItemLeft" align="right" valign="top"><a id="a269e793afd9afde7745264b62b2d5f5d"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadVecCoord</b></td></tr>
+<tr class="memitem:a269e793afd9afde7745264b62b2d5f5d"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a269e793afd9afde7745264b62b2d5f5d">ReadVecCoord</a></td></tr>
 <tr class="separator:a269e793afd9afde7745264b62b2d5f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ebae1e8ead06fdc008810fc22a08c38"><td class="memItemLeft" align="right" valign="top"><a id="a3ebae1e8ead06fdc008810fc22a08c38"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WriteVecCoord</b></td></tr>
+<tr class="memitem:a3ebae1e8ead06fdc008810fc22a08c38"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a3ebae1e8ead06fdc008810fc22a08c38">WriteVecCoord</a></td></tr>
 <tr class="separator:a3ebae1e8ead06fdc008810fc22a08c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d3e6c4051b7ecea71ec237bc46ab787"><td class="memItemLeft" align="right" valign="top"><a id="a6d3e6c4051b7ecea71ec237bc46ab787"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">helper::WriteOnlyAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WriteOnlyVecCoord</b></td></tr>
+<tr class="memitem:a6d3e6c4051b7ecea71ec237bc46ab787"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">helper::WriteOnlyAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a6d3e6c4051b7ecea71ec237bc46ab787">WriteOnlyVecCoord</a></td></tr>
 <tr class="separator:a6d3e6c4051b7ecea71ec237bc46ab787"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acaff2a0ebc856d8432698b44e422b1d5"><td class="memItemLeft" align="right" valign="top"><a id="acaff2a0ebc856d8432698b44e422b1d5"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a705fac58c33b23c20e6bac3fd2b0bb87">Deriv</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadDeriv</b></td></tr>
+<tr class="memitem:acaff2a0ebc856d8432698b44e422b1d5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a705fac58c33b23c20e6bac3fd2b0bb87">Deriv</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#acaff2a0ebc856d8432698b44e422b1d5">ReadDeriv</a></td></tr>
 <tr class="separator:acaff2a0ebc856d8432698b44e422b1d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbabbf3c886ac665549678678b62da5d"><td class="memItemLeft" align="right" valign="top"><a id="acbabbf3c886ac665549678678b62da5d"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a705fac58c33b23c20e6bac3fd2b0bb87">Deriv</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WriteDeriv</b></td></tr>
+<tr class="memitem:acbabbf3c886ac665549678678b62da5d"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a705fac58c33b23c20e6bac3fd2b0bb87">Deriv</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#acbabbf3c886ac665549678678b62da5d">WriteDeriv</a></td></tr>
 <tr class="separator:acbabbf3c886ac665549678678b62da5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad60be4726d378b3c1ce1f26b2b2aafc"><td class="memItemLeft" align="right" valign="top"><a id="aad60be4726d378b3c1ce1f26b2b2aafc"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">helper::WriteOnlyAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a705fac58c33b23c20e6bac3fd2b0bb87">Deriv</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WriteOnlyDeriv</b></td></tr>
+<tr class="memitem:aad60be4726d378b3c1ce1f26b2b2aafc"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">helper::WriteOnlyAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a705fac58c33b23c20e6bac3fd2b0bb87">Deriv</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#aad60be4726d378b3c1ce1f26b2b2aafc">WriteOnlyDeriv</a></td></tr>
 <tr class="separator:aad60be4726d378b3c1ce1f26b2b2aafc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a695a5daafb7e93e987c7ce10060613b6"><td class="memItemLeft" align="right" valign="top"><a id="a695a5daafb7e93e987c7ce10060613b6"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadVecDeriv</b></td></tr>
+<tr class="memitem:a695a5daafb7e93e987c7ce10060613b6"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a695a5daafb7e93e987c7ce10060613b6">ReadVecDeriv</a></td></tr>
 <tr class="separator:a695a5daafb7e93e987c7ce10060613b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48c62dbf33cab2c26c525476a1a41831"><td class="memItemLeft" align="right" valign="top"><a id="a48c62dbf33cab2c26c525476a1a41831"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WriteVecDeriv</b></td></tr>
+<tr class="memitem:a48c62dbf33cab2c26c525476a1a41831"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a48c62dbf33cab2c26c525476a1a41831">WriteVecDeriv</a></td></tr>
 <tr class="separator:a48c62dbf33cab2c26c525476a1a41831"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ba93003021ab0014c074e6e526fe5b5"><td class="memItemLeft" align="right" valign="top"><a id="a5ba93003021ab0014c074e6e526fe5b5"></a>
-typedef <a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">helper::WriteOnlyAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WriteOnlyVecDeriv</b></td></tr>
+<tr class="memitem:a5ba93003021ab0014c074e6e526fe5b5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">helper::WriteOnlyAccessor</a>&lt; <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a5ba93003021ab0014c074e6e526fe5b5">WriteOnlyVecDeriv</a></td></tr>
 <tr class="separator:a5ba93003021ab0014c074e6e526fe5b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4820f3e650fb5503ec9dace3f2fbe8c4"><td class="memItemLeft" align="right" valign="top"><a id="a4820f3e650fb5503ec9dace3f2fbe8c4"></a>
-<a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">ReadVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><b>readPositions</b> () const</td></tr>
+<tr class="memitem:a4820f3e650fb5503ec9dace3f2fbe8c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a269e793afd9afde7745264b62b2d5f5d">ReadVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a4820f3e650fb5503ec9dace3f2fbe8c4">readPositions</a> () const</td></tr>
 <tr class="separator:a4820f3e650fb5503ec9dace3f2fbe8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4eee740e6e5d7b2f373c6cae0df771d2"><td class="memItemLeft" align="right" valign="top"><a id="a4eee740e6e5d7b2f373c6cae0df771d2"></a>
-<a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">WriteVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><b>writePositions</b> ()</td></tr>
+<tr class="memitem:a4eee740e6e5d7b2f373c6cae0df771d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a3ebae1e8ead06fdc008810fc22a08c38">WriteVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a4eee740e6e5d7b2f373c6cae0df771d2">writePositions</a> ()</td></tr>
 <tr class="separator:a4eee740e6e5d7b2f373c6cae0df771d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8eafe8f266969f4a746c8fe55a375dc0"><td class="memItemLeft" align="right" valign="top"><a id="a8eafe8f266969f4a746c8fe55a375dc0"></a>
-<a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">WriteOnlyVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><b>writeOnlyPositions</b> ()</td></tr>
+<tr class="memitem:a8eafe8f266969f4a746c8fe55a375dc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a6d3e6c4051b7ecea71ec237bc46ab787">WriteOnlyVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a8eafe8f266969f4a746c8fe55a375dc0">writeOnlyPositions</a> ()</td></tr>
 <tr class="separator:a8eafe8f266969f4a746c8fe55a375dc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1444ef1a54efc99f64dc1f19e64cb341"><td class="memItemLeft" align="right" valign="top"><a id="a1444ef1a54efc99f64dc1f19e64cb341"></a>
-<a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">ReadVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><b>readRestPositions</b> () const</td></tr>
+<tr class="memitem:a1444ef1a54efc99f64dc1f19e64cb341"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a269e793afd9afde7745264b62b2d5f5d">ReadVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a1444ef1a54efc99f64dc1f19e64cb341">readRestPositions</a> () const</td></tr>
 <tr class="separator:a1444ef1a54efc99f64dc1f19e64cb341"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eb1f603b69cedcd0e2665ba885cee51"><td class="memItemLeft" align="right" valign="top"><a id="a2eb1f603b69cedcd0e2665ba885cee51"></a>
-<a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">WriteVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><b>writeRestPositions</b> ()</td></tr>
+<tr class="memitem:a2eb1f603b69cedcd0e2665ba885cee51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a3ebae1e8ead06fdc008810fc22a08c38">WriteVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a2eb1f603b69cedcd0e2665ba885cee51">writeRestPositions</a> ()</td></tr>
 <tr class="separator:a2eb1f603b69cedcd0e2665ba885cee51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cd99b900168318bc77b2b586093ff2a"><td class="memItemLeft" align="right" valign="top"><a id="a8cd99b900168318bc77b2b586093ff2a"></a>
-<a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">WriteOnlyVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><b>writeOnlyRestPositions</b> ()</td></tr>
+<tr class="memitem:a8cd99b900168318bc77b2b586093ff2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a6d3e6c4051b7ecea71ec237bc46ab787">WriteOnlyVecCoord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a8cd99b900168318bc77b2b586093ff2a">writeOnlyRestPositions</a> ()</td></tr>
 <tr class="separator:a8cd99b900168318bc77b2b586093ff2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b86594a2c45a8df1bd9dadc1d112535"><td class="memItemLeft" align="right" valign="top"><a id="a2b86594a2c45a8df1bd9dadc1d112535"></a>
-<a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">ReadVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><b>readVelocities</b> () const</td></tr>
+<tr class="memitem:a2b86594a2c45a8df1bd9dadc1d112535"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a695a5daafb7e93e987c7ce10060613b6">ReadVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a2b86594a2c45a8df1bd9dadc1d112535">readVelocities</a> () const</td></tr>
 <tr class="separator:a2b86594a2c45a8df1bd9dadc1d112535"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a696387757e6126e59e5b9d6dbe6edbbd"><td class="memItemLeft" align="right" valign="top"><a id="a696387757e6126e59e5b9d6dbe6edbbd"></a>
-<a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">WriteVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><b>writeVelocities</b> ()</td></tr>
+<tr class="memitem:a696387757e6126e59e5b9d6dbe6edbbd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a48c62dbf33cab2c26c525476a1a41831">WriteVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a696387757e6126e59e5b9d6dbe6edbbd">writeVelocities</a> ()</td></tr>
 <tr class="separator:a696387757e6126e59e5b9d6dbe6edbbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c5e993d5db84264dc488ba2cdd890ba"><td class="memItemLeft" align="right" valign="top"><a id="a1c5e993d5db84264dc488ba2cdd890ba"></a>
-<a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">WriteOnlyVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><b>writeOnlyVelocities</b> ()</td></tr>
+<tr class="memitem:a1c5e993d5db84264dc488ba2cdd890ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a5ba93003021ab0014c074e6e526fe5b5">WriteOnlyVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a1c5e993d5db84264dc488ba2cdd890ba">writeOnlyVelocities</a> ()</td></tr>
 <tr class="separator:a1c5e993d5db84264dc488ba2cdd890ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb55953f8227500aa0b45d85230960a9"><td class="memItemLeft" align="right" valign="top"><a id="aeb55953f8227500aa0b45d85230960a9"></a>
-<a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">ReadVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><b>readForces</b> () const</td></tr>
+<tr class="memitem:aeb55953f8227500aa0b45d85230960a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a695a5daafb7e93e987c7ce10060613b6">ReadVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#aeb55953f8227500aa0b45d85230960a9">readForces</a> () const</td></tr>
 <tr class="separator:aeb55953f8227500aa0b45d85230960a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbc5b4c6a428fefdba60afa1ee247c25"><td class="memItemLeft" align="right" valign="top"><a id="abbc5b4c6a428fefdba60afa1ee247c25"></a>
-<a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">WriteVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><b>writeForces</b> ()</td></tr>
+<tr class="memitem:abbc5b4c6a428fefdba60afa1ee247c25"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a48c62dbf33cab2c26c525476a1a41831">WriteVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#abbc5b4c6a428fefdba60afa1ee247c25">writeForces</a> ()</td></tr>
 <tr class="separator:abbc5b4c6a428fefdba60afa1ee247c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6025f3a5c7d942146ac7741c104e07a"><td class="memItemLeft" align="right" valign="top"><a id="ad6025f3a5c7d942146ac7741c104e07a"></a>
-<a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">WriteOnlyVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><b>writeOnlyForces</b> ()</td></tr>
+<tr class="memitem:ad6025f3a5c7d942146ac7741c104e07a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a5ba93003021ab0014c074e6e526fe5b5">WriteOnlyVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#ad6025f3a5c7d942146ac7741c104e07a">writeOnlyForces</a> ()</td></tr>
 <tr class="separator:ad6025f3a5c7d942146ac7741c104e07a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06d288cdb0c25c8862da2c6d24e010e5"><td class="memItemLeft" align="right" valign="top"><a id="a06d288cdb0c25c8862da2c6d24e010e5"></a>
-<a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">ReadVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><b>readDx</b> () const</td></tr>
+<tr class="memitem:a06d288cdb0c25c8862da2c6d24e010e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a695a5daafb7e93e987c7ce10060613b6">ReadVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a06d288cdb0c25c8862da2c6d24e010e5">readDx</a> () const</td></tr>
 <tr class="separator:a06d288cdb0c25c8862da2c6d24e010e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af277c096c9c7633e14040d26fd49d179"><td class="memItemLeft" align="right" valign="top"><a id="af277c096c9c7633e14040d26fd49d179"></a>
-<a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">WriteVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><b>writeDx</b> ()</td></tr>
+<tr class="memitem:af277c096c9c7633e14040d26fd49d179"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a48c62dbf33cab2c26c525476a1a41831">WriteVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#af277c096c9c7633e14040d26fd49d179">writeDx</a> ()</td></tr>
 <tr class="separator:af277c096c9c7633e14040d26fd49d179"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78839818b303810042c1ee31c5bf7add"><td class="memItemLeft" align="right" valign="top"><a id="a78839818b303810042c1ee31c5bf7add"></a>
-<a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">WriteOnlyVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><b>writeOnlyDx</b> ()</td></tr>
+<tr class="memitem:a78839818b303810042c1ee31c5bf7add"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a5ba93003021ab0014c074e6e526fe5b5">WriteOnlyVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a78839818b303810042c1ee31c5bf7add">writeOnlyDx</a> ()</td></tr>
 <tr class="separator:a78839818b303810042c1ee31c5bf7add"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adceaaa8bda795bc8089bb2357647d639"><td class="memItemLeft" align="right" valign="top"><a id="adceaaa8bda795bc8089bb2357647d639"></a>
-<a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">ReadVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><b>readNormals</b> () const</td></tr>
+<tr class="memitem:adceaaa8bda795bc8089bb2357647d639"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html#a695a5daafb7e93e987c7ce10060613b6">ReadVecDeriv</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#adceaaa8bda795bc8089bb2357647d639">readNormals</a> () const</td></tr>
 <tr class="separator:adceaaa8bda795bc8089bb2357647d639"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a790355057d12e9c1ce7643551c16fecd"><td class="memItemLeft" align="right" valign="top"><a id="a790355057d12e9c1ce7643551c16fecd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>State</b> ()</td></tr>
+<tr class="memitem:a790355057d12e9c1ce7643551c16fecd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a790355057d12e9c1ce7643551c16fecd">State</a> ()</td></tr>
 <tr class="separator:a790355057d12e9c1ce7643551c16fecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a127b7c3e63974e50be23bf9cd82e16eb"><td class="memItemLeft" align="right" valign="top"><a id="a127b7c3e63974e50be23bf9cd82e16eb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~State</b> () override</td></tr>
+<tr class="memitem:a127b7c3e63974e50be23bf9cd82e16eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a127b7c3e63974e50be23bf9cd82e16eb">~State</a> () override</td></tr>
 <tr class="separator:a127b7c3e63974e50be23bf9cd82e16eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab88f8dd3d9ed8568940c795fdf68dacc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#ab88f8dd3d9ed8568940c795fdf68dacc">State</a> (const <a class="el" href="classsofa_1_1core_1_1_state.html">State</a> &amp;n)</td></tr>
+<tr class="separator:ab88f8dd3d9ed8568940c795fdf68dacc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7adbf60dd45c49a84e5c22f090b86b9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1core_1_1_state.html">State</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_state.html#a7adbf60dd45c49a84e5c22f090b86b9e">operator=</a> (const <a class="el" href="classsofa_1_1core_1_1_state.html">State</a> &amp;n)</td></tr>
+<tr class="separator:a7adbf60dd45c49a84e5c22f090b86b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class TDataTypes&gt;<br />
@@ -298,7 +249,1162 @@ class sofa::core::State&lt; TDataTypes &gt;</h3>
 <li><div class="fragment"><div class="line"><a class="code" href="classsofa_1_1core_1_1_state.html#a7d99d233ff686fbc18e2ecdafab7335d">MatrixDeriv</a> </div>
 </div><!-- fragment --> : vector of Jacobians (sparse constraint matrices). </li>
 </ul>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a7c0bd56aca42d0e855a400b50f3e078b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c0bd56aca42d0e855a400b50f3e078b">&#9670;&nbsp;</a></span>Coord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a433a4446e8804f24450e7f9f90cf27a5">DataTypes::Coord</a> <a class="el" href="classsofa_1_1core_1_1_state.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Position values. </p>
+
+</div>
+</div>
+<a id="a60d9983dc67dfef8d778a8fcd1419fa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60d9983dc67dfef8d778a8fcd1419fa9">&#9670;&nbsp;</a></span>DataTypes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef TDataTypes <a class="el" href="classsofa_1_1core_1_1_state.html#a60d9983dc67dfef8d778a8fcd1419fa9">DataTypes</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a705fac58c33b23c20e6bac3fd2b0bb87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a705fac58c33b23c20e6bac3fd2b0bb87">&#9670;&nbsp;</a></span>Deriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a8ea6da29f450c7a8fcceed1d0e3c4cfc">DataTypes::Deriv</a> <a class="el" href="classsofa_1_1core_1_1_state.html#a705fac58c33b23c20e6bac3fd2b0bb87">Deriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Derivative values (velocity, forces, displacements). </p>
+
+</div>
+</div>
+<a id="a7d99d233ff686fbc18e2ecdafab7335d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d99d233ff686fbc18e2ecdafab7335d">&#9670;&nbsp;</a></span>MatrixDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a74ff7a2fc4bf3b57fc486380e7816bfb">DataTypes::MatrixDeriv</a> <a class="el" href="classsofa_1_1core_1_1_state.html#a7d99d233ff686fbc18e2ecdafab7335d">MatrixDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vector of Jacobians (sparse constraint matrices). </p>
+
+</div>
+</div>
+<a id="a94eb6f79741ecfd6a5443bcf6c707856"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94eb6f79741ecfd6a5443bcf6c707856">&#9670;&nbsp;</a></span>ReadCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#a94eb6f79741ecfd6a5443bcf6c707856">ReadCoord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acaff2a0ebc856d8432698b44e422b1d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaff2a0ebc856d8432698b44e422b1d5">&#9670;&nbsp;</a></span>ReadDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#a705fac58c33b23c20e6bac3fd2b0bb87">Deriv</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#acaff2a0ebc856d8432698b44e422b1d5">ReadDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4e1fb4373c6c1b96be474c39991977b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e1fb4373c6c1b96be474c39991977b9">&#9670;&nbsp;</a></span>ReadReal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#acf523069e5b1497cffac17511dcd3b1e">Real</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#a4e1fb4373c6c1b96be474c39991977b9">ReadReal</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a269e793afd9afde7745264b62b2d5f5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a269e793afd9afde7745264b62b2d5f5d">&#9670;&nbsp;</a></span>ReadVecCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#a269e793afd9afde7745264b62b2d5f5d">ReadVecCoord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a695a5daafb7e93e987c7ce10060613b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a695a5daafb7e93e987c7ce10060613b6">&#9670;&nbsp;</a></span>ReadVecDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#a695a5daafb7e93e987c7ce10060613b6">ReadVecDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a786af346da0a47902cc9be85e72683a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a786af346da0a47902cc9be85e72683a6">&#9670;&nbsp;</a></span>ReadVecReal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_read_accessor.html">helper::ReadAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#ac65f29d77ab27fa6f97c3c8d9e10b2af">VecReal</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#a786af346da0a47902cc9be85e72683a6">ReadVecReal</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acf523069e5b1497cffac17511dcd3b1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf523069e5b1497cffac17511dcd3b1e">&#9670;&nbsp;</a></span>Real</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a032e30a7559178ebc4240c12ef02ec56">DataTypes::Real</a> <a class="el" href="classsofa_1_1core_1_1_state.html#acf523069e5b1497cffac17511dcd3b1e">Real</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scalar values (float or double). </p>
+
+</div>
+</div>
+<a id="a05882e2e9ba8d707ab531ab94a1f39e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05882e2e9ba8d707ab531ab94a1f39e0">&#9670;&nbsp;</a></span>VecCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a06eb712afb67c0ee7c25eb52a2f5cf5f">DataTypes::VecCoord</a> <a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Container of Coord values with the same API as <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>. </p>
+
+</div>
+</div>
+<a id="a83fb2b666b4e514e93d3bb221aa681ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83fb2b666b4e514e93d3bb221aa681ef">&#9670;&nbsp;</a></span>VecDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a87984e2bbae86596548eb282b5624420">DataTypes::VecDeriv</a> <a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Container of Deriv values with the same API as <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>. </p>
+
+</div>
+</div>
+<a id="ac65f29d77ab27fa6f97c3c8d9e10b2af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac65f29d77ab27fa6f97c3c8d9e10b2af">&#9670;&nbsp;</a></span>VecReal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a6c0d252670960c4ead435e98ff168952">DataTypes::VecReal</a> <a class="el" href="classsofa_1_1core_1_1_state.html#ac65f29d77ab27fa6f97c3c8d9e10b2af">VecReal</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Container of scalar values with the same API as <a class="el" href="classsofa_1_1type_1_1vector.html">sofa::type::vector</a>. </p>
+
+</div>
+</div>
+<a id="aef8ca1856af5fa7cf6a85960cf46b1a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef8ca1856af5fa7cf6a85960cf46b1a2">&#9670;&nbsp;</a></span>WriteCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#aef8ca1856af5fa7cf6a85960cf46b1a2">WriteCoord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acbabbf3c886ac665549678678b62da5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbabbf3c886ac665549678678b62da5d">&#9670;&nbsp;</a></span>WriteDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#a705fac58c33b23c20e6bac3fd2b0bb87">Deriv</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#acbabbf3c886ac665549678678b62da5d">WriteDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4173303da898e43ce2b9cfc1f7242a09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4173303da898e43ce2b9cfc1f7242a09">&#9670;&nbsp;</a></span>WriteOnlyCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">helper::WriteOnlyAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#a7c0bd56aca42d0e855a400b50f3e078b">Coord</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#a4173303da898e43ce2b9cfc1f7242a09">WriteOnlyCoord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad60be4726d378b3c1ce1f26b2b2aafc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad60be4726d378b3c1ce1f26b2b2aafc">&#9670;&nbsp;</a></span>WriteOnlyDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">helper::WriteOnlyAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#a705fac58c33b23c20e6bac3fd2b0bb87">Deriv</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#aad60be4726d378b3c1ce1f26b2b2aafc">WriteOnlyDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d3e6c4051b7ecea71ec237bc46ab787"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d3e6c4051b7ecea71ec237bc46ab787">&#9670;&nbsp;</a></span>WriteOnlyVecCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">helper::WriteOnlyAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#a6d3e6c4051b7ecea71ec237bc46ab787">WriteOnlyVecCoord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ba93003021ab0014c074e6e526fe5b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ba93003021ab0014c074e6e526fe5b5">&#9670;&nbsp;</a></span>WriteOnlyVecDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_write_only_accessor.html">helper::WriteOnlyAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#a5ba93003021ab0014c074e6e526fe5b5">WriteOnlyVecDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3954be5b60a3a9fa14d384d01e6b47f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3954be5b60a3a9fa14d384d01e6b47f8">&#9670;&nbsp;</a></span>WriteReal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#acf523069e5b1497cffac17511dcd3b1e">Real</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#a3954be5b60a3a9fa14d384d01e6b47f8">WriteReal</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3ebae1e8ead06fdc008810fc22a08c38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ebae1e8ead06fdc008810fc22a08c38">&#9670;&nbsp;</a></span>WriteVecCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#a3ebae1e8ead06fdc008810fc22a08c38">WriteVecCoord</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48c62dbf33cab2c26c525476a1a41831"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48c62dbf33cab2c26c525476a1a41831">&#9670;&nbsp;</a></span>WriteVecDeriv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#a48c62dbf33cab2c26c525476a1a41831">WriteVecDeriv</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aae9b4703621d085aaac495248aad3b52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae9b4703621d085aaac495248aad3b52">&#9670;&nbsp;</a></span>WriteVecReal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1helper_1_1_write_accessor.html">helper::WriteAccessor</a>&lt;<a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt;<a class="el" href="classsofa_1_1core_1_1_state.html#ac65f29d77ab27fa6f97c3c8d9e10b2af">VecReal</a>&gt; &gt; <a class="el" href="classsofa_1_1core_1_1_state.html#aae9b4703621d085aaac495248aad3b52">WriteVecReal</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a790355057d12e9c1ce7643551c16fecd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a790355057d12e9c1ce7643551c16fecd">&#9670;&nbsp;</a></span>State() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html">State</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a127b7c3e63974e50be23bf9cd82e16eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a127b7c3e63974e50be23bf9cd82e16eb">&#9670;&nbsp;</a></span>~State()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1core_1_1_state.html">State</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab88f8dd3d9ed8568940c795fdf68dacc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab88f8dd3d9ed8568940c795fdf68dacc">&#9670;&nbsp;</a></span>State() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html">State</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_state.html">State</a>&lt; TDataTypes &gt; &amp;&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4ddb6d085d1646afe3390d9539f01a34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ddb6d085d1646afe3390d9539f01a34">&#9670;&nbsp;</a></span>baseRead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_data.html">objectmodel::BaseData</a> * baseRead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1core.html#ad9a73eb296016ca4cd4b829dcff37d78">ConstVecId</a>&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a7928dc4b3252f7a18a5f3f4dc001f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a7928dc4b3252f7a18a5f3f4dc001f9">&#9670;&nbsp;</a></span>baseWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_base_data.html">objectmodel::BaseData</a> * baseWrite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1core.html#a9458be9178684009a0cd4fff100a7184">VecId</a>&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a467163d70a78566af943439f29115954"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a467163d70a78566af943439f29115954">&#9670;&nbsp;</a></span>computeBBox() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto computeBBox</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the bounding box independently from the visibility parameters. </p>
+
+</div>
+</div>
+<a id="ac0732500bd7b34633e1df024d3f88632"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0732500bd7b34633e1df024d3f88632">&#9670;&nbsp;</a></span>computeBBox() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void computeBBox </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_exec_params.html">core::ExecParams</a> *&#160;</td>
+          <td class="paramname"><em>params</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>onlyVisible</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7adbf60dd45c49a84e5c22f090b86b9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7adbf60dd45c49a84e5c22f090b86b9e">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html">State</a>&amp; operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1core_1_1_state.html">State</a>&lt; TDataTypes &gt; &amp;&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae098c9733e5901d47230379343af6ad5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae098c9733e5901d47230379343af6ad5">&#9670;&nbsp;</a></span>read() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a7d99d233ff686fbc18e2ecdafab7335d">MatrixDeriv</a> &gt;* read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1core.html#a4094695849f4a6f61f194b37b78ac4a1">ConstMatrixDerivId</a>&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1component_1_1statecontainer_1_1_mapped_object.html#abc6bb6f7e6dcc2048f88687ec407f6ca">MappedObject&lt; DataTypes &gt;</a>, and <a class="el" href="classsofa_1_1component_1_1visual_1_1_vec3_state.html#af7939f1b0e6a9d33b3c2734837774ca6">Vec3State</a>.</p>
+
+</div>
+</div>
+<a id="a724214fcf6992707e680cc5d7165d789"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a724214fcf6992707e680cc5d7165d789">&#9670;&nbsp;</a></span>read() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a> &gt;* read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1core.html#a2b2b607ff59a75de678372f308a98826">ConstVecCoordId</a>&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1component_1_1statecontainer_1_1_mapped_object.html#a4d219e16e1acb51f82c5ad6873c10152">MappedObject&lt; DataTypes &gt;</a>, and <a class="el" href="classsofa_1_1component_1_1visual_1_1_vec3_state.html#ac9f25401f2b2970a66112260cb4ea49d">Vec3State</a>.</p>
+
+</div>
+</div>
+<a id="ad24312f804518e4aa3b87f3a3ef97502"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad24312f804518e4aa3b87f3a3ef97502">&#9670;&nbsp;</a></span>read() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a> &gt;* read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1core.html#aa3981b8acdaacad3321f199458adef92">ConstVecDerivId</a>&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1component_1_1statecontainer_1_1_mapped_object.html#ae00ab02ee5aa399a579aaa37f734030a">MappedObject&lt; DataTypes &gt;</a>, and <a class="el" href="classsofa_1_1component_1_1visual_1_1_vec3_state.html#ad5800b32d379b94ba7834901acf84fb1">Vec3State</a>.</p>
+
+</div>
+</div>
+<a id="a06d288cdb0c25c8862da2c6d24e010e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06d288cdb0c25c8862da2c6d24e010e5">&#9670;&nbsp;</a></span>readDx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a695a5daafb7e93e987c7ce10060613b6">ReadVecDeriv</a> readDx </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb55953f8227500aa0b45d85230960a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb55953f8227500aa0b45d85230960a9">&#9670;&nbsp;</a></span>readForces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a695a5daafb7e93e987c7ce10060613b6">ReadVecDeriv</a> readForces </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adceaaa8bda795bc8089bb2357647d639"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adceaaa8bda795bc8089bb2357647d639">&#9670;&nbsp;</a></span>readNormals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a695a5daafb7e93e987c7ce10060613b6">ReadVecDeriv</a> readNormals </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4820f3e650fb5503ec9dace3f2fbe8c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4820f3e650fb5503ec9dace3f2fbe8c4">&#9670;&nbsp;</a></span>readPositions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a269e793afd9afde7745264b62b2d5f5d">ReadVecCoord</a> readPositions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1444ef1a54efc99f64dc1f19e64cb341"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1444ef1a54efc99f64dc1f19e64cb341">&#9670;&nbsp;</a></span>readRestPositions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a269e793afd9afde7745264b62b2d5f5d">ReadVecCoord</a> readRestPositions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b86594a2c45a8df1bd9dadc1d112535"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b86594a2c45a8df1bd9dadc1d112535">&#9670;&nbsp;</a></span>readVelocities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a695a5daafb7e93e987c7ce10060613b6">ReadVecDeriv</a> readVelocities </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aacfd95e6594a227e17c0e40fe7d28bc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacfd95e6594a227e17c0e40fe7d28bc0">&#9670;&nbsp;</a></span>SOFA_CLASS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SOFA_CLASS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_base_class_8h.html#a31cd2291b906a5b1d94ae43b3bf80d61">SOFA_TEMPLATE</a>(<a class="el" href="classsofa_1_1core_1_1_state.html">State</a>&lt; TDataTypes &gt;, TDataTypes)&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1core_1_1_base_state.html">BaseState</a>&lt; TDataTypes &gt;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79424ce387b8b50721d0ec9291efef65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79424ce387b8b50721d0ec9291efef65">&#9670;&nbsp;</a></span>write() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a7d99d233ff686fbc18e2ecdafab7335d">MatrixDeriv</a> &gt;* write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1core.html#a257b9ced0c3d2e8f014d2b34cbc73eee">MatrixDerivId</a>&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1component_1_1statecontainer_1_1_mapped_object.html#aae3dce6e036aded32d2fa068a6b68e97">MappedObject&lt; DataTypes &gt;</a>, and <a class="el" href="classsofa_1_1component_1_1visual_1_1_vec3_state.html#a589b8069296823b2ee0848149d182ef2">Vec3State</a>.</p>
+
+</div>
+</div>
+<a id="a1cefb25d532122bf9b038dcd4c701bb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cefb25d532122bf9b038dcd4c701bb1">&#9670;&nbsp;</a></span>write() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">VecCoord</a> &gt;* write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1core.html#a09f9c7331691363bf533a9114bc79585">VecCoordId</a>&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1component_1_1statecontainer_1_1_mapped_object.html#a1fa98b3d7c5a692df26a41c6367b149e">MappedObject&lt; DataTypes &gt;</a>, and <a class="el" href="classsofa_1_1component_1_1visual_1_1_vec3_state.html#ab31b917236dac091c9fe0c3b3b29f699">Vec3State</a>.</p>
+
+</div>
+</div>
+<a id="ad119164605ff5daf125bfea27986d599"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad119164605ff5daf125bfea27986d599">&#9670;&nbsp;</a></span>write() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_data.html">Data</a>&lt; <a class="el" href="classsofa_1_1core_1_1_state.html#a83fb2b666b4e514e93d3bb221aa681ef">VecDeriv</a> &gt;* write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesofa_1_1core.html#a65ed5c6a4c154e10683635c9e31d6beb">VecDerivId</a>&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classsofa_1_1component_1_1statecontainer_1_1_mapped_object.html#a9e274dc83a65b8daa5f156b36f52c80e">MappedObject&lt; DataTypes &gt;</a>, and <a class="el" href="classsofa_1_1component_1_1visual_1_1_vec3_state.html#a573af8b6d1b8788fd982af99e82f11b3">Vec3State</a>.</p>
+
+</div>
+</div>
+<a id="af277c096c9c7633e14040d26fd49d179"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af277c096c9c7633e14040d26fd49d179">&#9670;&nbsp;</a></span>writeDx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a48c62dbf33cab2c26c525476a1a41831">WriteVecDeriv</a> writeDx </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abbc5b4c6a428fefdba60afa1ee247c25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbc5b4c6a428fefdba60afa1ee247c25">&#9670;&nbsp;</a></span>writeForces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a48c62dbf33cab2c26c525476a1a41831">WriteVecDeriv</a> writeForces </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78839818b303810042c1ee31c5bf7add"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78839818b303810042c1ee31c5bf7add">&#9670;&nbsp;</a></span>writeOnlyDx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a5ba93003021ab0014c074e6e526fe5b5">WriteOnlyVecDeriv</a> writeOnlyDx </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad6025f3a5c7d942146ac7741c104e07a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6025f3a5c7d942146ac7741c104e07a">&#9670;&nbsp;</a></span>writeOnlyForces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a5ba93003021ab0014c074e6e526fe5b5">WriteOnlyVecDeriv</a> writeOnlyForces </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8eafe8f266969f4a746c8fe55a375dc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eafe8f266969f4a746c8fe55a375dc0">&#9670;&nbsp;</a></span>writeOnlyPositions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a6d3e6c4051b7ecea71ec237bc46ab787">WriteOnlyVecCoord</a> writeOnlyPositions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8cd99b900168318bc77b2b586093ff2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cd99b900168318bc77b2b586093ff2a">&#9670;&nbsp;</a></span>writeOnlyRestPositions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a6d3e6c4051b7ecea71ec237bc46ab787">WriteOnlyVecCoord</a> writeOnlyRestPositions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c5e993d5db84264dc488ba2cdd890ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c5e993d5db84264dc488ba2cdd890ba">&#9670;&nbsp;</a></span>writeOnlyVelocities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a5ba93003021ab0014c074e6e526fe5b5">WriteOnlyVecDeriv</a> writeOnlyVelocities </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4eee740e6e5d7b2f373c6cae0df771d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eee740e6e5d7b2f373c6cae0df771d2">&#9670;&nbsp;</a></span>writePositions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a3ebae1e8ead06fdc008810fc22a08c38">WriteVecCoord</a> writePositions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2eb1f603b69cedcd0e2665ba885cee51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eb1f603b69cedcd0e2665ba885cee51">&#9670;&nbsp;</a></span>writeRestPositions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a3ebae1e8ead06fdc008810fc22a08c38">WriteVecCoord</a> writeRestPositions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a696387757e6126e59e5b9d6dbe6edbbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a696387757e6126e59e5b9d6dbe6edbbd">&#9670;&nbsp;</a></span>writeVelocities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1core_1_1_state.html#a48c62dbf33cab2c26c525476a1a41831">WriteVecDeriv</a> writeVelocities </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclasssofa_1_1core_1_1_state_html_a7d99d233ff686fbc18e2ecdafab7335d"><div class="ttname"><a href="classsofa_1_1core_1_1_state.html#a7d99d233ff686fbc18e2ecdafab7335d">sofa::core::State::MatrixDeriv</a></div><div class="ttdeci">DataTypes::MatrixDeriv MatrixDeriv</div><div class="ttdoc">Vector of Jacobians (sparse constraint matrices).</div><div class="ttdef"><b>Definition:</b> State.h:132</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_state_html_a05882e2e9ba8d707ab531ab94a1f39e0"><div class="ttname"><a href="classsofa_1_1core_1_1_state.html#a05882e2e9ba8d707ab531ab94a1f39e0">sofa::core::State::VecCoord</a></div><div class="ttdeci">DataTypes::VecCoord VecCoord</div><div class="ttdoc">Container of Coord values with the same API as sofa::type::vector.</div><div class="ttdef"><b>Definition:</b> State.h:128</div></div>
@@ -310,8 +1416,8 @@ class sofa::core::State&lt; TDataTypes &gt;</h3>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>core</b></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1_state.html">State</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:05:22 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1core.html">core</a></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1_state.html">State</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:37:32 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

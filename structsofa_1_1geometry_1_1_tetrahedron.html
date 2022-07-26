@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('structsofa_1_1geometry_1_1_tetrahedron
 
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="structsofa_1_1geometry_1_1_tetrahedron-members.html">List of all members</a>  </div>
@@ -90,7 +91,14 @@ $(document).ready(function(){initNavTree('structsofa_1_1geometry_1_1_tetrahedron
 <div class="title">Tetrahedron Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_geometry_2src_2sofa_2geometry_2_tetrahedron_8h_source.html">Tetrahedron.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0abaa7fdf71e37a55486a8a11979796a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1geometry_1_1_tetrahedron.html#a0abaa7fdf71e37a55486a8a11979796a">Tetrahedron</a> ()=delete</td></tr>
+<tr class="separator:a0abaa7fdf71e37a55486a8a11979796a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:abee36bc09cfb029bda7d1936ff7bd80f"><td class="memTemplParams" colspan="2">template&lt;typename Node , typename T  = std::decay_t&lt;decltype(*std::begin(std::declval&lt;Node&gt;()))&gt;, typename  = std::enable_if_t&lt;std::is_scalar_v&lt;T&gt;&gt;&gt; </td></tr>
@@ -100,10 +108,35 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a14b06d91019aeb84983626e14d2e1c40"><td class="memItemLeft" align="right" valign="top"><a id="a14b06d91019aeb84983626e14d2e1c40"></a>
-static const sofa::Size&#160;</td><td class="memItemRight" valign="bottom"><b>NumberOfNodes</b> = 4</td></tr>
+<tr class="memitem:a14b06d91019aeb84983626e14d2e1c40"><td class="memItemLeft" align="right" valign="top">static const sofa::Size&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1geometry_1_1_tetrahedron.html#a14b06d91019aeb84983626e14d2e1c40">NumberOfNodes</a> = 4</td></tr>
 <tr class="separator:a14b06d91019aeb84983626e14d2e1c40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0abaa7fdf71e37a55486a8a11979796a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0abaa7fdf71e37a55486a8a11979796a">&#9670;&nbsp;</a></span>Tetrahedron()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsofa_1_1geometry_1_1_tetrahedron.html">Tetrahedron</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="abee36bc09cfb029bda7d1936ff7bd80f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abee36bc09cfb029bda7d1936ff7bd80f">&#9670;&nbsp;</a></span>volume()</h2>
@@ -155,7 +188,7 @@ static const sofa::Size&#160;</td><td class="memItemRight" valign="bottom"><b>Nu
 <dl class="section remark"><dt>Remarks</dt><dd>This function is not generic </dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Node</td><td>a container of the type sofa::type::Vec3 (needed for cross(), dot(), operator-) </td></tr>
+    <tr><td class="paramname">Node</td><td>a container of the type <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> (needed for <a class="el" href="namespacesofa_1_1component_1_1topology.html#a0859741eb364fb33294fe92ef67f9bf2">cross()</a>, <a class="el" href="namespacesofa_1_1type.html#a8d46ab23b46fc6556e5adf27dec2cca5" title="Dot product (alias for operator*)">dot()</a>, operator-) </td></tr>
     <tr><td class="paramname">T</td><td>scalar </td></tr>
   </table>
   </dd>
@@ -170,13 +203,36 @@ static const sofa::Size&#160;</td><td class="memItemRight" valign="bottom"><b>Nu
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a14b06d91019aeb84983626e14d2e1c40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14b06d91019aeb84983626e14d2e1c40">&#9670;&nbsp;</a></span>NumberOfNodes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const sofa::Size NumberOfNodes = 4</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>geometry</b></li><li class="navelem"><a class="el" href="structsofa_1_1geometry_1_1_tetrahedron.html">Tetrahedron</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:34 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1geometry.html">geometry</a></li><li class="navelem"><a class="el" href="structsofa_1_1geometry_1_1_tetrahedron.html">Tetrahedron</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:22 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

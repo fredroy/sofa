@@ -93,6 +93,8 @@ $(document).ready(function(){initNavTree('classsofa_1_1type_1_1_bounding_box.htm
 <div class="title">BoundingBox Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_type_2src_2sofa_2type_2_bounding_box_8h_source.html">BoundingBox.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for BoundingBox:</div>
 <div class="dyncontent">
@@ -105,135 +107,835 @@ Inheritance diagram for BoundingBox:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a7d4460cf36e72e93b1356ef66f99ecc5"><td class="memItemLeft" align="right" valign="top"><a id="a7d4460cf36e72e93b1356ef66f99ecc5"></a>
-typedef std::pair&lt; <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec3</a>, <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec3</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>bbox_t</b></td></tr>
+<tr class="memitem:a7d4460cf36e72e93b1356ef66f99ecc5"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a>, <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a7d4460cf36e72e93b1356ef66f99ecc5">bbox_t</a></td></tr>
 <tr class="separator:a7d4460cf36e72e93b1356ef66f99ecc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa13cb05aa0937c0bc523cf7b63ad6904"><td class="memItemLeft" align="right" valign="top"><a id="aa13cb05aa0937c0bc523cf7b63ad6904"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#aa13cb05aa0937c0bc523cf7b63ad6904">BoundingBox</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec3</a> &amp;minBBox, const <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec3</a> &amp;maxBBox)</td></tr>
-<tr class="memdesc:aa13cb05aa0937c0bc523cf7b63ad6904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define using the endpoints of the main diagonal. <br /></td></tr>
+<tr class="memitem:a1dea7b72431cc6891cefdb6020af2bd6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a1dea7b72431cc6891cefdb6020af2bd6">BoundingBox</a> ()</td></tr>
+<tr class="separator:a1dea7b72431cc6891cefdb6020af2bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa13cb05aa0937c0bc523cf7b63ad6904"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#aa13cb05aa0937c0bc523cf7b63ad6904">BoundingBox</a> (const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp;<a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a29d185fd527a5cfcecbf510fc03b5923">minBBox</a>, const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp;<a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a3f351aa7c10f7fd9b7e2cd9b13c285bc">maxBBox</a>)</td></tr>
+<tr class="memdesc:aa13cb05aa0937c0bc523cf7b63ad6904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define using the endpoints of the main diagonal.  <a href="classsofa_1_1type_1_1_bounding_box.html#aa13cb05aa0937c0bc523cf7b63ad6904">More...</a><br /></td></tr>
 <tr class="separator:aa13cb05aa0937c0bc523cf7b63ad6904"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4860a5d3509c0123c37673d714dd03bc"><td class="memItemLeft" align="right" valign="top"><a id="a4860a5d3509c0123c37673d714dd03bc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>BoundingBox</b> (const bbox_t &amp;<a class="el" href="structbbox__shape.html">bbox</a>)</td></tr>
+<tr class="memitem:a4860a5d3509c0123c37673d714dd03bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a4860a5d3509c0123c37673d714dd03bc">BoundingBox</a> (const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a7d4460cf36e72e93b1356ef66f99ecc5">bbox_t</a> &amp;<a class="el" href="gpc_8cpp.html#a14ebf0e28206eb1ec6f3f985d5923af4">bbox</a>)</td></tr>
 <tr class="separator:a4860a5d3509c0123c37673d714dd03bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a18e3537c302bd2fc655c27aa3c7334"><td class="memItemLeft" align="right" valign="top"><a id="a0a18e3537c302bd2fc655c27aa3c7334"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a0a18e3537c302bd2fc655c27aa3c7334">BoundingBox</a> (SReal xmin, SReal xmax, SReal ymin, SReal ymax, SReal zmin, SReal zmax)</td></tr>
-<tr class="memdesc:a0a18e3537c302bd2fc655c27aa3c7334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define using xmin, xmax, ymin, ymax, zmin, zmax in this order. <br /></td></tr>
+<tr class="memitem:a0a18e3537c302bd2fc655c27aa3c7334"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a0a18e3537c302bd2fc655c27aa3c7334">BoundingBox</a> (SReal xmin, SReal xmax, SReal ymin, SReal ymax, SReal zmin, SReal zmax)</td></tr>
+<tr class="memdesc:a0a18e3537c302bd2fc655c27aa3c7334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define using xmin, xmax, ymin, ymax, zmin, zmax in this order.  <a href="classsofa_1_1type_1_1_bounding_box.html#a0a18e3537c302bd2fc655c27aa3c7334">More...</a><br /></td></tr>
 <tr class="separator:a0a18e3537c302bd2fc655c27aa3c7334"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa16c3daf18d279e5605e5298e97b0314"><td class="memItemLeft" align="right" valign="top"><a id="aa16c3daf18d279e5605e5298e97b0314"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#aa16c3daf18d279e5605e5298e97b0314">BoundingBox</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec6f</a> &amp;<a class="el" href="structbbox__shape.html">bbox</a>)</td></tr>
-<tr class="memdesc:aa16c3daf18d279e5605e5298e97b0314"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define using xmin, xmax, ymin, ymax, zmin, zmax in this order. <br /></td></tr>
+<tr class="memitem:aa16c3daf18d279e5605e5298e97b0314"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#aa16c3daf18d279e5605e5298e97b0314">BoundingBox</a> (const <a class="el" href="namespacesofa_1_1type.html#a46168603030de9430160513cc31861d2">Vec6f</a> &amp;<a class="el" href="gpc_8cpp.html#a14ebf0e28206eb1ec6f3f985d5923af4">bbox</a>)</td></tr>
+<tr class="memdesc:aa16c3daf18d279e5605e5298e97b0314"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define using xmin, xmax, ymin, ymax, zmin, zmax in this order.  <a href="classsofa_1_1type_1_1_bounding_box.html#aa16c3daf18d279e5605e5298e97b0314">More...</a><br /></td></tr>
 <tr class="separator:aa16c3daf18d279e5605e5298e97b0314"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bfeaa8356f769e898b3b751d668d8ba"><td class="memItemLeft" align="right" valign="top"><a id="a6bfeaa8356f769e898b3b751d668d8ba"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a6bfeaa8356f769e898b3b751d668d8ba">BoundingBox</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec6d</a> &amp;<a class="el" href="structbbox__shape.html">bbox</a>)</td></tr>
-<tr class="memdesc:a6bfeaa8356f769e898b3b751d668d8ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define using xmin, xmax, ymin, ymax, zmin, zmax in this order. <br /></td></tr>
+<tr class="memitem:a6bfeaa8356f769e898b3b751d668d8ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a6bfeaa8356f769e898b3b751d668d8ba">BoundingBox</a> (const <a class="el" href="namespacesofa_1_1type.html#a91e9db9d230ba9289853dab9e6a6950f">Vec6d</a> &amp;<a class="el" href="gpc_8cpp.html#a14ebf0e28206eb1ec6f3f985d5923af4">bbox</a>)</td></tr>
+<tr class="memdesc:a6bfeaa8356f769e898b3b751d668d8ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define using xmin, xmax, ymin, ymax, zmin, zmax in this order.  <a href="classsofa_1_1type_1_1_bounding_box.html#a6bfeaa8356f769e898b3b751d668d8ba">More...</a><br /></td></tr>
 <tr class="separator:a6bfeaa8356f769e898b3b751d668d8ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca2fb76f4ccae2f1004fb39c1b2eb9f9"><td class="memItemLeft" align="right" valign="top"><a id="aca2fb76f4ccae2f1004fb39c1b2eb9f9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>operator bbox_t</b> () const</td></tr>
+<tr class="memitem:aca2fb76f4ccae2f1004fb39c1b2eb9f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#aca2fb76f4ccae2f1004fb39c1b2eb9f9">operator bbox_t</a> () const</td></tr>
 <tr class="separator:aca2fb76f4ccae2f1004fb39c1b2eb9f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a893f1101c650c08c98612515c2b1a89c"><td class="memItemLeft" align="right" valign="top"><a id="a893f1101c650c08c98612515c2b1a89c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>invalidate</b> ()</td></tr>
+<tr class="memitem:a893f1101c650c08c98612515c2b1a89c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a893f1101c650c08c98612515c2b1a89c">invalidate</a> ()</td></tr>
 <tr class="separator:a893f1101c650c08c98612515c2b1a89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bc2a781be2586924afce4e4a4ea6697"><td class="memItemLeft" align="right" valign="top"><a id="a5bc2a781be2586924afce4e4a4ea6697"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isValid</b> () const</td></tr>
+<tr class="memitem:a5bc2a781be2586924afce4e4a4ea6697"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a5bc2a781be2586924afce4e4a4ea6697">isValid</a> () const</td></tr>
 <tr class="separator:a5bc2a781be2586924afce4e4a4ea6697"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91f6c10284742dc653c313db0d481ab7"><td class="memItemLeft" align="right" valign="top"><a id="a91f6c10284742dc653c313db0d481ab7"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isFlat</b> () const</td></tr>
+<tr class="memitem:a91f6c10284742dc653c313db0d481ab7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a91f6c10284742dc653c313db0d481ab7">isFlat</a> () const</td></tr>
 <tr class="separator:a91f6c10284742dc653c313db0d481ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae28a448706385f6c74f438602d3197ad"><td class="memItemLeft" align="right" valign="top"><a id="ae28a448706385f6c74f438602d3197ad"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isNegligeable</b> () const</td></tr>
+<tr class="memitem:ae28a448706385f6c74f438602d3197ad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#ae28a448706385f6c74f438602d3197ad">isNegligeable</a> () const</td></tr>
 <tr class="separator:ae28a448706385f6c74f438602d3197ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abada6dfb33f4cbafe1e443a5cf8dc8d0"><td class="memItemLeft" align="right" valign="top"><a id="abada6dfb33f4cbafe1e443a5cf8dc8d0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isNull</b> () const</td></tr>
+<tr class="memitem:abada6dfb33f4cbafe1e443a5cf8dc8d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#abada6dfb33f4cbafe1e443a5cf8dc8d0">isNull</a> () const</td></tr>
 <tr class="separator:abada6dfb33f4cbafe1e443a5cf8dc8d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab989e77ad900ea12138b854af2ba3f1b"><td class="memItemLeft" align="right" valign="top"><a id="ab989e77ad900ea12138b854af2ba3f1b"></a>
-SReal *&#160;</td><td class="memItemRight" valign="bottom"><b>minBBoxPtr</b> ()</td></tr>
+<tr class="memitem:ab989e77ad900ea12138b854af2ba3f1b"><td class="memItemLeft" align="right" valign="top">SReal *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#ab989e77ad900ea12138b854af2ba3f1b">minBBoxPtr</a> ()</td></tr>
 <tr class="separator:ab989e77ad900ea12138b854af2ba3f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fd748f604e69ff5934b8cfb5386f290"><td class="memItemLeft" align="right" valign="top"><a id="a9fd748f604e69ff5934b8cfb5386f290"></a>
-SReal *&#160;</td><td class="memItemRight" valign="bottom"><b>maxBBoxPtr</b> ()</td></tr>
+<tr class="memitem:a9fd748f604e69ff5934b8cfb5386f290"><td class="memItemLeft" align="right" valign="top">SReal *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a9fd748f604e69ff5934b8cfb5386f290">maxBBoxPtr</a> ()</td></tr>
 <tr class="separator:a9fd748f604e69ff5934b8cfb5386f290"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa8f9c6d1a33f9d53d66f7d2f8b49e88"><td class="memItemLeft" align="right" valign="top"><a id="afa8f9c6d1a33f9d53d66f7d2f8b49e88"></a>
-const SReal *&#160;</td><td class="memItemRight" valign="bottom"><b>minBBoxPtr</b> () const</td></tr>
+<tr class="memitem:afa8f9c6d1a33f9d53d66f7d2f8b49e88"><td class="memItemLeft" align="right" valign="top">const SReal *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#afa8f9c6d1a33f9d53d66f7d2f8b49e88">minBBoxPtr</a> () const</td></tr>
 <tr class="separator:afa8f9c6d1a33f9d53d66f7d2f8b49e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25e47ad265a7bd6508058113035e9c1e"><td class="memItemLeft" align="right" valign="top"><a id="a25e47ad265a7bd6508058113035e9c1e"></a>
-const SReal *&#160;</td><td class="memItemRight" valign="bottom"><b>maxBBoxPtr</b> () const</td></tr>
+<tr class="memitem:a25e47ad265a7bd6508058113035e9c1e"><td class="memItemLeft" align="right" valign="top">const SReal *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a25e47ad265a7bd6508058113035e9c1e">maxBBoxPtr</a> () const</td></tr>
 <tr class="separator:a25e47ad265a7bd6508058113035e9c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29d185fd527a5cfcecbf510fc03b5923"><td class="memItemLeft" align="right" valign="top"><a id="a29d185fd527a5cfcecbf510fc03b5923"></a>
-const <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>minBBox</b> () const</td></tr>
+<tr class="memitem:a29d185fd527a5cfcecbf510fc03b5923"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a29d185fd527a5cfcecbf510fc03b5923">minBBox</a> () const</td></tr>
 <tr class="separator:a29d185fd527a5cfcecbf510fc03b5923"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f351aa7c10f7fd9b7e2cd9b13c285bc"><td class="memItemLeft" align="right" valign="top"><a id="a3f351aa7c10f7fd9b7e2cd9b13c285bc"></a>
-const <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>maxBBox</b> () const</td></tr>
+<tr class="memitem:a3f351aa7c10f7fd9b7e2cd9b13c285bc"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a3f351aa7c10f7fd9b7e2cd9b13c285bc">maxBBox</a> () const</td></tr>
 <tr class="separator:a3f351aa7c10f7fd9b7e2cd9b13c285bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66528f0ba7590077aebb86575e450010"><td class="memItemLeft" align="right" valign="top"><a id="a66528f0ba7590077aebb86575e450010"></a>
-<a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>minBBox</b> ()</td></tr>
+<tr class="memitem:a66528f0ba7590077aebb86575e450010"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a66528f0ba7590077aebb86575e450010">minBBox</a> ()</td></tr>
 <tr class="separator:a66528f0ba7590077aebb86575e450010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42340dc411b40f004cba857230d2672e"><td class="memItemLeft" align="right" valign="top"><a id="a42340dc411b40f004cba857230d2672e"></a>
-<a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>maxBBox</b> ()</td></tr>
+<tr class="memitem:a42340dc411b40f004cba857230d2672e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a42340dc411b40f004cba857230d2672e">maxBBox</a> ()</td></tr>
 <tr class="separator:a42340dc411b40f004cba857230d2672e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab390105085138a30838d23ddbe8e96d3"><td class="memItemLeft" align="right" valign="top"><a id="ab390105085138a30838d23ddbe8e96d3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>contains</b> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec3</a> &amp;point) const</td></tr>
+<tr class="memitem:ab390105085138a30838d23ddbe8e96d3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#ab390105085138a30838d23ddbe8e96d3">contains</a> (const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp;point) const</td></tr>
 <tr class="separator:ab390105085138a30838d23ddbe8e96d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a130996a59ea4f96261e2861b13ac5c16"><td class="memItemLeft" align="right" valign="top"><a id="a130996a59ea4f96261e2861b13ac5c16"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>contains</b> (const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;other) const</td></tr>
+<tr class="memitem:a130996a59ea4f96261e2861b13ac5c16"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a130996a59ea4f96261e2861b13ac5c16">contains</a> (const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;other) const</td></tr>
 <tr class="separator:a130996a59ea4f96261e2861b13ac5c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b7ec1296c59c487e673f67d7eac74c9"><td class="memItemLeft" align="right" valign="top"><a id="a3b7ec1296c59c487e673f67d7eac74c9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>intersect</b> (const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;other) const</td></tr>
+<tr class="memitem:a3b7ec1296c59c487e673f67d7eac74c9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a3b7ec1296c59c487e673f67d7eac74c9">intersect</a> (const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;other) const</td></tr>
 <tr class="separator:a3b7ec1296c59c487e673f67d7eac74c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a440af05657ce769590be55e3d94946c6"><td class="memItemLeft" align="right" valign="top"><a id="a440af05657ce769590be55e3d94946c6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>intersection</b> (const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;other)</td></tr>
+<tr class="memitem:a440af05657ce769590be55e3d94946c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a440af05657ce769590be55e3d94946c6">intersection</a> (const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;other)</td></tr>
 <tr class="separator:a440af05657ce769590be55e3d94946c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc362a4ff76e832244146ccd5b5f3f55"><td class="memItemLeft" align="right" valign="top"><a id="afc362a4ff76e832244146ccd5b5f3f55"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>include</b> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec3</a> &amp;point)</td></tr>
+<tr class="memitem:afc362a4ff76e832244146ccd5b5f3f55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#afc362a4ff76e832244146ccd5b5f3f55">include</a> (const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp;point)</td></tr>
 <tr class="separator:afc362a4ff76e832244146ccd5b5f3f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1db661763eedd9bf4261caff77c455ba"><td class="memItemLeft" align="right" valign="top"><a id="a1db661763eedd9bf4261caff77c455ba"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>include</b> (const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;other)</td></tr>
+<tr class="memitem:a1db661763eedd9bf4261caff77c455ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a1db661763eedd9bf4261caff77c455ba">include</a> (const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;other)</td></tr>
 <tr class="separator:a1db661763eedd9bf4261caff77c455ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e5f15ec93f655db41fa73fd8e2b51e8"><td class="memItemLeft" align="right" valign="top"><a id="a3e5f15ec93f655db41fa73fd8e2b51e8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>inflate</b> (SReal amount)</td></tr>
+<tr class="memitem:a3e5f15ec93f655db41fa73fd8e2b51e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a3e5f15ec93f655db41fa73fd8e2b51e8">inflate</a> (SReal amount)</td></tr>
 <tr class="separator:a3e5f15ec93f655db41fa73fd8e2b51e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d392d0f80694dccc8192515ff06fdb4"><td class="memItemLeft" align="right" valign="top"><a id="a4d392d0f80694dccc8192515ff06fdb4"></a>
-<a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getIntersection</b> (const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;other) const</td></tr>
+<tr class="memitem:a4d392d0f80694dccc8192515ff06fdb4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a4d392d0f80694dccc8192515ff06fdb4">getIntersection</a> (const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;other) const</td></tr>
 <tr class="separator:a4d392d0f80694dccc8192515ff06fdb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dcbc63dc87d358b19fb2ded85d69923"><td class="memItemLeft" align="right" valign="top"><a id="a9dcbc63dc87d358b19fb2ded85d69923"></a>
-<a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getInclude</b> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec3</a> &amp;point) const</td></tr>
+<tr class="memitem:a9dcbc63dc87d358b19fb2ded85d69923"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a9dcbc63dc87d358b19fb2ded85d69923">getInclude</a> (const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp;point) const</td></tr>
 <tr class="separator:a9dcbc63dc87d358b19fb2ded85d69923"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9620c974b11e249296357133d8f9dff"><td class="memItemLeft" align="right" valign="top"><a id="af9620c974b11e249296357133d8f9dff"></a>
-<a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getInclude</b> (const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;other) const</td></tr>
+<tr class="memitem:af9620c974b11e249296357133d8f9dff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#af9620c974b11e249296357133d8f9dff">getInclude</a> (const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;other) const</td></tr>
 <tr class="separator:af9620c974b11e249296357133d8f9dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad88815aadc3daf8a73b12aaf95769a92"><td class="memItemLeft" align="right" valign="top"><a id="ad88815aadc3daf8a73b12aaf95769a92"></a>
-<a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getInflate</b> (SReal amount) const</td></tr>
+<tr class="memitem:ad88815aadc3daf8a73b12aaf95769a92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#ad88815aadc3daf8a73b12aaf95769a92">getInflate</a> (SReal amount) const</td></tr>
 <tr class="separator:ad88815aadc3daf8a73b12aaf95769a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad303fd3fb1a94a3ade43e234d3698e18"><td class="memItemLeft" align="right" valign="top"><a id="ad303fd3fb1a94a3ade43e234d3698e18"></a>
-static <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><b>neutral_bbox</b> ()</td></tr>
+<tr class="memitem:ad303fd3fb1a94a3ade43e234d3698e18"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#ad303fd3fb1a94a3ade43e234d3698e18">neutral_bbox</a> ()</td></tr>
 <tr class="separator:ad303fd3fb1a94a3ade43e234d3698e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:aa1bb017e532c33afba087f7e1d78a7ea"><td class="memItemLeft" align="right" valign="top"><a id="aa1bb017e532c33afba087f7e1d78a7ea"></a>
-bbox_t&#160;</td><td class="memItemRight" valign="bottom"><b>bbox</b></td></tr>
+<tr class="memitem:aa1bb017e532c33afba087f7e1d78a7ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a7d4460cf36e72e93b1356ef66f99ecc5">bbox_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#aa1bb017e532c33afba087f7e1d78a7ea">bbox</a></td></tr>
 <tr class="separator:aa1bb017e532c33afba087f7e1d78a7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a5189d96f91a6d16176f8be279983181e"><td class="memItemLeft" align="right" valign="top"><a id="a5189d96f91a6d16176f8be279983181e"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;out, const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;<a class="el" href="structbbox__shape.html">bbox</a>)</td></tr>
+<tr class="memitem:a5189d96f91a6d16176f8be279983181e"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a5189d96f91a6d16176f8be279983181e">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;<a class="el" href="gpc_8cpp.html#a14ebf0e28206eb1ec6f3f985d5923af4">bbox</a>)</td></tr>
 <tr class="separator:a5189d96f91a6d16176f8be279983181e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af16de5700f87a0a19421be039a2a0631"><td class="memItemLeft" align="right" valign="top"><a id="af16de5700f87a0a19421be039a2a0631"></a>
-std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;&gt;</b> (std::istream &amp;in, <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;<a class="el" href="structbbox__shape.html">bbox</a>)</td></tr>
+<tr class="memitem:af16de5700f87a0a19421be039a2a0631"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#af16de5700f87a0a19421be039a2a0631">operator&gt;&gt;</a> (std::istream &amp;in, <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;<a class="el" href="gpc_8cpp.html#a14ebf0e28206eb1ec6f3f985d5923af4">bbox</a>)</td></tr>
 <tr class="separator:af16de5700f87a0a19421be039a2a0631"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a7d4460cf36e72e93b1356ef66f99ecc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d4460cf36e72e93b1356ef66f99ecc5">&#9670;&nbsp;</a></span>bbox_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt; <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a>, <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &gt; <a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a7d4460cf36e72e93b1356ef66f99ecc5">bbox_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1dea7b72431cc6891cefdb6020af2bd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dea7b72431cc6891cefdb6020af2bd6">&#9670;&nbsp;</a></span>BoundingBox() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa13cb05aa0937c0bc523cf7b63ad6904"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa13cb05aa0937c0bc523cf7b63ad6904">&#9670;&nbsp;</a></span>BoundingBox() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp;&#160;</td>
+          <td class="paramname"><em>minBBox</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp;&#160;</td>
+          <td class="paramname"><em>maxBBox</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define using the endpoints of the main diagonal. </p>
+
+</div>
+</div>
+<a id="a4860a5d3509c0123c37673d714dd03bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4860a5d3509c0123c37673d714dd03bc">&#9670;&nbsp;</a></span>BoundingBox() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a7d4460cf36e72e93b1356ef66f99ecc5">bbox_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>bbox</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a18e3537c302bd2fc655c27aa3c7334"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a18e3537c302bd2fc655c27aa3c7334">&#9670;&nbsp;</a></span>BoundingBox() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> </td>
+          <td>(</td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname"><em>xmin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname"><em>xmax</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname"><em>ymin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname"><em>ymax</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname"><em>zmin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname"><em>zmax</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define using xmin, xmax, ymin, ymax, zmin, zmax in this order. </p>
+
+</div>
+</div>
+<a id="aa16c3daf18d279e5605e5298e97b0314"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa16c3daf18d279e5605e5298e97b0314">&#9670;&nbsp;</a></span>BoundingBox() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a46168603030de9430160513cc31861d2">Vec6f</a> &amp;&#160;</td>
+          <td class="paramname"><em>bbox</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define using xmin, xmax, ymin, ymax, zmin, zmax in this order. </p>
+
+</div>
+</div>
+<a id="a6bfeaa8356f769e898b3b751d668d8ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bfeaa8356f769e898b3b751d668d8ba">&#9670;&nbsp;</a></span>BoundingBox() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a91e9db9d230ba9289853dab9e6a6950f">Vec6d</a> &amp;&#160;</td>
+          <td class="paramname"><em>bbox</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define using xmin, xmax, ymin, ymax, zmin, zmax in this order. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a130996a59ea4f96261e2861b13ac5c16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a130996a59ea4f96261e2861b13ac5c16">&#9670;&nbsp;</a></span>contains() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool contains </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab390105085138a30838d23ddbe8e96d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab390105085138a30838d23ddbe8e96d3">&#9670;&nbsp;</a></span>contains() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool contains </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af9620c974b11e249296357133d8f9dff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9620c974b11e249296357133d8f9dff">&#9670;&nbsp;</a></span>getInclude() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> getInclude </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9dcbc63dc87d358b19fb2ded85d69923"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dcbc63dc87d358b19fb2ded85d69923">&#9670;&nbsp;</a></span>getInclude() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> getInclude </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad88815aadc3daf8a73b12aaf95769a92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad88815aadc3daf8a73b12aaf95769a92">&#9670;&nbsp;</a></span>getInflate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> getInflate </td>
+          <td>(</td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname"><em>amount</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d392d0f80694dccc8192515ff06fdb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d392d0f80694dccc8192515ff06fdb4">&#9670;&nbsp;</a></span>getIntersection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> getIntersection </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1db661763eedd9bf4261caff77c455ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1db661763eedd9bf4261caff77c455ba">&#9670;&nbsp;</a></span>include() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void include </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc362a4ff76e832244146ccd5b5f3f55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc362a4ff76e832244146ccd5b5f3f55">&#9670;&nbsp;</a></span>include() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void include </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e5f15ec93f655db41fa73fd8e2b51e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e5f15ec93f655db41fa73fd8e2b51e8">&#9670;&nbsp;</a></span>inflate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inflate </td>
+          <td>(</td>
+          <td class="paramtype">SReal&#160;</td>
+          <td class="paramname"><em>amount</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b7ec1296c59c487e673f67d7eac74c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b7ec1296c59c487e673f67d7eac74c9">&#9670;&nbsp;</a></span>intersect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool intersect </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a440af05657ce769590be55e3d94946c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a440af05657ce769590be55e3d94946c6">&#9670;&nbsp;</a></span>intersection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void intersection </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a893f1101c650c08c98612515c2b1a89c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a893f1101c650c08c98612515c2b1a89c">&#9670;&nbsp;</a></span>invalidate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void invalidate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91f6c10284742dc653c313db0d481ab7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91f6c10284742dc653c313db0d481ab7">&#9670;&nbsp;</a></span>isFlat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isFlat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae28a448706385f6c74f438602d3197ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae28a448706385f6c74f438602d3197ad">&#9670;&nbsp;</a></span>isNegligeable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isNegligeable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abada6dfb33f4cbafe1e443a5cf8dc8d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abada6dfb33f4cbafe1e443a5cf8dc8d0">&#9670;&nbsp;</a></span>isNull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isNull </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5bc2a781be2586924afce4e4a4ea6697"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bc2a781be2586924afce4e4a4ea6697">&#9670;&nbsp;</a></span>isValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isValid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42340dc411b40f004cba857230d2672e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42340dc411b40f004cba857230d2672e">&#9670;&nbsp;</a></span>maxBBox() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a>&amp; maxBBox </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3f351aa7c10f7fd9b7e2cd9b13c285bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f351aa7c10f7fd9b7e2cd9b13c285bc">&#9670;&nbsp;</a></span>maxBBox() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp; maxBBox </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9fd748f604e69ff5934b8cfb5386f290"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fd748f604e69ff5934b8cfb5386f290">&#9670;&nbsp;</a></span>maxBBoxPtr() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const SReal * maxBBoxPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a25e47ad265a7bd6508058113035e9c1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25e47ad265a7bd6508058113035e9c1e">&#9670;&nbsp;</a></span>maxBBoxPtr() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const SReal* maxBBoxPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a66528f0ba7590077aebb86575e450010"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66528f0ba7590077aebb86575e450010">&#9670;&nbsp;</a></span>minBBox() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a>&amp; minBBox </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a29d185fd527a5cfcecbf510fc03b5923"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29d185fd527a5cfcecbf510fc03b5923">&#9670;&nbsp;</a></span>minBBox() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a> &amp; minBBox </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab989e77ad900ea12138b854af2ba3f1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab989e77ad900ea12138b854af2ba3f1b">&#9670;&nbsp;</a></span>minBBoxPtr() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const SReal * minBBoxPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa8f9c6d1a33f9d53d66f7d2f8b49e88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa8f9c6d1a33f9d53d66f7d2f8b49e88">&#9670;&nbsp;</a></span>minBBoxPtr() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const SReal* minBBoxPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad303fd3fb1a94a3ade43e234d3698e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad303fd3fb1a94a3ade43e234d3698e18">&#9670;&nbsp;</a></span>neutral_bbox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> neutral_bbox </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aca2fb76f4ccae2f1004fb39c1b2eb9f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca2fb76f4ccae2f1004fb39c1b2eb9f9">&#9670;&nbsp;</a></span>operator bbox_t()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">operator <a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a7d4460cf36e72e93b1356ef66f99ecc5">bbox_t</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a5189d96f91a6d16176f8be279983181e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5189d96f91a6d16176f8be279983181e">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>bbox</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af16de5700f87a0a19421be039a2a0631"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af16de5700f87a0a19421be039a2a0631">&#9670;&nbsp;</a></span>operator&gt;&gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::istream&amp; operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>bbox</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa1bb017e532c33afba087f7e1d78a7ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1bb017e532c33afba087f7e1d78a7ea">&#9670;&nbsp;</a></span>bbox</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html#a7d4460cf36e72e93b1356ef66f99ecc5">bbox_t</a> <a class="el" href="gpc_8cpp.html#a14ebf0e28206eb1ec6f3f985d5923af4">bbox</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1type.html">type</a></li><li class="navelem"><a class="el" href="classsofa_1_1type_1_1_bounding_box.html">BoundingBox</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:14:17 for SOFA by
+    <li class="footer">Generated on Tue Jul 26 2022 07:46:51 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

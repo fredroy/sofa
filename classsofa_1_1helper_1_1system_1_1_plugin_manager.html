@@ -87,113 +87,358 @@ $(document).ready(function(){initNavTree('classsofa_1_1helper_1_1system_1_1_plug
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classsofa_1_1helper_1_1system_1_1_plugin_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PluginManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_plugin_manager_8h_source.html">PluginManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a91550b4de0f342587d2e43aaf65286f8"><td class="memItemLeft" align="right" valign="top"><a id="a91550b4de0f342587d2e43aaf65286f8"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>PluginLoadStatus</b> : unsigned char { <br />
-&#160;&#160;<b>SUCCESS</b>, 
-<b>ALREADY_LOADED</b>, 
-<b>PLUGIN_FILE_NOT_FOUND</b>, 
-<b>INVALID_LOADING</b>, 
+<tr class="memitem:a91550b4de0f342587d2e43aaf65286f8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a91550b4de0f342587d2e43aaf65286f8">PluginLoadStatus</a> : unsigned char { <br />
+&#160;&#160;<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a91550b4de0f342587d2e43aaf65286f8ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a>, 
+<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a91550b4de0f342587d2e43aaf65286f8ae817054f069c2f8f0db23cc1904d9594">ALREADY_LOADED</a>, 
+<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a91550b4de0f342587d2e43aaf65286f8a6936c94cfbfeae659dcf35691807a892">PLUGIN_FILE_NOT_FOUND</a>, 
+<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a91550b4de0f342587d2e43aaf65286f8aee2593ad128a7f921c49298c114b7a76">INVALID_LOADING</a>, 
 <br />
-&#160;&#160;<b>MISSING_SYMBOL</b>, 
-<b>INIT_ERROR</b>
+&#160;&#160;<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a91550b4de0f342587d2e43aaf65286f8ab6bfa1cf7b56303f7fef2edc5f9e1d83">MISSING_SYMBOL</a>, 
+<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a91550b4de0f342587d2e43aaf65286f8a26c90895a6927eb3f6df540a1ab1498c">INIT_ERROR</a>
 <br />
  }</td></tr>
 <tr class="separator:a91550b4de0f342587d2e43aaf65286f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab78fdbc13992455532266f76094c4635"><td class="memItemLeft" align="right" valign="top"><a id="ab78fdbc13992455532266f76094c4635"></a>
-typedef std::map&lt; std::string, <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#ab78fdbc13992455532266f76094c4635">PluginMap</a></td></tr>
-<tr class="memdesc:ab78fdbc13992455532266f76094c4635"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map to store the list of plugin registered, key is the plugin path. <br /></td></tr>
+<tr class="memitem:ab78fdbc13992455532266f76094c4635"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; std::string, <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#ab78fdbc13992455532266f76094c4635">PluginMap</a></td></tr>
+<tr class="memdesc:ab78fdbc13992455532266f76094c4635"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map to store the list of plugin registered, key is the plugin path.  <a href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#ab78fdbc13992455532266f76094c4635">More...</a><br /></td></tr>
 <tr class="separator:ab78fdbc13992455532266f76094c4635"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4adf28367833c05c75afeaf747201532"><td class="memItemLeft" align="right" valign="top"><a id="a4adf28367833c05c75afeaf747201532"></a>
-typedef PluginMap::iterator&#160;</td><td class="memItemRight" valign="bottom"><b>PluginIterator</b></td></tr>
+<tr class="memitem:a4adf28367833c05c75afeaf747201532"><td class="memItemLeft" align="right" valign="top">typedef PluginMap::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a4adf28367833c05c75afeaf747201532">PluginIterator</a></td></tr>
 <tr class="separator:a4adf28367833c05c75afeaf747201532"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a027eb05252bc171f8ace1433148b696c"><td class="memItemLeft" align="right" valign="top">PluginLoadStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a027eb05252bc171f8ace1433148b696c">loadPlugin</a> (const std::string &amp;plugin, const std::string &amp;suffix=<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a801f33df0232a61f058f6f7f495611f8">getDefaultSuffix</a>(), bool ignoreCase=true, bool recursive=true, std::ostream *errlog=nullptr)</td></tr>
+<tr class="memitem:a027eb05252bc171f8ace1433148b696c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a91550b4de0f342587d2e43aaf65286f8">PluginLoadStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a027eb05252bc171f8ace1433148b696c">loadPlugin</a> (const std::string &amp;plugin, const std::string &amp;suffix=<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a801f33df0232a61f058f6f7f495611f8">getDefaultSuffix</a>(), bool ignoreCase=true, bool recursive=true, std::ostream *errlog=nullptr)</td></tr>
 <tr class="separator:a027eb05252bc171f8ace1433148b696c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfaf5694ee1d122263e15568fddc8b3e"><td class="memItemLeft" align="right" valign="top">PluginLoadStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#adfaf5694ee1d122263e15568fddc8b3e">loadPluginByPath</a> (const std::string &amp;path, std::ostream *errlog=nullptr)</td></tr>
+<tr class="memitem:adfaf5694ee1d122263e15568fddc8b3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a91550b4de0f342587d2e43aaf65286f8">PluginLoadStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#adfaf5694ee1d122263e15568fddc8b3e">loadPluginByPath</a> (const std::string &amp;path, std::ostream *errlog=nullptr)</td></tr>
 <tr class="separator:adfaf5694ee1d122263e15568fddc8b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67e0dff8eddfd4c3e19e4d8ed133d085"><td class="memItemLeft" align="right" valign="top">PluginLoadStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a67e0dff8eddfd4c3e19e4d8ed133d085">loadPluginByName</a> (const std::string &amp;pluginName, const std::string &amp;suffix=<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a801f33df0232a61f058f6f7f495611f8">getDefaultSuffix</a>(), bool ignoreCase=true, bool recursive=true, std::ostream *errlog=nullptr)</td></tr>
+<tr class="memitem:a67e0dff8eddfd4c3e19e4d8ed133d085"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a91550b4de0f342587d2e43aaf65286f8">PluginLoadStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a67e0dff8eddfd4c3e19e4d8ed133d085">loadPluginByName</a> (const std::string &amp;pluginName, const std::string &amp;suffix=<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a801f33df0232a61f058f6f7f495611f8">getDefaultSuffix</a>(), bool ignoreCase=true, bool recursive=true, std::ostream *errlog=nullptr)</td></tr>
 <tr class="separator:a67e0dff8eddfd4c3e19e4d8ed133d085"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32992584460c5f020aa534ee74846598"><td class="memItemLeft" align="right" valign="top"><a id="a32992584460c5f020aa534ee74846598"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a32992584460c5f020aa534ee74846598">unloadPlugin</a> (const std::string &amp;path, std::ostream *errlog=nullptr)</td></tr>
-<tr class="memdesc:a32992584460c5f020aa534ee74846598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unloads a plugin from process memory. <br /></td></tr>
+<tr class="memitem:a32992584460c5f020aa534ee74846598"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a32992584460c5f020aa534ee74846598">unloadPlugin</a> (const std::string &amp;path, std::ostream *errlog=nullptr)</td></tr>
+<tr class="memdesc:a32992584460c5f020aa534ee74846598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unloads a plugin from process memory.  <a href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a32992584460c5f020aa534ee74846598">More...</a><br /></td></tr>
 <tr class="separator:a32992584460c5f020aa534ee74846598"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02fd73d861ef2e4aabb38c0c9ff82947"><td class="memItemLeft" align="right" valign="top"><a id="a02fd73d861ef2e4aabb38c0c9ff82947"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()</td></tr>
+<tr class="memitem:a02fd73d861ef2e4aabb38c0c9ff82947"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a02fd73d861ef2e4aabb38c0c9ff82947">init</a> ()</td></tr>
 <tr class="separator:a02fd73d861ef2e4aabb38c0c9ff82947"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b49ee26a15593953201270ed1b82112"><td class="memItemLeft" align="right" valign="top"><a id="a1b49ee26a15593953201270ed1b82112"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (const std::string &amp;pluginPath)</td></tr>
+<tr class="memitem:a1b49ee26a15593953201270ed1b82112"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a1b49ee26a15593953201270ed1b82112">init</a> (const std::string &amp;pluginPath)</td></tr>
 <tr class="separator:a1b49ee26a15593953201270ed1b82112"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dc9a2920e0ce40fb8147dc5b4c4d2f1"><td class="memItemLeft" align="right" valign="top"><a id="a6dc9a2920e0ce40fb8147dc5b4c4d2f1"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>findPlugin</b> (const std::string &amp;pluginName, const std::string &amp;suffix=<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a801f33df0232a61f058f6f7f495611f8">getDefaultSuffix</a>(), bool ignoreCase=true, bool recursive=true, int maxRecursiveDepth=3)</td></tr>
+<tr class="memitem:a6dc9a2920e0ce40fb8147dc5b4c4d2f1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a6dc9a2920e0ce40fb8147dc5b4c4d2f1">findPlugin</a> (const std::string &amp;pluginName, const std::string &amp;suffix=<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a801f33df0232a61f058f6f7f495611f8">getDefaultSuffix</a>(), bool ignoreCase=true, bool recursive=true, int maxRecursiveDepth=3)</td></tr>
 <tr class="separator:a6dc9a2920e0ce40fb8147dc5b4c4d2f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4002b1c525951e1870b32cb5feb352f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#aa4002b1c525951e1870b32cb5feb352f">pluginIsLoaded</a> (const std::string &amp;plugin)</td></tr>
 <tr class="separator:aa4002b1c525951e1870b32cb5feb352f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e891c1b01ad0d5290cdfa2f0f4ca7b6"><td class="memItemLeft" align="right" valign="top"><a id="a6e891c1b01ad0d5290cdfa2f0f4ca7b6"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>checkDuplicatedPlugin</b> (const <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> &amp;plugin, const std::string &amp;pluginPath)</td></tr>
+<tr class="memitem:a6e891c1b01ad0d5290cdfa2f0f4ca7b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a6e891c1b01ad0d5290cdfa2f0f4ca7b6">checkDuplicatedPlugin</a> (const <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> &amp;plugin, const std::string &amp;pluginPath)</td></tr>
 <tr class="separator:a6e891c1b01ad0d5290cdfa2f0f4ca7b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a909bdc7d2e25a7451c8d3065b7ac07ac"><td class="memItemLeft" align="right" valign="top"><a id="a909bdc7d2e25a7451c8d3065b7ac07ac"></a>
-<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#ab78fdbc13992455532266f76094c4635">PluginMap</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPluginMap</b> ()</td></tr>
+<tr class="memitem:a909bdc7d2e25a7451c8d3065b7ac07ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#ab78fdbc13992455532266f76094c4635">PluginMap</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a909bdc7d2e25a7451c8d3065b7ac07ac">getPluginMap</a> ()</td></tr>
 <tr class="separator:a909bdc7d2e25a7451c8d3065b7ac07ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a097ef1cf3586387e988d71c5977908a8"><td class="memItemLeft" align="right" valign="top"><a id="a097ef1cf3586387e988d71c5977908a8"></a>
-<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getPlugin</b> (const std::string &amp;plugin, const std::string &amp;=<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a801f33df0232a61f058f6f7f495611f8">getDefaultSuffix</a>(), bool=true)</td></tr>
+<tr class="memitem:a097ef1cf3586387e988d71c5977908a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a097ef1cf3586387e988d71c5977908a8">getPlugin</a> (const std::string &amp;plugin, const std::string &amp;=<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a801f33df0232a61f058f6f7f495611f8">getDefaultSuffix</a>(), bool=true)</td></tr>
 <tr class="separator:a097ef1cf3586387e988d71c5977908a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68fb6fe7b71ed83aeaa6c2cba153d4f7"><td class="memItemLeft" align="right" valign="top"><a id="a68fb6fe7b71ed83aeaa6c2cba153d4f7"></a>
-<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getPluginByName</b> (const std::string &amp;pluginName)</td></tr>
+<tr class="memitem:a68fb6fe7b71ed83aeaa6c2cba153d4f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a68fb6fe7b71ed83aeaa6c2cba153d4f7">getPluginByName</a> (const std::string &amp;pluginName)</td></tr>
 <tr class="separator:a68fb6fe7b71ed83aeaa6c2cba153d4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6720b32b93253fc3dc7b4e34808cef88"><td class="memItemLeft" align="right" valign="top"><a id="a6720b32b93253fc3dc7b4e34808cef88"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>readFromIniFile</b> (const std::string &amp;path)</td></tr>
+<tr class="memitem:a6720b32b93253fc3dc7b4e34808cef88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a6720b32b93253fc3dc7b4e34808cef88">readFromIniFile</a> (const std::string &amp;path)</td></tr>
 <tr class="separator:a6720b32b93253fc3dc7b4e34808cef88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a973b6cbb110cd9527de9c526baf739f3"><td class="memItemLeft" align="right" valign="top"><a id="a973b6cbb110cd9527de9c526baf739f3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>readFromIniFile</b> (const std::string &amp;path, <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; std::string &gt; &amp;listLoadedPlugins)</td></tr>
+<tr class="memitem:a973b6cbb110cd9527de9c526baf739f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a973b6cbb110cd9527de9c526baf739f3">readFromIniFile</a> (const std::string &amp;path, <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; std::string &gt; &amp;listLoadedPlugins)</td></tr>
 <tr class="separator:a973b6cbb110cd9527de9c526baf739f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a535cb36545e217b7e53cf0743167fc36"><td class="memItemLeft" align="right" valign="top"><a id="a535cb36545e217b7e53cf0743167fc36"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>writeToIniFile</b> (const std::string &amp;path)</td></tr>
+<tr class="memitem:a535cb36545e217b7e53cf0743167fc36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a535cb36545e217b7e53cf0743167fc36">writeToIniFile</a> (const std::string &amp;path)</td></tr>
 <tr class="separator:a535cb36545e217b7e53cf0743167fc36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a004ec042ad85c37ac5f3747a79bf0107"><td class="memItemLeft" align="right" valign="top"><a id="a004ec042ad85c37ac5f3747a79bf0107"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addOnPluginLoadedCallback</b> (const std::string &amp;key, std::function&lt; void(const std::string &amp;, const <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> &amp;)&gt; callback)</td></tr>
+<tr class="memitem:a004ec042ad85c37ac5f3747a79bf0107"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a004ec042ad85c37ac5f3747a79bf0107">addOnPluginLoadedCallback</a> (const std::string &amp;key, std::function&lt; void(const std::string &amp;, const <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> &amp;)&gt; callback)</td></tr>
 <tr class="separator:a004ec042ad85c37ac5f3747a79bf0107"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0574b899d3f2c4542922cf8bc762e1c3"><td class="memItemLeft" align="right" valign="top"><a id="a0574b899d3f2c4542922cf8bc762e1c3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeOnPluginLoadedCallback</b> (const std::string &amp;key)</td></tr>
+<tr class="memitem:a0574b899d3f2c4542922cf8bc762e1c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a0574b899d3f2c4542922cf8bc762e1c3">removeOnPluginLoadedCallback</a> (const std::string &amp;key)</td></tr>
 <tr class="separator:a0574b899d3f2c4542922cf8bc762e1c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a65bdf8ac0d3f25f47d4c98841f69f4da"><td class="memItemLeft" align="right" valign="top"><a id="a65bdf8ac0d3f25f47d4c98841f69f4da"></a>
-static <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> ()</td></tr>
+<tr class="memitem:a65bdf8ac0d3f25f47d4c98841f69f4da"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a65bdf8ac0d3f25f47d4c98841f69f4da">getInstance</a> ()</td></tr>
 <tr class="separator:a65bdf8ac0d3f25f47d4c98841f69f4da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a801f33df0232a61f058f6f7f495611f8"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a801f33df0232a61f058f6f7f495611f8">getDefaultSuffix</a> ()</td></tr>
 <tr class="separator:a801f33df0232a61f058f6f7f495611f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4580223d62ceedf2bc7d59cd8011d5af"><td class="memItemLeft" align="right" valign="top"><a id="a4580223d62ceedf2bc7d59cd8011d5af"></a>
-static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>GetPluginNameFromPath</b> (const std::string &amp;pluginPath)</td></tr>
+<tr class="memitem:a4580223d62ceedf2bc7d59cd8011d5af"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a4580223d62ceedf2bc7d59cd8011d5af">GetPluginNameFromPath</a> (const std::string &amp;pluginPath)</td></tr>
 <tr class="separator:a4580223d62ceedf2bc7d59cd8011d5af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a9f6efcb58c5ba4aea3e4db06878bc15b"><td class="memItemLeft" align="right" valign="top"><a id="a9f6efcb58c5ba4aea3e4db06878bc15b"></a>
-static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a9f6efcb58c5ba4aea3e4db06878bc15b">s_gui_postfix</a> = &quot;gui&quot;</td></tr>
-<tr class="memdesc:a9f6efcb58c5ba4aea3e4db06878bc15b"><td class="mdescLeft">&#160;</td><td class="mdescRight">the postfix to gui plugin, default="gui" (e.g. myplugin_gui.so) <br /></td></tr>
+<tr class="memitem:a9f6efcb58c5ba4aea3e4db06878bc15b"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a9f6efcb58c5ba4aea3e4db06878bc15b">s_gui_postfix</a> = &quot;gui&quot;</td></tr>
+<tr class="memdesc:a9f6efcb58c5ba4aea3e4db06878bc15b"><td class="mdescLeft">&#160;</td><td class="mdescRight">the postfix to gui plugin, default="gui" (e.g. myplugin_gui.so)  <a href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a9f6efcb58c5ba4aea3e4db06878bc15b">More...</a><br /></td></tr>
 <tr class="separator:a9f6efcb58c5ba4aea3e4db06878bc15b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a70ce71e44ccce4b4766258ea007e7a28"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a70ce71e44ccce4b4766258ea007e7a28">PluginManager</a> ()</td></tr>
+<tr class="separator:a70ce71e44ccce4b4766258ea007e7a28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc08635322d4879e620ccb5d9ad3191a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#afc08635322d4879e620ccb5d9ad3191a">~PluginManager</a> ()</td></tr>
+<tr class="separator:afc08635322d4879e620ccb5d9ad3191a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb148dd72c50926e349aabdbee49dba1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#aeb148dd72c50926e349aabdbee49dba1">PluginManager</a> (const <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a> &amp;)</td></tr>
+<tr class="separator:aeb148dd72c50926e349aabdbee49dba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7248a444097b0056ddc39d61bef6be50"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a7248a444097b0056ddc39d61bef6be50">writeToStream</a> (std::ostream &amp;) const</td></tr>
+<tr class="separator:a7248a444097b0056ddc39d61bef6be50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe45656fbc6c256338968641bffe5af9"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#abe45656fbc6c256338968641bffe5af9">readFromStream</a> (std::istream &amp;)</td></tr>
+<tr class="separator:abe45656fbc6c256338968641bffe5af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:adaabd1d4a6c80f28d4df02a44deeb91b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#ab78fdbc13992455532266f76094c4635">PluginMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#adaabd1d4a6c80f28d4df02a44deeb91b">m_pluginMap</a></td></tr>
+<tr class="separator:adaabd1d4a6c80f28d4df02a44deeb91b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d75d3c494106c40d1aeaacd4c41a655"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::function&lt; void(const std::string &amp;, const <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> &amp;)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a0d75d3c494106c40d1aeaacd4c41a655">m_onPluginLoadedCallbacks</a></td></tr>
+<tr class="separator:a0d75d3c494106c40d1aeaacd4c41a655"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:ace606be20698b20c3f55ffb186e355a6"><td class="memItemLeft" align="right" valign="top"><a id="ace606be20698b20c3f55ffb186e355a6"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a> &amp;pluginManager)</td></tr>
+<tr class="memitem:ace606be20698b20c3f55ffb186e355a6"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#ace606be20698b20c3f55ffb186e355a6">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a> &amp;pluginManager)</td></tr>
 <tr class="separator:ace606be20698b20c3f55ffb186e355a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afeb57e3056d5e9b6a6d85c8748ed6cc8"><td class="memItemLeft" align="right" valign="top"><a id="afeb57e3056d5e9b6a6d85c8748ed6cc8"></a>
-std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;&gt;</b> (std::istream &amp;in, <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a> &amp;pluginManager)</td></tr>
+<tr class="memitem:afeb57e3056d5e9b6a6d85c8748ed6cc8"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#afeb57e3056d5e9b6a6d85c8748ed6cc8">operator&gt;&gt;</a> (std::istream &amp;in, <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a> &amp;pluginManager)</td></tr>
 <tr class="separator:afeb57e3056d5e9b6a6d85c8748ed6cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a4adf28367833c05c75afeaf747201532"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4adf28367833c05c75afeaf747201532">&#9670;&nbsp;</a></span>PluginIterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef PluginMap::iterator <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a4adf28367833c05c75afeaf747201532">PluginIterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab78fdbc13992455532266f76094c4635"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab78fdbc13992455532266f76094c4635">&#9670;&nbsp;</a></span>PluginMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;std::string, <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> &gt; <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#ab78fdbc13992455532266f76094c4635">PluginMap</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Map to store the list of plugin registered, key is the plugin path. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a91550b4de0f342587d2e43aaf65286f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91550b4de0f342587d2e43aaf65286f8">&#9670;&nbsp;</a></span>PluginLoadStatus</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a91550b4de0f342587d2e43aaf65286f8">PluginLoadStatus</a> : unsigned char</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a91550b4de0f342587d2e43aaf65286f8ad0749aaba8b833466dfcbb0428e4f89c"></a>SUCCESS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a91550b4de0f342587d2e43aaf65286f8ae817054f069c2f8f0db23cc1904d9594"></a>ALREADY_LOADED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a91550b4de0f342587d2e43aaf65286f8a6936c94cfbfeae659dcf35691807a892"></a>PLUGIN_FILE_NOT_FOUND&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a91550b4de0f342587d2e43aaf65286f8aee2593ad128a7f921c49298c114b7a76"></a>INVALID_LOADING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a91550b4de0f342587d2e43aaf65286f8ab6bfa1cf7b56303f7fef2edc5f9e1d83"></a>MISSING_SYMBOL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a91550b4de0f342587d2e43aaf65286f8a26c90895a6927eb3f6df540a1ab1498c"></a>INIT_ERROR&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a70ce71e44ccce4b4766258ea007e7a28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70ce71e44ccce4b4766258ea007e7a28">&#9670;&nbsp;</a></span>PluginManager() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc08635322d4879e620ccb5d9ad3191a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc08635322d4879e620ccb5d9ad3191a">&#9670;&nbsp;</a></span>~PluginManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb148dd72c50926e349aabdbee49dba1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb148dd72c50926e349aabdbee49dba1">&#9670;&nbsp;</a></span>PluginManager() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a004ec042ad85c37ac5f3747a79bf0107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a004ec042ad85c37ac5f3747a79bf0107">&#9670;&nbsp;</a></span>addOnPluginLoadedCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addOnPluginLoadedCallback </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const std::string &amp;, const <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e891c1b01ad0d5290cdfa2f0f4ca7b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e891c1b01ad0d5290cdfa2f0f4ca7b6">&#9670;&nbsp;</a></span>checkDuplicatedPlugin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool checkDuplicatedPlugin </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> &amp;&#160;</td>
+          <td class="paramname"><em>plugin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>pluginPath</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6dc9a2920e0ce40fb8147dc5b4c4d2f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc9a2920e0ce40fb8147dc5b4c4d2f1">&#9670;&nbsp;</a></span>findPlugin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string findPlugin </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>pluginName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>suffix</em> = <code><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a801f33df0232a61f058f6f7f495611f8">getDefaultSuffix</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>ignoreCase</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>recursive</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxRecursiveDepth</em> = <code>3</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a801f33df0232a61f058f6f7f495611f8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a801f33df0232a61f058f6f7f495611f8">&#9670;&nbsp;</a></span>getDefaultSuffix()</h2>
 
@@ -219,6 +464,169 @@ std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <p>Get the default suffix applied to plugin names to find the actual lib to load Returns "_d" in debug configuration and an empty string otherwise <br  />
 </p>
 <p>Get the default suffix applied to plugin names to find the actual lib to load (depends on platform, version, debug/release build) </p>
+
+</div>
+</div>
+<a id="a65bdf8ac0d3f25f47d4c98841f69f4da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65bdf8ac0d3f25f47d4c98841f69f4da">&#9670;&nbsp;</a></span>getInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a> &amp; getInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a097ef1cf3586387e988d71c5977908a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a097ef1cf3586387e988d71c5977908a8">&#9670;&nbsp;</a></span>getPlugin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> * getPlugin </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>plugin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"> = <code><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a801f33df0232a61f058f6f7f495611f8">getDefaultSuffix</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a68fb6fe7b71ed83aeaa6c2cba153d4f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68fb6fe7b71ed83aeaa6c2cba153d4f7">&#9670;&nbsp;</a></span>getPluginByName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a> * getPluginByName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>pluginName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a909bdc7d2e25a7451c8d3065b7ac07ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a909bdc7d2e25a7451c8d3065b7ac07ac">&#9670;&nbsp;</a></span>getPluginMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#ab78fdbc13992455532266f76094c4635">PluginMap</a>&amp; getPluginMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4580223d62ceedf2bc7d59cd8011d5af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4580223d62ceedf2bc7d59cd8011d5af">&#9670;&nbsp;</a></span>GetPluginNameFromPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GetPluginNameFromPath </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>pluginPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a02fd73d861ef2e4aabb38c0c9ff82947"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02fd73d861ef2e4aabb38c0c9ff82947">&#9670;&nbsp;</a></span>init() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b49ee26a15593953201270ed1b82112"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b49ee26a15593953201270ed1b82112">&#9670;&nbsp;</a></span>init() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>pluginPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -339,7 +747,7 @@ std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">PluginManager::PluginLoadStatus loadPluginByPath </td>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a91550b4de0f342587d2e43aaf65286f8">PluginManager::PluginLoadStatus</a> loadPluginByPath </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>path</em>, </td>
@@ -385,7 +793,313 @@ std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <p>If we are not providing a filename then we have either to iterate in the plugin map to check no plugin has the same name or check in there is no accessible path in the plugin repository matching the pluginName</p>
 <p>Here is the iteration in the loaded plugin map</p>
 <p>At this point we have not found a loaded plugin, we try to explore if the filesystem can help.</p>
-<p>Check that the path (either provided by user or through the call to findPlugin() leads to a loaded plugin.</p>
+<p>Check that the path (either provided by user or through the call to <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#a6dc9a2920e0ce40fb8147dc5b4c4d2f1">findPlugin()</a> leads to a loaded plugin.</p>
+
+</div>
+</div>
+<a id="a6720b32b93253fc3dc7b4e34808cef88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6720b32b93253fc3dc7b4e34808cef88">&#9670;&nbsp;</a></span>readFromIniFile() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void readFromIniFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a973b6cbb110cd9527de9c526baf739f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a973b6cbb110cd9527de9c526baf739f3">&#9670;&nbsp;</a></span>readFromIniFile() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void readFromIniFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>listLoadedPlugins</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe45656fbc6c256338968641bffe5af9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe45656fbc6c256338968641bffe5af9">&#9670;&nbsp;</a></span>readFromStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::istream &amp; readFromStream </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0574b899d3f2c4542922cf8bc762e1c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0574b899d3f2c4542922cf8bc762e1c3">&#9670;&nbsp;</a></span>removeOnPluginLoadedCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void removeOnPluginLoadedCallback </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a32992584460c5f020aa534ee74846598"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32992584460c5f020aa534ee74846598">&#9670;&nbsp;</a></span>unloadPlugin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool unloadPlugin </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ostream *&#160;</td>
+          <td class="paramname"><em>errlog</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unloads a plugin from process memory. </p>
+
+</div>
+</div>
+<a id="a535cb36545e217b7e53cf0743167fc36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a535cb36545e217b7e53cf0743167fc36">&#9670;&nbsp;</a></span>writeToIniFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void writeToIniFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7248a444097b0056ddc39d61bef6be50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7248a444097b0056ddc39d61bef6be50">&#9670;&nbsp;</a></span>writeToStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; writeToStream </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="ace606be20698b20c3f55ffb186e355a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace606be20698b20c3f55ffb186e355a6">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>pluginManager</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afeb57e3056d5e9b6a6d85c8748ed6cc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afeb57e3056d5e9b6a6d85c8748ed6cc8">&#9670;&nbsp;</a></span>operator&gt;&gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::istream&amp; operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>pluginManager</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0d75d3c494106c40d1aeaacd4c41a655"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d75d3c494106c40d1aeaacd4c41a655">&#9670;&nbsp;</a></span>m_onPluginLoadedCallbacks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string, std::function&lt;void(const std::string&amp;, const <a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin.html">Plugin</a>&amp;)&gt; &gt; m_onPluginLoadedCallbacks</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adaabd1d4a6c80f28d4df02a44deeb91b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaabd1d4a6c80f28d4df02a44deeb91b">&#9670;&nbsp;</a></span>m_pluginMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html#ab78fdbc13992455532266f76094c4635">PluginMap</a> m_pluginMap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f6efcb58c5ba4aea3e4db06878bc15b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f6efcb58c5ba4aea3e4db06878bc15b">&#9670;&nbsp;</a></span>s_gui_postfix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string s_gui_postfix = &quot;gui&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the postfix to gui plugin, default="gui" (e.g. myplugin_gui.so) </p>
 
 </div>
 </div>
@@ -394,8 +1108,8 @@ std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><b>system</b></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:10:54 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper_1_1system.html">system</a></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1system_1_1_plugin_manager.html">PluginManager</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:43:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

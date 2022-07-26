@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="title">MatSym.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<a href="_type_2src_2sofa_2type_2_mat_sym_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*                 SOFA, Simulation Open-Framework Architecture                *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*                                                                             *</span></div>
@@ -109,8 +109,8 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">******************************************************************************/</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sofa/type/Mat.h&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sofa/type/Vec.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_type_2src_2sofa_2type_2_mat_8h.html">sofa/type/Mat.h</a>&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="framework_2_type_2src_2sofa_2type_2vec_8h.html">sofa/type/Vec.h</a>&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -128,19 +128,19 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// enum { N = L*C };</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">typedef</span> real Real;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">typedef</span> Vec&lt;D,Real&gt; Coord;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">typedef</span> real <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a61317b8c4d7123685a0566b52afddd27">Real</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">typedef</span> Vec&lt;D,Real&gt; <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#aad5952b01eafa047df3d5fb38ae85d1a">Coord</a>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    MatSym()</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a8a32a97eab852ebfff878277c64c0c73">MatSym</a>()</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#ac8bb3912a3ce86b15842e79d0b421204">clear</a>();</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">explicit</span> MatSym(NoInit)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a8a32a97eab852ebfff878277c64c0c73">MatSym</a>(NoInit)</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html">   57</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym</a>(<span class="keyword">const</span> real&amp; v1,<span class="keyword">const</span> real&amp; v2,<span class="keyword">const</span> real&amp; v3,<span class="keyword">const</span> real&amp; v4,<span class="keyword">const</span> real&amp; v5,<span class="keyword">const</span> real&amp; v6)</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html">   57</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a8a32a97eab852ebfff878277c64c0c73">MatSym</a>(<span class="keyword">const</span> real&amp; v1,<span class="keyword">const</span> real&amp; v2,<span class="keyword">const</span> real&amp; v3,<span class="keyword">const</span> real&amp; v4,<span class="keyword">const</span> real&amp; v5,<span class="keyword">const</span> real&amp; v6)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        this-&gt;elems[0] = v1;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        this-&gt;elems[1] = v2;</div>
@@ -151,28 +151,28 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> sizeM,<span class="keyword">const</span> real&amp; v)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a8a32a97eab852ebfff878277c64c0c73">MatSym</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> sizeM,<span class="keyword">const</span> real&amp; v)</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0; i&lt;sizeM*(sizeM+1)/2; i++ )</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            this-&gt;elems[i] = v;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> real2&gt;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real2&gt;</a>&amp; m)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a8a32a97eab852ebfff878277c64c0c73">MatSym</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real2&gt;</a>&amp; m)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        std::copy(m.begin(), m.begin()+D*(D+1)/2, this-&gt;begin());</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> real2&gt; <span class="keywordtype">void</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a8bb59c38be2970b5e31cff630fc452c5">operator=</a>(<span class="keyword">const</span> MatSym&lt;D,real2&gt;&amp; m)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#a61317b8c4d7123685a0566b52afddd27">   84</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> real2&gt; <span class="keywordtype">void</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a8bb59c38be2970b5e31cff630fc452c5">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real2&gt;</a>&amp; m)</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#aad5952b01eafa047df3d5fb38ae85d1a">   85</a></span>&#160;    {</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        std::copy(m.begin(), m.begin()+D*(D+1)/2, this-&gt;begin());</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#a8a32a97eab852ebfff878277c64c0c73">   88</a></span>&#160; </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#ac8bb3912a3ce86b15842e79d0b421204">clear</a>()</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;D*(D+1)/2; i++)</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#afa0501bdfa9f9dae39756e24cff73b49">   93</a></span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;D*(D+1)/2; i++)</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            this-&gt;elems[i]=0;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
@@ -200,16 +200,16 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="comment">//convert matrix to sym</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="comment">//template&lt;int D&gt;</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#a8bb59c38be2970b5e31cff630fc452c5">  124</a></span>&#160;    <span class="keywordtype">void</span> Mat2Sym( <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a>&amp; M, <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real&gt;</a>&amp; W)</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#a8bb59c38be2970b5e31cff630fc452c5">  124</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a3dbee1ee92326e9e5d80324022a7f100">Mat2Sym</a>( <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a>&amp; M, <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real&gt;</a>&amp; W)</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    {</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;D; j++)</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i &lt;= j; i++)</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                W(i,j) = (Real)((M(i,j) + M(j,i))/2.0);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                W(i,j) = (<a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a61317b8c4d7123685a0566b52afddd27">Real</a>)((M(i,j) + M(j,i))/2.0);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    }</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
 <div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#ac8bb3912a3ce86b15842e79d0b421204">  131</a></span>&#160;    <span class="comment">// convert to Voigt notation</span></div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keyword">inline</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec</a>&lt;D*(D+1)/2 ,real&gt; getVoigt()</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keyword">inline</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec</a>&lt;D*(D+1)/2 ,real&gt; <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a6666012e999793686c4f7ac2d16dfd88">getVoigt</a>()</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    {</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec</a>&lt;D*(D+1)/2 ,real&gt; result;</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">if</span> (D==2)</div>
@@ -239,7 +239,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="comment">      return m;</span></div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment">    }</span></div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#ac1b6fba75206cba9fb2cfc71ed0a7052">identity</a>()</div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#a3dbee1ee92326e9e5d80324022a7f100">  164</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#ac1b6fba75206cba9fb2cfc71ed0a7052">identity</a>()</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    {</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;D; i++)</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        {</div>
@@ -248,18 +248,18 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            {</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                this-&gt;elems[i*(i+1)/2+j]=0;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            }</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        }</div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#a6666012e999793686c4f7ac2d16dfd88">  173</a></span>&#160;        }</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    }</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real&gt;</a>&amp; b)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#aa304439a68161ad3dc8f3203ece6a11b">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real&gt;</a>&amp; b)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;D*(D+1)/2; i++)</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="keywordflow">if</span> (this-&gt;elems[i] != b[i]) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    }</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt; D,real&gt;</a>&amp; b)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a052ef5ac7ba507a891b987b5825cfdd6">operator!=</a>(<span class="keyword">const</span> MatSym&lt; D,real&gt;&amp; b)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;D*(D+1)/2; i++)</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            <span class="keywordflow">if</span> (this-&gt;elems[i]!=b[i]) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -273,7 +273,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="comment">//template &lt;int D&gt;</span></div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    Mat&lt;D,D,real&gt; <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a18932a95e747834badecc6011742e56b">SymSymMultiply</a>(<span class="keyword">const</span> MatSym&lt;D,real&gt;&amp; m)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        Mat&lt;D,D,real&gt; r(NOINIT);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        Mat&lt;D,D,real&gt; r(<a class="code" href="namespacesofa_1_1type.html#a3fd97914a798b7fa6866f2af9b1f4c75">NOINIT</a>);</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
 <div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#ac1b6fba75206cba9fb2cfc71ed0a7052">  204</a></span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;D; i++)</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        {</div>
@@ -289,15 +289,15 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="comment">//Multiplication by a non symmetric matrix on the right</span></div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment">// template &lt;int D&gt;</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a> SymMatMultiply(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a>&amp; m)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a> r(NOINIT);</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#afedfc644f6720bb18a88bc218672c6d5">SymMatMultiply</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a>&amp; m)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#aa304439a68161ad3dc8f3203ece6a11b">  219</a></span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a> r(<a class="code" href="namespacesofa_1_1type.html#a3fd97914a798b7fa6866f2af9b1f4c75">NOINIT</a>);</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;D; i++)</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        {</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j=0; j&lt;D; j++)</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            {</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                r[i][j]=(*this)(i,0) * m[0][j];</div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#a052ef5ac7ba507a891b987b5825cfdd6">  226</a></span>&#160;                r[i][j]=(*this)(i,0) * m[0][j];</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k=1; k&lt;D; k++)</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                {</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                    r[i][j] += (*this)(i,k) * m[k][j];</div>
@@ -309,9 +309,9 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="comment">//Multiplication by a non symmetric matrix on the left</span></div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="comment">// template &lt;int D&gt;</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    Mat&lt;D,D,real&gt; MatSymMultiply(<span class="keyword">const</span> Mat&lt;D,D,real&gt;&amp; m)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    Mat&lt;D,D,real&gt; <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#aef00f08b4c850e11c0995abde3d5cea7">MatSymMultiply</a>(<span class="keyword">const</span> Mat&lt;D,D,real&gt;&amp; m)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#a18932a95e747834badecc6011742e56b">  240</a></span>&#160;        <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a> r(NOINIT);</div>
+<div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#a18932a95e747834badecc6011742e56b">  240</a></span>&#160;        <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a> r(<a class="code" href="namespacesofa_1_1type.html#a3fd97914a798b7fa6866f2af9b1f4c75">NOINIT</a>);</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;D; i++)</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        {</div>
@@ -328,17 +328,17 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    }</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    MatSym&lt; D,real&gt; <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#aa9bf48c77cb7182a2164fbe77528c7f2">operator+</a>(<span class="keyword">const</span> MatSym&lt;D,real&gt;&amp; m)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#afedfc644f6720bb18a88bc218672c6d5">  258</a></span>&#160;    <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt; D,real&gt;</a> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#aa9bf48c77cb7182a2164fbe77528c7f2">operator+</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real&gt;</a>&amp; m)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        MatSym&lt; D,real&gt; r;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt; D,real&gt;</a> r;</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; D*(D+1)/2; i++)</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            r[i] = (*<span class="keyword">this</span>)[i] + m[i];</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keywordflow">return</span> r;</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    }</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    Mat&lt;D,D,real&gt; <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#aa9bf48c77cb7182a2164fbe77528c7f2">operator+</a>(<span class="keyword">const</span> Mat&lt;D,D,real&gt;&amp; m)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#aa9bf48c77cb7182a2164fbe77528c7f2">operator+</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a>&amp; m)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        Mat&lt;D,D,real&gt; r(NOINIT);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a> r(<a class="code" href="namespacesofa_1_1type.html#a3fd97914a798b7fa6866f2af9b1f4c75">NOINIT</a>);</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; D; i++)</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        {</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j=0; j&lt;D; j++)</div>
@@ -347,19 +347,19 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            }</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        }</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        <span class="keywordflow">return</span> r;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
+<div class="line"><a name="l00278"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#aef00f08b4c850e11c0995abde3d5cea7">  278</a></span>&#160; </div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    }</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    MatSym&lt; D,real&gt; <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a7ae8b1627d825fe1a20842c1cde0c8e9">operator-</a>(<span class="keyword">const</span> MatSym&lt; D,real&gt;&amp; m)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt; D,real&gt;</a> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a7ae8b1627d825fe1a20842c1cde0c8e9">operator-</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt; D,real&gt;</a>&amp; m)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        MatSym&lt;D,real&gt; r;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real&gt;</a> r;</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; D*(D+1)/2; i++)</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            r[i] = (*<span class="keyword">this</span>)[i] - m[i];</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <span class="keywordflow">return</span> r;</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    }</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    Mat&lt;D,D,real&gt; <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a7ae8b1627d825fe1a20842c1cde0c8e9">operator-</a>(<span class="keyword">const</span> Mat&lt;D,D,real&gt;&amp; m)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a7ae8b1627d825fe1a20842c1cde0c8e9">operator-</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a>&amp; m)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        Mat&lt;D,D,real&gt; r(NOINIT);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <a class="code" href="classsofa_1_1type_1_1_mat.html">Mat&lt;D,D,real&gt;</a> r(<a class="code" href="namespacesofa_1_1type.html#a3fd97914a798b7fa6866f2af9b1f4c75">NOINIT</a>);</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; D; i++)</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        {</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j=0; j&lt;D; j++)</div>
@@ -372,11 +372,11 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    }</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    Coord <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a6e59b83b003bd7f1bc55e3b34ba6ede2">operator*</a>(<span class="keyword">const</span> Coord&amp; v)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#aad5952b01eafa047df3d5fb38ae85d1a">Coord</a> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a6e59b83b003bd7f1bc55e3b34ba6ede2">operator*</a>(<span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#aad5952b01eafa047df3d5fb38ae85d1a">Coord</a>&amp; v)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="classsofa_1_1type_1_1_mat_sym.html#a0139904bf4bfaea07937d98a0f426979">  307</a></span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <a class="code" href="classsofa_1_1type_1_1_vec.html">Coord</a> r(NOINIT);</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <a class="code" href="classsofa_1_1type_1_1_vec.html">Coord</a> r(<a class="code" href="namespacesofa_1_1type.html#a3fd97914a798b7fa6866f2af9b1f4c75">NOINIT</a>);</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;D; i++)</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        {</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;            r[i]=(*this)(i,0) * v[0];</div>
@@ -389,7 +389,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real&gt;</a> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#a6e59b83b003bd7f1bc55e3b34ba6ede2">operator*</a>(real f)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real&gt;</a> r(NOINIT);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real&gt;</a> r(<a class="code" href="namespacesofa_1_1type.html#a3fd97914a798b7fa6866f2af9b1f4c75">NOINIT</a>);</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;D*(D+1)/2; i++)</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            r[i] = (*<span class="keyword">this</span>)[i] * f;</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="keywordflow">return</span> r;</div>
@@ -402,7 +402,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    MatSym&lt; D,real&gt; <a class="code" href="classsofa_1_1type_1_1_mat_sym.html#af953a574b7671a7ba65c4c02ee3c393c">operator/</a>(real f)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        MatSym&lt; D,real&gt; r(NOINIT);</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        MatSym&lt; D,real&gt; r(<a class="code" href="namespacesofa_1_1type.html#a3fd97914a798b7fa6866f2af9b1f4c75">NOINIT</a>);</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;D*(D+1)/2; i++)</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;            r[i] = (*<span class="keyword">this</span>)[i] / f;</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keywordflow">return</span> r;</div>
@@ -481,11 +481,11 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160; </div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">int</span> S, <span class="keyword">class</span> real&gt;</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacesofa_1_1type.html#a422a501d27b98bd915326e3489269f1a">invertMatrix</a>(<a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;S,real&gt;</a>&amp; dest, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;S,real&gt;</a>&amp; from)</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;{</div>
+<div class="line"><a name="l00428"></a><span class="lineno"><a class="line" href="_type_2src_2sofa_2type_2_mat_sym_8h.html#a5d944de5264577fba71586509a1b30ec">  428</a></span>&#160;{</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    <span class="keywordtype">int</span> i, j, k;</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec&lt;S,int&gt;</a> r, c, row, col;</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    Vec&lt;S,int&gt; r, c, row, col;</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160; </div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;S,real&gt;</a> m1 = from;</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    MatSym&lt;S,real&gt; m1 = from;</div>
 <div class="line"><a name="l00433"></a><span class="lineno"><a class="line" href="namespacesofa_1_1type.html#aa99701c2bc525a2ad564afd45aa78283">  433</a></span>&#160;    <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;S,real&gt;</a> m2;</div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    m2.identity();</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; </div>
@@ -511,7 +511,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;            }</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        }</div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160; </div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        <span class="keywordflow">if</span> (pivot &lt;= (real) MIN_DETERMINANT)</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        <span class="keywordflow">if</span> (pivot &lt;= (real) <a class="code" href="_type_2src_2sofa_2type_2_mat_sym_8h.html#a5d944de5264577fba71586509a1b30ec">MIN_DETERMINANT</a>)</div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        {</div>
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        }</div>
@@ -562,19 +562,19 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> real&gt;</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacesofa_1_1type.html#a422a501d27b98bd915326e3489269f1a">invertMatrix</a>(MatSym&lt;3,real&gt;&amp; dest, <span class="keyword">const</span> MatSym&lt;3,real&gt;&amp; from)</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;{</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    real det=<a class="code" href="namespacesofa_1_1type.html#a242452ed1cd89c0c05c8578bb310597e">determinant</a>(from);</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    real <a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a>=<a class="code" href="namespacesofa_1_1type.html#a242452ed1cd89c0c05c8578bb310597e">determinant</a>(from);</div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160; </div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="keywordflow">if</span> ( -(real) MIN_DETERMINANT&lt;=det &amp;&amp; det&lt;=(real) MIN_DETERMINANT)</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="keywordflow">if</span> ( -(real) <a class="code" href="_type_2src_2sofa_2type_2_mat_sym_8h.html#a5d944de5264577fba71586509a1b30ec">MIN_DETERMINANT</a>&lt;=<a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a> &amp;&amp; <a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a>&lt;=(real) <a class="code" href="_type_2src_2sofa_2type_2_mat_sym_8h.html#a5d944de5264577fba71586509a1b30ec">MIN_DETERMINANT</a>)</div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    {</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    }</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160; </div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    dest(0,0)= (from(1,1)*from(2,2) - from(2,1)*from(1,2))/det;</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    dest(1,0)= (from(1,2)*from(2,0) - from(2,2)*from(1,0))/det;</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    dest(2,0)= (from(1,0)*from(2,1) - from(2,0)*from(1,1))/det;</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    dest(1,1)= (from(2,2)*from(0,0) - from(0,2)*from(2,0))/det;</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    dest(2,1)= (from(2,0)*from(0,1) - from(0,0)*from(2,1))/det;</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    dest(2,2)= (from(0,0)*from(1,1) - from(1,0)*from(0,1))/det;</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    dest(0,0)= (from(1,1)*from(2,2) - from(2,1)*from(1,2))/<a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a>;</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    dest(1,0)= (from(1,2)*from(2,0) - from(2,2)*from(1,0))/<a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a>;</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    dest(2,0)= (from(1,0)*from(2,1) - from(2,0)*from(1,1))/<a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a>;</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    dest(1,1)= (from(2,2)*from(0,0) - from(0,2)*from(2,0))/<a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a>;</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    dest(2,1)= (from(2,0)*from(0,1) - from(0,0)*from(2,1))/<a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a>;</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    dest(2,2)= (from(0,0)*from(1,1) - from(1,0)*from(0,1))/<a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a>;</div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160; </div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;}</div>
@@ -582,24 +582,24 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00528"></a><span class="lineno"><a class="line" href="namespacesofa_1_1type.html#ace9ef6f4bf52f9bc559b383354127f77">  528</a></span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> real&gt;</div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacesofa_1_1type.html#a422a501d27b98bd915326e3489269f1a">invertMatrix</a>(<a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;2,real&gt;</a>&amp; dest, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;2,real&gt;</a>&amp; from)</div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;{</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    real det=<a class="code" href="namespacesofa_1_1type.html#a242452ed1cd89c0c05c8578bb310597e">determinant</a>(from);</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    real <a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a>=<a class="code" href="namespacesofa_1_1type.html#a242452ed1cd89c0c05c8578bb310597e">determinant</a>(from);</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160; </div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    <span class="keywordflow">if</span> ( -(real) MIN_DETERMINANT&lt;=det &amp;&amp; det&lt;=(real) MIN_DETERMINANT)</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    <span class="keywordflow">if</span> ( -(real) <a class="code" href="_type_2src_2sofa_2type_2_mat_sym_8h.html#a5d944de5264577fba71586509a1b30ec">MIN_DETERMINANT</a>&lt;=<a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a> &amp;&amp; <a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a>&lt;=(real) <a class="code" href="_type_2src_2sofa_2type_2_mat_sym_8h.html#a5d944de5264577fba71586509a1b30ec">MIN_DETERMINANT</a>)</div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    {</div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    }</div>
 <div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160; </div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    dest(0,0)=  from(1,1)/det;</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    dest(0,1)= -from(0,1)/det;</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    dest(0,0)=  from(1,1)/<a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a>;</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    dest(0,1)= -from(0,1)/<a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a>;</div>
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <span class="comment">//dest(1,0)= -from(1,0)/det;</span></div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    dest(1,1)=  from(0,0)/det;</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    dest(1,1)=  from(0,0)/<a class="code" href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a>;</div>
 <div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160; </div>
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;}</div>
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="preprocessor">#undef MIN_DETERMINANT</span></div>
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160; </div>
 <div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">int</span> D,<span class="keyword">class</span> real&gt;</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp; o, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real&gt;</a>&amp; m)</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;std::ostream&amp; <a class="code" href="namespacesofa_1_1type.html#a217531c3da1b353db4bcec2b43197958">operator&lt;&lt;</a>(std::ostream&amp; o, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real&gt;</a>&amp; m)</div>
 <div class="line"><a name="l00549"></a><span class="lineno"><a class="line" href="namespacesofa_1_1type.html#ab6b58b53229337f6d1cec4287948b95e">  549</a></span>&#160;{</div>
 <div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    o &lt;&lt; <span class="charliteral">&#39;[&#39;</span> ;</div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;D; i++)</div>
@@ -615,11 +615,11 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;}</div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160; </div>
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">int</span> D,<span class="keyword">class</span> real&gt;</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;std::istream&amp; operator&gt;&gt;(std::istream&amp; in, <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real&gt;</a>&amp; m)</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;std::istream&amp; <a class="code" href="namespacesofa_1_1type.html#a777026676dbb68c4c0e9685da2d91919">operator&gt;&gt;</a>(std::istream&amp; in, <a class="code" href="classsofa_1_1type_1_1_mat_sym.html">MatSym&lt;D,real&gt;</a>&amp; m)</div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;{</div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    <span class="keywordtype">int</span> c;</div>
 <div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    c = in.peek();</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <span class="keywordflow">while</span> (c==<span class="charliteral">&#39; &#39;</span> || c==<span class="charliteral">&#39;\n&#39;</span> || c==<span class="charliteral">&#39;[&#39;</span>)</div>
+<div class="line"><a name="l00568"></a><span class="lineno"><a class="line" href="namespacesofa_1_1type.html#ae642b63393e55a923f375c4a11066ce5">  568</a></span>&#160;    <span class="keywordflow">while</span> (c==<span class="charliteral">&#39; &#39;</span> || c==<span class="charliteral">&#39;\n&#39;</span> || c==<span class="charliteral">&#39;[&#39;</span>)</div>
 <div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    {</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;        in.get();</div>
 <div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;        <span class="keywordflow">if</span>( c==<span class="charliteral">&#39;[&#39;</span> ) <span class="keywordflow">break</span>;</div>
@@ -634,7 +634,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 <div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        }</div>
 <div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160; </div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j=0; j&lt;D; j++)</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;        {</div>
+<div class="line"><a name="l00584"></a><span class="lineno"><a class="line" href="namespacesofa_1_1type.html#a87f26d209369fc380058405a9f09e780">  584</a></span>&#160;        {</div>
 <div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;            in &gt;&gt; m(i,j);</div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;        }</div>
 <div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160; </div>
@@ -686,32 +686,48 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_mat_sym_8h_so
 </div><!-- doc-content -->
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_html"><div class="ttname"><a href="classsofa_1_1type_1_1_mat.html">sofa::type::Mat</a></div><div class="ttdef"><b>Definition:</b> fwd.h:92</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_a18932a95e747834badecc6011742e56b"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#a18932a95e747834badecc6011742e56b">sofa::type::MatSym::SymSymMultiply</a></div><div class="ttdeci">Mat&lt; D, D, real &gt; SymSymMultiply(const MatSym&lt; D, real &gt; &amp;m) const</div><div class="ttdoc">Matrix multiplication operator: product of two symmetric matrices.</div><div class="ttdef"><b>Definition:</b> MatSym.h:240</div></div>
+<div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_a8a32a97eab852ebfff878277c64c0c73"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#a8a32a97eab852ebfff878277c64c0c73">sofa::type::MatSym::MatSym</a></div><div class="ttdeci">MatSym()</div><div class="ttdef"><b>Definition:</b> MatSym.h:88</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_aa97a8f542ea12c5753bb31f6087014f9"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#aa97a8f542ea12c5753bb31f6087014f9">sofa::type::MatSym::invert</a></div><div class="ttdeci">bool invert(const MatSym&lt; D, real &gt; &amp;m)</div><div class="ttdoc">Invert matrix m.</div><div class="ttdef"><b>Definition:</b> MatSym.h:416</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_aefe02ab5d039e079ed2608ab6e592ed9"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#aefe02ab5d039e079ed2608ab6e592ed9">sofa::type::MatSym::operator+=</a></div><div class="ttdeci">void operator+=(const MatSym&lt; D, real &gt; &amp;m)</div><div class="ttdoc">Addition assignment operator.</div><div class="ttdef"><b>Definition:</b> MatSym.h:400</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_a7ae8b1627d825fe1a20842c1cde0c8e9"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#a7ae8b1627d825fe1a20842c1cde0c8e9">sofa::type::MatSym::operator-</a></div><div class="ttdeci">MatSym&lt; D, real &gt; operator-(const MatSym&lt; D, real &gt; &amp;m) const</div><div class="ttdoc">Matrix substractor operator with a symmetric matrix.</div><div class="ttdef"><b>Definition:</b> MatSym.h:321</div></div>
+<div class="ttc" id="anamespacesofa_1_1type_html_a777026676dbb68c4c0e9685da2d91919"><div class="ttname"><a href="namespacesofa_1_1type.html#a777026676dbb68c4c0e9685da2d91919">sofa::type::operator&gt;&gt;</a></div><div class="ttdeci">std::istream &amp; operator&gt;&gt;(std::istream &amp;in, Mat&lt; L, C, real &gt; &amp;m)</div><div class="ttdef"><b>Definition:</b> Mat.h:987</div></div>
+<div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_a3dbee1ee92326e9e5d80324022a7f100"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#a3dbee1ee92326e9e5d80324022a7f100">sofa::type::MatSym::Mat2Sym</a></div><div class="ttdeci">void Mat2Sym(const Mat&lt; D, D, real &gt; &amp;M, MatSym&lt; D, real &gt; &amp;W)</div><div class="ttdef"><b>Definition:</b> MatSym.h:164</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_a7dc8770c5fd4eebb7fbc5d3b50dc00e4"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#a7dc8770c5fd4eebb7fbc5d3b50dc00e4">sofa::type::MatSym::fill</a></div><div class="ttdeci">void fill(real r)</div><div class="ttdoc">Sets each element to r.</div><div class="ttdef"><b>Definition:</b> MatSym.h:138</div></div>
+<div class="ttc" id="a_type_2src_2sofa_2type_2_mat_sym_8h_html_a5d944de5264577fba71586509a1b30ec"><div class="ttname"><a href="_type_2src_2sofa_2type_2_mat_sym_8h.html#a5d944de5264577fba71586509a1b30ec">MIN_DETERMINANT</a></div><div class="ttdeci">#define MIN_DETERMINANT</div><div class="ttdef"><b>Definition:</b> MatSym.h:428</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_aa9bf48c77cb7182a2164fbe77528c7f2"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#aa9bf48c77cb7182a2164fbe77528c7f2">sofa::type::MatSym::operator+</a></div><div class="ttdeci">MatSym&lt; D, real &gt; operator+(const MatSym&lt; D, real &gt; &amp;m) const</div><div class="ttdoc">Matrix addition operator with a symmetric matrix.</div><div class="ttdef"><b>Definition:</b> MatSym.h:298</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_ac8bb3912a3ce86b15842e79d0b421204"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#ac8bb3912a3ce86b15842e79d0b421204">sofa::type::MatSym::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Sets each element to 0.</div><div class="ttdef"><b>Definition:</b> MatSym.h:131</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_ad1391bdc3bbb5272f54e9aa695a1a80b"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#ad1391bdc3bbb5272f54e9aa695a1a80b">sofa::type::MatSym::operator/=</a></div><div class="ttdeci">void operator/=(real r)</div><div class="ttdoc">Scalar division assignment operator.</div><div class="ttdef"><b>Definition:</b> MatSym.h:393</div></div>
+<div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_aef00f08b4c850e11c0995abde3d5cea7"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#aef00f08b4c850e11c0995abde3d5cea7">sofa::type::MatSym::MatSymMultiply</a></div><div class="ttdeci">Mat&lt; D, D, real &gt; MatSymMultiply(const Mat&lt; D, D, real &gt; &amp;m) const</div><div class="ttdef"><b>Definition:</b> MatSym.h:278</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html_aa3dc5aef6fdd57dd8c5faeda7d8e16a6"><div class="ttname"><a href="namespacesofa_1_1type.html#aa3dc5aef6fdd57dd8c5faeda7d8e16a6">sofa::type::trace</a></div><div class="ttdeci">constexpr real trace(const Mat&lt; N, N, real &gt; &amp;m) noexcept</div><div class="ttdoc">trace of a square matrix</div><div class="ttdef"><b>Definition:</b> Mat.h:826</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_ac1b6fba75206cba9fb2cfc71ed0a7052"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#ac1b6fba75206cba9fb2cfc71ed0a7052">sofa::type::MatSym::identity</a></div><div class="ttdeci">void identity()</div><div class="ttdoc">Set matrix to identity.</div><div class="ttdef"><b>Definition:</b> MatSym.h:204</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_vec_html"><div class="ttname"><a href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec</a></div><div class="ttdef"><b>Definition:</b> fwd.h:49</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html_a422a501d27b98bd915326e3489269f1a"><div class="ttname"><a href="namespacesofa_1_1type.html#a422a501d27b98bd915326e3489269f1a">sofa::type::invertMatrix</a></div><div class="ttdeci">constexpr bool invertMatrix(Mat&lt; S, S, real &gt; &amp;dest, const Mat&lt; S, S, real &gt; &amp;from)</div><div class="ttdoc">Matrix inversion (general case).</div><div class="ttdef"><b>Definition:</b> Mat.h:846</div></div>
+<div class="ttc" id="aframework_2_type_2src_2sofa_2type_2vec_8h_html"><div class="ttname"><a href="framework_2_type_2src_2sofa_2type_2vec_8h.html">Vec.h</a></div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html_a242452ed1cd89c0c05c8578bb310597e"><div class="ttname"><a href="namespacesofa_1_1type.html#a242452ed1cd89c0c05c8578bb310597e">sofa::type::determinant</a></div><div class="ttdeci">constexpr real determinant(const Mat&lt; 3, 3, real &gt; &amp;m) noexcept</div><div class="ttdoc">Determinant of a 3x3 matrix.</div><div class="ttdef"><b>Definition:</b> Mat.h:762</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_a6e59b83b003bd7f1bc55e3b34ba6ede2"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#a6e59b83b003bd7f1bc55e3b34ba6ede2">sofa::type::MatSym::operator*</a></div><div class="ttdeci">Coord operator*(const Coord &amp;v) const</div><div class="ttdoc">Multiplication operator Matrix * Vector.</div><div class="ttdef"><b>Definition:</b> MatSym.h:346</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_abb52b772a608a12d17589efa483e97dc"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#abb52b772a608a12d17589efa483e97dc">sofa::type::MatSym::operator-=</a></div><div class="ttdeci">void operator-=(const MatSym&lt; D, real &gt; &amp;m)</div><div class="ttdoc">Substraction assignment operator.</div><div class="ttdef"><b>Definition:</b> MatSym.h:409</div></div>
+<div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_aa304439a68161ad3dc8f3203ece6a11b"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#aa304439a68161ad3dc8f3203ece6a11b">sofa::type::MatSym::operator==</a></div><div class="ttdeci">bool operator==(const MatSym&lt; D, real &gt; &amp;b) const</div><div class="ttdef"><b>Definition:</b> MatSym.h:219</div></div>
+<div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_a052ef5ac7ba507a891b987b5825cfdd6"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#a052ef5ac7ba507a891b987b5825cfdd6">sofa::type::MatSym::operator!=</a></div><div class="ttdeci">bool operator!=(const MatSym&lt; D, real &gt; &amp;b) const</div><div class="ttdef"><b>Definition:</b> MatSym.h:226</div></div>
+<div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_a6666012e999793686c4f7ac2d16dfd88"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#a6666012e999793686c4f7ac2d16dfd88">sofa::type::MatSym::getVoigt</a></div><div class="ttdeci">Vec&lt; D *(D+1)/2,real &gt; getVoigt()</div><div class="ttdef"><b>Definition:</b> MatSym.h:173</div></div>
+<div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_a61317b8c4d7123685a0566b52afddd27"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#a61317b8c4d7123685a0566b52afddd27">sofa::type::MatSym::Real</a></div><div class="ttdeci">real Real</div><div class="ttdef"><b>Definition:</b> MatSym.h:84</div></div>
+<div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_aad5952b01eafa047df3d5fb38ae85d1a"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#aad5952b01eafa047df3d5fb38ae85d1a">sofa::type::MatSym::Coord</a></div><div class="ttdeci">Vec&lt; D, Real &gt; Coord</div><div class="ttdef"><b>Definition:</b> MatSym.h:85</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_a7bac31f0aee8c6dcc43a9dc58048dd7c"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#a7bac31f0aee8c6dcc43a9dc58048dd7c">sofa::type::MatSym::operator*=</a></div><div class="ttdeci">void operator*=(real r)</div><div class="ttdoc">Scalar multiplication assignment operator.</div><div class="ttdef"><b>Definition:</b> MatSym.h:386</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html"><div class="ttname"><a href="namespacesofa_1_1type.html">sofa::type</a></div><div class="ttdoc">for std::pair</div><div class="ttdef"><b>Definition:</b> BoundingBox.cpp:27</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_a8bb59c38be2970b5e31cff630fc452c5"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#a8bb59c38be2970b5e31cff630fc452c5">sofa::type::MatSym::operator=</a></div><div class="ttdeci">void operator=(const MatSym&lt; D, real2 &gt; &amp;m)</div><div class="ttdoc">Assignment from another matrix.</div><div class="ttdef"><b>Definition:</b> MatSym.h:124</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html_a9ea07272f506551d847b7af097919244"><div class="ttname"><a href="namespacesofa_1_1type.html#a9ea07272f506551d847b7af097919244">sofa::type::scalarProduct</a></div><div class="ttdeci">constexpr real scalarProduct(const Mat&lt; L, C, real &gt; &amp;left, const Mat&lt; L, C, real &gt; &amp;right) noexcept</div><div class="ttdoc">Compute the scalar product of two matrix (sum of product of all terms)</div><div class="ttdef"><b>Definition:</b> Mat.h:1070</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html">sofa::type::MatSym</a></div><div class="ttdef"><b>Definition:</b> MatSym.h:57</div></div>
+<div class="ttc" id="anamespacesofa_1_1type_html_a217531c3da1b353db4bcec2b43197958"><div class="ttname"><a href="namespacesofa_1_1type.html#a217531c3da1b353db4bcec2b43197958">sofa::type::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const sofa::type::Frame &amp;c)</div><div class="ttdef"><b>Definition:</b> Frame.cpp:173</div></div>
+<div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_afedfc644f6720bb18a88bc218672c6d5"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#afedfc644f6720bb18a88bc218672c6d5">sofa::type::MatSym::SymMatMultiply</a></div><div class="ttdeci">Mat&lt; D, D, real &gt; SymMatMultiply(const Mat&lt; D, D, real &gt; &amp;m) const</div><div class="ttdef"><b>Definition:</b> MatSym.h:258</div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_a6b7b7f733b610f3a672c9067cdc07566"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#a6b7b7f733b610f3a672c9067cdc07566">sofa::type::MatSym::operator()</a></div><div class="ttdeci">real &amp; operator()(int i, int j)</div><div class="ttdoc">Write access to element (i,j).</div><div class="ttdef"><b>Definition:</b> MatSym.h:145</div></div>
+<div class="ttc" id="a_type_2src_2sofa_2type_2_mat_8h_html"><div class="ttname"><a href="_type_2src_2sofa_2type_2_mat_8h.html">Mat.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1type_1_1_mat_sym_html_af953a574b7671a7ba65c4c02ee3c393c"><div class="ttname"><a href="classsofa_1_1type_1_1_mat_sym.html#af953a574b7671a7ba65c4c02ee3c393c">sofa::type::MatSym::operator/</a></div><div class="ttdeci">MatSym&lt; D, real &gt; operator/(real f) const</div><div class="ttdoc">Scalar division operator.</div><div class="ttdef"><b>Definition:</b> MatSym.h:377</div></div>
+<div class="ttc" id="a_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp_html_a97a332d53c269e9d202bcc3953a41657"><div class="ttname"><a href="_g_u_i_2_qt_2lib_q_g_l_viewer-2_87_81_2_q_g_l_viewer_2_camera_8cpp.html#a97a332d53c269e9d202bcc3953a41657">det</a></div><div class="ttdeci">static qreal det(qreal m00, qreal m01, qreal m02, qreal m10, qreal m11, qreal m12, qreal m20, qreal m21, qreal m22)</div><div class="ttdef"><b>Definition:</b> camera.cpp:1190</div></div>
+<div class="ttc" id="anamespacesofa_1_1type_html_a3fd97914a798b7fa6866f2af9b1f4c75"><div class="ttname"><a href="namespacesofa_1_1type.html#a3fd97914a798b7fa6866f2af9b1f4c75">sofa::type::NOINIT</a></div><div class="ttdeci">constexpr NoInit NOINIT</div><div class="ttdef"><b>Definition:</b> Vec.h:54</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_f952eb3b438e9453a2f5655056abb290.html">Type</a></li><li class="navelem"><a class="el" href="dir_8aa759aadb20f2635db8c61303b9b849.html">src</a></li><li class="navelem"><a class="el" href="dir_78b83bb765cda7d746578ac350d06d39.html">sofa</a></li><li class="navelem"><a class="el" href="dir_863403d1a96f2534cd37b5b5b93b2f40.html">type</a></li><li class="navelem"><b>MatSym.h</b></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:35:40 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_f952eb3b438e9453a2f5655056abb290.html">Type</a></li><li class="navelem"><a class="el" href="dir_8aa759aadb20f2635db8c61303b9b849.html">src</a></li><li class="navelem"><a class="el" href="dir_78b83bb765cda7d746578ac350d06d39.html">sofa</a></li><li class="navelem"><a class="el" href="dir_863403d1a96f2534cd37b5b5b93b2f40.html">type</a></li><li class="navelem"><a class="el" href="_type_2src_2sofa_2type_2_mat_sym_8h.html">MatSym.h</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:01:48 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

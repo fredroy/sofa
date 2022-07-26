@@ -15,5 +15,15 @@ var structsofa_1_1defaulttype_1_1_set_type_info =
     [ "Text", "structsofa_1_1defaulttype_1_1_set_type_info.html#adab0c4467b3c6f365e87d0316a74bf64a35d0dd9a40755601b657244976bfc14b", null ],
     [ "CopyOnWrite", "structsofa_1_1defaulttype_1_1_set_type_info.html#ac8dc960ed0e83a06356ee2589564f7a9a611f008a9989ce97b80ee9e701d8e2d7", null ],
     [ "Container", "structsofa_1_1defaulttype_1_1_set_type_info.html#a755c96456945ef03bae544705e8cca64a960c324d4c72aa0923e8bcac8c646b48", null ],
-    [ "Size", "structsofa_1_1defaulttype_1_1_set_type_info.html#abc1a2abf1bf92c4036064143db1c8210aff9abf2b1a689f70a77a18da50c01d9f", null ]
+    [ "Size", "structsofa_1_1defaulttype_1_1_set_type_info.html#abc1a2abf1bf92c4036064143db1c8210aff9abf2b1a689f70a77a18da50c01d9f", null ],
+    [ "byteSize", "structsofa_1_1defaulttype_1_1_set_type_info.html#a5568572189d7edfc83572f5e5b201f6d", null ],
+    [ "getValue", "structsofa_1_1defaulttype_1_1_set_type_info.html#a17610f5c478195e208ebc6a476907bc2", null ],
+    [ "getValuePtr", "structsofa_1_1defaulttype_1_1_set_type_info.html#a551830d84932db046f9dd38ba207d002", null ],
+    [ "getValuePtr", "structsofa_1_1defaulttype_1_1_set_type_info.html#a4472489405289851745b9259da73e87e", null ],
+    [ "getValueString", "structsofa_1_1defaulttype_1_1_set_type_info.html#aeef964da96e4c396c571d69f2e713a89", null ],
+    [ "setSize", "structsofa_1_1defaulttype_1_1_set_type_info.html#a2558763bffee1cacc363b7606e82db7f", null ],
+    [ "setValue", "structsofa_1_1defaulttype_1_1_set_type_info.html#a543f1901e3bc2f23b4258a861c0aae13", null ],
+    [ "setValueString", "structsofa_1_1defaulttype_1_1_set_type_info.html#ada17d0faef95a343a433d6a891eeb740", null ],
+    [ "size", "structsofa_1_1defaulttype_1_1_set_type_info.html#aa9cf1bb1e3778c4f285e753e5bcb440e", null ],
+    [ "size", "structsofa_1_1defaulttype_1_1_set_type_info.html#a29d99a0bde5494dc3bdf8b3a1b33d0f5", null ]
 ];

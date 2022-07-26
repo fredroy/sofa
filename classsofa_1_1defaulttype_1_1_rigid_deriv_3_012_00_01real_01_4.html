@@ -86,184 +86,1325 @@ $(document).ready(function(){initNavTree('classsofa_1_1defaulttype_1_1_rigid_der
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">RigidDeriv&lt; 2, real &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_rigid_types_8h_source.html">RigidTypes.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a2d5492e116eebd5075f247d21fb9db26"><td class="memItemLeft" align="right" valign="top"><a id="a2d5492e116eebd5075f247d21fb9db26"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>total_size</b> = 3
+<tr class="memitem:a2d5492e116eebd5075f247d21fb9db26"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a2d5492e116eebd5075f247d21fb9db26a7734e5fe4d2e06fa986495a424f4409e">total_size</a> = 3
  }</td></tr>
-<tr class="memdesc:a2d5492e116eebd5075f247d21fb9db26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile-time constant specifying the number of scalars within this vector (equivalent to the size() method) <br /></td></tr>
+<tr class="memdesc:a2d5492e116eebd5075f247d21fb9db26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile-time constant specifying the number of scalars within this vector (equivalent to the <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aba2ce46c5f6ed89c0f6c7b27dc93e1a5">size()</a> method)  <a href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a2d5492e116eebd5075f247d21fb9db26">More...</a><br /></td></tr>
 <tr class="separator:a2d5492e116eebd5075f247d21fb9db26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73c53bacb25588538843a1dcfe5f382b"><td class="memItemLeft" align="right" valign="top"><a id="a73c53bacb25588538843a1dcfe5f382b"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>spatial_dimensions</b> = 2
+<tr class="memitem:a73c53bacb25588538843a1dcfe5f382b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a73c53bacb25588538843a1dcfe5f382ba52d450260197c3fbf41ad0093ecd75b8">spatial_dimensions</a> = 2
  }</td></tr>
-<tr class="memdesc:a73c53bacb25588538843a1dcfe5f382b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile-time constant specifying the number of dimensions of space (NOT equivalent to total_size for rigids) <br /></td></tr>
+<tr class="memdesc:a73c53bacb25588538843a1dcfe5f382b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile-time constant specifying the number of dimensions of space (NOT equivalent to total_size for rigids)  <a href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a73c53bacb25588538843a1dcfe5f382b">More...</a><br /></td></tr>
 <tr class="separator:a73c53bacb25588538843a1dcfe5f382b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee5785e9d2466ec41c29ca400213e52f"><td class="memItemLeft" align="right" valign="top"><a id="aee5785e9d2466ec41c29ca400213e52f"></a>
-typedef real&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b></td></tr>
+<tr class="memitem:aee5785e9d2466ec41c29ca400213e52f"><td class="memItemLeft" align="right" valign="top">typedef real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aee5785e9d2466ec41c29ca400213e52f">value_type</a></td></tr>
 <tr class="separator:aee5785e9d2466ec41c29ca400213e52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af32611b865c4b497f9f92843456f7ec9"><td class="memItemLeft" align="right" valign="top"><a id="af32611b865c4b497f9f92843456f7ec9"></a>
-typedef sofa::Size&#160;</td><td class="memItemRight" valign="bottom"><b>Size</b></td></tr>
+<tr class="memitem:af32611b865c4b497f9f92843456f7ec9"><td class="memItemLeft" align="right" valign="top">typedef sofa::Size&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#af32611b865c4b497f9f92843456f7ec9">Size</a></td></tr>
 <tr class="separator:af32611b865c4b497f9f92843456f7ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61317b8c4d7123685a0566b52afddd27"><td class="memItemLeft" align="right" valign="top"><a id="a61317b8c4d7123685a0566b52afddd27"></a>
-typedef real&#160;</td><td class="memItemRight" valign="bottom"><b>Real</b></td></tr>
+<tr class="memitem:a61317b8c4d7123685a0566b52afddd27"><td class="memItemLeft" align="right" valign="top">typedef real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a></td></tr>
 <tr class="separator:a61317b8c4d7123685a0566b52afddd27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c2613d4453a1e5020058fb7ac615c9c"><td class="memItemLeft" align="right" valign="top"><a id="a0c2613d4453a1e5020058fb7ac615c9c"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 2, Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Pos</b></td></tr>
+<tr class="memitem:a0c2613d4453a1e5020058fb7ac615c9c"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 2, <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a0c2613d4453a1e5020058fb7ac615c9c">Pos</a></td></tr>
 <tr class="separator:a0c2613d4453a1e5020058fb7ac615c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae82eb5b87ec908606ec20c987ba9967"><td class="memItemLeft" align="right" valign="top"><a id="aae82eb5b87ec908606ec20c987ba9967"></a>
-typedef Real&#160;</td><td class="memItemRight" valign="bottom"><b>Rot</b></td></tr>
+<tr class="memitem:aae82eb5b87ec908606ec20c987ba9967"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aae82eb5b87ec908606ec20c987ba9967">Rot</a></td></tr>
 <tr class="separator:aae82eb5b87ec908606ec20c987ba9967"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37a818d4742711d5072b6253f9b55d00"><td class="memItemLeft" align="right" valign="top"><a id="a37a818d4742711d5072b6253f9b55d00"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 2, Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Vec2</b></td></tr>
+<tr class="memitem:a37a818d4742711d5072b6253f9b55d00"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 2, <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a></td></tr>
 <tr class="separator:a37a818d4742711d5072b6253f9b55d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34f25e5f739c7592cdd36701a8f18faa"><td class="memItemLeft" align="right" valign="top"><a id="a34f25e5f739c7592cdd36701a8f18faa"></a>
-typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 3, Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>VecAll</b></td></tr>
+<tr class="memitem:a34f25e5f739c7592cdd36701a8f18faa"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 3, <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a34f25e5f739c7592cdd36701a8f18faa">VecAll</a></td></tr>
 <tr class="separator:a34f25e5f739c7592cdd36701a8f18faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4a429ef4cd803c28e02786161e012eb9"><td class="memItemLeft" align="right" valign="top"><a id="a4a429ef4cd803c28e02786161e012eb9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>RigidDeriv</b> (<a class="el" href="structsofa_1_1type_1_1_no_init.html">type::NoInit</a>)</td></tr>
+<tr class="memitem:a4a429ef4cd803c28e02786161e012eb9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a4a429ef4cd803c28e02786161e012eb9">RigidDeriv</a> (<a class="el" href="structsofa_1_1type_1_1_no_init.html">type::NoInit</a>)</td></tr>
 <tr class="separator:a4a429ef4cd803c28e02786161e012eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19adf23977833691ed648c8f896b39fb"><td class="memTemplParams" colspan="2"><a id="a19adf23977833691ed648c8f896b39fb"></a>
-template&lt;typename real2 &gt; </td></tr>
-<tr class="memitem:a19adf23977833691ed648c8f896b39fb"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>RigidDeriv</b> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 2, real2 &gt; &amp;velCenter, const real2 &amp;velOrient)</td></tr>
+<tr class="memitem:a0b19e55fa7af967de2dd2e5480f2cfb4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a0b19e55fa7af967de2dd2e5480f2cfb4">RigidDeriv</a> ()</td></tr>
+<tr class="separator:a0b19e55fa7af967de2dd2e5480f2cfb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19adf23977833691ed648c8f896b39fb"><td class="memTemplParams" colspan="2">template&lt;typename real2 &gt; </td></tr>
+<tr class="memitem:a19adf23977833691ed648c8f896b39fb"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a19adf23977833691ed648c8f896b39fb">RigidDeriv</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 2, real2 &gt; &amp;velCenter, const real2 &amp;velOrient)</td></tr>
 <tr class="separator:a19adf23977833691ed648c8f896b39fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a684b5e9a390bb3b8ce411480e66bdbf8"><td class="memTemplParams" colspan="2"><a id="a684b5e9a390bb3b8ce411480e66bdbf8"></a>
-template&lt;typename real2 &gt; </td></tr>
-<tr class="memitem:a684b5e9a390bb3b8ce411480e66bdbf8"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>RigidDeriv</b> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 3, real2 &gt; &amp;v)</td></tr>
+<tr class="memitem:a684b5e9a390bb3b8ce411480e66bdbf8"><td class="memTemplParams" colspan="2">template&lt;typename real2 &gt; </td></tr>
+<tr class="memitem:a684b5e9a390bb3b8ce411480e66bdbf8"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a684b5e9a390bb3b8ce411480e66bdbf8">RigidDeriv</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 3, real2 &gt; &amp;v)</td></tr>
 <tr class="separator:a684b5e9a390bb3b8ce411480e66bdbf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8bb3912a3ce86b15842e79d0b421204"><td class="memItemLeft" align="right" valign="top"><a id="ac8bb3912a3ce86b15842e79d0b421204"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="memitem:ac8bb3912a3ce86b15842e79d0b421204"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#ac8bb3912a3ce86b15842e79d0b421204">clear</a> ()</td></tr>
 <tr class="separator:ac8bb3912a3ce86b15842e79d0b421204"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6249a561d407e0fe68a3472d2aff8887"><td class="memTemplParams" colspan="2"><a id="a6249a561d407e0fe68a3472d2aff8887"></a>
-template&lt;typename real2 &gt; </td></tr>
-<tr class="memitem:a6249a561d407e0fe68a3472d2aff8887"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real2 &gt; &amp;c)</td></tr>
+<tr class="memitem:a6249a561d407e0fe68a3472d2aff8887"><td class="memTemplParams" colspan="2">template&lt;typename real2 &gt; </td></tr>
+<tr class="memitem:a6249a561d407e0fe68a3472d2aff8887"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a6249a561d407e0fe68a3472d2aff8887">operator=</a> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real2 &gt; &amp;c)</td></tr>
 <tr class="separator:a6249a561d407e0fe68a3472d2aff8887"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4a2fddd1991ee0217270cdfb9ac0327"><td class="memTemplParams" colspan="2"><a id="aa4a2fddd1991ee0217270cdfb9ac0327"></a>
-template&lt;typename real2 &gt; </td></tr>
-<tr class="memitem:aa4a2fddd1991ee0217270cdfb9ac0327"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 2, real2 &gt; &amp;v)</td></tr>
+<tr class="memitem:aa4a2fddd1991ee0217270cdfb9ac0327"><td class="memTemplParams" colspan="2">template&lt;typename real2 &gt; </td></tr>
+<tr class="memitem:aa4a2fddd1991ee0217270cdfb9ac0327"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aa4a2fddd1991ee0217270cdfb9ac0327">operator=</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 2, real2 &gt; &amp;v)</td></tr>
 <tr class="separator:aa4a2fddd1991ee0217270cdfb9ac0327"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a6701f292f7129deb5dd33dda9462a4"><td class="memTemplParams" colspan="2"><a id="a9a6701f292f7129deb5dd33dda9462a4"></a>
-template&lt;typename real2 &gt; </td></tr>
-<tr class="memitem:a9a6701f292f7129deb5dd33dda9462a4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 3, real2 &gt; &amp;v)</td></tr>
+<tr class="memitem:a9a6701f292f7129deb5dd33dda9462a4"><td class="memTemplParams" colspan="2">template&lt;typename real2 &gt; </td></tr>
+<tr class="memitem:a9a6701f292f7129deb5dd33dda9462a4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a9a6701f292f7129deb5dd33dda9462a4">operator=</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 3, real2 &gt; &amp;v)</td></tr>
 <tr class="separator:a9a6701f292f7129deb5dd33dda9462a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae14bb186993125e2e84e315c4ce1ff81"><td class="memItemLeft" align="right" valign="top"><a id="ae14bb186993125e2e84e315c4ce1ff81"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;a)</td></tr>
+<tr class="memitem:ae14bb186993125e2e84e315c4ce1ff81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#ae14bb186993125e2e84e315c4ce1ff81">operator+=</a> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;a)</td></tr>
 <tr class="separator:ae14bb186993125e2e84e315c4ce1ff81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c210018d19055eea831a1afe2dfe779"><td class="memItemLeft" align="right" valign="top"><a id="a9c210018d19055eea831a1afe2dfe779"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>operator-=</b> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;a)</td></tr>
+<tr class="memitem:a9c210018d19055eea831a1afe2dfe779"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a9c210018d19055eea831a1afe2dfe779">operator-=</a> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;a)</td></tr>
 <tr class="separator:a9c210018d19055eea831a1afe2dfe779"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07864b488ca696eeebaf717f8bbc97dd"><td class="memItemLeft" align="right" valign="top"><a id="a07864b488ca696eeebaf717f8bbc97dd"></a>
-<a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;a) const</td></tr>
+<tr class="memitem:a07864b488ca696eeebaf717f8bbc97dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a07864b488ca696eeebaf717f8bbc97dd">operator+</a> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;a) const</td></tr>
 <tr class="separator:a07864b488ca696eeebaf717f8bbc97dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a585924a18cda43656f5b3d2a87981464"><td class="memItemLeft" align="right" valign="top"><a id="a585924a18cda43656f5b3d2a87981464"></a>
-<a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;a) const</td></tr>
+<tr class="memitem:a585924a18cda43656f5b3d2a87981464"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a585924a18cda43656f5b3d2a87981464">operator-</a> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;a) const</td></tr>
 <tr class="separator:a585924a18cda43656f5b3d2a87981464"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a590f34cf6e31ed23ad41cc45ce6bd2ba"><td class="memTemplParams" colspan="2"><a id="a590f34cf6e31ed23ad41cc45ce6bd2ba"></a>
-template&lt;typename real2 &gt; </td></tr>
-<tr class="memitem:a590f34cf6e31ed23ad41cc45ce6bd2ba"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator*=</b> (real2 a)</td></tr>
+<tr class="memitem:a590f34cf6e31ed23ad41cc45ce6bd2ba"><td class="memTemplParams" colspan="2">template&lt;typename real2 &gt; </td></tr>
+<tr class="memitem:a590f34cf6e31ed23ad41cc45ce6bd2ba"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a590f34cf6e31ed23ad41cc45ce6bd2ba">operator*=</a> (real2 a)</td></tr>
 <tr class="separator:a590f34cf6e31ed23ad41cc45ce6bd2ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3d067288f461a81286da9de16e164ac"><td class="memTemplParams" colspan="2"><a id="ab3d067288f461a81286da9de16e164ac"></a>
-template&lt;typename real2 &gt; </td></tr>
-<tr class="memitem:ab3d067288f461a81286da9de16e164ac"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator/=</b> (real2 a)</td></tr>
+<tr class="memitem:ab3d067288f461a81286da9de16e164ac"><td class="memTemplParams" colspan="2">template&lt;typename real2 &gt; </td></tr>
+<tr class="memitem:ab3d067288f461a81286da9de16e164ac"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#ab3d067288f461a81286da9de16e164ac">operator/=</a> (real2 a)</td></tr>
 <tr class="separator:ab3d067288f461a81286da9de16e164ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2348f181b5de9b1d5f7340c0200e5005"><td class="memItemLeft" align="right" valign="top"><a id="a2348f181b5de9b1d5f7340c0200e5005"></a>
-<a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> () const</td></tr>
+<tr class="memitem:a2348f181b5de9b1d5f7340c0200e5005"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a2348f181b5de9b1d5f7340c0200e5005">operator-</a> () const</td></tr>
 <tr class="separator:a2348f181b5de9b1d5f7340c0200e5005"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05105e7103904ce8f3da6be43aff3e0e"><td class="memItemLeft" align="right" valign="top"><a id="a05105e7103904ce8f3da6be43aff3e0e"></a>
-Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a05105e7103904ce8f3da6be43aff3e0e">operator*</a> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;a) const</td></tr>
-<tr class="memdesc:a05105e7103904ce8f3da6be43aff3e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">dot product, mostly used to compute residuals as sqrt(x*x) <br /></td></tr>
+<tr class="memitem:a05105e7103904ce8f3da6be43aff3e0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a05105e7103904ce8f3da6be43aff3e0e">operator*</a> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;a) const</td></tr>
+<tr class="memdesc:a05105e7103904ce8f3da6be43aff3e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">dot product, mostly used to compute residuals as sqrt(x*x)  <a href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a05105e7103904ce8f3da6be43aff3e0e">More...</a><br /></td></tr>
 <tr class="separator:a05105e7103904ce8f3da6be43aff3e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2db078dfcc85672be2e6c7d351ecc45"><td class="memItemLeft" align="right" valign="top"><a id="ac2db078dfcc85672be2e6c7d351ecc45"></a>
-Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#ac2db078dfcc85672be2e6c7d351ecc45">norm</a> () const</td></tr>
-<tr class="memdesc:ac2db078dfcc85672be2e6c7d351ecc45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Euclidean norm. <br /></td></tr>
+<tr class="memitem:ac2db078dfcc85672be2e6c7d351ecc45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#ac2db078dfcc85672be2e6c7d351ecc45">norm</a> () const</td></tr>
+<tr class="memdesc:ac2db078dfcc85672be2e6c7d351ecc45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Euclidean norm.  <a href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#ac2db078dfcc85672be2e6c7d351ecc45">More...</a><br /></td></tr>
 <tr class="separator:ac2db078dfcc85672be2e6c7d351ecc45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe4427237156b8c801a5f4c035fd2f0f"><td class="memItemLeft" align="right" valign="top"><a id="abe4427237156b8c801a5f4c035fd2f0f"></a>
-<a class="el" href="classsofa_1_1type_1_1_vec.html">Vec2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getVCenter</b> ()</td></tr>
+<tr class="memitem:abe4427237156b8c801a5f4c035fd2f0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#abe4427237156b8c801a5f4c035fd2f0f">getVCenter</a> ()</td></tr>
 <tr class="separator:abe4427237156b8c801a5f4c035fd2f0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7b198c3d12d8deb194c3a6a87b710da"><td class="memItemLeft" align="right" valign="top"><a id="ac7b198c3d12d8deb194c3a6a87b710da"></a>
-Real &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getVOrientation</b> ()</td></tr>
+<tr class="memitem:ac7b198c3d12d8deb194c3a6a87b710da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#ac7b198c3d12d8deb194c3a6a87b710da">getVOrientation</a> ()</td></tr>
 <tr class="separator:ac7b198c3d12d8deb194c3a6a87b710da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee20a353520dee46177ff2cf8df69351"><td class="memItemLeft" align="right" valign="top"><a id="aee20a353520dee46177ff2cf8df69351"></a>
-const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getVCenter</b> () const</td></tr>
+<tr class="memitem:aee20a353520dee46177ff2cf8df69351"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aee20a353520dee46177ff2cf8df69351">getVCenter</a> () const</td></tr>
 <tr class="separator:aee20a353520dee46177ff2cf8df69351"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfad6eaa11ce13676d48e030e9f4f7cb"><td class="memItemLeft" align="right" valign="top"><a id="acfad6eaa11ce13676d48e030e9f4f7cb"></a>
-const Real &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getVOrientation</b> () const</td></tr>
+<tr class="memitem:acfad6eaa11ce13676d48e030e9f4f7cb"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#acfad6eaa11ce13676d48e030e9f4f7cb">getVOrientation</a> () const</td></tr>
 <tr class="separator:acfad6eaa11ce13676d48e030e9f4f7cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac028bf375c698dadea62770778df50ec"><td class="memItemLeft" align="right" valign="top"><a id="ac028bf375c698dadea62770778df50ec"></a>
-<a class="el" href="classsofa_1_1type_1_1_vec.html">Vec2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getLinear</b> ()</td></tr>
+<tr class="memitem:ac028bf375c698dadea62770778df50ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#ac028bf375c698dadea62770778df50ec">getLinear</a> ()</td></tr>
 <tr class="separator:ac028bf375c698dadea62770778df50ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e1737a9c2791da8309e4a4e056d63fb"><td class="memItemLeft" align="right" valign="top"><a id="a9e1737a9c2791da8309e4a4e056d63fb"></a>
-Real &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getAngular</b> ()</td></tr>
+<tr class="memitem:a9e1737a9c2791da8309e4a4e056d63fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a9e1737a9c2791da8309e4a4e056d63fb">getAngular</a> ()</td></tr>
 <tr class="separator:a9e1737a9c2791da8309e4a4e056d63fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad775581177e1430d866a7faf40a6498f"><td class="memItemLeft" align="right" valign="top"><a id="ad775581177e1430d866a7faf40a6498f"></a>
-const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getLinear</b> () const</td></tr>
+<tr class="memitem:ad775581177e1430d866a7faf40a6498f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#ad775581177e1430d866a7faf40a6498f">getLinear</a> () const</td></tr>
 <tr class="separator:ad775581177e1430d866a7faf40a6498f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8eb4fbacff93703d45f8c6443beeba64"><td class="memItemLeft" align="right" valign="top"><a id="a8eb4fbacff93703d45f8c6443beeba64"></a>
-const Real &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getAngular</b> () const</td></tr>
+<tr class="memitem:a8eb4fbacff93703d45f8c6443beeba64"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a8eb4fbacff93703d45f8c6443beeba64">getAngular</a> () const</td></tr>
 <tr class="separator:a8eb4fbacff93703d45f8c6443beeba64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21bdc16dff0c0d2c464a961603a118d5"><td class="memItemLeft" align="right" valign="top"><a id="a21bdc16dff0c0d2c464a961603a118d5"></a>
-<a class="el" href="classsofa_1_1type_1_1_vec.html">VecAll</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getVAll</b> () const</td></tr>
+<tr class="memitem:a21bdc16dff0c0d2c464a961603a118d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a34f25e5f739c7592cdd36701a8f18faa">VecAll</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a21bdc16dff0c0d2c464a961603a118d5">getVAll</a> () const</td></tr>
 <tr class="separator:a21bdc16dff0c0d2c464a961603a118d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96f7669053530b98c41cc38e79ebf604"><td class="memItemLeft" align="right" valign="top"><a id="a96f7669053530b98c41cc38e79ebf604"></a>
-<a class="el" href="classsofa_1_1type_1_1_vec.html">Vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a96f7669053530b98c41cc38e79ebf604">velocityAtRotatedPoint</a> (const <a class="el" href="classsofa_1_1type_1_1_vec.html">Vec2</a> &amp;p) const</td></tr>
-<tr class="memdesc:a96f7669053530b98c41cc38e79ebf604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocity at point p, where p is the offset from the origin of the frame, given in the same coordinate system as the velocity of the origin. <br /></td></tr>
+<tr class="memitem:a96f7669053530b98c41cc38e79ebf604"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a96f7669053530b98c41cc38e79ebf604">velocityAtRotatedPoint</a> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a> &amp;p) const</td></tr>
+<tr class="memdesc:a96f7669053530b98c41cc38e79ebf604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocity at point p, where p is the offset from the origin of the frame, given in the same coordinate system as the velocity of the origin.  <a href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a96f7669053530b98c41cc38e79ebf604">More...</a><br /></td></tr>
 <tr class="separator:a96f7669053530b98c41cc38e79ebf604"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacb0810d9993ebcb73cf306d2ae9d274"><td class="memItemLeft" align="right" valign="top"><a id="aacb0810d9993ebcb73cf306d2ae9d274"></a>
-real *&#160;</td><td class="memItemRight" valign="bottom"><b>ptr</b> ()</td></tr>
+<tr class="memitem:aacb0810d9993ebcb73cf306d2ae9d274"><td class="memItemLeft" align="right" valign="top">real *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aacb0810d9993ebcb73cf306d2ae9d274">ptr</a> ()</td></tr>
 <tr class="separator:aacb0810d9993ebcb73cf306d2ae9d274"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a285ae2fe5ac919bc4e606924e2b946b3"><td class="memItemLeft" align="right" valign="top"><a id="a285ae2fe5ac919bc4e606924e2b946b3"></a>
-const real *&#160;</td><td class="memItemRight" valign="bottom"><b>ptr</b> () const</td></tr>
+<tr class="memitem:a285ae2fe5ac919bc4e606924e2b946b3"><td class="memItemLeft" align="right" valign="top">const real *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a285ae2fe5ac919bc4e606924e2b946b3">ptr</a> () const</td></tr>
 <tr class="separator:a285ae2fe5ac919bc4e606924e2b946b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dd424002cb4423eb91d568a7a196f9b"><td class="memItemLeft" align="right" valign="top"><a id="a7dd424002cb4423eb91d568a7a196f9b"></a>
-real &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a7dd424002cb4423eb91d568a7a196f9b">operator[]</a> (Size i)</td></tr>
-<tr class="memdesc:a7dd424002cb4423eb91d568a7a196f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access to i-th element. <br /></td></tr>
+<tr class="memitem:a7dd424002cb4423eb91d568a7a196f9b"><td class="memItemLeft" align="right" valign="top">real &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a7dd424002cb4423eb91d568a7a196f9b">operator[]</a> (<a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#af32611b865c4b497f9f92843456f7ec9">Size</a> i)</td></tr>
+<tr class="memdesc:a7dd424002cb4423eb91d568a7a196f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access to i-th element.  <a href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a7dd424002cb4423eb91d568a7a196f9b">More...</a><br /></td></tr>
 <tr class="separator:a7dd424002cb4423eb91d568a7a196f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaff8c06575571bf5a116ae04617d3798"><td class="memItemLeft" align="right" valign="top"><a id="aaff8c06575571bf5a116ae04617d3798"></a>
-const real &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aaff8c06575571bf5a116ae04617d3798">operator[]</a> (Size i) const</td></tr>
-<tr class="memdesc:aaff8c06575571bf5a116ae04617d3798"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const access to i-th element. <br /></td></tr>
+<tr class="memitem:aaff8c06575571bf5a116ae04617d3798"><td class="memItemLeft" align="right" valign="top">const real &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aaff8c06575571bf5a116ae04617d3798">operator[]</a> (<a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#af32611b865c4b497f9f92843456f7ec9">Size</a> i) const</td></tr>
+<tr class="memdesc:aaff8c06575571bf5a116ae04617d3798"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const access to i-th element.  <a href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aaff8c06575571bf5a116ae04617d3798">More...</a><br /></td></tr>
 <tr class="separator:aaff8c06575571bf5a116ae04617d3798"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Tests operators</div></td></tr>
-<tr class="memitem:a3f35723e444e89468a532cdc23c9fb90"><td class="memItemLeft" align="right" valign="top"><a id="a3f35723e444e89468a532cdc23c9fb90"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;b) const</td></tr>
+<tr class="memitem:a3f35723e444e89468a532cdc23c9fb90"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a3f35723e444e89468a532cdc23c9fb90">operator==</a> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;b) const</td></tr>
 <tr class="separator:a3f35723e444e89468a532cdc23c9fb90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94e2fa494fb895aace4645aaccfebad5"><td class="memItemLeft" align="right" valign="top"><a id="a94e2fa494fb895aace4645aaccfebad5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;b) const</td></tr>
+<tr class="memitem:a94e2fa494fb895aace4645aaccfebad5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a94e2fa494fb895aace4645aaccfebad5">operator!=</a> (const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;b) const</td></tr>
 <tr class="separator:a94e2fa494fb895aace4645aaccfebad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aba2ce46c5f6ed89c0f6c7b27dc93e1a5"><td class="memItemLeft" align="right" valign="top"><a id="aba2ce46c5f6ed89c0f6c7b27dc93e1a5"></a>
-static Size&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> ()</td></tr>
+<tr class="memitem:aba2ce46c5f6ed89c0f6c7b27dc93e1a5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#af32611b865c4b497f9f92843456f7ec9">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aba2ce46c5f6ed89c0f6c7b27dc93e1a5">size</a> ()</td></tr>
 <tr class="separator:aba2ce46c5f6ed89c0f6c7b27dc93e1a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a718b2bf36971b12073e486e2d4fdcab6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a718b2bf36971b12073e486e2d4fdcab6">vCenter</a></td></tr>
+<tr class="separator:a718b2bf36971b12073e486e2d4fdcab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a9c30f1c276a2fb8dedf74ef1a891ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a8a9c30f1c276a2fb8dedf74ef1a891ad">vOrientation</a></td></tr>
+<tr class="separator:a8a9c30f1c276a2fb8dedf74ef1a891ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:ad5334cbdc563018e1e0f2b95f03b8379"><td class="memItemLeft" align="right" valign="top"><a id="ad5334cbdc563018e1e0f2b95f03b8379"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>RigidCoord&lt; 2, real &gt;</b></td></tr>
+<tr class="memitem:ad5334cbdc563018e1e0f2b95f03b8379"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#ad5334cbdc563018e1e0f2b95f03b8379">RigidCoord&lt; 2, real &gt;</a></td></tr>
 <tr class="separator:ad5334cbdc563018e1e0f2b95f03b8379"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea024de92346a58d058f113674b570ad"><td class="memItemLeft" align="right" valign="top"><a id="aea024de92346a58d058f113674b570ad"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aea024de92346a58d058f113674b570ad">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;v)</td></tr>
-<tr class="memdesc:aea024de92346a58d058f113674b570ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">write to an output stream <br /></td></tr>
+<tr class="memitem:aea024de92346a58d058f113674b570ad"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aea024de92346a58d058f113674b570ad">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;v)</td></tr>
+<tr class="memdesc:aea024de92346a58d058f113674b570ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">write to an output stream  <a href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aea024de92346a58d058f113674b570ad">More...</a><br /></td></tr>
 <tr class="separator:aea024de92346a58d058f113674b570ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc61bac741e32e8274a27e3af0e3c5f1"><td class="memItemLeft" align="right" valign="top"><a id="adc61bac741e32e8274a27e3af0e3c5f1"></a>
-std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#adc61bac741e32e8274a27e3af0e3c5f1">operator&gt;&gt;</a> (std::istream &amp;in, <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;v)</td></tr>
-<tr class="memdesc:adc61bac741e32e8274a27e3af0e3c5f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">read from an input stream <br /></td></tr>
+<tr class="memitem:adc61bac741e32e8274a27e3af0e3c5f1"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#adc61bac741e32e8274a27e3af0e3c5f1">operator&gt;&gt;</a> (std::istream &amp;in, <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;v)</td></tr>
+<tr class="memdesc:adc61bac741e32e8274a27e3af0e3c5f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">read from an input stream  <a href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#adc61bac741e32e8274a27e3af0e3c5f1">More...</a><br /></td></tr>
 <tr class="separator:adc61bac741e32e8274a27e3af0e3c5f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a0c2613d4453a1e5020058fb7ac615c9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c2613d4453a1e5020058fb7ac615c9c">&#9670;&nbsp;</a></span>Pos</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt;2,<a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a>&gt; <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a0c2613d4453a1e5020058fb7ac615c9c">Pos</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a61317b8c4d7123685a0566b52afddd27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61317b8c4d7123685a0566b52afddd27">&#9670;&nbsp;</a></span>Real</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef real <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aae82eb5b87ec908606ec20c987ba9967"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae82eb5b87ec908606ec20c987ba9967">&#9670;&nbsp;</a></span>Rot</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a> <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aae82eb5b87ec908606ec20c987ba9967">Rot</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af32611b865c4b497f9f92843456f7ec9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af32611b865c4b497f9f92843456f7ec9">&#9670;&nbsp;</a></span>Size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef sofa::Size <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#af32611b865c4b497f9f92843456f7ec9">Size</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aee5785e9d2466ec41c29ca400213e52f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee5785e9d2466ec41c29ca400213e52f">&#9670;&nbsp;</a></span>value_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef real <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aee5785e9d2466ec41c29ca400213e52f">value_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37a818d4742711d5072b6253f9b55d00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37a818d4742711d5072b6253f9b55d00">&#9670;&nbsp;</a></span>Vec2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt;2,<a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a>&gt; <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a34f25e5f739c7592cdd36701a8f18faa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34f25e5f739c7592cdd36701a8f18faa">&#9670;&nbsp;</a></span>VecAll</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt;3,<a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a>&gt; <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a34f25e5f739c7592cdd36701a8f18faa">VecAll</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a73c53bacb25588538843a1dcfe5f382b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73c53bacb25588538843a1dcfe5f382b">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compile-time constant specifying the number of dimensions of space (NOT equivalent to total_size for rigids) </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a73c53bacb25588538843a1dcfe5f382ba52d450260197c3fbf41ad0093ecd75b8"></a>spatial_dimensions&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a2d5492e116eebd5075f247d21fb9db26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d5492e116eebd5075f247d21fb9db26">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compile-time constant specifying the number of scalars within this vector (equivalent to the <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#aba2ce46c5f6ed89c0f6c7b27dc93e1a5">size()</a> method) </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2d5492e116eebd5075f247d21fb9db26a7734e5fe4d2e06fa986495a424f4409e"></a>total_size&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4a429ef4cd803c28e02786161e012eb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a429ef4cd803c28e02786161e012eb9">&#9670;&nbsp;</a></span>RigidDeriv() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsofa_1_1type_1_1_no_init.html">type::NoInit</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0b19e55fa7af967de2dd2e5480f2cfb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b19e55fa7af967de2dd2e5480f2cfb4">&#9670;&nbsp;</a></span>RigidDeriv() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a19adf23977833691ed648c8f896b39fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19adf23977833691ed648c8f896b39fb">&#9670;&nbsp;</a></span>RigidDeriv() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 2, real2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>velCenter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const real2 &amp;&#160;</td>
+          <td class="paramname"><em>velOrient</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a684b5e9a390bb3b8ce411480e66bdbf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a684b5e9a390bb3b8ce411480e66bdbf8">&#9670;&nbsp;</a></span>RigidDeriv() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 3, real2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac8bb3912a3ce86b15842e79d0b421204"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8bb3912a3ce86b15842e79d0b421204">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e1737a9c2791da8309e4a4e056d63fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e1737a9c2791da8309e4a4e056d63fb">&#9670;&nbsp;</a></span>getAngular() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a>&amp; getAngular </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8eb4fbacff93703d45f8c6443beeba64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eb4fbacff93703d45f8c6443beeba64">&#9670;&nbsp;</a></span>getAngular() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a>&amp; getAngular </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac028bf375c698dadea62770778df50ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac028bf375c698dadea62770778df50ec">&#9670;&nbsp;</a></span>getLinear() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a>&amp; getLinear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad775581177e1430d866a7faf40a6498f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad775581177e1430d866a7faf40a6498f">&#9670;&nbsp;</a></span>getLinear() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a>&amp; getLinear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a21bdc16dff0c0d2c464a961603a118d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21bdc16dff0c0d2c464a961603a118d5">&#9670;&nbsp;</a></span>getVAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a34f25e5f739c7592cdd36701a8f18faa">VecAll</a> getVAll </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe4427237156b8c801a5f4c035fd2f0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe4427237156b8c801a5f4c035fd2f0f">&#9670;&nbsp;</a></span>getVCenter() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a>&amp; getVCenter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aee20a353520dee46177ff2cf8df69351"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee20a353520dee46177ff2cf8df69351">&#9670;&nbsp;</a></span>getVCenter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a>&amp; getVCenter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac7b198c3d12d8deb194c3a6a87b710da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7b198c3d12d8deb194c3a6a87b710da">&#9670;&nbsp;</a></span>getVOrientation() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a>&amp; getVOrientation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acfad6eaa11ce13676d48e030e9f4f7cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfad6eaa11ce13676d48e030e9f4f7cb">&#9670;&nbsp;</a></span>getVOrientation() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a>&amp; getVOrientation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac2db078dfcc85672be2e6c7d351ecc45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2db078dfcc85672be2e6c7d351ecc45">&#9670;&nbsp;</a></span>norm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a> norm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Euclidean norm. </p>
+
+</div>
+</div>
+<a id="a94e2fa494fb895aace4645aaccfebad5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94e2fa494fb895aace4645aaccfebad5">&#9670;&nbsp;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05105e7103904ce8f3da6be43aff3e0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05105e7103904ce8f3da6be43aff3e0e">&#9670;&nbsp;</a></span>operator*()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a> operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>dot product, mostly used to compute residuals as sqrt(x*x) </p>
+
+</div>
+</div>
+<a id="a590f34cf6e31ed23ad41cc45ce6bd2ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a590f34cf6e31ed23ad41cc45ce6bd2ba">&#9670;&nbsp;</a></span>operator*=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void operator*= </td>
+          <td>(</td>
+          <td class="paramtype">real2&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a07864b488ca696eeebaf717f8bbc97dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07864b488ca696eeebaf717f8bbc97dd">&#9670;&nbsp;</a></span>operator+()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt;2,real&gt; operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae14bb186993125e2e84e315c4ce1ff81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae14bb186993125e2e84e315c4ce1ff81">&#9670;&nbsp;</a></span>operator+=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2348f181b5de9b1d5f7340c0200e5005"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2348f181b5de9b1d5f7340c0200e5005">&#9670;&nbsp;</a></span>operator-() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt;2,real&gt; operator- </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a585924a18cda43656f5b3d2a87981464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a585924a18cda43656f5b3d2a87981464">&#9670;&nbsp;</a></span>operator-() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt;2,real&gt; operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c210018d19055eea831a1afe2dfe779"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c210018d19055eea831a1afe2dfe779">&#9670;&nbsp;</a></span>operator-=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void operator-= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab3d067288f461a81286da9de16e164ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3d067288f461a81286da9de16e164ac">&#9670;&nbsp;</a></span>operator/=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void operator/= </td>
+          <td>(</td>
+          <td class="paramtype">real2&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6249a561d407e0fe68a3472d2aff8887"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6249a561d407e0fe68a3472d2aff8887">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa4a2fddd1991ee0217270cdfb9ac0327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4a2fddd1991ee0217270cdfb9ac0327">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 2, real2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a6701f292f7129deb5dd33dda9462a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a6701f292f7129deb5dd33dda9462a4">&#9670;&nbsp;</a></span>operator=() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1type_1_1_vec.html">type::Vec</a>&lt; 3, real2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3f35723e444e89468a532cdc23c9fb90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f35723e444e89468a532cdc23c9fb90">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7dd424002cb4423eb91d568a7a196f9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dd424002cb4423eb91d568a7a196f9b">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real&amp; operator[] </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#af32611b865c4b497f9f92843456f7ec9">Size</a>&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access to i-th element. </p>
+
+</div>
+</div>
+<a id="aaff8c06575571bf5a116ae04617d3798"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaff8c06575571bf5a116ae04617d3798">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const real&amp; operator[] </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#af32611b865c4b497f9f92843456f7ec9">Size</a>&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Const access to i-th element. </p>
+
+</div>
+</div>
+<a id="aacb0810d9993ebcb73cf306d2ae9d274"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacb0810d9993ebcb73cf306d2ae9d274">&#9670;&nbsp;</a></span>ptr() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real* ptr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a285ae2fe5ac919bc4e606924e2b946b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a285ae2fe5ac919bc4e606924e2b946b3">&#9670;&nbsp;</a></span>ptr() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const real* ptr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aba2ce46c5f6ed89c0f6c7b27dc93e1a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba2ce46c5f6ed89c0f6c7b27dc93e1a5">&#9670;&nbsp;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#af32611b865c4b497f9f92843456f7ec9">Size</a> size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a96f7669053530b98c41cc38e79ebf604"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96f7669053530b98c41cc38e79ebf604">&#9670;&nbsp;</a></span>velocityAtRotatedPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a> velocityAtRotatedPoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Velocity at point p, where p is the offset from the origin of the frame, given in the same coordinate system as the velocity of the origin. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="aea024de92346a58d058f113674b570ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea024de92346a58d058f113674b570ad">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>write to an output stream </p>
+
+</div>
+</div>
+<a id="adc61bac741e32e8274a27e3af0e3c5f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc61bac741e32e8274a27e3af0e3c5f1">&#9670;&nbsp;</a></span>operator&gt;&gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::istream&amp; operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv.html">RigidDeriv</a>&lt; 2, real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>read from an input stream </p>
+
+</div>
+</div>
+<a id="ad5334cbdc563018e1e0f2b95f03b8379"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5334cbdc563018e1e0f2b95f03b8379">&#9670;&nbsp;</a></span>RigidCoord&lt; 2, real &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classsofa_1_1defaulttype_1_1_rigid_coord.html">RigidCoord</a>&lt; 2, real &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a718b2bf36971b12073e486e2d4fdcab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a718b2bf36971b12073e486e2d4fdcab6">&#9670;&nbsp;</a></span>vCenter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a37a818d4742711d5072b6253f9b55d00">Vec2</a> vCenter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8a9c30f1c276a2fb8dedf74ef1a891ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a9c30f1c276a2fb8dedf74ef1a891ad">&#9670;&nbsp;</a></span>vOrientation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#a61317b8c4d7123685a0566b52afddd27">Real</a> vOrientation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><b>defaulttype</b></li><li class="navelem"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html">RigidDeriv&lt; 2, real &gt;</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 06:08:26 for SOFA by
+    <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1defaulttype.html">defaulttype</a></li><li class="navelem"><a class="el" href="classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html">RigidDeriv&lt; 2, real &gt;</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:39:19 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

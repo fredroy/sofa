@@ -13,6 +13,8 @@ var classsofa_1_1core_1_1behavior_1_1_constraint_correction =
     [ "VecDeriv", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#a83fb2b666b4e514e93d3bb221aa681ef", null ],
     [ "ConstraintCorrection", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#a94bfd63eebe0778e524e3f28082b6b58", null ],
     [ "~ConstraintCorrection", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#a42e35a982623042e779da7c7808ecb80", null ],
+    [ "addConstraintForceInMotionSpace", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#a53d5107516fceec933ba9b1cb3ef4756", null ],
+    [ "addConstraintForceInMotionSpace", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#afc3df8f33aec5e1b94e76e9fe1046882", null ],
     [ "addConstraintSolver", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#a5b5ef1b8f5211ea79f6e104de25fde2d", null ],
     [ "applyMotionCorrection", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#ab38586319f8c7ea3222a365db4cddc9d", null ],
     [ "applyMotionCorrection", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#a66c3c30fb9eea3543af83eedb342e418", null ],
@@ -21,6 +23,7 @@ var classsofa_1_1core_1_1behavior_1_1_constraint_correction =
     [ "applyPredictiveConstraintForce", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#aff178678e1060d9dc3f763aebd44a7ce", null ],
     [ "applyVelocityCorrection", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#abe40ed9f388cd4e092302aa6ce06fd05", null ],
     [ "applyVelocityCorrection", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#ab7c3b8a4899147f544384a2f6f5fba06", null ],
+    [ "canCreate", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#ac65a50a3ff81bba00ec9967bc8e98a67", null ],
     [ "cleanup", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#a6116e1a8965cfa1112b2ec004230aa39", null ],
     [ "computeMotionCorrection", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#a9e3113f703efb74b2770e68916ad938c", null ],
     [ "computeMotionCorrectionFromLambda", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#a8f9256af1842f9b7c9d7d634350c70da", null ],
@@ -29,5 +32,6 @@ var classsofa_1_1core_1_1behavior_1_1_constraint_correction =
     [ "removeConstraintSolver", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#adfc3edcf5c2d993f81a66143fa6ca0b0", null ],
     [ "setMState", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#a6953a80f5ce539f9fb2fb62f40d7dfec", null ],
     [ "SOFA_ABSTRACT_CLASS", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#a4ab31450a5090ae922b85d4fc5844501", null ],
+    [ "l_constraintsolvers", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#a84584df80806ecfb25b4770af21dff00", null ],
     [ "mstate", "classsofa_1_1core_1_1behavior_1_1_constraint_correction.html#a8c6d86fa63dcecb279d4168c8acc7506", null ]
 ];

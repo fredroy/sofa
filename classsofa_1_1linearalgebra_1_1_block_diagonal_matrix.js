@@ -31,6 +31,7 @@ var classsofa_1_1linearalgebra_1_1_block_diagonal_matrix =
     [ "element", "classsofa_1_1linearalgebra_1_1_block_diagonal_matrix.html#ab7bc07f724b55842c27a819787f45fb3", null ],
     [ "invert", "classsofa_1_1linearalgebra_1_1_block_diagonal_matrix.html#a7fa1616cc61c19a5efcc863c950f7f30", null ],
     [ "mul", "classsofa_1_1linearalgebra_1_1_block_diagonal_matrix.html#a08701f4083a8f92d05806ca16bcb8eea", null ],
+    [ "Name", "classsofa_1_1linearalgebra_1_1_block_diagonal_matrix.html#a28ceceb8e81ac299b3c6992dd0a707d3", null ],
     [ "operator*", "classsofa_1_1linearalgebra_1_1_block_diagonal_matrix.html#a97c150ae3b9b29805958c10c9e0ffa69", null ],
     [ "resize", "classsofa_1_1linearalgebra_1_1_block_diagonal_matrix.html#a9e7db2e0c0db77cb38165b7054d37cda", null ],
     [ "rowBSize", "classsofa_1_1linearalgebra_1_1_block_diagonal_matrix.html#a61db31f36c98d15fb18d34abec7fc67b", null ],

@@ -7,6 +7,7 @@ var classsofa_1_1component_1_1engine_1_1select_1_1_indices_from_values =
     [ "IndicesFromValues", "classsofa_1_1component_1_1engine_1_1select_1_1_indices_from_values.html#a8ab4174da634e286ca6a34ade695a1ba", null ],
     [ "~IndicesFromValues", "classsofa_1_1component_1_1engine_1_1select_1_1_indices_from_values.html#a30fb36e821227ca3941b9b788ee0c866", null ],
     [ "doUpdate", "classsofa_1_1component_1_1engine_1_1select_1_1_indices_from_values.html#a4daa2dc990606f6f13a82f619a13358a", null ],
+    [ "GetCustomTemplateName", "classsofa_1_1component_1_1engine_1_1select_1_1_indices_from_values.html#afdb0b86d7e7e0659ef7883376e8ab9b6", null ],
     [ "init", "classsofa_1_1component_1_1engine_1_1select_1_1_indices_from_values.html#ad72eef1561c7a53b19b048397d4ef570", null ],
     [ "reinit", "classsofa_1_1component_1_1engine_1_1select_1_1_indices_from_values.html#ab1094b915e637faa84817a097d8d87be", null ],
     [ "SOFA_CLASS", "classsofa_1_1component_1_1engine_1_1select_1_1_indices_from_values.html#a56a7e4208e8ca0720e09225899edbd8a", null ],

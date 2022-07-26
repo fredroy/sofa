@@ -11,6 +11,8 @@ var classsofa_1_1component_1_1collision_1_1response_1_1mapper_1_1_base_contact_m
     [ "addPointB", "classsofa_1_1component_1_1collision_1_1response_1_1mapper_1_1_base_contact_mapper.html#a869774c670d31b6e3d8582029e3b61f3", null ],
     [ "addPointB", "classsofa_1_1component_1_1collision_1_1response_1_1mapper_1_1_base_contact_mapper.html#a17c345d178b4eba2d857d4276e20b78a", null ],
     [ "cleanup", "classsofa_1_1component_1_1collision_1_1response_1_1mapper_1_1_base_contact_mapper.html#a8f94dc33a3804ab30f2d2289ccd0494a", null ],
+    [ "create", "classsofa_1_1component_1_1collision_1_1response_1_1mapper_1_1_base_contact_mapper.html#a4d2e091d082df764ff96db15571b22af", null ],
+    [ "Create", "classsofa_1_1component_1_1collision_1_1response_1_1mapper_1_1_base_contact_mapper.html#a3edc3552146f83e1c4a6b77489c187b6", null ],
     [ "createMapping", "classsofa_1_1component_1_1collision_1_1response_1_1mapper_1_1_base_contact_mapper.html#ad8edce755e15f5a91f8d494f28f18a60", null ],
     [ "resize", "classsofa_1_1component_1_1collision_1_1response_1_1mapper_1_1_base_contact_mapper.html#ad0e0b7b0c17438b692d9d85acd4a6bd9", null ],
     [ "update", "classsofa_1_1component_1_1collision_1_1response_1_1mapper_1_1_base_contact_mapper.html#a99b02345a8a15d3c5ea2844a2253f510", null ],

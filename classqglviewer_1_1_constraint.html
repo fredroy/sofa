@@ -151,7 +151,7 @@ Public Member Functions</h2></td></tr>
 <div class="line">              <span class="keyword">const</span> Vec tWorld = fr-&gt;inverseTransformOf(t);</div>
 <div class="line">      <span class="keywordflow">if</span> (fr-&gt;position().z + tWorld.z &lt; 0.0) <span class="comment">// check the new fr z coordinate</span></div>
 <div class="line">        t.z = fr-&gt;transformOf(-fr-&gt;position().z); <span class="comment">// t.z is clamped so that</span></div>
-<div class="line">next z position is 0.0</div>
+<div class="line">next z position <a class="code" href="_x_m_l_8cpp.html#a4a454be8c181b559177e292f04845a84">is</a> 0.0</div>
 <div class="line">        }</div>
 <div class="line">};</div>
 </div><!-- fragment --><p>Note that the translation (resp. rotation) parameter passed to <a class="el" href="classqglviewer_1_1_constraint.html#ab7d724965c6765209f47c1abe7f7b7b4">constrainTranslation()</a> (resp. <a class="el" href="classqglviewer_1_1_constraint.html#a5de5f38e75b58476b7926171dba4b31b">constrainRotation()</a>) is expressed in the <em>local</em> <a class="el" href="classqglviewer_1_1_frame.html" title="The Frame class represents a coordinate system, defined by a position and an orientation.">Frame</a> coordinate system. Here, we use the <a class="el" href="classqglviewer_1_1_frame.html#a9d6ed15207562765a1f30007f7e1bc5d">Frame::transformOf()</a> and <a class="el" href="classqglviewer_1_1_frame.html#ae781257f7e0059e7847ecbbfc796b85b">Frame::inverseTransformOf()</a> method to convert it to and from the world coordinate system.</p>
@@ -276,11 +276,12 @@ Public Member Functions</h2></td></tr>
 <div class="ttc" id="aclassqglviewer_1_1_frame_html_a4cb0cf5ff79e1acf0755befdaceb6f4a"><div class="ttname"><a href="classqglviewer_1_1_frame.html#a4cb0cf5ff79e1acf0755befdaceb6f4a">qglviewer::Frame::translate</a></div><div class="ttdeci">void translate(Vec &amp;t)</div><div class="ttdef"><b>Definition:</b> frame.cpp:327</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_constraint_html_ab7d724965c6765209f47c1abe7f7b7b4"><div class="ttname"><a href="classqglviewer_1_1_constraint.html#ab7d724965c6765209f47c1abe7f7b7b4">qglviewer::Constraint::constrainTranslation</a></div><div class="ttdeci">virtual void constrainTranslation(Vec &amp;translation, Frame *const frame)</div><div class="ttdef"><b>Definition:</b> constraint.h:158</div></div>
 <div class="ttc" id="aclassqglviewer_1_1_frame_html_a38dffd6ee0ad7e395b49082b2b94de33"><div class="ttname"><a href="classqglviewer_1_1_frame.html#a38dffd6ee0ad7e395b49082b2b94de33">qglviewer::Frame::rotate</a></div><div class="ttdeci">void rotate(Quaternion &amp;q)</div><div class="ttdef"><b>Definition:</b> frame.cpp:366</div></div>
+<div class="ttc" id="a_x_m_l_8cpp_html_a4a454be8c181b559177e292f04845a84"><div class="ttname"><a href="_x_m_l_8cpp.html#a4a454be8c181b559177e292f04845a84">is</a></div><div class="ttdeci">#define is(n1, n2)</div><div class="ttdef"><b>Definition:</b> XML.cpp:63</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>qglviewer</b></li><li class="navelem"><a class="el" href="classqglviewer_1_1_constraint.html">Constraint</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 05:43:28 for SOFA by
+    <li class="navelem"><a class="el" href="namespaceqglviewer.html">qglviewer</a></li><li class="navelem"><a class="el" href="classqglviewer_1_1_constraint.html">Constraint</a></li>
+    <li class="footer">Generated on Tue Jul 26 2022 07:20:01 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

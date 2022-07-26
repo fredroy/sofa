@@ -28,6 +28,8 @@ var classsofa_1_1linearalgebra_1_1_b_t_d_matrix =
     [ "element", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#ab7bc07f724b55842c27a819787f45fb3", null ],
     [ "getAlignedSubMatrix", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#a73f2fed60863710b41eb3730bb173b9a", null ],
     [ "getSubMatrix", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#aadbacd3425e801792c81100dc73ff0e5", null ],
+    [ "getSubMatrixDim", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#a91c97649efaef0c9bb23ee32c282ca62", null ],
+    [ "Name", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#a28ceceb8e81ac299b3c6992dd0a707d3", null ],
     [ "Name", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
     [ "Name", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
     [ "Name", "classsofa_1_1linearalgebra_1_1_b_t_d_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
