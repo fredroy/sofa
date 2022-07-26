@@ -1,0 +1,5 @@
+var structsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v___block_diagonal_3_01_real_00_011_00_0834e7a9c1912f057d0e0715e3c914c30 =
+[
+    [ "Index", "structsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v___block_diagonal_3_01_real_00_011_00_0834e7a9c1912f057d0e0715e3c914c30.html#a37fe9f16c8e2fe59f69232cac5f5c52f", null ],
+    [ "operator()", "structsofa_1_1linearalgebra_1_1_base_matrix_linear_op_m_v___block_diagonal_3_01_real_00_011_00_0834e7a9c1912f057d0e0715e3c914c30.html#ad8b3af2abcdb5239a1f08417c3f8e877", null ]
+];

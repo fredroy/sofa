@@ -1,0 +1,28 @@
+var classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching =
+[
+    [ "Coord", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a7c0bd56aca42d0e855a400b50f3e078b", null ],
+    [ "ID", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#ab24a02c135fda0f1e29404498af3fb9c", null ],
+    [ "Mat3x3", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#ab00e142f7d5e025b760006a990a5a287", null ],
+    [ "Real", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1", null ],
+    [ "VD", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a07fd7b11780b70fa9b5f91615868b151", null ],
+    [ "VecCoord", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a05882e2e9ba8d707ab531ab94a1f39e0", null ],
+    [ "VI", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#adb6af58401b017eeaf978c2a1cfbbdc2", null ],
+    [ "VVI", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a1a7351e8f3ccd9580aeab22ca1de3bca", null ],
+    [ "ShapeMatching", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#aecd28591991a808a4922140b36340b22", null ],
+    [ "~ShapeMatching", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#ad7b7a72efaba96efbc759fbcfbd1d82a", null ],
+    [ "doUpdate", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a09e7bb63b4391a2e895c65d7eaae10ec", null ],
+    [ "doUpdate", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a09e7bb63b4391a2e895c65d7eaae10ec", null ],
+    [ "doUpdate", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a4daa2dc990606f6f13a82f619a13358a", null ],
+    [ "draw", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a8673433953792026ae9baf91b348d7da", null ],
+    [ "init", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#ad72eef1561c7a53b19b048397d4ef570", null ],
+    [ "reinit", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#ab1094b915e637faa84817a097d8d87be", null ],
+    [ "SOFA_CLASS", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#abe38d340cc5fffa131570fd39694c5f9", null ],
+    [ "affineRatio", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#aaf2adf3c24911e47a253c9a0e9bf7bca", null ],
+    [ "cluster", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#af48f78b8c7dc42d50697de849a29f496", null ],
+    [ "fixedPosition", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#ada01f40ad8617ce0fbb6b456b3a31058", null ],
+    [ "fixedPosition0", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a95a577240a9e98906c55d01690a8428e", null ],
+    [ "fixedweight", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a135bbca500241c5f900cbea7a1d54749", null ],
+    [ "iterations", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a1c77ee3ae0fc963a4563f0d34843d2f0", null ],
+    [ "position", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#a9eecb5f0e9d8b3e53decface4506262b", null ],
+    [ "targetPosition", "classsofa_1_1component_1_1engine_1_1analyze_1_1_shape_matching.html#afc660cd39cba2ba320ffeff97967e782", null ]
+];

@@ -1,0 +1,198 @@
+\documentclass{article}
+\usepackage{ifthen}
+\usepackage{epsfig}
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+  \newunicodechar{⁻}{${}^{-}$}% Superscript minus
+  \newunicodechar{²}{${}^{2}$}% Superscript two
+  \newunicodechar{³}{${}^{3}$}% Superscript three
+
+\pagestyle{empty}
+\begin{document}
+$ x = x_m A \sin ( \omega t + \phi )$
+\pagebreak
+
+$ x_m, A , \omega t , \phi $
+\pagebreak
+
+$ \sum_i tpwgts[i*ncon+j] = 1.0 $
+\pagebreak
+
+$x_{t+h} = x_t + h v_{t+h}$
+\pagebreak
+
+$v_{t+h} = v_t + h a_{t+h}$
+\pagebreak
+
+$v_{t+h} - v_t = dv$
+\pagebreak
+
+$ M dv = h f(t+h) $
+\pagebreak
+
+$ M dv = h ( f(t) + K dx + (B - r_M M + r_K K) (v+dv) )$
+\pagebreak
+
+$ M dv = h ( f(t) + K h (v+dv) + (B - r_M M + r_K K) (v+dv) )$
+\pagebreak
+
+$ M $
+\pagebreak
+
+$ K = df/dx $
+\pagebreak
+
+$ B = df/dv $
+\pagebreak
+
+$- r_M M + r_K K$
+\pagebreak
+
+$ ( (1+h r_M) M - h B - h(h + r_K) K ) dv = h ( f(t) + (h+r_K) K v + B v - r_M M v )$
+\pagebreak
+
+$P$
+\pagebreak
+
+$ P ( (1+h r_M) M - h B - h(h + r_K) K ) P dv = P h ( f(t) + (h + r_K) K v + B v - r_M M v )$
+\pagebreak
+
+$ M v_t = f_{ext} $
+\pagebreak
+
+$ M v_{t+h} = f_{ext_{t+h}} $
+\pagebreak
+
+$ = f_{ext_{t}} + h (df_{ext}/dt)_{t+h} $
+\pagebreak
+
+$ = f_{ext_{t}} + h (df_{ext}/dx)_{t+h} v_{t+h} $
+\pagebreak
+
+$ = f_{ext_{t}} - h K v_{t+h} $
+\pagebreak
+
+$ ( M + h K ) v_{t+h} = f_{ext} $
+\pagebreak
+
+$v_{t+h} = h/2 ( f(t+h) + f(t) )$
+\pagebreak
+
+$ P ( (1+h/2 r_M) M - h/2 B - h/2 (h + r_K) K ) P dv = P h/2 ( 2 f(t) + (h + r_K) K v + B v - r_M M v )$
+\pagebreak
+
+$ ( M + h/2 K ) v_{t+h} = f_{ext} $
+\pagebreak
+
+\begin{eqnarray*} \vec{R}(\vec{x}) - \vec{P} = 0 \end{eqnarray*}
+\pagebreak
+
+$\vec{R}$
+\pagebreak
+
+$\vec{P}$
+\pagebreak
+
+\begin{align*} \vec{F}(\vec{x}_{n+1}) &= \vec{R}(\vec{x}_{n+1}) - \vec{P}_n \\ \mat{J} = \frac{\partial \vec{F}}{\partial \vec{x}_{n+1}} \bigg\rvert_{\vec{x}_{n+1}^i} &= \mat{K}(\vec{x}_{n+1}) \end{align*}
+\pagebreak
+
+$\vec{x}_{n+1}$
+\pagebreak
+
+$n$
+\pagebreak
+
+\begin{align*} \mat{K}(\vec{x}_{n+1}^i) \left [ \Delta \vec{x}_{n+1}^{i+1} \right ] &= - \vec{F}(\vec{x}_{n+1}^i) \\ \vec{x}_{n+1}^{i+1} &= \vec{x}_{n+1}^{i} + \Delta \vec{x}_{n+1}^{i+1} \end{align*}
+\pagebreak
+
+$ \alpha M + \beta B + \gamma C $
+\pagebreak
+
+\[ f += B v + K x \]
+\pagebreak
+
+\[ df += kFactor K dx + bFactor B dx \]
+\pagebreak
+
+\[ df += mFactor M dx + bFactor B dx + kFactor K dx \]
+\pagebreak
+
+$ k K $
+\pagebreak
+
+$ b B $
+\pagebreak
+
+$ m M + b B + k K $
+\pagebreak
+
+$ C = K^{-1} $
+\pagebreak
+
+\[ res += cFactor C \lambda \]
+\pagebreak
+
+$ K $
+\pagebreak
+
+$ f += B v + K x $
+\pagebreak
+
+$ df += kFactor K dx + bFactor B dx $
+\pagebreak
+
+$ kFactor K dx + bFactor B dx $
+\pagebreak
+
+$ df = kFactor K dx + bFactor B dx $
+\pagebreak
+
+$ res += cFactor * C * lambda $
+\pagebreak
+
+$ f_p += dJ^t f_c $
+\pagebreak
+
+$ f_p $
+\pagebreak
+
+$ f_c $
+\pagebreak
+
+$ f(x,v)$
+\pagebreak
+
+$ v_c = J v_p $
+\pagebreak
+
+$ a_c = J a_p + dJ v_p $
+\pagebreak
+
+$ w $
+\pagebreak
+
+$ J $
+\pagebreak
+
+$ out = J in $
+\pagebreak
+
+$ out += J^t in $
+\pagebreak
+
+$ \|v\|_l = ( \sum_{i<dim(v)} \|v[i]\|^{l} )^{1/l} $
+\pagebreak
+
+$ \|v\|_\infinite = \max_{i<dim(v)} \|v[i]\| $
+\pagebreak
+
+$ \begin{array}{ccc} & R & \\ \diagup & & \diagdown \\ A & & B \end{array} $
+\pagebreak
+
+$ \begin{array}{ccc} & R & \\ \diagup & & \diagdown \\ A & & B \\ \diagdown & & \diagup \\ & C \end{array} $
+\pagebreak
+
+$ u v^T $
+\pagebreak
+
+\end{document}

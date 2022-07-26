@@ -1,0 +1,4 @@
+var structsofa_1_1component_1_1mass_1_1_mass_type_3_01defaulttype_1_1_std_vector_types_3_01_t_coord_a81a29f29ec585a2b65fc4564c02a668 =
+[
+    [ "type", "structsofa_1_1component_1_1mass_1_1_mass_type_3_01defaulttype_1_1_std_vector_types_3_01_t_coord_a81a29f29ec585a2b65fc4564c02a668.html#adc452f66c93ede47017415b6d4e19fbe", null ]
+];

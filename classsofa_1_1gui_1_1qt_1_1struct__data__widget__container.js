@@ -1,0 +1,27 @@
+var classsofa_1_1gui_1_1qt_1_1struct__data__widget__container =
+[
+    [ "Container", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a89f4bee2d5463ce0e0cc358d56fc608e", null ],
+    [ "data_type", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a1cff5e5153c81f5a22e8c97d3f8ae0f1", null ],
+    [ "Layout", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a96f2b5dc43dfaf3e6ff5b6c9a8c31664", null ],
+    [ "MasterLayout", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a3dddb47651475ff8f31ef9d05992065b", null ],
+    [ "PrevContainer", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a3bffb892da3ba8f8a170f33786cc60bc", null ],
+    [ "shelper", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#afe67befc122528831804d8d2263856fc", null ],
+    [ "value_type", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#ac1139e8a46f43100e2d64e1bd8091c3f", null ],
+    [ "vhelper", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a20d8789b086d6407bd22039082c29c53", null ],
+    [ "struct_data_widget_container", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a663dda1c21d26792292b956f6e3c11e1", null ],
+    [ "createLayout", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a29828b39d64dd4b67bdf56863b0b3d0b", null ],
+    [ "createLayout", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#aa583b14a6d7a74ad5371c79ad6de78fe", null ],
+    [ "createWidgets", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a8725e0c1dd08a4e6efe6fbd70e4b3b57", null ],
+    [ "insertWidgets", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#accf2e7adec181a9d377c84bc99673728", null ],
+    [ "readConstantsFromData", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#af3aca864ed919e964544f8df0cd49d7b", null ],
+    [ "readFromData", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a8c03e9a35c9e227d5b1faf0a7bdddd34", null ],
+    [ "setMasterLayout", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a2633f46478620bf232f01eda518c2061", null ],
+    [ "setReadOnly", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#af2b91d7cec6c58c505893da88bf781f3", null ],
+    [ "writeToData", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#ad7cb76873615c546571ff5e5a900a563", null ],
+    [ "check", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a48b30762d432e47c9ac1335b467212cf", null ],
+    [ "container_layout", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a46a7ada890f309d3adc71eb8bb7e7201", null ],
+    [ "label", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a22925632964060df176ccbc0de5fa511", null ],
+    [ "master_layout", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a78bd2660220cb999c9962e9b9c85e503", null ],
+    [ "p", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#a8315a06b45769a8653f13bad789de52a", null ],
+    [ "w", "classsofa_1_1gui_1_1qt_1_1struct__data__widget__container.html#ac7a7916bf0e8b19cb88ae1615246c070", null ]
+];

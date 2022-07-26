@@ -1,0 +1,8 @@
+var classsofa_1_1helper_1_1_base_creator_3_01sofa_1_1gui_1_1common_1_1_base_viewer_00_01sofa_1_1gui_4bb2e850bdd84aacf5ebeb1344fa6bd6 =
+[
+    [ "~BaseCreator", "classsofa_1_1helper_1_1_base_creator_3_01sofa_1_1gui_1_1common_1_1_base_viewer_00_01sofa_1_1gui_4bb2e850bdd84aacf5ebeb1344fa6bd6.html#a4a408c6318c48e10dfc375fb3ebccd00", null ],
+    [ "acceleratedName", "classsofa_1_1helper_1_1_base_creator_3_01sofa_1_1gui_1_1common_1_1_base_viewer_00_01sofa_1_1gui_4bb2e850bdd84aacf5ebeb1344fa6bd6.html#a6c4cb5cf012af6238e2990cd03dd9f6f", null ],
+    [ "createInstance", "classsofa_1_1helper_1_1_base_creator_3_01sofa_1_1gui_1_1common_1_1_base_viewer_00_01sofa_1_1gui_4bb2e850bdd84aacf5ebeb1344fa6bd6.html#ae4ec82030d51d2712934b984b727418b", null ],
+    [ "type", "classsofa_1_1helper_1_1_base_creator_3_01sofa_1_1gui_1_1common_1_1_base_viewer_00_01sofa_1_1gui_4bb2e850bdd84aacf5ebeb1344fa6bd6.html#a1aef2e45db65da4f70381cac6bad584b", null ],
+    [ "viewerName", "classsofa_1_1helper_1_1_base_creator_3_01sofa_1_1gui_1_1common_1_1_base_viewer_00_01sofa_1_1gui_4bb2e850bdd84aacf5ebeb1344fa6bd6.html#a844bc7966db4e5004e02462d736d47b9", null ]
+];

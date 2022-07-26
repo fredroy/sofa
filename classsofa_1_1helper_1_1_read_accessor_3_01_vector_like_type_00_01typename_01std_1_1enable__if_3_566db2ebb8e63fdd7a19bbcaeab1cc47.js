@@ -1,0 +1,6 @@
+var classsofa_1_1helper_1_1_read_accessor_3_01_vector_like_type_00_01typename_01std_1_1enable__if_3_566db2ebb8e63fdd7a19bbcaeab1cc47 =
+[
+    [ "container_type", "classsofa_1_1helper_1_1_read_accessor_3_01_vector_like_type_00_01typename_01std_1_1enable__if_3_566db2ebb8e63fdd7a19bbcaeab1cc47.html#a873bbe33ccb6641aa6d1d2ceb96e1af1", null ],
+    [ "Inherit", "classsofa_1_1helper_1_1_read_accessor_3_01_vector_like_type_00_01typename_01std_1_1enable__if_3_566db2ebb8e63fdd7a19bbcaeab1cc47.html#a1ddb4f206bfcd3237ed4ef17081da897", null ],
+    [ "ReadAccessor", "classsofa_1_1helper_1_1_read_accessor_3_01_vector_like_type_00_01typename_01std_1_1enable__if_3_566db2ebb8e63fdd7a19bbcaeab1cc47.html#a50805eae93116ec23b8230ab2b4fa09e", null ]
+];

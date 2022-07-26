@@ -1,0 +1,5 @@
+var classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01true_01_4 =
+[
+    [ "T", "structsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_088b038afce842b68008542399b43f1cf.html", "structsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_088b038afce842b68008542399b43f1cf" ],
+    [ "TraitsDestPtr", "classsofa_1_1core_1_1objectmodel_1_1_link_traits_value_type_3_01_t_dest_type_00_01_t_dest_ptr_00_01strong_link_00_01true_01_4.html#ad3225455258dfb34b8fcda300d095608", null ]
+];

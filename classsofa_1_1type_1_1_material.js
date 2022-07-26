@@ -1,0 +1,25 @@
+var classsofa_1_1type_1_1_material =
+[
+    [ "Material", "classsofa_1_1type_1_1_material.html#aade2019060d01e7983e9bc40ea6aa404", null ],
+    [ "Material", "classsofa_1_1type_1_1_material.html#abb139e96de6eebc005cfe7809558c1d3", null ],
+    [ "operator=", "classsofa_1_1type_1_1_material.html#a005c1abb0ea9dc7052c20fc2707796bd", null ],
+    [ "setColor", "classsofa_1_1type_1_1_material.html#a4874c19173097c5b066ab3e6888424da", null ],
+    [ "operator<<", "classsofa_1_1type_1_1_material.html#aa1d27aff541b777d3d5cb19c48e6a47f", null ],
+    [ "operator>>", "classsofa_1_1type_1_1_material.html#a34d60d1b861933d8b484d04699b061d4", null ],
+    [ "activated", "classsofa_1_1type_1_1_material.html#a73e9fa0c3543560192f38a8ab6a78c47", null ],
+    [ "ambient", "classsofa_1_1type_1_1_material.html#a572b46ccb5e11a1883285ce116bdf8d4", null ],
+    [ "bumpTextureFilename", "classsofa_1_1type_1_1_material.html#a73e6cae0fe4e3dd9ed1a1245a0e42b2c", null ],
+    [ "diffuse", "classsofa_1_1type_1_1_material.html#ac96f60fd2a262a65a2f54e414d25659e", null ],
+    [ "emissive", "classsofa_1_1type_1_1_material.html#a3a6725b4e325fb1337cdde4114907141", null ],
+    [ "name", "classsofa_1_1type_1_1_material.html#a9b45b3e13bd9167aab02e17e08916231", null ],
+    [ "shininess", "classsofa_1_1type_1_1_material.html#aaf01223c58664994607143edadcdfd15", null ],
+    [ "specular", "classsofa_1_1type_1_1_material.html#abefb9bf960f5cdc9e0b739d48fcd41f7", null ],
+    [ "textureFilename", "classsofa_1_1type_1_1_material.html#acae9fb629f553e8dc9773e8af456f414", null ],
+    [ "useAmbient", "classsofa_1_1type_1_1_material.html#a294498e828461994ba90ec4998c8b87f", null ],
+    [ "useBumpMapping", "classsofa_1_1type_1_1_material.html#ad8eff334d2164589d87cf7d673e623d5", null ],
+    [ "useDiffuse", "classsofa_1_1type_1_1_material.html#ad80a0a0902310cd8e7b3712c1635b2ab", null ],
+    [ "useEmissive", "classsofa_1_1type_1_1_material.html#aaf91bca614acc4cf2e48cc65675aa7f1", null ],
+    [ "useShininess", "classsofa_1_1type_1_1_material.html#a9f9f4821607bf183e292cb8f183602c5", null ],
+    [ "useSpecular", "classsofa_1_1type_1_1_material.html#a3252d6e2a6fcef45dfa2d7e432fb603d", null ],
+    [ "useTexture", "classsofa_1_1type_1_1_material.html#a0d6975377ce943fe0e3639db200728a9", null ]
+];

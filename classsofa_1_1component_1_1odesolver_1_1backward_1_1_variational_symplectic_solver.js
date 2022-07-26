@@ -1,0 +1,27 @@
+var classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver =
+[
+    [ "VariationalSymplecticSolver", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#a804954fc569a57dacaa30485f3b31ffe", null ],
+    [ "getIntegrationFactor", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#a47b5410376af506ec9c29367427d6719", null ],
+    [ "getPositionIntegrationFactor", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#ac51535a58faff07b2a8d1bb6054d45a8", null ],
+    [ "getSolutionIntegrationFactor", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#ad68baf535716e4c5146b5365b3a05d0c", null ],
+    [ "getVelocityIntegrationFactor", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#adc695609d427cc03858e97aa322b1d85", null ],
+    [ "init", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#ad72eef1561c7a53b19b048397d4ef570", null ],
+    [ "SOFA_CLASS", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#aad696063a1b0f40284268dc5715a6a3e", null ],
+    [ "solve", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#a110a3316862289b3cb75579c4ea6daff", null ],
+    [ "cpt", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#aa8cf781c811971f235168779e567b632", null ],
+    [ "d_threadSafeVisitor", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#adf9619ec94eea612c46b2588210e0318", null ],
+    [ "energies", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#a8b5a045d77f94cf440d65bfc91d757b0", null ],
+    [ "f_computeHamiltonian", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#a0e123fe9883e7d42ca44f9c8578bfaae", null ],
+    [ "f_explicit", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#a05fc8a6483eef2100d8769cd7fb3055c", null ],
+    [ "f_fileName", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#a3141edbb3ca97e626bd502c1febde746", null ],
+    [ "f_hamiltonianEnergy", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#a473f0474770b5d3e1b97d14022e70055", null ],
+    [ "f_newtonError", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#a4cd17907d1351962c61b6654fd4507e3", null ],
+    [ "f_newtonSteps", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#a14d052ac1014407b58137b0bf2094356", null ],
+    [ "f_rayleighMass", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#af565b3b5230c9bca0980c4223275b73a", null ],
+    [ "f_rayleighStiffness", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#a517f9b3131accdf2f53f01e06975039d", null ],
+    [ "f_saveEnergyInFile", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#a39842f1c512ff95713dd368a3d645d72", null ],
+    [ "f_useIncrementalPotentialEnergy", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#a98ec09d39ac67ad7a6e7bd1f4db8bcac", null ],
+    [ "f_verbose", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#af72ac10916cf1dc11d8496d525bb9893", null ],
+    [ "m_incrementalPotentialEnergy", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#ac4b6cb382a5bcff104a58426870554e7", null ],
+    [ "pID", "classsofa_1_1component_1_1odesolver_1_1backward_1_1_variational_symplectic_solver.html#a7f6651386b9763aaccf34fccead586d2", null ]
+];

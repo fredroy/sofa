@@ -1,0 +1,25 @@
+var classtesting_1_1_test_result =
+[
+    [ "TestResult", "classtesting_1_1_test_result.html#a434977b0f85d921ae7a2f7ae506576cf", null ],
+    [ "~TestResult", "classtesting_1_1_test_result.html#ae2816ad307720d4dbdc73941639da1de", null ],
+    [ "elapsed_time", "classtesting_1_1_test_result.html#afc30650e1ab3e777836e49831149f429", null ],
+    [ "Failed", "classtesting_1_1_test_result.html#a365c0e4f912940e9cf7d844d06986445", null ],
+    [ "GetTestPartResult", "classtesting_1_1_test_result.html#a69232817e4f6a8a13663f151131e4f90", null ],
+    [ "GetTestProperty", "classtesting_1_1_test_result.html#a7cd4340ff26d30dadbaf8e50515fbf9a", null ],
+    [ "HasFatalFailure", "classtesting_1_1_test_result.html#a4831d649ecdd7cbd910d236b73122524", null ],
+    [ "HasNonfatalFailure", "classtesting_1_1_test_result.html#ad0c4dfe3e8f81f7cd6e7e6ccdd1cb687", null ],
+    [ "Passed", "classtesting_1_1_test_result.html#aad2f13a7fb077e9e26c761dea838c160", null ],
+    [ "Skipped", "classtesting_1_1_test_result.html#aad961a122cc554ffdb5596849826a353", null ],
+    [ "start_timestamp", "classtesting_1_1_test_result.html#a04680a4b891b33f6c7a620151f1cc5d9", null ],
+    [ "test_property_count", "classtesting_1_1_test_result.html#a3be0cdbe3beab03196d76376f7c9c4bf", null ],
+    [ "total_part_count", "classtesting_1_1_test_result.html#af2b823bb2a52246eea54b164bca43ec4", null ],
+    [ "internal::DefaultGlobalTestPartResultReporter", "classtesting_1_1_test_result.html#abae39633da9932847b41cb80efd62115", null ],
+    [ "internal::ExecDeathTest", "classtesting_1_1_test_result.html#adf5553cae6aea6f8648d47e299237e34", null ],
+    [ "internal::FuchsiaDeathTest", "classtesting_1_1_test_result.html#af29d5921f68031cdfba0b28cf4b3b559", null ],
+    [ "internal::TestResultAccessor", "classtesting_1_1_test_result.html#ae762da04e74a0d3b0daded3c5bd4a8e8", null ],
+    [ "internal::UnitTestImpl", "classtesting_1_1_test_result.html#acc0a5e7573fd6ae7ad1878613bb86853", null ],
+    [ "internal::WindowsDeathTest", "classtesting_1_1_test_result.html#a6aeedc04a0590fcc1b3c5f687dbb0f9f", null ],
+    [ "TestInfo", "classtesting_1_1_test_result.html#a4c49c2cdb6c328e6b709b4542f23de3c", null ],
+    [ "TestSuite", "classtesting_1_1_test_result.html#ab9aaba231fd11196425e75caf709bfc6", null ],
+    [ "UnitTest", "classtesting_1_1_test_result.html#a832b4d233efee1a32feb0f4190b30d39", null ]
+];

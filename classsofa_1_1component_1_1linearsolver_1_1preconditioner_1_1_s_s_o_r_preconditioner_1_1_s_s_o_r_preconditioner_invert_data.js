@@ -1,0 +1,5 @@
+var classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_s_s_o_r_preconditioner_1_1_s_s_o_r_preconditioner_invert_data =
+[
+    [ "bsize", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_s_s_o_r_preconditioner_1_1_s_s_o_r_preconditioner_invert_data.html#a94c83c451883d7997e523e8c15175276", null ],
+    [ "inv_diag", "classsofa_1_1component_1_1linearsolver_1_1preconditioner_1_1_s_s_o_r_preconditioner_1_1_s_s_o_r_preconditioner_invert_data.html#a2840d60a2eec7c8bbd0ff5831fe1c9d0", null ]
+];

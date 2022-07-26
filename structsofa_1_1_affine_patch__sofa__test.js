@@ -1,0 +1,27 @@
+var structsofa_1_1_affine_patch__sofa__test =
+[
+    [ "AffineMovementConstraint", "structsofa_1_1_affine_patch__sofa__test.html#ab0762eef96901cb0d8f906101255d260", null ],
+    [ "Coord", "structsofa_1_1_affine_patch__sofa__test.html#a7c0bd56aca42d0e855a400b50f3e078b", null ],
+    [ "CPos", "structsofa_1_1_affine_patch__sofa__test.html#a4d2c9373029ecd72844b54f866ef22c1", null ],
+    [ "DataTypes", "structsofa_1_1_affine_patch__sofa__test.html#a8a2365a73a677daf966d7bb52e2fbe70", null ],
+    [ "Deriv", "structsofa_1_1_affine_patch__sofa__test.html#a705fac58c33b23c20e6bac3fd2b0bb87", null ],
+    [ "MechanicalObject", "structsofa_1_1_affine_patch__sofa__test.html#a951e5188a17fb5e1fed325b927d90854", null ],
+    [ "MeshSpringForceField", "structsofa_1_1_affine_patch__sofa__test.html#afe951b7569b23f4c3ce79b0fcfc95f49", null ],
+    [ "Quat", "structsofa_1_1_affine_patch__sofa__test.html#ad3328bdc3b0c9264a4359be38c20845a", null ],
+    [ "Real", "structsofa_1_1_affine_patch__sofa__test.html#acf523069e5b1497cffac17511dcd3b1e", null ],
+    [ "TetraForceField", "structsofa_1_1_affine_patch__sofa__test.html#a2f1c51488ea58cc1eeb167b74b0f1ec7", null ],
+    [ "Vec3", "structsofa_1_1_affine_patch__sofa__test.html#a2bd0c9064af4cb64f330bdc0182ad637", null ],
+    [ "VecCoord", "structsofa_1_1_affine_patch__sofa__test.html#a05882e2e9ba8d707ab531ab94a1f39e0", null ],
+    [ "VecDeriv", "structsofa_1_1_affine_patch__sofa__test.html#a83fb2b666b4e514e93d3bb221aa681ef", null ],
+    [ "compareSimulatedToTheoreticalPositions", "structsofa_1_1_affine_patch__sofa__test.html#ac76e5c72c02d9318fd99b9d64248ac03", null ],
+    [ "createScene2DRegularGrid", "structsofa_1_1_affine_patch__sofa__test.html#a49fe0c166138955005db7bef1fbbf9e9", null ],
+    [ "createScene3DRegularGrid", "structsofa_1_1_affine_patch__sofa__test.html#aca002ef1880d59e2fd5701fdd55c35d8", null ],
+    [ "setRotation", "structsofa_1_1_affine_patch__sofa__test.html#a31d276d907f5398b941aa73740219627", null ],
+    [ "setTranslation", "structsofa_1_1_affine_patch__sofa__test.html#aad75eef00a2f8240ce0c59e673ee0d54", null ],
+    [ "SetUp", "structsofa_1_1_affine_patch__sofa__test.html#a1b06560e0e01a806b92c2386220d0b57", null ],
+    [ "patchStruct", "structsofa_1_1_affine_patch__sofa__test.html#a63117f337a9fe960ffcd1a00048c8e34", null ],
+    [ "root", "structsofa_1_1_affine_patch__sofa__test.html#ae4921ba1b53a64ac407621370dec9883", null ],
+    [ "simulation", "structsofa_1_1_affine_patch__sofa__test.html#a89530560649ee50f2a37b34839a0da33", null ],
+    [ "testedRotation", "structsofa_1_1_affine_patch__sofa__test.html#a84761cdcab487b0b63e80319542ea24a", null ],
+    [ "testedTranslation", "structsofa_1_1_affine_patch__sofa__test.html#a70b7961f90fef2b7e131de69a74cb2ce", null ]
+];

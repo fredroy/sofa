@@ -1,0 +1,35 @@
+var namespacesofa_1_1type =
+[
+    [ "trait", null, [
+      [ "is_container", "structsofa_1_1type_1_1trait_1_1is__container.html", "structsofa_1_1type_1_1trait_1_1is__container" ],
+      [ "is_vector", "structsofa_1_1type_1_1trait_1_1is__vector.html", "structsofa_1_1type_1_1trait_1_1is__vector" ]
+    ] ],
+    [ "BoundingBox", "classsofa_1_1type_1_1_bounding_box.html", "classsofa_1_1type_1_1_bounding_box" ],
+    [ "BoundingBox1D", "classsofa_1_1type_1_1_bounding_box1_d.html", "classsofa_1_1type_1_1_bounding_box1_d" ],
+    [ "BoundingBox2D", "classsofa_1_1type_1_1_bounding_box2_d.html", "classsofa_1_1type_1_1_bounding_box2_d" ],
+    [ "CPUMemoryManager", "classsofa_1_1type_1_1_c_p_u_memory_manager.html", null ],
+    [ "DualQuatCoord3", "classsofa_1_1type_1_1_dual_quat_coord3.html", "classsofa_1_1type_1_1_dual_quat_coord3" ],
+    [ "fixed_array", "classsofa_1_1type_1_1fixed__array.html", "classsofa_1_1type_1_1fixed__array" ],
+    [ "Frame", "classsofa_1_1type_1_1_frame.html", "classsofa_1_1type_1_1_frame" ],
+    [ "HasRebindTypedef", "structsofa_1_1type_1_1_has_rebind_typedef.html", null ],
+    [ "HasRebindTypedef< T, OtherType, std::void_t< typename T::template rebind_to< OtherType > > >", "structsofa_1_1type_1_1_has_rebind_typedef_3_01_t_00_01_other_type_00_01std_1_1void__t_3_01typena38b5e66e762bce55947455e96e15d75f.html", null ],
+    [ "Mat", "classsofa_1_1type_1_1_mat.html", "classsofa_1_1type_1_1_mat" ],
+    [ "Material", "classsofa_1_1type_1_1_material.html", "classsofa_1_1type_1_1_material" ],
+    [ "MatNoInit", "classsofa_1_1type_1_1_mat_no_init.html", "classsofa_1_1type_1_1_mat_no_init" ],
+    [ "MatSym", "classsofa_1_1type_1_1_mat_sym.html", "classsofa_1_1type_1_1_mat_sym" ],
+    [ "NoInit", "structsofa_1_1type_1_1_no_init.html", null ],
+    [ "PrimitiveGroup", "classsofa_1_1type_1_1_primitive_group.html", "classsofa_1_1type_1_1_primitive_group" ],
+    [ "Quat", "classsofa_1_1type_1_1_quat.html", "classsofa_1_1type_1_1_quat" ],
+    [ "Ray", "classsofa_1_1type_1_1_ray.html", "classsofa_1_1type_1_1_ray" ],
+    [ "Rebind", "structsofa_1_1type_1_1_rebind.html", null ],
+    [ "Rebind< _T, _OtherType, std::enable_if_t< HasRebindTypedef< _T, _OtherType >::value > >", "structsofa_1_1type_1_1_rebind_3_01___t_00_01___other_type_00_01std_1_1enable__if__t_3_01_has_reb8e9d62ed375db9ee17b8bc133eaf40e5.html", "structsofa_1_1type_1_1_rebind_3_01___t_00_01___other_type_00_01std_1_1enable__if__t_3_01_has_reb8e9d62ed375db9ee17b8bc133eaf40e5" ],
+    [ "Rebind< _T, _OtherType, std::enable_if_t<!HasRebindTypedef< _T, _OtherType >::value > >", "structsofa_1_1type_1_1_rebind_3_01___t_00_01___other_type_00_01std_1_1enable__if__t_3_9_has_rebi365dd689ec88fe5a7e84777cbc666289.html", null ],
+    [ "Rebind< _T< A >, _OtherType, std::enable_if_t<!HasRebindTypedef< _T< A >, _OtherType >::value > >", "structsofa_1_1type_1_1_rebind_3_01___t_3_01_a_01_4_00_01___other_type_00_01std_1_1enable__if__t_eea9601ede5d8ab24117f4ce756772cb.html", "structsofa_1_1type_1_1_rebind_3_01___t_3_01_a_01_4_00_01___other_type_00_01std_1_1enable__if__t_eea9601ede5d8ab24117f4ce756772cb" ],
+    [ "RGBAColor", "classsofa_1_1type_1_1_r_g_b_a_color.html", "classsofa_1_1type_1_1_r_g_b_a_color" ],
+    [ "SVector", "classsofa_1_1type_1_1_s_vector.html", "classsofa_1_1type_1_1_s_vector" ],
+    [ "TBoundingBox", "classsofa_1_1type_1_1_t_bounding_box.html", "classsofa_1_1type_1_1_t_bounding_box" ],
+    [ "Vec", "classsofa_1_1type_1_1_vec.html", "classsofa_1_1type_1_1_vec" ],
+    [ "VecNoInit", "classsofa_1_1type_1_1_vec_no_init.html", "classsofa_1_1type_1_1_vec_no_init" ],
+    [ "vector", "classsofa_1_1type_1_1vector.html", "classsofa_1_1type_1_1vector" ],
+    [ "vector_device", "classsofa_1_1type_1_1vector__device.html", "classsofa_1_1type_1_1vector__device" ]
+];

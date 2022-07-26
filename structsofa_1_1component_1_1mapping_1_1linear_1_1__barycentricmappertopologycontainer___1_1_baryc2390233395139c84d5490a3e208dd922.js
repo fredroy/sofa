@@ -1,0 +1,7 @@
+var structsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmappertopologycontainer___1_1_baryc2390233395139c84d5490a3e208dd922 =
+[
+    [ "NearestParams", "structsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmappertopologycontainer___1_1_baryc2390233395139c84d5490a3e208dd922.html#afc500b6af9b93b65858bfcd10b19e7cd", null ],
+    [ "baryCoords", "structsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmappertopologycontainer___1_1_baryc2390233395139c84d5490a3e208dd922.html#a3801647b12ab98d462e11bf20bed1f18", null ],
+    [ "distance", "structsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmappertopologycontainer___1_1_baryc2390233395139c84d5490a3e208dd922.html#ae4c9ee2e62a0d361965edc747dd65832", null ],
+    [ "elementId", "structsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmappertopologycontainer___1_1_baryc2390233395139c84d5490a3e208dd922.html#a31326893b56ce3615f0435aa13bbe5da", null ]
+];

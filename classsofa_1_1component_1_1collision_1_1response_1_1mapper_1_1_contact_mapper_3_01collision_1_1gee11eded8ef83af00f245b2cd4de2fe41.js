@@ -1,0 +1,7 @@
+var classsofa_1_1component_1_1collision_1_1response_1_1mapper_1_1_contact_mapper_3_01collision_1_1gee11eded8ef83af00f245b2cd4de2fe41 =
+[
+    [ "Coord", "classsofa_1_1component_1_1collision_1_1response_1_1mapper_1_1_contact_mapper_3_01collision_1_1gee11eded8ef83af00f245b2cd4de2fe41.html#a7c0bd56aca42d0e855a400b50f3e078b", null ],
+    [ "Index", "classsofa_1_1component_1_1collision_1_1response_1_1mapper_1_1_contact_mapper_3_01collision_1_1gee11eded8ef83af00f245b2cd4de2fe41.html#a34485df4864136107fd830e23695986c", null ],
+    [ "Real", "classsofa_1_1component_1_1collision_1_1response_1_1mapper_1_1_contact_mapper_3_01collision_1_1gee11eded8ef83af00f245b2cd4de2fe41.html#acf523069e5b1497cffac17511dcd3b1e", null ],
+    [ "addPoint", "classsofa_1_1component_1_1collision_1_1response_1_1mapper_1_1_contact_mapper_3_01collision_1_1gee11eded8ef83af00f245b2cd4de2fe41.html#a6b8e86c97afc1eb73bf79a066cc37e54", null ]
+];

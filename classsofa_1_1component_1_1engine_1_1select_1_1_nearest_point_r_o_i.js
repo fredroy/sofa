@@ -1,0 +1,28 @@
+var classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i =
+[
+    [ "Coord", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a7c0bd56aca42d0e855a400b50f3e078b", null ],
+    [ "DataVecCoord", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a7998e92a0b17a659f7f599dcf3699802", null ],
+    [ "DataVecDeriv", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a6a4824d1b6cc205b5eed7e17ec0748e4", null ],
+    [ "Deriv", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a705fac58c33b23c20e6bac3fd2b0bb87", null ],
+    [ "Real", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#acf523069e5b1497cffac17511dcd3b1e", null ],
+    [ "SetIndex", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a2a7c8a6ca027d2bce4a97fdf293552d7", null ],
+    [ "SetIndexArray", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a15959abb90a4d935ed692ccab21ec1f5", null ],
+    [ "VecCoord", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a05882e2e9ba8d707ab531ab94a1f39e0", null ],
+    [ "VecDeriv", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a83fb2b666b4e514e93d3bb221aa681ef", null ],
+    [ "NearestPointROI", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#ab3a27aea79ee1fc50e52adc82dd10448", null ],
+    [ "~NearestPointROI", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a53aec7595995a916a0006f4560ca7101", null ],
+    [ "computeNearestPointMaps", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a184b859c14dd5336f512bcd6217bfe52", null ],
+    [ "doUpdate", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a4daa2dc990606f6f13a82f619a13358a", null ],
+    [ "init", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#ad72eef1561c7a53b19b048397d4ef570", null ],
+    [ "reinit", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#ab1094b915e637faa84817a097d8d87be", null ],
+    [ "SOFA_CLASS2", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a0ebd2660646844ddcd13de12f4743b72", null ],
+    [ "d_distances", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#aba64fda58d46abbc4282cc998b79dcb3", null ],
+    [ "d_edges", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#ae5e8b1119f740e9757874ca6aabda9ee", null ],
+    [ "d_indexPairs", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a16b8764a9d1b884aa198e99a787eb0f3", null ],
+    [ "d_inputIndices1", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a918f41a9c406f34a153edae50e55ce8a", null ],
+    [ "d_inputIndices2", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a4b0461bd7a77d63b56bac324b2ab1fad", null ],
+    [ "d_useRestPosition", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#aa7e356cdc64b2a9eccb6b36fd5bd7ecf", null ],
+    [ "f_indices1", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a2b87958adb0ce4bf70f2dac20d44622d", null ],
+    [ "f_indices2", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#aa7f83ee655703f3b3baf0e679296a941", null ],
+    [ "f_radius", "classsofa_1_1component_1_1engine_1_1select_1_1_nearest_point_r_o_i.html#a9d5a894a2a085cf3fdc3b6f4a8185a1a", null ]
+];

@@ -1,0 +1,28 @@
+var classsofa_1_1core_1_1objectmodel_1_1_base_object_description =
+[
+    [ "Attribute", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description_1_1_attribute.html", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description_1_1_attribute" ],
+    [ "AttributeMap", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#ab6ac6402c5e8a43d603de3e9b6d4fed6", null ],
+    [ "BaseObjectDescription", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#a1953e0cc930928c0be5006c5df98b06b", null ],
+    [ "~BaseObjectDescription", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#acf35793162a00379c09bc9115b31ae48", null ],
+    [ "clearErrors", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#af3fba372d9e93e2967a49757a80d12bd", null ],
+    [ "find", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#a9fe9275883bc52896fad760533f902da", null ],
+    [ "findObject", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#a5af239cdffc22e07801c89c8f5fbf66e", null ],
+    [ "getAttribute", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#adf7a5defb1f42f9220aa42b039af1bbe", null ],
+    [ "getAttributeAsFloat", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#a0d426a9ad540925638e1aa98c9634836", null ],
+    [ "getAttributeAsInt", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#ab6e13ca7253fb1a5bedae82444820019", null ],
+    [ "getAttributeList", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#ace4c2d2956bbb5de9a99bb58a1ba4172", null ],
+    [ "getAttributeMap", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#aa669e13031d25208426746e3520182b5", null ],
+    [ "getBaseFile", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#a2f1bc7c3add7a40b870c7e2f56712292", null ],
+    [ "getErrors", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#a726f50256b2bce469f12ca4af1a3f291", null ],
+    [ "getFullName", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#ab7d808baae88de4fc36a4d8b86a5b553", null ],
+    [ "getName", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#ac0fc966d4386ddb71d99361e3fccb311", null ],
+    [ "getObject", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#ab998e760857ddce31af73c904f2575aa", null ],
+    [ "getParent", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#a5b7ac79b67b7e1a27ae19395ad335863", null ],
+    [ "logError", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#a18bfc2da2b534c3c032a8f970f9e824e", null ],
+    [ "logErrors", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#a2ff08764a751e6bdc3f67551fb6f3e24", null ],
+    [ "removeAttribute", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#ab40d0a2ca5aa2ae8a0786c65ea49dd1a", null ],
+    [ "setAttribute", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#a6781ff97871fcb609dedc902c4dbf28c", null ],
+    [ "setName", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#a9d3a2685df23b5e7cbf59c19c4a1f9b5", null ],
+    [ "attributes", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#a06a003a8a7fc812a46a0fb4a19c11a6d", null ],
+    [ "errors", "classsofa_1_1core_1_1objectmodel_1_1_base_object_description.html#aef57bef31b148fcd6f5df26f1a103650", null ]
+];

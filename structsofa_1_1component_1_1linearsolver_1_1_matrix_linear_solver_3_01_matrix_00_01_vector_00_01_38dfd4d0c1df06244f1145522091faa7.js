@@ -1,0 +1,11 @@
+var structsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_3_01_matrix_00_01_vector_00_01_38dfd4d0c1df06244f1145522091faa7 =
+[
+    [ "LinearSystemData", "structsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_3_01_matrix_00_01_vector_00_01_38dfd4d0c1df06244f1145522091faa7.html#ac08163bd0db04dfd6fab285ff29afb61", null ],
+    [ "~LinearSystemData", "structsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_3_01_matrix_00_01_vector_00_01_38dfd4d0c1df06244f1145522091faa7.html#a2f144ac37f118ff413add66644defee4", null ],
+    [ "matrixAccessor", "structsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_3_01_matrix_00_01_vector_00_01_38dfd4d0c1df06244f1145522091faa7.html#aa97cc906302774ef7d597f83e710fdd6", null ],
+    [ "needInvert", "structsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_3_01_matrix_00_01_vector_00_01_38dfd4d0c1df06244f1145522091faa7.html#ae7d4ef3cfba2c60116e64ccfac163e96", null ],
+    [ "solutionVecId", "structsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_3_01_matrix_00_01_vector_00_01_38dfd4d0c1df06244f1145522091faa7.html#abd5b68959e6b97d46225663b9c522a38", null ],
+    [ "systemLHVector", "structsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_3_01_matrix_00_01_vector_00_01_38dfd4d0c1df06244f1145522091faa7.html#a165313223fe364da00123b0cceedc031", null ],
+    [ "systemMatrix", "structsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_3_01_matrix_00_01_vector_00_01_38dfd4d0c1df06244f1145522091faa7.html#ab2da284070f4bf87d914aad2109b7e29", null ],
+    [ "systemRHVector", "structsofa_1_1component_1_1linearsolver_1_1_matrix_linear_solver_3_01_matrix_00_01_vector_00_01_38dfd4d0c1df06244f1145522091faa7.html#ab6578a74c86194f5e248106aaee39d4d", null ]
+];

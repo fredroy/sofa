@@ -1,0 +1,25 @@
+var classsofa_1_1helper_1_1kd_tree =
+[
+    [ "TREENODE", "structsofa_1_1helper_1_1kd_tree_1_1_t_r_e_e_n_o_d_e.html", "structsofa_1_1helper_1_1kd_tree_1_1_t_r_e_e_n_o_d_e" ],
+    [ "distanceSet", "classsofa_1_1helper_1_1kd_tree.html#afea501625e59c8c418858740d4199432", null ],
+    [ "distanceSetIt", "classsofa_1_1helper_1_1kd_tree.html#a68526c0171c3a43aaed6c4cc32894571", null ],
+    [ "distanceToPoint", "classsofa_1_1helper_1_1kd_tree.html#ab8b60820be62bedeba02d7e271092cea", null ],
+    [ "Real", "classsofa_1_1helper_1_1kd_tree.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1", null ],
+    [ "UIlist", "classsofa_1_1helper_1_1kd_tree.html#aef7779a704fe3207991591944b7c97f1", null ],
+    [ "VecCoord", "classsofa_1_1helper_1_1kd_tree.html#a06eb712afb67c0ee7c25eb52a2f5cf5f", null ],
+    [ "dim", "classsofa_1_1helper_1_1kd_tree.html#ae07532c74c7e685988e820f34d132fc1adab4fc5cf28f3e6da4c0cbec125fce6f", null ],
+    [ "build", "classsofa_1_1helper_1_1kd_tree.html#a1e3e8a3d7795a83f89685aad15feaec1", null ],
+    [ "build", "classsofa_1_1helper_1_1kd_tree.html#aa6931e456d5c10415b6d9a229510e2fd", null ],
+    [ "build", "classsofa_1_1helper_1_1kd_tree.html#ae31cd86aba17ed90b22791324a0611e7", null ],
+    [ "closest", "classsofa_1_1helper_1_1kd_tree.html#ac03ae8f3fe9c46f542e3c7f43d2d04d6", null ],
+    [ "closest", "classsofa_1_1helper_1_1kd_tree.html#ad0d9ee7152c0e7d39b85e015b253bb49", null ],
+    [ "getClosest", "classsofa_1_1helper_1_1kd_tree.html#af8e1c3c3e38112f46f8d34fc881d57ed", null ],
+    [ "getNClosest", "classsofa_1_1helper_1_1kd_tree.html#a4c48005528b38c3c7d5317102fe5b98f", null ],
+    [ "getNClosestCached", "classsofa_1_1helper_1_1kd_tree.html#ad0cf73baa16cc415142d51a35e6722d6", null ],
+    [ "isEmpty", "classsofa_1_1helper_1_1kd_tree.html#acf82f9b2937375c7b1cf3dccb3df3312", null ],
+    [ "print", "classsofa_1_1helper_1_1kd_tree.html#abbd802619061fe3aba147839b8e2401c", null ],
+    [ "operator<<", "classsofa_1_1helper_1_1kd_tree.html#a29a1299e774806c4c423e05ae2559e05", null ],
+    [ "operator>>", "classsofa_1_1helper_1_1kd_tree.html#aef68a8e7a795d4ab8e65f68211148aef", null ],
+    [ "firstNode", "classsofa_1_1helper_1_1kd_tree.html#a5312b702dd05f250bf9a36668f0f1224", null ],
+    [ "tree", "classsofa_1_1helper_1_1kd_tree.html#a426eea4078ce8c30f5a9047633d16075", null ]
+];

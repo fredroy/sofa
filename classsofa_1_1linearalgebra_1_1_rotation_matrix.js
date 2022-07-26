@@ -1,0 +1,27 @@
+var classsofa_1_1linearalgebra_1_1_rotation_matrix =
+[
+    [ "Real", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a032e30a7559178ebc4240c12ef02ec56", null ],
+    [ "add", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a16d80da57f0e343d11d20f780a93a0fe", null ],
+    [ "add", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#ab632b3f9a088b6c6a58b894d4d7722c7", null ],
+    [ "add", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a66c4b16b840da9378bc7fa8bf31e31d8", null ],
+    [ "add", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a4f82fde85a2bc37d40a3ed8f20ee0f8e", null ],
+    [ "add", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a0f7edd704c8f67d11464be8d7158f233", null ],
+    [ "add", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#aa121ad039151137234e557ba77cabe1a", null ],
+    [ "clear", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#aee7cb2065b88d21ac4ad05bc997ecf82", null ],
+    [ "colSize", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a135aee5272749dbd949877ab709bb2a8", null ],
+    [ "element", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a073c1b0d6b40c56bd6b00b932f5a6973", null ],
+    [ "getVector", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#ae07f84d30cd9b99e949d6825aa687e15", null ],
+    [ "Name", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
+    [ "Name", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
+    [ "Name", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
+    [ "Name", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a968e31974ecb428f7eb7cf7030cf4fd3", null ],
+    [ "opMulTM", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#aef4131b6fd0806db6a79948f9f422cc4", null ],
+    [ "opMulTV", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a36a387f205b6e606c33fcd0f6fd3f003", null ],
+    [ "opMulV", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#af945d37b07ba19d948e6cce615c6d82f", null ],
+    [ "resize", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#ae33a83890cd4ac0b30225265b4f0e571", null ],
+    [ "rotateMatrix", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a8f0426ad9741450750e5ac0d367336b3", null ],
+    [ "rowSize", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a51fae5a7f8f08fb5f8f35cdf80ff444e", null ],
+    [ "set", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#abc24016dd68809d83d6f79149f4fa73b", null ],
+    [ "setIdentity", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a382e6ad7e6721b121e510959e1011be3", null ],
+    [ "data", "classsofa_1_1linearalgebra_1_1_rotation_matrix.html#a6006dbce878f95aa7670caca8c006e95", null ]
+];

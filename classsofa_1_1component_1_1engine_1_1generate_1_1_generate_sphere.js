@@ -1,0 +1,38 @@
+var classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere =
+[
+    [ "Coord", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a7c0bd56aca42d0e855a400b50f3e078b", null ],
+    [ "Edge", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#abbb0297f8cba0c06cc36a8737050f8d1", null ],
+    [ "PointID", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a1d0313b87654866c500388bd8f8a5846", null ],
+    [ "Real", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#acf523069e5b1497cffac17511dcd3b1e", null ],
+    [ "SeqTetrahedra", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a985659c1e3210c20f4302a39900311c0", null ],
+    [ "SeqTriangles", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a4babb6186c6ca69b365118138b808c6c", null ],
+    [ "Tetrahedron", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#aef23cfcfde0dfeacfbac386e78d3bd75", null ],
+    [ "Triangle", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#ab05e7d6c5f3ad1602651a65d469a7e95", null ],
+    [ "VecCoord", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a05882e2e9ba8d707ab531ab94a1f39e0", null ],
+    [ "PlatonicTriangulation", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#af38b679ce2fef26fd473a2cb7314fe0c", [
+      [ "TETRAHEDRON", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#af38b679ce2fef26fd473a2cb7314fe0cad447314c433c39f567ca6bd240eae16a", null ],
+      [ "OCTAHEDRON", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#af38b679ce2fef26fd473a2cb7314fe0ca78a1245ff782a53cf70de087dadabfcc", null ],
+      [ "ICOSAHEDRON", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#af38b679ce2fef26fd473a2cb7314fe0cabc9df5227e05f5d083273742a9212137", null ]
+    ] ],
+    [ "GenerateSphere", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#af38161a05de70eb8e31a858a32a8c3b5", null ],
+    [ "~GenerateSphere", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#aca5fac6b383270f24bd998a5ea7342f8", null ],
+    [ "doUpdate", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a4daa2dc990606f6f13a82f619a13358a", null ],
+    [ "init", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#ad72eef1561c7a53b19b048397d4ef570", null ],
+    [ "reinit", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#ab1094b915e637faa84817a097d8d87be", null ],
+    [ "SOFA_CLASS", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a559d2e51bd4a59065a9b40db8ac6228a", null ],
+    [ "f_bezierTetrahedronDegree", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a24a45ff08af5ae08a233c872e6856eaa", null ],
+    [ "f_bezierTetrahedronWeight", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a454d9ec1c9810baaf024b6a706858ffa", null ],
+    [ "f_bezierTriangleDegree", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a6579fccc6b23b4afd2d5e0072e41b5ad", null ],
+    [ "f_bezierTriangleWeight", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a5b1db6356663f0c7129861917a5bbce2", null ],
+    [ "f_isBezierTetrahedronRational", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a77f7c56eddb57b18c3fc9a7aac282571", null ],
+    [ "f_isBezierTriangleRational", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a019c696f6671fe246469f9235dfdeea0", null ],
+    [ "f_origin", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a79b55f0b4526e11f1c22b137dc9fe6d9", null ],
+    [ "f_outputTetrahedraPositions", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a5072bd10d8625e486f1392064a7539fc", null ],
+    [ "f_outputTrianglesPositions", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a554480c958257dbe023f0687e876121a", null ],
+    [ "f_platonicSolidName", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a3beac211c0bdc4a871f2b8eedc00a189", null ],
+    [ "f_radius", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a01789701db533440b886733d8aab9031", null ],
+    [ "f_tessellationDegree", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a809958c560342d4dd4e9e68b4f2b704b", null ],
+    [ "f_tetrahedra", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#aa98b3017246d27ddbff5d958df08270c", null ],
+    [ "f_triangles", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#afb14be41b36b2fc5ea37e41010e9c43e", null ],
+    [ "platonicSolid", "classsofa_1_1component_1_1engine_1_1generate_1_1_generate_sphere.html#a9826d424123fd3d38d36d824c6eadcb9", null ]
+];

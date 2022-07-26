@@ -1,0 +1,26 @@
+var classsofa_1_1gui_1_1common_1_1_incise_operation =
+[
+    [ "InciseOperation", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a3ccc86d1f5071509983e3136a06d4d5a", null ],
+    [ "~InciseOperation", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a460a3d2ce75dbc8936745dcb51b26ea5", null ],
+    [ "end", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a64e9fa75beda50a9e8400ee0d4e61984", null ],
+    [ "endOperation", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a026e8bc7a84ac1b61300ad12472a5c26", null ],
+    [ "execution", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#ae97970bafcb6d9a09aebb6f889f7c164", null ],
+    [ "getCompleteIncision", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#aeb4e731c319a3b2f291a9b753afa48cf", null ],
+    [ "getIncisionMethod", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a7e35132a0b20bffb027af101c23bc7c8", null ],
+    [ "getKeepPoint", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#afe33d25d744c17dbf7dab1c852e6853d", null ],
+    [ "getSnapingBorderValue", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#ac108ea15188f5adc41cf8f8f2d99514f", null ],
+    [ "getSnapingValue", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#ad499c296f11c0caf4788abc548c9c06e", null ],
+    [ "setCompleteIncision", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a334a1112c1f2c00e5b3c78f790c3581c", null ],
+    [ "setIncisionMethod", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#adef99383e9d6bcfc2996bc9b35753480", null ],
+    [ "setKeepPoint", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a455869cbb04b7d009e3f48c3e59b6965", null ],
+    [ "setSnapingBorderValue", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a39ec1c14d55bb05e88b6ea9d720c321e", null ],
+    [ "setSnapingValue", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a47222e7315248b8565d5e4e1d769112a", null ],
+    [ "start", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a5d5d9ebd12cd3a7d268bc98a3fc7bf97", null ],
+    [ "cpt", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#aa8cf781c811971f235168779e567b632", null ],
+    [ "finishIncision", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#afece6b175a8595881f0355fd370ab086", null ],
+    [ "keepPoint", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a3d85fc69be77f0e82a6771af7debac26", null ],
+    [ "method", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#adcc9a19ad3119f823a658f6a49a24e64", null ],
+    [ "snapingBorderValue", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a83ab2b085bc2167c12634644af413364", null ],
+    [ "snapingValue", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a91372f7321ff448c3154aa2fccdc4ca9", null ],
+    [ "startPerformer", "classsofa_1_1gui_1_1common_1_1_incise_operation.html#a7e868581cdc70079f42c3fe3a9a9c06c", null ]
+];
