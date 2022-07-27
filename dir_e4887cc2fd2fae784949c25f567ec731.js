@@ -19,9 +19,7 @@ var dir_e4887cc2fd2fae784949c25f567ec731 =
       [ "BaseMechanicalVisitor", "classsofa_1_1simulation_1_1_base_mechanical_visitor.html", "classsofa_1_1simulation_1_1_base_mechanical_visitor" ]
     ] ],
     [ "BaseSimulationExporter.cpp", "_base_simulation_exporter_8cpp.html", null ],
-    [ "BaseSimulationExporter.h", "_base_simulation_exporter_8h.html", [
-      [ "BaseSimulationExporter", "classsofa_1_1simulation_1_1__basesimulationexporter___1_1_base_simulation_exporter.html", "classsofa_1_1simulation_1_1__basesimulationexporter___1_1_base_simulation_exporter" ]
-    ] ],
+    [ "BaseSimulationExporter.h", "_base_simulation_exporter_8h.html", null ],
     [ "BehaviorUpdatePositionVisitor.cpp", "_behavior_update_position_visitor_8cpp.html", null ],
     [ "BehaviorUpdatePositionVisitor.h", "_behavior_update_position_visitor_8h.html", [
       [ "BehaviorUpdatePositionVisitor", "classsofa_1_1simulation_1_1_behavior_update_position_visitor.html", "classsofa_1_1simulation_1_1_behavior_update_position_visitor" ]

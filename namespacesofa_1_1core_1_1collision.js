@@ -10,6 +10,8 @@ var namespacesofa_1_1core_1_1collision =
     [ "Detection", "classsofa_1_1core_1_1collision_1_1_detection.html", "classsofa_1_1core_1_1collision_1_1_detection" ],
     [ "DetectionOutput", "classsofa_1_1core_1_1collision_1_1_detection_output.html", "classsofa_1_1core_1_1collision_1_1_detection_output" ],
     [ "DetectionOutputVector", "classsofa_1_1core_1_1collision_1_1_detection_output_vector.html", "classsofa_1_1core_1_1collision_1_1_detection_output_vector" ],
+    [ "DummyDetectionOutputVector", "classsofa_1_1core_1_1collision_1_1_dummy_detection_output_vector.html", "classsofa_1_1core_1_1collision_1_1_dummy_detection_output_vector" ],
+    [ "DummyNarrowPhaseDetection", "classsofa_1_1core_1_1collision_1_1_dummy_narrow_phase_detection.html", "classsofa_1_1core_1_1collision_1_1_dummy_narrow_phase_detection" ],
     [ "ElementIntersector", "classsofa_1_1core_1_1collision_1_1_element_intersector.html", "classsofa_1_1core_1_1collision_1_1_element_intersector" ],
     [ "Intersection", "classsofa_1_1core_1_1collision_1_1_intersection.html", "classsofa_1_1core_1_1collision_1_1_intersection" ],
     [ "IntersectorCreator", "classsofa_1_1core_1_1collision_1_1_intersector_creator.html", "classsofa_1_1core_1_1collision_1_1_intersector_creator" ],

@@ -1,7 +1,6 @@
 var functions_rela =
 [
-    [ ":", "functions_rela.html", null ],
-    [ "a", "functions_rela_a.html", null ],
+    [ "a", "functions_rela.html", null ],
     [ "b", "functions_rela_b.html", null ],
     [ "c", "functions_rela_c.html", null ],
     [ "d", "functions_rela_d.html", null ],

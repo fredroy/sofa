@@ -6,7 +6,7 @@ var classsofa_1_1linearalgebra_1_1_bloc_full_matrix =
     [ "SOFA_ATTRIBUTE_DEPRECATED__BLOCK_RENAMING_2404", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#a0544e0a46644e34f7b80666071820eac", null ],
     [ "SOFA_ATTRIBUTE_DEPRECATED__BLOCK_RENAMING_2404", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#af23ddddb58ad366c55a8e38f98af40cb", null ],
     [ "SubMatrixType", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#a23376d1a8fa7ddab949f5268708efaaf", null ],
-    [ "BSIZE", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#a5ff73139485369f629981d087e744c90a965eb801509a30d40b08d9b988edf820", null ],
+    [ "BSIZE", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#a82f2c6e4d47f62f6b65c5887eb096fd5a965eb801509a30d40b08d9b988edf820", null ],
     [ "BlocFullMatrix", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#a9978a855c83ad7af9eebe675dbe64680", null ],
     [ "BlocFullMatrix", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#adf1b27c93383648593c193db313331b8", null ],
     [ "~BlocFullMatrix", "classsofa_1_1linearalgebra_1_1_bloc_full_matrix.html#a217329e897b307abd5b4dfe3e7907582", null ],

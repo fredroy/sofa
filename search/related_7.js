@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['gearspringforcefieldinternaldata_3c_20datatypes_20_3e_41528',['GearSpringForceFieldInternalData&lt; DataTypes &gt;',['../classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_gear_spring_force_field.html#acf34dbfeca443568b61902cd19a902fe',1,'sofa::component::solidmechanics::spring::GearSpringForceField']]],
-  ['genericconstraintsolver_41529',['GenericConstraintSolver',['../classsofa_1_1component_1_1constraint_1_1lagrangian_1_1solver_1_1_generic_constraint_solver_1_1_compute_compliance_task.html#a9fb665789eb8c14e68766891acdd8e97',1,'sofa::component::constraint::lagrangian::solver::GenericConstraintSolver::ComputeComplianceTask']]],
-  ['getdownobjectsvisitor_41530',['GetDownObjectsVisitor',['../classsofa_1_1simulation_1_1graph_1_1_d_a_g_node.html#a42c12ab9a507c7748f7f8c8213f8a599',1,'sofa::simulation::graph::DAGNode']]],
-  ['getupobjectsvisitor_41531',['GetUpObjectsVisitor',['../classsofa_1_1simulation_1_1graph_1_1_d_a_g_node.html#ac277ecf3d29ce71830d559ff0f011a8e',1,'sofa::simulation::graph::DAGNode']]],
-  ['graphhistorymanager_41532',['GraphHistoryManager',['../classsofa_1_1gui_1_1qt_1_1_q_display_property_widget.html#ada486e158e8e64bcb323719cd0488415',1,'sofa::gui::qt::QDisplayPropertyWidget']]],
-  ['graphscatteredmatrix_41533',['GraphScatteredMatrix',['../classsofa_1_1component_1_1linearsolver_1_1_graph_scattered_vector.html#a1ffe321877e7457116e3870f70b3e2b4',1,'sofa::component::linearsolver::GraphScatteredVector']]],
-  ['gridupdate_41534',['GridUpdate',['../classsofa_1_1component_1_1topology_1_1container_1_1grid_1_1_grid_topology.html#a2c7180192bf73d66087993c29f7388ca',1,'sofa::component::topology::container::grid::GridTopology']]]
+  ['hexahedronfemforcefieldinternaldata_3c_20datatypes_20_3e_39009',['HexahedronFEMForceFieldInternalData&lt; DataTypes &gt;',['../classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_hexahedron_f_e_m_force_field.html#a874d89628145ca3a938b1e68d7f4fe3b',1,'sofa::component::solidmechanics::fem::elastic::HexahedronFEMForceField']]],
+  ['hexahedronsetgeometryalgorithms_39010',['HexahedronSetGeometryAlgorithms',['../classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_hexahedron_set_topology_modifier.html#a913e7bffb74c3038bfb8d3c5e932d365',1,'sofa::component::topology::container::dynamic::HexahedronSetTopologyModifier']]],
+  ['hexahedronsettopologymodifier_39011',['HexahedronSetTopologyModifier',['../classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_hexahedron_set_topology_container.html#ae2a2c8f96e8f6cc529a0393e00b205ef',1,'sofa::component::topology::container::dynamic::HexahedronSetTopologyContainer']]]
 ];

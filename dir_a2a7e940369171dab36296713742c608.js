@@ -4,8 +4,8 @@ var dir_a2a7e940369171dab36296713742c608 =
     [ "BaseCamera.h", "_visual_2src_2sofa_2component_2visual_2_base_camera_8h.html", [
       [ "BaseCamera", "classsofa_1_1component_1_1visual_1_1_base_camera.html", "classsofa_1_1component_1_1visual_1_1_base_camera" ]
     ] ],
-    [ "Camera.cpp", "_component_2_visual_2src_2sofa_2component_2visual_2_camera_8cpp.html", "_component_2_visual_2src_2sofa_2component_2visual_2_camera_8cpp" ],
-    [ "Camera.h", "_component_2_visual_2src_2sofa_2component_2visual_2_camera_8h.html", [
+    [ "Camera.cpp", "_camera_8cpp.html", "_camera_8cpp" ],
+    [ "Camera.h", "_visual_2src_2sofa_2component_2visual_2_camera_8h.html", [
       [ "Camera", "classsofa_1_1component_1_1visual_1_1_camera.html", "classsofa_1_1component_1_1visual_1_1_camera" ]
     ] ],
     [ "init.cpp", "_component_2_visual_2src_2sofa_2component_2visual_2init_8cpp.html", "_component_2_visual_2src_2sofa_2component_2visual_2init_8cpp" ],

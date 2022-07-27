@@ -6,10 +6,8 @@ var dir_445cdd0c084156f8597ce19177e7c7e4 =
       [ "AddDataRepository", "classsofa_1_1component_1_1sceneutility_1_1_add_data_repository.html", "classsofa_1_1component_1_1sceneutility_1_1_add_data_repository" ],
       [ "AddPluginRepository", "classsofa_1_1component_1_1sceneutility_1_1_add_plugin_repository.html", "classsofa_1_1component_1_1sceneutility_1_1_add_plugin_repository" ]
     ] ],
-    [ "APIVersion.cpp", "_a_p_i_version_8cpp.html", "_a_p_i_version_8cpp" ],
-    [ "APIVersion.h", "_scene_utility_2src_2sofa_2component_2sceneutility_2_a_p_i_version_8h.html", [
-      [ "APIVersion", "classsofa_1_1component_1_1sceneutility_1_1__apiversion___1_1_a_p_i_version.html", "classsofa_1_1component_1_1sceneutility_1_1__apiversion___1_1_a_p_i_version" ]
-    ] ],
+    [ "APIVersion.cpp", "_a_p_i_version_8cpp.html", null ],
+    [ "APIVersion.h", "_scene_utility_2src_2sofa_2component_2sceneutility_2_a_p_i_version_8h.html", null ],
     [ "InfoComponent.cpp", "_info_component_8cpp.html", "_info_component_8cpp" ],
     [ "InfoComponent.h", "_scene_utility_2src_2sofa_2component_2sceneutility_2_info_component_8h.html", [
       [ "InfoComponent", "classsofa_1_1component_1_1sceneutility_1_1infocomponent_1_1_info_component.html", "classsofa_1_1component_1_1sceneutility_1_1infocomponent_1_1_info_component" ]

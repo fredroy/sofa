@@ -18,8 +18,8 @@ var dir_863403d1a96f2534cd37b5b5b93b2f40 =
     [ "fixed_array.cpp", "fixed__array_8cpp.html", "fixed__array_8cpp" ],
     [ "fixed_array.h", "_type_2src_2sofa_2type_2fixed__array_8h.html", "_type_2src_2sofa_2type_2fixed__array_8h" ],
     [ "fixed_array_algorithms.h", "_type_2src_2sofa_2type_2fixed__array__algorithms_8h.html", "_type_2src_2sofa_2type_2fixed__array__algorithms_8h" ],
-    [ "Frame.cpp", "framework_2_type_2src_2sofa_2type_2_frame_8cpp.html", "framework_2_type_2src_2sofa_2type_2_frame_8cpp" ],
-    [ "Frame.h", "framework_2_type_2src_2sofa_2type_2_frame_8h.html", [
+    [ "Frame.cpp", "_frame_8cpp.html", "_frame_8cpp" ],
+    [ "Frame.h", "_type_2src_2sofa_2type_2_frame_8h.html", [
       [ "Frame", "classsofa_1_1type_1_1_frame.html", "classsofa_1_1type_1_1_frame" ]
     ] ],
     [ "fwd.h", "framework_2_type_2src_2sofa_2type_2fwd_8h.html", "framework_2_type_2src_2sofa_2type_2fwd_8h" ],
@@ -53,7 +53,7 @@ var dir_863403d1a96f2534cd37b5b5b93b2f40 =
     [ "SVector.h", "_type_2src_2sofa_2type_2_s_vector_8h.html", [
       [ "SVector", "classsofa_1_1type_1_1_s_vector.html", "classsofa_1_1type_1_1_s_vector" ]
     ] ],
-    [ "Vec.cpp", "framework_2_type_2src_2sofa_2type_2_vec_8cpp.html", "framework_2_type_2src_2sofa_2type_2_vec_8cpp" ],
+    [ "Vec.cpp", "_vec_8cpp.html", "_vec_8cpp" ],
     [ "Vec.h", "framework_2_type_2src_2sofa_2type_2vec_8h.html", "framework_2_type_2src_2sofa_2type_2vec_8h" ],
     [ "vector.cpp", "vector_8cpp.html", "vector_8cpp" ],
     [ "vector.h", "_type_2src_2sofa_2type_2vector_8h.html", null ],

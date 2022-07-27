@@ -1,10 +1,7 @@
 var dir_b5cdc3b13ffd49fede526bcf59a8c3c9 =
 [
-    [ "BarycentricMapper.cpp", "_barycentric_mapper_8cpp.html", "_barycentric_mapper_8cpp" ],
-    [ "BarycentricMapper.h", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_8h.html", [
-      [ "BarycentricMapper", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper" ],
-      [ "MappingData", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper_1_1_mapping_data.html", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper_1_1_mapping_data" ]
-    ] ],
+    [ "BarycentricMapper.cpp", "_barycentric_mapper_8cpp.html", null ],
+    [ "BarycentricMapper.h", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_8h.html", null ],
     [ "BarycentricMapper.inl", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_8inl.html", null ],
     [ "BarycentricMapperEdgeSetTopology.cpp", "_barycentric_mapper_edge_set_topology_8cpp.html", "_barycentric_mapper_edge_set_topology_8cpp" ],
     [ "BarycentricMapperEdgeSetTopology.h", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_edge_set_topology_8h.html", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_edge_set_topology_8h" ],
@@ -38,16 +35,14 @@ var dir_b5cdc3b13ffd49fede526bcf59a8c3c9 =
     ] ],
     [ "BarycentricMapperTetrahedronSetTopology.inl", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_map2165e4687e50b76380dcc701fe9a831b.html", null ],
     [ "BarycentricMapperTopologyContainer.cpp", "_barycentric_mapper_topology_container_8cpp.html", null ],
-    [ "BarycentricMapperTopologyContainer.h", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_topology_container_8h.html", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_topology_container_8h" ],
-    [ "BarycentricMapperTopologyContainer.inl", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_topology_container_8inl.html", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_topology_container_8inl" ],
+    [ "BarycentricMapperTopologyContainer.h", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_topology_container_8h.html", null ],
+    [ "BarycentricMapperTopologyContainer.inl", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_topology_container_8inl.html", null ],
     [ "BarycentricMapperTriangleSetTopology.cpp", "_barycentric_mapper_triangle_set_topology_8cpp.html", "_barycentric_mapper_triangle_set_topology_8cpp" ],
     [ "BarycentricMapperTriangleSetTopology.h", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_triangle_set_topology_8h.html", [
       [ "BarycentricMapperTriangleSetTopology", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_triangle_set_topology.html", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_triangle_set_topology" ]
     ] ],
     [ "BarycentricMapperTriangleSetTopology.inl", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_triangle_set_topology_8inl.html", null ],
     [ "TopologyBarycentricMapper.cpp", "_topology_barycentric_mapper_8cpp.html", "_topology_barycentric_mapper_8cpp" ],
-    [ "TopologyBarycentricMapper.h", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_topology_barycentric_mapper_8h.html", [
-      [ "TopologyBarycentricMapper", "classsofa_1_1component_1_1mapping_1_1linear_1_1__topologybarycentricmapper___1_1_topology_barycentric_mapper.html", "classsofa_1_1component_1_1mapping_1_1linear_1_1__topologybarycentricmapper___1_1_topology_barycentric_mapper" ]
-    ] ],
+    [ "TopologyBarycentricMapper.h", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_topology_barycentric_mapper_8h.html", null ],
     [ "TopologyBarycentricMapper.inl", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_topology_barycentric_mapper_8inl.html", null ]
 ];

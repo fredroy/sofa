@@ -1,6 +1,5 @@
 var namespacesofa_1_1core_1_1objectmodel =
 [
-    [ "_datacallback_", "namespacesofa_1_1core_1_1objectmodel_1_1__datacallback__.html", "namespacesofa_1_1core_1_1objectmodel_1_1__datacallback__" ],
     [ "AbstractDataLink", "classsofa_1_1core_1_1objectmodel_1_1_abstract_data_link.html", "classsofa_1_1core_1_1objectmodel_1_1_abstract_data_link" ],
     [ "Aspect", "classsofa_1_1core_1_1objectmodel_1_1_aspect.html", "classsofa_1_1core_1_1objectmodel_1_1_aspect" ],
     [ "AspectBuffer", "classsofa_1_1core_1_1objectmodel_1_1_aspect_buffer.html", "classsofa_1_1core_1_1objectmodel_1_1_aspect_buffer" ],

@@ -220,7 +220,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_quat_8h_sourc
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    auto quatToRotationVector() const -&gt; <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>;</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    auto toEulerVector() const -&gt; <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3</a>;</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">void</span> slerp(const <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>&amp; a, const <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>&amp; b, Real t, <span class="keywordtype">bool</span> allowFlip=true);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">void</span> slerp(const <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>&amp; a, const <a class="code" href="classsofa_1_1type_1_1_quat.html">Quat</a>&amp; b, Real <a class="code" href="_type_info_repository__tu1__test_8cpp.html#ac310d9181e916ba43604099aee272c71">t</a>, <span class="keywordtype">bool</span> allowFlip=true);</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordtype">void</span> buildRotationMatrix(Real m[4][4]) const;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">void</span> writeOpenGlMatrix( <span class="keywordtype">double</span>* m ) const;</div>
@@ -257,8 +257,8 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_quat_8h_sourc
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    SOFA_ATTRIBUTE_DEPRECATED__QUAT_API(<span class="stringliteral">&quot;This function will be removed. use iostream operators instead.&quot;</span>)</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    void print();</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    auto slerp(const Quat &amp;q1, Real t) const -&gt; Quat;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    auto slerp2(const Quat &amp;q1, Real t) const-&gt; Quat;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    auto slerp(const Quat &amp;q1, Real <a class="code" href="_type_info_repository__tu1__test_8cpp.html#ac310d9181e916ba43604099aee272c71">t</a>) const -&gt; Quat;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    auto slerp2(const Quat &amp;q1, Real <a class="code" href="_type_info_repository__tu1__test_8cpp.html#ac310d9181e916ba43604099aee272c71">t</a>) const-&gt; Quat;</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordtype">void</span> operator+=(const Quat&amp; q2);</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordtype">void</span> operator*=(const Quat&amp; q2);</div>
@@ -298,6 +298,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_quat_8h_sourc
 <div class="ttc" id="aclasssofa_1_1type_1_1_quat_html_ad0e17a21b66e37aa0aaf0cd669bb2cbc"><div class="ttname"><a href="classsofa_1_1type_1_1_quat.html#ad0e17a21b66e37aa0aaf0cd669bb2cbc">sofa::type::Quat&lt; SReal &gt;::EulerOrder</a></div><div class="ttdeci">EulerOrder</div><div class="ttdef"><b>Definition:</b> Quat.h:219</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html_ae4332875e3cb0b4f51e19dafa545a7c1"><div class="ttname"><a href="namespacesofa_1_1type.html#ae4332875e3cb0b4f51e19dafa545a7c1">sofa::type::Mat3x3</a></div><div class="ttdeci">Mat&lt; 3, 3, SReal &gt; Mat3x3</div><div class="ttdef"><b>Definition:</b> fwd.h:113</div></div>
 <div class="ttc" id="a_q_sofa_recorder_8cpp_html_adc2a83d174f742e14902972009913e84"><div class="ttname"><a href="_q_sofa_recorder_8cpp.html#adc2a83d174f742e14902972009913e84">clear</a></div><div class="ttdeci">fpsLabel clear()</div></div>
+<div class="ttc" id="a_type_info_repository__tu1__test_8cpp_html_ac310d9181e916ba43604099aee272c71"><div class="ttname"><a href="_type_info_repository__tu1__test_8cpp.html#ac310d9181e916ba43604099aee272c71">t</a></div><div class="ttdeci">static int t</div><div class="ttdef"><b>Definition:</b> TypeInfoRepository_tu1_test.cpp:52</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html"><div class="ttname"><a href="namespacesofa_1_1type.html">sofa::type</a></div><div class="ttdoc">for std::pair</div><div class="ttdef"><b>Definition:</b> BoundingBox.cpp:27</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html_a217531c3da1b353db4bcec2b43197958"><div class="ttname"><a href="namespacesofa_1_1type.html#a217531c3da1b353db4bcec2b43197958">sofa::type::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const sofa::type::Frame &amp;c)</div><div class="ttdef"><b>Definition:</b> Frame.cpp:173</div></div>
 <div class="ttc" id="anamespacesofa_1_1defaulttype_html_ad68ad55c3252d02e993f9c2a39953533"><div class="ttname"><a href="namespacesofa_1_1defaulttype.html#ad68ad55c3252d02e993f9c2a39953533">sofa::defaulttype::operator/</a></div><div class="ttdeci">RigidDeriv&lt; 3, real &gt; operator/(RigidDeriv&lt; 3, real &gt; r, real2 a)</div><div class="ttdef"><b>Definition:</b> RigidTypes.h:322</div></div>
@@ -305,7 +306,7 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2_quat_8h_sourc
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_f952eb3b438e9453a2f5655056abb290.html">Type</a></li><li class="navelem"><a class="el" href="dir_8aa759aadb20f2635db8c61303b9b849.html">src</a></li><li class="navelem"><a class="el" href="dir_78b83bb765cda7d746578ac350d06d39.html">sofa</a></li><li class="navelem"><a class="el" href="dir_863403d1a96f2534cd37b5b5b93b2f40.html">type</a></li><li class="navelem"><a class="el" href="_type_2src_2sofa_2type_2_quat_8h.html">Quat.h</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 07:01:48 for SOFA by
+    <li class="footer">Generated on Wed Jul 27 2022 00:48:47 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

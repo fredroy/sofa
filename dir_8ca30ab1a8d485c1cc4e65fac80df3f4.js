@@ -1,11 +1,8 @@
 var dir_8ca30ab1a8d485c1cc4e65fac80df3f4 =
 [
     [ "BeamFEMForceField.cpp", "_beam_f_e_m_force_field_8cpp.html", "_beam_f_e_m_force_field_8cpp" ],
-    [ "BeamFEMForceField.h", "_solid_mechanics_2_f_e_m_2_elastic_2src_2sofa_2component_2solidmechanics_2fem_2elastic_2_beam_f_e_m_force_field_8h.html", [
-      [ "BeamFEMForceField", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1__beamfemforcefield___1_1_beam_f_e_m_force_field.html", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1__beamfemforcefield___1_1_beam_f_e_m_force_field" ],
-      [ "BeamInfo", "structsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1__beamfemforcefield___1_1_beam_f_e_m_force_field_1_1_beam_info.html", "structsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1__beamfemforcefield___1_1_beam_f_e_m_force_field_1_1_beam_info" ]
-    ] ],
-    [ "BeamFEMForceField.inl", "_solid_mechanics_2_f_e_m_2_elastic_2src_2sofa_2component_2solidmechanics_2fem_2elastic_2_beam_f_e_m_force_field_8inl.html", "_solid_mechanics_2_f_e_m_2_elastic_2src_2sofa_2component_2solidmechanics_2fem_2elastic_2_beam_f_e_m_force_field_8inl" ],
+    [ "BeamFEMForceField.h", "_solid_mechanics_2_f_e_m_2_elastic_2src_2sofa_2component_2solidmechanics_2fem_2elastic_2_beam_f_e_m_force_field_8h.html", null ],
+    [ "BeamFEMForceField.inl", "_solid_mechanics_2_f_e_m_2_elastic_2src_2sofa_2component_2solidmechanics_2fem_2elastic_2_beam_f_e_m_force_field_8inl.html", null ],
     [ "FastTetrahedralCorotationalForceField.cpp", "_fast_tetrahedral_corotational_force_field_8cpp.html", "_fast_tetrahedral_corotational_force_field_8cpp" ],
     [ "FastTetrahedralCorotationalForceField.h", "_solid_mechanics_2_f_e_m_2_elastic_2src_2sofa_2component_2solidmechanics_2fem_2elastic_2_fast_te68458d3f75fda2378417bd4ecafc6f40.html", [
       [ "FastTetrahedralCorotationalForceField", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field.html", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1_fast_tetrahedral_corotational_force_field" ],

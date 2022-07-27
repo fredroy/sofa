@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['objectmodeltype_40835',['ObjectModelType',['../namespacesofa_1_1gui_1_1qt.html#a3b4a8274fbfa44839caed1a9556cdd89',1,'sofa::gui::qt']]],
-  ['outputtype_40836',['outputType',['../classsofa_1_1helper_1_1_advanced_timer.html#adc72d03b0853feb6cb18a149e7937be9',1,'sofa::helper::AdvancedTimer']]]
+  ['qedittype_38421',['QEditType',['../classsofa_1_1gui_1_1qt_1_1_q_data_simple_edit.html#a17c6b5749e7fd323fcea0174da8e1c3e',1,'sofa::gui::qt::QDataSimpleEdit::QEditType()'],['../classsofa_1_1gui_1_1qt_1_1_q_link_simple_edit.html#a17c6b5749e7fd323fcea0174da8e1c3e',1,'sofa::gui::qt::QLinkSimpleEdit::QEditType()']]],
+  ['quadraturemethod_38422',['QuadratureMethod',['../classsofa_1_1component_1_1topology_1_1container_1_1dynamic_1_1_numerical_integration_descriptor.html#ab0367a13ee21106fe79a88ab95cdb1d3',1,'sofa::component::topology::container::dynamic::NumericalIntegrationDescriptor']]]
 ];

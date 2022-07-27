@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('_base_simulation_exporter_8h_source.ht
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesofa.html">sofa</a></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span><a class="code" href="_bilateral_interaction_constraint__test_8cpp.html#a89530560649ee50f2a37b34839a0da33">simulation</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>simulation</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span>_basesimulationexporter_</div>
@@ -147,7 +147,7 @@ $(document).ready(function(){initNavTree('_base_simulation_exporter_8h_source.ht
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> bwdInit() override ;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> handleEvent(Event *event) override ;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    virtual <span class="keywordtype">void</span> <a class="code" href="namespacemakealiascomponent__test.html#a49341e0e40c2d29316e80283b1848237">doInit</a>() {}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    virtual <span class="keywordtype">void</span> doInit() {}</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> doReInit() {}</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="namespacesofa_1_1helper.html#a61e34a11d115d9062b9a08043c2778d0">write</a>() = 0 ;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
@@ -156,7 +156,7 @@ $(document).ready(function(){initNavTree('_base_simulation_exporter_8h_source.ht
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    BaseSimulationExporter() ;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    ~BaseSimulationExporter()<span class="keyword"> override </span>{ }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">const</span> std::string getOrCreateTargetPath(<span class="keyword">const</span> std::string&amp; filename, <span class="keywordtype">bool</span> autonumbering) ;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">const</span> std::string getOrCreateTargetPath(<span class="keyword">const</span> std::string&amp; <a class="code" href="_data_file_name__test_8cpp.html#a42a21beb8018ac623f4d09db1343b9cf">filename</a>, <span class="keywordtype">bool</span> autonumbering) ;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> updateFromDataField() ;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>       m_stepCounter {0} ;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
@@ -183,13 +183,12 @@ $(document).ready(function(){initNavTree('_base_simulation_exporter_8h_source.ht
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_data_file_name_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_data_file_name.html">sofa::core::objectmodel::DataFileName</a></div><div class="ttdoc">Data specialized to store filenames, potentially relative to the current directory at the time it was...</div><div class="ttdef"><b>Definition:</b> DataFileName.h:107</div></div>
 <div class="ttc" id="anamespacesofa_1_1core_1_1objectmodel_html_ad59cb6b9a64f4136a1d2150e97495c9a"><div class="ttname"><a href="namespacesofa_1_1core_1_1objectmodel.html#ad59cb6b9a64f4136a1d2150e97495c9a">sofa::core::objectmodel::Data&lt; bool &gt;</a></div><div class="ttdeci">template class SOFA_CORE_API Data&lt; bool &gt;</div><div class="ttdef"><b>Definition:</b> Data.cpp:64</div></div>
 <div class="ttc" id="a_base_class_8h_html_ab9812e5557717240cf4d8590e3e61064"><div class="ttname"><a href="_base_class_8h.html#ab9812e5557717240cf4d8590e3e61064">SOFA_ABSTRACT_CLASS</a></div><div class="ttdeci">#define SOFA_ABSTRACT_CLASS(T, Parent)</div><div class="ttdef"><b>Definition:</b> BaseClass.h:214</div></div>
-<div class="ttc" id="a_bilateral_interaction_constraint__test_8cpp_html_a89530560649ee50f2a37b34839a0da33"><div class="ttname"><a href="_bilateral_interaction_constraint__test_8cpp.html#a89530560649ee50f2a37b34839a0da33">simulation</a></div><div class="ttdeci">simulation::Simulation * simulation</div><div class="ttdoc">created by the constructor an re-used in the tests</div><div class="ttdef"><b>Definition:</b> BilateralInteractionConstraint_test.cpp:67</div></div>
-<div class="ttc" id="anamespacemakealiascomponent__test_html_a49341e0e40c2d29316e80283b1848237"><div class="ttname"><a href="namespacemakealiascomponent__test.html#a49341e0e40c2d29316e80283b1848237">makealiascomponent_test::doInit</a></div><div class="ttdeci">bool doInit()</div><div class="ttdef"><b>Definition:</b> MakeAliasComponent_test.cpp:68</div></div>
+<div class="ttc" id="a_data_file_name__test_8cpp_html_a42a21beb8018ac623f4d09db1343b9cf"><div class="ttname"><a href="_data_file_name__test_8cpp.html#a42a21beb8018ac623f4d09db1343b9cf">filename</a></div><div class="ttdeci">const std::string filename</div><div class="ttdef"><b>Definition:</b> DataFileName_test.cpp:39</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ded960159c28a7f98e773d05d8cb2edb.html">Simulation</a></li><li class="navelem"><a class="el" href="dir_776c813820cf6d73d3a9c07b71d5bddc.html">Core</a></li><li class="navelem"><a class="el" href="dir_e84b8fb263c26c9bc9cb6b1ce635e120.html">src</a></li><li class="navelem"><a class="el" href="dir_0b1a735c28b1bd5121a035bd3ff7eb6a.html">sofa</a></li><li class="navelem"><a class="el" href="dir_e4887cc2fd2fae784949c25f567ec731.html">simulation</a></li><li class="navelem"><a class="el" href="_base_simulation_exporter_8h.html">BaseSimulationExporter.h</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 07:15:33 for SOFA by
+    <li class="footer">Generated on Wed Jul 27 2022 00:58:51 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

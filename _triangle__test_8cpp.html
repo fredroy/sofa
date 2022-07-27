@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SOFA: Sofa/Component/Collision/Geometry/tests/Triangle_test.cpp File Reference</title>
+<title>SOFA: Sofa/framework/Geometry/test/Triangle_test.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,26 +85,23 @@ $(document).ready(function(){initNavTree('_triangle__test_8cpp.html',''); initRe
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Triangle_test.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="_collision_2_detection_2_intersection_2src_2sofa_2component_2collision_2detection_2intersection_2_min_proximity_intersection_8h_source.html">sofa/component/collision/detection/intersection/MinProximityIntersection.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="_collision_2_detection_2_intersection_2src_2sofa_2component_2collision_2detection_2intersection_0d61b0405da179b3693f505a09805eb1_source.html">sofa/component/collision/detection/intersection/MeshMinProximityIntersection.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="_collision_2_detection_2_intersection_2src_2sofa_2component_2collision_2detection_2intersection_df94e4a1bd6b03adbec556d38dc8812d.html">sofa/component/collision/detection/intersection/MeshNewProximityIntersection.inl</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="_collision_2_geometry_2src_2sofa_2component_2collision_2geometry_2_triangle_model_8h_source.html">sofa/component/collision/geometry/TriangleModel.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="_collision_2_geometry_2src_2sofa_2component_2collision_2geometry_2_sphere_model_8h_source.html">sofa/component/collision/geometry/SphereModel.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="_messaging_8h_source.html">sofa/helper/logging/Messaging.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="src_2sofa_2testing_2_base_test_8h_source.html">sofa/testing/BaseTest.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="_simulation_2_graph_2src_2sofa_2simulation_2graph_2_d_a_g_node_8h_source.html">sofa/simulation/graph/DAGNode.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="_mesh_primitive_creator_8h_source.html">sofa/component/collision/testing/MeshPrimitiveCreator.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="_sphere_primitive_creator_8h_source.html">sofa/component/collision/testing/SpherePrimitiveCreator.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="framework_2_geometry_2src_2sofa_2geometry_2_triangle_8h_source.html">sofa/geometry/Triangle.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_type_2src_2sofa_2type_2fixed__array_8h_source.html">sofa/type/fixed_array.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="framework_2_type_2src_2sofa_2type_2vec_8h_source.html">sofa/type/Vec.h</a>&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &lt;gtest/gtest.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsofa_1_1_test_triangle.html">TestTriangle</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1_geometry2_d_triangle__test.html">Geometry2DTriangle_test&lt; VecType &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1_geometry3_d_triangle__test.html">Geometry3DTriangle_test&lt; VecType &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -113,35 +110,39 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespacesofa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This allow MeshTrian to interact with the messaging system. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a4768de80ea6566393dbf96455a2e7078"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#a4768de80ea6566393dbf96455a2e7078">Vec2Types</a> = ::testing::Types&lt; std::array&lt; float, 2 &gt;, <a class="el" href="classsofa_1_1type_1_1fixed__array.html">sofa::type::fixed_array</a>&lt; float, 2 &gt;, <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec</a>&lt; 2, float &gt;, std::array&lt; double, 2 &gt;, <a class="el" href="classsofa_1_1type_1_1fixed__array.html">sofa::type::fixed_array</a>&lt; double, 2 &gt;, <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec</a>&lt; 2, double &gt; &gt;</td></tr>
+<tr class="separator:a4768de80ea6566393dbf96455a2e7078"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd96c62dd45d1ca9ba4eb7a3404c5a78"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#abd96c62dd45d1ca9ba4eb7a3404c5a78">Vec3Types</a> = ::testing::Types&lt; std::array&lt; float, 3 &gt;, <a class="el" href="classsofa_1_1type_1_1fixed__array.html">sofa::type::fixed_array</a>&lt; float, 3 &gt;, <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec</a>&lt; 3, float &gt;, std::array&lt; double, 3 &gt;, <a class="el" href="classsofa_1_1type_1_1fixed__array.html">sofa::type::fixed_array</a>&lt; double, 3 &gt;, <a class="el" href="classsofa_1_1type_1_1_vec.html">sofa::type::Vec</a>&lt; 3, double &gt; &gt;</td></tr>
+<tr class="separator:abd96c62dd45d1ca9ba4eb7a3404c5a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a513ed71c71900a31f34d7169f01c7333"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_min_proximity_intersection.html">MeshMinProximityIntersection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#a513ed71c71900a31f34d7169f01c7333">meshMin</a> (minProx.get())</td></tr>
-<tr class="separator:a513ed71c71900a31f34d7169f01c7333"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27552ea22746451e979a9a859c8694be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1component_1_1collision_1_1detection_1_1intersection_1_1_mesh_new_proximity_intersection.html">MeshNewProximityIntersection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#a27552ea22746451e979a9a859c8694be">meshNew</a> (newProx.get())</td></tr>
-<tr class="separator:a27552ea22746451e979a9a859c8694be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48a9e2615e45f6660dd242ca753ec17c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#a48a9e2615e45f6660dd242ca753ec17c">TEST_F</a> (TestTriangle, rigid_sphere_triangle_min_prox)</td></tr>
-<tr class="separator:a48a9e2615e45f6660dd242ca753ec17c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1e8acbb6a59a09bb862d555164a9501"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#ab1e8acbb6a59a09bb862d555164a9501">TEST_F</a> (TestTriangle, rigid_sphere_triangle_new_prox)</td></tr>
-<tr class="separator:ab1e8acbb6a59a09bb862d555164a9501"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec99b2e367bb0fdcfaf0d70057bcb1d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#aec99b2e367bb0fdcfaf0d70057bcb1d6">TEST_F</a> (TestTriangle, soft_sphere_triangle_min_prox)</td></tr>
-<tr class="separator:aec99b2e367bb0fdcfaf0d70057bcb1d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac41cfeb6b3697c1e08493fbcd03fe844"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#ac41cfeb6b3697c1e08493fbcd03fe844">TEST_F</a> (TestTriangle, soft_sphere_triangle_new_prox)</td></tr>
-<tr class="separator:ac41cfeb6b3697c1e08493fbcd03fe844"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a1eb509b034a9038700f415967e518e68"><td class="memItemLeft" align="right" valign="top">component::collision::detection::intersection::MinProximityIntersection::SPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#a1eb509b034a9038700f415967e518e68">minProx</a> = <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_new.html">New</a>&lt;component::collision::detection::intersection::MinProximityIntersection&gt;()</td></tr>
-<tr class="separator:a1eb509b034a9038700f415967e518e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10b9e9b3174f1f52367b764479890ca4"><td class="memItemLeft" align="right" valign="top">component::collision::detection::intersection::NewProximityIntersection::SPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#a10b9e9b3174f1f52367b764479890ca4">newProx</a> = <a class="el" href="classsofa_1_1core_1_1objectmodel_1_1_new.html">New</a>&lt;component::collision::detection::intersection::NewProximityIntersection&gt;()</td></tr>
-<tr class="separator:a10b9e9b3174f1f52367b764479890ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11c6cb1456eef2e63539f78a0bb87fc7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#a11c6cb1456eef2e63539f78a0bb87fc7">TYPED_TEST_SUITE</a> (Geometry2DTriangle_test, Vec2Types)</td></tr>
+<tr class="separator:a11c6cb1456eef2e63539f78a0bb87fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5d40822481dfda9c91f03604f3f778c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#ad5d40822481dfda9c91f03604f3f778c">TYPED_TEST_SUITE</a> (Geometry3DTriangle_test, Vec3Types)</td></tr>
+<tr class="separator:ad5d40822481dfda9c91f03604f3f778c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e9abf41c3915d03e96152f89c8b642a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#a7e9abf41c3915d03e96152f89c8b642a">TYPED_TEST</a> (Geometry2DTriangle_test, area)</td></tr>
+<tr class="separator:a7e9abf41c3915d03e96152f89c8b642a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a296a6210db01538feb2a4a6db84909"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#a9a296a6210db01538feb2a4a6db84909">TYPED_TEST</a> (Geometry3DTriangle_test, area)</td></tr>
+<tr class="separator:a9a296a6210db01538feb2a4a6db84909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b280b7e408c1cdfbf92bb70a42f1448"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#a6b280b7e408c1cdfbf92bb70a42f1448">TYPED_TEST</a> (Geometry2DTriangle_test, flat_area)</td></tr>
+<tr class="separator:a6b280b7e408c1cdfbf92bb70a42f1448"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4769d6a8402c3b17b1fbb8b611b27fe5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#a4769d6a8402c3b17b1fbb8b611b27fe5">TYPED_TEST</a> (Geometry3DTriangle_test, flat_area)</td></tr>
+<tr class="separator:a4769d6a8402c3b17b1fbb8b611b27fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24e7e2fd9f34a9ad44cad69589e3a2ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#a24e7e2fd9f34a9ad44cad69589e3a2ae">TYPED_TEST</a> (Geometry3DTriangle_test, normal)</td></tr>
+<tr class="separator:a24e7e2fd9f34a9ad44cad69589e3a2ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a308b78a6abb8fdfec91d7d9b01646648"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesofa.html#a308b78a6abb8fdfec91d7d9b01646648">TEST</a> (GeometryTriangle_test, rayIntersectionVec3)</td></tr>
+<tr class="separator:a308b78a6abb8fdfec91d7d9b01646648"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_42ede1205723b3b890fa00e138974231.html">Component</a></li><li class="navelem"><a class="el" href="dir_bb848595cfe2f3891fce439845bd553b.html">Collision</a></li><li class="navelem"><a class="el" href="dir_e9158dd0017b705fd22cef94cb268778.html">Geometry</a></li><li class="navelem"><a class="el" href="dir_4be5957571d91e1b40c4c971dbc946fb.html">tests</a></li><li class="navelem"><a class="el" href="_triangle__test_8cpp.html">Triangle_test.cpp</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 07:19:18 for SOFA by
+    <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_e4c1f116cc2455b3b3f8f9a35ad77584.html">Geometry</a></li><li class="navelem"><a class="el" href="dir_7cb94547f8f78007faf239abf9034c88.html">test</a></li><li class="navelem"><a class="el" href="_triangle__test_8cpp.html">Triangle_test.cpp</a></li>
+    <li class="footer">Generated on Wed Jul 27 2022 01:01:19 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

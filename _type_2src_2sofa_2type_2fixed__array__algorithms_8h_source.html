@@ -135,23 +135,23 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2fixed__array__
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keyword">class</span> TT=<span class="keyword">typename</span> T::value_type, <span class="keywordtype">size_t</span> TN=T::static_size&gt;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="namespacesofa_1_1type_1_1pairwise.html#a376c72367af1399b610633259fe27ee3">   53</a></span>&#160;T <a class="code" href="namespacesofa_1_1type_1_1pairwise.html#a3062109a0f11c486fb01b127480cbaf7">operator+</a>(<span class="keyword">const</span> T&amp; <a class="code" href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a>, <span class="keyword">const</span> T&amp; r)</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="namespacesofa_1_1type_1_1pairwise.html#a376c72367af1399b610633259fe27ee3">   53</a></span>&#160;T <a class="code" href="namespacesofa_1_1type_1_1pairwise.html#a3062109a0f11c486fb01b127480cbaf7">operator+</a>(<span class="keyword">const</span> T&amp; l, <span class="keyword">const</span> T&amp; r)</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    T result {};</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">typename</span> T::size_type i=0; i &lt; <span class="keyword">typename</span> T::size_type(TN); ++i)</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        result[i] = <a class="code" href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a>[i] + r[i];</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        result[i] = l[i] + r[i];</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="namespacesofa_1_1type_1_1pairwise.html#abfad1955e34fd4e4cd3117d049659b0c">   61</a></span>&#160;}</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keyword">class</span> TT=<span class="keyword">typename</span> T::value_type, <span class="keywordtype">size_t</span> TN=T::static_size&gt;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;T <a class="code" href="namespacesofa_1_1type_1_1pairwise.html#ac33fe6a592b5bd93b42447cd1a5db977">operator-</a>(<span class="keyword">const</span> T&amp; <a class="code" href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a>, <span class="keyword">const</span> T&amp; r)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;T <a class="code" href="namespacesofa_1_1type_1_1pairwise.html#ac33fe6a592b5bd93b42447cd1a5db977">operator-</a>(<span class="keyword">const</span> T&amp; l, <span class="keyword">const</span> T&amp; r)</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    T result {};</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">typename</span> T::size_type i=0; i &lt; <span class="keyword">typename</span> T::size_type(TN); ++i)</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        result[i] = <a class="code" href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a>[i] - r[i];</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        result[i] = l[i] - r[i];</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="namespacesofa_1_1type_1_1pairwise.html#a3062109a0f11c486fb01b127480cbaf7">   73</a></span>&#160;}</div>
@@ -190,13 +190,12 @@ $(document).ready(function(){initNavTree('_type_2src_2sofa_2type_2fixed__array__
 <div class="ttc" id="anamespacesofa_1_1type_1_1pairwise_html_a3062109a0f11c486fb01b127480cbaf7"><div class="ttname"><a href="namespacesofa_1_1type_1_1pairwise.html#a3062109a0f11c486fb01b127480cbaf7">sofa::type::pairwise::operator+</a></div><div class="ttdeci">T operator+(const T &amp;l, const T &amp;r)</div><div class="ttdoc">pairwise add of two fixed_array</div><div class="ttdef"><b>Definition:</b> fixed_array_algorithms.h:73</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_1_1pairwise_html_a376c72367af1399b610633259fe27ee3"><div class="ttname"><a href="namespacesofa_1_1type_1_1pairwise.html#a376c72367af1399b610633259fe27ee3">sofa::type::pairwise::stdclamp</a></div><div class="ttdeci">const T &amp; stdclamp(const T &amp;v, const T &amp;lo, const T &amp;hi)</div><div class="ttdoc">clamp a single value. This function should be removed when std::clamp will be available</div><div class="ttdef"><b>Definition:</b> fixed_array_algorithms.h:53</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_1_1pairwise_html_a56a79af042bb1578d1740c2c3d5eca20"><div class="ttname"><a href="namespacesofa_1_1type_1_1pairwise.html#a56a79af042bb1578d1740c2c3d5eca20">sofa::type::pairwise::operator/</a></div><div class="ttdeci">T operator/(const T &amp;r, const typename T::value_type &amp;f)</div><div class="ttdoc">multiply from l the r components.</div><div class="ttdef"><b>Definition:</b> fixed_array_algorithms.h:109</div></div>
-<div class="ttc" id="a_static_solver__test_8cpp_html_adbde00fd7f75b31654f761d2be114467"><div class="ttname"><a href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a></div><div class="ttdeci">static constexpr SReal l</div><div class="ttdef"><b>Definition:</b> StaticSolver_test.cpp:41</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_1_1pairwise_html_a08777a25b6aa6754162f9039e850b17f"><div class="ttname"><a href="namespacesofa_1_1type_1_1pairwise.html#a08777a25b6aa6754162f9039e850b17f">sofa::type::pairwise::operator*</a></div><div class="ttdeci">T operator*(const T &amp;r, const typename T::value_type &amp;f)</div><div class="ttdoc">multiply from l the r components.</div><div class="ttdef"><b>Definition:</b> fixed_array_algorithms.h:97</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_f952eb3b438e9453a2f5655056abb290.html">Type</a></li><li class="navelem"><a class="el" href="dir_8aa759aadb20f2635db8c61303b9b849.html">src</a></li><li class="navelem"><a class="el" href="dir_78b83bb765cda7d746578ac350d06d39.html">sofa</a></li><li class="navelem"><a class="el" href="dir_863403d1a96f2534cd37b5b5b93b2f40.html">type</a></li><li class="navelem"><a class="el" href="_type_2src_2sofa_2type_2fixed__array__algorithms_8h.html">fixed_array_algorithms.h</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 07:01:49 for SOFA by
+    <li class="footer">Generated on Wed Jul 27 2022 00:48:48 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

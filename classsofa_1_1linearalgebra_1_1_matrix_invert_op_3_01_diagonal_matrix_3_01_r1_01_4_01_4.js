@@ -2,6 +2,6 @@ var classsofa_1_1linearalgebra_1_1_matrix_invert_op_3_01_diagonal_matrix_3_01_r1
 [
     [ "Index", "classsofa_1_1linearalgebra_1_1_matrix_invert_op_3_01_diagonal_matrix_3_01_r1_01_4_01_4.html#a37236e9493e101a58f657e4e8bbd1da5", null ],
     [ "matrix_type", "classsofa_1_1linearalgebra_1_1_matrix_invert_op_3_01_diagonal_matrix_3_01_r1_01_4_01_4.html#a16eb3d60fb07aa34e13350dde7185b07", null ],
-    [ "category", "classsofa_1_1linearalgebra_1_1_matrix_invert_op_3_01_diagonal_matrix_3_01_r1_01_4_01_4.html#ab59c1bec446b10af208f977a871d910bac8009b23fdaa8489a1e0ac80d90ff887", null ],
+    [ "category", "classsofa_1_1linearalgebra_1_1_matrix_invert_op_3_01_diagonal_matrix_3_01_r1_01_4_01_4.html#a191c33aa19f004f13bed2b7be33756caac8009b23fdaa8489a1e0ac80d90ff887", null ],
     [ "operator()", "classsofa_1_1linearalgebra_1_1_matrix_invert_op_3_01_diagonal_matrix_3_01_r1_01_4_01_4.html#a491b551d9bd4bffad4c35a4d29b3dc29", null ]
 ];

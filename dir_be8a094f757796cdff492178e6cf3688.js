@@ -58,9 +58,7 @@ var dir_be8a094f757796cdff492178e6cf3688 =
     [ "Data.cpp", "_data_8cpp.html", "_data_8cpp" ],
     [ "Data.h", "_data_8h.html", "_data_8h" ],
     [ "DataCallback.cpp", "_data_callback_8cpp.html", null ],
-    [ "DataCallback.h", "_data_callback_8h.html", [
-      [ "DataCallback", "classsofa_1_1core_1_1objectmodel_1_1__datacallback___1_1_data_callback.html", "classsofa_1_1core_1_1objectmodel_1_1__datacallback___1_1_data_callback" ]
-    ] ],
+    [ "DataCallback.h", "_data_callback_8h.html", null ],
     [ "DataContentValue.cpp", "_data_content_value_8cpp.html", "_data_content_value_8cpp" ],
     [ "DataContentValue.h", "_data_content_value_8h.html", [
       [ "DataContentValue", "classsofa_1_1core_1_1objectmodel_1_1_data_content_value.html", null ],

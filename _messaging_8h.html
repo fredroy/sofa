@@ -156,7 +156,7 @@ Macros</h2></td></tr>
 <tr class="separator:acbd90c3348627e3d72e5db6e0197c812"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7f5b4513d1a4ceaad7d6e3536ec685f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_messaging_8h.html#ae7f5b4513d1a4ceaad7d6e3536ec685f">msg_advice_withfile</a>(emitter,  file,  line)&#160;&#160;&#160;<a class="el" href="classsofa_1_1helper_1_1logging_1_1_message_dispatcher.html#ad535a0b5ecf6230d00b83d9dec0e4e3e">sofa::helper::logging::MessageDispatcher::advice</a>(<a class="el" href="classsofa_1_1helper_1_1logging_1_1_message.html#af0c181dac34da376a1aa0b98624a2b58a097aba349d2d0b97aba880b40c320c46">sofa::helper::logging::Message::Runtime</a>, <a class="el" href="namespacesofa_1_1helper_1_1logging.html#aa4b92e6f03e395617bedf429f2815cfb">sofa::helper::logging::getComponentInfo</a>(emitter), <a class="el" href="_file_info_8h.html#aa7d53bea2ab9676ba3b7b788c496278f">SOFA_FILE_INFO_COPIED_FROM</a>(file,line))</td></tr>
 <tr class="separator:ae7f5b4513d1a4ceaad7d6e3536ec685f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38ea1fdd0ec4b601d63b40d3f870a53d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_messaging_8h.html#a38ea1fdd0ec4b601d63b40d3f870a53d">FILEINFO</a>(filename,  line)&#160;&#160;&#160;<a class="el" href="structsofa_1_1helper_1_1logging_1_1_file_info.html">sofa::helper::logging::FileInfo</a>(filename, line)</td></tr>
+<tr class="memitem:a38ea1fdd0ec4b601d63b40d3f870a53d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_messaging_8h.html#a38ea1fdd0ec4b601d63b40d3f870a53d">FILEINFO</a>(<a class="el" href="_data_file_name__test_8cpp.html#a42a21beb8018ac623f4d09db1343b9cf">filename</a>,  line)&#160;&#160;&#160;<a class="el" href="structsofa_1_1helper_1_1logging_1_1_file_info.html">sofa::helper::logging::FileInfo</a>(<a class="el" href="_data_file_name__test_8cpp.html#a42a21beb8018ac623f4d09db1343b9cf">filename</a>, line)</td></tr>
 <tr class="separator:a38ea1fdd0ec4b601d63b40d3f870a53d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30f0d50c6ea42a15079fc890f4a56d0d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_messaging_8h.html#a30f0d50c6ea42a15079fc890f4a56d0d">TWO_FUNC_CHOOSER</a>(_f1,  _f2, ...)&#160;&#160;&#160;_f2</td></tr>
 <tr class="memdesc:a30f0d50c6ea42a15079fc890f4a56d0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">THESE MACRO BEASTS ARE FOR AUTOMATIC DETECTION OF MACRO NO or ONE ARGUMENTS.  <a href="_messaging_8h.html#a30f0d50c6ea42a15079fc890f4a56d0d">More...</a><br /></td></tr>
@@ -1390,7 +1390,7 @@ Macros</h2></td></tr>
           <td class="memname">#define FILEINFO</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">filename, </td>
+          <td class="paramname"><a class="el" href="_data_file_name__test_8cpp.html#a42a21beb8018ac623f4d09db1343b9cf">filename</a>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1401,7 +1401,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="structsofa_1_1helper_1_1logging_1_1_file_info.html">sofa::helper::logging::FileInfo</a>(filename, line)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="structsofa_1_1helper_1_1logging_1_1_file_info.html">sofa::helper::logging::FileInfo</a>(<a class="el" href="_data_file_name__test_8cpp.html#a42a21beb8018ac623f4d09db1343b9cf">filename</a>, line)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1945,9 +1945,9 @@ Macros</h2></td></tr>
 <div class="line">    namespace helper {       \</div>
 <div class="line">    namespace logging {      \</div>
 <div class="line">        inline <span class="keywordtype">bool</span> <a class="code" href="namespacesofa_1_1helper_1_1logging.html#a2ff2f5e113fd3f805bf1df4ece4855bd">notMuted</a>(<span class="keyword">const</span> classType* ){ <span class="keywordflow">return</span> <span class="keyword">true</span>; }         \</div>
-<div class="line">        inline <a class="code" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a> <a class="code" href="namespacesofa_1_1helper_1_1logging.html#aa4b92e6f03e395617bedf429f2815cfb">getComponentInfo</a>(<span class="keyword">const</span> classType* )  \</div>
+<div class="line">        inline ComponentInfo::SPtr <a class="code" href="namespacesofa_1_1helper_1_1logging.html#aa4b92e6f03e395617bedf429f2815cfb">getComponentInfo</a>(<span class="keyword">const</span> classType* )  \</div>
 <div class="line">        {                                                               \</div>
-<div class="line">            return <a class="code" href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">ComponentInfo::SPtr</a>(<span class="keyword">new</span> ComponentInfo(nameName)) ;   \</div>
+<div class="line">            return ComponentInfo::SPtr(<span class="keyword">new</span> ComponentInfo(nameName)) ;   \</div>
 <div class="line">        }                                                               \</div>
 <div class="line">    } \</div>
 <div class="line">    } \</div>
@@ -2970,14 +2970,13 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacesofa_html"><div class="ttname"><a href="namespacesofa.html">sofa</a></div><div class="ttdoc">This allow MeshTrian to interact with the messaging system.</div><div class="ttdef"><b>Definition:</b> ConstraintAnimationLoop.cpp:81</div></div>
-<div class="ttc" id="astructsofa_1_1helper_1_1logging_1_1_component_info_html_a9aa211af021fd1f48ed34e6e9a2d54e1"><div class="ttname"><a href="structsofa_1_1helper_1_1logging_1_1_component_info.html#a9aa211af021fd1f48ed34e6e9a2d54e1">sofa::helper::logging::ComponentInfo::SPtr</a></div><div class="ttdeci">std::shared_ptr&lt; ComponentInfo &gt; SPtr</div><div class="ttdef"><b>Definition:</b> ComponentInfo.h:106</div></div>
 <div class="ttc" id="anamespacesofa_1_1helper_1_1logging_html_a2ff2f5e113fd3f805bf1df4ece4855bd"><div class="ttname"><a href="namespacesofa_1_1helper_1_1logging.html#a2ff2f5e113fd3f805bf1df4ece4855bd">sofa::helper::logging::notMuted</a></div><div class="ttdeci">bool notMuted(const sofa::core::objectmodel::Base *t)</div><div class="ttdef"><b>Definition:</b> Base.h:564</div></div>
 <div class="ttc" id="anamespacesofa_1_1helper_1_1logging_html_aa4b92e6f03e395617bedf429f2815cfb"><div class="ttname"><a href="namespacesofa_1_1helper_1_1logging.html#aa4b92e6f03e395617bedf429f2815cfb">sofa::helper::logging::getComponentInfo</a></div><div class="ttdeci">ComponentInfo::SPtr getComponentInfo(const sofa::core::objectmodel::Base *t)</div><div class="ttdoc">This construct a new ComponentInfo object from a Base object.</div><div class="ttdef"><b>Definition:</b> Base.h:583</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><a class="el" href="dir_25636ab38ca0798fa9c90397ed899390.html">logging</a></li><li class="navelem"><a class="el" href="_messaging_8h.html">Messaging.h</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 07:19:19 for SOFA by
+    <li class="footer">Generated on Wed Jul 27 2022 01:01:19 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

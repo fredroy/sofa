@@ -130,7 +130,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab9358112cc5531b3294f9721607140d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_object_factory.html#ab9358112cc5531b3294f9721607140d7">getEntriesFromTarget</a> (std::vector&lt; <a class="el" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#a20a64b5890b963bf3c561a5c4067a9e9">ClassEntry::SPtr</a> &gt; &amp;result, std::string target)</td></tr>
 <tr class="memdesc:ab9358112cc5531b3294f9721607140d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the given vector with the registered classes from a given target.  <a href="classsofa_1_1core_1_1_object_factory.html#ab9358112cc5531b3294f9721607140d7">More...</a><br /></td></tr>
 <tr class="separator:ab9358112cc5531b3294f9721607140d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2677b13531fe49affb4768bbaf31afe9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_object_factory.html#a2677b13531fe49affb4768bbaf31afe9">listClassesFromTarget</a> (std::string target, std::string separator=&quot;, &quot;)</td></tr>
+<tr class="memitem:a2677b13531fe49affb4768bbaf31afe9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_object_factory.html#a2677b13531fe49affb4768bbaf31afe9">listClassesFromTarget</a> (std::string target, std::string <a class="el" href="_plugin_manager__test_8cpp.html#aab06e721d3449b3d6815d538f22520c8">separator</a>=&quot;, &quot;)</td></tr>
 <tr class="memdesc:a2677b13531fe49affb4768bbaf31afe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of classes from a given target.  <a href="classsofa_1_1core_1_1_object_factory.html#a2677b13531fe49affb4768bbaf31afe9">More...</a><br /></td></tr>
 <tr class="separator:a2677b13531fe49affb4768bbaf31afe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0418587533a6766903c32f03d1b65c0"><td class="memTemplParams" colspan="2">template&lt;class BaseClass &gt; </td></tr>
@@ -138,7 +138,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae0418587533a6766903c32f03d1b65c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the given vector with all the registered classes derived from BaseClass.  <a href="classsofa_1_1core_1_1_object_factory.html#ae0418587533a6766903c32f03d1b65c0">More...</a><br /></td></tr>
 <tr class="separator:ae0418587533a6766903c32f03d1b65c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab45f5648e5a10c1eae2b6c1233aeb33a"><td class="memTemplParams" colspan="2">template&lt;class BaseClass &gt; </td></tr>
-<tr class="memitem:ab45f5648e5a10c1eae2b6c1233aeb33a"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_object_factory.html#ab45f5648e5a10c1eae2b6c1233aeb33a">listClassesDerivedFrom</a> (const std::string &amp;separator=&quot;, &quot;) const</td></tr>
+<tr class="memitem:ab45f5648e5a10c1eae2b6c1233aeb33a"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_object_factory.html#ab45f5648e5a10c1eae2b6c1233aeb33a">listClassesDerivedFrom</a> (const std::string &amp;<a class="el" href="_plugin_manager__test_8cpp.html#aab06e721d3449b3d6815d538f22520c8">separator</a>=&quot;, &quot;) const</td></tr>
 <tr class="memdesc:ab45f5648e5a10c1eae2b6c1233aeb33a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of classes derived from BaseClass as a string.  <a href="classsofa_1_1core_1_1_object_factory.html#ab45f5648e5a10c1eae2b6c1233aeb33a">More...</a><br /></td></tr>
 <tr class="separator:ab45f5648e5a10c1eae2b6c1233aeb33a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a679433c68bdec6f1e31cd0ae5a830c25"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1core_1_1_object_factory.html#a679433c68bdec6f1e31cd0ae5a830c25">addAlias</a> (std::string name, std::string target, bool force=false, <a class="el" href="classsofa_1_1core_1_1_object_factory_1_1_class_entry.html#a20a64b5890b963bf3c561a5c4067a9e9">ClassEntry::SPtr</a> *previous=nullptr)</td></tr>
@@ -898,7 +898,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1core.html">core</a></li><li class="navelem"><a class="el" href="classsofa_1_1core_1_1_object_factory.html">ObjectFactory</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 07:37:32 for SOFA by
+    <li class="footer">Generated on Wed Jul 27 2022 01:09:21 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

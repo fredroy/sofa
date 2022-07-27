@@ -164,14 +164,14 @@ $(document).ready(function(){initNavTree('_link_widget_8h_source.html',''); init
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        dirty = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        counter = baseLink-&gt;getCounter();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="init_test_plugin_8cpp.html#a617a47c70795bcff659815ad0efd2266">counter</a> = baseLink-&gt;getCounter();</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> updateWidgetValue()</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">if</span>(!dirty)</div>
 <div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="structsofa_1_1gui_1_1qt_1_1_link_widget_1_1_creator_argument.html">   94</a></span>&#160;        {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">if</span>(counter != baseLink-&gt;getCounter())</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="init_test_plugin_8cpp.html#a617a47c70795bcff659815ad0efd2266">counter</a> != baseLink-&gt;getCounter())</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            {</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                readFromLink();</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                this-&gt;update();</div>
@@ -198,8 +198,8 @@ $(document).ready(function(){initNavTree('_link_widget_8h_source.html',''); init
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">core::objectmodel::BaseLink</a> <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">MyLink</a>;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <a class="code" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html">LinkWidget</a>(QWidget* parent,<span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="comment">/*name*/</span>, <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">MyLink</a>* <a class="code" href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a>) :</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        QWidget(parent <span class="comment">/*,name */</span>), baseLink(<a class="code" href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a>), dirty(false), counter(-1)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <a class="code" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html">LinkWidget</a>(QWidget* parent,<span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="comment">/*name*/</span>, <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">MyLink</a>* l) :</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        QWidget(parent <span class="comment">/*,name */</span>), baseLink(l), dirty(false), <a class="code" href="init_test_plugin_8cpp.html#a617a47c70795bcff659815ad0efd2266">counter</a>(-1)</div>
 <div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html#a79e36b795e2f29ddddf9b625ee0c8ff4">  131</a></span>&#160;    {</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    ~<a class="code" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html">LinkWidget</a>()<span class="keyword"> override </span>{}</div>
@@ -230,7 +230,7 @@ $(document).ready(function(){initNavTree('_link_widget_8h_source.html',''); init
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
 <div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html#a2692f0d243f7291bf8eefa83d80ea91a">  167</a></span>&#160;    <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">core::objectmodel::BaseLink</a>* baseLink;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">bool</span> dirty;</div>
-<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html#a7d62df7c17f3b9513dfc51c7c3c6fd71">  169</a></span>&#160;    <span class="keywordtype">int</span> counter;</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="classsofa_1_1gui_1_1qt_1_1_link_widget.html#a7d62df7c17f3b9513dfc51c7c3c6fd71">  169</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="init_test_plugin_8cpp.html#a617a47c70795bcff659815ad0efd2266">counter</a>;</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;};</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
@@ -239,7 +239,7 @@ $(document).ready(function(){initNavTree('_link_widget_8h_source.html',''); init
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;{</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    Q_OBJECT</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <a class="code" href="classsofa_1_1gui_1_1qt_1_1_q_display_link_info_widget.html">QDisplayLinkInfoWidget</a>(QWidget* parent, <span class="keyword">const</span> std::string&amp; helper, <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">core::objectmodel::BaseLink</a>* <a class="code" href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a>, <span class="keywordtype">bool</span> modifiable);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <a class="code" href="classsofa_1_1gui_1_1qt_1_1_q_display_link_info_widget.html">QDisplayLinkInfoWidget</a>(QWidget* parent, <span class="keyword">const</span> std::string&amp; helper, <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">core::objectmodel::BaseLink</a>* l, <span class="keywordtype">bool</span> modifiable);</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keyword">public</span> slots:</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getNumLines()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> numLines_;}</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="keyword">protected</span>:</div>
@@ -259,13 +259,13 @@ $(document).ready(function(){initNavTree('_link_widget_8h_source.html',''); init
 <div class="ttc" id="a_base_8h_html"><div class="ttname"><a href="_base_8h.html">Base.h</a></div></div>
 <div class="ttc" id="a_factory_8h_html"><div class="ttname"><a href="_factory_8h.html">Factory.h</a></div></div>
 <div class="ttc" id="a_base_link_8h_html"><div class="ttname"><a href="_base_link_8h.html">BaseLink.h</a></div></div>
-<div class="ttc" id="a_static_solver__test_8cpp_html_adbde00fd7f75b31654f761d2be114467"><div class="ttname"><a href="_static_solver__test_8cpp.html#adbde00fd7f75b31654f761d2be114467">l</a></div><div class="ttdeci">static constexpr SReal l</div><div class="ttdef"><b>Definition:</b> StaticSolver_test.cpp:41</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_link_html"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base_link.html">sofa::core::objectmodel::BaseLink</a></div><div class="ttdoc">Abstract base class for all links in the scene grapn, independently of their type.</div><div class="ttdef"><b>Definition:</b> BaseLink.h:107</div></div>
+<div class="ttc" id="ainit_test_plugin_8cpp_html_a617a47c70795bcff659815ad0efd2266"><div class="ttname"><a href="init_test_plugin_8cpp.html#a617a47c70795bcff659815ad0efd2266">counter</a></div><div class="ttdeci">static int counter</div><div class="ttdef"><b>Definition:</b> initTestPlugin.cpp:26</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_927152f1403da9b2afd274b3e3ae770d.html">GUI</a></li><li class="navelem"><a class="el" href="dir_1eca62023986f93910713a5e9ddcd783.html">Qt</a></li><li class="navelem"><a class="el" href="dir_c9cf2f5bf756267bb272edea8678e2e7.html">src</a></li><li class="navelem"><a class="el" href="dir_70435d7e9fd0cc21447a6601a5ffca9e.html">sofa</a></li><li class="navelem"><a class="el" href="dir_8ed54395151f7a28f820c02d5a2e5ac0.html">gui</a></li><li class="navelem"><a class="el" href="dir_78e7ddc253744ad9fdbd52e0374e35b1.html">qt</a></li><li class="navelem"><a class="el" href="_link_widget_8h.html">LinkWidget.h</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 07:18:22 for SOFA by
+    <li class="footer">Generated on Wed Jul 27 2022 01:00:44 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

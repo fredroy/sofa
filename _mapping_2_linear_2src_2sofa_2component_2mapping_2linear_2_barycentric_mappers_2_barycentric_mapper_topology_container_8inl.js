@@ -1,6 +1,0 @@
-var _mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_topology_container_8inl =
-[
-    [ "SeqEdges", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_topology_container_8inl.html#a1db366d81cbbf1d3b4c79361d745cde9", null ],
-    [ "operator<<", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_topology_container_8inl.html#adffd014861e16481fd95c61b1c8e8a68", null ],
-    [ "operator>>", "_mapping_2_linear_2src_2sofa_2component_2mapping_2linear_2_barycentric_mappers_2_barycentric_mapper_topology_container_8inl.html#aa4b2fc919ed54dbefce2fca1c6f6752e", null ]
-];

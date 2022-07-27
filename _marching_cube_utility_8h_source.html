@@ -191,14 +191,14 @@ $(document).ready(function(){initNavTree('_marching_cube_utility_8h_source.html'
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span> setBoundingBox ( <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3i</a>&amp; min, <span class="keyword">const</span> <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3i</a>&amp; max )</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {</div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a02630697451b5d7d32d582abb98b675d">  110</a></span>&#160;        this-&gt;<a class="code" href="structbbox__shape.html">bbox</a>.min = min;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        this-&gt;<a class="code" href="structbbox__shape.html">bbox</a>.max = max;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">if</span> ( <a class="code" href="structbbox__shape.html">bbox</a>.min[0] &lt; 0 ) <a class="code" href="structbbox__shape.html">bbox</a>.min[0] = 0;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">if</span> ( <a class="code" href="structbbox__shape.html">bbox</a>.min[1] &lt; 0 ) <a class="code" href="structbbox__shape.html">bbox</a>.min[1] = 0;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span> ( <a class="code" href="structbbox__shape.html">bbox</a>.min[2] &lt; 0 ) <a class="code" href="structbbox__shape.html">bbox</a>.min[2] = 0;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">if</span> ( <a class="code" href="structbbox__shape.html">bbox</a>.max[0] &gt; dataResolution[0] )<a class="code" href="structbbox__shape.html">bbox</a>.max[0] = dataResolution[0];</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1_marching_cube_utility.html#aa4468f39df93fabdeb61a2b2c9089e60">  116</a></span>&#160;        <span class="keywordflow">if</span> ( <a class="code" href="structbbox__shape.html">bbox</a>.max[1] &gt; dataResolution[1] )<a class="code" href="structbbox__shape.html">bbox</a>.max[1] = dataResolution[1];</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">if</span> ( <a class="code" href="structbbox__shape.html">bbox</a>.max[2] &gt; dataResolution[2] )<a class="code" href="structbbox__shape.html">bbox</a>.max[2] = dataResolution[2];</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1_marching_cube_utility.html#a02630697451b5d7d32d582abb98b675d">  110</a></span>&#160;        this-&gt;bbox.min = min;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        this-&gt;bbox.max = max;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">if</span> ( bbox.min[0] &lt; 0 ) bbox.min[0] = 0;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">if</span> ( bbox.min[1] &lt; 0 ) bbox.min[1] = 0;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span> ( bbox.min[2] &lt; 0 ) bbox.min[2] = 0;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">if</span> ( bbox.max[0] &gt; dataResolution[0] )bbox.max[0] = dataResolution[0];</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classsofa_1_1helper_1_1_marching_cube_utility.html#aa4468f39df93fabdeb61a2b2c9089e60">  116</a></span>&#160;        <span class="keywordflow">if</span> ( bbox.max[1] &gt; dataResolution[1] )bbox.max[1] = dataResolution[1];</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">if</span> ( bbox.max[2] &gt; dataResolution[2] )bbox.max[2] = dataResolution[2];</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">void</span> run ( <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *data, <span class="keyword">const</span> <span class="keywordtype">float</span> isolevel,</div>
@@ -288,7 +288,7 @@ $(document).ready(function(){initNavTree('_marching_cube_utility_8h_source.html'
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>  convolutionSize;</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_vec.html">Vec3i</a>     dataResolution;</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_vec.html">Vector3</a>     dataVoxelSize;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <a class="code" href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_bounding_box.html">BoundingBox</a> <a class="code" href="gpc_8cpp.html#a14ebf0e28206eb1ec6f3f985d5923af4">bbox</a>; <span class="comment">//bbox used to remesh</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <a class="code" href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_bounding_box.html">BoundingBox</a> bbox; <span class="comment">//bbox used to remesh</span></div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <a class="code" href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_bounding_box.html">BoundingBox</a> roi; <span class="comment">// Set value to 0 on this limit to always obtain manifold mesh. (Set to dataResolution by default but can be changed for ROI)</span></div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> verticesIndexOffset;</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <a class="code" href="classsofa_1_1type_1_1_vec.html">Vector3</a> verticesTranslation;</div>
@@ -304,7 +304,6 @@ $(document).ready(function(){initNavTree('_marching_cube_utility_8h_source.html'
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacesofa_1_1type_html_a31dfb95cf9b938d53ff06c1c442a123b"><div class="ttname"><a href="namespacesofa_1_1type.html#a31dfb95cf9b938d53ff06c1c442a123b">sofa::type::Vec6i</a></div><div class="ttdeci">Vec&lt; 6, int &gt; Vec6i</div><div class="ttdef"><b>Definition:</b> fwd.h:80</div></div>
-<div class="ttc" id="agpc_8cpp_html_a14ebf0e28206eb1ec6f3f985d5923af4"><div class="ttname"><a href="gpc_8cpp.html#a14ebf0e28206eb1ec6f3f985d5923af4">bbox</a></div><div class="ttdeci">struct bbox_shape bbox</div></div>
 <div class="ttc" id="anamespacesofa_1_1helper_html_a64019321e907c84115f7e73f58cc2212"><div class="ttname"><a href="namespacesofa_1_1helper.html#a64019321e907c84115f7e73f58cc2212">sofa::helper::MarchingCubeFaceTable</a></div><div class="ttdeci">const int MarchingCubeFaceTable[256]</div><div class="ttdef"><b>Definition:</b> MarchingCubeUtility.cpp:85</div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html_a84aea2c81a0c09781db1480502dad042"><div class="ttname"><a href="namespacesofa_1_1type.html#a84aea2c81a0c09781db1480502dad042">sofa::type::Vec3</a></div><div class="ttdeci">Vec&lt; 3, SReal &gt; Vec3</div><div class="ttdef"><b>Definition:</b> fwd.h:70</div></div>
 <div class="ttc" id="anamespacesofa_html"><div class="ttname"><a href="namespacesofa.html">sofa</a></div><div class="ttdoc">This allow MeshTrian to interact with the messaging system.</div><div class="ttdef"><b>Definition:</b> ConstraintAnimationLoop.cpp:81</div></div>
@@ -322,14 +321,13 @@ $(document).ready(function(){initNavTree('_marching_cube_utility_8h_source.html'
 <div class="ttc" id="a_mesh_8h_html"><div class="ttname"><a href="_mesh_8h.html">Mesh.h</a></div></div>
 <div class="ttc" id="anamespacesofa_1_1type_html_a47282b5bd84c9399254a0cb0786bb73f"><div class="ttname"><a href="namespacesofa_1_1type.html#a47282b5bd84c9399254a0cb0786bb73f">sofa::type::Vec&lt; 3, int &gt;</a></div><div class="ttdeci">template class SOFA_TYPE_API Vec&lt; 3, int &gt;</div><div class="ttdef"><b>Definition:</b> Vec.cpp:35</div></div>
 <div class="ttc" id="astructsofa_1_1helper_1_1_marching_cube_utility_1_1_bounding_box_html"><div class="ttname"><a href="structsofa_1_1helper_1_1_marching_cube_utility_1_1_bounding_box.html">sofa::helper::MarchingCubeUtility::BoundingBox</a></div><div class="ttdef"><b>Definition:</b> MarchingCubeUtility.h:212</div></div>
-<div class="ttc" id="astructbbox__shape_html"><div class="ttname"><a href="structbbox__shape.html">bbox_shape</a></div><div class="ttdef"><b>Definition:</b> gpc.cpp:276</div></div>
 <div class="ttc" id="aset_8h_html"><div class="ttname"><a href="set_8h.html">set.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1helper_1_1io_1_1_mesh_html"><div class="ttname"><a href="classsofa_1_1helper_1_1io_1_1_mesh.html">sofa::helper::io::Mesh</a></div><div class="ttdef"><b>Definition:</b> Mesh.h:103</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><a class="el" href="_marching_cube_utility_8h.html">MarchingCubeUtility.h</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 07:14:59 for SOFA by
+    <li class="footer">Generated on Wed Jul 27 2022 00:58:29 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

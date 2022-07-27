@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['ray_41575',['Ray',['../classsofa_1_1component_1_1collision_1_1geometry_1_1_ray_collision_model.html#a27756b7a995fbc560ed9ec3bfa661a39',1,'sofa::component::collision::geometry::RayCollisionModel']]],
-  ['rigidcoord_3c_202_2c_20real_20_3e_41576',['RigidCoord&lt; 2, real &gt;',['../classsofa_1_1defaulttype_1_1_rigid_deriv_3_012_00_01real_01_4.html#ad5334cbdc563018e1e0f2b95f03b8379',1,'sofa::defaulttype::RigidDeriv&lt; 2, real &gt;']]],
-  ['rigidcoord_3c_203_2c_20real_20_3e_41577',['RigidCoord&lt; 3, real &gt;',['../classsofa_1_1defaulttype_1_1_rigid_deriv_3_013_00_01real_01_4.html#a5168ec25104ab7cd2d9b79a37904eac8',1,'sofa::defaulttype::RigidDeriv&lt; 3, real &gt;']]],
-  ['rowconstiterator_41578',['RowConstIterator',['../classsofa_1_1defaulttype_1_1_map_map_sparse_matrix_1_1_col_const_iterator.html#a4fd1f115dd68bf2ba5fe15b17a34112f',1,'sofa::defaulttype::MapMapSparseMatrix::ColConstIterator']]],
-  ['rowiterator_41579',['RowIterator',['../classsofa_1_1defaulttype_1_1_map_map_sparse_matrix_1_1_col_iterator.html#a7ab697b5571195fc27a2ad43eac538e1',1,'sofa::defaulttype::MapMapSparseMatrix::ColIterator']]]
+  ['skeletalmotionconstraint_3c_20datatypes_20_3e_39050',['SkeletalMotionConstraint&lt; DataTypes &gt;',['../structsofa_1_1component_1_1constraint_1_1projective_1_1_skeleton_joint.html#a4030ec44fce3b720a36d53769e66180f',1,'sofa::component::constraint::projective::SkeletonJoint']]],
+  ['springforcefieldinternaldata_3c_20datatypes_20_3e_39051',['SpringForceFieldInternalData&lt; DataTypes &gt;',['../classsofa_1_1component_1_1solidmechanics_1_1spring_1_1_spring_force_field.html#a2d5876922c5a24f48ef6ef6a096f586a',1,'sofa::component::solidmechanics::spring::SpringForceField']]]
 ];

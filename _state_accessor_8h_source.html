@@ -161,11 +161,11 @@ $(document).ready(function(){initNavTree('_state_accessor_8h_source.html',''); i
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    {</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">if</span> (mstate)</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        {</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#a6c787c2b59a2ffbe5f94ededdbcde8e5">   86</a></span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="structbbox__shape.html">bbox</a> = mstate-&gt;f_bbox.getValue();</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#a6c787c2b59a2ffbe5f94ededdbcde8e5">   86</a></span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; bbox = mstate-&gt;f_bbox.getValue();</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; 3; ++i)</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            {</div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#ac0732500bd7b34633e1df024d3f88632">   89</a></span>&#160;                maxBBox[i] = std::max(maxBBox[i], <a class="code" href="structbbox__shape.html">bbox</a>.maxBBox()[i]);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                minBBox[i] = std::min(minBBox[i], <a class="code" href="structbbox__shape.html">bbox</a>.minBBox()[i]);</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#ac0732500bd7b34633e1df024d3f88632">   89</a></span>&#160;                maxBBox[i] = std::max(maxBBox[i], bbox.maxBBox()[i]);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                minBBox[i] = std::min(minBBox[i], bbox.minBBox()[i]);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            }</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            anyMState = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
@@ -193,14 +193,13 @@ $(document).ready(function(){initNavTree('_state_accessor_8h_source.html',''); i
 <div class="ttc" id="aclasssofa_1_1core_1_1behavior_1_1_state_accessor_html_a5e3dc9d967de430b7d43ea99d5fdaee2"><div class="ttname"><a href="classsofa_1_1core_1_1behavior_1_1_state_accessor.html#a5e3dc9d967de430b7d43ea99d5fdaee2">sofa::core::behavior::StateAccessor::~StateAccessor</a></div><div class="ttdeci">~StateAccessor() override=default</div></div>
 <div class="ttc" id="anamespacesofa_1_1core_1_1behavior_html"><div class="ttname"><a href="namespacesofa_1_1core_1_1behavior.html">sofa::core::behavior</a></div><div class="ttdoc">For BaseMatrix.</div><div class="ttdef"><b>Definition:</b> FreeMotionAnimationLoop.h:28</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1_exec_params_html"><div class="ttname"><a href="classsofa_1_1core_1_1_exec_params.html">sofa::core::ExecParams</a></div><div class="ttdoc">Class gathering parameters use by most components methods, and transmitted by all visitors.</div><div class="ttdef"><b>Definition:</b> ExecParams.h:80</div></div>
-<div class="ttc" id="astructbbox__shape_html"><div class="ttname"><a href="structbbox__shape.html">bbox_shape</a></div><div class="ttdef"><b>Definition:</b> gpc.cpp:276</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_data_html_aeec6cb9926cb3b1c489ed8db0894ed83"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_data.html#aeec6cb9926cb3b1c489ed8db0894ed83">sofa::core::objectmodel::Data::setValue</a></div><div class="ttdeci">void setValue(const T &amp;value)</div><div class="ttdef"><b>Definition:</b> Data.h:260</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_html_a820b4fc43ce2d47a159de4a088369f37"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base.html#a820b4fc43ce2d47a159de4a088369f37">sofa::core::objectmodel::Base::f_bbox</a></div><div class="ttdeci">Data&lt; sofa::type::BoundingBox &gt; f_bbox</div><div class="ttdoc">this object bounding box</div><div class="ttdef"><b>Definition:</b> Base.h:483</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_60e01685828ffd7c41f36858d8896f33.html">Core</a></li><li class="navelem"><a class="el" href="dir_1796a5980b33da4b9881c7f7295ea624.html">src</a></li><li class="navelem"><a class="el" href="dir_29474acf678dce4aed010bf0162b5a34.html">sofa</a></li><li class="navelem"><a class="el" href="dir_b2ea3abd78d86d2c623df4c62fb6cf9b.html">core</a></li><li class="navelem"><a class="el" href="dir_54d1dbc3b4a21b95ff1639af6455b74b.html">behavior</a></li><li class="navelem"><a class="el" href="_state_accessor_8h.html">StateAccessor.h</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 07:04:06 for SOFA by
+    <li class="footer">Generated on Wed Jul 27 2022 00:50:38 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

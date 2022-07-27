@@ -1,6 +1,5 @@
 var namespacesofa_1_1simulation =
 [
-    [ "_basesimulationexporter_", "namespacesofa_1_1simulation_1_1__basesimulationexporter__.html", "namespacesofa_1_1simulation_1_1__basesimulationexporter__" ],
     [ "common", "namespacesofa_1_1simulation_1_1common.html", "namespacesofa_1_1simulation_1_1common" ],
     [ "core", "namespacesofa_1_1simulation_1_1core.html", "namespacesofa_1_1simulation_1_1core" ],
     [ "graph", "namespacesofa_1_1simulation_1_1graph.html", "namespacesofa_1_1simulation_1_1graph" ],

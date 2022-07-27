@@ -134,14 +134,14 @@ $(document).ready(function(){initNavTree('_dynamic_library_8h_source.html',''); 
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        Handle(<span class="keyword">const</span> Handle&amp; that);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        Handle&amp; operator= (<span class="keyword">const</span> Handle&amp; other);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">bool</span> isValid() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">const</span> std::string&amp; filename() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">const</span> std::string&amp; <a class="code" href="_data_file_name__test_8cpp.html#a42a21beb8018ac623f4d09db1343b9cf">filename</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> * m_realHandle;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        std::shared_ptr&lt;std::string&gt; m_filename;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        Handle(<span class="keyword">const</span> std::string&amp; filename, <span class="keywordtype">void</span> *handle);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        Handle(<span class="keyword">const</span> std::string&amp; <a class="code" href="_data_file_name__test_8cpp.html#a42a21beb8018ac623f4d09db1343b9cf">filename</a>, <span class="keywordtype">void</span> *handle);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    };</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">static</span> Handle load(<span class="keyword">const</span> std::string&amp; filename);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">static</span> Handle load(<span class="keyword">const</span> std::string&amp; <a class="code" href="_data_file_name__test_8cpp.html#a42a21beb8018ac623f4d09db1343b9cf">filename</a>);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> unload(Handle handle);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
@@ -149,9 +149,9 @@ $(document).ready(function(){initNavTree('_dynamic_library_8h_source.html',''); 
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">static</span> std::string getLastError();</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="save_snapshot_8cpp.html#a1ce7e66096dadf951062dd29a482decc">extension</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string extension;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string prefix;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="_plugin_manager__test_8cpp.html#a0abd588aaee05a454b90c7f20c5b7bb4">prefix</a>;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">static</span> std::string m_lastError;</div>
@@ -168,13 +168,14 @@ $(document).ready(function(){initNavTree('_dynamic_library_8h_source.html',''); 
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#endif // SOFA_HELPER_SYSTEM_DYNAMICLIBRARY_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="asave_snapshot_8cpp_html_a1ce7e66096dadf951062dd29a482decc"><div class="ttname"><a href="save_snapshot_8cpp.html#a1ce7e66096dadf951062dd29a482decc">extension</a></div><div class="ttdeci">static QMap&lt; QString, QString &gt; extension</div><div class="ttdef"><b>Definition:</b> saveSnapshot.cpp:54</div></div>
 <div class="ttc" id="anamespacesofa_html"><div class="ttname"><a href="namespacesofa.html">sofa</a></div><div class="ttdoc">This allow MeshTrian to interact with the messaging system.</div><div class="ttdef"><b>Definition:</b> ConstraintAnimationLoop.cpp:81</div></div>
+<div class="ttc" id="a_data_file_name__test_8cpp_html_a42a21beb8018ac623f4d09db1343b9cf"><div class="ttname"><a href="_data_file_name__test_8cpp.html#a42a21beb8018ac623f4d09db1343b9cf">filename</a></div><div class="ttdeci">const std::string filename</div><div class="ttdef"><b>Definition:</b> DataFileName_test.cpp:39</div></div>
+<div class="ttc" id="a_plugin_manager__test_8cpp_html_a0abd588aaee05a454b90c7f20c5b7bb4"><div class="ttname"><a href="_plugin_manager__test_8cpp.html#a0abd588aaee05a454b90c7f20c5b7bb4">prefix</a></div><div class="ttdeci">const std::string prefix</div><div class="ttdef"><b>Definition:</b> PluginManager_test.cpp:52</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_ed6bb6fa7c82c49cef38b405800fe269.html">Helper</a></li><li class="navelem"><a class="el" href="dir_6f358549c132e2916c032c4be5668a84.html">src</a></li><li class="navelem"><a class="el" href="dir_75ae5ef448298b74e7114d89ba19a1ad.html">sofa</a></li><li class="navelem"><a class="el" href="dir_225909fddd4f20960df11f0d9d00b68d.html">helper</a></li><li class="navelem"><a class="el" href="dir_fc466feef2df996a6bc7955f87c4296d.html">system</a></li><li class="navelem"><a class="el" href="_dynamic_library_8h.html">DynamicLibrary.h</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 07:14:59 for SOFA by
+    <li class="footer">Generated on Wed Jul 27 2022 00:58:29 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

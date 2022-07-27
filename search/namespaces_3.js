@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['internal_23220',['internal',['../namespaceinternal.html',1,'']]]
+  ['qtcharts_21906',['QtCharts',['../namespace_qt_charts.html',1,'']]],
+  ['qtnodes_21907',['QtNodes',['../namespace_qt_nodes.html',1,'']]]
 ];

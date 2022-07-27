@@ -134,14 +134,14 @@ $(document).ready(function(){initNavTree('src_2sofa_2testing_2_base_simulation_t
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;         SceneInstance(<span class="keyword">const</span> std::string&amp; type, <span class="keyword">const</span> std::string&amp; memory) ;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;         ~SceneInstance() ;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">static</span> SceneInstance LoadFromFile(<span class="keyword">const</span> std::string&amp; filename) ;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">static</span> SceneInstance LoadFromFile(<span class="keyword">const</span> std::string&amp; <a class="code" href="_data_file_name__test_8cpp.html#a42a21beb8018ac623f4d09db1343b9cf">filename</a>) ;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">Node::SPtr</a> <a class="code" href="_bilateral_interaction_constraint__test_8cpp.html#ae4921ba1b53a64ac407621370dec9883">root</a> ;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        Simulation* <a class="code" href="_bilateral_interaction_constraint__test_8cpp.html#a89530560649ee50f2a37b34839a0da33">simulation</a> {<span class="keyword">nullptr</span>} ;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">Node::SPtr</a> <a class="code" href="_q_sofa_recorder_8cpp.html#ab4b8daf4b8ea9d39568719e1e320076f">root</a> ;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        Simulation* simulation {<span class="keyword">nullptr</span>} ;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classsofa_1_1testing_1_1_base_simulation_test.html">   55</a></span>&#160;        <span class="keywordtype">void</span> initScene() ;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">void</span> simulate(<span class="keyword">const</span> <span class="keywordtype">double</span> timestep) ;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> loadSceneFile(<span class="keyword">const</span> std::string&amp; filename);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> loadSceneFile(<span class="keyword">const</span> std::string&amp; <a class="code" href="_data_file_name__test_8cpp.html#a42a21beb8018ac623f4d09db1343b9cf">filename</a>);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    } ;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
@@ -150,19 +150,19 @@ $(document).ready(function(){initNavTree('src_2sofa_2testing_2_base_simulation_t
 </div><!-- doc-content -->
 <div class="ttc" id="aclasssofa_1_1simulation_1_1_simulation_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1_simulation.html">sofa::simulation::Simulation</a></div><div class="ttdef"><b>Definition:</b> Simulation.h:45</div></div>
 <div class="ttc" id="aclasssofa_1_1core_1_1objectmodel_1_1_base_html_ab57acce1b994c39fb8ad8014583a8bbd"><div class="ttname"><a href="classsofa_1_1core_1_1objectmodel_1_1_base.html#ab57acce1b994c39fb8ad8014583a8bbd">sofa::core::objectmodel::Base::SPtr</a></div><div class="ttdeci">sptr&lt; Base &gt; SPtr</div><div class="ttdef"><b>Definition:</b> Base.h:120</div></div>
+<div class="ttc" id="a_q_sofa_recorder_8cpp_html_ab4b8daf4b8ea9d39568719e1e320076f"><div class="ttname"><a href="_q_sofa_recorder_8cpp.html#ab4b8daf4b8ea9d39568719e1e320076f">root</a></div><div class="ttdeci">root</div><div class="ttdef"><b>Definition:</b> QSofaRecorder.cpp:137</div></div>
 <div class="ttc" id="anamespacesofa_1_1simpleapi_html_aeac01ad585a0425955f8d9a106673a12"><div class="ttname"><a href="namespacesofa_1_1simpleapi.html#aeac01ad585a0425955f8d9a106673a12">sofa::simpleapi::importPlugin</a></div><div class="ttdeci">bool importPlugin(const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> SimpleApi.cpp:45</div></div>
 <div class="ttc" id="a_simulation_8h_html"><div class="ttname"><a href="_simulation_8h.html">Simulation.h</a></div></div>
 <div class="ttc" id="asrc_2sofa_2testing_2_base_test_8h_html"><div class="ttname"><a href="src_2sofa_2testing_2_base_test_8h.html">BaseTest.h</a></div></div>
 <div class="ttc" id="aclasssofa_1_1simulation_1_1_node_html"><div class="ttname"><a href="classsofa_1_1simulation_1_1_node.html">sofa::simulation::Node</a></div><div class="ttdef"><b>Definition:</b> Node.h:166</div></div>
 <div class="ttc" id="anamespacesofa_1_1testing_html"><div class="ttname"><a href="namespacesofa_1_1testing.html">sofa::testing</a></div><div class="ttdef"><b>Definition:</b> SparseMatrixTest.h:28</div></div>
 <div class="ttc" id="a_node_8h_html"><div class="ttname"><a href="_node_8h.html">Node.h</a></div></div>
-<div class="ttc" id="a_bilateral_interaction_constraint__test_8cpp_html_a89530560649ee50f2a37b34839a0da33"><div class="ttname"><a href="_bilateral_interaction_constraint__test_8cpp.html#a89530560649ee50f2a37b34839a0da33">simulation</a></div><div class="ttdeci">simulation::Simulation * simulation</div><div class="ttdoc">created by the constructor an re-used in the tests</div><div class="ttdef"><b>Definition:</b> BilateralInteractionConstraint_test.cpp:67</div></div>
-<div class="ttc" id="a_bilateral_interaction_constraint__test_8cpp_html_ae4921ba1b53a64ac407621370dec9883"><div class="ttname"><a href="_bilateral_interaction_constraint__test_8cpp.html#ae4921ba1b53a64ac407621370dec9883">root</a></div><div class="ttdeci">simulation::Node::SPtr root</div><div class="ttdoc">Root of the scene graph, created by the constructor an re-used in the tests.</div><div class="ttdef"><b>Definition:</b> BilateralInteractionConstraint_test.cpp:66</div></div>
+<div class="ttc" id="a_data_file_name__test_8cpp_html_a42a21beb8018ac623f4d09db1343b9cf"><div class="ttname"><a href="_data_file_name__test_8cpp.html#a42a21beb8018ac623f4d09db1343b9cf">filename</a></div><div class="ttdeci">const std::string filename</div><div class="ttdef"><b>Definition:</b> DataFileName_test.cpp:39</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_96dfcb6d53520fc7de57eb7eb67a00f9.html">Sofa</a></li><li class="navelem"><a class="el" href="dir_0e88514d4d6d89bc76a5192f107a6ae4.html">framework</a></li><li class="navelem"><a class="el" href="dir_fb9ca955ec84034fe543c6fbbf191646.html">Testing</a></li><li class="navelem"><a class="el" href="dir_622a0948709f06d8bd345dab82870293.html">src</a></li><li class="navelem"><a class="el" href="dir_4fb965f29624eb5d24d0ff015f1467ce.html">sofa</a></li><li class="navelem"><a class="el" href="dir_a38ef6e0346123e2c00944c888981fc0.html">testing</a></li><li class="navelem"><a class="el" href="src_2sofa_2testing_2_base_simulation_test_8h.html">BaseSimulationTest.h</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 07:18:16 for SOFA by
+    <li class="footer">Generated on Wed Jul 27 2022 01:00:39 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

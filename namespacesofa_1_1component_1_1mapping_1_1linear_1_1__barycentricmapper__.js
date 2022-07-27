@@ -1,4 +1,0 @@
-var namespacesofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper__ =
-[
-    [ "BarycentricMapper", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper.html", "classsofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper___1_1_barycentric_mapper" ]
-];

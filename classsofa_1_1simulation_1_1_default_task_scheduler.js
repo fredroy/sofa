@@ -1,7 +1,7 @@
 var classsofa_1_1simulation_1_1_default_task_scheduler =
 [
-    [ "MAX_THREADS", "classsofa_1_1simulation_1_1_default_task_scheduler.html#a52d62f1e780113658227de8a9e4c201ea10425a75a96eb068c8f4cbd7f8540745", null ],
-    [ "STACKSIZE", "classsofa_1_1simulation_1_1_default_task_scheduler.html#a52d62f1e780113658227de8a9e4c201ea307437b1eb56d8f5b8da528766f5d0c3", null ],
+    [ "MAX_THREADS", "classsofa_1_1simulation_1_1_default_task_scheduler.html#a540c98815fbf3a535e5c3474823ca58ca10425a75a96eb068c8f4cbd7f8540745", null ],
+    [ "STACKSIZE", "classsofa_1_1simulation_1_1_default_task_scheduler.html#a540c98815fbf3a535e5c3474823ca58ca307437b1eb56d8f5b8da528766f5d0c3", null ],
     [ "DefaultTaskScheduler", "classsofa_1_1simulation_1_1_default_task_scheduler.html#a15620bb9bbec0b4da24066ef9be9b023", null ],
     [ "DefaultTaskScheduler", "classsofa_1_1simulation_1_1_default_task_scheduler.html#a67cbbcc46195b935b3a9c62c3cbf1532", null ],
     [ "~DefaultTaskScheduler", "classsofa_1_1simulation_1_1_default_task_scheduler.html#ad7f022eaddf8e910fe1a24cbdefab645", null ],

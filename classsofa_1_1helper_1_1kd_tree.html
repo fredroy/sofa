@@ -103,9 +103,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ad1df9dc2600f2dda7e99d31c00fd73e0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1helper_1_1kd_tree.html#ad1df9dc2600f2dda7e99d31c00fd73e0adab4fc5cf28f3e6da4c0cbec125fce6f">dim</a> =Coord::total_size
+<tr class="memitem:acb6f6fa3e73244ffcf5c366390b4a4ed"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classsofa_1_1helper_1_1kd_tree.html#acb6f6fa3e73244ffcf5c366390b4a4edadab4fc5cf28f3e6da4c0cbec125fce6f">dim</a> =Coord::total_size
  }</td></tr>
-<tr class="separator:ad1df9dc2600f2dda7e99d31c00fd73e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:acb6f6fa3e73244ffcf5c366390b4a4ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2bf7bec3beb53b1f58f6ed936c6c2a1"><td class="memItemLeft" align="right" valign="top">typedef Coord::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1kd_tree.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1">Real</a></td></tr>
 <tr class="separator:ae2bf7bec3beb53b1f58f6ed936c6c2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06eb712afb67c0ee7c25eb52a2f5cf5f"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsofa_1_1type_1_1vector.html">type::vector</a>&lt; Coord &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1kd_tree.html#a06eb712afb67c0ee7c25eb52a2f5cf5f">VecCoord</a></td></tr>
@@ -143,7 +143,7 @@ Public Member Functions</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:abbd802619061fe3aba147839b8e2401c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1kd_tree.html#abbd802619061fe3aba147839b8e2401c">print</a> (const unsigned int index)</td></tr>
 <tr class="separator:abbd802619061fe3aba147839b8e2401c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae31cd86aba17ed90b22791324a0611e7"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1kd_tree.html#ae31cd86aba17ed90b22791324a0611e7">build</a> (<a class="el" href="classsofa_1_1helper_1_1kd_tree.html#aef7779a704fe3207991591944b7c97f1">UIlist</a> &amp;list, unsigned char <a class="el" href="_project_direction_constraint__test_8cpp.html#a3f2cebfb0ab8ca33ed6f0f3598df6112">direction</a>, const <a class="el" href="classsofa_1_1helper_1_1kd_tree.html#a06eb712afb67c0ee7c25eb52a2f5cf5f">VecCoord</a> &amp;positions)</td></tr>
+<tr class="memitem:ae31cd86aba17ed90b22791324a0611e7"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1kd_tree.html#ae31cd86aba17ed90b22791324a0611e7">build</a> (<a class="el" href="classsofa_1_1helper_1_1kd_tree.html#aef7779a704fe3207991591944b7c97f1">UIlist</a> &amp;list, unsigned char direction, const <a class="el" href="classsofa_1_1helper_1_1kd_tree.html#a06eb712afb67c0ee7c25eb52a2f5cf5f">VecCoord</a> &amp;positions)</td></tr>
 <tr class="separator:ae31cd86aba17ed90b22791324a0611e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac03ae8f3fe9c46f542e3c7f43d2d04d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsofa_1_1helper_1_1kd_tree.html#ac03ae8f3fe9c46f542e3c7f43d2d04d6">closest</a> (<a class="el" href="classsofa_1_1helper_1_1kd_tree.html#afea501625e59c8c418858740d4199432">distanceSet</a> &amp;cl, const Coord &amp;x, const unsigned int &amp;currentnode, const <a class="el" href="classsofa_1_1helper_1_1kd_tree.html#a06eb712afb67c0ee7c25eb52a2f5cf5f">VecCoord</a> &amp;positions, unsigned N) const</td></tr>
 <tr class="separator:ac03ae8f3fe9c46f542e3c7f43d2d04d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -261,8 +261,8 @@ class sofa::helper::kdTree&lt; Coord &gt;</h3>
 </div>
 </div>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="ad1df9dc2600f2dda7e99d31c00fd73e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1df9dc2600f2dda7e99d31c00fd73e0">&#9670;&nbsp;</a></span>anonymous enum</h2>
+<a id="acb6f6fa3e73244ffcf5c366390b4a4ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb6f6fa3e73244ffcf5c366390b4a4ed">&#9670;&nbsp;</a></span>anonymous enum</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -273,7 +273,7 @@ class sofa::helper::kdTree&lt; Coord &gt;</h3>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad1df9dc2600f2dda7e99d31c00fd73e0adab4fc5cf28f3e6da4c0cbec125fce6f"></a>dim&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="acb6f6fa3e73244ffcf5c366390b4a4edadab4fc5cf28f3e6da4c0cbec125fce6f"></a>dim&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -780,7 +780,7 @@ class sofa::helper::kdTree&lt; Coord &gt;</h3>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1helper.html">helper</a></li><li class="navelem"><a class="el" href="classsofa_1_1helper_1_1kd_tree.html">kdTree</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 07:39:47 for SOFA by
+    <li class="footer">Generated on Wed Jul 27 2022 01:10:41 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

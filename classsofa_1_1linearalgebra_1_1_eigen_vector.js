@@ -4,7 +4,7 @@ var classsofa_1_1linearalgebra_1_1_eigen_vector =
     [ "IndexEigen", "classsofa_1_1linearalgebra_1_1_eigen_vector.html#ae7b8a2f336728eb6f391a78d1a1e9b42", null ],
     [ "Real", "classsofa_1_1linearalgebra_1_1_eigen_vector.html#a032e30a7559178ebc4240c12ef02ec56", null ],
     [ "VectorEigen", "classsofa_1_1linearalgebra_1_1_eigen_vector.html#acdbb34bd5bf8a8b66d93fe3e12090e3d", null ],
-    [ "Nin", "classsofa_1_1linearalgebra_1_1_eigen_vector.html#a07422cff4c3dd5075f91f87bd0e57ee7ae110c223c838511fe7c85539422611bf", null ],
+    [ "Nin", "classsofa_1_1linearalgebra_1_1_eigen_vector.html#a3f4a95405348aa63ef907e692901011fae110c223c838511fe7c85539422611bf", null ],
     [ "EigenVector", "classsofa_1_1linearalgebra_1_1_eigen_vector.html#a99a04ca829941cc94b3c16030258784c", null ],
     [ "add", "classsofa_1_1linearalgebra_1_1_eigen_vector.html#a805832b7a7b925823dce7a009686119e", null ],
     [ "clear", "classsofa_1_1linearalgebra_1_1_eigen_vector.html#aee7cb2065b88d21ac4ad05bc997ecf82", null ],

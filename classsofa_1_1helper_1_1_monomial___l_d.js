@@ -1,12 +1,12 @@
 var classsofa_1_1helper_1_1_monomial___l_d =
 [
     [ "RNpoint", "classsofa_1_1helper_1_1_monomial___l_d.html#abbd112e4d347cb4fbe106e4fa8d3b4a8", null ],
-    [ "x", "classsofa_1_1helper_1_1_monomial___l_d.html#afccaefcc48c7849e1f3defa3f1fd1f8aacab1e15e82c5976bfb476ddfe145263c", null ],
-    [ "y", "classsofa_1_1helper_1_1_monomial___l_d.html#afccaefcc48c7849e1f3defa3f1fd1f8aae1f9fdb8b786c63efc4ce44eeacd17f2", null ],
-    [ "z", "classsofa_1_1helper_1_1_monomial___l_d.html#afccaefcc48c7849e1f3defa3f1fd1f8aa766ef8aad745d24433e347150a35da61", null ],
-    [ "xy", "classsofa_1_1helper_1_1_monomial___l_d.html#afccaefcc48c7849e1f3defa3f1fd1f8aa7447f51b55bf5eb77ac2040fa0e5ab86", null ],
-    [ "yz", "classsofa_1_1helper_1_1_monomial___l_d.html#afccaefcc48c7849e1f3defa3f1fd1f8aa8621f0c84e9d937ef5812aedb824ed34", null ],
-    [ "zx", "classsofa_1_1helper_1_1_monomial___l_d.html#afccaefcc48c7849e1f3defa3f1fd1f8aacd836c90650225c982be6caf0ce50f9a", null ],
+    [ "x", "classsofa_1_1helper_1_1_monomial___l_d.html#ae7c221b877c671251f317a43dbea2583acab1e15e82c5976bfb476ddfe145263c", null ],
+    [ "y", "classsofa_1_1helper_1_1_monomial___l_d.html#ae7c221b877c671251f317a43dbea2583ae1f9fdb8b786c63efc4ce44eeacd17f2", null ],
+    [ "z", "classsofa_1_1helper_1_1_monomial___l_d.html#ae7c221b877c671251f317a43dbea2583a766ef8aad745d24433e347150a35da61", null ],
+    [ "xy", "classsofa_1_1helper_1_1_monomial___l_d.html#ae7c221b877c671251f317a43dbea2583a7447f51b55bf5eb77ac2040fa0e5ab86", null ],
+    [ "yz", "classsofa_1_1helper_1_1_monomial___l_d.html#ae7c221b877c671251f317a43dbea2583a8621f0c84e9d937ef5812aedb824ed34", null ],
+    [ "zx", "classsofa_1_1helper_1_1_monomial___l_d.html#ae7c221b877c671251f317a43dbea2583acd836c90650225c982be6caf0ce50f9a", null ],
     [ "Monomial_LD", "classsofa_1_1helper_1_1_monomial___l_d.html#a0fb8a22e557e2717a5ada337b15b6397", null ],
     [ "Monomial_LD", "classsofa_1_1helper_1_1_monomial___l_d.html#a09e68f0b9fdd5424d59856981328d25a", null ],
     [ "Monomial_LD", "classsofa_1_1helper_1_1_monomial___l_d.html#a315b2d6d48ac277aa77a9b2c00bb9bcd", null ],

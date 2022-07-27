@@ -1,6 +1,6 @@
 var classsofa_1_1simulation_1_1_worker_thread =
 [
-    [ "Max_TasksPerThread", "classsofa_1_1simulation_1_1_worker_thread.html#a85d881cb3816f77e92c1c8f721b54fc4adde15a81e06b78b52229b15bf1f9e5da", null ],
+    [ "Max_TasksPerThread", "classsofa_1_1simulation_1_1_worker_thread.html#aa85e8d66aa325c34334bcaa049300dcdadde15a81e06b78b52229b15bf1f9e5da", null ],
     [ "WorkerThread", "classsofa_1_1simulation_1_1_worker_thread.html#abcfc6b7d916515dc62512cdc47b30b1c", null ],
     [ "~WorkerThread", "classsofa_1_1simulation_1_1_worker_thread.html#a92c8daad17796e8ac8ae25341e307987", null ],
     [ "addTask", "classsofa_1_1simulation_1_1_worker_thread.html#a2aad4831474211ae3f44bb7c7c121c17", null ],

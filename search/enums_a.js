@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['lineflag_40825',['LineFlag',['../classsofa_1_1component_1_1collision_1_1geometry_1_1_line_collision_model.html#a54b1068aed075b70ef63b592ac1011e1',1,'sofa::component::collision::geometry::LineCollisionModel']]],
-  ['linkflagsenum_40826',['LinkFlagsEnum',['../classsofa_1_1core_1_1objectmodel_1_1_base_link.html#ac560a88f1ec319db6a8a0f8377f3d24b',1,'sofa::core::objectmodel::BaseLink']]]
+  ['normal_38411',['Normal',['../structsofa_1_1helper_1_1console_1_1_foreground.html#abb5b863a4c7a7cc7d18a288c908b9f0b',1,'sofa::helper::console::Foreground::Normal()'],['../structsofa_1_1helper_1_1console_1_1_background.html#abb5b863a4c7a7cc7d18a288c908b9f0b',1,'sofa::helper::console::Background::Normal()']]]
 ];

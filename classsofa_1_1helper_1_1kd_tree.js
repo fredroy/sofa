@@ -7,7 +7,7 @@ var classsofa_1_1helper_1_1kd_tree =
     [ "Real", "classsofa_1_1helper_1_1kd_tree.html#ae2bf7bec3beb53b1f58f6ed936c6c2a1", null ],
     [ "UIlist", "classsofa_1_1helper_1_1kd_tree.html#aef7779a704fe3207991591944b7c97f1", null ],
     [ "VecCoord", "classsofa_1_1helper_1_1kd_tree.html#a06eb712afb67c0ee7c25eb52a2f5cf5f", null ],
-    [ "dim", "classsofa_1_1helper_1_1kd_tree.html#ad1df9dc2600f2dda7e99d31c00fd73e0adab4fc5cf28f3e6da4c0cbec125fce6f", null ],
+    [ "dim", "classsofa_1_1helper_1_1kd_tree.html#acb6f6fa3e73244ffcf5c366390b4a4edadab4fc5cf28f3e6da4c0cbec125fce6f", null ],
     [ "build", "classsofa_1_1helper_1_1kd_tree.html#a1e3e8a3d7795a83f89685aad15feaec1", null ],
     [ "build", "classsofa_1_1helper_1_1kd_tree.html#aa6931e456d5c10415b6d9a229510e2fd", null ],
     [ "build", "classsofa_1_1helper_1_1kd_tree.html#ae31cd86aba17ed90b22791324a0611e7", null ],

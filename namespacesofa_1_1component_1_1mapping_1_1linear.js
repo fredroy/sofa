@@ -1,8 +1,5 @@
 var namespacesofa_1_1component_1_1mapping_1_1linear =
 [
-    [ "_barycentricmapper_", "namespacesofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper__.html", "namespacesofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmapper__" ],
-    [ "_barycentricmappertopologycontainer_", "namespacesofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmappertopologycontainer__.html", "namespacesofa_1_1component_1_1mapping_1_1linear_1_1__barycentricmappertopologycontainer__" ],
-    [ "_topologybarycentricmapper_", "namespacesofa_1_1component_1_1mapping_1_1linear_1_1__topologybarycentricmapper__.html", "namespacesofa_1_1component_1_1mapping_1_1linear_1_1__topologybarycentricmapper__" ],
     [ "BarycentricMapperEdgeSetTopology", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_edge_set_topology.html", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_edge_set_topology" ],
     [ "BarycentricMapperHexahedronSetTopology", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_hexahedron_set_topology.html", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_hexahedron_set_topology" ],
     [ "BarycentricMapperMeshTopology", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_mesh_topology.html", "classsofa_1_1component_1_1mapping_1_1linear_1_1_barycentric_mapper_mesh_topology" ],

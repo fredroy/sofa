@@ -1,6 +1,6 @@
 var classsofa_1_1simulation_1_1_spin_lock =
 [
-    [ "CACHE_LINE", "classsofa_1_1simulation_1_1_spin_lock.html#a843b6364885d3a1a47722e792b0368eca72f377f6795a429dde2fb096da58b364", null ],
+    [ "CACHE_LINE", "classsofa_1_1simulation_1_1_spin_lock.html#a0efc1b13f14c790dd3d59de11e12bc6da72f377f6795a429dde2fb096da58b364", null ],
     [ "SpinLock", "classsofa_1_1simulation_1_1_spin_lock.html#a3175971aac6aef2f7bea331e70d2bdca", null ],
     [ "~SpinLock", "classsofa_1_1simulation_1_1_spin_lock.html#a4046d7910a267a6c4deaba8fad3512a2", null ],
     [ "lock", "classsofa_1_1simulation_1_1_spin_lock.html#aa81aed607133209dade63a226818224d", null ],

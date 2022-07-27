@@ -25,6 +25,7 @@ var namespacesofa_1_1core =
     [ "DataTrackerDDGNode", "classsofa_1_1core_1_1_data_tracker_d_d_g_node.html", "classsofa_1_1core_1_1_data_tracker_d_d_g_node" ],
     [ "DataTrackerFunctor", "classsofa_1_1core_1_1_data_tracker_functor.html", "classsofa_1_1core_1_1_data_tracker_functor" ],
     [ "DevBaseMonitor", "classsofa_1_1core_1_1_dev_base_monitor.html", "classsofa_1_1core_1_1_dev_base_monitor" ],
+    [ "DummyCollisionModel", "classsofa_1_1core_1_1_dummy_collision_model.html", "classsofa_1_1core_1_1_dummy_collision_model" ],
     [ "ExecParams", "classsofa_1_1core_1_1_exec_params.html", "classsofa_1_1core_1_1_exec_params" ],
     [ "Mapping", "classsofa_1_1core_1_1_mapping.html", "classsofa_1_1core_1_1_mapping" ],
     [ "MechanicalParams", "classsofa_1_1core_1_1_mechanical_params.html", "classsofa_1_1core_1_1_mechanical_params" ],

@@ -1,4 +1,0 @@
-var namespacesofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1__beamfemforcefield__ =
-[
-    [ "BeamFEMForceField", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1__beamfemforcefield___1_1_beam_f_e_m_force_field.html", "classsofa_1_1component_1_1solidmechanics_1_1fem_1_1elastic_1_1__beamfemforcefield___1_1_beam_f_e_m_force_field" ]
-];

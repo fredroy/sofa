@@ -161,10 +161,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:a9171e6a4ca24208dd28e8392efcb1423"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the Vector to the Data. They must have the same size.  <a href="namespacesofa_1_1testing.html#a9171e6a4ca24208dd28e8392efcb1423">More...</a><br /></td></tr>
 <tr class="separator:a9171e6a4ca24208dd28e8392efcb1423"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2c0309fc00310dfa178cbf6148238cd"><td class="memTemplParams" colspan="2">template&lt;class DataTypes &gt; </td></tr>
-<tr class="memitem:ac2c0309fc00310dfa178cbf6148238cd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1testing.html#ac2c0309fc00310dfa178cbf6148238cd">setRot</a> (typename <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a433a4446e8804f24450e7f9f90cf27a5">DataTypes::Coord</a> &amp;coord, const <a class="el" href="classsofa_1_1type_1_1_quat.html">sofa::type::Quat</a>&lt; SReal &gt; &amp;rot)</td></tr>
+<tr class="memitem:ac2c0309fc00310dfa178cbf6148238cd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1testing.html#ac2c0309fc00310dfa178cbf6148238cd">setRot</a> (typename DataTypes::Coord &amp;coord, const <a class="el" href="classsofa_1_1type_1_1_quat.html">sofa::type::Quat</a>&lt; SReal &gt; &amp;rot)</td></tr>
 <tr class="separator:ac2c0309fc00310dfa178cbf6148238cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5109d232cf79bc45da9a8b491154df43"><td class="memTemplParams" colspan="2">template&lt;class DataTypes &gt; </td></tr>
-<tr class="memitem:a5109d232cf79bc45da9a8b491154df43"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a433a4446e8804f24450e7f9f90cf27a5">DataTypes::Coord</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1testing.html#a5109d232cf79bc45da9a8b491154df43">createCoord</a> (const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">sofa::type::Vector3</a> &amp;pos, const <a class="el" href="classsofa_1_1type_1_1_quat.html">sofa::type::Quat</a>&lt; SReal &gt; &amp;rot)</td></tr>
+<tr class="memitem:a5109d232cf79bc45da9a8b491154df43"><td class="memTemplItemLeft" align="right" valign="top">DataTypes::Coord&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesofa_1_1testing.html#a5109d232cf79bc45da9a8b491154df43">createCoord</a> (const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">sofa::type::Vector3</a> &amp;pos, const <a class="el" href="classsofa_1_1type_1_1_quat.html">sofa::type::Quat</a>&lt; SReal &gt; &amp;rot)</td></tr>
 <tr class="memdesc:a5109d232cf79bc45da9a8b491154df43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a coord of the specified type from a Vector3 and a Quater.  <a href="namespacesofa_1_1testing.html#a5109d232cf79bc45da9a8b491154df43">More...</a><br /></td></tr>
 <tr class="separator:a5109d232cf79bc45da9a8b491154df43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73e36d302eef2d790d679635b918f9fb"><td class="memTemplParams" colspan="2">template&lt;sofa::Size N, class real &gt; </td></tr>
@@ -293,7 +293,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a433a4446e8804f24450e7f9f90cf27a5">DataTypes::Coord</a> sofa::testing::createCoord </td>
+          <td class="memname">DataTypes::Coord sofa::testing::createCoord </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacesofa_1_1type.html#a62baf775eb04f09e83f1a8bf818bd971">sofa::type::Vector3</a> &amp;&#160;</td>
           <td class="paramname"><em>pos</em>, </td>
@@ -490,7 +490,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void sofa::testing::setRot </td>
           <td>(</td>
-          <td class="paramtype">typename <a class="el" href="classsofa_1_1defaulttype_1_1_std_vector_types.html#a433a4446e8804f24450e7f9f90cf27a5">DataTypes::Coord</a> &amp;&#160;</td>
+          <td class="paramtype">typename DataTypes::Coord &amp;&#160;</td>
           <td class="paramname"><em>coord</em>, </td>
         </tr>
         <tr>
@@ -598,7 +598,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesofa.html">sofa</a></li><li class="navelem"><a class="el" href="namespacesofa_1_1testing.html">testing</a></li>
-    <li class="footer">Generated on Tue Jul 26 2022 07:46:42 for SOFA by
+    <li class="footer">Generated on Wed Jul 27 2022 01:12:58 for SOFA by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -1,6 +1,5 @@
 var namespacesofa_1_1component_1_1sceneutility =
 [
-    [ "_apiversion_", "namespacesofa_1_1component_1_1sceneutility_1_1__apiversion__.html", "namespacesofa_1_1component_1_1sceneutility_1_1__apiversion__" ],
     [ "infocomponent", "namespacesofa_1_1component_1_1sceneutility_1_1infocomponent.html", "namespacesofa_1_1component_1_1sceneutility_1_1infocomponent" ],
     [ "makealiascomponent", "namespacesofa_1_1component_1_1sceneutility_1_1makealiascomponent.html", "namespacesofa_1_1component_1_1sceneutility_1_1makealiascomponent" ],
     [ "makedataaliascomponent", "namespacesofa_1_1component_1_1sceneutility_1_1makedataaliascomponent.html", "namespacesofa_1_1component_1_1sceneutility_1_1makedataaliascomponent" ],
