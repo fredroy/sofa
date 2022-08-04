@@ -27,7 +27,7 @@
 #include <sstream>
 #include <cassert>
 #include <unordered_map>
-
+#include <array>
 namespace sofa::core
 {
 
@@ -40,12 +40,20 @@ enum VecType
     V_MATDERIV,
 };
 
-static const std::unordered_map<VecType, std::string> VecTypeLabels {
-    {V_ALL, "(V_ALL)"},
-    {V_COORD, "(V_COORD)"},
-    {V_DERIV, "(V_DERIV)"},
-    {V_MATDERIV, "(V_MATDERIV)"}
+static constexpr std::array< const char*, 4> VecTypeLabels
+{
+        "(V_ALL)",
+        "(V_COORD)",
+        "(V_DERIV)",
+        "(V_MATDERIV)"
 };
+
+//static const std::unordered_map<VecType, std::string> VecTypeLabels {
+//    {V_ALL, "(V_ALL)"},
+//    {V_COORD, "(V_COORD)"},
+//    {V_DERIV, "(V_DERIV)"},
+//    {V_MATDERIV, "(V_MATDERIV)"}
+//};
 
 /// Types of vectors that can be stored in State
 enum VecAccess
@@ -66,13 +74,13 @@ class TStandardVec<V_COORD, vaccess>
 {
 public:
     typedef TVecId<V_COORD, vaccess> MyVecId;
-    static MyVecId position()      { return MyVecId(1);}
-    static MyVecId restPosition()  { return MyVecId(2);}
-    static MyVecId freePosition()  { return MyVecId(3);}
-    static MyVecId resetPosition() { return MyVecId(4);}
-    enum { V_FIRST_DYNAMIC_INDEX = 5 }; ///< This is the first index used for dynamically allocated vectors
+    static constexpr MyVecId position()      { return MyVecId(1);}
+    static constexpr MyVecId restPosition()  { return MyVecId(2);}
+    static constexpr MyVecId freePosition()  { return MyVecId(3);}
+    static constexpr MyVecId resetPosition() { return MyVecId(4);}
+    static constexpr const sofa::Size V_FIRST_DYNAMIC_INDEX = 5; ///< This is the first index used for dynamically allocated vectors
 
-    static std::string getName(const MyVecId& v)
+    static constexpr const char* getName(const MyVecId& v)
     {
         std::string result;
         switch(v.getIndex())
@@ -94,10 +102,10 @@ public:
             break;
         }
         result+= VecTypeLabels.at(V_COORD);
-        return result;
+        return result.c_str();
     }
 
-    static std::string getGroup(const MyVecId& v)
+    static constexpr const char* getGroup(const MyVecId& v)
     {
         switch(v.getIndex())
         {
@@ -106,7 +114,7 @@ public:
             case 2: return "Rest States"; //restPosition
             case 3: return "Free Motion"; //freePosition
             case 4: return "States"; //
-            default: return {};
+            default: return "";
         }
     }
 };
@@ -117,17 +125,17 @@ class TStandardVec<V_DERIV, vaccess>
 public:
     typedef TVecId<V_DERIV, vaccess> MyVecId;
 
-    static MyVecId velocity()       { return MyVecId(1); }
-    static MyVecId resetVelocity()  { return MyVecId(2); }
-    static MyVecId freeVelocity()   { return MyVecId(3); }
-    static MyVecId normal()         { return MyVecId(4); }
-    static MyVecId force()          { return MyVecId(5); }
-    static MyVecId externalForce()  { return MyVecId(6); }
-    static MyVecId dx()             { return MyVecId(7); }
-    static MyVecId dforce()         { return MyVecId(8); }
-    enum { V_FIRST_DYNAMIC_INDEX = 9 }; ///< This is the first index used for dynamically allocated vectors
+    static constexpr MyVecId velocity()       { return MyVecId(1); }
+    static constexpr MyVecId resetVelocity()  { return MyVecId(2); }
+    static constexpr MyVecId freeVelocity()   { return MyVecId(3); }
+    static constexpr MyVecId normal()         { return MyVecId(4); }
+    static constexpr MyVecId force()          { return MyVecId(5); }
+    static constexpr MyVecId externalForce()  { return MyVecId(6); }
+    static constexpr MyVecId dx()             { return MyVecId(7); }
+    static constexpr MyVecId dforce()         { return MyVecId(8); }
+    static constexpr const sofa::Size V_FIRST_DYNAMIC_INDEX = 9; ///< This is the first index used for dynamically allocated vectors
 
-    static std::string getName(const MyVecId& v)
+    static constexpr const char* getName(const MyVecId& v)
     {
         std::string result;
         switch(v.getIndex())
@@ -157,10 +165,10 @@ public:
             break;
         }
         result+= VecTypeLabels.at(V_DERIV);
-        return result;
+        return result.c_str();
     }
 
-    static std::string getGroup(const MyVecId& v)
+    static constexpr const char* getGroup(const MyVecId& v)
     {
         switch(v.getIndex())
         {
@@ -173,7 +181,7 @@ public:
             case 6: return "Force"; //externalForce
             case 7: return "States"; //dx
             case 8: return "Force"; //dforce
-            default: return {};
+            default: return "";
         }
     }
 };
@@ -184,14 +192,14 @@ class TStandardVec<V_MATDERIV, vaccess>
 public:
     typedef TVecId<V_MATDERIV, vaccess> MyVecId;
 
-    static MyVecId constraintJacobian()    { return MyVecId(1);} // jacobian matrix of constraints
-    static MyVecId mappingJacobian() { return MyVecId(2);}         // accumulated matrix of the mappings
+    static constexpr MyVecId constraintJacobian()    { return MyVecId(1);} // jacobian matrix of constraints
+    static constexpr MyVecId mappingJacobian() { return MyVecId(2);}         // accumulated matrix of the mappings
 
     SOFA_ATTRIBUTE_DISABLED("v17.06 (PR#276)", "v21.06", "See VecId.h to remove this message and replace by constraintMatrix")
     static MyVecId holonomicC() = delete;
-    enum { V_FIRST_DYNAMIC_INDEX = 3 }; ///< This is the first index used for dynamically allocated vectors
+    static constexpr const sofa::Size V_FIRST_DYNAMIC_INDEX = 3; ///< This is the first index used for dynamically allocated vectors
 
-    static std::string getName(const MyVecId& v)
+    static constexpr const char* getName(const MyVecId& v)
     {
         std::string result;
         switch(v.getIndex())
@@ -209,7 +217,7 @@ public:
             break;
         }
         result+= "(V_MATDERIV)";
-        return result;
+        return result.c_str();
     }
 
     static std::string getGroup(const MyVecId& v)
@@ -233,7 +241,7 @@ class TStandardVec<V_ALL, vaccess>
 public:
     typedef TVecId<V_ALL, vaccess> MyVecId;
 
-    static unsigned int getFirstDynamicIndex(VecType t)
+    static constexpr unsigned int getFirstDynamicIndex(VecType t)
     {
         switch(t)
         {
@@ -248,7 +256,7 @@ public:
         }
     }
 
-    static std::string getName(const MyVecId& v)
+    static constexpr std::string getName(const MyVecId& v)
     {
         switch(v.getType())
         {
@@ -277,14 +285,14 @@ public:
 class BaseVecId
 {
 public:
-    VecType getType() const { return type; }
-    unsigned int getIndex() const { return index; }
+    constexpr VecType getType() const { return type; }
+    constexpr unsigned int getIndex() const { return index; }
 
 	VecType type;
     unsigned int index;
 
 protected:
-	BaseVecId(VecType t, unsigned int i) : type(t), index(i) {}
+    constexpr BaseVecId(VecType t, unsigned int i) : type(t), index(i) {}
 };
 
 /// This class is only here as fix for a VC2010 compiler otherwise padding TVecId<V_ALL,?> with 4 more bytes than TVecId<?,?>, 
@@ -305,23 +313,23 @@ template <VecType vtype, VecAccess vaccess>
 class TVecId : public BaseVecId, public TStandardVec<vtype, vaccess>, public VecIdAlignFix
 {
 public:
-    TVecId() : BaseVecId(vtype, 0) { }
-    TVecId(unsigned int i) : BaseVecId(vtype, i) { }
+    constexpr TVecId() : BaseVecId(vtype, 0) { }
+    constexpr TVecId(sofa::Index i) : BaseVecId(vtype, i) { }
 
     /// Copy constructor
-    TVecId(const TVecId<vtype, vaccess> & v) : BaseVecId(vtype, v.getIndex()) {}
+    constexpr TVecId(const TVecId<vtype, vaccess> & v) : BaseVecId(vtype, v.getIndex()) {}
 
     /// Copy from another VecId, possibly with another type of access, with the
     /// constraint that the access must be compatible (i.e. cannot create
     /// a write-access VecId from a read-only VecId.
     template<VecAccess vaccess2>
-    TVecId(const TVecId<vtype, vaccess2>& v) : BaseVecId(vtype, v.getIndex())
+    constexpr TVecId(const TVecId<vtype, vaccess2>& v) : BaseVecId(vtype, v.getIndex())
     {
         static_assert(vaccess2 >= vaccess, "Copy from a read-only vector id into a read/write vector id is forbidden.");
     }
 
 	template<VecAccess vaccess2>
-    explicit TVecId(const TVecId<V_ALL, vaccess2>& v) : BaseVecId(vtype, v.getIndex())
+    explicit constexpr TVecId(const TVecId<V_ALL, vaccess2>& v) : BaseVecId(vtype, v.getIndex())
     {
         static_assert(vaccess2 >= vaccess, "Copy from a read-only vector id into a read/write vector id is forbidden.");
 #ifndef NDEBUG
@@ -331,14 +339,16 @@ public:
 
     // Copy assignment
 
-    TVecId<vtype, vaccess> & operator=(const TVecId<vtype, vaccess>& other) {
+    constexpr TVecId<vtype, vaccess> & operator=(const TVecId<vtype, vaccess>& other) 
+    {
         this->index = other.index;
         this->type = other.type;
         return *this;
     }
 
     template<VecAccess vaccess2>
-    TVecId<vtype, vaccess> & operator=(const TVecId<vtype, vaccess2>& other) {
+    constexpr TVecId<vtype, vaccess> & operator=(const TVecId<vtype, vaccess2>& other) 
+    {
         static_assert(vaccess2 >= vaccess, "Copy from a read-only vector id into a read/write vector id is forbidden.");
         this->index = other.index;
         this->type = other.type;
@@ -346,7 +356,8 @@ public:
     }
 
     template<VecAccess vaccess2>
-    TVecId<vtype, vaccess> & operator=(const TVecId<V_ALL, vaccess2>& other) {
+    constexpr TVecId<vtype, vaccess> & operator=(const TVecId<V_ALL, vaccess2>& other) 
+    {
         static_assert(vaccess2 >= vaccess, "Copy from a read-only vector id into a read/write vector id is forbidden.");
 #ifndef NDEBUG
         assert(other.getType() == vtype);
@@ -358,19 +369,19 @@ public:
 
 
     template<VecType vtype2, VecAccess vaccess2>
-    bool operator==(const TVecId<vtype2, vaccess2>& v) const
+    constexpr bool operator==(const TVecId<vtype2, vaccess2>& v) const
     {
         return getType() == v.getType() && getIndex() == v.getIndex();
     }
 
     template<VecType vtype2, VecAccess vaccess2>
-    bool operator!=(const TVecId<vtype2, vaccess2>& v) const
+    constexpr bool operator!=(const TVecId<vtype2, vaccess2>& v) const
     {
         return getType() != v.getType() || getIndex() != v.getIndex();
     }
 
-    static TVecId null() { return TVecId(0);}
-    bool isNull() const { return this->index == 0; }
+    static constexpr TVecId null() { return TVecId(0);}
+    constexpr bool isNull() const { return this->index == 0; }
 
     std::string getName() const
     {
@@ -393,20 +404,20 @@ template<VecAccess vaccess>
 class TVecId<V_ALL, vaccess> : public BaseVecId, public TStandardVec<V_ALL, vaccess>
 {
 public:
-    TVecId() : BaseVecId(V_ALL, 0) { }
-    TVecId(VecType t, unsigned int i) : BaseVecId(t, i) { }
+    constexpr TVecId() : BaseVecId(V_ALL, 0) { }
+    constexpr TVecId(VecType t, unsigned int i) : BaseVecId(t, i) { }
     /// Create a generic VecId from a specific or generic one, with the
     /// constraint that the access must be compatible (i.e. cannot create
     /// a write-access VecId from a read-only VecId.
     template<VecType vtype2, VecAccess vaccess2>
-    TVecId(const TVecId<vtype2, vaccess2>& v) : BaseVecId(v.getType(), v.getIndex())
+    constexpr TVecId(const TVecId<vtype2, vaccess2>& v) : BaseVecId(v.getType(), v.getIndex())
     {
         static_assert(vaccess2 >= vaccess, "Copy from a read-only vector id into a read/write vector id is forbidden.");
     }
 
     // Copy assignment
     template<VecType vtype2, VecAccess vaccess2>
-    TVecId<V_ALL, vaccess> & operator=(const TVecId<vtype2, vaccess2>& other) {
+    constexpr TVecId<V_ALL, vaccess> & operator=(const TVecId<vtype2, vaccess2>& other) {
         static_assert(vaccess2 >= vaccess, "Copy from a read-only vector id into a read/write vector id is forbidden.");
         this->index = other.index;
         this->type = other.type;
@@ -415,19 +426,19 @@ public:
 
 
     template<VecType vtype2, VecAccess vaccess2>
-    bool operator==(const TVecId<vtype2, vaccess2>& v) const
+    constexpr bool operator==(const TVecId<vtype2, vaccess2>& v) const
     {
         return getType() == v.getType() && getIndex() == v.getIndex();
     }
 
     template<VecType vtype2, VecAccess vaccess2>
-    bool operator!=(const TVecId<vtype2, vaccess2>& v) const
+    constexpr bool operator!=(const TVecId<vtype2, vaccess2>& v) const
     {
         return getType() != v.getType() || getIndex() != v.getIndex();
     }
 
-    static TVecId null() { return TVecId(V_ALL, 0);}
-    bool isNull() const { return this->index == 0; }
+    static constexpr TVecId null() { return TVecId(V_ALL, 0);}
+    constexpr bool isNull() const { return this->index == 0; }
 
     std::string getName() const
     {
