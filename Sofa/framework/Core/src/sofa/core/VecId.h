@@ -80,7 +80,7 @@ public:
     static constexpr MyVecId resetPosition() { return MyVecId(4);}
     static constexpr const sofa::Size V_FIRST_DYNAMIC_INDEX = 5; ///< This is the first index used for dynamically allocated vectors
 
-    static constexpr const char* getName(const MyVecId& v)
+    static std::string getName(const MyVecId& v)
     {
         std::string result;
         switch(v.getIndex())
@@ -102,7 +102,7 @@ public:
             break;
         }
         result+= VecTypeLabels.at(V_COORD);
-        return result.c_str();
+        return result;
     }
 
     static constexpr const char* getGroup(const MyVecId& v)
@@ -135,7 +135,7 @@ public:
     static constexpr MyVecId dforce()         { return MyVecId(8); }
     static constexpr const sofa::Size V_FIRST_DYNAMIC_INDEX = 9; ///< This is the first index used for dynamically allocated vectors
 
-    static constexpr const char* getName(const MyVecId& v)
+    static std::string getName(const MyVecId& v)
     {
         std::string result;
         switch(v.getIndex())
@@ -199,7 +199,7 @@ public:
     static MyVecId holonomicC() = delete;
     static constexpr const sofa::Size V_FIRST_DYNAMIC_INDEX = 3; ///< This is the first index used for dynamically allocated vectors
 
-    static constexpr const char* getName(const MyVecId& v)
+    static std::string getName(const MyVecId& v)
     {
         std::string result;
         switch(v.getIndex())
@@ -241,7 +241,7 @@ class TStandardVec<V_ALL, vaccess>
 public:
     typedef TVecId<V_ALL, vaccess> MyVecId;
 
-    static constexpr unsigned int getFirstDynamicIndex(VecType t)
+    static constexpr sofa::Index getFirstDynamicIndex(VecType t)
     {
         switch(t)
         {
@@ -256,7 +256,7 @@ public:
         }
     }
 
-    static constexpr std::string getName(const MyVecId& v)
+    static std::string getName(const MyVecId& v)
     {
         switch(v.getType())
         {
@@ -286,13 +286,13 @@ class BaseVecId
 {
 public:
     constexpr VecType getType() const { return type; }
-    constexpr unsigned int getIndex() const { return index; }
+    constexpr sofa::Index getIndex() const { return index; }
 
 	VecType type;
-    unsigned int index;
+    sofa::Index index;
 
 protected:
-    constexpr BaseVecId(VecType t, unsigned int i) : type(t), index(i) {}
+    constexpr BaseVecId(VecType t, sofa::Index i) : type(t), index(i) {}
 };
 
 /// This class is only here as fix for a VC2010 compiler otherwise padding TVecId<V_ALL,?> with 4 more bytes than TVecId<?,?>, 
@@ -405,7 +405,7 @@ class TVecId<V_ALL, vaccess> : public BaseVecId, public TStandardVec<V_ALL, vacc
 {
 public:
     constexpr TVecId() : BaseVecId(V_ALL, 0) { }
-    constexpr TVecId(VecType t, unsigned int i) : BaseVecId(t, i) { }
+    constexpr TVecId(VecType t, sofa::Index i) : BaseVecId(t, i) { }
     /// Create a generic VecId from a specific or generic one, with the
     /// constraint that the access must be compatible (i.e. cannot create
     /// a write-access VecId from a read-only VecId.
