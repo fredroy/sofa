@@ -132,9 +132,9 @@ private:
     VecDeriv constraint_disp, constraint_force;
     std::list<int> constraint_dofs;		// list of indices of each point which is involve with constraint
 
-    using LineInfo = std::pair<const Deriv&, int>;
+    using LineInfo = std::pair<int, const Deriv&>;
     using VecLineInfo = std::vector< LineInfo >;
-    std::unordered_map<int, VecLineInfo> m_buffer;
+    std::unordered_map<int, const VecLineInfo> m_buffer;
 
 protected:
 
