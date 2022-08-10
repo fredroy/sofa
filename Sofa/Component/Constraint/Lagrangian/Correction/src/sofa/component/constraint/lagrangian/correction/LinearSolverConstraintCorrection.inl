@@ -612,7 +612,7 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
         if (res == m_buffer.end())
         {
             auto rowIt = constraints.readLine(i);
-            m_buffer.insert({ i, rowIt });
+            VecLineInfo vinfo;
 
             if (rowIt != constraints.end()) // useful ??
             {
@@ -628,28 +628,31 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
                     {
                         addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, colIt.index(), colIt.val());
                     }
+
                 }
+                m_buffer.insert({ i, vinfo });
             }
         }
         else
         {
-            auto rowIt = res->second;
-
-            if (rowIt != constraints.end()) // useful ??
+            //if ?
+            for (const auto& info : res->second)
             {
-                MatrixDerivColConstIterator rowEnd = rowIt.end();
+                const auto dof = info.second;
+                Deriv disp(type::NOINIT);
 
-                for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
+                for (Size j = 0; j < derivDim; j++)
                 {
-                    if (systemLHVector_buf_fullvector)
                     {
-                        addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, colIt.index(), colIt.val());
+                        addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, info.second, info.first);
                     }
                     else
                     {
-                        addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, colIt.index(), colIt.val());
+                        addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, info.second, info.first);
                     }
                 }
+
+                d[i] += info.first * disp;
             }
         }
     }

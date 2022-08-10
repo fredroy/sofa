@@ -131,8 +131,11 @@ private:
     // new :  for non building the constraint system during solving process //
     VecDeriv constraint_disp, constraint_force;
     std::list<int> constraint_dofs;		// list of indices of each point which is involve with constraint
-    
-    std::unordered_map<int, const MatrixDerivRowConstIterator> m_buffer;
+
+    using LineInfo = std::pair<const Deriv&, int>;
+    using VecLineInfo = std::vector< LineInfo >;
+    std::unordered_map<int, VecLineInfo> m_buffer;
+
 protected:
 
     sofa::core::behavior::OdeSolver* m_pOdeSolver;

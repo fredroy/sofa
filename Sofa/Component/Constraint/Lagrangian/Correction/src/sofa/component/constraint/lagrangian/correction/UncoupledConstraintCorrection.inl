@@ -637,8 +637,8 @@ void UncoupledConstraintCorrection<DataTypes>::addConstraintDisplacement(double 
         auto res = m_buffer.find(id);
         if (res == m_buffer.end())
         {
-            auto curConstraint = (constraints.readLine(id));
-            m_buffer.insert({ id, curConstraint });
+            auto curConstraint = constraints.readLine(id);
+            VecLineInfo vinfo;
 
             if (curConstraint != constraints.end())
             {
@@ -648,26 +648,22 @@ void UncoupledConstraintCorrection<DataTypes>::addConstraintDisplacement(double 
                 while (colIt != colItEnd)
                 {
                     d[id] += colIt.val() * constraint_disp[colIt.index()];
+                    vinfo.push_back({ colIt.val(), colIt.index() });
 
                     ++colIt;
+
                 }
             }
+            m_buffer.insert({ id, vinfo });
         }
         else
         {
-            auto curConstraint = res->second;
-            if (curConstraint != constraints.end())
+            //if ?
+            for (const auto& info : res->second)
             {
-                MatrixDerivColConstIterator colIt = curConstraint.begin();
-                MatrixDerivColConstIterator colItEnd = curConstraint.end();
-
-                while (colIt != colItEnd)
-                {
-                    d[id] += colIt.val() * constraint_disp[colIt.index()];
-
-                    ++colIt;
-                }
+                d[id] += info.first * constraint_disp[info.second];
             }
+
         }
     }
 }
