@@ -128,9 +128,9 @@ public:
         m_buffer.clear();
     }
 protected:
-    using LineInfo = std::pair<const Deriv&, int>;
+    using LineInfo = std::pair<int, const Deriv&>;
     using VecLineInfo = std::vector< LineInfo >;
-    std::unordered_map<int, VecLineInfo> m_buffer;
+    std::unordered_map<int, const VecLineInfo> m_buffer;
 
     linearalgebra::SparseMatrix<SReal> J; ///< constraint matrix
     linearalgebra::FullVector<SReal> F; ///< forces computed from the constraints

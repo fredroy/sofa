@@ -620,39 +620,42 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
 
                 for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
                 {
+                    const auto dof = colIt.index();
+                    const Deriv& val = colIt.val();
+
                     if (systemLHVector_buf_fullvector)
                     {
-                        addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, colIt.index(), colIt.val());
+                        addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, dof, val);
                     }
                     else
                     {
-                        addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, colIt.index(), colIt.val());
+                        addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, dof, val);
                     }
-
                 }
-                m_buffer.insert({ i, vinfo });
             }
+            m_buffer.insert({ i, vinfo });
         }
         else
         {
             //if ?
             for (const auto& info : res->second)
             {
-                const auto dof = info.second;
+                const auto dof = info.first;
+                const Deriv& val = info.second;
+
                 Deriv disp(type::NOINIT);
 
                 for (Size j = 0; j < derivDim; j++)
                 {
+                    if (systemLHVector_buf_fullvector)
                     {
-                        addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, info.second, info.first);
+                        addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, dof, val);
                     }
                     else
                     {
-                        addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, info.second, info.first);
+                        addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, dof, val);
                     }
                 }
-
-                d[i] += info.first * disp;
             }
         }
     }
@@ -674,19 +677,36 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
     // TODO => optimisation !!!
     for (int i = begin; i <= end; i++)
     {
-         MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
-
-        if (rowIt != constraints.end())
+        auto res = m_buffer.find(i);
+        if (res == m_buffer.end())
         {
-            MatrixDerivColConstIterator colItEnd = rowIt.end();
+            MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
+            VecLineInfo vinfo;
 
-            for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != colItEnd; ++colIt)
+            if (rowIt != constraints.end())
             {
-                const Deriv n = colIt.val();
-                const unsigned int dof = colIt.index();
+                MatrixDerivColConstIterator colItEnd = rowIt.end();
+
+                for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != colItEnd; ++colIt)
+                {
+                    const Deriv n = colIt.val();
+                    const unsigned int dof = colIt.index();
+
+                    constraint_force[dof] += n * df[i]; // sum of the constraint force in the DOF space
+
+                }
+            }
+            m_buffer.insert({ i, vinfo });
+        }
+        else
+        {
+            //if ?
+            for (const auto& info : res->second)
+            {
+                const Deriv n = info.second;
+                const unsigned int dof = info.first;
 
                 constraint_force[dof] += n * df[i]; // sum of the constraint force in the DOF space
-
             }
         }
     }

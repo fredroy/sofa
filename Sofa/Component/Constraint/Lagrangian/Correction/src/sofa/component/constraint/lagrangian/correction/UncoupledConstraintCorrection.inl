@@ -647,8 +647,9 @@ void UncoupledConstraintCorrection<DataTypes>::addConstraintDisplacement(double 
 
                 while (colIt != colItEnd)
                 {
+                    vinfo.push_back({ colIt.index(), colIt.val() });
+
                     d[id] += colIt.val() * constraint_disp[colIt.index()];
-                    vinfo.push_back({ colIt.val(), colIt.index() });
 
                     ++colIt;
 
@@ -661,9 +662,8 @@ void UncoupledConstraintCorrection<DataTypes>::addConstraintDisplacement(double 
             //if ?
             for (const auto& info : res->second)
             {
-                d[id] += info.first * constraint_disp[info.second];
+                d[id] += info.second * constraint_disp[info.first];
             }
-
         }
     }
 }
@@ -686,25 +686,41 @@ void UncoupledConstraintCorrection<DataTypes>::setConstraintDForce(double * df, 
 
     for (int id = begin; id <= end; id++)
     {
-
-        MatrixDerivRowConstIterator curConstraint = constraints.readLine(id);
-
-        if (curConstraint != constraints.end())
+        auto res = m_buffer.find(id);
+        if (res == m_buffer.end())
         {
-            MatrixDerivColConstIterator colIt = curConstraint.begin();
-            MatrixDerivColConstIterator colItEnd = curConstraint.end();
+            MatrixDerivRowConstIterator curConstraint = constraints.readLine(id);
+            VecLineInfo vinfo;
 
-            while (colIt != colItEnd)
+            if (curConstraint != constraints.end())
             {
-                const unsigned int dof = colIt.index();
+                MatrixDerivColConstIterator colIt = curConstraint.begin();
+                MatrixDerivColConstIterator colItEnd = curConstraint.end();
 
-                constraint_force[dof] += colIt.val() * df[id];
+                while (colIt != colItEnd)
+                {
+                    const auto dof = colIt.index();
+                    const Deriv& val = colIt.val();
 
-                Deriv dx = UncoupledConstraintCorrection_computeDx(dof, constraint_force[dof], comp0, comp);
+                    constraint_force[dof] += val * df[id];
+                    constraint_disp[dof] = UncoupledConstraintCorrection_computeDx(dof, constraint_force[dof], comp0, comp);
 
-                constraint_disp[dof] = dx;
-
-                ++colIt;
+                    vinfo.push_back({ dof, val });
+                    ++colIt;
+                }
+            }
+            m_buffer.insert({ id, vinfo });
+        }
+        else
+        {
+            //if ?
+            for (const auto& info : res->second)
+            {
+                const auto dof = info.first;
+                const Deriv& val = info.second;
+                
+                constraint_force[dof] += val * df[id];
+                constraint_disp[dof] = UncoupledConstraintCorrection_computeDx(dof, constraint_force[dof], comp0, comp);
             }
         }
     }
