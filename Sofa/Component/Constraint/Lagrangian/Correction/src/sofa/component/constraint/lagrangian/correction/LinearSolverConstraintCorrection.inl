@@ -605,7 +605,7 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
         if (res == m_buffer.end())
         {
             auto rowIt = constraints.readLine(i);
-            m_buffer.insert({ i, rowIt });
+            VecLineInfo vinfo;
 
             if (rowIt != constraints.end()) // useful ??
             {
@@ -614,6 +614,8 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
                 for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
                 {
                     const auto dof = colIt.index();
+                    vinfo.push_back({ colIt.val(), colIt.index() });
+
                     Deriv disp(type::NOINIT);
 
                     for (Size j = 0; j < derivDim; j++)
@@ -623,28 +625,23 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
 
                     d[i] += colIt.val() * disp;
                 }
+                m_buffer.insert({ i, vinfo });
             }
         }
         else
         {
-            auto rowIt = res->second;
-
-            if (rowIt != constraints.end()) // useful ??
+            //if ?
+            for (const auto& info : res->second)
             {
-                MatrixDerivColConstIterator rowEnd = rowIt.end();
+                const auto dof = info.second;
+                Deriv disp(type::NOINIT);
 
-                for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
+                for (Size j = 0; j < derivDim; j++)
                 {
-                    const auto dof = colIt.index();
-                    Deriv disp(type::NOINIT);
-
-                    for (Size j = 0; j < derivDim; j++)
-                    {
-                        disp[j] = (Real)(systemLHVector_buf->element(dof * derivDim + j) * positionIntegrationFactor);
-                    }
-
-                    d[i] += colIt.val() * disp;
+                    disp[j] = (Real)(systemLHVector_buf->element(dof * derivDim + j) * positionIntegrationFactor);
                 }
+
+                d[i] += info.first * disp;
             }
         }
     }

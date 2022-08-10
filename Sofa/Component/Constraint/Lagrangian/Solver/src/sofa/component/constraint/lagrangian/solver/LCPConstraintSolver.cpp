@@ -1077,7 +1077,7 @@ int LCPConstraintSolver::nlcp_gaussseidel_unbuilt(SReal *dfree, SReal *f, std::v
 
     sofa::helper::AdvancedTimer::valSet("GS iterations", it);
 
-    msg_warning() << "No convergence in unbuilt nlcp gaussseidel function : error ="
+    dmsg_warning() << "No convergence in unbuilt nlcp gaussseidel function : error ="
                 <<error <<" after "<< it<<" iterations";
 
     return 0;
@@ -1279,7 +1279,7 @@ int LCPConstraintSolver::lcp_gaussseidel_unbuilt(SReal *dfree, SReal *f, std::ve
 
     sofa::helper::AdvancedTimer::valSet("GS iterations", it);
 
-    msg_warning() <<" No convergence in  unbuilt lcp gaussseidel function : error ="
+    dmsg_warning() <<" No convergence in  unbuilt lcp gaussseidel function : error ="
                 <<error <<" after "<< it<<" iterations";
 
     return 0;
