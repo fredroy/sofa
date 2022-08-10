@@ -634,18 +634,39 @@ void UncoupledConstraintCorrection<DataTypes>::addConstraintDisplacement(double 
 
     for (int id = begin; id <= end; id++)
     {
-        MatrixDerivRowConstIterator curConstraint = constraints.readLine(id);
-
-        if (curConstraint != constraints.end())
+        auto res = m_buffer.find(id);
+        if (res == m_buffer.end())
         {
-            MatrixDerivColConstIterator colIt = curConstraint.begin();
-            MatrixDerivColConstIterator colItEnd = curConstraint.end();
+            auto curConstraint = (constraints.readLine(id));
+            m_buffer.insert({ id, curConstraint });
 
-            while (colIt != colItEnd)
+            if (curConstraint != constraints.end())
             {
-                d[id] += colIt.val() * constraint_disp[colIt.index()];
+                MatrixDerivColConstIterator colIt = curConstraint.begin();
+                MatrixDerivColConstIterator colItEnd = curConstraint.end();
 
-                ++colIt;
+                while (colIt != colItEnd)
+                {
+                    d[id] += colIt.val() * constraint_disp[colIt.index()];
+
+                    ++colIt;
+                }
+            }
+        }
+        else
+        {
+            auto curConstraint = res->second;
+            if (curConstraint != constraints.end())
+            {
+                MatrixDerivColConstIterator colIt = curConstraint.begin();
+                MatrixDerivColConstIterator colItEnd = curConstraint.end();
+
+                while (colIt != colItEnd)
+                {
+                    d[id] += colIt.val() * constraint_disp[colIt.index()];
+
+                    ++colIt;
+                }
             }
         }
     }

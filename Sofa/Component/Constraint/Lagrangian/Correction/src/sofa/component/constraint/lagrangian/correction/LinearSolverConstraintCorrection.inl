@@ -601,23 +601,50 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
     // TODO => optimisation => for each bloc store J[bloc,dof]
     for (int i = begin; i <= end; i++)
     {
-        MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
-
-        if (rowIt != constraints.end()) // useful ??
+        auto res = m_buffer.find(i);
+        if (res == m_buffer.end())
         {
-            MatrixDerivColConstIterator rowEnd = rowIt.end();
+            auto rowIt = constraints.readLine(i);
+            m_buffer.insert({ i, rowIt });
 
-            for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
+            if (rowIt != constraints.end()) // useful ??
             {
-                const auto dof = colIt.index();
-                Deriv disp(type::NOINIT);
+                MatrixDerivColConstIterator rowEnd = rowIt.end();
 
-                for(Size j = 0; j < derivDim; j++)
+                for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
                 {
-                    disp[j] = (Real)(systemLHVector_buf->element(dof * derivDim + j) * positionIntegrationFactor);
-                }
+                    const auto dof = colIt.index();
+                    Deriv disp(type::NOINIT);
 
-                d[i] += colIt.val() * disp;
+                    for (Size j = 0; j < derivDim; j++)
+                    {
+                        disp[j] = (Real)(systemLHVector_buf->element(dof * derivDim + j) * positionIntegrationFactor);
+                    }
+
+                    d[i] += colIt.val() * disp;
+                }
+            }
+        }
+        else
+        {
+            auto rowIt = res->second;
+
+            if (rowIt != constraints.end()) // useful ??
+            {
+                MatrixDerivColConstIterator rowEnd = rowIt.end();
+
+                for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
+                {
+                    const auto dof = colIt.index();
+                    Deriv disp(type::NOINIT);
+
+                    for (Size j = 0; j < derivDim; j++)
+                    {
+                        disp[j] = (Real)(systemLHVector_buf->element(dof * derivDim + j) * positionIntegrationFactor);
+                    }
+
+                    d[i] += colIt.val() * disp;
+                }
             }
         }
     }
