@@ -112,6 +112,9 @@ public:
     {
         m_buffer.clear();
     }
+
+    void executeOnConstraintMatrix(const MatrixDeriv& constraints, int id, std::function<void(int, double*, int, Deriv)>, double* d);
+
 protected:
 
     sofa::core::behavior::OdeSolver* odesolver;

@@ -584,6 +584,45 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(doub
     _new_force = false;
 }
 
+
+template<class DataTypes>
+void LinearSolverConstraintCorrection<DataTypes>::executeOnConstraintMatrix(const MatrixDeriv& constraints, int id, std::function<void(int, double*, int, Deriv)> func, double* d)
+{
+    auto res = m_buffer.find(id);
+    if (res == m_buffer.end())
+    {
+        auto curConstraint = constraints.readLine(id);
+        VecLineInfo vinfo;
+
+        if (curConstraint != constraints.end())
+        {
+            MatrixDerivColConstIterator colIt = curConstraint.begin();
+            MatrixDerivColConstIterator colItEnd = curConstraint.end();
+
+            while (colIt != colItEnd)
+            {
+                const auto dof = colIt.index();
+                const Deriv& val = colIt.val();
+
+                func(id, d, dof, val);
+
+                vinfo.push_back({ dof, val });
+                ++colIt;
+            }
+        }
+        m_buffer.insert({ id, vinfo });
+    }
+    else
+    {
+        //if ?
+        for (const auto& info : res->second)
+        {
+            func(id, d, info.first, info.second);
+        }
+
+    }
+}
+
 template<class DataTypes>
 void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(double *d, int begin, int end)
 {
@@ -598,56 +637,23 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
     _new_force = false;
 
     const auto positionIntegrationFactor = odesolver->getPositionIntegrationFactor();
+
     // TODO => optimisation => for each bloc store J[bloc,dof]
-    for (int i = begin; i <= end; i++)
+    auto addConstraintDisplacement_impl = [&](int id, double* d, int dof, const Deriv& val)
     {
-        auto res = m_buffer.find(i);
-        if (res == m_buffer.end())
+        Deriv disp(type::NOINIT);
+
+        for (Size j = 0; j < derivDim; j++)
         {
-            auto rowIt = constraints.readLine(i);
-            VecLineInfo vinfo;
-
-            if (rowIt != constraints.end()) // useful ??
-            {
-                MatrixDerivColConstIterator rowEnd = rowIt.end();
-
-                for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
-                {
-                    const auto dof = colIt.index();
-                    const Deriv& val = colIt.val();
-
-                    vinfo.push_back({ dof, val });
-
-                    Deriv disp(type::NOINIT);
-
-                    for (Size j = 0; j < derivDim; j++)
-                    {
-                        disp[j] = (Real)(systemLHVector_buf->element(dof * derivDim + j) * positionIntegrationFactor);
-                    }
-
-                    d[i] += val * disp;
-                }
-            }
-            m_buffer.insert({ i, vinfo });
+            disp[j] = (Real)(systemLHVector_buf->element(dof * derivDim + j) * positionIntegrationFactor);
         }
-        else
-        {
-            //if ?
-            for (const auto& info : res->second)
-            {
-                const auto dof = info.first;
-                const Deriv& val = info.second;
 
-                Deriv disp(type::NOINIT);
+        d[id] += val * disp;
+    };
 
-                for (Size j = 0; j < derivDim; j++)
-                {
-                    disp[j] = (Real)(systemLHVector_buf->element(dof * derivDim + j) * positionIntegrationFactor);
-                }
-
-                d[i] += val * disp;
-            }
-        }
+    for (int id = begin; id <= end; id++)
+    {
+        executeOnConstraintMatrix(constraints, id, addConstraintDisplacement_impl, d);
     }
 }
 
@@ -666,40 +672,14 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
     _new_force = true;
 
     // TODO => optimisation !!!
-    for (int i = begin; i <= end; i++)
+    auto setConstraintDForce_impl = [&](int id, double* d, int dof, const Deriv& val)
     {
-        auto res = m_buffer.find(i);
-        if (res == m_buffer.end())
-        {
-            MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
-            VecLineInfo vinfo;
+        constraint_force[dof] += val * df[id]; // sum of the constraint force in the DOF space
+    };
 
-            if (rowIt != constraints.end())
-            {
-                MatrixDerivColConstIterator colItEnd = rowIt.end();
-
-                for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != colItEnd; ++colIt)
-                {
-                    const Deriv n = colIt.val();
-                    const unsigned int dof = colIt.index();
-
-                    constraint_force[dof] += n * df[i]; // sum of the constraint force in the DOF space
-
-                }
-            }
-            m_buffer.insert({ i, vinfo });
-        }
-        else
-        {
-            //if ?
-            for (const auto& info : res->second)
-            {
-                const Deriv n = info.second;
-                const unsigned int dof = info.first;
-
-                constraint_force[dof] += n * df[i]; // sum of the constraint force in the DOF space
-            }
-        }
+    for (int id = begin; id <= end; id++)
+    {
+        executeOnConstraintMatrix(constraints, id, setConstraintDForce_impl, df);
     }
 
     // course on indices of the dofs involved invoved in the bloc //

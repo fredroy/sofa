@@ -136,6 +136,8 @@ private:
     using VecLineInfo = std::vector< LineInfo >;
     std::unordered_map<int, const VecLineInfo> m_buffer;
 
+    void executeOnConstraintMatrix(const MatrixDeriv& constraints, int id, std::function<void(int, double*, int, Deriv)>, double* d);
+
 protected:
 
     sofa::core::behavior::OdeSolver* m_pOdeSolver;

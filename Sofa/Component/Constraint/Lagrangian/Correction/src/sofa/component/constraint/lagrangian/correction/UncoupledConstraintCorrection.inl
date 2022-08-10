@@ -29,6 +29,8 @@
 #include <sofa/core/topology/TopologyData.inl>
 #include <sofa/core/ConstraintParams.h>
 
+#include <functional>
+
 namespace sofa::component::constraint::lagrangian::correction
 {
 
@@ -622,6 +624,43 @@ void UncoupledConstraintCorrection<DataTypes>::resetForUnbuiltResolution(double 
     constraint_dofs.unique();
 }
 
+template<class DataTypes>
+void UncoupledConstraintCorrection<DataTypes>::executeOnConstraintMatrix(const MatrixDeriv& constraints, int id, std::function<void(int, double*, int, Deriv)> func, double* d)
+{
+    auto res = m_buffer.find(id);
+    if (res == m_buffer.end())
+    {
+        auto curConstraint = constraints.readLine(id);
+        VecLineInfo vinfo;
+
+        if (curConstraint != constraints.end())
+        {
+            MatrixDerivColConstIterator colIt = curConstraint.begin();
+            MatrixDerivColConstIterator colItEnd = curConstraint.end();
+
+            while (colIt != colItEnd)
+            {
+                const auto dof = colIt.index();
+                const Deriv& val = colIt.val();
+
+                func(id, d, dof, val);
+
+                vinfo.push_back({ dof, val });
+                ++colIt;
+            }
+        }
+        m_buffer.insert({ id, vinfo });
+    }
+    else
+    {
+        //if ?
+        for (const auto& info : res->second)
+        {
+            func(id, d, info.first, info.second);
+        }
+
+    }
+}
 
 template<class DataTypes>
 void UncoupledConstraintCorrection<DataTypes>::addConstraintDisplacement(double * d, int begin, int end)
@@ -632,39 +671,14 @@ void UncoupledConstraintCorrection<DataTypes>::addConstraintDisplacement(double 
 
     const MatrixDeriv& constraints = this->mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
 
+    auto addConstraintDisplacement_impl = [&](int id, double* d, int dof, const Deriv& val)
+    {
+        d[id] += val * constraint_disp[dof];
+    };
+
     for (int id = begin; id <= end; id++)
     {
-        auto res = m_buffer.find(id);
-        if (res == m_buffer.end())
-        {
-            auto curConstraint = constraints.readLine(id);
-            VecLineInfo vinfo;
-
-            if (curConstraint != constraints.end())
-            {
-                MatrixDerivColConstIterator colIt = curConstraint.begin();
-                MatrixDerivColConstIterator colItEnd = curConstraint.end();
-
-                while (colIt != colItEnd)
-                {
-                    vinfo.push_back({ colIt.index(), colIt.val() });
-
-                    d[id] += colIt.val() * constraint_disp[colIt.index()];
-
-                    ++colIt;
-
-                }
-            }
-            m_buffer.insert({ id, vinfo });
-        }
-        else
-        {
-            //if ?
-            for (const auto& info : res->second)
-            {
-                d[id] += info.second * constraint_disp[info.first];
-            }
-        }
+        executeOnConstraintMatrix(constraints, id, addConstraintDisplacement_impl, d);
     }
 }
 
@@ -684,45 +698,15 @@ void UncoupledConstraintCorrection<DataTypes>::setConstraintDForce(double * df, 
     if (!update)
         return;
 
+    auto setConstraintDForce_impl = [&](int id, double* d, int dof, const Deriv& val)
+    {
+        constraint_force[dof] += val * df[id];
+        constraint_disp[dof] = UncoupledConstraintCorrection_computeDx(dof, constraint_force[dof], comp0, comp);
+    };
+
     for (int id = begin; id <= end; id++)
     {
-        auto res = m_buffer.find(id);
-        if (res == m_buffer.end())
-        {
-            MatrixDerivRowConstIterator curConstraint = constraints.readLine(id);
-            VecLineInfo vinfo;
-
-            if (curConstraint != constraints.end())
-            {
-                MatrixDerivColConstIterator colIt = curConstraint.begin();
-                MatrixDerivColConstIterator colItEnd = curConstraint.end();
-
-                while (colIt != colItEnd)
-                {
-                    const auto dof = colIt.index();
-                    const Deriv& val = colIt.val();
-
-                    constraint_force[dof] += val * df[id];
-                    constraint_disp[dof] = UncoupledConstraintCorrection_computeDx(dof, constraint_force[dof], comp0, comp);
-
-                    vinfo.push_back({ dof, val });
-                    ++colIt;
-                }
-            }
-            m_buffer.insert({ id, vinfo });
-        }
-        else
-        {
-            //if ?
-            for (const auto& info : res->second)
-            {
-                const auto dof = info.first;
-                const Deriv& val = info.second;
-                
-                constraint_force[dof] += val * df[id];
-                constraint_disp[dof] = UncoupledConstraintCorrection_computeDx(dof, constraint_force[dof], comp0, comp);
-            }
-        }
+        executeOnConstraintMatrix(constraints, id, setConstraintDForce_impl, df);
     }
 }
 
