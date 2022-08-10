@@ -128,9 +128,13 @@ public:
     virtual void getBlockDiagonalCompliance(linearalgebra::BaseMatrix* /*W*/, int /*begin*/,int /*end*/);
     /// @}
 
+    virtual void resetBuffer() { }
+
 protected:
     BaseConstraintCorrection();
     ~BaseConstraintCorrection() override;
+
+    bool m_bBuffering{ true };
 
 private:
     BaseConstraintCorrection(const BaseConstraintCorrection& n) = delete ;
