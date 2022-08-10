@@ -871,6 +871,7 @@ int LCPConstraintSolver::nlcp_gaussseidel_unbuilt(SReal *dfree, SReal *f, std::v
             core::ConstraintParams cparams;
             cc->addComplianceInConstraintSpace(&cparams, _W);
         }
+        cc->resetBuffer();
     }
 
     sofa::helper::advancedtimer::stepEnd("build_constraints");

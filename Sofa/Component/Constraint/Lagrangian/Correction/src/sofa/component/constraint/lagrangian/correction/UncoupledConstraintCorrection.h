@@ -122,12 +122,17 @@ public:
                                                     
     /// Link to be set to the topology container in the component graph.
     SingleLink<UncoupledConstraintCorrection<DataTypes>, sofa::core::topology::BaseMeshTopology, BaseLink::FLAG_STOREPATH | BaseLink::FLAG_STRONGLINK> l_topology;
-
+    
+    void resetBuffer() override 
+    {
+        m_buffer.clear(); 
+    }
 private:
     // new :  for non building the constraint system during solving process //
     VecDeriv constraint_disp, constraint_force;
     std::list<int> constraint_dofs;		// list of indices of each point which is involve with constraint
-
+    
+    std::unordered_map<int, const MatrixDerivRowConstIterator> m_buffer;
 protected:
 
     sofa::core::behavior::OdeSolver* m_pOdeSolver;

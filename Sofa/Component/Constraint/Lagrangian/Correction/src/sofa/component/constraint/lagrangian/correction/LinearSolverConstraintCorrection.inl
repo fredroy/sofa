@@ -608,21 +608,47 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
     // TODO => optimisation => for each bloc store J[bloc,dof]
     for (int i = begin; i <= end; i++)
     {
-        MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
-
-        if (rowIt != constraints.end()) // useful ??
+        auto res = m_buffer.find(i);
+        if (res == m_buffer.end())
         {
-            MatrixDerivColConstIterator rowEnd = rowIt.end();
+            auto rowIt = constraints.readLine(i);
+            m_buffer.insert({ i, rowIt });
 
-            for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
+            if (rowIt != constraints.end()) // useful ??
             {
-                if (systemLHVector_buf_fullvector)
+                MatrixDerivColConstIterator rowEnd = rowIt.end();
+
+                for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
                 {
-                    addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, colIt.index(), colIt.val());
+                    if (systemLHVector_buf_fullvector)
+                    {
+                        addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, colIt.index(), colIt.val());
+                    }
+                    else
+                    {
+                        addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, colIt.index(), colIt.val());
+                    }
                 }
-                else
+            }
+        }
+        else
+        {
+            auto rowIt = res->second;
+
+            if (rowIt != constraints.end()) // useful ??
+            {
+                MatrixDerivColConstIterator rowEnd = rowIt.end();
+
+                for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
                 {
-                    addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, colIt.index(), colIt.val());
+                    if (systemLHVector_buf_fullvector)
+                    {
+                        addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, colIt.index(), colIt.val());
+                    }
+                    else
+                    {
+                        addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, colIt.index(), colIt.val());
+                    }
                 }
             }
         }

@@ -123,7 +123,13 @@ public:
 
     void getBlockDiagonalCompliance(linearalgebra::BaseMatrix* W, int begin, int end) override;
 
+    void resetBuffer() override
+    {
+        m_buffer.clear();
+    }
 protected:
+    std::unordered_map<int, const MatrixDerivRowConstIterator> m_buffer;
+    
     linearalgebra::SparseMatrix<SReal> J; ///< constraint matrix
     linearalgebra::FullVector<SReal> F; ///< forces computed from the constraints
 
