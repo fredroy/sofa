@@ -588,16 +588,28 @@ template<class DataTypes>
 void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(double *d, int begin, int end)
 {
     const MatrixDeriv& constraints = mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
-    const auto derivDim = Deriv::size();
 
     last_disp = begin;
-
 
     linearsolvers[0]->partial_solve(Vec_I_list_dof[last_disp], Vec_I_list_dof[last_force], _new_force);
 
     _new_force = false;
 
     const auto positionIntegrationFactor = odesolver->getPositionIntegrationFactor();
+
+    constexpr auto addConstraintDisplacement_impl = [](double* d, unsigned int id, linearalgebra::BaseVector* systemLHVector_buf, double positionIntegrationFactor, unsigned int dof, const Deriv& val)
+    {
+        constexpr const auto derivDim = Deriv::total_size;
+        Deriv disp(type::NOINIT);
+
+        for (Size j = 0; j < derivDim; j++)
+        {
+            disp[j] = (Real)(systemLHVector_buf->element(dof * derivDim + j)) * positionIntegrationFactor;
+        }
+
+        d[id] += val * disp;
+    };
+
     // TODO => optimisation => for each bloc store J[bloc,dof]
     for (int i = begin; i <= end; i++)
     {
@@ -618,14 +630,7 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
 
                     vinfo.push_back({ dof, val });
 
-                    Deriv disp(type::NOINIT);
-
-                    for (Size j = 0; j < derivDim; j++)
-                    {
-                        disp[j] = (Real)(systemLHVector_buf->element(dof * derivDim + j) * positionIntegrationFactor);
-                    }
-
-                    d[i] += val * disp;
+                    addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, dof, val);
                 }
             }
             m_buffer.insert({ i, vinfo });
@@ -635,17 +640,7 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
             //if ?
             for (const auto& info : res->second)
             {
-                const auto dof = info.first;
-                const Deriv& val = info.second;
-
-                Deriv disp(type::NOINIT);
-
-                for (Size j = 0; j < derivDim; j++)
-                {
-                    disp[j] = (Real)(systemLHVector_buf->element(dof * derivDim + j) * positionIntegrationFactor);
-                }
-
-                d[i] += val * disp;
+                addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, info.first, info.second);
             }
         }
     }
@@ -655,8 +650,7 @@ template<class DataTypes>
 void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df, int begin, int end, bool update)
 {
     const MatrixDeriv& constraints = mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
-    const unsigned int derivDim = Deriv::size();
-
+    constexpr const auto derivDim = Deriv::total_size;
 
     last_force = begin;
 
@@ -664,6 +658,11 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
         return;
 
     _new_force = true;
+
+    constexpr auto setConstraintDForce_impl = [](double* df, VecDeriv& constraint_force, unsigned int id, unsigned int dof, const Deriv& val)
+    {
+        constraint_force[dof] += val * df[id]; // sum of the constraint force in the DOF space
+    };
 
     // TODO => optimisation !!!
     for (int i = begin; i <= end; i++)
@@ -680,11 +679,7 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
 
                 for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != colItEnd; ++colIt)
                 {
-                    const Deriv n = colIt.val();
-                    const unsigned int dof = colIt.index();
-
-                    constraint_force[dof] += n * df[i]; // sum of the constraint force in the DOF space
-
+                    setConstraintDForce_impl(df, constraint_force, i, colIt.index(), colIt.val());
                 }
             }
             m_buffer.insert({ i, vinfo });
@@ -694,10 +689,7 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
             //if ?
             for (const auto& info : res->second)
             {
-                const Deriv n = info.second;
-                const unsigned int dof = info.first;
-
-                constraint_force[dof] += n * df[i]; // sum of the constraint force in the DOF space
+                setConstraintDForce_impl(df, constraint_force, i, info.first, info.second);
             }
         }
     }

@@ -632,6 +632,11 @@ void UncoupledConstraintCorrection<DataTypes>::addConstraintDisplacement(double 
 
     const MatrixDeriv& constraints = this->mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
 
+    constexpr auto addConstraintDisplacement_impl = [](double* d, unsigned int id, VecDeriv& constraint_disp, unsigned int dof, const Deriv& val)
+    {
+        d[id] += val * constraint_disp[dof];
+    };
+
     for (int id = begin; id <= end; id++)
     {
         auto res = m_buffer.find(id);
@@ -647,9 +652,12 @@ void UncoupledConstraintCorrection<DataTypes>::addConstraintDisplacement(double 
 
                 while (colIt != colItEnd)
                 {
-                    vinfo.push_back({ colIt.index(), colIt.val() });
+                    const auto dof = colIt.index();
+                    const Deriv& val = colIt.val();
 
-                    d[id] += colIt.val() * constraint_disp[colIt.index()];
+                    vinfo.push_back({ dof, val });
+
+                    addConstraintDisplacement_impl(d, id, constraint_disp, dof, val);
 
                     ++colIt;
 
@@ -662,7 +670,7 @@ void UncoupledConstraintCorrection<DataTypes>::addConstraintDisplacement(double 
             //if ?
             for (const auto& info : res->second)
             {
-                d[id] += info.second * constraint_disp[info.first];
+                addConstraintDisplacement_impl(d, id, constraint_disp, info.first, info.second);
             }
         }
     }
@@ -684,6 +692,12 @@ void UncoupledConstraintCorrection<DataTypes>::setConstraintDForce(double * df, 
     if (!update)
         return;
 
+    constexpr auto setConstraintDForce_impl = [](double* df, VecDeriv& constraint_force, VecDeriv& constraint_disp, unsigned int id, const VecReal& comp, const Real comp0, unsigned int dof, const Deriv& val)
+    {
+        constraint_force[dof] += val * df[id];
+        constraint_disp[dof] = UncoupledConstraintCorrection_computeDx(dof, constraint_force[dof], comp0, comp);
+    };
+
     for (int id = begin; id <= end; id++)
     {
         auto res = m_buffer.find(id);
@@ -702,10 +716,9 @@ void UncoupledConstraintCorrection<DataTypes>::setConstraintDForce(double * df, 
                     const auto dof = colIt.index();
                     const Deriv& val = colIt.val();
 
-                    constraint_force[dof] += val * df[id];
-                    constraint_disp[dof] = UncoupledConstraintCorrection_computeDx(dof, constraint_force[dof], comp0, comp);
-
                     vinfo.push_back({ dof, val });
+                    setConstraintDForce_impl(df, constraint_force, constraint_disp, id, comp, comp0, dof, val);
+
                     ++colIt;
                 }
             }
@@ -718,9 +731,8 @@ void UncoupledConstraintCorrection<DataTypes>::setConstraintDForce(double * df, 
             {
                 const auto dof = info.first;
                 const Deriv& val = info.second;
-                
-                constraint_force[dof] += val * df[id];
-                constraint_disp[dof] = UncoupledConstraintCorrection_computeDx(dof, constraint_force[dof], comp0, comp);
+
+                setConstraintDForce_impl(df, constraint_force, constraint_disp, id, comp, comp0, dof, val);
             }
         }
     }
