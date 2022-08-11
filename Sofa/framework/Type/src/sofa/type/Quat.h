@@ -47,7 +47,7 @@ class SOFA_TYPE_API Quat
     typedef type::Mat<3,3, Real> Mat3x3;
     typedef type::Mat<4,4, Real> Mat4x4;
 
-    static constexpr Real quaternion_equality_thresold = 1e-6;
+    static constexpr Real quaternion_equality_thresold = static_cast<Real>(1e-6);
 
 public:
     typedef Real value_type;
