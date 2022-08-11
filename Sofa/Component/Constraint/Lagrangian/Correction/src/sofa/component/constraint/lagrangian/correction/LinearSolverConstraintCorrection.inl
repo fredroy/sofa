@@ -631,6 +631,7 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
                     {
                         addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, dof, val);
                     }
+                    vinfo.push_back({ dof, val });
                 }
             }
             m_buffer.insert({ i, vinfo });
@@ -642,8 +643,6 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
             {
                 const auto dof = info.first;
                 const Deriv& val = info.second;
-
-                Deriv disp(type::NOINIT);
 
                 for (Size j = 0; j < derivDim; j++)
                 {
@@ -674,6 +673,11 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
     constexpr const auto derivDim = Deriv::total_size;
     const MatrixDeriv& constraints = mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
 
+    constexpr auto setConstraintDForce_impl = [](double* df, VecDeriv& constraint_force, unsigned int id, unsigned int dof, const Deriv& val)
+    {
+        constraint_force[dof] += val * df[id]; // sum of the constraint force in the DOF space
+    };
+
     // TODO => optimisation !!!
     for (int i = begin; i <= end; i++)
     {
@@ -689,11 +693,7 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
 
                 for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != colItEnd; ++colIt)
                 {
-                    const Deriv n = colIt.val();
-                    const unsigned int dof = colIt.index();
-
-                    constraint_force[dof] += n * df[i]; // sum of the constraint force in the DOF space
-
+                    setConstraintDForce_impl(df, constraint_force, i, colIt.index(), colIt.val());
                 }
             }
             m_buffer.insert({ i, vinfo });
@@ -703,10 +703,7 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
             //if ?
             for (const auto& info : res->second)
             {
-                const Deriv n = info.second;
-                const unsigned int dof = info.first;
-
-                constraint_force[dof] += n * df[i]; // sum of the constraint force in the DOF space
+                setConstraintDForce_impl(df, constraint_force, i, info.first, info.second);
             }
         }
     }
