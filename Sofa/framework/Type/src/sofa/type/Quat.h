@@ -122,7 +122,7 @@ public:
     }
 
     /// Returns true if norm of Quaternion is one, false otherwise.
-    constexpr bool isNormalized()
+    constexpr bool isNormalized() const
     {
         Real mag = (_q[0] * _q[0] + _q[1] * _q[1] + _q[2] * _q[2] + _q[3] * _q[3]);
         Real epsilon = std::numeric_limits<Real>::epsilon();
