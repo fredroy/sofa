@@ -636,14 +636,12 @@ void UncoupledConstraintCorrection<DataTypes>::addConstraintDisplacement(double 
     {
         d[id] += val * constraint_disp[dof];
     };
-
     for (int id = begin; id <= end; id++)
     {
-        auto res = m_buffer.find(id);
-        if (res == m_buffer.end())
+        if(m_buffer[id].empty())
         {
             auto curConstraint = constraints.readLine(id);
-            VecLineInfo vinfo;
+            VecLineInfo& vinfo = m_buffer[id];
 
             if (curConstraint != constraints.end())
             {
@@ -660,15 +658,13 @@ void UncoupledConstraintCorrection<DataTypes>::addConstraintDisplacement(double 
                     addConstraintDisplacement_impl(d, id, constraint_disp, dof, val);
 
                     ++colIt;
-
                 }
             }
-            m_buffer.insert({ id, vinfo });
         }
         else
         {
             //if ?
-            for (const auto& info : res->second)
+            for (const auto& info : m_buffer[id])
             {
                 addConstraintDisplacement_impl(d, id, constraint_disp, info.first, info.second);
             }
@@ -700,11 +696,10 @@ void UncoupledConstraintCorrection<DataTypes>::setConstraintDForce(double * df, 
 
     for (int id = begin; id <= end; id++)
     {
-        auto res = m_buffer.find(id);
-        if (res == m_buffer.end())
+        if (m_buffer[id].empty())
         {
             MatrixDerivRowConstIterator curConstraint = constraints.readLine(id);
-            VecLineInfo vinfo;
+            VecLineInfo& vinfo = m_buffer[id];
 
             if (curConstraint != constraints.end())
             {
@@ -722,12 +717,11 @@ void UncoupledConstraintCorrection<DataTypes>::setConstraintDForce(double * df, 
                     ++colIt;
                 }
             }
-            m_buffer.insert({ id, vinfo });
         }
         else
         {
             //if ?
-            for (const auto& info : res->second)
+            for (const auto& info : m_buffer[id])
             {
                 const auto dof = info.first;
                 const Deriv& val = info.second;

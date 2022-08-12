@@ -128,7 +128,7 @@ public:
     virtual void getBlockDiagonalCompliance(linearalgebra::BaseMatrix* /*W*/, int /*begin*/,int /*end*/);
     /// @}
 
-    virtual void resetBuffer() { }
+    virtual void resetBuffer(sofa::Size size) { }
 
 protected:
     BaseConstraintCorrection();

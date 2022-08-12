@@ -108,9 +108,13 @@ public:
 
     void getBlockDiagonalCompliance(linearalgebra::BaseMatrix* W, int begin, int end) override;
 
-    void resetBuffer() override
+    void resetBuffer(sofa::Size size) override
     {
         m_buffer.clear();
+        if (size > 0)
+        {
+            m_buffer.resize(size);
+        }
     }
 protected:
 
@@ -119,7 +123,7 @@ protected:
 
     using LineInfo = std::pair<int, const Deriv&>;
     using VecLineInfo = std::vector< LineInfo >;
-    std::unordered_map<int, const VecLineInfo> m_buffer;
+    std::vector<VecLineInfo> m_buffer;
 
     linearalgebra::SparseMatrix<SReal> J; ///< constraint matrix
     linearalgebra::FullVector<SReal> F; ///< forces computed from the constraints

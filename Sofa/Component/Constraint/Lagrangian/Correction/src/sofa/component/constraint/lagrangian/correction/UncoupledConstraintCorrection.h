@@ -123,9 +123,18 @@ public:
     /// Link to be set to the topology container in the component graph.
     SingleLink<UncoupledConstraintCorrection<DataTypes>, sofa::core::topology::BaseMeshTopology, BaseLink::FLAG_STOREPATH | BaseLink::FLAG_STRONGLINK> l_topology;
     
-    void resetBuffer() override 
+    void resetBuffer(sofa::Size size) override 
     {
-        m_buffer.clear(); 
+        if (size == 0)
+        {
+            m_buffer.clear();
+        }
+        else
+        {
+            m_buffer.clear();
+            m_buffer.resize(size);
+        }
+
     }
 private:
     // new :  for non building the constraint system during solving process //
@@ -134,7 +143,7 @@ private:
 
     using LineInfo = std::pair<int, const Deriv&>;
     using VecLineInfo = std::vector< LineInfo >;
-    std::unordered_map<int, const VecLineInfo> m_buffer;
+    std::vector<VecLineInfo> m_buffer;
 
 protected:
 

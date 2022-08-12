@@ -613,11 +613,10 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
     // TODO => optimisation => for each bloc store J[bloc,dof]
     for (int i = begin; i <= end; i++)
     {
-        auto res = m_buffer.find(i);
-        if (res == m_buffer.end())
+        if (m_buffer[i].empty())
         {
             auto rowIt = constraints.readLine(i);
-            VecLineInfo vinfo;
+            VecLineInfo& vinfo = m_buffer[i];
 
             if (rowIt != constraints.end()) // useful ??
             {
@@ -633,12 +632,11 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
                     addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, dof, val);
                 }
             }
-            m_buffer.insert({ i, vinfo });
         }
         else
         {
             //if ?
-            for (const auto& info : res->second)
+            for (const auto& info : m_buffer[i])
             {
                 addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, info.first, info.second);
             }
@@ -667,11 +665,10 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
     // TODO => optimisation !!!
     for (int i = begin; i <= end; i++)
     {
-        auto res = m_buffer.find(i);
-        if (res == m_buffer.end())
+        if (m_buffer[i].empty())
         {
             MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
-            VecLineInfo vinfo;
+            VecLineInfo& vinfo = m_buffer[i];
 
             if (rowIt != constraints.end())
             {
@@ -682,12 +679,11 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
                     setConstraintDForce_impl(df, constraint_force, i, colIt.index(), colIt.val());
                 }
             }
-            m_buffer.insert({ i, vinfo });
         }
         else
         {
             //if ?
-            for (const auto& info : res->second)
+            for (const auto& info : m_buffer[i])
             {
                 setConstraintDForce_impl(df, constraint_force, i, info.first, info.second);
             }
