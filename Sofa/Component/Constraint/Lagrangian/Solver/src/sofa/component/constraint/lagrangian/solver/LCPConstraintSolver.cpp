@@ -854,10 +854,11 @@ int LCPConstraintSolver::nlcp_gaussseidel_unbuilt(SReal *dfree, SReal *f, std::v
 
     // indirection of the sequence of contact
     std::list<unsigned int> contact_sequence;
+    contact_sequence.resize(_numConstraints);
 
     for (unsigned int c=0; c< _numConstraints; c++)
     {
-        contact_sequence.push_back(c);
+        contact_sequence.emplace_back(c);
     }
 
 
@@ -871,7 +872,7 @@ int LCPConstraintSolver::nlcp_gaussseidel_unbuilt(SReal *dfree, SReal *f, std::v
             core::ConstraintParams cparams;
             cc->addComplianceInConstraintSpace(&cparams, _W);
         }
-        cc->resetBuffer();
+        cc->resetBuffer(_numConstraints);
     }
 
     sofa::helper::advancedtimer::stepEnd("build_constraints");
