@@ -33,8 +33,6 @@
 #include <cstdio>
 #include <array>
 
-#define RENORMCOUNT 50
-
 namespace sofa::type
 {
 
