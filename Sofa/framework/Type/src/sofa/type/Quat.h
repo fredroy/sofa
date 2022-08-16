@@ -160,7 +160,7 @@ public:
     constexpr void normalize()
     {
         const Real mag = (_q[0] * _q[0] + _q[1] * _q[1] + _q[2] * _q[2] + _q[3] * _q[3]);
-        Real epsilon = 1.0e-10;
+        Real epsilon = static_cast<Real>(1.0e-10);
         if (std::abs(mag - 1.0) > epsilon)
         {
             if (mag != 0)
@@ -203,7 +203,7 @@ public:
         // check the diagonal
         if (tr > 0)
         {
-            s = (float)sqrt(tr + 1);
+            s = sqrt(tr + 1);
             _q[3] = s * 0.5f; // w OK
             s = 0.5f / s;
             _q[0] = (m.z().y() - m.y().z()) * s; // x OK
@@ -214,7 +214,7 @@ public:
         {
             if (m.y().y() > m.x().x() && m.z().z() <= m.y().y())
             {
-                s = (Real)sqrt((m.y().y() - (m.z().z() + m.x().x())) + 1.0f);
+                s = sqrt((m.y().y() - (m.z().z() + m.x().x())) + 1.0f);
 
                 _q[1] = s * 0.5f; // y OK
 
@@ -227,7 +227,7 @@ public:
             }
             else if ((m.y().y() <= m.x().x() && m.z().z() > m.x().x()) || (m.z().z() > m.y().y()))
             {
-                s = (Real)sqrt((m.z().z() - (m.x().x() + m.y().y())) + 1.0f);
+                s = sqrt((m.z().z() - (m.x().x() + m.y().y())) + 1.0f);
 
                 _q[2] = s * 0.5f; // z OK
 
@@ -240,7 +240,7 @@ public:
             }
             else
             {
-                s = (Real)sqrt((m.x().x() - (m.y().y() + m.z().z())) + 1.0f);
+                s = sqrt((m.x().x() - (m.y().y() + m.z().z())) + 1.0f);
 
                 _q[0] = s * 0.5f; // x OK
 
@@ -496,19 +496,19 @@ public:
         if (q[3] > 0.999) // theta < 5° -> q[3] = cos(theta/2) > 0.999
         {
             sin_half_theta = sqrt(q[0] * q[0] + q[1] * q[1] + q[2] * q[2]);
-            angle = (Real)(2.0 * asin(sin_half_theta));
+            angle = (Real(2.0) * asin(sin_half_theta));
         }
         else
         {
             Real half_theta = acos(q[3]);
             sin_half_theta = sin(half_theta);
-            angle = 2 * half_theta;
+            angle = Real(2.0) * half_theta;
         }
 
         assert(sin_half_theta >= 0);
         Vec3 rotVector;
         if (sin_half_theta < std::numeric_limits<Real>::epsilon())
-            rotVector = Vec3(Real(0), Real(0), Real(0));
+            rotVector = Vec3(0, 0, 0);
         else
             rotVector = Vec3(q[0], q[1], q[2]) / sin_half_theta * angle;
 
@@ -537,7 +537,7 @@ public:
      negate()). */
     constexpr void slerp(const Quat& a, const Quat& b, Real t, bool allowFlip=true)
     {
-        Real cosAngle = (Real)(a[0] * b[0] + a[1] * b[1] + a[2] * b[2] + a[3] * b[3]);
+        Real cosAngle = (a[0] * b[0] + a[1] * b[1] + a[2] * b[2] + a[3] * b[3]);
 
         Real c1, c2;
         // Linear interpolation for close orientations
@@ -549,10 +549,10 @@ public:
         else
         {
             // Spherical interpolation
-            Real angle = (Real)acos((Real)std::abs((Real)cosAngle));
-            Real sinAngle = (Real)sin((Real)angle);
-            c1 = (Real)sin(angle * (1.0f - t)) / sinAngle;
-            c2 = (Real)sin(angle * t) / sinAngle;
+            Real angle = acos(std::abs(cosAngle));
+            Real sinAngle = sin(angle);
+            c1 = sin(angle * (1.0f - t)) / sinAngle;
+            c2 = sin(angle * t) / sinAngle;
         }
 
         // Use the shortest path
@@ -607,22 +607,22 @@ public:
     {
         if (a.norm() < std::numeric_limits<Real>::epsilon())
         {
-            _q[0] = _q[1] = _q[2] = (Real)0.0f;
-            _q[3] = (Real)1.0f;
+            _q[0] = _q[1] = _q[2] = 0.0;
+            _q[3] = 1.0;
 
             return Quat();
         }
 
         a = a / a.norm();
-        _q[0] = (Real)a.x();
-        _q[1] = (Real)a.y();
-        _q[2] = (Real)a.z();
+        _q[0] = a.x();
+        _q[1] = a.y();
+        _q[2] = a.z();
 
-        _q[0] = _q[0] * (Real)sin(phi / 2.0);
-        _q[1] = _q[1] * (Real)sin(phi / 2.0);
-        _q[2] = _q[2] * (Real)sin(phi / 2.0);
+        _q[0] = _q[0] * sin(phi / Real(2.0));
+        _q[1] = _q[1] * sin(phi / Real(2.0));
+        _q[2] = _q[2] * sin(phi / Real(2.0));
 
-        _q[3] = (Real)cos(phi / 2.0);
+        _q[3] = cos(phi / Real(2.0));
 
         return *this;
     }
@@ -639,18 +639,18 @@ public:
         if (q[3] > 0.999) // theta < 5° -> q[3] = cos(theta/2) > 0.999
         {
             sin_half_theta = sqrt(q[0] * q[0] + q[1] * q[1] + q[2] * q[2]);
-            angle = (Real)(2.0 * asin(sin_half_theta));
+            angle = (Real(2.0) * asin(sin_half_theta));
         }
         else
         {
             Real half_theta = acos(q[3]);
             sin_half_theta = sin(half_theta);
-            angle = 2 * half_theta;
+            angle = Real(2.0) * half_theta;
         }
 
         assert(sin_half_theta >= 0);
         if (sin_half_theta < std::numeric_limits<Real>::epsilon())
-            axis = Vec3(Real(0.), Real(1.), Real(0.));
+            axis = Vec3(0., 1., 0.);
         else
             axis = Vec3(q[0], q[1], q[2]) / sin_half_theta;
     }
@@ -678,8 +678,8 @@ public:
             return Quat(0, 0, 0, 1);
 
         Real nor = 1 / phi;
-        Real s = Real(sin(phi / 2));
-        return Quat(a[0] * s * nor, a[1] * s * nor, a[2] * s * nor, Real(cos(phi / 2)));
+        Real s = sin(phi / 2);
+        return Quat(a[0] * s * nor, a[1] * s * nor, a[2] * s * nor, cos(phi / 2));
     }
 
     /// Create a quaternion from Euler angles
@@ -755,7 +755,7 @@ public:
     /// Create using the entries of a rotation vector (axis*angle) given in parent coordinates
     static constexpr auto createFromRotationVector(Real a0, Real a1, Real a2 ) -> Quat
     {
-        Real phi = Real(sqrt(a0 * a0 + a1 * a1 + a2 * a2));
+        Real phi = sqrt(a0 * a0 + a1 * a1 + a2 * a2);
 
         if (phi >= 1.0e-5)
             return Quat(0, 0, 0, 1);
@@ -799,16 +799,16 @@ public:
     constexpr void setFromUnitVectors(const Vec3& vFrom, const Vec3& vTo)
     {
         Vec3 v1;
-        Real epsilon = Real(0.0001);
+        Real epsilon = static_cast<Real>(0.0001);
 
         Real res_dot = type::dot(vFrom, vTo) + 1;
         if (res_dot < epsilon)
         {
             res_dot = 0;
             if (fabs(vFrom[0]) > fabs(vFrom[2]))
-                v1 = Vec3(-vFrom[1], vFrom[0], Real(0.));
+                v1 = Vec3(-vFrom[1], vFrom[0], 0.);
             else
-                v1 = Vec3(Real(0.), -vFrom[2], vFrom[1]);
+                v1 = Vec3(0., -vFrom[2], vFrom[1]);
         }
         else
         {
@@ -867,20 +867,21 @@ public:
             return qm;
         }
         // Calculate temporary values.
-        auto halfTheta = acos(cosHalfTheta);
-        auto sinHalfTheta = sqrt(1.0 - cosHalfTheta * cosHalfTheta);
+        Real halfTheta = acos(cosHalfTheta);
+        Real sinHalfTheta = sqrt(Real(1.0) - cosHalfTheta * cosHalfTheta);
         // if theta = 180 degrees then result is not fully defined
         // we could rotate around any axis normal to qa or qb
         if (std::abs(sinHalfTheta) < 0.001)
         {
-            qm[3] = _q[3] * 0.5 + q1[3] * 0.5;
-            qm[0] = _q[0] * 0.5 + q1[0] * 0.5;
-            qm[1] = _q[1] * 0.5 + q1[1] * 0.5;
-            qm[2] = _q[2] * 0.5 + q1[2] * 0.5;
+            qm[3] = _q[3] * Real(0.5) + q1[3] * Real(0.5);
+            qm[0] = _q[0] * Real(0.5) + q1[0] * Real(0.5);
+            qm[1] = _q[1] * Real(0.5) + q1[1] * Real(0.5);
+            qm[2] = _q[2] * Real(0.5) + q1[2] * Real(0.5);
             return qm;
         }
-        auto ratioA = sin((1 - t) * halfTheta) / sinHalfTheta;
-        auto ratioB = sin(t * halfTheta) / sinHalfTheta;
+        
+        Real ratioA = sin((1 - t) * halfTheta) / sinHalfTheta;
+        Real ratioB = sin(t * halfTheta) / sinHalfTheta;
 
         //calculate Quatnion.
         qm[3] = _q[3] * ratioA + q1[3] * ratioB;
