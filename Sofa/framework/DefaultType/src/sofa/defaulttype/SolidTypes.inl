@@ -104,40 +104,6 @@ typename SolidTypes<R>::SpatialVector SolidTypes<R>::SpatialVector::operator * (
 }
 //======================================================================================================
 
-template<class R>
-SolidTypes<R>::Transform::Transform()
-    : orientation_() // default constructor set to identity
-    , origin_() // default constructor set to {0, 0, 0}
-{
-
-}
-
-/// Define using Featherstone's conventions
-template<class R>
-SolidTypes<R>::Transform::Transform( const Rot& q, const Vec& o ):orientation_(q),origin_(o)
-{}
-
-/// Define using standard conventions
-template<class R>
-SolidTypes<R>::Transform::Transform( const Vec& t, const Rot& q )
-    :orientation_(q),origin_(-(q.inverseRotate(t)))
-{}
-
-/// Define given the origin of the child wrt the parent and the orientation of the child wrt the parent (i.e. standard way)
-template<class R>
-void SolidTypes<R>::Transform::set
-( const Vec& t, const Rot& q )
-{
-    orientation_ =q, origin_ = -(q.inverseRotate(t));
-}
-
-/// Define given the origin of the child wrt the parent and the orientation of the child wrt the parent (i.e. standard way)
-template<class R>
-typename SolidTypes<R>::Transform SolidTypes<R>::Transform::identity()
-{
-    return Transform( Rot::identity(), Vec(0,0,0) );
-}
-
 /// Define as a given SpatialVector integrated during one second. The spatial vector is given in parent coordinates.
 template<class R>
 SolidTypes<R>::Transform::Transform( const SpatialVector& v )
@@ -146,35 +112,6 @@ SolidTypes<R>::Transform::Transform( const SpatialVector& v )
     origin_ = - orientation_.inverseRotate( v.freeVec );
 }
 
-template<class R>
-const typename SolidTypes<R>::Vec& SolidTypes<R>::Transform::getOriginOfParentInChild() const
-{
-    return origin_;
-}
-
-template<class R>
-typename SolidTypes<R>::Vec SolidTypes<R>::Transform::getOrigin() const
-{
-    return -orientation_.rotate(origin_);
-}
-
-template<class R>
-void SolidTypes<R>::Transform::setOrigin( const Vec& op )
-{
-    origin_ = -orientation_.inverseRotate(op);
-}
-
-template<class R>
-const typename SolidTypes<R>::Rot& SolidTypes<R>::Transform::getOrientation() const
-{
-    return orientation_;
-}
-
-template<class R>
-void SolidTypes<R>::Transform::setOrientation( const Rot& q )
-{
-    orientation_=q;
-}
 template<class R>
 typename SolidTypes<R>::SpatialVector SolidTypes<R>::Transform::DTrans()
 {
@@ -212,75 +149,6 @@ typename SolidTypes<R>::Vec SolidTypes<R>::Transform::backProjectPoint( const Ve
     return orientation_.inverseRotate( p ) + origin_;
 }
 
-template<class R>
-typename SolidTypes<R>::Mat3x3 SolidTypes<R>::Transform::getRotationMatrix() const
-{
-    Mat3x3 m;
-    m[0][0] = (1.0f - 2.0f * (orientation_[1] * orientation_[1] + orientation_[2] * orientation_[2]));
-    m[0][1] = (2.0f * (orientation_[0] * orientation_[1] - orientation_[2] * orientation_[3]));
-    m[0][2] = (2.0f * (orientation_[2] * orientation_[0] + orientation_[1] * orientation_[3]));
-
-    m[1][0] = (2.0f * (orientation_[0] * orientation_[1] + orientation_[2] * orientation_[3]));
-    m[1][1] = (1.0f - 2.0f * (orientation_[2] * orientation_[2] + orientation_[0] * orientation_[0]));
-    m[1][2] = (2.0f * (orientation_[1] * orientation_[2] - orientation_[0] * orientation_[3]));
-
-    m[2][0] = (2.0f * (orientation_[2] * orientation_[0] - orientation_[1] * orientation_[3]));
-    m[2][1] = (2.0f * (orientation_[1] * orientation_[2] + orientation_[0] * orientation_[3]));
-    m[2][2] = (1.0f - 2.0f * (orientation_[1] * orientation_[1] + orientation_[0] * orientation_[0]));
-    return m;
-}
-
-template<class R>
-typename SolidTypes<R>::Mat6x6 SolidTypes<R>::Transform::getAdjointMatrix() const
-{
-    /// TODO
-    Mat6x6 Adj;
-    Mat3x3 Rot;
-    Rot = this->getRotationMatrix();
-    // correspond au produit vectoriel v^origin
-    Mat3x3 Origin;
-    Origin[0][0]=(Real)0.0;         Origin[0][1]=origin_[2];    Origin[0][2]=-origin_[1];
-    Origin[1][0]=-origin_[2];       Origin[1][1]=(Real)0.0;     Origin[1][2]=origin_[0];
-    Origin[2][0]=origin_[1];        Origin[2][1]=-origin_[0];   Origin[2][2]=(Real)0.0;
-
-    Mat3x3 R_Origin = Rot*Origin;
-
-    for (int i=0; i<3; i++)
-    {
-        for(int j=0; j<3; j++)
-        {
-            Adj[i][j]     = Rot[i][j];
-            Adj[i+3][j+3] = Rot[i][j];
-            Adj[i][j+3] =   R_Origin[i][j];
-            Adj[i+3][j] = 0.0;
-        }
-    }
-
-
-    return Adj;
-}
-
-template<class R>
-void SolidTypes<R>::Transform::clear()
-{
-    orientation_.clear();
-    origin_=Vec(0,0,0);
-}
-
-template<class R>
-typename SolidTypes<R>::Transform SolidTypes<R>::Transform::operator * (const Transform& f2) const
-{
-    return Transform(  orientation_ * f2.getOrientation(), f2.getOriginOfParentInChild() + f2.getOrientation().inverseRotate(origin_)) ;
-}
-
-template<class R>
-typename SolidTypes<R>::Transform& SolidTypes<R>::Transform::operator *= (const Transform& f2)
-{
-    orientation_ *= f2.getOrientation();
-    origin_ = f2.getOriginOfParentInChild() + f2.getOrientation().inverseRotate(origin_);
-    return (*this);
-}
-
 
 template<class R>
 typename SolidTypes<R>::SpatialVector  SolidTypes<R>::Transform::CreateSpatialVector()
@@ -301,15 +169,6 @@ template<class R>
 typename SolidTypes<R>::SpatialVector SolidTypes<R>::Transform::operator / (const SpatialVector& sv ) const
 {
     return inversed()*sv;
-}
-
-
-
-
-template<class R>
-typename SolidTypes<R>::Transform SolidTypes<R>::Transform::inversed() const
-{
-    return Transform( orientation_.inverse(), -(orientation_.rotate(origin_)) );
 }
 
 template<class R>

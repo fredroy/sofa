@@ -215,35 +215,95 @@ public:
     {
     public:
         /// The default constructor does not initialize the transform
-        Transform();
+        constexpr Transform()
+            : orientation_() // default constructor set to identity
+            , origin_() // default constructor set to {0, 0, 0}
+        {}
+
         /// Origin of the child in parent coordinates, orientation of the child wrt to parent
-        Transform( const Vec& origin, const Rot& orientation );
+        constexpr Transform( const Vec& origin, const Rot& orientation ) 
+            : orientation_(orientation), origin_(-(orientation.inverseRotate(origin)))
+        {}
+
         /// WARNING: using Featherstone's conventions (see class documentation)
-        Transform( const Rot& q, const Vec& o );
+        constexpr Transform( const Rot& q, const Vec& o ) 
+            : orientation_(q), origin_(o)
+        {}
+
         /// Origin of the child in the parent coordinate system and the orientation of the child wrt the parent (i.e. standard way)
-        void set( const Vec& t, const Rot& q );
+        constexpr void set( const Vec& t, const Rot& q )
+        {
+            orientation_ = q, origin_ = -(q.inverseRotate(t));
+        }
+
         /// Reset this to identity
-        void clear();
+        constexpr void clear()
+        {
+            orientation_.clear();
+            origin_ = Vec(0, 0, 0);
+        }
+
         /// The identity transform (child = parent)
-        static Transform identity();
+        static constexpr Transform identity()
+        {
+            return Transform(Rot::identity(), Vec(0, 0, 0));
+        }
         /// Origin of the child in the parent coordinate system and the orientation of the child wrt the parent (i.e. standard way)
         //static Transform inParent(const Vec& t, const Rot& r);
         /// Define child as a given SpatialVector integrated during one second, starting from the parent (used for time integration). The spatial vector is given in parent coordinates.
         Transform( const SpatialVector& v );
         /// The inverse transform i.e. parent wrt child
-        Transform inversed() const;
+        constexpr Transform inversed() const
+        {
+            return Transform(orientation_.inverse(), -(orientation_.rotate(origin_)));
+        }
+
         /// Parent origin in child coordinates (the way it is actually stored internally)
-        const Vec& getOriginOfParentInChild() const;
+        constexpr const Vec& getOriginOfParentInChild() const
+        {
+            return origin_;
+        }
+
         /// Origin of child in parent coordinates
-        Vec getOrigin() const;
+        constexpr Vec getOrigin() const
+        {
+            return -orientation_.rotate(origin_);
+        }
+
         /// Origin of child in parent coordinates
-        void setOrigin( const Vec& );
+        constexpr void setOrigin( const Vec& op)
+        {
+            origin_ = -orientation_.inverseRotate(op);
+        }
+
         /// Orientation of the child coordinate axes wrt the parent coordinate axes
-        const Rot& getOrientation() const;
+        constexpr const Rot& getOrientation() const
+        {
+            return orientation_;
+        }
+
         /// Orientation of the child coordinate axes wrt the parent coordinate axes
-        void setOrientation( const Rot& );
+        constexpr void setOrientation( const Rot& q)
+        {
+            orientation_ = q;
+        }
         /// Matrix which projects vectors from child coordinates to parent coordinates. The columns of the matrix are the axes of the child base axes in the parent coordinate system.
-        Mat3x3 getRotationMatrix() const;
+        constexpr Mat3x3 getRotationMatrix() const
+        {
+            Mat3x3 m;
+            m[0][0] = (1.0f - 2.0f * (orientation_[1] * orientation_[1] + orientation_[2] * orientation_[2]));
+            m[0][1] = (2.0f * (orientation_[0] * orientation_[1] - orientation_[2] * orientation_[3]));
+            m[0][2] = (2.0f * (orientation_[2] * orientation_[0] + orientation_[1] * orientation_[3]));
+
+            m[1][0] = (2.0f * (orientation_[0] * orientation_[1] + orientation_[2] * orientation_[3]));
+            m[1][1] = (1.0f - 2.0f * (orientation_[2] * orientation_[2] + orientation_[0] * orientation_[0]));
+            m[1][2] = (2.0f * (orientation_[1] * orientation_[2] - orientation_[0] * orientation_[3]));
+
+            m[2][0] = (2.0f * (orientation_[2] * orientation_[0] - orientation_[1] * orientation_[3]));
+            m[2][1] = (2.0f * (orientation_[1] * orientation_[2] + orientation_[0] * orientation_[3]));
+            m[2][2] = (1.0f - 2.0f * (orientation_[1] * orientation_[1] + orientation_[0] * orientation_[0]));
+            return m;
+        }
 
 
 
@@ -255,7 +315,34 @@ public:
          * This matrix transports velocities in twist coordinates from the child frame to the parent frame.
          * Its inverse transpose does the same for the wrenches
          */
-        Mat6x6 getAdjointMatrix() const;
+        constexpr Mat6x6 getAdjointMatrix() const
+        {
+            /// TODO
+            Mat6x6 Adj;
+            Mat3x3 Rot;
+            Rot = this->getRotationMatrix();
+            // correspond au produit vectoriel v^origin
+            Mat3x3 Origin;
+            Origin[0][0] = (Real)0.0;         Origin[0][1] = origin_[2];    Origin[0][2] = -origin_[1];
+            Origin[1][0] = -origin_[2];       Origin[1][1] = (Real)0.0;     Origin[1][2] = origin_[0];
+            Origin[2][0] = origin_[1];        Origin[2][1] = -origin_[0];   Origin[2][2] = (Real)0.0;
+
+            Mat3x3 R_Origin = Rot * Origin;
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Adj[i][j] = Rot[i][j];
+                    Adj[i + 3][j + 3] = Rot[i][j];
+                    Adj[i][j + 3] = R_Origin[i][j];
+                    Adj[i + 3][j] = 0.0;
+                }
+            }
+
+
+            return Adj;
+        }
 
         /// Project a vector (i.e. a direction or a displacement) from child coordinates to parent coordinates
         Vec projectVector( const Vec& vectorInChild ) const;
@@ -265,10 +352,20 @@ public:
         Vec backProjectVector( const Vec& vectorInParent ) const;
         /// Project point from parent coordinates to this coordinates
         Vec backProjectPoint( const Vec& pointInParent ) const;
+
         /// Combine two transforms. If (*this) locates frame B (child) wrt frame A (parent) and if f2 locates frame C (child) wrt frame B (parent) then the result locates frame C wrt to Frame A.
-        Transform operator * (const Transform& f2) const;
+        constexpr Transform operator * (const Transform& f2) const
+        {
+            return Transform(orientation_ * f2.getOrientation(), f2.getOriginOfParentInChild() + f2.getOrientation().inverseRotate(origin_));
+        }
+
         /// Combine two transforms. If (*this) locates frame B (child) wrt frame A (parent) and if f2 locates frame C (child) wrt frame B (parent) then the result locates frame C wrt to Frame A.
-        Transform& operator *= (const Transform& f2);
+        Transform& operator *= (const Transform& f2)
+        {
+            orientation_ *= f2.getOrientation();
+            origin_ = f2.getOriginOfParentInChild() + f2.getOrientation().inverseRotate(origin_);
+            return (*this);
+        }
 
         /** Project a spatial vector from child to parent
             *  TODO One should handle differently the transformation of a twist and a wrench !
