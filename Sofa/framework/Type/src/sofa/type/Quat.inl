@@ -22,16 +22,22 @@
 #pragma once
 
 #include <sofa/type/Quat.h>
-#include <sofa/type/Vec.h>
-#include <sofa/type/Mat.h>
-
-#include <limits>
-#include <cmath>
-#include <iostream>
-#include <cstdio>
 
 namespace sofa::type
 {
 
+/// write to an output stream
+template<class Real> std::ostream& operator << (std::ostream& out, const Quat<Real>& v)
+{
+    out << v[0] << " " << v[1] << " " << v[2] << " " << v[3];
+    return out;
+}
+
+/// read from an input stream
+template<class Real> std::istream& operator >> (std::istream& in, Quat<Real>& v)
+{
+    in >> v[0] >> v[1] >> v[2] >> v[3];
+    return in;
+}
 
 } // namespace sofa::type
