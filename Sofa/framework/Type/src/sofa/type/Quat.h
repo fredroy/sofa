@@ -29,9 +29,38 @@
 
 #include <limits>
 #include <cmath>
-#include <iostream>
+#include <iosfwd>
 #include <cstdio>
 #include <array>
+
+namespace // anonymous
+{
+
+template<typename QuatReal, typename OtherReal>
+constexpr void getOpenGlMatrix(const QuatReal& q, OtherReal* m)
+{
+    m[0 * 4 + 0] = static_cast<OtherReal>(1.0 - 2.0 * (q[1] * q[1] + q[2] * q[2]));
+    m[1 * 4 + 0] = static_cast<OtherReal>(2.0 * (q[0] * q[1] - q[2] * q[3]));
+    m[2 * 4 + 0] = static_cast<OtherReal>(2.0 * (q[2] * q[0] + q[1] * q[3]));
+    m[3 * 4 + 0] = static_cast<OtherReal>(0.0);
+
+    m[0 * 4 + 1] = static_cast<OtherReal>(2.0 * (q[0] * q[1] + q[2] * q[3]));
+    m[1 * 4 + 1] = static_cast<OtherReal>(1.0 - 2.0 * (q[2] * q[2] + q[0] * q[0]));
+    m[2 * 4 + 1] = static_cast<OtherReal>(2.0 * (q[1] * q[2] - q[0] * q[3]));
+    m[3 * 4 + 1] = static_cast<OtherReal>(0.0);
+
+    m[0 * 4 + 2] = static_cast<OtherReal>(2.0 * (q[2] * q[0] - q[1] * q[3]));
+    m[1 * 4 + 2] = static_cast<OtherReal>(2.0 * (q[1] * q[2] + q[0] * q[3]));
+    m[2 * 4 + 2] = static_cast<OtherReal>(1.0 - 2.0 * (q[1] * q[1] + q[0] * q[0]));
+    m[3 * 4 + 2] = static_cast<OtherReal>(0.0);
+
+    m[0 * 4 + 3] = static_cast<OtherReal>(0.0);
+    m[1 * 4 + 3] = static_cast<OtherReal>(0.0);
+    m[2 * 4 + 3] = static_cast<OtherReal>(0.0);
+    m[3 * 4 + 3] = static_cast<OtherReal>(0.0);
+}
+
+}
 
 namespace sofa::type
 {
@@ -131,7 +160,7 @@ public:
     constexpr void normalize()
     {
         const Real mag = (_q[0] * _q[0] + _q[1] * _q[1] + _q[2] * _q[2] + _q[3] * _q[3]);
-        double epsilon = 1.0e-10;
+        Real epsilon = 1.0e-10;
         if (std::abs(mag - 1.0) > epsilon)
         {
             if (mag != 0)
@@ -561,50 +590,14 @@ public:
         m[3][3] = 1;
     }
 
-    constexpr void writeOpenGlMatrix( double* m ) const
+    constexpr void writeOpenGlMatrix(double* m ) const
     {
-        m[0 * 4 + 0] = (double)(1.0 - 2.0 * (_q[1] * _q[1] + _q[2] * _q[2]));
-        m[1 * 4 + 0] = (double)(2.0 * (_q[0] * _q[1] - _q[2] * _q[3]));
-        m[2 * 4 + 0] = (double)(2.0 * (_q[2] * _q[0] + _q[1] * _q[3]));
-        m[3 * 4 + 0] = (double)0.0;
-
-        m[0 * 4 + 1] = (double)(2.0 * (_q[0] * _q[1] + _q[2] * _q[3]));
-        m[1 * 4 + 1] = (double)(1.0 - 2.0 * (_q[2] * _q[2] + _q[0] * _q[0]));
-        m[2 * 4 + 1] = (double)(2.0 * (_q[1] * _q[2] - _q[0] * _q[3]));
-        m[3 * 4 + 1] = (double)0.0;
-
-        m[0 * 4 + 2] = (double)(2.0 * (_q[2] * _q[0] - _q[1] * _q[3]));
-        m[1 * 4 + 2] = (double)(2.0 * (_q[1] * _q[2] + _q[0] * _q[3]));
-        m[2 * 4 + 2] = (double)(1.0 - 2.0 * (_q[1] * _q[1] + _q[0] * _q[0]));
-        m[3 * 4 + 2] = (double)0.0;
-
-        m[0 * 4 + 3] = (double)0.0;
-        m[1 * 4 + 3] = (double)0.0;
-        m[2 * 4 + 3] = (double)0.0;
-        m[3 * 4 + 3] = (double)1.0;
+        return getOpenGlMatrix<Quat, double>(*this, m);
     }
 
-    constexpr void writeOpenGlMatrix( float* m ) const
+    constexpr void writeOpenGlMatrix(float* m) const
     {
-        m[0 * 4 + 0] = (float)(1.0f - 2.0f * (_q[1] * _q[1] + _q[2] * _q[2]));
-        m[1 * 4 + 0] = (float)(2.0f * (_q[0] * _q[1] - _q[2] * _q[3]));
-        m[2 * 4 + 0] = (float)(2.0f * (_q[2] * _q[0] + _q[1] * _q[3]));
-        m[3 * 4 + 0] = 0.0f;
-
-        m[0 * 4 + 1] = (float)(2.0f * (_q[0] * _q[1] + _q[2] * _q[3]));
-        m[1 * 4 + 1] = (float)(1.0f - 2.0f * (_q[2] * _q[2] + _q[0] * _q[0]));
-        m[2 * 4 + 1] = (float)(2.0f * (_q[1] * _q[2] - _q[0] * _q[3]));
-        m[3 * 4 + 1] = 0.0f;
-
-        m[0 * 4 + 2] = (float)(2.0f * (_q[2] * _q[0] - _q[1] * _q[3]));
-        m[1 * 4 + 2] = (float)(2.0f * (_q[1] * _q[2] + _q[0] * _q[3]));
-        m[2 * 4 + 2] = (float)(1.0f - 2.0f * (_q[1] * _q[1] + _q[0] * _q[0]));
-        m[3 * 4 + 2] = 0.0f;
-
-        m[0 * 4 + 3] = 0.0f;
-        m[1 * 4 + 3] = 0.0f;
-        m[2 * 4 + 3] = 0.0f;
-        m[3 * 4 + 3] = 1.0f;
+        return getOpenGlMatrix<Quat, float>(*this, m);
     }
 
     /// This function computes a quaternion based on an axis (defined by
@@ -866,7 +859,7 @@ public:
         Quat qm;
 
         // Calculate angle between them.
-        double cosHalfTheta = _q[3] * q1[3] + _q[0] * q1[0] + _q[1] * q1[1] + _q[2] * q1[2];
+        auto cosHalfTheta = _q[3] * q1[3] + _q[0] * q1[0] + _q[1] * q1[1] + _q[2] * q1[2];
         // if qa=qb or qa=-qb then theta = 0 and we can return qa
         if (std::abs(cosHalfTheta) >= 1.0)
         {
@@ -874,25 +867,26 @@ public:
             return qm;
         }
         // Calculate temporary values.
-        double halfTheta = acos(cosHalfTheta);
-        double sinHalfTheta = sqrt(1.0 - cosHalfTheta * cosHalfTheta);
+        auto halfTheta = acos(cosHalfTheta);
+        auto sinHalfTheta = sqrt(1.0 - cosHalfTheta * cosHalfTheta);
         // if theta = 180 degrees then result is not fully defined
         // we could rotate around any axis normal to qa or qb
         if (std::abs(sinHalfTheta) < 0.001)
         {
-            qm[3] = (Real)(_q[3] * 0.5 + q1[3] * 0.5);
-            qm[0] = (Real)(_q[0] * 0.5 + q1[0] * 0.5);
-            qm[1] = (Real)(_q[1] * 0.5 + q1[1] * 0.5);
-            qm[2] = (Real)(_q[2] * 0.5 + q1[2] * 0.5);
+            qm[3] = _q[3] * 0.5 + q1[3] * 0.5;
+            qm[0] = _q[0] * 0.5 + q1[0] * 0.5;
+            qm[1] = _q[1] * 0.5 + q1[1] * 0.5;
+            qm[2] = _q[2] * 0.5 + q1[2] * 0.5;
             return qm;
         }
-        double ratioA = sin((1 - t) * halfTheta) / sinHalfTheta;
-        double ratioB = sin(t * halfTheta) / sinHalfTheta;
+        auto ratioA = sin((1 - t) * halfTheta) / sinHalfTheta;
+        auto ratioB = sin(t * halfTheta) / sinHalfTheta;
+
         //calculate Quatnion.
-        qm[3] = (Real)(_q[3] * ratioA + q1[3] * ratioB);
-        qm[0] = (Real)(_q[0] * ratioA + q1[0] * ratioB);
-        qm[1] = (Real)(_q[1] * ratioA + q1[1] * ratioB);
-        qm[2] = (Real)(_q[2] * ratioA + q1[2] * ratioB);
+        qm[3] = _q[3] * ratioA + q1[3] * ratioB;
+        qm[0] = _q[0] * ratioA + q1[0] * ratioB;
+        qm[1] = _q[1] * ratioA + q1[1] * ratioB;
+        qm[2] = _q[2] * ratioA + q1[2] * ratioB;
         return qm;
 
     }

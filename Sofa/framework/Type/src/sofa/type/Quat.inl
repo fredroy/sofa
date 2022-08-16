@@ -22,6 +22,7 @@
 #pragma once
 
 #include <sofa/type/Quat.h>
+#include <iostream>
 
 namespace sofa::type
 {
