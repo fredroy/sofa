@@ -57,7 +57,7 @@ constexpr void getOpenGlMatrix(const QuatReal& q, OtherReal* m)
     m[0 * 4 + 3] = static_cast<OtherReal>(0.0);
     m[1 * 4 + 3] = static_cast<OtherReal>(0.0);
     m[2 * 4 + 3] = static_cast<OtherReal>(0.0);
-    m[3 * 4 + 3] = static_cast<OtherReal>(0.0);
+    m[3 * 4 + 3] = static_cast<OtherReal>(1.0);
 }
 
 }
