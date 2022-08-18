@@ -150,6 +150,7 @@ private:
     linearalgebra::BaseMatrix* systemMatrix_buf;
     linearalgebra::BaseVector* systemRHVector_buf;
     linearalgebra::BaseVector* systemLHVector_buf;
+    linearalgebra::FullVector<SReal>* systemLHVector_buf_full{nullptr};
 
 
     // par un vecteur de listes precaclues pour chaque contrainte

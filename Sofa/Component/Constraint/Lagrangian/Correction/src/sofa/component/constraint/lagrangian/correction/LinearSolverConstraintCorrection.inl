@@ -550,6 +550,8 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(doub
     systemRHVector_buf = linearsolvers[0]->getSystemRHBaseVector();
     systemLHVector_buf = linearsolvers[0]->getSystemLHBaseVector();
 
+    systemLHVector_buf_full = dynamic_cast<linearalgebra::FullVector<SReal>*>(systemLHVector_buf);
+
     const unsigned int derivDim = Deriv::size();
     const unsigned int systemSize = mstate->getSize() * derivDim;
     systemRHVector_buf->resize(systemSize) ;
@@ -597,7 +599,7 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
 
     const auto positionIntegrationFactor = odesolver->getPositionIntegrationFactor();
 
-    constexpr auto addConstraintDisplacement_impl = [](double* d, unsigned int id, linearalgebra::BaseVector* systemLHVector_buf, double positionIntegrationFactor, unsigned int dof, const Deriv& val)
+    constexpr auto addConstraintDisplacement_impl = [](double* d, unsigned int id, auto* systemLHVector_buf, double positionIntegrationFactor, unsigned int dof, const Deriv& val)
     {
         constexpr const auto derivDim = Deriv::total_size;
         Deriv disp(type::NOINIT);
@@ -605,6 +607,19 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
         for (Size j = 0; j < derivDim; j++)
         {
             disp[j] = (Real)(systemLHVector_buf->element(dof * derivDim + j)) * positionIntegrationFactor;
+        }
+
+        d[id] += val * disp;
+    };
+
+    constexpr auto addConstraintDisplacement_impl_full = [](double* d, unsigned int id, linearalgebra::FullVector<SReal>* systemLHVector_buf_full, double positionIntegrationFactor, unsigned int dof, const Deriv& val)
+    {
+        constexpr const auto derivDim = Deriv::total_size;
+        Deriv disp(type::NOINIT);
+
+        for (Size j = 0; j < derivDim; j++)
+        {
+            disp[j] = (*systemLHVector_buf_full)[dof * derivDim + j] * positionIntegrationFactor;
         }
 
         d[id] += val * disp;
@@ -635,10 +650,19 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
         }
         else
         {
-            //if ?
-            for (const auto& [dof, val] : m_buffer[i])
+            if (systemLHVector_buf_full)
             {
-                addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, dof, val);
+                for (const auto& [dof, val] : m_buffer[i])
+                {
+                    addConstraintDisplacement_impl_full(d, i, systemLHVector_buf_full, positionIntegrationFactor, dof, val);
+                }
+            }
+            else
+            {
+                for (const auto& [dof, val] : m_buffer[i])
+                {
+                    addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, dof, val);
+                }
             }
         }
     }
