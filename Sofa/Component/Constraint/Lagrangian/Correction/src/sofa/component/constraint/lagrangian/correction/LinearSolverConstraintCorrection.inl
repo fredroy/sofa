@@ -636,9 +636,9 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
         else
         {
             //if ?
-            for (const auto& info : m_buffer[i])
+            for (const auto& [dof, val] : m_buffer[i])
             {
-                addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, info.first, info.second);
+                addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, dof, val);
             }
         }
     }
@@ -647,13 +647,13 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
 template<class DataTypes>
 void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df, int begin, int end, bool update)
 {
-    const MatrixDeriv& constraints = mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
-    constexpr const auto derivDim = Deriv::total_size;
-
     last_force = begin;
 
     if (!update)
         return;
+
+    constexpr const auto derivDim = Deriv::total_size;
+    const MatrixDeriv& constraints = mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
 
     _new_force = true;
 
@@ -683,9 +683,9 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
         else
         {
             //if ?
-            for (const auto& info : m_buffer[i])
+            for (const auto& [dof, val] : m_buffer[i])
             {
-                setConstraintDForce_impl(df, constraint_force, i, info.first, info.second);
+                setConstraintDForce_impl(df, constraint_force, i, dof, val);
             }
         }
     }
