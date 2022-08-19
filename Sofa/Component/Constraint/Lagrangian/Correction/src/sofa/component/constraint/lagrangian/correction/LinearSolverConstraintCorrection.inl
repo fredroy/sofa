@@ -573,7 +573,7 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(doub
 }
 
 template<class DataTypes>
-void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(double *d, int begin, int end)
+void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(double* d, int begin, int end)
 {
     const MatrixDeriv& constraints = mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
 
@@ -582,6 +582,8 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
     l_linearSolver->partial_solve(Vec_I_list_dof[last_disp], Vec_I_list_dof[last_force], _new_force);
 
     _new_force = false;
+
+    const auto positionIntegrationFactor = l_ODESolver->getPositionIntegrationFactor();
 
     constexpr auto addConstraintDisplacement_impl = [](double* d, unsigned int id, auto* systemLHVector_buf, double positionIntegrationFactor, unsigned int dof, const Deriv& val)
     {
@@ -603,8 +605,6 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
         d[id] += val * disp;
     };
 
-    const auto positionIntegrationFactor = l_ODESolver->getPositionIntegrationFactor();
-
     // TODO => optimisation => for each bloc store J[bloc,dof]
     for (int i = begin; i <= end; i++)
     {
@@ -622,36 +622,26 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
                     const auto dof = colIt.index();
                     const Deriv& val = colIt.val();
 
-                    if (systemLHVector_buf_fullvector)
-                    {
-                        addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, dof, val);
-                    }
-                    else
-                    {
-                        addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, dof, val);
-                    }
                     vinfo.push_back({ dof, val });
+
+                    addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, dof, val);
                 }
             }
         }
         else
         {
-            //if ?
-            for (const auto& info : m_buffer[i])
+            if (systemLHVector_buf_fullvector)
             {
-                const auto dof = info.first;
-                const Deriv& val = info.second;
-
-                for (Size j = 0; j < derivDim; j++)
+                for (const auto& [dof, val] : m_buffer[i])
                 {
-                    if (systemLHVector_buf_fullvector)
-                    {
-                        addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, dof, val);
-                    }
-                    else
-                    {
-                        addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, dof, val);
-                    }
+                    addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, dof, val);
+                }
+            }
+            else
+            {
+                for (const auto& [dof, val] : m_buffer[i])
+                {
+                    addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, dof, val);
                 }
             }
         }
@@ -697,9 +687,9 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
         else
         {
             //if ?
-            for (const auto& info : m_buffer[i])
+            for (const auto& [dof, val] : m_buffer[i])
             {
-                setConstraintDForce_impl(df, constraint_force, i, info.first, info.second);
+                setConstraintDForce_impl(df, constraint_force, i, dof, val);
             }
         }
     }

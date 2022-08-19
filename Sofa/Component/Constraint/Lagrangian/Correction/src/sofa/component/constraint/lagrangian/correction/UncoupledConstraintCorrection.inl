@@ -664,9 +664,9 @@ void UncoupledConstraintCorrection<DataTypes>::addConstraintDisplacement(double 
         else
         {
             //if ?
-            for (const auto& info : m_buffer[id])
+            for (const auto& [dof, val] : m_buffer[id])
             {
-                addConstraintDisplacement_impl(d, id, constraint_disp, info.first, info.second);
+                addConstraintDisplacement_impl(d, id, constraint_disp, dof, val);
             }
         }
     }
@@ -721,11 +721,8 @@ void UncoupledConstraintCorrection<DataTypes>::setConstraintDForce(double * df, 
         else
         {
             //if ?
-            for (const auto& info : m_buffer[id])
+            for (const auto& [dof, val] : m_buffer[id])
             {
-                const auto dof = info.first;
-                const Deriv& val = info.second;
-
                 setConstraintDForce_impl(df, constraint_force, constraint_disp, id, comp, comp0, dof, val);
             }
         }
