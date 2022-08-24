@@ -88,7 +88,6 @@ public:
 
     Index	m_currentBlock = 0;
     Index first_block;
-    std::vector<SubVector> Vec_dRH;			// buf the dRH on block that are not current_bloc...
     ////////////////////////////
 
     type::vector<Index> nBlockComputedMinv;
@@ -123,8 +122,6 @@ public:
     /// Solve Mx=b
     void solve (Matrix& /*M*/, Vector& x, Vector& b) override;
 
-
-
     /// Multiply the inverse of the system matrix by the transpose of the given matrix, and multiply the result with the given matrix J
     ///
     /// @param result the variable where the result will be added
@@ -142,19 +139,12 @@ public:
     /// db is a sparse vector that is added to b
     /// partial_x is a sparse vector (with sparse map given) that provide the result of M x = b+db
     /// Solve Mx=b
-    //void partial_solve_old(ListIndex&  Iout, ListIndex&  Iin , bool NewIn);
     void partial_solve(ListIndex&  Iout, ListIndex&  Iin , bool NewIn) override;
-
-
 
     void init_partial_inverse(const Index &nb, const Index &bsize);
 
-
-
     template<class RMatrix, class JMatrix>
     bool addJMInvJt(RMatrix& result, JMatrix& J, double fact);
-
-
 
 private:
 

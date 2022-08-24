@@ -394,28 +394,16 @@ void BTDLinearSolver<Matrix,Vector>::init_partial_solve()
 {
 
     const Index bsize = Matrix::getSubMatrixDim(d_blockSize.getValue());
-    const Index nb = this->linearSystem.systemRHVector->size() / bsize;
+    const Index nbBlocks = this->linearSystem.systemRHVector->size() / bsize;
 
     //TODO => optimisation ??
     bwdContributionOnLH.clear();
-    bwdContributionOnLH.resize(nb*bsize);
+    bwdContributionOnLH.resize(nbBlocks * bsize);
     fwdContributionOnRH.clear();
-    fwdContributionOnRH.resize(nb*bsize);
+    fwdContributionOnRH.resize(nbBlocks * bsize);
 
     // Bloc that is currently being proceed => start from the end (so that we use step2 bwdAccumulateLHGlobal and accumulate potential initial forces)
-    m_currentBlock = nb-1;
-
-    // DF represents the variation of the right hand side of the equation (Force in mechanics)
-    Vec_dRH.resize(nb);
-    for (Index i=0; i<nb; i++)
-    {
-        Vec_dRH[i]=0;
-        Vec_dRH[i].resize(bsize);
-    }
-
-
-
-
+    m_currentBlock = nbBlocks - 1;
 }
 
 
@@ -574,10 +562,6 @@ void BTDLinearSolver<Matrix,Vector>::fwdComputeLHinBloc(Index indMaxBloc)
         dmsg_info_when(showProblem) << "LH["<<b<<"] = Minv["<<b<<"]["<<b<<"] * (fwdRH("<<b<< ") + RH("<<b<<")) + bwdLH("<<b<<")";
 
     }
-
-
-
-
 }
 
 template<class Matrix, class Vector>
