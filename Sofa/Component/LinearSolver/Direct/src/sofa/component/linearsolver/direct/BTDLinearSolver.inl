@@ -446,30 +446,23 @@ void BTDLinearSolver<Matrix,Vector>::bwdAccumulateRHinBloc(Index indMaxBloc)
         dmsg_warning() <<"indMaxBloc = "<<indMaxBloc <<" <  "<<" current_bloc = "<<current_bloc ;
     }
 
-    SubVector RHbloc;
-    RHbloc.resize(bsize);
-
     _acc_lh_bloc= bwdContributionOnLH.asub(b,bsize);
 
 
     while(b > current_bloc )
     {
+        dmsg_info_when(showProblem) << "bwdLH[" << b - 1 << "] = H[" << b - 1 << "][" << b << "] * (Minv[" << b << "][" << b << "] * RH[" << b << "] + bwdLH[" << b << "])";
 
-        // evaluate the Right Hand Term for the bloc b
-        RHbloc = this->linearSystem.systemRHVector->asub(b,bsize) ;
+        // compute the contribution on LH created by the Right Hand Term for the bloc b
+        _acc_lh_bloc += Minv.asub(b,b,bsize,bsize) * this->linearSystem.systemRHVector->asub(b, bsize);
 
-        // compute the contribution on LH created by RH
-        _acc_lh_bloc  += Minv.asub(b,b,bsize,bsize) * RHbloc;
-
-        b--;
         // accumulate this contribution on LH on the lower blocs
-        _acc_lh_bloc =  -(lambda[b]*_acc_lh_bloc);
-
-        dmsg_info_when(showProblem) << "bwdLH[" << b << "] = H[" << b << "][" << b + 1 << "] * (Minv[" << b + 1 << "][" << b + 1 << "] * RH[" << b + 1 << "] + bwdLH[" << b + 1 << "])";
+        _acc_lh_bloc =  -(lambda[b-1]*_acc_lh_bloc);
 
         // store the contribution as bwdContributionOnLH
-        bwdContributionOnLH.asub(b,bsize) = _acc_lh_bloc;
+        bwdContributionOnLH.asub(b-1,bsize) = _acc_lh_bloc;
 
+        b--;
     }
 
     b = current_bloc;
@@ -491,24 +484,21 @@ template<class Matrix, class Vector>
 void BTDLinearSolver<Matrix,Vector>::bwdAccumulateLHGlobal( )
 {
     const Index bsize = Matrix::getSubMatrixDim(d_blockSize.getValue());
-    _acc_lh_bloc =  bwdContributionOnLH.asub(current_bloc, bsize);
-
     const bool showProblem = d_problem.getValue();
 
+    _acc_lh_bloc = bwdContributionOnLH.asub(current_bloc, bsize);
     while( current_bloc > 0)
     {
         dmsg_info_when(showProblem) << "bwdLH[" << current_bloc - 1 << "] = H[" << current_bloc - 1 << "][" << current_bloc << "] *( bwdLH[" << current_bloc << "] + Minv[" << current_bloc << "][" << current_bloc << "] * RH[" << current_bloc << "])";
 
         // BwdLH += Minv*RH
         _acc_lh_bloc +=  Minv.asub(current_bloc,current_bloc,bsize,bsize) * this->linearSystem.systemRHVector->asub(current_bloc,bsize) ;
+        // BwdLH(n-1) = H(n-1)(n)*BwdLH(n)
+        _acc_lh_bloc = -(lambda[current_bloc-1]*_acc_lh_bloc);
+
+        bwdContributionOnLH.asub(current_bloc-1, bsize) = _acc_lh_bloc;
 
         current_bloc--;
-        // BwdLH(n-1) = H(n-1)(n)*BwdLH(n)
-        _acc_lh_bloc = -(lambda[current_bloc]*_acc_lh_bloc);
-
-        bwdContributionOnLH.asub(current_bloc, bsize) = _acc_lh_bloc;
-
-
     }
 
     // at this point, current_bloc must be equal to 0
