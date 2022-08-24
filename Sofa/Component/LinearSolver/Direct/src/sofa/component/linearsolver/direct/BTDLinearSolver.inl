@@ -539,29 +539,23 @@ void BTDLinearSolver<Matrix,Vector>::fwdComputeLHinBloc(Index indMaxBloc)
     const Index bsize = Matrix::getSubMatrixDim(d_blockSize.getValue());
     const bool showProblem = d_problem.getValue();
 
-    Index b;
-
-    while(_indMaxFwdLHComputed < indMaxBloc )
+    Index b = _indMaxFwdLHComputed;
+    while(b < indMaxBloc )
     {
+        dmsg_info_when(showProblem) << " fwdRH[" << b + 1 << "] = H[" << b + 1 << "][" << b << "] * (fwdRH(" << b << ") + RH(" << b << "))";
+        // fwdRH(n+1) = H(n+1)(n) * (fwdRH(n) + RH(n))
+        fwdContributionOnRH.asub(b+1, bsize) = (-lambda[b].t())* ( fwdContributionOnRH.asub(b, bsize) + this->linearSystem.systemRHVector->asub(b,bsize) ) ;
 
-        b = _indMaxFwdLHComputed;
-
-        if(b>=0)
-        {
-            dmsg_info_when(showProblem) << " fwdRH[" << b + 1 << "] = H[" << b + 1 << "][" << b << "] * (fwdRH(" << b << ") + RH(" << b << "))";
-            // fwdRH(n+1) = H(n+1)(n) * (fwdRH(n) + RH(n))
-            fwdContributionOnRH.asub(b+1, bsize) = (-lambda[b].t())* ( fwdContributionOnRH.asub(b, bsize) + this->linearSystem.systemRHVector->asub(b,bsize) ) ;
-        }
-
-        _indMaxFwdLHComputed++; b++;
+        b++;
 
         // compute the bloc which indice is _indMaxFwdLHComputed
         this->linearSystem.systemLHVector->asub(b,bsize) = Minv.asub( b, b ,bsize,bsize) * ( fwdContributionOnRH.asub(b, bsize) + this->linearSystem.systemRHVector->asub(b,bsize) ) +
                 bwdContributionOnLH.asub(b, bsize);
 
         dmsg_info_when(showProblem) << "LH["<<b<<"] = Minv["<<b<<"]["<<b<<"] * (fwdRH("<<b<< ") + RH("<<b<<")) + bwdLH("<<b<<")";
-
     }
+
+    _indMaxFwdLHComputed = b; // == indMaxBloc
 }
 
 template<class Matrix, class Vector>
@@ -621,6 +615,7 @@ void BTDLinearSolver<Matrix,Vector>::partial_solve(ListIndex&  Iout, ListIndex& 
         dmsg_info_when(showProblem) << " STEP 4 :_indMaxFwdLHComputed = " << _indMaxFwdLHComputed << " < " << "MaxIdBloc_OUT = " << MaxIdBloc_OUT << "  - verify that current_bloc=" << m_currentBlock << " == " << " MinIdBloc_OUT =" << MinIdBloc_OUT;
 
         fwdComputeLHinBloc(MaxIdBloc_OUT );
+
         //debug
         dmsg_info_when(showProblem) << "  new _indMaxFwdLHComputed = " << _indMaxFwdLHComputed;
     }
