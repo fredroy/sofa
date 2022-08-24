@@ -404,14 +404,9 @@ void BTDLinearSolver<Matrix,Vector>::init_partial_solve()
 
 
     _rh_buf.resize(nb*bsize);
-    _acc_rh_bloc=0;
-    _acc_rh_bloc.resize(bsize);
-    _acc_lh_bloc=0;
-    _acc_lh_bloc.resize(bsize);
 
     // Bloc that is currently being proceed => start from the end (so that we use step2 bwdAccumulateLHGlobal and accumulate potential initial forces)
     current_bloc = nb-1;
-
 
     // DF represents the variation of the right hand side of the equation (Force in mechanics)
     Vec_dRH.resize(nb);
@@ -446,22 +441,19 @@ void BTDLinearSolver<Matrix,Vector>::bwdAccumulateRHinBloc(Index indMaxBloc)
         dmsg_warning() <<"indMaxBloc = "<<indMaxBloc <<" <  "<<" current_bloc = "<<current_bloc ;
     }
 
-    _acc_lh_bloc= bwdContributionOnLH.asub(b,bsize);
-
+    SubVector _acc_lh_bloc = bwdContributionOnLH.asub(b,bsize);
 
     while(b > current_bloc )
     {
         dmsg_info_when(showProblem) << "bwdLH[" << b - 1 << "] = H[" << b - 1 << "][" << b << "] * (Minv[" << b << "][" << b << "] * RH[" << b << "] + bwdLH[" << b << "])";
-
+        
         // compute the contribution on LH created by the Right Hand Term for the bloc b
         _acc_lh_bloc += Minv.asub(b,b,bsize,bsize) * this->linearSystem.systemRHVector->asub(b, bsize);
 
         // accumulate this contribution on LH on the lower blocs
-        _acc_lh_bloc =  -(lambda[b-1]*_acc_lh_bloc);
+        bwdContributionOnLH.asub(b - 1, bsize) = -(lambda[b - 1] * _acc_lh_bloc);
 
-        // store the contribution as bwdContributionOnLH
-        bwdContributionOnLH.asub(b-1,bsize) = _acc_lh_bloc;
-
+        _acc_lh_bloc = bwdContributionOnLH.asub(b - 1, bsize);
         b--;
     }
 
@@ -486,7 +478,7 @@ void BTDLinearSolver<Matrix,Vector>::bwdAccumulateLHGlobal( )
     const Index bsize = Matrix::getSubMatrixDim(d_blockSize.getValue());
     const bool showProblem = d_problem.getValue();
 
-    _acc_lh_bloc = bwdContributionOnLH.asub(current_bloc, bsize);
+    SubVector _acc_lh_bloc = bwdContributionOnLH.asub(current_bloc, bsize);
     while( current_bloc > 0)
     {
         dmsg_info_when(showProblem) << "bwdLH[" << current_bloc - 1 << "] = H[" << current_bloc - 1 << "][" << current_bloc << "] *( bwdLH[" << current_bloc << "] + Minv[" << current_bloc << "][" << current_bloc << "] * RH[" << current_bloc << "])";
@@ -494,9 +486,10 @@ void BTDLinearSolver<Matrix,Vector>::bwdAccumulateLHGlobal( )
         // BwdLH += Minv*RH
         _acc_lh_bloc +=  Minv.asub(current_bloc,current_bloc,bsize,bsize) * this->linearSystem.systemRHVector->asub(current_bloc,bsize) ;
         // BwdLH(n-1) = H(n-1)(n)*BwdLH(n)
-        _acc_lh_bloc = -(lambda[current_bloc-1]*_acc_lh_bloc);
+        bwdContributionOnLH.asub(current_bloc - 1, bsize) = -(lambda[current_bloc - 1] * _acc_lh_bloc);
 
-        bwdContributionOnLH.asub(current_bloc-1, bsize) = _acc_lh_bloc;
+        _acc_lh_bloc = bwdContributionOnLH.asub(current_bloc - 1, bsize);
+
 
         current_bloc--;
     }
@@ -522,9 +515,9 @@ template<class Matrix, class Vector>
 void BTDLinearSolver<Matrix,Vector>::fwdAccumulateRHGlobal(Index indMinBloc)
 {
     const Index bsize = Matrix::getSubMatrixDim(d_blockSize.getValue());
-    _acc_rh_bloc =fwdContributionOnRH.asub(current_bloc, bsize);
-
     const bool showProblem = d_problem.getValue();
+
+    SubVector _acc_rh_bloc =fwdContributionOnRH.asub(current_bloc, bsize);
 
     while( current_bloc< indMinBloc)
     {
@@ -533,12 +526,12 @@ void BTDLinearSolver<Matrix,Vector>::fwdAccumulateRHGlobal(Index indMinBloc)
         _acc_rh_bloc += this->linearSystem.systemRHVector->asub(current_bloc,bsize);
 
         // fwdRH(n+1) = H(n+1)(n) * fwdRH(n)
-        _acc_rh_bloc = -(lambda[current_bloc].t() * _acc_rh_bloc);
+        fwdContributionOnRH.asub(current_bloc + 1, bsize) = -(lambda[current_bloc].t() * _acc_rh_bloc);
+
+        _acc_rh_bloc = fwdContributionOnRH.asub(current_bloc + 1, bsize);
+
+        dmsg_info_when(showProblem) << "fwdRH[" << current_bloc + 1 << "] = H[" << current_bloc + 1 << "][" << current_bloc << "] * (fwdRH[" << current_bloc << "] + RH[" << current_bloc << "])";
         current_bloc++;
-
-        fwdContributionOnRH.asub(current_bloc, bsize) = _acc_rh_bloc;
-
-        dmsg_info_when(showProblem) << "fwdRH[" << current_bloc << "] = H[" << current_bloc << "][" << current_bloc - 1 << "] * (fwdRH[" << current_bloc - 1 << "] + RH[" << current_bloc - 1 << "])";
     }
 
     _indMaxFwdLHComputed = current_bloc;

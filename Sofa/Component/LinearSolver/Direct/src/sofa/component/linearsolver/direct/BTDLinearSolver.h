@@ -88,8 +88,6 @@ public:
 
     Vector _rh_buf;		 //				// buf the right hand term
     //Vector _df_buf;		 //
-    SubVector _acc_rh_bloc;		// accumulation of rh through the browsing of the structure
-    SubVector _acc_lh_bloc;		// accumulation of lh through the browsing of the strucutre
     Index	current_bloc, first_block;
     std::vector<SubVector> Vec_dRH;			// buf the dRH on block that are not current_bloc...
     ////////////////////////////
