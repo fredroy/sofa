@@ -86,9 +86,8 @@ public:
     Vector bwdContributionOnLH;  //
     Vector fwdContributionOnRH;
 
-    Vector _rh_buf;		 //				// buf the right hand term
-    //Vector _df_buf;		 //
-    Index	current_bloc, first_block;
+    Index	m_currentBlock = 0;
+    Index first_block;
     std::vector<SubVector> Vec_dRH;			// buf the dRH on block that are not current_bloc...
     ////////////////////////////
 
