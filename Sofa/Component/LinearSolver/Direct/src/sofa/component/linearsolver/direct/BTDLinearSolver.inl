@@ -563,13 +563,14 @@ void BTDLinearSolver<Matrix,Vector>::partial_solve(ListIndex&  Iout, ListIndex& 
 {
     const bool showProblem = d_problem.getValue();
 
-    Index MinIdBloc_OUT = Iout.front();
-    Index MaxIdBloc_OUT = Iout.back();
+    const Index MinIdBloc_OUT = Iout.front();
+    const Index MaxIdBloc_OUT = Iout.back();
     if( NewIn)
     {
+        const Index MinIdBloc_IN = Iin.front(); //  Iin needs to be sorted
+        const Index MaxIdBloc_IN = Iin.back();  //
+        assert(MinIdBloc_IN < MaxIdBloc_IN, "Iin needs to be sorted");
 
-        Index MinIdBloc_IN = Iin.front(); //  Iin needs to be sorted
-        Index MaxIdBloc_IN = Iin.back();  //
         //debug
         dmsg_info_when(showProblem) << "STEP1: new force on bloc between dofs "<< MinIdBloc_IN<< "  and "<<MaxIdBloc_IN;
 
