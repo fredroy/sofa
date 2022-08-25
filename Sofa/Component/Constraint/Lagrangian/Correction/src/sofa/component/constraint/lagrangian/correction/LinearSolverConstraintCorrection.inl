@@ -680,6 +680,7 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
 
                 for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != colItEnd; ++colIt)
                 {
+                    vinfo.push_back({ colIt.index(), colIt.val() });
                     setConstraintDForce_impl(df, constraint_force, i, colIt.index(), colIt.val());
                 }
             }

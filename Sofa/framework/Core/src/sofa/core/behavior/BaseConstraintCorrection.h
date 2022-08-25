@@ -134,8 +134,6 @@ protected:
     BaseConstraintCorrection();
     ~BaseConstraintCorrection() override;
 
-    bool m_bBuffering{ true };
-
 private:
     BaseConstraintCorrection(const BaseConstraintCorrection& n) = delete ;
     BaseConstraintCorrection& operator=(const BaseConstraintCorrection& n) = delete ;
