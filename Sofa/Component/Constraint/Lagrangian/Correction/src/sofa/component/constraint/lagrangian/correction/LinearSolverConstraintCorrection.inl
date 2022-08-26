@@ -573,9 +573,46 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(doub
 }
 
 template<class DataTypes>
+const typename LinearSolverConstraintCorrection<DataTypes>::CachedConstraintMatrix& LinearSolverConstraintCorrection<DataTypes>::getConstraintMatrixCache()
+{
+    const unsigned int systemSize = mstate->getSize() * Deriv::size();
+    const auto* constraintData = mstate->read(core::ConstMatrixDerivId::constraintJacobian());
+
+    // if the data has been modified, we need to recreate the cache
+    if (m_currentConstraintMatrixRevision < constraintData->m_counter)
+    {
+        m_constraintMatrixCache.clear();
+        //m_constraintMatrixCache.resize(systemSize);
+
+        const MatrixDeriv& constraints = constraintData->getValue();
+        for (int i = 0; i < systemSize; i++)
+        {
+            auto rowIt = constraints.readLine(i);
+            VecLineInfo vinfo;
+
+            if (rowIt != constraints.end()) // useful ??
+            {
+                MatrixDerivColConstIterator rowEnd = rowIt.end();
+
+                for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
+                {
+                    const auto dof = colIt.index();
+                    const Deriv& val = colIt.val();
+
+                    vinfo.push_back({ dof, val });
+                }
+            }
+            m_constraintMatrixCache.push_back(vinfo);
+        }
+        m_currentConstraintMatrixRevision = constraintData->m_counter;
+    }
+
+    return m_constraintMatrixCache;
+}
+
+template<class DataTypes>
 void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(double *d, int begin, int end)
 {
-    const MatrixDeriv& constraints = mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
 
     last_disp = begin;
 
@@ -605,29 +642,22 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
     };
 
     const auto positionIntegrationFactor = l_ODESolver->getPositionIntegrationFactor();
-
     // TODO => optimisation => for each bloc store J[bloc,dof]
+    const auto& constraintData = getConstraintMatrixCache();
     for (int i = begin; i <= end; i++)
     {
-        MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
-
-        if (rowIt != constraints.end()) // useful ??
+        if (systemLHVector_buf_fullvector)
         {
-            MatrixDerivColConstIterator rowEnd = rowIt.end();
-
-            if (systemLHVector_buf_fullvector)
+            for (const auto& [dof, val] : constraintData[i])
             {
-                for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
-                {
-                    addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, colIt.index(), colIt.val());
-                }
+                addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, dof, val);
             }
-            else
+        }
+        else
+        {
+            for (const auto& [dof, val] : constraintData[i])
             {
-                for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
-                {
-                    addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, colIt.index(), colIt.val());
-                }
+                addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, dof, val);
             }
         }
     }
@@ -636,6 +666,7 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
 template<class DataTypes>
 void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df, int begin, int end, bool update)
 {
+
     last_force = begin;
 
     if (!update)
@@ -644,25 +675,14 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(double *df
     _new_force = true;
 
     constexpr const auto derivDim = Deriv::total_size;
-    const MatrixDeriv& constraints = mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
 
+    const auto& constraintData = getConstraintMatrixCache();
     // TODO => optimisation !!!
     for (int i = begin; i <= end; i++)
     {
-         MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
-
-        if (rowIt != constraints.end())
+        for (const auto& [dof, val] : constraintData[i])
         {
-            MatrixDerivColConstIterator colItEnd = rowIt.end();
-
-            for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != colItEnd; ++colIt)
-            {
-                const Deriv n = colIt.val();
-                const unsigned int dof = colIt.index();
-
-                constraint_force[dof] += n * df[i]; // sum of the constraint force in the DOF space
-
-            }
+            constraint_force[dof] += val * df[i]; // sum of the constraint force in the DOF space
         }
     }
 
