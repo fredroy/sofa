@@ -575,20 +575,21 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SRea
 template<class DataTypes>
 const typename LinearSolverConstraintCorrection<DataTypes>::CachedConstraintMatrix& LinearSolverConstraintCorrection<DataTypes>::getConstraintMatrixCache()
 {
-    const unsigned int systemSize = mstate->getSize() * Deriv::size();
     const auto* constraintData = mstate->read(core::ConstMatrixDerivId::constraintJacobian());
 
     // if the data has been modified, we need to recreate the cache
     if (m_currentConstraintMatrixRevision < constraintData->m_counter)
     {
-        m_constraintMatrixCache.clear();
-        //m_constraintMatrixCache.resize(systemSize);
-
         const MatrixDeriv& constraints = constraintData->getValue();
-        for (int i = 0; i < systemSize; i++)
+        const auto nbConstraints = constraints.size();
+
+        m_constraintMatrixCache.clear();
+        m_constraintMatrixCache.resize(nbConstraints);
+
+        for (int i = 0; i < nbConstraints; i++)
         {
             auto rowIt = constraints.readLine(i);
-            VecLineInfo vinfo;
+            VecLineInfo& vinfo = m_constraintMatrixCache[i];
 
             if (rowIt != constraints.end()) // useful ??
             {
@@ -599,10 +600,9 @@ const typename LinearSolverConstraintCorrection<DataTypes>::CachedConstraintMatr
                     const auto dof = colIt.index();
                     const Deriv& val = colIt.val();
 
-                    vinfo.push_back({ dof, val });
+                    vinfo.emplace_back(dof, val );
                 }
             }
-            m_constraintMatrixCache.push_back(vinfo);
         }
         m_currentConstraintMatrixRevision = constraintData->m_counter;
     }
@@ -712,66 +712,40 @@ void LinearSolverConstraintCorrection<DataTypes>::getBlockDiagonalCompliance(lin
 
     // Compute J
     const MatrixDeriv& constraints = mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
+    const auto& constraintData = getConstraintMatrixCache();
     const unsigned int totalNumConstraints = W->rowSize();
+
+    // construction of  Vec_I_list_dof : vector containing, for each constraint block, the list of dof concerned
+    ListIndex list_dof;
 
     J.resize(totalNumConstraints, numDOFReals);
 
+    unsigned int dof_buf = 0;
+    int debug = 0;
+
     for (int i = begin; i <= end; i++)
     {
-
-
-        MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
-
-        if (rowIt != constraints.end())
+        for (const auto& [dof, val] : constraintData[i])
         {
-            MatrixDerivColConstIterator colItEnd = rowIt.end();
+            for (unsigned int r = 0; r < N; ++r)
+                J.add(i, dof * N + r, val[r]);
 
-            unsigned int dof_buf = 0;
-            int debug = 0;
-
-            for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != colItEnd; ++colIt)
+            if (debug != 0)
             {
-                const unsigned int dof = colIt.index();
-                const Deriv n = colIt.val();
-
-                for (unsigned int r = 0; r < N; ++r)
-                    J.add(i, dof * N + r, n[r]);
-
-                if (debug!=0)
-                {
-                    int test = dof_buf - dof;
-                    if (test>2 || test< -2)
-                        dmsg_info() << "For constraint id1 dof1 = " << dof_buf << " dof2 = " << dof;
-                }
-
-                dof_buf = dof;
+                int test = dof_buf - dof;
+                if (test > 2 || test < -2)
+                    dmsg_info() << "For constraint id1 dof1 = " << dof_buf << " dof2 = " << dof;
             }
+
+            dof_buf = dof;
+
+            list_dof.push_back(dof);
         }
+
     }
 
     // use the Linear solver to compute J*inv(M)*Jt, where M is the mechanical linear system matrix
     l_linearSolver.get()->addJMInvJt(W, &J, factor);
-
-    // construction of  Vec_I_list_dof : vector containing, for each constraint block, the list of dof concerned
-
-    ListIndex list_dof;
-
-    for (int i = begin; i <= end; i++)
-    {
-
-
-        MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
-
-        if (rowIt != constraints.end())
-        {
-            MatrixDerivColConstIterator colItEnd = rowIt.end();
-
-            for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != colItEnd; ++colIt)
-            {
-                list_dof.push_back(colIt.index());
-            }
-        }
-    }
 
     list_dof.sort();
     list_dof.unique();
