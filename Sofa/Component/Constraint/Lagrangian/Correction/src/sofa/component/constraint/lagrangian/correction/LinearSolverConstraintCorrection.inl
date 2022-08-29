@@ -657,7 +657,7 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(doub
         {
             for (const auto& [dof, val] : constraintData[i])
             {
-                addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, dof, val);
+                addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, dof, val);
             }
         }
     }
