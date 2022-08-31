@@ -81,6 +81,7 @@ RestShapeSpringsForceField<DataTypes>::RestShapeSpringsForceField()
     , d_recompute_indices(initData(&d_recompute_indices, true, "recompute_indices", "Recompute indices (should be false for BBOX)"))
     , d_drawSpring(initData(&d_drawSpring,false,"drawSpring","draw Spring"))
     , d_springColor(initData(&d_springColor, sofa::type::RGBAColor::green(), "springColor","spring color. (default=[0.0,1.0,0.0,1.0])"))
+    , d_exportForces(initData(&d_exportForces, "exportForces", "Output forces from addForce()"))
     , l_restMState(initLink("external_rest_shape", "rest_shape can be defined by the position of an external Mechanical State"))
     , l_topology(initLink("topology", "Link to be set to the topology container in the component graph"))
 {
@@ -325,6 +326,10 @@ void RestShapeSpringsForceField<DataTypes>::addForce(const MechanicalParams*  mp
     const VecReal& k = d_stiffness.getValue();
     const VecReal& k_a = d_angularStiffness.getValue();
 
+    auto exportForces = sofa::helper::getWriteOnlyAccessor(d_exportForces);
+    exportForces.clear();
+    exportForces.resize(p1.size());
+
     f1.resize(p1.size());
 
     if (d_recompute_indices.getValue())
@@ -347,6 +352,7 @@ void RestShapeSpringsForceField<DataTypes>::addForce(const MechanicalParams*  mp
             {
                 CPos dx = p1[index].getCenter() - p0[ext_index].getCenter();
                 getVCenter(f1[index]) -= dx * (i < k.size() ? k[i] : k[0]);
+                getVCenter(exportForces[index]) = dx * (i < k.size() ? k[i] : k[0]);
             }
             else
             {
@@ -355,6 +361,7 @@ void RestShapeSpringsForceField<DataTypes>::addForce(const MechanicalParams*  mp
                 CPos pivot2 = p1[index].getCenter() + rotatedPivot;
                 CPos dx = pivot2 - m_pivots[i];
                 getVCenter(f1[index]) -= dx * (i < k.size() ? k[i] : k[0]);
+                getVCenter(exportForces[index]) = dx * (i < k.size() ? k[i] : k[0]);
             }
 
             // rotation
@@ -373,6 +380,7 @@ void RestShapeSpringsForceField<DataTypes>::addForce(const MechanicalParams*  mp
                 dq.quatToAxis(dir, angle);
 
             getVOrientation(f1[index]) -= dir * angle * (i < k_a.size() ? k_a[i] : k_a[0]);
+            getVOrientation(exportForces[index]) = dir * angle * (i < k_a.size() ? k_a[i] : k_a[0]);
         }
         else // non-rigid implementation 
         {
@@ -381,6 +389,7 @@ void RestShapeSpringsForceField<DataTypes>::addForce(const MechanicalParams*  mp
 
             Deriv dx = p1[index] - p0[ext_index];
             f1[index] -= dx * ((i < k.size()) ? k[i] : k[0]);
+            exportForces[index] = dx * (i < k.size() ? k[i] : k[0]);
         }
     }
 }

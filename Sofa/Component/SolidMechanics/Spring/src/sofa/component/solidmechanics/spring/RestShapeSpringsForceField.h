@@ -76,6 +76,8 @@ public:
     Data< bool > d_drawSpring; ///< draw Spring
     Data< sofa::type::RGBAColor > d_springColor; ///< spring color. (default=[0.0,1.0,0.0,1.0])
 
+    Data<VecDeriv> d_exportForces;
+
     SingleLink<RestShapeSpringsForceField<DataTypes>, sofa::core::behavior::MechanicalState< DataTypes >, BaseLink::FLAG_STOREPATH|BaseLink::FLAG_STRONGLINK> l_restMState;
     linearalgebra::EigenBaseSparseMatrix<typename DataTypes::Real> matS;
 
