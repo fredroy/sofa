@@ -23,6 +23,7 @@
 #include <sofa/linearalgebra/config.h>
 
 #include <sofa/linearalgebra/FullVector.h>
+#include <sofa/type/Vec.h>
 
 namespace sofa::linearalgebra
 {
