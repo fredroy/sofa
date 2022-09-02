@@ -43,21 +43,21 @@ public:
     class Block : public type::Vec<N,T>
     {
     public:
-        Index Nrows() const { return N; }
-        void resize(Index) { this->clear(); }
-        void operator=(const type::Vec<N,T>& v)
+        constexpr Index Nrows() const { return N; }
+        constexpr void resize(Index) { this->clear(); }
+        constexpr void operator=(const type::Vec<N,T>& v)
         {
             type::Vec<N,T>::operator=(v);
         }
-        void operator=(int v)
+        constexpr void operator=(int v)
         {
             type::Vec<N,T>::fill((float)v);
         }
-        void operator=(float v)
+        constexpr void operator=(float v)
         {
             type::Vec<N,T>::fill(v);
         }
-        void operator=(double v)
+        constexpr void operator=(double v)
         {
             type::Vec<N,T>::fill(v);
         }
@@ -65,22 +65,34 @@ public:
 
     typedef Block SubVectorType;
 
-    BlockVector();
+    constexpr BlockVector() = default;
 
-    explicit BlockVector(Index n);
+    explicit constexpr BlockVector(Index n)
+        : Inherit(n)
+    {
+    }
 
-    virtual ~BlockVector();
+    virtual ~BlockVector() = default;
 
-    const Block& sub(Index i, Index) const
+    constexpr const Block& sub(Index i, Index) const
     {
         return (const Block&)*(this->ptr()+i);
     }
 
-    Block& sub(Index i, Index);
+    constexpr Block& sub(Index i, Index)
+    {
+        return (Block&)*(this->ptr() + i);
+    }
 
-    const Block& asub(Index bi, Index) const;
+    constexpr const Block& asub(Index bi, Index) const
+    {
+        return (const Block&)*(this->ptr() + bi * N);
+    }
 
-    Block& asub(Index bi, Index);
+    constexpr Block& asub(Index bi, Index)
+    {
+        return (Block&)*(this->ptr() + bi * N);
+    }
 };
 
 } // namespace sofa::linearalgebra

@@ -25,38 +25,4 @@
 namespace sofa::linearalgebra
 {
 
-template<std::size_t N, typename T>
-BlockVector<N, T>::BlockVector()
-{
-}
-
-template<std::size_t N, typename T>
-BlockVector<N, T>::BlockVector(Index n)
-    : Inherit(n)
-{
-}
-
-template<std::size_t N, typename T>
-BlockVector<N, T>::~BlockVector()
-{
-}
-
-template<std::size_t N, typename T>
-typename BlockVector<N, T>::Block& BlockVector<N, T>::sub(Index i, Index)
-{
-    return (Block&)*(this->ptr()+i);
-}
-
-template<std::size_t N, typename T>
-const typename BlockVector<N, T>::Block& BlockVector<N, T>::asub(Index bi, Index) const
-{
-    return (const Block&)*(this->ptr()+bi*N);
-}
-
-template<std::size_t N, typename T>
-typename BlockVector<N, T>::Block& BlockVector<N, T>::asub(Index bi, Index)
-{
-    return (Block&)*(this->ptr()+bi*N);
-}
-
 } // namespace sofa::linearalgebra
