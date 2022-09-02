@@ -80,6 +80,9 @@ public:
                        sofa::defaulttype::SolidTypes<SReal>::SpatialVector &W_tool_world ) override;
     void computeForce(const  VecCoord& state,  VecDeriv& forces) override;
 
+
+    Data< VecDeriv > m_outputForces; ///< multiply haptic force by this coef.
+
 protected:
     LCPForceFeedback();
     ~LCPForceFeedback() override

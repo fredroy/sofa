@@ -322,6 +322,8 @@ void LCPForceFeedback<DataTypes>::doComputeForce(const VecCoord& state,  VecDeri
         {
             forces[i] = tempForces[i] * forceCoef.getValue();
         }
+
+        msg_error() << forces;
     }
 }
 
@@ -382,6 +384,21 @@ void LCPForceFeedback<DataTypes>::handleEvent(sofa::core::objectmodel::Event *ev
         constraints.addLine(rowIt.index(), rowIt.row());
     }
 
+    VecDeriv tempForces;
+    tempForces.resize(val.size());
+
+    for (auto rowIt = c.begin(); rowIt != rowItEnd; ++rowIt)
+    {
+        auto colItEnd = rowIt.end();
+
+        for (auto colIt = rowIt.begin(); colIt != colItEnd; ++colIt)
+        {
+            tempForces[d_localHapticConstraintAllFrames.getValue() ? 0 : colIt.index()] += colIt.val() * new_cp->getF()[rowIt.index()];
+        }
+    }
+
+    if (tempForces.size() > 0)
+        msg_error() << tempForces;
     // valid buffer
 
     {
