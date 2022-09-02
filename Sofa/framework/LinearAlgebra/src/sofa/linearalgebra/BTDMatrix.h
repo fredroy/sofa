@@ -207,16 +207,18 @@ public:
 
     SReal element(Index i, Index j) const override
     {
-        Index bi = i / BSIZE; i = i % BSIZE;
-        Index bj = j / BSIZE; j = j % BSIZE;
-        Index bindex = bj - bi + 1;
-        if (bindex >= 3) return (SReal)0;
+        const Index bi = i / BSIZE; i = i % BSIZE;
+        const Index bj = j / BSIZE; j = j % BSIZE;
+        const Index bindex = bj - bi + 1;
+        assert(bindex < 3);
+
         return data[bi * 3 + bindex][i][j];
     }
 
     constexpr const Block& asub(Index bi, Index bj, Index, Index) const
     {
         const Index bindex = bj - bi + 1;
+        assert(bindex < 3);
         return data[bi * 3 + bindex];
     }
 
@@ -228,6 +230,7 @@ public:
     constexpr Block& asub(Index bi, Index bj, Index, Index)
     {
         const Index bindex = bj - bi + 1;
+        assert(bindex < 3);
         return data[bi * 3 + bindex];
     }
 
