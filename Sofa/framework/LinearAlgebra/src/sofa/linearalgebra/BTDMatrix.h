@@ -165,7 +165,7 @@ public:
         return data[3 * bi + (bj - bi + 1)];
     }
 
-    constexpr void resize(Index nbRow, Index nbCol) override
+    void resize(Index nbRow, Index nbCol) override
     {
         if (nbCol != nTCol || nbRow != nTRow)
         {
@@ -195,17 +195,17 @@ public:
         clear();
     }
 
-    constexpr Index rowSize(void) const override
+    Index rowSize(void) const override
     {
         return nTRow;
     }
 
-    constexpr Index colSize(void) const override
+    Index colSize(void) const override
     {
         return nTCol;
     }
 
-    constexpr SReal element(Index i, Index j) const override
+    SReal element(Index i, Index j) const override
     {
         Index bi = i / BSIZE; i = i % BSIZE;
         Index bj = j / BSIZE; j = j % BSIZE;
@@ -260,7 +260,7 @@ public:
         asub(bi, bj, nrow, ncol) = m;
     }
 
-    constexpr void set(Index i, Index j, double v) override
+    void set(Index i, Index j, double v) override
     {
         Index bi = i / BSIZE; i = i % BSIZE;
         Index bj = j / BSIZE; j = j % BSIZE;
@@ -269,7 +269,7 @@ public:
         data[bi * 3 + bindex][i][j] = (Real)v;
     }
 
-    constexpr void add(Index i, Index j, double v) override
+    void add(Index i, Index j, double v) override
     {
         Index bi = i / BSIZE; i = i % BSIZE;
         Index bj = j / BSIZE; j = j % BSIZE;
@@ -278,7 +278,7 @@ public:
         data[bi * 3 + bindex][i][j] += (Real)v;
     }
 
-    constexpr void clear(Index i, Index j) override
+    void clear(Index i, Index j) override
     {
         Index bi = i / BSIZE; i = i % BSIZE;
         Index bj = j / BSIZE; j = j % BSIZE;
@@ -287,7 +287,7 @@ public:
         data[bi * 3 + bindex][i][j] = (Real)0;
     }
 
-    constexpr void clearRow(Index i) override
+    void clearRow(Index i) override
     {
         Index bi = i / BSIZE; i = i % BSIZE;
         for (Index bj = 0; bj < 3; ++bj)
@@ -295,7 +295,7 @@ public:
                 data[bi * 3 + bj][i][j] = (Real)0;
     }
 
-    constexpr void clearCol(Index j) override
+    void clearCol(Index j) override
     {
         Index bj = j / BSIZE; j = j % BSIZE;
         if (bj > 0)
@@ -308,13 +308,13 @@ public:
                 data[(bj + 1) * 3 + 0][i][j] = (Real)0;
     }
 
-    constexpr void clearRowCol(Index i) override
+    void clearRowCol(Index i) override
     {
         clearRow(i);
         clearCol(i);
     }
 
-    constexpr void clear() override
+    void clear() override
     {
         for (Index i = 0; i < 3 * nBRow; ++i)
             data[i].clear();
@@ -323,7 +323,7 @@ public:
     template<class Real2>
     constexpr FullVector<Real2> operator*(const FullVector<Real2>& v) const
     {
-        FullVector<Real2> res(rowSize());
+        FullVector<Real2> res(nTRow);
         for (Index bi=0; bi<nBRow; ++bi)
         {
             Index b0 = (bi > 0) ? 0 : 1;
