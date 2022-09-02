@@ -594,61 +594,61 @@ void LocalBlock33::slipState(double &mu, double &dn, double &dt, double &ds, dou
 }
 
 // computation of a new state using a simple gauss-seidel loop // pseudo-potential (new: dn, dt, ds already take into account current value of fn, ft and fs)
-void LocalBlock33::New_GS_State(double &mu, double &dn, double &dt, double &ds, double &fn, double &ft, double &fs)
-{
-
-    double d[3];
-    double normFt;
-    f_1[0]=fn; f_1[1]=ft; f_1[2]=fs;
-
-    // evaluation of the current normal position
-    d[0] = dn;
-    // evaluation of the new contact force
-    fn -= d[0]/w[0];
-
-    if (fn <= 0)
-    {
-        fn=0; ft=0; fs=0;
-        // if the force was previously not null -> update the state
-        if (f_1[0]>0)
-        {
-            double df[3];
-            df[0] = fn-f_1[0];  df[1] = ft-f_1[1];  df[2] = fs-f_1[2];
-
-            dn += w[0]*df[0] + w[1]*df[1] + w[2]*df[2];
-            dt += w[1]*df[0] + w[3]*df[1] + w[4]*df[2];
-            ds += w[2]*df[0] + w[4]*df[1] + w[5]*df[2];
-        }
-        return;
-    }
-
-
-    // evaluation of the current tangent positions
-    d[1] = w[1]*(fn-f_1[0]) + dt;
-    d[2] = w[2]*(fn-f_1[0]) + ds;
-
-    // envaluation of the new fricton forces
-    ft -= 2*d[1]/(w[3]+w[5]);
-    fs -= 2*d[2]/(w[3]+w[5]);
-
-    normFt=sqrt(ft*ft+fs*fs);
-
-    if (normFt > mu*fn)
-    {
-        ft *=mu*fn/normFt;
-        fs *=mu*fn/normFt;
-    }
-
-    double df[3];
-    df[0] = fn-f_1[0];  df[1] = ft-f_1[1];  df[2] = fs-f_1[2];
-
-    dn += w[0]*df[0] + w[1]*df[1] + w[2]*df[2];
-    dt += w[1]*df[0] + w[3]*df[1] + w[4]*df[2];
-    ds += w[2]*df[0] + w[4]*df[1] + w[5]*df[2];
-
-
-
-}
+//void LocalBlock33::New_GS_State(double &mu, double &dn, double &dt, double &ds, double &fn, double &ft, double &fs)
+//{
+//
+//    double d[3];
+//    double normFt;
+//    f_1[0]=fn; f_1[1]=ft; f_1[2]=fs;
+//
+//    // evaluation of the current normal position
+//    d[0] = dn;
+//    // evaluation of the new contact force
+//    fn -= d[0]/w[0];
+//
+//    if (fn <= 0)
+//    {
+//        fn=0; ft=0; fs=0;
+//        // if the force was previously not null -> update the state
+//        if (f_1[0]>0)
+//        {
+//            double df[3];
+//            df[0] = fn-f_1[0];  df[1] = ft-f_1[1];  df[2] = fs-f_1[2];
+//
+//            dn += w[0]*df[0] + w[1]*df[1] + w[2]*df[2];
+//            dt += w[1]*df[0] + w[3]*df[1] + w[4]*df[2];
+//            ds += w[2]*df[0] + w[4]*df[1] + w[5]*df[2];
+//        }
+//        return;
+//    }
+//
+//
+//    // evaluation of the current tangent positions
+//    d[1] = w[1]*(fn-f_1[0]) + dt;
+//    d[2] = w[2]*(fn-f_1[0]) + ds;
+//
+//    // envaluation of the new fricton forces
+//    ft -= 2*d[1]/(w[3]+w[5]);
+//    fs -= 2*d[2]/(w[3]+w[5]);
+//
+//    normFt=sqrt(ft*ft+fs*fs);
+//
+//    if (normFt > mu*fn)
+//    {
+//        ft *=mu*fn/normFt;
+//        fs *=mu*fn/normFt;
+//    }
+//
+//    double df[3];
+//    df[0] = fn-f_1[0];  df[1] = ft-f_1[1];  df[2] = fs-f_1[2];
+//
+//    dn += w[0]*df[0] + w[1]*df[1] + w[2]*df[2];
+//    dt += w[1]*df[0] + w[3]*df[1] + w[4]*df[2];
+//    ds += w[2]*df[0] + w[4]*df[1] + w[5]*df[2];
+//
+//
+//
+//}
 
 void LocalBlock33::GS_State(double &mu, double &dn, double &dt, double &ds, double &fn, double &ft, double &fs)
 {
