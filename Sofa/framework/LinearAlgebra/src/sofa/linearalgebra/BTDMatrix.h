@@ -34,7 +34,8 @@ template< std::size_t N, typename T>
 class BTDMatrix : public linearalgebra::BaseMatrix
 {
 public:
-    enum { BSIZE = N };
+    static constexpr sofa::Size BSIZE = N;
+
     typedef T Real;
     typedef typename linearalgebra::BaseMatrix::Index Index;
 
@@ -42,12 +43,12 @@ public:
     {
     public:
         const type::Mat<BSIZE,BSIZE,Real>& m;
-        TransposedBlock(const type::Mat<BSIZE,BSIZE,Real>& m) : m(m) {}
-        type::Vec<BSIZE,Real> operator*(const type::Vec<BSIZE,Real>& v)
+        constexpr TransposedBlock(const type::Mat<BSIZE,BSIZE,Real>& m) : m(m) {}
+        constexpr type::Vec<BSIZE,Real> operator*(const type::Vec<BSIZE,Real>& v)
         {
             return m.multTranspose(v);
         }
-        type::Mat<BSIZE,BSIZE,Real> operator-() const
+        constexpr type::Mat<BSIZE,BSIZE,Real> operator-() const
         {
             type::Mat<BSIZE,BSIZE,Real> r;
             for (Index i=0; i<BSIZE; i++)
@@ -60,20 +61,20 @@ public:
     class Block : public type::Mat<BSIZE,BSIZE,Real>
     {
     public:
-        Index Nrows() const { return BSIZE; }
-        Index Ncols() const { return BSIZE; }
-        void resize(Index, Index)
+        constexpr Index Nrows() const { return BSIZE; }
+        constexpr Index Ncols() const { return BSIZE; }
+        constexpr void resize(Index, Index)
         {
             this->clear();
         }
-        const T& element(Index i, Index j) const { return (*this)[i][j]; }
-        void set(Index i, Index j, const T& v) { (*this)[i][j] = v; }
-        void add(Index i, Index j, const T& v) { (*this)[i][j] += v; }
-        void operator=(const type::Mat<BSIZE,BSIZE,Real>& v)
+        constexpr const T& element(Index i, Index j) const { return (*this)[i][j]; }
+        constexpr void set(Index i, Index j, const T& v) { (*this)[i][j] = v; }
+        constexpr void add(Index i, Index j, const T& v) { (*this)[i][j] += v; }
+        constexpr void operator=(const type::Mat<BSIZE,BSIZE,Real>& v)
         {
             type::Mat<BSIZE,BSIZE,Real>::operator=(v);
         }
-        type::Mat<BSIZE,BSIZE,Real> operator-() const
+        constexpr type::Mat<BSIZE,BSIZE,Real> operator-() const
         {
             type::Mat<BSIZE,BSIZE,Real> r;
             for (Index i=0; i<BSIZE; i++)
@@ -81,31 +82,37 @@ public:
                     r[i][j]=-(*this)[i][j];
             return r;
         }
-        type::Mat<BSIZE,BSIZE,Real> operator-(const type::Mat<BSIZE,BSIZE,Real>& m) const
+        constexpr type::Mat<BSIZE,BSIZE,Real> operator-(const type::Mat<BSIZE,BSIZE,Real>& m) const
         {
             return type::Mat<BSIZE,BSIZE,Real>::operator-(m);
         }
-        type::Vec<BSIZE,Real> operator*(const type::Vec<BSIZE,Real>& v)
+        
+        constexpr type::Vec<BSIZE,Real> operator*(const type::Vec<BSIZE,Real>& v)
         {
             return type::Mat<BSIZE,BSIZE,Real>::operator*(v);
         }
-        type::Mat<BSIZE,BSIZE,Real> operator*(const type::Mat<BSIZE,BSIZE,Real>& m)
+        
+        constexpr type::Mat<BSIZE,BSIZE,Real> operator*(const type::Mat<BSIZE,BSIZE,Real>& m)
         {
             return type::Mat<BSIZE,BSIZE,Real>::operator*(m);
         }
-        type::Mat<BSIZE,BSIZE,Real> operator*(const Block& m)
+        
+        constexpr type::Mat<BSIZE,BSIZE,Real> operator*(const Block& m)
         {
             return type::Mat<BSIZE,BSIZE,Real>::operator*(m);
         }
-        type::Mat<BSIZE,BSIZE,Real> operator*(const TransposedBlock& mt)
+        
+        constexpr type::Mat<BSIZE,BSIZE,Real> operator*(const TransposedBlock& mt)
         {
             return type::Mat<BSIZE,BSIZE,Real>::operator*(mt.m.transposed());
         }
-        TransposedBlock t() const
+        
+        constexpr TransposedBlock t() const
         {
             return TransposedBlock(*this);
         }
-        Block i() const
+        
+        constexpr Block i() const
         {
             Block r;
             const bool canInvert = r.invert(*this);
@@ -119,7 +126,7 @@ public:
     typedef sofa::type::Mat<N,N,Real> BlockType;
     typedef BlocFullMatrix<N, T> InvMatrixType;
     // return the dimension of submatrices when requesting a given size
-    static Index getSubMatrixDim(Index) { return BSIZE; }
+    static constexpr Index getSubMatrixDim(Index) { return BSIZE; }
 
 protected:
     Block* data;
@@ -129,67 +136,196 @@ protected:
 
 public:
 
-    BTDMatrix();
+    constexpr BTDMatrix()
+        : data(nullptr), nTRow(0), nTCol(0), nBRow(0), nBCol(0), allocsize(0)
+    {
+    }
 
-    BTDMatrix(Index nbRow, Index nbCol);
+    constexpr BTDMatrix(Index nbRow, Index nbCol)
+        : data(new T[3 * (nbRow / BSIZE)]), nTRow(nbRow), nTCol(nbCol), nBRow(nbRow / BSIZE), nBCol(nbCol / BSIZE), allocsize(3 * (nbRow / BSIZE))
+    {
+    }
 
-    ~BTDMatrix() override;
+    ~BTDMatrix() override
+    {
+        if (allocsize > 0)
+            delete[] data;
+    }
 
-    Block* ptr() { return data; }
-    const Block* ptr() const { return data; }
+    constexpr Block* ptr() { return data; }
+    constexpr const Block* ptr() const { return data; }
 
-    //Real* operator[](Index i)
-    //{
-    //    return data+i*pitch;
-    //}
-    const Block& bloc(Index bi, Index bj) const;
+    constexpr  const Block& bloc(Index bi, Index bj) const
+    {
+        return data[3 * bi + (bj - bi + 1)];
+    }
 
-    Block& bloc(Index bi, Index bj);
+    constexpr Block& bloc(Index bi, Index bj)
+    {
+        return data[3 * bi + (bj - bi + 1)];
+    }
 
-    void resize(Index nbRow, Index nbCol) override;
+    constexpr void resize(Index nbRow, Index nbCol) override
+    {
+        if (nbCol != nTCol || nbRow != nTRow)
+        {
+            if (allocsize < 0)
+            {
+                if ((nbRow / BSIZE) * 3 > -allocsize)
+                {
+                    msg_error("BTDLinearSolver") << "Cannot resize preallocated matrix to size (" << nbRow << "," << nbCol << ")";
+                    return;
+                }
+            }
+            else
+            {
+                if ((nbRow / BSIZE) * 3 > allocsize)
+                {
+                    if (allocsize > 0)
+                        delete[] data;
+                    allocsize = (nbRow / BSIZE) * 3;
+                    data = new Block[allocsize];
+                }
+            }
+            nTCol = nbCol;
+            nTRow = nbRow;
+            nBCol = nbCol / BSIZE;
+            nBRow = nbRow / BSIZE;
+        }
+        clear();
+    }
 
-    Index rowSize(void) const override;
+    constexpr Index rowSize(void) const override
+    {
+        return nTRow;
+    }
 
-    Index colSize(void) const override;
+    constexpr Index colSize(void) const override
+    {
+        return nTCol;
+    }
 
-    SReal element(Index i, Index j) const override;
+    constexpr SReal element(Index i, Index j) const override
+    {
+        Index bi = i / BSIZE; i = i % BSIZE;
+        Index bj = j / BSIZE; j = j % BSIZE;
+        Index bindex = bj - bi + 1;
+        if (bindex >= 3) return (SReal)0;
+        return data[bi * 3 + bindex][i][j];
+    }
 
-    const Block& asub(Index bi, Index bj, Index, Index) const;
+    constexpr const Block& asub(Index bi, Index bj, Index, Index) const
+    {
+        static Block b;
+        Index bindex = bj - bi + 1;
+        if (bindex >= 3) return b;
+        return data[bi * 3 + bindex];
+    }
 
-    const Block& sub(Index i, Index j, Index, Index) const;
+    constexpr const Block& sub(Index i, Index j, Index, Index) const
+    {
+        return asub(i / BSIZE, j / BSIZE);
+    }
 
-    Block& asub(Index bi, Index bj, Index, Index);
+    constexpr Block& asub(Index bi, Index bj, Index, Index)
+    {
+        static Block b;
+        Index bindex = bj - bi + 1;
+        if (bindex >= 3) return b;
+        return data[bi * 3 + bindex];
+    }
 
-    Block& sub(Index i, Index j, Index, Index);
+    constexpr Block& sub(Index i, Index j, Index, Index)
+    {
+        return asub(i / BSIZE, j / BSIZE);
+    }
 
     template<class B>
-    void getSubMatrix(Index i, Index j, Index nrow, Index ncol, B& m);
+    constexpr void getSubMatrix(Index i, Index j, Index nrow, Index ncol, B& m)
+    {
+        m = sub(i, j, nrow, ncol);
+    }
 
     template<class B>
-    void getAlignedSubMatrix(Index bi, Index bj, Index nrow, Index ncol, B& m);
+    constexpr void getAlignedSubMatrix(Index bi, Index bj, Index nrow, Index ncol, B& m)
+    {
+        m = asub(bi, bj, nrow, ncol);
+    }
 
     template<class B>
-    void setSubMatrix(Index i, Index j, Index nrow, Index ncol, const B& m);
+    constexpr void setSubMatrix(Index i, Index j, Index nrow, Index ncol, const B& m)
+    {
+        sub(i, j, nrow, ncol) = m;
+    }
 
     template<class B>
-    void setAlignedSubMatrix(Index bi, Index bj, Index nrow, Index ncol, const B& m);
+    constexpr void setAlignedSubMatrix(Index bi, Index bj, Index nrow, Index ncol, const B& m)
+    {
+        asub(bi, bj, nrow, ncol) = m;
+    }
 
-    void set(Index i, Index j, double v) override;
+    constexpr void set(Index i, Index j, double v) override
+    {
+        Index bi = i / BSIZE; i = i % BSIZE;
+        Index bj = j / BSIZE; j = j % BSIZE;
+        Index bindex = bj - bi + 1;
+        if (bindex >= 3) return;
+        data[bi * 3 + bindex][i][j] = (Real)v;
+    }
 
-    void add(Index i, Index j, double v) override;
+    constexpr void add(Index i, Index j, double v) override
+    {
+        Index bi = i / BSIZE; i = i % BSIZE;
+        Index bj = j / BSIZE; j = j % BSIZE;
+        Index bindex = bj - bi + 1;
+        if (bindex >= 3) return;
+        data[bi * 3 + bindex][i][j] += (Real)v;
+    }
 
-    void clear(Index i, Index j) override;
+    constexpr void clear(Index i, Index j) override
+    {
+        Index bi = i / BSIZE; i = i % BSIZE;
+        Index bj = j / BSIZE; j = j % BSIZE;
+        Index bindex = bj - bi + 1;
+        if (bindex >= 3) return;
+        data[bi * 3 + bindex][i][j] = (Real)0;
+    }
 
-    void clearRow(Index i) override;
+    constexpr void clearRow(Index i) override
+    {
+        Index bi = i / BSIZE; i = i % BSIZE;
+        for (Index bj = 0; bj < 3; ++bj)
+            for (Index j = 0; j < BSIZE; ++j)
+                data[bi * 3 + bj][i][j] = (Real)0;
+    }
 
-    void clearCol(Index j) override;
+    constexpr void clearCol(Index j) override
+    {
+        Index bj = j / BSIZE; j = j % BSIZE;
+        if (bj > 0)
+            for (Index i = 0; i < BSIZE; ++i)
+                data[(bj - 1) * 3 + 2][i][j] = (Real)0;
+        for (Index i = 0; i < BSIZE; ++i)
+            data[bj * 3 + 1][i][j] = (Real)0;
+        if (bj < nBRow - 1)
+            for (Index i = 0; i < BSIZE; ++i)
+                data[(bj + 1) * 3 + 0][i][j] = (Real)0;
+    }
 
-    void clearRowCol(Index i) override;
+    constexpr void clearRowCol(Index i) override
+    {
+        clearRow(i);
+        clearCol(i);
+    }
 
-    void clear() override;
+    constexpr void clear() override
+    {
+        for (Index i = 0; i < 3 * nBRow; ++i)
+            data[i].clear();
+    }
 
     template<class Real2>
-    FullVector<Real2> operator*(const FullVector<Real2>& v) const
+    constexpr FullVector<Real2> operator*(const FullVector<Real2>& v) const
     {
         FullVector<Real2> res(rowSize());
         for (Index bi=0; bi<nBRow; ++bi)
