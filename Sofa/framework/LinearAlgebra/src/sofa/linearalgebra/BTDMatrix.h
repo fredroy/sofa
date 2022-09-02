@@ -216,9 +216,7 @@ public:
 
     constexpr const Block& asub(Index bi, Index bj, Index, Index) const
     {
-        static Block b;
-        Index bindex = bj - bi + 1;
-        if (bindex >= 3) return b;
+        const Index bindex = bj - bi + 1;
         return data[bi * 3 + bindex];
     }
 
@@ -229,9 +227,7 @@ public:
 
     constexpr Block& asub(Index bi, Index bj, Index, Index)
     {
-        static Block b;
-        Index bindex = bj - bi + 1;
-        if (bindex >= 3) return b;
+        const Index bindex = bj - bi + 1;
         return data[bi * 3 + bindex];
     }
 
