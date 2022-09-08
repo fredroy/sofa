@@ -29,6 +29,8 @@ using std::string;
 #include <vector>
 using std::vector;
 
+#include <cstdlib>
+
 #include <runSofaValidation.h>
 
 #include <sofa/simulation/Node.h>

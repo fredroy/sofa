@@ -33,6 +33,7 @@ namespace internal {
 
 inline bool isMsysPty(int fd) noexcept
 {
+#if 0
     // Dynamic load for binary compability with old Windows
     const auto ptrGetFileInformationByHandleEx
       = reinterpret_cast<decltype(&GetFileInformationByHandleEx)>(
@@ -41,7 +42,7 @@ inline bool isMsysPty(int fd) noexcept
     if (!ptrGetFileInformationByHandleEx) {
         return false;
     }
-
+#endif
     HANDLE h = reinterpret_cast<HANDLE>(_get_osfhandle(fd));
     if (h == INVALID_HANDLE_VALUE) {
         return false;
@@ -64,13 +65,14 @@ inline bool isMsysPty(int fd) noexcept
     if (!pNameInfo) {
         return false;
     }
-
+#if 0
     // Check pipe name is template of
     // {"cygwin-","msys-"}XXXXXXXXXXXXXXX-ptyX-XX
     if (!ptrGetFileInformationByHandleEx(h, FileNameInfo, pNameInfo.get(),
                                          sizeof(MY_FILE_NAME_INFO))) {
         return false;
     }
+#endif
     std::wstring name(pNameInfo->FileName, pNameInfo->FileNameLength / sizeof(WCHAR));
     if ((name.find(L"msys-") == std::wstring::npos
          && name.find(L"cygwin-") == std::wstring::npos)

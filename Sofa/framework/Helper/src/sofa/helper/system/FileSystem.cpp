@@ -172,30 +172,38 @@ bool FileSystem::removeDirectory(const std::string& path)
 
 bool FileSystem::exists(const std::string& path)
 {
-#if defined(WIN32)
-    ::SetLastError(0);
-    if (PathFileExists(Utils::widenString(path).c_str()) != 0)
-        return true;
-    else
+    const std::filesystem::path filepath{ Utils::widenString(path).c_str() };
+    if (!std::filesystem::exists(filepath))
     {
-        DWORD errorCode = ::GetLastError();
-        if (errorCode != ERROR_FILE_NOT_FOUND && errorCode != ERROR_PATH_NOT_FOUND) // not No such file error
-            msg_error("FileSystem::exists()") << path << ": " << Utils::GetLastError();
+        msg_error("FileSystem::exists()") << path << ": does not exist";
         return false;
     }
-
-#else
-    struct stat st_buf;
-    if (stat(path.c_str(), &st_buf) == 0)
-        return true;
-    else
-        if (errno == ENOENT)    // No such file or directory
-            return false;
-        else {
-            msg_error("FileSystem::exists()") << path << ": " << strerror(errno);
-            return false;
-        }
-#endif
+    return true;
+//
+//#if defined(WIN32)
+//    ::SetLastError(0);
+//    if (PathFileExists(Utils::widenString(path).c_str()) != 0)
+//        return true;
+//    else
+//    {
+//        DWORD errorCode = ::GetLastError();
+//        if (errorCode != ERROR_FILE_NOT_FOUND && errorCode != ERROR_PATH_NOT_FOUND) // not No such file error
+//            msg_error("FileSystem::exists()") << path << ": " << Utils::GetLastError();
+//        return false;
+//    }
+//
+//#else
+//    struct stat st_buf;
+//    if (stat(path.c_str(), &st_buf) == 0)
+//        return true;
+//    else
+//        if (errno == ENOENT)    // No such file or directory
+//            return false;
+//        else {
+//            msg_error("FileSystem::exists()") << path << ": " << strerror(errno);
+//            return false;
+//        }
+//#endif
 }
 
 

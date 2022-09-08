@@ -87,7 +87,7 @@ public:
 
     const type::vector<Index>& getPointMappedFromPoint() const { return d_pointMappedFromPoint.getValue(); }
     const type::vector<Index>& getPointMappedFromEdge() const { return d_pointMappedFromEdge.getValue(); }
-    const type::vector<Index>& getPointSource() const { return d_pointSource.getValue(); }
+    const type::vector<SignedIndex>& getPointSource() const { return d_pointSource.getValue(); }
 
 protected:
     core::topology::TetrahedronData< sofa::type::vector<sofa::type::fixed_array<Index, 8> > > tetrahedraMappedFromTetra; ///< Each Tetrahedron of the input topology is mapped to the 8 tetrahedrons in which it can be divided.
@@ -95,7 +95,7 @@ protected:
 
     Data< type::vector<Index> > d_pointMappedFromPoint; ///< Each point of the input topology is mapped to the same point.
     Data< type::vector<Index> > d_pointMappedFromEdge; ///< Each edge of the input topology is mapped to his midpoint.
-    Data< type::vector<Index> > d_pointSource; ///< Which input topology element map to a given point in the output topology : 0 -> none, > 0 -> point index + 1, < 0 , - edge index -1
+    Data< type::vector<SignedIndex> > d_pointSource; ///< Which input topology element map to a given point in the output topology : 0 -> none, > 0 -> point index + 1, < 0 , - edge index -1
 
     void swapOutputPoints(Index i1, Index i2);
     void removeOutputPoints( const sofa::type::vector<Index>& tab );
@@ -106,7 +106,7 @@ protected:
 
     void setPointSource(int i, int source)
     {
-        helper::WriteAccessor< Data< sofa::type::vector<Index> > > pointSourceData = d_pointSource;
+        helper::WriteAccessor< Data< sofa::type::vector<SignedIndex> > > pointSourceData = d_pointSource;
         helper::WriteAccessor< Data< sofa::type::vector<Index> > > pointMappedFromPointData = d_pointMappedFromPoint;
         helper::WriteAccessor< Data< sofa::type::vector<Index> > > pointMappedFromEdgeData = d_pointMappedFromEdge;
 

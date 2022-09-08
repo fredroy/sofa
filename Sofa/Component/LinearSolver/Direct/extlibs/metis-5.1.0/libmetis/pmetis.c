@@ -202,18 +202,18 @@ idx_t MlevelRecursiveBisection(ctrl_t *ctrl, graph_t *graph, idx_t nparts,
     rscale(nparts-(nparts>>1), 1.0/(1.0-wsum), tpwgts+(nparts>>1)*ncon+i, ncon);
   }
 
-  /* Do the recursive call */
-  if (nparts > 3) {
-    objval += MlevelRecursiveBisection(ctrl, lgraph, (nparts>>1), part, 
-               tpwgts, fpart);
-    objval += MlevelRecursiveBisection(ctrl, rgraph, nparts-(nparts>>1), part, 
-               tpwgts+(nparts>>1)*ncon, fpart+(nparts>>1));
-  }
-  else if (nparts == 3) {
-    FreeGraph(&lgraph);
-    objval += MlevelRecursiveBisection(ctrl, rgraph, nparts-(nparts>>1), part, 
-               tpwgts+(nparts>>1)*ncon, fpart+(nparts>>1));
-  }
+  ///* Do the recursive call */
+  //if (nparts > 3) {
+  //  objval += MlevelRecursiveBisection(ctrl, lgraph, (nparts>>1), part, 
+  //             tpwgts, fpart);
+  //  objval += MlevelRecursiveBisection(ctrl, rgraph, nparts-(nparts>>1), part, 
+  //             tpwgts+(nparts>>1)*ncon, fpart+(nparts>>1));
+  //}
+  //else if (nparts == 3) {
+  //  FreeGraph(&lgraph);
+  //  objval += MlevelRecursiveBisection(ctrl, rgraph, nparts-(nparts>>1), part, 
+  //             tpwgts+(nparts>>1)*ncon, fpart+(nparts>>1));
+  //}
 
 
   return objval;

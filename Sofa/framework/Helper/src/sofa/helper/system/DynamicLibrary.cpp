@@ -29,6 +29,8 @@ using sofa::helper::system::FileSystem;
 #endif
 #include <string>
 
+#include <sofa/helper/Utils.h>
+
 namespace sofa
 {
 namespace helper
@@ -72,11 +74,12 @@ DynamicLibrary::Handle DynamicLibrary::load(const std::string& filename)
 {
 # if defined(WIN32)
     std::string p = FileSystem::cleanPath(filename, FileSystem::BACKSLASH);
-    void *handle = ::LoadLibraryA(filename.c_str());
+    std::wstring wp = sofa::helper::Utils::widenString(p);
+    void *handle = ::LoadPackagedLibrary(wp.c_str(), 0);
     if (handle == nullptr)
     {
         // Retry with altered search path
-        handle = ::LoadLibraryExA(p.c_str(), nullptr, LOAD_WITH_ALTERED_SEARCH_PATH);
+        //handle = ::LoadLibraryExA(p.c_str(), nullptr, LOAD_WITH_ALTERED_SEARCH_PATH);
     }
 # else
     void *handle = ::dlopen(filename.c_str(), RTLD_NOW | RTLD_GLOBAL);

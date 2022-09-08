@@ -135,6 +135,7 @@ std::string Utils::upcaseString(const std::string& s)
 
 #if defined WIN32
 std::string Utils::GetLastError() {
+#if 0
     LPVOID lpErrMsgBuf;
     LPVOID lpMessageBuf;
     DWORD dwErrorCode = ::GetLastError();
@@ -162,6 +163,9 @@ std::string Utils::GetLastError() {
     LocalFree(lpErrMsgBuf);
     LocalFree(lpMessageBuf);
     return narrowString(wsMessage);
+#else
+    return std::string();
+#endif
 }
 #endif
 

@@ -24,7 +24,7 @@ set(HEADER_FILES
 )
 
 set(SOURCE_FILES
-    ${SOFA_SIMULATION_COMMON_SRC}/SceneLoaderPHP.cpp
+   # ${SOFA_SIMULATION_COMMON_SRC}/SceneLoaderPHP.cpp
     ${SOFA_SIMULATION_COMMON_SRC}/SceneLoaderXML.cpp
     ${SOFA_SIMULATION_COMMON_SRC}/TransformationVisitor.cpp
     ${SOFA_SIMULATION_COMMON_SRC}/init.cpp

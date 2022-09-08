@@ -41,6 +41,8 @@
 #include <iostream>
 #include <string>
 
+#include <winapifamily.h>
+
 namespace sofa
 {
 
@@ -104,7 +106,7 @@ BackTrace::StackTrace BackTrace::getTrace(size_t maxEntries)
         }
     }
 
-#elif !defined(__GNUC__) && !defined(__APPLE__) && defined(WIN32)
+#elif !defined(__GNUC__) && !defined(__APPLE__) && defined(WIN32) && !defined(WINAPI_FAMILY_SYSTEM)
     unsigned int   i;
     void         * stack[100];
     unsigned short frames;

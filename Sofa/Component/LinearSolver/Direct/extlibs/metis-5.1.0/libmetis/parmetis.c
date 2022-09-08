@@ -62,27 +62,26 @@ int METIS_NodeNDP(idx_t nvtxs, idx_t *xadj, idx_t *adjncy, idx_t *vwgt,
 
 
   /* allocate workspace memory */
-  AllocateWorkSpace(ctrl, graph);
+  //AllocateWorkSpace(ctrl, graph);
 
 
-  /* do the nested dissection ordering  */
-  iset(2*npes-1, 0, sizes);
-  MlevelNestedDissectionP(ctrl, graph, iperm, graph->nvtxs, npes, 0, sizes);
+  ///* do the nested dissection ordering  */
+  //iset(2*npes-1, 0, sizes);
+  //MlevelNestedDissectionP(ctrl, graph, iperm, graph->nvtxs, npes, 0, sizes);
 
+  ///* Uncompress the ordering */
+  //if (ctrl->compress) { 
+  //  /* construct perm from iperm */
+  //  for (i=0; i<nnvtxs; i++)
+  //    perm[iperm[i]] = i; 
+  //  for (l=ii=0; ii<nnvtxs; ii++) {
+  //    i = perm[ii];
+  //    for (j=cptr[i]; j<cptr[i+1]; j++)
+  //      iperm[cind[j]] = l++;
+  //  }
 
-  /* Uncompress the ordering */
-  if (ctrl->compress) { 
-    /* construct perm from iperm */
-    for (i=0; i<nnvtxs; i++)
-      perm[iperm[i]] = i; 
-    for (l=ii=0; ii<nnvtxs; ii++) {
-      i = perm[ii];
-      for (j=cptr[i]; j<cptr[i+1]; j++)
-        iperm[cind[j]] = l++;
-    }
-
-    gk_free((void **)&cptr, &cind, LTERM);
-  }
+  //  gk_free((void **)&cptr, &cind, LTERM);
+  //}
 
 
   for (i=0; i<nvtxs; i++)

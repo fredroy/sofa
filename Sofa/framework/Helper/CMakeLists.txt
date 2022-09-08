@@ -79,7 +79,7 @@ set(HEADER_FILES
     ${SRC_ROOT}/system/DynamicLibrary.h
     ${SRC_ROOT}/system/FileSystem.h
     ${SRC_ROOT}/system/Locale.h
-    ${SRC_ROOT}/system/PipeProcess.h
+    # ${SRC_ROOT}/system/PipeProcess.h
     ${SRC_ROOT}/system/PluginManager.h
     ${SRC_ROOT}/system/SetDirectory.h
     ${SRC_ROOT}/system/SofaOStream.h
@@ -155,7 +155,7 @@ set(SOURCE_FILES
     ${SRC_ROOT}/system/DynamicLibrary.cpp
     ${SRC_ROOT}/system/FileSystem.cpp
     ${SRC_ROOT}/system/Locale.cpp
-    ${SRC_ROOT}/system/PipeProcess.cpp
+    # ${SRC_ROOT}/system/PipeProcess.cpp
     ${SRC_ROOT}/system/PluginManager.cpp
     ${SRC_ROOT}/system/SetDirectory.cpp
     ${SRC_ROOT}/system/console.cpp
