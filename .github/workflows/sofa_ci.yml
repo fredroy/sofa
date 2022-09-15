@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: SOFA CI
 
 on:
   workflow_dispatch:
@@ -15,8 +15,9 @@ jobs:
     name: Building on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        os: [ubuntu-20.04, macos-10.15, windows-2019]
+        os: [ubuntu-20.04, macos-11, windows-2019]
         
     env:
       VCPKG_DEFAULT_TRIPLET: x64-windows
@@ -127,18 +128,21 @@ jobs:
           mkdir -p sofa-build
           cd sofa-build
           cmake \
-              -DCMAKE_TOOLCHAIN_FILE="$VCPKG_INSTALLATION_ROOT/scripts/buildsystems/vcpkg.cmake" \
-              -DCMAKE_BUILD_TYPE=Release \
-              -DCMAKE_INSTALL_PREFIX="${GITHUB_WORKSPACE}/sofa-install"  \
-              -DBOOST_ROOT="$WINDOWS_BOOST_ROOT"  \
-              -DAPPLICATION_MODELER=OFF \
-              -DSOFAGUI_QT=OFF \
-              -DSOFA_WITH_OPENGL=OFF \
-              -DSOFA_BUILD_SCENECREATOR=OFF \
-              -DSOFA_BUILD_TESTS=OFF \
-              -DSOFA_FLOATING_POINT_TYPE=double \
-              -DSOFA_WITH_DEPRECATED_COMPONENTS=OFF \
-              -DPLUGIN_SOFAMATRIX=OFF \
+               -DCMAKE_TOOLCHAIN_FILE="$VCPKG_INSTALLATION_ROOT/scripts/buildsystems/vcpkg.cmake" \
+               -DBOOST_ROOT="$WINDOWS_BOOST_ROOT"  \
+               -DSOFA_ENABLE_LEGACY_HEADERS=OFF \
+               -DSOFA_FLOATING_POINT_TYPE=double \
+               -DSOFA_BUILD_TESTS=OFF \
+               -DSOFA_WITH_OPENGL=OFF \
+               -DSOFA_WITH_DEPRECATED_COMPONENTS=OFF \
+               -DAPPLICATION_MODELER=OFF \
+               -DPLUGIN_CIMGPLUGIN=OFF \
+               -DPLUGIN_SOFAMATRIX=OFF \
+               -DPLUGIN_SCENECREATOR=OFF \
+               -DLIBRARY_SOFA_GUI=ON \
+               -DLIBRARY_SOFA_GUI_QT=OFF \
+               -DLIBRARY_SOFA_GUI_BATCH=ON \
+               -DCOLLECTION_SOFAGUI=OFF \
               ..
           cmake --build . --target install --config Release
         elif [[ "$RUNNER_OS" == "macOS" || "$RUNNER_OS" == "Linux" ]]; then
@@ -153,16 +157,19 @@ jobs:
              -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
              -DCMAKE_BUILD_TYPE=Release \
              -DCMAKE_INSTALL_PREFIX="${GITHUB_WORKSPACE}/sofa-install"  \
-             -DAPPLICATION_MODELER=OFF \
-             -DSOFAGUI_BUILD=OFF \
-             -DSOFAGUI_QT=OFF \
+             -DSOFA_ENABLE_LEGACY_HEADERS=OFF \
+             -DSOFA_FLOATING_POINT_TYPE=double \
+             -DSOFA_BUILD_TESTS=OFF \
              -DSOFA_WITH_OPENGL=OFF \
              -DSOFA_BUILD_SCENECREATOR=OFF \
-             -DSOFA_BUILD_TESTS=OFF \
-             -DSOFAGUI_BUILD_TESTS=OFF \
-             -DSOFA_FLOATING_POINT_TYPE=double \
              -DSOFA_WITH_DEPRECATED_COMPONENTS=OFF \
+             -DAPPLICATION_MODELER=OFF \
+             -DPLUGIN_CIMGPLUGIN=OFF \
              -DPLUGIN_SOFAMATRIX=OFF \
+             -DLIBRARY_SOFA_GUI=ON \
+             -DLIBRARY_SOFA_GUI_QT=OFF \
+             -DLIBRARY_SOFA_GUI_BATCH=ON \
+             -DCOLLECTION_SOFAGUI=OFF \
              ..
           ninja 
           ninja install
@@ -171,5 +178,5 @@ jobs:
     - name: Archive production
       uses: actions/upload-artifact@v2
       with:
-        name: sofa-slim-${{ matrix.os }}
+        name: sofa-minimal-${{ matrix.os }}
         path: ${{github.workspace}}/sofa-install
