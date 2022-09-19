@@ -23,6 +23,9 @@
 
 #include <iostream>
 
+#include<mimalloc.h>
+
+
 namespace sofa::type
 {
 
@@ -33,6 +36,8 @@ SOFA_TYPE_API void init()
 {
     if (!s_initialized)
     {
+        mi_version();
+
         s_initialized = true;
     }
 }
