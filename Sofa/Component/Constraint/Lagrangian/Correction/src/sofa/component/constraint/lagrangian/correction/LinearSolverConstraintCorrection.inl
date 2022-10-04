@@ -119,6 +119,8 @@ void LinearSolverConstraintCorrection<DataTypes>::init()
         msg_info() << "ODESolver path used: '" << l_ODESolver.getLinkedPath() << "'";
     }
 
+    m_cachePositionIntegrationFactor = l_ODESolver->getPositionIntegrationFactor();
+
 
     if(mstate==nullptr)
     {
@@ -570,6 +572,8 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SRea
     last_disp = 0;
     last_force = nbConstraints - 1;
     _new_force = false;
+
+    m_cachePositionIntegrationFactor = l_ODESolver->getPositionIntegrationFactor();
 }
 
 template<class DataTypes>
@@ -641,7 +645,6 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(SRea
         d[id] += val * disp;
     };
 
-    const auto positionIntegrationFactor = l_ODESolver->getPositionIntegrationFactor();
     // TODO => optimisation => for each bloc store J[bloc,dof]
     const auto& constraintData = getConstraintMatrixCache();
     for (int i = begin; i <= end; i++)
@@ -650,14 +653,14 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(SRea
         {
             for (const auto& [dof, val] : constraintData[i])
             {
-                addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, dof, val);
+                addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, m_cachePositionIntegrationFactor, dof, val);
             }
         }
         else
         {
             for (const auto& [dof, val] : constraintData[i])
             {
-                addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, dof, val);
+                addConstraintDisplacement_impl(d, i, systemLHVector_buf, m_cachePositionIntegrationFactor, dof, val);
             }
         }
     }
