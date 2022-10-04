@@ -160,6 +160,9 @@ private:
     CachedConstraintMatrix m_constraintMatrixCache{};
     const CachedConstraintMatrix& getConstraintMatrixCache();
 
+    // cache factor
+    SReal m_cachePositionIntegrationFactor{0.0};
+
     // par un vecteur de listes precaclues pour chaque contrainte
     std::vector< ListIndex > Vec_I_list_dof;   // vecteur donnant la liste des indices des dofs par block de contrainte
     int last_force, last_disp; //last_force indice du dof le plus petit portant la force/le dpt qui a ?t? modifi? pour la derni?re fois (wire optimisation only?)
