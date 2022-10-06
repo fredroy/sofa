@@ -119,9 +119,10 @@ public:
 
     void invert(Matrix& M) override;
 
-    void computeMinvBlock(Index i, Index j);
+    void computeMinvBlock(Index i, Index j, sofa::SignedIndex blocSize);
 
-    double getMinvElement(Index i, Index j);
+//    double getMinvElement(Index i, Index j);
+    double getMinvElement(Index i, Index j, sofa::SignedIndex blocSize);
 
     /// Solve Mx=b
     void solve (Matrix& /*M*/, Vector& x, Vector& b) override;

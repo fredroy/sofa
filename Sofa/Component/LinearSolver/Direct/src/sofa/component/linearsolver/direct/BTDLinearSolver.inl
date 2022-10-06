@@ -173,7 +173,7 @@ void BTDLinearSolver<Matrix,Vector>::invert(Matrix& M)
 
         // on calcule les blocks diagonaux jusqu'au bout!!
         // TODO : ajouter un compteur "first_block" qui évite de descendre les déplacements jusqu'au block 0 dans partial_solve si ce block n'a pas été appelé
-        computeMinvBlock(0, 0);
+        computeMinvBlock(0, 0, bsize);
     }
 }
 
@@ -187,7 +187,7 @@ void BTDLinearSolver<Matrix,Vector>::invert(Matrix& M)
 ///
 
 template<class Matrix, class Vector>
-void BTDLinearSolver<Matrix,Vector>::computeMinvBlock(Index i, Index j)
+void BTDLinearSolver<Matrix,Vector>::computeMinvBlock(Index i, Index j, SignedIndex blocSize)
 {
     if (i < j)
     {
@@ -197,13 +197,12 @@ void BTDLinearSolver<Matrix,Vector>::computeMinvBlock(Index i, Index j)
     }
     if (nBlockComputedMinv[i] > i-j) return; // the block was already computed
 
-
+    const bool subpartSolve = d_subpartSolve.getValue();
 
     ///// the block was not computed yet :
 
     // the block is computed now :
     // 1. all the diagonal block between N and i need to be computed
-    const Index bsize = Matrix::getSubMatrixDim(d_blockSize.getValue());
     sofa::SignedIndex i0 = i;
     while (nBlockComputedMinv[i0]==0)
         ++i0;
@@ -215,30 +214,30 @@ void BTDLinearSolver<Matrix,Vector>::computeMinvBlock(Index i, Index j)
         {
             // compute bloc (i0,i0-1)
             //Minv[i0][i0-1] = Minv[i0][i0]*-L[i0-1].t()
-            Minv.asub((i0  ),(i0-1),bsize,bsize) = Minv.asub((i0  ),(i0  ),bsize,bsize)*(-(lambda[i0-1].t()));
+            Minv.asub((i0  ),(i0-1),blocSize,blocSize) = Minv.asub((i0  ),(i0  ),blocSize,blocSize)*(-(lambda[i0-1].t()));
             ++nBlockComputedMinv[i0];
 
-            if(d_subpartSolve.getValue() )
+            if(subpartSolve)
             {
                 // store -L[i0-1].t() H structure
                 SubMatrix iHi_1;
                 iHi_1 = - lambda[i0-1].t();
                 H.insert( make_pair(  IndexPair(i0, i0-1), iHi_1  ) );
                 // compute bloc (i0,i0-1) :  the upper diagonal blocks Minv[i0-1][i0]
-                Minv.asub((i0-1),(i0),bsize,bsize) = -lambda[i0-1] * Minv.asub((i0  ),(i0  ),bsize,bsize);
+                Minv.asub((i0-1),(i0),blocSize,blocSize) = -lambda[i0-1] * Minv.asub((i0  ),(i0  ),blocSize,blocSize);
             }
 
         }
 
 
         // compute bloc (i0-1,i0-1)  : //Minv[i0-1][i0-1] = inv(M[i0-1][i0-1]) + L[i0-1] * Minv[i0][i0-1]
-        Minv.asub((i0-1),(i0-1),bsize,bsize) = alpha_inv[i0-1] - lambda[i0-1]*Minv.asub((i0  ),(i0-1),bsize,bsize);
+        Minv.asub((i0-1),(i0-1),blocSize,blocSize) = alpha_inv[i0-1] - lambda[i0-1]*Minv.asub((i0  ),(i0-1),blocSize,blocSize);
 
-        if(d_subpartSolve.getValue() )
+        if(subpartSolve )
         {
             // store Id in H structure
             SubMatrix iHi;
-            my_identity(iHi, bsize);
+            my_identity(iHi, blocSize);
             H.insert( make_pair(  IndexPair(i0-1, i0-1), iHi  ) );
         }
 
@@ -256,7 +255,7 @@ void BTDLinearSolver<Matrix,Vector>::computeMinvBlock(Index i, Index j)
     /////////////// ADD : Calcul pour faire du partial_solve //////////
     // first iHj is initiallized to iHj0+1 (that is supposed to be already computed)
     SubMatrix iHj ;
-    if(d_subpartSolve.getValue() )
+    if(subpartSolve )
     {
 
 
@@ -264,7 +263,7 @@ void BTDLinearSolver<Matrix,Vector>::computeMinvBlock(Index i, Index j)
 
         if (H_it == H.end())
         {
-            my_identity(iHj, bsize);
+            my_identity(iHj, blocSize);
             msg_error_when(i0 != j0 + 1) << "element(" << i0 << "," << j0 + 1 << ") not found : nBlockComputedMinv[i] = " << nBlockComputedMinv[i];
         }
         else
@@ -279,15 +278,15 @@ void BTDLinearSolver<Matrix,Vector>::computeMinvBlock(Index i, Index j)
     {
         // compute bloc (i0,j0)
         // Minv[i][j0] = Minv[i][j0+1] * (-L[j0].t)
-        Minv.asub((i0  ),(j0  ),bsize,bsize) = Minv.asub((i0  ),(j0+1),bsize,bsize)*(-lambda[j0].t());
-        if(d_subpartSolve.getValue() )
+        Minv.asub((i0  ),(j0  ),blocSize,blocSize) = Minv.asub((i0  ),(j0+1),blocSize,blocSize)*(-lambda[j0].t());
+        if(subpartSolve )
         {
             // iHj0 = iHj0+1 * (-L[j0].t)
             iHj = iHj * -lambda[j0].t();
             H.insert(make_pair(IndexPair(i0,j0),iHj));
 
             // compute bloc (j0,i0)  the upper diagonal blocks Minv[j0][i0]
-            Minv.asub((j0  ),(i0  ),bsize,bsize) = -lambda[j0]*Minv.asub((j0+1),(i0),bsize,bsize);
+            Minv.asub((j0  ),(i0  ),blocSize,blocSize) = -lambda[j0]*Minv.asub((j0+1),(i0),blocSize,blocSize);
         }
         ++nBlockComputedMinv[i0];
         --j0;
@@ -295,17 +294,24 @@ void BTDLinearSolver<Matrix,Vector>::computeMinvBlock(Index i, Index j)
 }
 
 template<class Matrix, class Vector>
-double BTDLinearSolver<Matrix,Vector>::getMinvElement(Index i, Index j)
+double BTDLinearSolver<Matrix,Vector>::getMinvElement(Index i, Index j, sofa::SignedIndex blocSize)
 {
-    const Index bsize = Matrix::getSubMatrixDim(d_blockSize.getValue());
     if (i < j)
     {
         // lower diagonal
-        return getMinvElement(j,i);
+        return getMinvElement(j,i, blocSize);
     }
-    computeMinvBlock(i/bsize, j/bsize);
+    computeMinvBlock(i/blocSize, j/blocSize, blocSize);
     return Minv.element(i,j);
 }
+
+
+//template<class Matrix, class Vector>
+//double BTDLinearSolver<Matrix,Vector>::getMinvElement(Index i, Index j)
+//{
+//    const Index blocSize = Matrix::getSubMatrixDim(d_blockSize.getValue());
+//    return getMinvElement(i,j, blocSize);
+//}
 
 template<class Matrix, class Vector>
 void BTDLinearSolver<Matrix,Vector>::solve (Matrix& /*M*/, Vector& x, Vector& b)
@@ -725,6 +731,7 @@ bool BTDLinearSolver<Matrix,Vector>::addJMInvJt(RMatrix& result, JMatrix& J, dou
         return false;
     }
 
+    const Index blocSize = Matrix::getSubMatrixDim(d_blockSize.getValue());
     if (this->notMuted())
     {
         std::stringstream tmpStr;
@@ -734,7 +741,7 @@ bool BTDLinearSolver<Matrix,Vector>::addJMInvJt(RMatrix& result, JMatrix& J, dou
             tmpStr<<" "<<msgendl;
             for (Index mc=0; mc<Minv.colSize(); mc++)
             {
-                tmpStr<<" "<< getMinvElement(mr,mc);
+                tmpStr<<" "<< getMinvElement(mr,mc, blocSize);
             }
         }
         tmpStr << "];"<<msgendl;
@@ -752,7 +759,6 @@ bool BTDLinearSolver<Matrix,Vector>::addJMInvJt(RMatrix& result, JMatrix& J, dou
         msg_info() << tmpStr.str();
     }
 
-    std::stringstream tmpStr2;
     const typename JMatrix::LineConstIterator jitend = J.end();
     for (typename JMatrix::LineConstIterator jit1 = J.begin(); jit1 != jitend; ++jit1)
     {
@@ -769,13 +775,8 @@ bool BTDLinearSolver<Matrix,Vector>::addJMInvJt(RMatrix& result, JMatrix& J, dou
                 {
                     Index col2 = i2->first;
                     double val2 = i2->second;
-                    acc += val1 * getMinvElement(col1,col2) * val2;
+                    acc += val1 * getMinvElement(col1,col2,blocSize) * val2;
                 }
-            }
-
-            if (this->notMuted())
-            {
-                tmpStr2 << "W("<<row1<<","<<row2<<") += "<<acc<<" * "<<fact<<msgendl;
             }
 
             acc *= fact;
