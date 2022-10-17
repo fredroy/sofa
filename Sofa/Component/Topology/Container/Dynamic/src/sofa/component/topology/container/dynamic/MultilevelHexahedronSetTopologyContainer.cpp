@@ -121,7 +121,7 @@ void MultilevelHexahedronSetTopologyContainer::clear()
 
     _level = 0;
 
-    fineResolution.setValue(Vec3i(0,0,0));
+    fineResolution.emplaceValue(0,0,0);
     _coarseResolution = Vec3i(0,0,0);
 
     _fineComponentInRegularGrid.clear();

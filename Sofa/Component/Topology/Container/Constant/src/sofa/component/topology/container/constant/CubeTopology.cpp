@@ -51,8 +51,8 @@ void CubeTopology::parse(core::objectmodel::BaseObjectDescription* arg)
         float xmax = arg->getAttributeAsFloat("xmax",1);
         float ymax = arg->getAttributeAsFloat("ymax",1);
         float zmax = arg->getAttributeAsFloat("zmax",1);
-        min.setValue(Vector3((SReal)(xmin*scale), (SReal)(ymin*scale), (SReal)(zmin*scale)));
-        max.setValue(Vector3((SReal)(xmax*scale), (SReal)(ymax*scale), (SReal)(zmax*scale)));
+        min.emplaceValue(SReal(xmin*scale), SReal(ymin*scale), SReal(zmin*scale));
+        max.emplaceValue(SReal(xmax*scale), SReal(ymax*scale), SReal(zmax*scale));
     }
     this->setPos(min.getValue()[0],max.getValue()[0],min.getValue()[1],max.getValue()[1],min.getValue()[2],max.getValue()[2]);
 }

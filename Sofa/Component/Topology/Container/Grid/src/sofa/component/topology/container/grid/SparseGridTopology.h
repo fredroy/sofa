@@ -113,19 +113,19 @@ public:
     int getNz() const { return n.getValue()[2]; }
 
     void setN(Vec3i _n) {n.setValue(_n);}
-    void setNx(int _n) { n.setValue(Vec3i(_n             ,n.getValue()[1],n.getValue()[2])); }
-    void setNy(int _n) { n.setValue(Vec3i(n.getValue()[0],_n             ,n.getValue()[2])); }
-    void setNz(int _n) { n.setValue(Vec3i(n.getValue()[0],n.getValue()[1],_n)             ); }
+    void setNx(int _n) { n.emplaceValue(_n             ,n.getValue()[1],n.getValue()[2]); }
+    void setNy(int _n) { n.emplaceValue(n.getValue()[0],_n             ,n.getValue()[2]); }
+    void setNz(int _n) { n.emplaceValue(n.getValue()[0],n.getValue()[1],_n)             ; }
 
     void setMin(Vector3 val) {_min.setValue(val);}
-    void setXmin(SReal val) { _min.setValue(Vector3(val             ,_min.getValue()[1],_min.getValue()[2])); }
-    void setYmin(SReal val) { _min.setValue(Vector3(_min.getValue()[0],val             ,_min.getValue()[2])); }
-    void setZmin(SReal val) { _min.setValue(Vector3(_min.getValue()[0],_min.getValue()[1],val)             ); }
+    void setXmin(SReal val) { _min.emplaceValue(val             ,_min.getValue()[1],_min.getValue()[2]); }
+    void setYmin(SReal val) { _min.emplaceValue(_min.getValue()[0],val             ,_min.getValue()[2]); }
+    void setZmin(SReal val) { _min.emplaceValue(_min.getValue()[0],_min.getValue()[1],val)             ; }
 
     void setMax(Vector3 val) {_max.setValue(val);}
-    void setXmax(SReal val) { _max.setValue(Vector3(val             ,_max.getValue()[1],_max.getValue()[2])); }
-    void setYmax(SReal val) { _max.setValue(Vector3(_max.getValue()[0],val             ,_max.getValue()[2])); }
-    void setZmax(SReal val) { _max.setValue(Vector3(_max.getValue()[0],_max.getValue()[1],val)             ); }
+    void setXmax(SReal val) { _max.emplaceValue(val             ,_max.getValue()[1],_max.getValue()[2]); }
+    void setYmax(SReal val) { _max.emplaceValue(_max.getValue()[0],val             ,_max.getValue()[2]); }
+    void setZmax(SReal val) { _max.emplaceValue(_max.getValue()[0],_max.getValue()[1],val)             ; }
 
     Vector3 getMin() {return _min.getValue();}
     SReal getXmin() { return _min.getValue()[0]; }
@@ -173,8 +173,8 @@ public:
 
     void getMesh( sofa::helper::io::Mesh &m);
 
-    void setDimVoxels( int a, int b, int c) { dataResolution.setValue(Vec3i(a,b,c));}
-    void setSizeVoxel( SReal a, SReal b, SReal c) { voxelSize.setValue(Vector3(a,b,c));}
+    void setDimVoxels( int a, int b, int c) { dataResolution.emplaceValue(a,b,c);}
+    void setSizeVoxel( SReal a, SReal b, SReal c) { voxelSize.emplaceValue(a,b,c);}
 
     bool getVoxel(unsigned int x, unsigned int y, unsigned int z)
     {

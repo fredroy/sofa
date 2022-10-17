@@ -67,7 +67,7 @@ void GridTopology::parse(core::objectmodel::BaseObjectDescription* arg)
         int nx = arg->getAttributeAsInt("nx", d_n.getValue().x());
         int ny = arg->getAttributeAsInt("ny", d_n.getValue().y());
         int nz = arg->getAttributeAsInt("nz", d_n.getValue().z());
-        d_n.setValue(Vec3i(nx,ny,nz));
+        d_n.emplaceValue(nx,ny,nz);
     }
 
     this->setNbGridPoints();
@@ -268,7 +268,7 @@ void GridTopology::setSize(int nx, int ny, int nz)
 {
     if (nx == this->d_n.getValue()[0] && ny == this->d_n.getValue()[1] && nz == this->d_n.getValue()[2])
         return;
-    this->d_n.setValue(Vec3i(nx,ny,nz));
+    this->d_n.emplaceValue(nx,ny,nz);
     setNbGridPoints();
 
     checkGridResolution();
@@ -285,7 +285,7 @@ void GridTopology::checkGridResolution()
                          " Continuing with default value=[2; 2; 2]."
                          " Set a valid grid resolution to remove this warning message.";
 
-        this->d_n.setValue(Vec3i(2,2,2));
+        this->d_n.emplaceValue(2,2,2);
         changeGridResolutionPostProcess();
     }
 

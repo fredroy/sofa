@@ -255,37 +255,37 @@ void MechanicalObject<DataTypes>::parse ( sofa::core::objectmodel::BaseObjectDes
 
     if (arg->getAttribute("sx") != nullptr || arg->getAttribute("sy") != nullptr || arg->getAttribute("sz") != nullptr)
     {
-        scale.setValue(Vector3((SReal)arg->getAttributeAsFloat("sx",1.0),
-                               (SReal)arg->getAttributeAsFloat("sy",1.0),
-                               (SReal)arg->getAttributeAsFloat("sz",1.0)));
+        scale.emplaceValue(SReal(arg->getAttributeAsFloat("sx",1.0)),
+                           SReal(arg->getAttributeAsFloat("sy",1.0)),
+                           SReal(arg->getAttributeAsFloat("sz",1.0)));
     }
 
     if (arg->getAttribute("rx") != nullptr || arg->getAttribute("ry") != nullptr || arg->getAttribute("rz") != nullptr)
     {
-        rotation.setValue(Vector3((SReal)arg->getAttributeAsFloat("rx",0.0),
-                                  (SReal)arg->getAttributeAsFloat("ry",0.0),
-                                  (SReal)arg->getAttributeAsFloat("rz",0.0)));
+        rotation.emplaceValue(SReal(arg->getAttributeAsFloat("rx",0.0)),
+                              SReal(arg->getAttributeAsFloat("ry",0.0)),
+                              SReal(arg->getAttributeAsFloat("rz",0.0)));
     }
 
     if (arg->getAttribute("dx") != nullptr || arg->getAttribute("dy") != nullptr || arg->getAttribute("dz") != nullptr)
     {
-        translation.setValue(Vector3((Real)arg->getAttributeAsFloat("dx",0.0),
-                                     (Real)arg->getAttributeAsFloat("dy",0.0),
-                                     (Real)arg->getAttributeAsFloat("dz",0.0)));
+        translation.emplaceValue(SReal(arg->getAttributeAsFloat("dx",0.0)),
+                                 SReal(arg->getAttributeAsFloat("dy",0.0)),
+                                 SReal(arg->getAttributeAsFloat("dz",0.0)));
     }
 
     if (arg->getAttribute("rx2") != nullptr || arg->getAttribute("ry2") != nullptr || arg->getAttribute("rz2") != nullptr)
     {
-        rotation2.setValue(Vector3((SReal)arg->getAttributeAsFloat("rx2",0.0),
-                                   (SReal)arg->getAttributeAsFloat("ry2",0.0),
-                                   (SReal)arg->getAttributeAsFloat("rz2",0.0)));
+        rotation2.emplaceValue(SReal(arg->getAttributeAsFloat("rx2",0.0)),
+                               SReal(arg->getAttributeAsFloat("ry2",0.0)),
+                               SReal(arg->getAttributeAsFloat("rz2",0.0)));
     }
 
     if (arg->getAttribute("dx2") != nullptr || arg->getAttribute("dy2") != nullptr || arg->getAttribute("dz2") != nullptr)
     {
-        translation2.setValue(Vector3((Real)arg->getAttributeAsFloat("dx2",0.0),
-                                      (Real)arg->getAttributeAsFloat("dy2",0.0),
-                                      (Real)arg->getAttributeAsFloat("dz2",0.0)));
+        translation2.emplaceValue(SReal(arg->getAttributeAsFloat("dx2",0.0)),
+                                  SReal(arg->getAttributeAsFloat("dy2",0.0)),
+                                  SReal(arg->getAttributeAsFloat("dz2",0.0)));
     }
 
     if (arg->getAttribute("isToPrint")!=nullptr)

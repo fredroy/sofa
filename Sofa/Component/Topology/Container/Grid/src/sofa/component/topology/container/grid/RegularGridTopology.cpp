@@ -82,8 +82,9 @@ void RegularGridTopology::parse(core::objectmodel::BaseObjectDescription* arg)
         float xmax = arg->getAttributeAsFloat("xmax",1);
         float ymax = arg->getAttributeAsFloat("ymax",1);
         float zmax = arg->getAttributeAsFloat("zmax",1);
-        d_min.setValue(Vector3((SReal)xmin*scale, (SReal)ymin*scale, (SReal)zmin*scale));
-        d_max.setValue(Vector3((SReal)xmax*scale, (SReal)ymax*scale, (SReal)zmax*scale));
+
+        d_min.emplaceValue(SReal(xmin * scale), SReal(ymin * scale), SReal(zmin * scale));
+        d_max.emplaceValue(SReal(xmax * scale), SReal(ymax * scale), SReal(zmax * scale));
     }
     this->setPos(d_min.getValue()[0],d_max.getValue()[0],d_min.getValue()[1],d_max.getValue()[1],d_min.getValue()[2],d_max.getValue()[2]);
 
@@ -99,7 +100,11 @@ void RegularGridTopology::init()
         grid[0]= (int)ceil((d_max.getValue()[0]-d_min.getValue()[0]) / w)+1;
         grid[1]= (int)ceil((d_max.getValue()[1]-d_min.getValue()[1]) / w)+1;
         grid[2]= (int)ceil((d_max.getValue()[2]-d_min.getValue()[2]) / w)+1;
-        d_n.setValue(grid);
+        d_n.emplaceValue(
+            int(ceil((d_max.getValue()[0] - d_min.getValue()[0]) / w) + 1),
+            int(ceil((d_max.getValue()[1] - d_min.getValue()[1]) / w) + 1),
+            int(ceil((d_max.getValue()[2] - d_min.getValue()[2]) / w) + 1)
+        );
         setNbGridPoints();
     }
 
@@ -153,8 +158,8 @@ void RegularGridTopology::setPos(SReal xmin, SReal xmax, SReal ymin, SReal ymax,
         p0z = zmin;
     }
 
-    d_min.setValue(Vector3(xmin,ymin,zmin));
-    d_max.setValue(Vector3(xmax,ymax,zmax));
+    d_min.emplaceValue(xmin,ymin,zmin);
+    d_max.emplaceValue(xmax,ymax,zmax);
     if (!d_p0.isSet())
     {
         setP0(Vector3(p0x,p0y,p0z));

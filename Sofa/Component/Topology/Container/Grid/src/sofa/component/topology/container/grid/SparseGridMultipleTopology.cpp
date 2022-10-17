@@ -128,8 +128,8 @@ void SparseGridMultipleTopology::buildAsFinest()
         Vector3 diff ( xMaxg-xMing, yMaxg - yMing, zMaxg - zMing );
         diff /= 100.0;
 
-        _min.setValue(Vector3( xMing - diff[0], yMing - diff[1], zMing - diff[2] ));
-        _max.setValue(Vector3( xMaxg + diff[0], yMaxg + diff[1], zMaxg + diff[2] ));
+        _min.emplaceValue(xMing - diff[0], yMing - diff[1], zMing - diff[2] );
+        _max.emplaceValue(xMaxg + diff[0], yMaxg + diff[1], zMaxg + diff[2] );
     }
 
     for(unsigned i=0; i<_fileTopologies.getValue().size(); ++i)

@@ -318,9 +318,9 @@ void SparseGridTopology::buildFromVoxelFile(const std::string& filename)
         ymax =(int)( dy * fileNy);
         zmax =(int)( dz * fileNz);
 
-        n.setValue(Vec3i(nx,ny,nz));
-        _min.setValue(Vector3((SReal)xmin, (SReal)ymin, (SReal)zmin));
-        _max.setValue(Vector3((SReal)xmax, (SReal)ymax, (SReal)zmax));
+        n.emplaceValue(nx,ny,nz);
+        _min.emplaceValue(SReal(xmin), SReal(ymin), SReal(zmin));
+        _max.emplaceValue(SReal(xmax), SReal(ymax), SReal(zmax));
 
         int value;
         int numVoxels = 0;

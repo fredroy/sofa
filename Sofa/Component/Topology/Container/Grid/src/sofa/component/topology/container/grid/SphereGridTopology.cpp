@@ -54,12 +54,12 @@ SphereGridTopology::SphereGridTopology()
 
 void SphereGridTopology::setCenter(SReal x, SReal y, SReal z)
 {
-    d_center.setValue(Vector3(x,y,z));
+    d_center.emplaceValue(x,y,z);
 }
 
 void SphereGridTopology::setAxis(SReal x, SReal y, SReal z)
 {
-    d_axis.setValue(Vector3(x,y,z));
+    d_axis.emplaceValue(x,y,z);
 }
 
 void SphereGridTopology::setRadius(SReal radius)

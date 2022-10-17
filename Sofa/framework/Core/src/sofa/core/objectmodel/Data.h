@@ -178,6 +178,14 @@ public:
         endEdit();
     }
 
+    /// setValue with perfect forward reference
+    template< class... Args >
+    void emplaceValue(Args&&... args)
+    {
+        *beginWriteOnly() = T{ std::forward< Args >(args)... };
+        endEdit();
+    }
+
     const T& getValue() const
     {
         updateIfDirty();

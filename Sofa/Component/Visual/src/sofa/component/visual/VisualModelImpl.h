@@ -168,17 +168,17 @@ public:
 
     void setTranslation(SReal dx, SReal dy, SReal dz)
     {
-        m_translation.setValue(Vec3Real((Real)dx,(Real)dy,(Real)dz));
+        m_translation.emplaceValue(Real(dx),Real(dy),Real(dz));
     }
 
     void setRotation(SReal rx, SReal ry, SReal rz)
     {
-        m_rotation.setValue(Vec3Real((Real)rx,(Real)ry,(Real)rz));
+        m_rotation.emplaceValue(Real(rx),Real(ry),Real(rz));
     }
 
     void setScale(SReal sx, SReal sy, SReal sz)
     {
-        m_scale.setValue(Vec3Real((Real)sx,(Real)sy,(Real)sz));
+        m_scale.emplaceValue(Real(sx),Real(sy),Real(sz));
     }
     /// @}
 

@@ -103,15 +103,15 @@ public:
     /// @{
     void setTranslation(SReal dx, SReal dy, SReal dz)
     {
-        d_translation.setValue(Vec3(dx, dy, dz));
+        d_translation.emplaceValue(dx, dy, dz);
     }
     void setRotation(SReal rx, SReal ry, SReal rz)
     {
-        d_rotation.setValue(Vec3(rx, ry, rz));
+        d_rotation.emplaceValue(rx, ry, rz);
     }
     void setScale(SReal sx, SReal sy, SReal sz)
     {
-        d_scale.setValue(Vec3(sx, sy, sz));
+        d_scale.emplaceValue(sx, sy, sz);
     }
     void setTransformation(const sofa::type::Matrix4& t)
     {

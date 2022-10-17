@@ -56,12 +56,12 @@ CylinderGridTopology::CylinderGridTopology()
 
 void CylinderGridTopology::setCenter(SReal x, SReal y, SReal z)
 {
-    d_center.setValue(Vector3(x,y,z));
+    d_center.emplaceValue(x,y,z);
 }
 
 void CylinderGridTopology::setAxis(SReal x, SReal y, SReal z)
 {
-    d_axis.setValue(Vector3(x,y,z));
+    d_axis.emplaceValue(x,y,z);
 }
 
 void CylinderGridTopology::setRadius(SReal radius)

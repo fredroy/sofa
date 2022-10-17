@@ -144,26 +144,26 @@ void VisualModelImpl::parse(core::objectmodel::BaseObjectDescription* arg)
                                     arg->getAttributeAsFloat("dv",0.0));
 
     if (arg->getAttribute("rx")!=nullptr || arg->getAttribute("ry")!=nullptr || arg->getAttribute("rz")!=nullptr)
-        m_rotation.setValue(Vec3Real((Real)arg->getAttributeAsFloat("rx",0.0),
-                                     (Real)arg->getAttributeAsFloat("ry",0.0),
-                                     (Real)arg->getAttributeAsFloat("rz",0.0)));
+        m_rotation.emplaceValue(Real(arg->getAttributeAsFloat("rx",0.0)),
+                                     Real(arg->getAttributeAsFloat("ry",0.0)),
+                                     Real(arg->getAttributeAsFloat("rz",0.0)));
 
     if (arg->getAttribute("dx")!=nullptr || arg->getAttribute("dy")!=nullptr || arg->getAttribute("dz")!=nullptr)
-        m_translation.setValue(Vec3Real((Real)arg->getAttributeAsFloat("dx",0.0),
-                                        (Real)arg->getAttributeAsFloat("dy",0.0),
-                                        (Real)arg->getAttributeAsFloat("dz",0.0)));
+        m_translation.emplaceValue(Real(arg->getAttributeAsFloat("dx",0.0)),
+                                        Real(arg->getAttributeAsFloat("dy",0.0)),
+                                        Real(arg->getAttributeAsFloat("dz",0.0)));
 
     if (arg->getAttribute("scale")!=nullptr)
     {
-        m_scale.setValue(Vec3Real((Real)arg->getAttributeAsFloat("scale",1.0),
-                                  (Real)arg->getAttributeAsFloat("scale",1.0),
-                                  (Real)arg->getAttributeAsFloat("scale",1.0)));
+        m_scale.emplaceValue(Real(arg->getAttributeAsFloat("scale",1.0)),
+                                  Real(arg->getAttributeAsFloat("scale",1.0)),
+                                  Real(arg->getAttributeAsFloat("scale",1.0)));
     }
     else if (arg->getAttribute("sx")!=nullptr || arg->getAttribute("sy")!=nullptr || arg->getAttribute("sz")!=nullptr)
     {
-        m_scale.setValue(Vec3Real((Real)arg->getAttributeAsFloat("sx",1.0),
-                                  (Real)arg->getAttributeAsFloat("sy",1.0),
-                                  (Real)arg->getAttributeAsFloat("sz",1.0)));
+        m_scale.emplaceValue(Real(arg->getAttributeAsFloat("sx",1.0)),
+                                  Real(arg->getAttributeAsFloat("sy",1.0)),
+                                  Real(arg->getAttributeAsFloat("sz",1.0)));
     }
 }
 
