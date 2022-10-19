@@ -268,6 +268,7 @@ set(SOURCE_FILES
     ${SRC_ROOT}/objectmodel/JoystickEvent.cpp
     ${SRC_ROOT}/objectmodel/KeypressedEvent.cpp
     ${SRC_ROOT}/objectmodel/KeyreleasedEvent.cpp
+    ${SRC_ROOT}/objectmodel/Link.cpp
     ${SRC_ROOT}/objectmodel/MouseEvent.cpp
     ${SRC_ROOT}/objectmodel/ScriptEvent.cpp
     ${SRC_ROOT}/objectmodel/Tag.cpp

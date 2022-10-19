@@ -792,4 +792,14 @@ using core::objectmodel::MultiLink;
 
 } // namespace sofa
 
+#ifndef SOFA_CORE_OBJECTMODEL_LINK_CPP
+namespace sofa::core::objectmodel
+{
+    extern template class MultiLink<BaseObject, BaseObject, 6>;
+    extern template class MultiLink<sofa::core::behavior::StateAccessor, sofa::core::behavior::BaseMechanicalState, 16>;
+    extern template class TLink<BaseObject, BaseObject, 7>;
+    extern template class TLink<sofa::core::behavior::StateAccessor, sofa::core::behavior::BaseMechanicalState, 17>;
+}
+#endif
+
 #endif

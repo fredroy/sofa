@@ -113,6 +113,7 @@ class BaseInteractionProjectiveConstraintSet;
 class BaseInteractionConstraint;
 class LinearSolver;
 class MultiMatrixAccessor;
+class StateAccessor;
 
 template<class T>
 class MechanicalState;

@@ -19,6 +19,8 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
+#define SOFA_CORE_BASEOBJECT_CPP
+
 #include <sofa/core/objectmodel/BaseObject.h>
 #include <sofa/core/objectmodel/BaseContext.h>
 #include <sofa/core/objectmodel/BaseNode.h>
@@ -27,7 +29,7 @@
 #include <sofa/core/topology/Topology.h>
 #include <sofa/helper/TagFactory.h>
 #include <iostream>
-
+#include <sofa/core/sptr.h>
 
 namespace sofa
 {
@@ -375,4 +377,10 @@ std::string BaseObject::getPathName() const {
 } // namespace core
 
 } // namespace sofa
+
+namespace boost
+{
+    template class container::stable_vector<boost::intrusive_ptr<sofa::core::objectmodel::BaseObject>, std::allocator<boost::intrusive_ptr<sofa::core::objectmodel::BaseObject>>>;
+}
+
 

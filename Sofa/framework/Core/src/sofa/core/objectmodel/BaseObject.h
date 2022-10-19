@@ -223,4 +223,3 @@ public:
 };
 
 } // namespace sofa::core::objectmodel
-
