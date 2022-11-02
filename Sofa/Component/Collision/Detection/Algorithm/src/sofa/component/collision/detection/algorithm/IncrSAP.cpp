@@ -23,6 +23,8 @@
 #include <sofa/core/ObjectFactory.h>
 #include <sofa/component/collision/detection/algorithm/IncrSAP.h>
 
+#include <execution>
+
 namespace sofa::component::collision::detection::algorithm
 {
 
@@ -527,7 +529,7 @@ bool IncrSAP::assertion_end_points_sorted() const{
     return n == 0;
 }
 
-void IncrSAP::moveMinForward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & next_it){
+void IncrSAP::moveMinForward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & next_it, EndPointList::const_iterator endPointsEnd){
     CompPEndPoint inferior;
     do{
         if((**next_it).max())
@@ -539,14 +541,14 @@ void IncrSAP::moveMinForward(int dim,EndPointID * cur_end_point,EndPointList::it
         it = next_it;
         ++next_it;
     }
-    while((next_it != _end_points[dim].end()) && (inferior(*next_it,cur_end_point)));
+    while((next_it != endPointsEnd) && (inferior(*next_it,cur_end_point)));
 
     (*it) = cur_end_point;
 }
 
 
 
-void IncrSAP::moveMaxForward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & next_it){
+void IncrSAP::moveMaxForward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & next_it, EndPointList::const_iterator endPointsEnd){
     CompPEndPoint inferior;
     do{
         if((**next_it).min())
@@ -558,13 +560,13 @@ void IncrSAP::moveMaxForward(int dim,EndPointID * cur_end_point,EndPointList::it
         it = next_it;
         ++next_it;
         }
-    while((next_it != _end_points[dim].end()) && (inferior(*next_it,cur_end_point)));
+    while((next_it != endPointsEnd) && (inferior(*next_it,cur_end_point)));
 
     (*it) = cur_end_point;
 }
 
 
-void IncrSAP::moveMinBackward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & prev_it){
+void IncrSAP::moveMinBackward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & prev_it, EndPointList::const_iterator endPointsBegin){
     CompPEndPoint inferior;
     do{
         if((**prev_it).max())
@@ -575,7 +577,7 @@ void IncrSAP::moveMinBackward(int dim,EndPointID * cur_end_point,EndPointList::i
         (*it) = (*prev_it);
         it = prev_it;
 
-        if(prev_it == _end_points[dim].begin())
+        if(prev_it == endPointsBegin)
             break;
 
         --prev_it;
@@ -586,7 +588,7 @@ void IncrSAP::moveMinBackward(int dim,EndPointID * cur_end_point,EndPointList::i
 }
 
 
-void IncrSAP::moveMaxBackward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & prev_it){
+void IncrSAP::moveMaxBackward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & prev_it, EndPointList::const_iterator endPointsBegin){
     CompPEndPoint inferior;
     do{
         if((**prev_it).min())
@@ -597,7 +599,7 @@ void IncrSAP::moveMaxBackward(int dim,EndPointID * cur_end_point,EndPointList::i
         (*it) = (*prev_it);
         it = prev_it;
 
-        if(prev_it == _end_points[dim].begin())
+        if(prev_it == endPointsBegin)
             break;
 
         --prev_it;
@@ -616,17 +618,19 @@ void IncrSAP::updateMovingBoxes(){
     if(_boxes.size() < 2)
         return;
 
-    EndPointID * cur_end_point_min,*cur_end_point_max;
-    cur_end_point_min = cur_end_point_max = nullptr;
 
-    EndPointList::iterator it_min,next_it_min,prev_it_min,base_it_min,it_max,next_it_max,prev_it_max,base_it_max;
-    bool min_updated,max_updated,min_moving,max_moving;
-    EndPointID updated_min;
-    EndPointID updated_max;
-
-    for(unsigned int i = 0 ; i < _boxes.size() ; ++i){
+    auto updateMovingBoxes_apply = [&](const auto dim) {
+    //for (int dim = 0; dim < 3; ++dim) {
+        EndPointID* cur_end_point_min, * cur_end_point_max;
+        cur_end_point_min = cur_end_point_max = nullptr;
+        EndPointList::iterator it_min, next_it_min, prev_it_min, base_it_min, it_max, next_it_max, prev_it_max, base_it_max;
+        bool min_updated, max_updated, min_moving, max_moving;
+        EndPointID updated_min;
+        EndPointID updated_max;
+        auto endPoints = _end_points[dim];
+        
+        for(unsigned int i = 0 ; i < _boxes.size() ; ++i){
         ISAPBox & cur_box = _boxes[i];
-        for(int dim = 0 ; dim < 3 ; ++dim){
             min_updated = false;
             max_updated = false;
 
@@ -640,7 +644,7 @@ void IncrSAP::updateMovingBoxes(){
                 cur_box.updatedMax(dim,updated_max,_alarmDist_d2);
 
                 cur_end_point_max = &(cur_box.max(dim));
-                it_max = _end_points[dim].begin() + cur_end_point_max->ID;
+                it_max = endPoints.begin() + cur_end_point_max->ID;
                 base_it_max = it_max;
                 assert((**it_max).ID == cur_end_point_max->ID);
 
@@ -648,22 +652,22 @@ void IncrSAP::updateMovingBoxes(){
                 ++next_it_max;
 
                 prev_it_max = it_max;
-                if(it_max != _end_points[dim].begin())
+                if(it_max != endPoints.begin())
                     --prev_it_max;
 
-                if(next_it_max != _end_points[dim].end() && inferior(*next_it_max,&updated_max)){ // moving the max foreward
+                if(next_it_max != endPoints.end() && inferior(*next_it_max,&updated_max)){ // moving the max foreward
                     // the real update of the end point (belonging to the end point list) is done
                     // here because this end point will be put at its right place
                     cur_end_point_max->value = updated_max.value;
 
-                    moveMaxForward(dim,cur_end_point_max,it_max,next_it_max);
+                    moveMaxForward(dim,cur_end_point_max,it_max,next_it_max, endPoints.cend());
                     max_updated = true;
                 } // after, cases when the end point is at its right place
-                else if(next_it_max == _end_points[dim].end() && inferior(*prev_it_max,&updated_max)){
+                else if(next_it_max == endPoints.end() && inferior(*prev_it_max,&updated_max)){
                     cur_end_point_max->value = updated_max.value;
                     max_updated = true;
                 }
-                else if(it_max == _end_points[dim].begin() && inferior(&updated_max,*next_it_max)){
+                else if(it_max == endPoints.begin() && inferior(&updated_max,*next_it_max)){
                     cur_end_point_max->value = updated_max.value;
                     max_updated = true;
                 }
@@ -677,7 +681,7 @@ void IncrSAP::updateMovingBoxes(){
             if((min_moving = cur_box.minMoving(dim,_alarmDist_d2))){
                 cur_box.updatedMin(dim,updated_min,_alarmDist_d2);
                 cur_end_point_min = &(cur_box.min(dim));
-                it_min = _end_points[dim].begin() + cur_end_point_min->ID;
+                it_min = endPoints.begin() + cur_end_point_min->ID;
                 base_it_min = it_min;
                 assert((**it_min).ID == cur_end_point_min->ID);
 
@@ -685,19 +689,19 @@ void IncrSAP::updateMovingBoxes(){
                 ++next_it_min;
 
                 prev_it_min = it_min;
-                if(it_min != _end_points[dim].begin())
+                if(it_min != endPoints.begin())
                     --prev_it_min;
 
-                if((it_min != _end_points[dim].begin()) && inferior(&updated_min,*prev_it_min)){ // moving the min backward
+                if((it_min != endPoints.begin()) && inferior(&updated_min,*prev_it_min)){ // moving the min backward
                     cur_end_point_min->value = updated_min.value;
-                    moveMinBackward(dim,cur_end_point_min,it_min,prev_it_min);
+                    moveMinBackward(dim,cur_end_point_min,it_min,prev_it_min, endPoints.cbegin());
                     min_updated = true;
                 } // after, cases when the end point is at its right place
-                else if(it_min == _end_points[dim].begin() && inferior(&updated_min,*next_it_min)){
+                else if(it_min == endPoints.begin() && inferior(&updated_min,*next_it_min)){
                     cur_end_point_min->value = updated_min.value;
                     min_updated = true;
                 }
-                else if(next_it_min == _end_points[dim].end() && inferior(*prev_it_min,&updated_min)){
+                else if(next_it_min == endPoints.end() && inferior(*prev_it_min,&updated_min)){
                     cur_end_point_min->value = updated_min.value;
                     min_updated = true;
                 }
@@ -712,8 +716,8 @@ void IncrSAP::updateMovingBoxes(){
                 cur_end_point_min->value = updated_min.value;
 
                 // MOVING MIN FOREWARD
-                if((next_it_min != _end_points[dim].end()) && (inferior(*next_it_min,cur_end_point_min))){
-                    moveMinForward(dim,cur_end_point_min,it_min,next_it_min);
+                if((next_it_min != endPoints.end()) && (inferior(*next_it_min,cur_end_point_min))){
+                    moveMinForward(dim,cur_end_point_min,it_min,next_it_min, endPoints.cend());
                 }
             }
 
@@ -721,14 +725,14 @@ void IncrSAP::updateMovingBoxes(){
             if(max_moving && (!max_updated)){
                 cur_end_point_max->value = updated_max.value;
 
-                it_max = _end_points[dim].begin() + cur_end_point_max->ID;
+                it_max = endPoints.begin() + cur_end_point_max->ID;
                 prev_it_max = it_max;
-                if(it_max != _end_points[dim].begin())
+                if(it_max != endPoints.begin())
                     --prev_it_max;
 
 
                 if((prev_it_max != it_max && inferior(cur_end_point_max,*prev_it_max))){
-                    moveMaxBackward(dim,cur_end_point_max,it_max,prev_it_max);
+                    moveMaxBackward(dim,cur_end_point_max,it_max,prev_it_max, endPoints.cbegin());
                 }
             }
 
@@ -736,7 +740,11 @@ void IncrSAP::updateMovingBoxes(){
                 assert(assertion_end_points_sorted());
             }
         }
-    }
+    };
+
+    std::array<std::size_t, 3> dimensions{ 0,1,2 };
+    //std::for_each(std::execution::par_unseq, dimensions.begin(), dimensions.end(), updateMovingBoxes_apply);
+    std::for_each(std::execution::seq, dimensions.begin(), dimensions.end(), updateMovingBoxes_apply);
 }
 
 
