@@ -439,7 +439,7 @@ void IncrSAP::beginNarrowPhase(){
 
 
 bool IncrSAP::assertion_order(EndPointList::iterator it,EndPointList::iterator begin,EndPointList::iterator end){
-    CompPEndPoint comp;
+    static CompPEndPoint comp;
     EndPointList::iterator next_it = it;++next_it;
     if(next_it != end && comp(*next_it,*it))
         return false;
@@ -456,7 +456,7 @@ bool IncrSAP::assertion_order(EndPointList::iterator it,EndPointList::iterator b
 
 
 bool IncrSAP::assertion_list_order(EndPointList::iterator begin_it,const EndPointList::iterator & end_it){
-    CompPEndPoint inferior;
+    static CompPEndPoint inferior;
     EndPointList::iterator next_it = begin_it;
     ++next_it;
     for(;next_it != end_it ; ++next_it,++begin_it){
@@ -470,7 +470,7 @@ bool IncrSAP::assertion_list_order(EndPointList::iterator begin_it,const EndPoin
 
 
 bool IncrSAP::assertion_superior(EndPointList::iterator begin_it,const EndPointList::iterator & end_it,EndPoint* point){
-    CompPEndPoint inferior;
+    static CompPEndPoint inferior;
     for(;begin_it != end_it ;++begin_it){
         if(inferior(point,*begin_it)){
             inferior(point,*begin_it);
@@ -484,7 +484,7 @@ bool IncrSAP::assertion_superior(EndPointList::iterator begin_it,const EndPointL
 
 
 bool IncrSAP::assertion_inferior(EndPointList::iterator begin_it,const EndPointList::iterator & end_it,EndPoint* point){
-    CompPEndPoint inferior;
+    static CompPEndPoint inferior;
     for(;begin_it != end_it ;++begin_it){
         if(inferior(*begin_it,point))
             return false;
@@ -496,7 +496,7 @@ bool IncrSAP::assertion_inferior(EndPointList::iterator begin_it,const EndPointL
 
 
 bool IncrSAP::assertion_end_points_sorted() const{
-    CompPEndPoint inferior;
+    static CompPEndPoint inferior;
     int n = 0;
     for(int dim = 0 ; dim < 3 ; ++dim){
         int ID = 0;
@@ -530,7 +530,7 @@ bool IncrSAP::assertion_end_points_sorted() const{
 }
 
 void IncrSAP::moveMinForward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & next_it, EndPointList::const_iterator endPointsEnd){
-    CompPEndPoint inferior;
+    static CompPEndPoint inferior;
     do{
         if((**next_it).max())
             removeCollision(cur_end_point->boxID(),(**next_it).boxID());
@@ -549,7 +549,7 @@ void IncrSAP::moveMinForward(int dim,EndPointID * cur_end_point,EndPointList::it
 
 
 void IncrSAP::moveMaxForward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & next_it, EndPointList::const_iterator endPointsEnd){
-    CompPEndPoint inferior;
+    static CompPEndPoint inferior;
     do{
         if((**next_it).min())
             addIfCollide(cur_end_point->boxID(),(**next_it).boxID());
@@ -567,7 +567,7 @@ void IncrSAP::moveMaxForward(int dim,EndPointID * cur_end_point,EndPointList::it
 
 
 void IncrSAP::moveMinBackward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & prev_it, EndPointList::const_iterator endPointsBegin){
-    CompPEndPoint inferior;
+    static CompPEndPoint inferior;
     do{
         if((**prev_it).max())
             addIfCollide(cur_end_point->boxID(),(**prev_it).boxID());
@@ -589,7 +589,7 @@ void IncrSAP::moveMinBackward(int dim,EndPointID * cur_end_point,EndPointList::i
 
 
 void IncrSAP::moveMaxBackward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & prev_it, EndPointList::const_iterator endPointsBegin){
-    CompPEndPoint inferior;
+    static CompPEndPoint inferior;
     do{
         if((**prev_it).min())
             removeCollision(cur_end_point->boxID(),(**prev_it).boxID());
@@ -613,7 +613,7 @@ void IncrSAP::moveMaxBackward(int dim,EndPointID * cur_end_point,EndPointList::i
 
 void IncrSAP::updateMovingBoxes(){
     assert(assertion_end_points_sorted());
-    CompPEndPoint inferior;
+    static CompPEndPoint inferior;
 
     if(_boxes.size() < 2)
         return;
@@ -627,7 +627,7 @@ void IncrSAP::updateMovingBoxes(){
         bool min_updated, max_updated, min_moving, max_moving;
         EndPointID updated_min;
         EndPointID updated_max;
-        auto endPoints = _end_points[dim];
+        auto& endPoints = _end_points[dim];
         
         for(unsigned int i = 0 ; i < _boxes.size() ; ++i){
         ISAPBox & cur_box = _boxes[i];
