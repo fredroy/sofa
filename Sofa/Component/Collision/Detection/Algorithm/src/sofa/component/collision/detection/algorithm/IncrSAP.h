@@ -221,10 +221,10 @@ private:
 
 
     // The following methods are used when updating end points in the end point lists, it updates in the same time the collisions.
-    void moveMinForward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & next_it);
-    void moveMaxForward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & next_it);
-    void moveMinBackward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & prev_it);
-    void moveMaxBackward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & prev_it);
+    void moveMinForward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & next_it, EndPointList::const_iterator endPointsEnd);
+    void moveMaxForward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & next_it, EndPointList::const_iterator endPointsEnd);
+    void moveMinBackward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & prev_it, EndPointList::const_iterator endPointsBegin);
+    void moveMaxBackward(int dim,EndPointID * cur_end_point,EndPointList::iterator & it,EndPointList::iterator & prev_it, EndPointList::const_iterator endPointsBegin);
 
     static bool assertion_order(EndPointList::iterator it,EndPointList::iterator begin,EndPointList::iterator end);
     static bool assertion_list_order(EndPointList::iterator begin_it,const EndPointList::iterator & end_it);
