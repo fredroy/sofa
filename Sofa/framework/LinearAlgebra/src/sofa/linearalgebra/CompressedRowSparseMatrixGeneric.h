@@ -107,10 +107,10 @@ public:
 };
 
 template<typename TBlock, typename TPolicy = CRSDefaultPolicy>
-class CompressedRowSparseMatrix : public TPolicy
+class CompressedRowSparseMatrixGeneric : public TPolicy
 {
 public:
-    typedef CompressedRowSparseMatrix<TBlock,TPolicy> Matrix;
+    typedef CompressedRowSparseMatrixGeneric<TBlock,TPolicy> Matrix;
 
     typedef TBlock Block;
     typedef TPolicy Policy;
@@ -236,12 +236,12 @@ public :
     VecIndex oldColsIndex;
     VecBlock  oldColsValue;
 
-    CompressedRowSparseMatrix()
+    CompressedRowSparseMatrixGeneric()
         : nBlockRow(0), nBlockCol(0), skipCompressZero(true)
     {
     }
 
-    CompressedRowSparseMatrix(Index nbBlockRow, Index nbBlockCol)
+    CompressedRowSparseMatrixGeneric(Index nbBlockRow, Index nbBlockCol)
         : nBlockRow(nbBlockRow), nBlockCol(nbBlockCol)
         , skipCompressZero(true)
     {
@@ -287,7 +287,7 @@ public :
             skipCompressZero = true;
             btemp.clear();
             if constexpr (Policy::StoreTouchFlags) touchedBlock.clear();
-            if constexpr (Policy::Verbose) dmsg_info("CompressedRowSparseMatrix") << this->Name()  << ": resizeBlock("<<nbBRow<<","<<nbBCol<<")";
+            if constexpr (Policy::Verbose) dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << ": resizeBlock("<<nbBRow<<","<<nbBCol<<")";
         }
     }
 
@@ -504,11 +504,11 @@ protected:
     **/
     void compressBtemp()
     {
-        if constexpr (Policy::Verbose) dmsg_info("CompressedRowSparseMatrix") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): sort "<<btemp.size()<<" temp blocks.";
+        if constexpr (Policy::Verbose) dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): sort "<<btemp.size()<<" temp blocks.";
 
         std::sort(btemp.begin(), btemp.end());
 
-        if constexpr (Policy::Verbose) dmsg_info("CompressedRowSparseMatrix") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): blocks sorted.";
+        if constexpr (Policy::Verbose) dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): blocks sorted.";
 
         /// In This case, matrix is empty, as btemp is sorted just need to fill triplet arrays with btemp
         if (rowIndex.empty())
@@ -555,7 +555,7 @@ protected:
 
         while (itbtemp != endbtemp || curentOldRowID <= oldMaxRowID)
         {
-            if constexpr (Policy::Verbose) dmsg_info("CompressedRowSparseMatrix") << this->Name() << "("<<rowBSize()<<","<<colBSize()<<"): oldMaxRowID = "<<oldMaxRowID<<" , curentBtempRowID = "<<curentBtempRowID<<"";
+            if constexpr (Policy::Verbose) dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name() << "("<<rowBSize()<<","<<colBSize()<<"): oldMaxRowID = "<<oldMaxRowID<<" , curentBtempRowID = "<<curentBtempRowID<<"";
 
             if (curentOldRowID < curentBtempRowID) /// In this case, we only add old line
             {
@@ -627,7 +627,7 @@ protected:
                 curentOldRowID = (oldRowIndexCount < oldNbRow ) ? oldRowIndex[oldRowIndexCount] : maxRowID;
             }
         }
-        if constexpr (Policy::Verbose) dmsg_info("CompressedRowSparseMatrix") << this->Name() << "("<<rowBSize()<<","<<colBSize()<<"): compressed " << oldColsIndex.size()<<" old blocks and " << btemp.size() << " temp blocks into " << rowIndex.size() << " lines and " << colsIndex.size() << " blocks.";
+        if constexpr (Policy::Verbose) dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name() << "("<<rowBSize()<<","<<colBSize()<<"): compressed " << oldColsIndex.size()<<" old blocks and " << btemp.size() << " temp blocks into " << rowIndex.size() << " lines and " << colsIndex.size() << " blocks.";
 
         rowBegin.push_back(rowBeginCount);
         btemp.clear();
@@ -761,7 +761,7 @@ protected:
         {
             if (i >= rowBSize() || j >= colBSize())
             {
-                msg_error("CompressedRowSparseMatrix") << "invalid read access to block ("<<i<<","<<j<<") in "<< this->Name() <<" of block size ("<<rowBSize()<<","<<colBSize()<<")";
+                msg_error("CompressedRowSparseMatrixGeneric") << "invalid read access to block ("<<i<<","<<j<<") in "<< this->Name() <<" of block size ("<<rowBSize()<<","<<colBSize()<<")";
                 return empty;
             }
         }
@@ -807,7 +807,7 @@ protected:
         {
             if (!create && (i >= rowBSize() || j >= colBSize()))
             {
-                msg_error("CompressedRowSparseMatrix") << "invalid write access to block ("<<i<<","<<j<<") in "<< this->Name() <<" of block size ("<<rowBSize()<<","<<colBSize()<<")";
+                msg_error("CompressedRowSparseMatrixGeneric") << "invalid write access to block ("<<i<<","<<j<<") in "<< this->Name() <<" of block size ("<<rowBSize()<<","<<colBSize()<<")";
                 return nullptr;
             }
         }
@@ -927,7 +927,7 @@ protected:
         {
             if (!create && (i >= rowBSize() || j >= colBSize()))
             {
-                msg_error("CompressedRowSparseMatrix") << "invalid write access to block ("<<i<<","<<j<<") in "<< this->Name() <<" of block size ("<<rowBSize()<<","<<colBSize()<<")";
+                msg_error("CompressedRowSparseMatrixGeneric") << "invalid write access to block ("<<i<<","<<j<<") in "<< this->Name() <<" of block size ("<<rowBSize()<<","<<colBSize()<<")";
                 return nullptr;
             }
         }
@@ -1021,14 +1021,14 @@ public:
         if constexpr (Policy::LogTrace) logCall(FnEnum::clearRowBlock, i);
         if constexpr (Policy::Verbose)
         {
-            if constexpr (Policy::ClearByZeros) dmsg_info("CompressedRowSparseMatrix") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): row("<<i<<") = 0";
-            else dmsg_info("CompressedRowSparseMatrix") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): row("<<i<<") cleared";
+            if constexpr (Policy::ClearByZeros) dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): row("<<i<<") = 0";
+            else dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): row("<<i<<") cleared";
         }
         if constexpr (Policy::Check)
         {
             if (i >= rowBSize())
             {
-                msg_error("CompressedRowSparseMatrix") << "invalid write access to row "<<i<<" in "<< this->Name() << " of size ("<<rowBSize()<<","<<colBSize()<<")";
+                msg_error("CompressedRowSparseMatrixGeneric") << "invalid write access to row "<<i<<" in "<< this->Name() << " of size ("<<rowBSize()<<","<<colBSize()<<")";
                 return;
             }
         }
@@ -1063,14 +1063,14 @@ public:
         if constexpr (Policy::LogTrace) logCall(FnEnum::clearColBlock, j);
         if constexpr (Policy::Verbose)
         {
-            if constexpr (Policy::ClearByZeros) dmsg_info("CompressedRowSparseMatrix") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): col("<<j<<") = 0";
-            else dmsg_info("CompressedRowSparseMatrix") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): col("<<j<<") cleared";
+            if constexpr (Policy::ClearByZeros) dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): col("<<j<<") = 0";
+            else dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): col("<<j<<") cleared";
         }
         if constexpr (Policy::Check)
         {
             if (j >= colBSize())
             {
-                msg_error("CompressedRowSparseMatrix") << "invalid write access to col "<<j<<" in "<< this->Name() << " of size ("<<rowBSize()<<","<<colBSize()<<")";
+                msg_error("CompressedRowSparseMatrixGeneric") << "invalid write access to col "<<j<<" in "<< this->Name() << " of size ("<<rowBSize()<<","<<colBSize()<<")";
                 return;
             }
         }
@@ -1148,12 +1148,12 @@ public:
     void clearRowColBlock(Index i)
     {
         if constexpr (Policy::LogTrace) logCall(FnEnum::clearRowColBlock, i);
-        if constexpr (Policy::Verbose) dmsg_info("CompressedRowSparseMatrix") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): row("<<i<<") = 0 and col("<<i<<") = 0";
+        if constexpr (Policy::Verbose) dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): row("<<i<<") = 0 and col("<<i<<") = 0";
         if constexpr (Policy::Check)
         {
             if (i >= rowBSize() || i >= colBSize())
             {
-                msg_error("CompressedRowSparseMatrix") << "invalid write access to row and column "<<i<<" in "<< this->Name() << " of size ("<<rowBSize()<<","<<colBSize()<<")";
+                msg_error("CompressedRowSparseMatrixGeneric") << "invalid write access to row and column "<<i<<" in "<< this->Name() << " of size ("<<rowBSize()<<","<<colBSize()<<")";
                 return;
             }
         }
@@ -1183,7 +1183,7 @@ public:
 
         if (!foundRowId && !foundColId)
         {
-            msg_error("CompressedRowSparseMatrix") << "invalid write access to row and column "<<i<<" in "<< this->Name() << " of size ("<<rowBSize()<<","<<colBSize()<<")";
+            msg_error("CompressedRowSparseMatrixGeneric") << "invalid write access to row and column "<<i<<" in "<< this->Name() << " of size ("<<rowBSize()<<","<<colBSize()<<")";
             return;
         }
 
@@ -1372,7 +1372,7 @@ public:
 
     /// Transpose the matrix into res, works only for 3 array variant ("full rows") matrices, ie which can be expressed using the rowBegin, colsIndex and colsValue arrays solely
     template<typename TBlock2, typename TPolicy2>
-    void transposeFullRows(CompressedRowSparseMatrix<TBlock2, TPolicy2>& res) const
+    void transposeFullRows(CompressedRowSparseMatrixGeneric<TBlock2, TPolicy2>& res) const
     {
         res.nBlockCol = nBlockRow;
         res.nBlockRow = nBlockCol;
@@ -1435,7 +1435,7 @@ public:
       @warning matrices this and m must be compressed
       */
     template<typename RB, typename RP, typename MB, typename MP >
-    void mul( CompressedRowSparseMatrix<RB,RP>& res, const CompressedRowSparseMatrix<MB,MP>& m ) const
+    void mul( CompressedRowSparseMatrixGeneric<RB,RP>& res, const CompressedRowSparseMatrixGeneric<MB,MP>& m ) const
     {
         assert( Block::nbCols == MB::nbLines );
         assert( RB::nbLines == Block::nbLines );
@@ -1446,7 +1446,7 @@ public:
         if constexpr (Policy::AutoCompress)
         {
             const_cast<Matrix*>(this)->compress(); /// \warning this violates the const-ness of the method !
-            (const_cast<CompressedRowSparseMatrix<MB,MP>*>(&m))->compress();  /// \warning this violates the const-ness of the parameter
+            (const_cast<CompressedRowSparseMatrixGeneric<MB,MP>*>(&m))->compress();  /// \warning this violates the const-ness of the parameter
         }
 
         res.resizeBlock( this->nBlockRow, m.nBlockCol );  // clear and resize the result
@@ -1488,7 +1488,7 @@ public:
       @warning matrices this and m must be compressed
       */
     template<typename RB, typename RP, typename MB, typename MP >
-    void mulTranspose( CompressedRowSparseMatrix<RB,RP>& res, const CompressedRowSparseMatrix<MB,MP>& m ) const
+    void mulTranspose( CompressedRowSparseMatrixGeneric<RB,RP>& res, const CompressedRowSparseMatrixGeneric<MB,MP>& m ) const
     {
         assert( Block::nbLines == MB::nbLines );
         assert( RB::nbLines == Block::nbCols );
@@ -1499,7 +1499,7 @@ public:
         if constexpr (Policy::AutoCompress)
         {
             const_cast<Matrix*>(this)->compress();  /// \warning this violates the const-ness of the method
-            (const_cast<CompressedRowSparseMatrix<MB,MP>*>(&m))->compress();  /// \warning this violates the const-ness of the parameter
+            (const_cast<CompressedRowSparseMatrixGeneric<MB,MP>*>(&m))->compress();  /// \warning this violates the const-ness of the parameter
         }
 
 
@@ -1539,7 +1539,7 @@ public:
 
     static const char* Name()
     {
-        static std::string name = std::string("CompressedRowSparseMatrix") + std::string(traits::Name());
+        static std::string name = std::string("CompressedRowSparseMatrixGeneric") + std::string(traits::Name());
         return name.c_str();
     }
 
@@ -1567,7 +1567,7 @@ public:
         // check ap, size m beecause ther is at least the diagonal value wich is different of 0
         if (a_p[0]!=0)
         {
-            msg_error("CompressedRowSparseMatrix") << "First value of row indices (a_p) should be 0";
+            msg_error("CompressedRowSparseMatrixGeneric") << "First value of row indices (a_p) should be 0";
             return false;
         }
 
@@ -1575,7 +1575,7 @@ public:
         {
             if (a_p[i]<=a_p[i-1])
             {
-                msg_error("CompressedRowSparseMatrix") << "Row (a_p) indices are not sorted index " << i-1 << " : " << a_p[i-1] << " , " << i << " : " << a_p[i];
+                msg_error("CompressedRowSparseMatrixGeneric") << "Row (a_p) indices are not sorted index " << i-1 << " : " << a_p[i-1] << " , " << i << " : " << a_p[i];
                 return false;
             }
         }
@@ -1585,7 +1585,7 @@ public:
         }
         else if (a_p[m]!=nzmax)
         {
-            msg_error("CompressedRowSparseMatrix") << "Last value of row indices (a_p) should be " << nzmax << " and is " << a_p[m];
+            msg_error("CompressedRowSparseMatrixGeneric") << "Last value of row indices (a_p) should be " << nzmax << " and is " << a_p[m];
             return false;
         }
 
@@ -1598,12 +1598,12 @@ public:
             {
                 if (a_i[i] <= a_i[i-1])
                 {
-                    msg_error("CompressedRowSparseMatrix") << "Column (a_i) indices are not sorted index " << i-1 << " : " << a_i[i-1] << " , " << i << " : " << a_p[i];
+                    msg_error("CompressedRowSparseMatrixGeneric") << "Column (a_i) indices are not sorted index " << i-1 << " : " << a_i[i-1] << " , " << i << " : " << a_p[i];
                     return false;
                 }
                 if (a_i[i]<0 || a_i[i]>=n)
                 {
-                    msg_error("CompressedRowSparseMatrix") << "Column (a_i) indices are not correct " << i << " : " << a_i[i];
+                    msg_error("CompressedRowSparseMatrixGeneric") << "Column (a_i) indices are not correct " << i << " : " << a_i[i];
                     return false;
                 }
             }
@@ -1614,24 +1614,24 @@ public:
         {
             if (traits::empty(a_x[i]))
             {
-                msg_error("CompressedRowSparseMatrix") << "Warning, matrix contains empty block at index " << i;
+                msg_error("CompressedRowSparseMatrixGeneric") << "Warning, matrix contains empty block at index " << i;
                 return false;
             }
         }
 
         if (n!=m)
         {
-            msg_error("CompressedRowSparseMatrix") << "the matrix is not square";
+            msg_error("CompressedRowSparseMatrixGeneric") << "the matrix is not square";
             return false;
         }
 
-        msg_error("CompressedRowSparseMatrix") << "Check_matrix passed successfully";
+        msg_error("CompressedRowSparseMatrixGeneric") << "Check_matrix passed successfully";
         return true;
     }
 
     void setTraceWriter(CRSTraceWriter<Matrix>* matrixTraceWriter)
     {
-        if constexpr (!Policy::LogTrace) msg_error("CompressedRowSparseMatrix") << " : You need to activate LogTrace Policy to be able to trace matrix.";
+        if constexpr (!Policy::LogTrace) msg_error("CompressedRowSparseMatrixGeneric") << " : You need to activate LogTrace Policy to be able to trace matrix.";
         else
         {
             m_traceWriter = matrixTraceWriter;
@@ -1717,10 +1717,10 @@ protected:
 //#endif
 
 
-#if !defined(SOFA_COMPONENT_LINEARSOLVER_COMPRESSEDROWSPARSEMATRIX_CPP) 
-extern template class SOFA_LINEARALGEBRA_API CompressedRowSparseMatrix<double>;
-extern template class SOFA_LINEARALGEBRA_API CompressedRowSparseMatrix<type::Mat1x1d>;
-extern template class SOFA_LINEARALGEBRA_API CompressedRowSparseMatrix<type::Mat3x3d>;
+#if !defined(SOFA_COMPONENT_LINEARSOLVER_COMPRESSEDROWSPARSEMATRIXGENERIC_CPP) 
+extern template class SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixGeneric<double>;
+extern template class SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixGeneric<type::Mat1x1d>;
+extern template class SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixGeneric<type::Mat3x3d>;
 #endif
 
 
