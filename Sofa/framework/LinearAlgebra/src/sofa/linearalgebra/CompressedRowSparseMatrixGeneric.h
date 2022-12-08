@@ -291,6 +291,12 @@ public :
         }
     }
 
+    SOFA_ATTRIBUTE_DEPRECATED__CRS_BLOCK_RENAMING()
+    void resizeBloc(Index nbBRow, Index nbBCol)
+    {
+        resizeBlock(nbBRow, nbBCol);
+    }
+
 protected:
 
     /**
@@ -795,6 +801,12 @@ public:
         return colsValue[colId];
     }
 
+    SOFA_ATTRIBUTE_DEPRECATED__CRS_BLOCK_RENAMING()
+    const Block& bloc(Index i, Index j) const
+    {
+        return block(i, j);
+    }
+
     /**
     * \brief Write block method
     * @param Line index i and column index j
@@ -911,6 +923,12 @@ public:
             }
             return nullptr;
         }
+    }
+
+    SOFA_ATTRIBUTE_DEPRECATED__CRS_BLOCK_RENAMING()
+    Block* wbloc(Index i, Index j, bool create = false)
+    {
+        return wblock(i, j, create);
     }
 
     /**
