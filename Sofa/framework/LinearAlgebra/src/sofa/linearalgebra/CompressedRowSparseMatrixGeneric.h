@@ -1039,8 +1039,14 @@ public:
         if constexpr (Policy::LogTrace) logCall(FnEnum::clearRowBlock, i);
         if constexpr (Policy::Verbose)
         {
-            if constexpr (Policy::ClearByZeros) dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): row("<<i<<") = 0";
-            else dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): row("<<i<<") cleared";
+            if constexpr (Policy::ClearByZeros)
+            {
+                dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): row("<<i<<") = 0";
+            }
+            else
+            {
+                dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): row("<<i<<") cleared";
+            }
         }
         if constexpr (Policy::Check)
         {
@@ -1081,8 +1087,14 @@ public:
         if constexpr (Policy::LogTrace) logCall(FnEnum::clearColBlock, j);
         if constexpr (Policy::Verbose)
         {
-            if constexpr (Policy::ClearByZeros) dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): col("<<j<<") = 0";
-            else dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): col("<<j<<") cleared";
+            if constexpr (Policy::ClearByZeros)
+            {
+                dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): col("<<j<<") = 0";
+            }
+            else
+            {
+                dmsg_info("CompressedRowSparseMatrixGeneric") << this->Name()  << "("<<rowBSize()<<","<<colBSize()<<"): col("<<j<<") cleared";
+            }
         }
         if constexpr (Policy::Check)
         {
@@ -1471,7 +1483,7 @@ public:
 
         if( m.rowIndex.empty() ) return; // if m is null
 
-        for( Index xi = 0; xi < rowIndex.size(); ++xi )  // for each non-null block row
+        for( Index xi = 0; xi < Index(rowIndex.size()); ++xi )  // for each non-null block row
         {
             unsigned mr = 0; // block row index in m
 
@@ -1725,7 +1737,6 @@ protected:
     {
         for (auto& v : vec)
             os <<v<<";";
-        os;
     }
 
     template<typename TVec>
