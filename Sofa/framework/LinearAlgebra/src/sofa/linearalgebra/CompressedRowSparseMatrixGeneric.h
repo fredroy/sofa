@@ -265,7 +265,7 @@ public :
     const VecIndex& getColsIndex() const { return colsIndex; }
     const VecBlock& getColsValue() const { return colsValue; }
 
-    void resizeBlock(Index nbBRow, Index nbBCol)
+    virtual void resizeBlock(Index nbBRow, Index nbBCol)
     {
         if constexpr (Policy::LogTrace) logCall(FnEnum::resizeBlock, nbBRow, nbBCol);
         if (nBlockRow == nbBRow && nBlockRow == nbBCol)
@@ -1247,6 +1247,7 @@ public:
         }
 
         btemp.clear();
+        compress();
     }
 
 
@@ -1467,9 +1468,12 @@ public:
     template<typename RB, typename RP, typename MB, typename MP >
     void mul( CompressedRowSparseMatrixGeneric<RB,RP>& res, const CompressedRowSparseMatrixGeneric<MB,MP>& m ) const
     {
-        assert( Block::nbCols == MB::nbLines );
-        assert( RB::nbLines == Block::nbLines );
-        assert( MB::nbCols == RB::nbCols );
+        if constexpr (!std::is_arithmetic_v<Block> && !std::is_arithmetic_v<RB> && !std::is_arithmetic_v<MB>)
+        {
+            assert(Block::nbCols == MB::nbLines);
+            assert(RB::nbLines == Block::nbLines);
+            assert(MB::nbCols == RB::nbCols);
+        }
 
         assert( colBSize() == m.rowBSize() );
 
@@ -1531,9 +1535,12 @@ public:
     template<typename RB, typename RP, typename MB, typename MP >
     void mulTranspose( CompressedRowSparseMatrixGeneric<RB,RP>& res, const CompressedRowSparseMatrixGeneric<MB,MP>& m ) const
     {
-        assert( Block::nbLines == MB::nbLines );
-        assert( RB::nbLines == Block::nbCols );
-        assert( MB::nbCols == RB::nbCols );
+        if constexpr (!std::is_arithmetic_v<Block> && !std::is_arithmetic_v<RB> && !std::is_arithmetic_v<MB>)
+        {
+            assert(Block::nbLines == MB::nbLines);
+            assert(RB::nbLines == Block::nbCols);
+            assert(MB::nbCols == RB::nbCols);
+        }
 
         assert( rowBSize() == m.rowBSize() );
 
@@ -1581,7 +1588,7 @@ public:
 
     static const char* Name()
     {
-        static std::string name = std::string("CompressedRowSparseMatrixGeneric") + std::string(traits::Name());
+        static std::string name = std::string("CompressedRowSparseMatrix") + std::string(traits::Name()); // keep compatibility with previous implementation
         return name.c_str();
     }
 
