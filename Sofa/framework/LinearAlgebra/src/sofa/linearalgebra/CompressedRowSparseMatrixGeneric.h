@@ -209,7 +209,7 @@ public:
 
     static bool sortedFind(const VecIndex& v, Index val, Index& result)
     {
-        return sortedFind(v, Range(0, v.size()), val, result);
+        return sortedFind(v, Range(0, Index(v.size())), val, result);
     }
 
 public :
@@ -550,12 +550,12 @@ protected:
         /// Info about old matrix
         Index oldRowIndexCount = 0;
         Index curentOldRowID = oldRowIndex[oldRowIndexCount];
-        Index oldNbRow  = oldRowIndex.size();
-        Index oldMaxRowID = oldRowIndex.back();
+        Index oldNbRow  = Index(oldRowIndex.size());
+        Index oldMaxRowID = Index(oldRowIndex.back());
 
         Index rowBeginCount = 0;
-        Index maxRowID = std::numeric_limits<Index>::max();
-        Index maxColID = std::numeric_limits<Index>::max();
+        constexpr Index maxRowID = std::numeric_limits<Index>::max();
+        constexpr Index maxColID = std::numeric_limits<Index>::max();
 
         Index maxRegisteredColID = 0;
 
@@ -780,11 +780,11 @@ public:
         if constexpr (Policy::AutoSize) if (j > nBlockCol) return empty; /// Matrix is auto sized so requested column could not exist
 
         Index rowId = 0;
-        if (i == rowIndex.back()) rowId = rowIndex.size() - 1; /// Optimization to avoid do a find when looking for the last line registred
+        if (i == rowIndex.back()) rowId = Index(rowIndex.size() - 1); /// Optimization to avoid do a find when looking for the last line registred
         else if (i == rowIndex.front()) rowId = 0;             /// Optimization to avoid do a find when looking for the first line registred
         else
         {
-            rowId = (nBlockRow == 0) ? 0 : i * rowIndex.size() / nBlockRow;
+            rowId = (nBlockRow == 0) ? 0 : Index(i * rowIndex.size() / nBlockRow);
             if (!sortedFind(rowIndex, i, rowId)) return empty;
         }
 
@@ -834,7 +834,7 @@ public:
                 rowIndex.push_back(i);
                 colsIndex.push_back(j);
                 colsValue.push_back(Block());
-                rowBegin.push_back(colsIndex.size());
+                rowBegin.push_back(Index(colsIndex.size()));
 
                 if constexpr (Policy::StoreTouchFlags) touchedBlock.push_back(false);
                 if constexpr (Policy::AutoSize)
@@ -846,7 +846,7 @@ public:
             }
             else if (i == rowIndex.back()) /// In this case, we are trying to write on last registered line
             {
-                Index rowId = rowIndex.size() - 1;
+                Index rowId = Index(rowIndex.size() - 1);
                 Range rowRange(rowBegin[rowId], rowBegin[rowId+1]);
                 if (j == colsIndex[rowRange.second - 1]) /// In this case, we are trying to write on last registered column, directly return ref on it
                 {
@@ -878,11 +878,11 @@ public:
             if constexpr (Policy::AutoSize) if (j > nBlockCol) return create ? insertBtemp(i,j) : nullptr; /// Matrix is auto sized so requested column could not exist
 
             Index rowId = 0;
-            if (i == rowIndex.back()) rowId = rowIndex.size() - 1;      /// Optimization to avoid do a find when looking for the last line registred
+            if (i == rowIndex.back()) rowId = Index(rowIndex.size() - 1);      /// Optimization to avoid do a find when looking for the last line registred
             else if (i == rowIndex.front()) rowId = 0;                  /// Optimization to avoid do a find when looking for the first line registred
             else
             {
-                rowId = (nBlockRow == 0) ? 0 : i * rowIndex.size() / nBlockRow;
+                rowId = (nBlockRow == 0) ? 0 : Index(i * rowIndex.size() / nBlockRow);
                 if (!sortedFind(rowIndex, i, rowId)) return create ? insertBtemp(i,j) : nullptr;
             }
 
@@ -901,7 +901,7 @@ public:
         }
         else
         {
-            Index rowId = (nBlockRow == 0) ? 0 : i * rowIndex.size() / nBlockRow;
+            Index rowId = (nBlockRow == 0) ? 0 : Index(i * rowIndex.size() / nBlockRow);
             if (sortedFind(rowIndex, i, rowId))
             {
                 Range rowRange(rowBegin[rowId], rowBegin[rowId+1]);
@@ -953,7 +953,7 @@ public:
         bool rowFound = true;
         if (rowId < 0 || rowId >= static_cast<Index>(rowIndex.size()) || rowIndex[rowId] != i)
         {
-            rowId = i * rowIndex.size() / nBlockRow;
+            rowId = Index(i * rowIndex.size() / nBlockRow);
             rowFound = sortedFind(rowIndex, i, rowId);
         }
         if (rowFound)
@@ -1064,11 +1064,11 @@ public:
         }
 
         Index rowId = 0;
-        if (i == rowIndex.back()) rowId = rowIndex.size() - 1;      /// Optimization to avoid do a find when looking for the last line registred
+        if (i == rowIndex.back()) rowId = Index(rowIndex.size() - 1);      /// Optimization to avoid do a find when looking for the last line registred
         else if (i == rowIndex.front()) rowId = 0;                  /// Optimization to avoid do a find when looking for the first line registred
         else
         {
-            rowId = (nBlockRow == 0) ? 0 : i * rowIndex.size() / nBlockRow;
+            rowId = (nBlockRow == 0) ? 0 : Index(i * rowIndex.size() / nBlockRow);
             if (!sortedFind(rowIndex, i, rowId)) return;
         }
 
@@ -1588,7 +1588,7 @@ public:
     bool check_matrix()
     {
         return check_matrix(
-                this->getColsValue().size(),
+                Index(this->getColsValue().size()),
                 this->rowBSize(),
                 this->colBSize(),
                 static_cast<Index*> (&(rowBegin[0])),
