@@ -333,8 +333,13 @@ void IncrSAP::addIfCollide(int boxID1,int boxID2){
     core::CollisionModel *finalcm1 = box0.cube.getCollisionModel()->getLast(); // get the finnest CollisionModel which is not a CubeModel
     core::CollisionModel *finalcm2 = box1.cube.getCollisionModel()->getLast();
 
-    if((finalcm1->isSimulated() || finalcm2->isSimulated()) &&
-            (((finalcm1->getContext() != finalcm2->getContext()) || finalcm1->canCollideWith(finalcm2)) && box0.overlaps(box1,_alarmDist))){ // intersection on all axes
+    if (!finalcm1->canCollideWith(finalcm2))
+        return;
+
+    if( ( finalcm1->isSimulated() || finalcm2->isSimulated() ) &&
+        finalcm1->canCollideWith(finalcm2) && 
+        box0.overlaps(box1,_alarmDist))
+    { // intersection on all axes
 
          _colliding_elems.add(boxID1,boxID2,box0.finalElement(),box1.finalElement());
     }
@@ -353,6 +358,10 @@ void IncrSAP::addIfCollide(int boxID1,int boxID2,int axis1,int axis2){
     ISAPBox & box1 = _boxes[boxID2];
     core::CollisionModel *finalcm1 = box0.cube.getCollisionModel()->getLast(); // get the finnest CollisionModel which is not a CubeModel
     core::CollisionModel *finalcm2 = box1.cube.getCollisionModel()->getLast();
+
+
+    if (!finalcm1->canCollideWith(finalcm2))
+        return;
 
     if((finalcm1->isSimulated() || finalcm2->isSimulated()) &&
             (((finalcm1->getContext() != finalcm2->getContext()) || finalcm1->canCollideWith(finalcm2)) && box0.endPointsOverlap(box1,axis1) && box0.endPointsOverlap(box1,axis2))){ // intersection on all axes
