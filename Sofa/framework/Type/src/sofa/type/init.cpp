@@ -23,6 +23,22 @@
 
 #include <iostream>
 
+#if SOFA_USE_EXCEPTIONS == 0
+
+#define BOOST_NO_EXCEPTIONS
+
+#include <exception>
+#include <boost/config/detail/suffix.hpp>
+
+namespace boost
+{
+    BOOST_NORETURN void throw_exception(std::exception const& e)
+    {
+    }
+}
+
+#endif // SOFA_USE_EXCEPTIONS == 0
+
 namespace sofa::type
 {
 

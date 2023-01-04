@@ -25,6 +25,7 @@
 #include <sofa/config/build_option_dump_visitor.h>
 #include <sofa/config/build_option_threading.h>
 #include <sofa/config/build_option_bbox.h>
+#include <sofa/config/build_option_exceptions.h>
 
 #include <cstddef> // For nullptr
 #include <limits> // std::numeric_limits<>
@@ -84,19 +85,6 @@ constexpr SReal operator"" _sreal(unsigned long long int integer)
 #  include <windows.h>
 #undef WIN32_LEAN_AND_MEAN
 #endif
-
-#ifdef BOOST_NO_EXCEPTIONS
-#  include<exception>
-
-namespace boost
-{
-    inline void throw_exception(std::exception const & e)
-    {
-        return;
-    }
-}
-#endif // BOOST_NO_EXCEPTIONS
-
 
 #ifdef _MSC_VER
 #  ifndef _USE_MATH_DEFINES

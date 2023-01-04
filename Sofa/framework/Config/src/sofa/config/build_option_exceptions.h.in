@@ -19,9 +19,6 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#ifndef BUILD_OPTION_BBOX_H
-#define BUILD_OPTION_BBOX_H
+#pragma once
 
-#define SOFA_NO_UPDATE_BBOX ${SOFA_NO_UPDATE_BBOX_}
-
-#endif // BUILD_OPTION_BBOX_H
+#define SOFA_USE_EXCEPTIONS ${SOFA_USE_EXCEPTIONS_}

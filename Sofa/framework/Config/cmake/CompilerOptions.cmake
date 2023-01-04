@@ -1,4 +1,9 @@
 #### Compiler options
-## PR1674: All cmake configuration in Sofa.Config
+# Set default compiler options (as defined in toolchain files)
+# https://stackoverflow.com/questions/45995784/how-to-set-compiler-options-with-cmake-in-visual-studio-2017
 
-message(DEPRECATION "CompilerOptions.cmake file is not used anymore, all compiler flags are set in the target Sofa.Config now. Link against it if you want its flags being propagated to your projet. (see PR1674 on github)") 
+if (MSVC)
+    # remove default exceptions flags handling from CMAKE_CXX_FLAGS_INIT (which will initialize CMAKE_CXX_FLAGS)
+    # it allows us to freely define them later
+    set(CMAKE_CXX_FLAGS_INIT "/DWIN32 /D_WINDOWS /W3 /GR")
+endif()

@@ -1,4 +1,9 @@
 cmake_minimum_required(VERSION 3.12)
+
+# Override default Platform flags before the first project()
+# set (CMAKE_USER_MAKE_RULES_OVERRIDE "${CMAKE_CURRENT_LIST_DIR}/Sofa/framework/Config/cmake/CompilerOptions.cmake")
+# message("CMAKE_CXX_FLAGS_INIT: ${CMAKE_CXX_FLAGS_INIT}")
+
 project(Sofa) # Cannot use VERSION with patch like "00"
 
 include(CMakeDependentOption)

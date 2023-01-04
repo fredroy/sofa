@@ -6,6 +6,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
 list(APPEND CMAKE_PREFIX_PATH "${CMAKE_BINARY_DIR}/lib/cmake")
 
 include(SofaMacros)
+include(SofaMacros)
 
 # Clear internal target list (set by the macro sofa_add_generic() )
 set_property(GLOBAL PROPERTY __GlobalTargetList__ "")
@@ -75,9 +76,18 @@ option(SOFA_WITH_DEVTOOLS "Compile with developement extra features." ON)
 ### Threading
 option(SOFA_WITH_THREADING "Compile sofa with thread-safetiness support (PARTIAL/EXPERIMENTAL)" ON)
 
+### Exception
+option(SOFA_USE_EXCEPTIONS "Disable exception mechanism (not recommended!)" ON)
+# Allow disabling exceptions, but warn the user about the consequences
+if (NOT SOFA_USE_EXCEPTIONS)
+	message(WARNING "Exceptions have been disabled. Any operation that would "
+	        "throw an exception will result in a call to std::abort() instead.")
+endif()
+
 # Variables to expose in configured files
 sofa_set_01(SOFA_WITH_THREADING_ VALUE ${SOFA_WITH_THREADING}) # build_option_threading.h.in
 sofa_set_01(SOFA_NO_UPDATE_BBOX_ VALUE ${SOFA_NO_UPDATE_BBOX}) # build_option_bbox.h.in
+sofa_set_01(SOFA_USE_EXCEPTIONS_ VALUE ${SOFA_USE_EXCEPTIONS}) # build_option_exceptions.h.in
 
 # Create build and install versions of etc/sofa.ini:
 #   - In build dir, sofa.ini contains absolute paths to distant (in source) share/ and examples/ dirs
@@ -103,6 +113,7 @@ set(SOFACONFIG_BUILD_OPTIONS_SRC
     ${SOFACONFIGSRC_ROOT}/config/build_option_dump_visitor.h.in
     ${SOFACONFIGSRC_ROOT}/config/build_option_threading.h.in
     ${SOFACONFIGSRC_ROOT}/config/build_option_bbox.h.in
+    ${SOFACONFIGSRC_ROOT}/config/build_option_exceptions.h.in
 )
 
 # Header-only library (not handled well by macros & stuff so commented)
@@ -141,6 +152,20 @@ if (IS_IPO_SUPPORTED)
     endif()
 else()
     message(STATUS "IPO / LTO not supported: <${IPO_ERROR}>")
+endif()
+
+if (NOT SOFA_USE_EXCEPTIONS)
+    # https://stackoverflow.com/questions/45995784/how-to-set-compiler-options-with-cmake-in-visual-studio-2017
+    # Exceptions flag are added by default by CMake
+	if (MSVC)
+        # This will override CMAKE_CXX_FLAGS for all subsequent projects
+        # it would better to have target-specific mechanicms
+        set(CMAKE_CXX_FLAGS "/DWIN32 /D_WINDOWS /W3 /GR" PARENT_SCOPE) # Remove "/EHsc" from CMAKE_CXX_FLAGS_INIT
+
+        list(APPEND SOFACONFIG_COMPILE_OPTIONS "/EHa-;/EHc-;/EHs-;/fp:except-")
+	else()
+        list(APPEND SOFACONFIG_COMPILE_OPTIONS "-fno-exceptions")
+	endif()
 endif()
 
 ## GCC-specific

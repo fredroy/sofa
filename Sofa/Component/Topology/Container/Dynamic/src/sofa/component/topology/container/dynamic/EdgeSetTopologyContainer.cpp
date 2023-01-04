@@ -33,6 +33,21 @@
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/connected_components.hpp>
 
+#if SOFA_USE_EXCEPTIONS == 0
+
+#define BOOST_NO_EXCEPTIONS
+
+#include <exception>
+
+namespace boost
+{
+    void throw_exception(std::exception const& e)
+    {
+    }
+}
+
+#endif // SOFA_USE_EXCEPTIONS == 0
+
 namespace sofa::component::topology::container::dynamic
 {
 
