@@ -163,6 +163,7 @@ if (NOT SOFA_USE_EXCEPTIONS)
         set(CMAKE_CXX_FLAGS "/DWIN32 /D_WINDOWS /W3 /GR" PARENT_SCOPE) # Remove "/EHsc" from CMAKE_CXX_FLAGS_INIT
 
         list(APPEND SOFACONFIG_COMPILE_OPTIONS "/EHa-;/EHc-;/EHs-;/fp:except-")
+        list(APPEND SOFACONFIG_COMPILE_OPTIONS "/wd4530") # ignore warning about "C++ exception handler used, but unwind semantics are not enabled."
 	else()
         list(APPEND SOFACONFIG_COMPILE_OPTIONS "-fno-exceptions")
 	endif()
