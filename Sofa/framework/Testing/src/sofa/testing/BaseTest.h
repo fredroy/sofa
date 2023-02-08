@@ -29,7 +29,7 @@
 namespace sofa::testing
 {
 /// acceptable ratio between finite difference delta and error threshold
-const SReal g_minDeltaErrorRatio = .1;
+const SReal g_minDeltaErrorRatio = 0.1_sreal;
 
 /** @brief Base class for Sofa test fixtures.
   */

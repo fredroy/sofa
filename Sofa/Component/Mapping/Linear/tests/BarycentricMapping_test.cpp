@@ -133,15 +133,15 @@ struct BarycentricMapperTriangleSetTopologyTest :  public BaseTest, public Baryc
 };
 
 
-typedef BarycentricMapperTriangleSetTopologyTest< Vec3dTypes, Vec3dTypes> BarycentricMapperTriangleSetTopologyTest_d;
+typedef BarycentricMapperTriangleSetTopologyTest< sofa::defaulttype::Vec3Types, sofa::defaulttype::Vec3Types> BarycentricMapperTriangleSetTopologyTestSet;
 
 
-TEST_F(BarycentricMapperTriangleSetTopologyTest_d, init)
+TEST_F(BarycentricMapperTriangleSetTopologyTestSet, init)
 {
     EXPECT_NO_THROW(init_test());
 }
 
-TEST_F(BarycentricMapperTriangleSetTopologyTest_d, initHashing)
+TEST_F(BarycentricMapperTriangleSetTopologyTestSet, initHashing)
 {
     initHashing_test();
 }

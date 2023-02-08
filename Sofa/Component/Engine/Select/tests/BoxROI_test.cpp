@@ -349,7 +349,6 @@ struct BoxROITest :  public sofa::testing::BaseTest
 //Please fix this either the tests or the BoxROI implementation
 typedef Types<
     Vec3Types
-    ,Vec3dTypes
     //,Rigid3dTypes
 
 > DataTypes;
