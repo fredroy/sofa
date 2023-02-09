@@ -53,7 +53,7 @@ public:
         Simulation* simulation {nullptr} ;
 
         void initScene() ;
-        void simulate(const double timestep) ;
+        void simulate(const SReal timestep) ;
         void loadSceneFile(const std::string& filename);
     } ;
 };

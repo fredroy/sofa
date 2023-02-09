@@ -453,7 +453,7 @@ void checkSceneWithVec3MechanicalModel()
     scene << "<?xml version='1.0'?>"
              "<Node 	name='Root' gravity='0 -9.81 0' time='0' animate='0' >               \n"
              "  <Node name='Level 1'>                                                        \n"
-             "   <MechanicalObject template='Vec3d'/>                                        \n"
+             "   <MechanicalObject template='Vec3'/>                                        \n"
              "   <SphereCollisionModel name='spheremodel'/>                                  \n"
              "  </Node>                                                                      \n"
              "</Node>                                                                        \n" ;

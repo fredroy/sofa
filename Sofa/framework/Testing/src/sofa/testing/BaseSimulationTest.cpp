@@ -109,9 +109,9 @@ void BaseSimulationTest::SceneInstance::initScene()
     simulation->init(root.get());
 }
 
-void BaseSimulationTest::SceneInstance::simulate(const double timestep)
+void BaseSimulationTest::SceneInstance::simulate(const SReal timestep)
 {
-    simulation->animate( root.get(), (SReal)timestep );
+    simulation->animate( root.get(), timestep );
 }
 
 BaseSimulationTest::BaseSimulationTest()

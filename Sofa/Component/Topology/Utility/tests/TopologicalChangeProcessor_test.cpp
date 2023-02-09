@@ -118,7 +118,7 @@ struct InciseProcessor_test : TopologicalChangeProcessor_test
         // to test incise animates the scene at least 1.2s
         for (int i = 0; i < 50; i++)
         {
-            m_instance.simulate(0.05);
+            m_instance.simulate(0.05_sreal);
         }
 
         EXPECT_EQ(topoCon->getNbTriangles(), 1680);

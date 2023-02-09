@@ -83,8 +83,7 @@ struct TestTriOBB : public ::testing::Test{
     bool vertexEdge();
 };
 
-typedef sofa::component::statecontainer::MechanicalObject<sofa::defaulttype::StdRigidTypes<3, double> > MechanicalObjectRigid3d;
-typedef MechanicalObjectRigid3d MechanicalObjectRigid3;
+typedef sofa::component::statecontainer::MechanicalObject<sofa::defaulttype::StdRigidTypes<3, SReal> > MechanicalObjectRigid3;
 
 sofa::component::collision::geometry::SphereCollisionModel<sofa::defaulttype::Rigid3Types>::SPtr TestSphereOBB::makeMyRSphere(const Vec3 & center,double radius,const Vec3 & v,
                                                                    sofa::simulation::Node::SPtr & father){
