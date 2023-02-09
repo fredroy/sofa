@@ -75,7 +75,7 @@ struct MeshROI_test : public BaseSimulationTest,
         "   <Node name='node'>                                          "
         "       <MeshOBJLoader name='loader' filename='mesh/cube.obj'/>    "
         "       <Mesh name='topology' src='@loader'/>                      "
-        "       <MeshROI template='Vec3d' name='MeshROI'/>                 "
+        "       <MeshROI template='Vec3' name='MeshROI'/>                 "
         "   </Node>                                                        "
         "</Node>                                                           " ;
 
@@ -138,7 +138,7 @@ struct MeshROI_test : public BaseSimulationTest,
         "   <Node name='node'>                                          "
         "       <MeshOBJLoader name='loader' filename='mesh/dragon.obj'/>  "
         "       <Mesh name='topology' src='@loader'/>                      "
-        "       <MeshROI template='Vec3d' name='MeshROI'/>                 "
+        "       <MeshROI template='Vec3' name='MeshROI'/>                 "
         "   </Node>                                                        "
         "</Node>                                                           " ;
 
@@ -159,7 +159,7 @@ struct MeshROI_test : public BaseSimulationTest,
            <Node name='node'>
                <MeshOBJLoader name='loader' filename='mesh/cube.obj'/>
                <Mesh name='topology' src='@loader'/>
-               <MeshROI template='Vec3d' name='MeshROI' position='0. 0. 0. 2. 0. 0.' />
+               <MeshROI template='Vec3' name='MeshROI' position='0. 0. 0. 2. 0. 0.' />
            </Node>
         </Node>
 

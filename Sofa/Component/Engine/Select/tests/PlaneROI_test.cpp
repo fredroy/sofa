@@ -76,7 +76,7 @@ struct PlaneROI_test : public BaseSimulationTest,
         "<?xml version='1.0'?>"
         "<Node 	name='Root' gravity='0 0 0' time='0' animate='0'   >       "
         "   <Node name='node'>                                             "
-        "       <PlaneROI template='Vec3d' name='PlaneROI' plane='2 0 0  0 0 0  2 2 0  2'/> "
+        "       <PlaneROI template='Vec3' name='PlaneROI' plane='2 0 0  0 0 0  2 2 0  2'/> "
         "   </Node>                                                        "
         "</Node>                                                           " ;
 

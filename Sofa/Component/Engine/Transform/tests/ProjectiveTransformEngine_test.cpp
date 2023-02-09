@@ -29,6 +29,13 @@ TEST(ProjectiveTransformEngine, getTemplateName)
     const auto engine = sofa::core::objectmodel::New<
         sofa::component::engine::transform::ProjectiveTransformEngine<sofa::defaulttype::Vec3Types>
     >();
-    EXPECT_EQ(engine->getTemplateName(), "Vec3d");
+    if constexpr (std::is_same_v<SReal, double>)
+    {
+        EXPECT_EQ(engine->getTemplateName(), "Vec3d");
+    }
+    else
+    {
+        EXPECT_EQ(engine->getTemplateName(), "Vec3f");
+    }
 }
 }

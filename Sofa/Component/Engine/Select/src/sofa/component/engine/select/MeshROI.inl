@@ -330,7 +330,7 @@ bool MeshROI<DataTypes>::isPointInMesh(const typename DataTypes::CPos& p)
         ReadAccessor< Data<vector<Triangle> > > triangles_i = d_triangles_i;
         const VecCoord* x0 = &d_X0_i.getValue();
         int Through=0;
-        double d=0.0;
+        Real d=0.0;
         for (unsigned int i=0; i<triangles_i.size() ; ++i)
         {
             Triangle t = triangles_i[i];
@@ -343,7 +343,7 @@ bool MeshROI<DataTypes>::isPointInMesh(const typename DataTypes::CPos& p)
             N[1] = (p1[2]-p0[2])*(p2[0]-p1[0]) - (p1[0]-p0[0])*(p2[2]-p1[2]);
             N[2] = (p1[0]-p0[0])*(p2[1]-p1[1]) - (p1[1]-p0[1])*(p2[0]-p1[0]);
             // DotProd computation
-            double DotProd = double (N[0]*Vec[0] + N[1]*Vec[1] + N[2]*Vec[2]);
+            Real DotProd = Real (N[0]*Vec[0] + N[1]*Vec[1] + N[2]*Vec[2]);
             if(DotProd !=0)
             {
                 // Intersect point with triangle and distance

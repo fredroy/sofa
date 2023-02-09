@@ -30,13 +30,29 @@ TEST(DisplacementTransformEngine, getTemplateName)
         const auto engine = sofa::core::objectmodel::New<
             sofa::component::engine::transform::DisplacementTransformEngine<sofa::defaulttype::Rigid3Types, sofa::type::Mat4x4>
         >();
-        EXPECT_EQ(engine->getTemplateName(), "Rigid3d,Mat4x4d");
+
+        if constexpr (std::is_same_v<SReal, double>)
+        {
+            EXPECT_EQ(engine->getTemplateName(), "Rigid3d,Mat4x4d");
+        }
+        else
+        {
+            EXPECT_EQ(engine->getTemplateName(), "Rigid3f,Mat4x4f");
+        }
     }
     {
         const auto engine = sofa::core::objectmodel::New<
             sofa::component::engine::transform::DisplacementTransformEngine<sofa::defaulttype::Rigid3Types, sofa::defaulttype::Rigid3Types::Coord>
         >();
-        EXPECT_EQ(engine->getTemplateName(), "Rigid3d,RigidCoord3d");
+
+        if constexpr (std::is_same_v<SReal, double>)
+        {
+            EXPECT_EQ(engine->getTemplateName(), "Rigid3d,RigidCoord3d");
+        }
+        else
+        {
+            EXPECT_EQ(engine->getTemplateName(), "Rigid3f,RigidCoord3f");
+        }
     }
 }
 }

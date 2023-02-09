@@ -29,6 +29,13 @@ TEST(DisplacementMatrixEngine, getTemplateName)
     const auto engine = sofa::core::objectmodel::New<
         sofa::component::engine::transform::DisplacementMatrixEngine<sofa::defaulttype::Rigid3Types>
     >();
-    EXPECT_EQ(engine->getTemplateName(), "Rigid3d");
+    if constexpr (std::is_same_v<SReal, double>)
+    {
+        EXPECT_EQ(engine->getTemplateName(), "Rigid3d");
+    }
+    else
+    {
+        EXPECT_EQ(engine->getTemplateName(), "Rigid3f");
+    }
 }
 }
