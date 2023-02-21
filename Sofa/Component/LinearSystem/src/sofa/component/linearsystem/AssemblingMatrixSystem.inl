@@ -239,6 +239,15 @@ void AssemblingMatrixSystem<TMatrix, TVector>::buildGroupsOfComponentAssociatedT
             groups[pair].masses.insert(mass);
         }
     }
+
+    for (auto* mapping : this->m_mechanicalMappings)
+    {
+        const auto mstates = retrieveAssociatedMechanicalState(mapping);
+        for (auto& pair : generatePairs(mstates))
+        {
+            groups[pair].mappings.insert(mapping);
+        }
+    }
 }
 
 template <class TMatrix, class TVector>
@@ -258,10 +267,14 @@ void AssemblingMatrixSystem<TMatrix, TVector>::makeLocalMatrixGroups(const core:
         {
             std::shared_ptr<LocalMappedMatrixType<Real> > mat;
 
+            if (d_assembleStiffness.getValue() || d_assembleDamping.getValue())
             for (auto* component : group.forcefieds)
             {
-                mat = getSharedMatrix<Contribution::STIFFNESS>(component, pair);
-                if (!mat)
+                if (d_assembleStiffness.getValue())
+                {
+                    mat = getSharedMatrix<Contribution::STIFFNESS>(component, pair);
+                }
+                if (!mat && d_assembleDamping.getValue())
                 {
                     mat = getSharedMatrix<Contribution::DAMPING>(component, pair);
                 }
@@ -272,6 +285,7 @@ void AssemblingMatrixSystem<TMatrix, TVector>::makeLocalMatrixGroups(const core:
             }
             if (!mat)
             {
+                if (d_assembleMass.getValue())
                 for (auto* component : group.masses)
                 {
                     mat = getSharedMatrix<Contribution::MASS>(component, pair);
@@ -281,46 +295,115 @@ void AssemblingMatrixSystem<TMatrix, TVector>::makeLocalMatrixGroups(const core:
                     }
                 }
             }
-
             if (!mat)
             {
+                if (d_assembleGeometricStiffness.getValue())
+                for (auto* component : group.mappings)
+                {
+                    mat = getSharedMatrix<Contribution::GEOMETRIC_STIFFNESS>(component, pair);
+                    if (mat)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            if (!mat && (
+                (d_assembleStiffness.getValue() && !group.forcefieds.empty()) ||
+                (d_assembleDamping.getValue() && !group.forcefieds.empty()) ||
+                (d_assembleMass.getValue() && !group.masses.empty()) ||
+                (d_assembleGeometricStiffness.getValue() && !group.mappings.empty())
+            ))
+            {
+                std::string mstateNames = pair[0]->getPathName();
+                if (pair[0] != pair[1])
+                {
+                    mstateNames += " and " + pair[1]->getPathName();
+                }
+
+                constexpr auto join = [](const auto& components)
+                {
+                    return sofa::helper::join(components.begin(), components.end(),
+                        [](auto* component) { return component ? component->getPathName() : "null"; }, ",");
+                };
+
+                std::stringstream ss;
+                if (!group.masses.empty() && d_assembleMass.getValue())
+                {
+                    ss << "masses [" << join(group.masses) << "]";
+                    if (!group.forcefieds.empty() || !group.mappings.empty()) ss << ", ";
+                }
+                if (!group.forcefieds.empty() && (d_assembleDamping.getValue() || d_assembleStiffness.getValue()))
+                {
+                    ss << "force fields [" << join(group.forcefieds) << "]";
+                    if (!group.mappings.empty()) ss << ", ";
+                }
+                if (!group.mappings.empty() && d_assembleGeometricStiffness.getValue())
+                {
+                    ss << "mappings [" << join(group.mappings) << "]";
+                }
+
                 msg_info() << "Create a matrix to be mapped, shared among the following components: "
-                    << group << ", for a contribution on states " << pair[0]->getPathName()
-                    << " and " << pair[1]->getPathName();
+                    << ss.str() << ", for a contribution on mechanical state " << mstateNames;
                 mat = std::make_shared<LocalMappedMatrixType<Real> >();
             }
 
-            std::optional<type::Vec2u> matrixSize;
-
-            for (auto* component : group.forcefieds)
+            if (mat)
             {
-                setSharedMatrix<Contribution::STIFFNESS>(component, pair, mat);
-                setSharedMatrix<Contribution::DAMPING>(component, pair, mat);
-                if (!matrixSize.has_value())
-                {
-                    matrixSize = getSharedMatrixSize<Contribution::STIFFNESS>(component, pair);
-                }
-                if (!matrixSize.has_value())
-                {
-                    matrixSize = getSharedMatrixSize<Contribution::DAMPING>(component, pair);
-                }
-            }
+                std::optional<type::Vec2u> matrixSize;
+                if (d_assembleStiffness.getValue() || d_assembleDamping.getValue())
+                    for (auto* component : group.forcefieds)
+                    {
+                        if (d_assembleStiffness.getValue())
+                        {
+                            setSharedMatrix<Contribution::STIFFNESS>(component, pair, mat);
+                            if (!matrixSize.has_value())
+                            {
+                                matrixSize = getSharedMatrixSize<Contribution::STIFFNESS>(component, pair);
+                            }
+                        }
+                        if (d_assembleDamping.getValue())
+                        {
+                            setSharedMatrix<Contribution::DAMPING>(component, pair, mat);
 
-            for (auto* component : group.masses)
-            {
-                setSharedMatrix<Contribution::MASS>(component, pair, mat);
-                if (!matrixSize.has_value())
+                            if (!matrixSize.has_value())
+                            {
+                                matrixSize = getSharedMatrixSize<Contribution::DAMPING>(component, pair);
+                            }
+                        }
+                    }
+
+                if (d_assembleMass.getValue())
                 {
-                    matrixSize = getSharedMatrixSize<Contribution::MASS>(component, pair);
+                    for (auto* component : group.masses)
+                    {
+                        setSharedMatrix<Contribution::MASS>(component, pair, mat);
+                        if (!matrixSize.has_value())
+                        {
+                            matrixSize = getSharedMatrixSize<Contribution::MASS>(component, pair);
+                        }
+                    }
                 }
-            }
 
-            if (matrixSize)
-            {
-                mat->resize((*matrixSize)[0], (*matrixSize)[1]);
-            }
+                if (d_assembleGeometricStiffness.getValue())
+                {
+                    for (auto* component : group.mappings)
+                    {
+                        setSharedMatrix<Contribution::GEOMETRIC_STIFFNESS>(component, pair, mat);
+                        if (!matrixSize.has_value())
+                        {
+                            matrixSize = getSharedMatrixSize<Contribution::GEOMETRIC_STIFFNESS>(component, pair);
+                        }
+                    }
+                }
 
-            m_localMappedMatrices.emplace_back(pair, mat);
+                if (matrixSize)
+                {
+                    mat->resize((*matrixSize)[0], (*matrixSize)[1]);
+                }
+
+                m_localMappedMatrices.emplace_back(pair, mat);
+            }
         }
     }
 }
@@ -417,27 +500,12 @@ void AssemblingMatrixSystem<TMatrix, TVector>::associateLocalMatrixToComponents(
         {
             for (auto* m : this->m_mechanicalMappings)
             {
-                associateLocalMatrixTo(m, mparams);
+                associateLocalMatrixTo<Contribution::GEOMETRIC_STIFFNESS>(m, mparams);
             }
         }
 
         makeLocalMatrixGroups(mparams);
     }
-}
-
-template <class TMatrix, class TVector>
-void AssemblingMatrixSystem<TMatrix, TVector>::Dirichlet::discardRowCol(sofa::Index row, sofa::Index col)
-{
-    if (row == col && m_offset[0] == m_offset[1])
-    {
-        m_globalMatrix->clearRowCol(row + m_offset[0]);
-    }
-    else
-    {
-        m_globalMatrix->clearRow(row + m_offset[0]);
-        m_globalMatrix->clearCol(col + m_offset[1]);
-    }
-    m_globalMatrix->set(row + m_offset[0], col  + m_offset[1], 1.);
 }
 
 template <class TMatrix, class TVector>
@@ -486,6 +554,19 @@ sofa::type::vector<core::behavior::BaseMechanicalState*> AssemblingMatrixSystem<
 }
 
 template <class TMatrix, class TVector>
+sofa::type::vector<core::behavior::BaseMechanicalState*> AssemblingMatrixSystem<TMatrix, TVector>::
+retrieveAssociatedMechanicalState(BaseMapping* component)
+{
+    type::vector<BaseMechanicalState*> mstates = component->getMechFrom();
+
+    //remove duplicates: it may happen for MultiMappings
+    std::sort( mstates.begin(), mstates.end() );
+    mstates.erase( std::unique( mstates.begin(), mstates.end() ), mstates.end() );
+
+    return mstates;
+}
+
+template <class TMatrix, class TVector>
 auto AssemblingMatrixSystem<TMatrix, TVector>::generatePairs(const sofa::type::vector<core::behavior::BaseMechanicalState*>& mstates)
 -> sofa::type::vector<PairMechanicalStates>
 {
@@ -511,7 +592,7 @@ void AssemblingMatrixSystem<TMatrix, TVector>::associateLocalMatrixTo(
         retrieveAssociatedMechanicalState(component);
     if (mstates.empty())
     {
-        msg_error() << "The component " << component->getPathName() << " is associated to no mechanical state";
+        msg_error() << "The component " << component->getPathName() << " is not associated to any mechanical state";
         return;
     }
 
@@ -574,7 +655,7 @@ void AssemblingMatrixSystem<TMatrix, TVector>::associateLocalMatrixTo(
             {
                 m_damping[component].setMatrixAccumulator(mat, mstate0, mstate1);
             }
-            else if constexpr (c == Contribution::MASS)
+            else if constexpr (c == Contribution::MASS || c == Contribution::GEOMETRIC_STIFFNESS)
             {
                 matrixMaps.accumulators[component].push_back(mat);
             }
@@ -602,64 +683,6 @@ void AssemblingMatrixSystem<TMatrix, TVector>::associateLocalMatrixTo(
         }
     }
 
-}
-
-template <class TMatrix, class TVector>
-void AssemblingMatrixSystem<TMatrix, TVector>::associateLocalMatrixTo(BaseMapping* m, const core::MechanicalParams* mparams)
-{
-    const auto factor = sofa::core::mechanicalparams::kFactor(mparams);
-
-    const auto mstates = m->getMechFrom();
-    if (mstates.size() > 1)
-    {
-        static std::map<BaseMapping*, bool> emittedWarning;
-        msg_warning_when(!emittedWarning[m]) << "Trying to associate a local matrix to mapping " << m->getPathName() <<
-            ": Multiple mstates is not supported. It has no consequence and this warning can be ignored if the mapping is linear.";
-        emittedWarning[m] = true;
-        return;
-    }
-
-
-    // Mechanical state associated to this component (more than one association is not supported)
-    core::behavior::BaseMechanicalState* mstate = mstates.front();
-
-    const auto it = getLocalMatrixMap<Contribution::GEOMETRIC_STIFFNESS>().localMatrix.find(m);
-    if (it == getLocalMatrixMap<Contribution::GEOMETRIC_STIFFNESS>().localMatrix.end())
-    {
-        if (!m_mappingGraph.hasAnyMappingInput(mstate))
-        {
-            msg_info() << "No local matrix found: a new local matrix is created and associated to " << m->getPathName();
-            auto mat = createLocalGeometricStiffnessMatrix(m, factor);
-            getLocalMatrixMap<Contribution::GEOMETRIC_STIFFNESS>().accumulators[m].push_back(mat);
-            getLocalMatrixMap<Contribution::GEOMETRIC_STIFFNESS>().localMatrix.insert({m, mat});
-
-            if (mstate)
-            {
-                const auto matrixSize = mstate->getMatrixSize();
-                mat->setGlobalMatrix(this->getSystemMatrix());
-                mat->setPositionInGlobalMatrix(this->m_mappingGraph.getPositionInGlobalMatrix(mstate));
-                mat->setMatrixSize({matrixSize, matrixSize});
-            }
-        }
-        else
-        {
-            static std::map<std::string, std::once_flag> flag;
-            std::call_once(flag[m->getPathName()], [this, m]()
-            {
-                msg_warning() << "Geometric stiffness of mapped mapping is not supported (" << m->getPathName() << ")" ;
-            });
-        }
-    }
-    else
-    {
-        if (mstate && !m_mappingGraph.hasAnyMappingInput(mstate))
-        {
-            const auto matrixSize = mstate->getMatrixSize();
-            it->second->setGlobalMatrix(this->getSystemMatrix());
-            it->second->setPositionInGlobalMatrix(m_mappingGraph.getPositionInGlobalMatrix(mstate));
-            it->second->setMatrixSize({matrixSize, matrixSize});
-        }
-    }
 }
 
 template <class TMatrix, class TVector>
@@ -719,6 +742,10 @@ AssemblingMatrixSystem<TMatrix, TVector>::createLocalMappedMatrixT(
     else if constexpr (c == Contribution::DAMPING)
     {
         return createLocalMappedDampingMatrix(object, factor);
+    }
+    else if constexpr (c == Contribution::GEOMETRIC_STIFFNESS)
+    {
+        return createLocalMappedGeometricStiffnessMatrix(object, factor);
     }
 }
 
@@ -794,6 +821,14 @@ createLocalMappedDampingMatrix(BaseForceField* object, SReal factor) const
 }
 
 template <class TMatrix, class TVector>
+AssemblingMappedMatrixAccumulator<Contribution::GEOMETRIC_STIFFNESS, typename AssemblingMatrixSystem<TMatrix,
+TVector>::Real>* AssemblingMatrixSystem<TMatrix, TVector>::
+createLocalMappedGeometricStiffnessMatrix(BaseMapping* object, SReal factor) const
+{
+    return createLocalMatrixComponent<AssemblingMappedMatrixAccumulator<Contribution::GEOMETRIC_STIFFNESS, Real> >(object, factor);
+}
+
+template <class TMatrix, class TVector>
 void AssemblingMatrixSystem<TMatrix, TVector>::projectMappedMatrices(const core::MechanicalParams* mparams)
 {
     auto cparams = core::ConstraintParams(*mparams);
@@ -866,11 +901,7 @@ void AssemblingMatrixSystem<TMatrix, TVector>::assembleMappedMatrices(const core
     }
 
     sofa::helper::ScopedAdvancedTimer buildMappedMatricesTimer("projectMappedMatrices");
-    {
-        sofa::helper::ScopedAdvancedTimer matrixMappingTimer("matrixMapping");
-
-        projectMappedMatrices(mparams);
-    }
+    projectMappedMatrices(mparams);
 }
 
 template <class TMatrix, class TVector>
@@ -890,6 +921,21 @@ void AssemblingMatrixSystem<TMatrix, TVector>::applyProjectiveConstraints(const 
             }
         }
     }
+}
+
+template <class TMatrix, class TVector>
+void AssemblingMatrixSystem<TMatrix, TVector>::Dirichlet::discardRowCol(sofa::Index row, sofa::Index col)
+{
+    if (row == col && m_offset[0] == m_offset[1])
+    {
+        m_globalMatrix->clearRowCol(row + m_offset[0]);
+    }
+    else
+    {
+        m_globalMatrix->clearRow(row + m_offset[0]);
+        m_globalMatrix->clearCol(col + m_offset[1]);
+    }
+    m_globalMatrix->set(row + m_offset[0], col  + m_offset[1], 1.);
 }
 
 }

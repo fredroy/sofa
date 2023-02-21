@@ -92,28 +92,6 @@ struct LocalMatrixMaps
     }
 };
 
-template<class Real>
-struct LocalMatrixMaps<Contribution::GEOMETRIC_STIFFNESS, Real>
-{
-    using ListMatrixType = sofa::core::matrixaccumulator::get_list_abstract_strong_type<Contribution::GEOMETRIC_STIFFNESS>;
-    /// List of local matrices that components will use to add their contributions
-    std::map< BaseMapping*, ListMatrixType > accumulators;
-    /// The local matrix (value) that has been created and associated to a non-mapped component (key)
-    std::map< BaseMapping*, BaseAssemblingMatrixAccumulator<core::matrixaccumulator::Contribution::GEOMETRIC_STIFFNESS>* > localMatrix;
-
-    void clear()
-    {
-        for (const auto& [component, matrix] : localMatrix)
-        {
-            component->removeSlave(matrix);
-            matrix->reset();
-        }
-
-        accumulators.clear();
-        localMatrix.clear();
-    }
-};
-
 struct GroupOfComponentsAssociatedToAPairOfMechanicalStates;
 
 /**
@@ -203,9 +181,6 @@ protected:
     void associateLocalMatrixTo(sofa::core::matrixaccumulator::get_component_type<c>* component,
                                 const core::MechanicalParams* mparams);
 
-    /// Associate a local matrix to the provided mapping
-    void associateLocalMatrixTo(BaseMapping* mapping, const core::MechanicalParams* mparams);
-
     /**
      * Generic function to create a local matrix and associate it to a component
      */
@@ -233,6 +208,7 @@ protected:
     virtual AssemblingMappedMatrixAccumulator<Contribution::STIFFNESS, Real>* createLocalMappedStiffnessMatrix(BaseForceField* object, SReal factor) const;
     virtual AssemblingMappedMatrixAccumulator<Contribution::MASS, Real>* createLocalMappedMassMatrix(BaseMass* object, SReal factor) const;
     virtual AssemblingMappedMatrixAccumulator<Contribution::DAMPING, Real>* createLocalMappedDampingMatrix(BaseForceField* object, SReal factor) const;
+    virtual AssemblingMappedMatrixAccumulator<Contribution::GEOMETRIC_STIFFNESS, Real>* createLocalMappedGeometricStiffnessMatrix(BaseMapping* object, SReal factor) const;
 
     virtual void projectMappedMatrices(const core::MechanicalParams* mparams);
 
@@ -248,6 +224,8 @@ protected:
 
     /// Return the mechanical state associated to a component
     static sofa::type::vector<core::behavior::BaseMechanicalState*> retrieveAssociatedMechanicalState(const sofa::core::behavior::StateAccessor* component);
+
+    static sofa::type::vector<core::behavior::BaseMechanicalState*> retrieveAssociatedMechanicalState(BaseMapping* component);
 
     /// Generate all possible pairs of Mechanical States from a list of Mechanical States
     static sofa::type::vector<PairMechanicalStates> generatePairs(
@@ -294,6 +272,7 @@ struct GroupOfComponentsAssociatedToAPairOfMechanicalStates
 {
     std::set<BaseForceField*> forcefieds;
     std::set<BaseMass*> masses;
+    std::set<BaseMapping*> mappings;
 
     friend std::ostream& operator<<(std::ostream& os,
         const GroupOfComponentsAssociatedToAPairOfMechanicalStates& group);
@@ -302,13 +281,25 @@ struct GroupOfComponentsAssociatedToAPairOfMechanicalStates
 inline std::ostream& operator<<(std::ostream& os,
     const GroupOfComponentsAssociatedToAPairOfMechanicalStates& group)
 {
-    for (const auto component : group.masses)
+    constexpr auto join = [](const auto& components)
     {
-        os << component->getPathName() << " ";
+        return sofa::helper::join(components.begin(), components.end(),
+            [](auto* component) { return component ? component->getPathName() : "null"; }, ",");
+    };
+
+    if (!group.masses.empty())
+    {
+        os << "masses [" << join(group.masses) << "]";
+        if (!group.forcefieds.empty() || !group.mappings.empty()) os << ", ";
     }
-    for (const auto component : group.forcefieds)
+    if (!group.forcefieds.empty())
     {
-        os << component->getPathName() << " ";
+        os << "force fields [" << join(group.forcefieds) << "]";
+        if (!group.mappings.empty()) os << ", ";
+    }
+    if (!group.mappings.empty())
+    {
+        os << "mappings [" << join(group.mappings) << "]";
     }
     return os;
 }
