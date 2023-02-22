@@ -22,7 +22,7 @@
 #pragma once
 
 #include <sofa/component/linearsystem/config.h>
-#include <sofa/component/linearsystem/MatrixLinearSystem.h>
+#include <sofa/component/linearsystem/TypedMatrixLinearSystem.h>
 #include <sofa/core/behavior/BaseLocalForceFieldMatrix.h>
 #include <sofa/core/behavior/BaseLocalMassMatrix.h>
 #include <sofa/core/BaseLocalMappingMatrix.h>
@@ -107,10 +107,10 @@ struct GroupOfComponentsAssociatedToAPairOfMechanicalStates;
  * side and the solution. In the general cases, this type derives from sofa::linearalgebra::BaseVector.
  */
 template<class TMatrix, class TVector>
-class AssemblingMatrixSystem : public MatrixLinearSystem<TMatrix, TVector>
+class AssemblingMatrixSystem : public TypedMatrixLinearSystem<TMatrix, TVector>
 {
 public:
-    SOFA_CLASS(SOFA_TEMPLATE2(AssemblingMatrixSystem, TMatrix, TVector), SOFA_TEMPLATE2(MatrixLinearSystem, TMatrix, TVector));
+    SOFA_CLASS(SOFA_TEMPLATE2(AssemblingMatrixSystem, TMatrix, TVector), SOFA_TEMPLATE2(TypedMatrixLinearSystem, TMatrix, TVector));
 
     using Real = typename TMatrix::Real;
     using Contribution = core::matrixaccumulator::Contribution;

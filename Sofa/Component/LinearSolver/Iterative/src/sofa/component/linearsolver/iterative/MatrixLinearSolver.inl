@@ -75,7 +75,7 @@ void MatrixLinearSolver<Matrix, Vector, NoThreadManager>::doCheckLinearSystem()
 {
     if (!l_linearSystem)
     {
-        sofa::type::vector<MatrixLinearSystem<Matrix, Vector>* > listLinearSystems;
+        sofa::type::vector<TypedMatrixLinearSystem<Matrix, Vector>* > listLinearSystems;
         this->getContext()->getObjects(listLinearSystems);
 
         listLinearSystems.erase(std::remove(listLinearSystems.begin(), listLinearSystems.end(), nullptr),
@@ -113,7 +113,7 @@ void MatrixLinearSolver<Matrix, Vector, NoThreadManager>::doCheckLinearSystem()
             listSolvers.erase(std::remove(listSolvers.begin(), listSolvers.end(), nullptr),
                               listSolvers.end());
 
-            sofa::type::vector<MatrixLinearSystem<Matrix, Vector>* > notAlreadyAssociated;
+            sofa::type::vector<TypedMatrixLinearSystem<Matrix, Vector>* > notAlreadyAssociated;
             for (auto system : listLinearSystems)
             {
                 if (std::none_of(listSolvers.begin(), listSolvers.end(),

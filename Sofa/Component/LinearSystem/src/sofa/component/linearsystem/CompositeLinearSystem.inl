@@ -22,7 +22,7 @@
 #pragma once
 
 #include <sofa/component/linearsystem/CompositeLinearSystem.h>
-#include <sofa/component/linearsystem/MatrixLinearSystem.inl>
+#include <sofa/component/linearsystem/TypedMatrixLinearSystem.inl>
 
 namespace sofa::component::linearsystem
 {
@@ -38,7 +38,7 @@ CompositeLinearSystem<TMatrix, TVector>::CompositeLinearSystem()
 template <class TMatrix, class TVector>
 void CompositeLinearSystem<TMatrix, TVector>::init()
 {
-    MatrixLinearSystem<TMatrix, TVector>::init();
+    TypedMatrixLinearSystem<TMatrix, TVector>::init();
 
     if (l_linearSystems.empty())
     {

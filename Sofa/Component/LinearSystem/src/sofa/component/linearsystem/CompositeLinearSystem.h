@@ -22,7 +22,7 @@
 #pragma once
 #include <sofa/component/linearsystem/config.h>
 
-#include <sofa/component/linearsystem/MatrixLinearSystem.h>
+#include <sofa/component/linearsystem/TypedMatrixLinearSystem.h>
 
 namespace sofa::component::linearsystem
 {
@@ -35,10 +35,10 @@ namespace sofa::component::linearsystem
  * matrix.
  */
 template<class TMatrix, class TVector>
-class CompositeLinearSystem : public MatrixLinearSystem<TMatrix, TVector>
+class CompositeLinearSystem : public TypedMatrixLinearSystem<TMatrix, TVector>
 {
 public:
-    SOFA_CLASS(SOFA_TEMPLATE2(CompositeLinearSystem, TMatrix, TVector), SOFA_TEMPLATE2(MatrixLinearSystem, TMatrix, TVector));
+    SOFA_CLASS(SOFA_TEMPLATE2(CompositeLinearSystem, TMatrix, TVector), SOFA_TEMPLATE2(TypedMatrixLinearSystem, TMatrix, TVector));
 
 protected:
     CompositeLinearSystem();
@@ -66,10 +66,10 @@ protected:
     void postAssembleSystem(const core::MechanicalParams* /*mparams*/) override;
 
     ///< List of linear systems to assemble
-    MultiLink < MyType, MatrixLinearSystem<TMatrix, TVector>, BaseLink::FLAG_DUPLICATE > l_linearSystems;
+    MultiLink < MyType, TypedMatrixLinearSystem<TMatrix, TVector>, BaseLink::FLAG_DUPLICATE > l_linearSystems;
 
     ///< Among the list of linear systems, which one is to be used by the linear solver
-    SingleLink < MyType, MatrixLinearSystem<TMatrix, TVector>, BaseLink::FLAG_STOREPATH | BaseLink::FLAG_STRONGLINK > l_solverLinearSystem;
+    SingleLink < MyType, TypedMatrixLinearSystem<TMatrix, TVector>, BaseLink::FLAG_STOREPATH | BaseLink::FLAG_STRONGLINK > l_solverLinearSystem;
 };
 
 }

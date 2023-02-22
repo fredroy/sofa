@@ -38,10 +38,10 @@ namespace sofa::component::linearsystem
  * Component storing a global matrix representing a linear system
  */
 template<class TMatrix, class TVector>
-class MatrixLinearSystem : public sofa::core::behavior::BaseMatrixLinearSystem
+class TypedMatrixLinearSystem : public sofa::core::behavior::BaseMatrixLinearSystem
 {
 public:
-    SOFA_CLASS(SOFA_TEMPLATE2(MatrixLinearSystem, TMatrix, TVector), sofa::core::behavior::BaseMatrixLinearSystem);
+    SOFA_CLASS(SOFA_TEMPLATE2(TypedMatrixLinearSystem, TMatrix, TVector), sofa::core::behavior::BaseMatrixLinearSystem);
 
     template<class M, class V>
     friend class CompositeLinearSystem;

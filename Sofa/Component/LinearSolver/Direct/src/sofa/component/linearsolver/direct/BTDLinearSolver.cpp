@@ -33,7 +33,7 @@
 
 namespace sofa::component::linearsystem
 {
-    template class SOFA_COMPONENT_LINEARSOLVER_DIRECT_API MatrixLinearSystem< linearalgebra::BTDMatrix<6, SReal>, linearalgebra::BlockVector<6, SReal> >;
+    template class SOFA_COMPONENT_LINEARSOLVER_DIRECT_API TypedMatrixLinearSystem< linearalgebra::BTDMatrix<6, SReal>, linearalgebra::BlockVector<6, SReal> >;
     template class SOFA_COMPONENT_LINEARSOLVER_DIRECT_API AssemblingMatrixSystem<linearalgebra::BTDMatrix<6, SReal>, linearalgebra::BlockVector<6, SReal> >;
 
 } // namespace sofa::component::linearsystem

@@ -24,7 +24,7 @@
 
 #include <sofa/core/behavior/LinearSolver.h>
 #include <sofa/component/linearsolver/iterative/MatrixLinearSolver.h>
-#include <sofa/component/linearsystem/MatrixLinearSystem.h>
+#include <sofa/component/linearsystem/TypedMatrixLinearSystem.h>
 #include <sofa/component/linearsystem/AssemblingMatrixSystem.h>
 #include <sofa/linearalgebra/SparseMatrix.h>
 #include <sofa/linearalgebra/BTDMatrix.h>

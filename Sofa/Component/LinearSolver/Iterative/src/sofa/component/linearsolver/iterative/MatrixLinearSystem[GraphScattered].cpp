@@ -30,7 +30,7 @@ using sofa::component::linearsolver::GraphScatteredMatrix;
 using sofa::component::linearsolver::GraphScatteredVector;
 
 template<> SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API
-void MatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::setRHS(core::MultiVecDerivId v)
+void TypedMatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::setRHS(core::MultiVecDerivId v)
 {
     if (m_linearSystem.getRHS())
     {
@@ -39,7 +39,7 @@ void MatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::setRHS(core
 }
 
 template<> SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API
-void MatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::setSystemSolution(core::MultiVecDerivId v)
+void TypedMatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::setSystemSolution(core::MultiVecDerivId v)
 {
     if (m_linearSystem.getSolution())
     {
@@ -48,7 +48,7 @@ void MatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::setSystemSo
 }
 
 template<> SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API
-void MatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::copyLocalVectorToGlobalVector(core::MultiVecDerivId v, GraphScatteredVector* globalVector)
+void TypedMatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::copyLocalVectorToGlobalVector(core::MultiVecDerivId v, GraphScatteredVector* globalVector)
 {
     if (globalVector)
     {
@@ -57,13 +57,13 @@ void MatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::copyLocalVe
 }
 
 template<> SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API
-void MatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::dispatchSystemSolution(core::MultiVecDerivId v)
+void TypedMatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::dispatchSystemSolution(core::MultiVecDerivId v)
 {}
 
 template<> SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API
-void MatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::dispatchSystemRHS(core::MultiVecDerivId v)
+void TypedMatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::dispatchSystemRHS(core::MultiVecDerivId v)
 {}
 
-template class SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API MatrixLinearSystem< GraphScatteredMatrix, GraphScatteredVector >;
+template class SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API TypedMatrixLinearSystem< GraphScatteredMatrix, GraphScatteredVector >;
 
 } //namespace sofa::component::linearsystem

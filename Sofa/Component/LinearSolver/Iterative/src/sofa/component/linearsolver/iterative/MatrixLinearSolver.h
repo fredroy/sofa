@@ -34,7 +34,7 @@
 #include <sofa/linearalgebra/DiagonalMatrix.h>
 #include <sofa/linearalgebra/BlockDiagonalMatrix.h>
 #include <sofa/linearalgebra/RotationMatrix.h>
-#include <sofa/component/linearsystem/MatrixLinearSystem.h>
+#include <sofa/component/linearsystem/TypedMatrixLinearSystem.h>
 #include <sofa/component/linearsolver/iterative/MatrixLinearSystem[GraphScattered].h>
 
 #if SOFA_CORE_ENABLE_CRSMULTIMATRIXACCESSOR
@@ -228,7 +228,7 @@ public:
     linearalgebra::BaseVector* getSystemLHBaseVector() override { return l_linearSystem ? l_linearSystem->getSolutionVector() : nullptr; }
 
     /// Returns the linear system component associated to the linear solver
-    sofa::component::linearsystem::MatrixLinearSystem<Matrix, Vector>* getLinearSystem() const { return l_linearSystem.get(); }
+    sofa::component::linearsystem::TypedMatrixLinearSystem<Matrix, Vector>* getLinearSystem() const { return l_linearSystem.get(); }
 
     /// Solve the system as constructed using the previous methods
     void solveSystem() override;
@@ -376,7 +376,7 @@ protected:
 protected:
     SingleLink<
         MatrixLinearSolver<Matrix,Vector,NoThreadManager>,
-        sofa::component::linearsystem::MatrixLinearSystem<Matrix, Vector>,
+        sofa::component::linearsystem::TypedMatrixLinearSystem<Matrix, Vector>,
         BaseLink::FLAG_STOREPATH|BaseLink::FLAG_STRONGLINK
     > l_linearSystem;
 

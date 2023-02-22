@@ -22,16 +22,16 @@
 #pragma once
 #include <sofa/component/linearsystem/config.h>
 
-#include <sofa/component/linearsystem/MatrixLinearSystem.h>
+#include <sofa/component/linearsystem/TypedMatrixLinearSystem.h>
 
 namespace sofa::component::linearsystem
 {
 
 template<class TMatrix, class TVector>
-class SOFA_COMPONENT_LINEARSYSTEM_API MatrixFreeSystem : public MatrixLinearSystem<TMatrix, TVector>
+class SOFA_COMPONENT_LINEARSYSTEM_API MatrixFreeSystem : public TypedMatrixLinearSystem<TMatrix, TVector>
 {
 public:
-    SOFA_CLASS(SOFA_TEMPLATE2(MatrixFreeSystem, TMatrix, TVector), SOFA_TEMPLATE2(MatrixLinearSystem, TMatrix, TVector));
+    SOFA_CLASS(SOFA_TEMPLATE2(MatrixFreeSystem, TMatrix, TVector), SOFA_TEMPLATE2(TypedMatrixLinearSystem, TMatrix, TVector));
 
     void assembleSystem(const core::MechanicalParams* mparams) override {}
     void associateLocalMatrixToComponents(const core::MechanicalParams* mparams) override {}

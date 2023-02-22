@@ -21,7 +21,7 @@
 ******************************************************************************/
 #pragma once
 
-#include <sofa/component/linearsystem/MatrixLinearSystem.h>
+#include <sofa/component/linearsystem/TypedMatrixLinearSystem.h>
 #include <sofa/core/MechanicalParams.h>
 #include <sofa/helper/ScopedAdvancedTimer.h>
 #include <sofa/component/linearsystem/visitors/AssembleGlobalVectorFromLocalVectorVisitor.h>
@@ -35,7 +35,7 @@ namespace sofa::component::linearsystem
 {
 
 template<class TMatrix, class TVector>
-void MatrixLinearSystem<TMatrix, TVector>::preAssembleSystem(const core::MechanicalParams* mparams)
+void TypedMatrixLinearSystem<TMatrix, TVector>::preAssembleSystem(const core::MechanicalParams* mparams)
 {
     allocateSystem();
 
@@ -72,13 +72,13 @@ void MatrixLinearSystem<TMatrix, TVector>::preAssembleSystem(const core::Mechani
 }
 
 template <class TMatrix, class TVector>
-void MatrixLinearSystem<TMatrix, TVector>::allocateSystem()
+void TypedMatrixLinearSystem<TMatrix, TVector>::allocateSystem()
 {
     m_linearSystem.allocateSystem();
 }
 
 template <class TMatrix, class TVector>
-void MatrixLinearSystem<TMatrix, TVector>::resizeVectors(sofa::Size n)
+void TypedMatrixLinearSystem<TMatrix, TVector>::resizeVectors(sofa::Size n)
 {
     if (m_linearSystem.rhs)
     {
@@ -92,7 +92,7 @@ void MatrixLinearSystem<TMatrix, TVector>::resizeVectors(sofa::Size n)
 }
 
 template <class TMatrix, class TVector>
-void MatrixLinearSystem<TMatrix, TVector>::copyLocalVectorToGlobalVector(core::MultiVecDerivId v, TVector* globalVector)
+void TypedMatrixLinearSystem<TMatrix, TVector>::copyLocalVectorToGlobalVector(core::MultiVecDerivId v, TVector* globalVector)
 {
     if (globalVector)
     {
@@ -107,25 +107,25 @@ void MatrixLinearSystem<TMatrix, TVector>::copyLocalVectorToGlobalVector(core::M
 }
 
 template <class TMatrix, class TVector>
-TMatrix* MatrixLinearSystem<TMatrix, TVector>::getSystemMatrix() const
+TMatrix* TypedMatrixLinearSystem<TMatrix, TVector>::getSystemMatrix() const
 {
     return m_linearSystem.getMatrix();
 }
 
 template <class TMatrix, class TVector>
-TVector* MatrixLinearSystem<TMatrix, TVector>::getRHSVector() const
+TVector* TypedMatrixLinearSystem<TMatrix, TVector>::getRHSVector() const
 {
     return m_linearSystem.getRHS();
 }
 
 template <class TMatrix, class TVector>
-TVector* MatrixLinearSystem<TMatrix, TVector>::getSolutionVector() const
+TVector* TypedMatrixLinearSystem<TMatrix, TVector>::getSolutionVector() const
 {
     return m_linearSystem.getSolution();
 }
 
 template <class TMatrix, class TVector>
-linearalgebra::BaseMatrix* MatrixLinearSystem<TMatrix, TVector>::getSystemBaseMatrix() const
+linearalgebra::BaseMatrix* TypedMatrixLinearSystem<TMatrix, TVector>::getSystemBaseMatrix() const
 {
     if constexpr (std::is_base_of_v<sofa::linearalgebra::BaseMatrix, TMatrix>)
     {
@@ -138,19 +138,19 @@ linearalgebra::BaseMatrix* MatrixLinearSystem<TMatrix, TVector>::getSystemBaseMa
 }
 
 template <class TMatrix, class TVector>
-void MatrixLinearSystem<TMatrix, TVector>::resizeSystem(sofa::Size n)
+void TypedMatrixLinearSystem<TMatrix, TVector>::resizeSystem(sofa::Size n)
 {
     m_linearSystem.resizeSystem(n);
 }
 
 template <class TMatrix, class TVector>
-void MatrixLinearSystem<TMatrix, TVector>::clearSystem()
+void TypedMatrixLinearSystem<TMatrix, TVector>::clearSystem()
 {
     m_linearSystem.clearSystem();
 }
 
 template <class TMatrix, class TVector>
-void MatrixLinearSystem<TMatrix, TVector>::setRHS(core::MultiVecDerivId v)
+void TypedMatrixLinearSystem<TMatrix, TVector>::setRHS(core::MultiVecDerivId v)
 {
     if (!m_mappingGraph.isBuilt()) //note: this check does not make sure the scene graph is different from when the mapping graph has been built
     {
@@ -161,7 +161,7 @@ void MatrixLinearSystem<TMatrix, TVector>::setRHS(core::MultiVecDerivId v)
 }
 
 template <class TMatrix, class TVector>
-void MatrixLinearSystem<TMatrix, TVector>::setSystemSolution(core::MultiVecDerivId v)
+void TypedMatrixLinearSystem<TMatrix, TVector>::setSystemSolution(core::MultiVecDerivId v)
 {
     if (!m_mappingGraph.isBuilt()) //note: this check does not guarantee the scene graph is not different from when the mapping graph has been built
     {
@@ -175,7 +175,7 @@ void MatrixLinearSystem<TMatrix, TVector>::setSystemSolution(core::MultiVecDeriv
 }
 
 template <class TMatrix, class TVector>
-void MatrixLinearSystem<TMatrix, TVector>::dispatchSystemSolution(core::MultiVecDerivId v)
+void TypedMatrixLinearSystem<TMatrix, TVector>::dispatchSystemSolution(core::MultiVecDerivId v)
 {
     if (getSolutionVector())
     {
@@ -185,7 +185,7 @@ void MatrixLinearSystem<TMatrix, TVector>::dispatchSystemSolution(core::MultiVec
 }
 
 template <class TMatrix, class TVector>
-void MatrixLinearSystem<TMatrix, TVector>::dispatchSystemRHS(core::MultiVecDerivId v)
+void TypedMatrixLinearSystem<TMatrix, TVector>::dispatchSystemRHS(core::MultiVecDerivId v)
 {
     if (getRHSVector())
     {
@@ -195,7 +195,7 @@ void MatrixLinearSystem<TMatrix, TVector>::dispatchSystemRHS(core::MultiVecDeriv
 }
 
 template <class TMatrix, class TVector>
-core::objectmodel::BaseContext* MatrixLinearSystem<TMatrix, TVector>::getSolveContext()
+core::objectmodel::BaseContext* TypedMatrixLinearSystem<TMatrix, TVector>::getSolveContext()
 {
     auto* linearSolver = this->getContext()->template get<sofa::core::behavior::LinearSolver>(core::objectmodel::BaseContext::Local);
     if (linearSolver)
