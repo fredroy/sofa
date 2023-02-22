@@ -37,14 +37,7 @@ namespace helper
 ///@brief Split one string by a given delimiter and returns that into a std::vector
 std::vector<std::string> SOFA_HELPER_API split(const std::string& s, char delimiter);
 
-///@brief Join a container into a single string, separated by the provided delimiter.
-template<class S, class Container>
-std::string join(const Container& elems, const S& delim)
-{
-    return join(elems.begin(), elems.end(), delim);
-}
-
-template<class InputIt, class UnaryFunction, class S>
+template<class InputIt, class S>
 std::string join(InputIt first, InputIt last, const S& delim)
 {
     if(first == last)
@@ -70,6 +63,13 @@ std::string join(InputIt first, InputIt last, UnaryFunction f, const S& delim)
         ss << delim << f(*first++);
     }
     return ss.str();
+}
+
+///@brief Join a container into a single string, separated by the provided delimiter.
+template<class S, class Container>
+std::string join(const Container& elems, const S& delim)
+{
+    return join(elems.begin(), elems.end(), delim);
 }
 
 ///@brief returns a copy of the string given in argument.
