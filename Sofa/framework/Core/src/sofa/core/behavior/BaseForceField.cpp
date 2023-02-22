@@ -99,7 +99,7 @@ void BaseForceField::buildStiffnessMatrix(StiffnessMatrix* matrix)
     addKToMatrix(&params, &accessor);
 }
 
-void BaseForceField::buildDampingMatrix(DampingMatrix* matrices)
+void BaseForceField::buildDampingMatrix(DampingMatrix* matrix)
 {
     static std::set<BaseForceField*> hasEmittedWarning;
     if (hasEmittedWarning.insert(this).second)
@@ -127,7 +127,7 @@ void BaseForceField::buildDampingMatrix(DampingMatrix* matrices)
                 {
                     const auto mat = std::make_shared<AddToMatrixCompatMatrix<matrixaccumulator::Contribution::DAMPING> >();
                     mat->component = this;
-                    mat->matrices = matrices;
+                    mat->matrices = matrix;
                     mat->mstate1 = mstate1;
                     mat->mstate2 = mstate2;
 

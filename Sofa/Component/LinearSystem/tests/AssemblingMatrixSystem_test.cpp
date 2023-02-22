@@ -241,9 +241,9 @@ template<class DataTypes>
 public:
     SOFA_CLASS(BuggyForceField, sofa::core::behavior::ForceField<DataTypes>);
 
-    void buildStiffnessMatrix(sofa::core::behavior::StiffnessMatrix* matrices) override
+    void buildStiffnessMatrix(sofa::core::behavior::StiffnessMatrix* matrix) override
     {
-        auto dfdx = matrices->getForceDerivativeIn(this->mstate).withRespectToPositionsIn(this->mstate);
+        auto dfdx = matrix->getForceDerivativeIn(this->mstate).withRespectToPositionsIn(this->mstate);
         dfdx(10, 20) += 0.;
     }
 

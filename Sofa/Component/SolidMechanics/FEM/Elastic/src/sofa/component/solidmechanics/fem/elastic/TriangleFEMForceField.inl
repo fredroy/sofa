@@ -617,13 +617,13 @@ void TriangleFEMForceField<DataTypes>::addKToMatrix(sofa::linearalgebra::BaseMat
 }
 
 template <class DataTypes>
-void TriangleFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrices)
+void TriangleFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrix)
 {
     constexpr auto S = DataTypes::deriv_total_size; // size of node blocks
     unsigned int i = 0;
 
-    auto dfdx = matrices->getForceDerivativeIn(this->mstate.get())
-                         .withRespectToPositionsIn(this->mstate.get());
+    auto dfdx = matrix->getForceDerivativeIn(this->mstate)
+                       .withRespectToPositionsIn(this->mstate);
 
     for (const auto nodeIndex : *_indexedElements)
     {

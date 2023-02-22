@@ -642,12 +642,12 @@ void BeamFEMForceField<DataTypes>::addKToMatrix(const sofa::core::MechanicalPara
 }
 
 template <class DataTypes>
-void BeamFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrices)
+void BeamFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrix)
 {
     unsigned int i=0;
 
-    auto dfdx = matrices->getForceDerivativeIn(this->mstate.get())
-                         .withRespectToPositionsIn(this->mstate.get());
+    auto dfdx = matrix->getForceDerivativeIn(this->mstate)
+                       .withRespectToPositionsIn(this->mstate);
 
     if (m_partialListSegment)
     {

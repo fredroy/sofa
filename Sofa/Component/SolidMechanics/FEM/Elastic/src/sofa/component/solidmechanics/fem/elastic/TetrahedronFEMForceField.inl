@@ -2067,7 +2067,7 @@ void TetrahedronFEMForceField<DataTypes>::addKToMatrix(sofa::linearalgebra::Base
 }
 
 template <class DataTypes>
-void TetrahedronFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrices)
+void TetrahedronFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrix)
 {
     int IT = 0;
     StiffnessMatrix JKJt,tmp;
@@ -2078,8 +2078,8 @@ void TetrahedronFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::S
     constexpr auto S = DataTypes::deriv_total_size; // size of node blocks
     constexpr auto N = Element::size();
 
-    auto dfdx = matrices->getForceDerivativeIn(this->mstate.get())
-                         .withRespectToPositionsIn(this->mstate.get());
+    auto dfdx = matrix->getForceDerivativeIn(this->mstate)
+                       .withRespectToPositionsIn(this->mstate);
 
     for(auto it = _indexedElements->begin() ; it != _indexedElements->end() ; ++it,++IT)
     {

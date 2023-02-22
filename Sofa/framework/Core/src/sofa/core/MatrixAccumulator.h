@@ -175,7 +175,6 @@ public:
         add(matrixaccumulator::no_check, row, col, value);
     }
 
-
     void add(sofa::SignedIndex row, sofa::SignedIndex col, const sofa::type::Mat<3, 3, float>& value) override final
     {
         if constexpr (TStrategy::verify_index::value)

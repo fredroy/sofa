@@ -525,7 +525,7 @@ void TetrahedronHyperelasticityFEMForceField<DataTypes>::addKToMatrix(sofa::line
 
 template <class DataTypes>
 void TetrahedronHyperelasticityFEMForceField<DataTypes>::buildStiffnessMatrix(
-    core::behavior::StiffnessMatrix* matrices)
+    core::behavior::StiffnessMatrix* matrix)
 {
     /// if the  matrix needs to be updated
     if (m_updateMatrix)
@@ -540,8 +540,8 @@ void TetrahedronHyperelasticityFEMForceField<DataTypes>::buildStiffnessMatrix(
     unsigned int i,j,N0, N1, l;
     Index noeud0, noeud1;
 
-    auto dfdx = matrices->getForceDerivativeIn(this->mstate.get())
-                         .withRespectToPositionsIn(this->mstate.get());
+    auto dfdx = matrix->getForceDerivativeIn(this->mstate)
+                       .withRespectToPositionsIn(this->mstate);
 
     for(l=0; l<nbEdges; l++ )
     {

@@ -392,12 +392,12 @@ void TetrahedronDiffusionFEMForceField<DataTypes>::addKToMatrix(const core::Mech
 
 template <class DataTypes>
 void TetrahedronDiffusionFEMForceField<DataTypes>::buildStiffnessMatrix(
-    core::behavior::StiffnessMatrix* matrices)
+    core::behavior::StiffnessMatrix* matrix)
 {
     constexpr auto N = DataTypes::deriv_total_size;
 
-    auto dfdx = matrices->getForceDerivativeIn(this->mstate.get())
-                         .withRespectToPositionsIn(this->mstate.get());
+    auto dfdx = matrix->getForceDerivativeIn(this->mstate)
+                       .withRespectToPositionsIn(this->mstate);
 
     const auto& edges = m_topology->getEdges();
     std::size_t edgeId {};

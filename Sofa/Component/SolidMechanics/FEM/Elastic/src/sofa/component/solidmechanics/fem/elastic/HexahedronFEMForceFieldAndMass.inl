@@ -253,9 +253,9 @@ void HexahedronFEMForceFieldAndMass<DataTypes>::addMToMatrix(const core::Mechani
 }
 
 template<class DataTypes>
-void HexahedronFEMForceFieldAndMass<DataTypes>::buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrices)
+void HexahedronFEMForceFieldAndMass<DataTypes>::buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrix)
 {
-    HexahedronFEMForceFieldT::buildStiffnessMatrix(matrices);
+    HexahedronFEMForceFieldT::buildStiffnessMatrix(matrix);
 }
 
 template<class DataTypes>

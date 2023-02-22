@@ -84,12 +84,12 @@ void UniformVelocityDampingForceField<DataTypes>::addBToMatrix(sofa::linearalgeb
 }
 
 template <class DataTypes>
-void UniformVelocityDampingForceField<DataTypes>::buildDampingMatrix(core::behavior::DampingMatrix* matrices)
+void UniformVelocityDampingForceField<DataTypes>::buildDampingMatrix(core::behavior::DampingMatrix* matrix)
 {
     if( !d_implicit.getValue() ) return;
 
-    auto dfdv = matrices->getForceDerivativeIn(this->mstate)
-                         .withRespectToVelocityIn(this->mstate);
+    auto dfdv = matrix->getForceDerivativeIn(this->mstate)
+                       .withRespectToVelocityIn(this->mstate);
 
     const sofa::Size size = this->mstate->getMatrixSize();
     const auto damping = sofa::helper::ReadAccessor(dampingCoefficient);

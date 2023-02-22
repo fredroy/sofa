@@ -46,7 +46,7 @@ public:
     void addDForce(const sofa::core::MechanicalParams* mparams, DataVecDeriv& df, const DataVecDeriv& dx) override;
 
     void addKToMatrix(const sofa::core::MechanicalParams* mparams, const sofa::core::behavior::MultiMatrixAccessor* matrix) override;
-    void buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrices) override;
+    void buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrix) override;
 
     SReal getPotentialEnergy(const sofa::core::MechanicalParams*, const DataVecCoord&) const override
     {

@@ -1171,15 +1171,15 @@ void HexahedronFEMForceField<DataTypes>::addKToMatrix(const core::MechanicalPara
 }
 
 template<class DataTypes>
-void HexahedronFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrices)
+void HexahedronFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrix)
 {
     sofa::Index e { 0 }; //index of the element in the topology
 
     const auto& stiffnesses = _elementStiffnesses.getValue();
     const auto* indexedElements = this->getIndexedElements();
 
-    auto dfdx = matrices->getForceDerivativeIn(this->mstate.get())
-                         .withRespectToPositionsIn(this->mstate.get());
+    auto dfdx = matrix->getForceDerivativeIn(this->mstate)
+                       .withRespectToPositionsIn(this->mstate);
 
     for (const auto& element : *indexedElements)
     {

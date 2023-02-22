@@ -75,7 +75,7 @@ public:
       /// Forcefield functions for Matrix system. Adding derivate force to global forcefield vector. (direct solver)
       void addKToMatrix(const core::MechanicalParams* mparams, const sofa::core::behavior::MultiMatrixAccessor* matrix) override;
 
-      void buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrices) override;
+      void buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrix) override;
       void buildDampingMatrix(core::behavior::DampingMatrix* matrices) override {}
 
       /// Return Potential energy of the mesh.

@@ -169,7 +169,7 @@ public:
 
     virtual void buildStiffnessMatrix(StiffnessMatrix* matrix);
 
-    virtual void buildDampingMatrix(DampingMatrix* matrices);
+    virtual void buildDampingMatrix(DampingMatrix* matrix);
 
     /// @}
 
