@@ -107,10 +107,10 @@ struct GroupOfComponentsAssociatedToAPairOfMechanicalStates;
  * side and the solution. In the general cases, this type derives from sofa::linearalgebra::BaseVector.
  */
 template<class TMatrix, class TVector>
-class AssemblingMatrixSystem : public TypedMatrixLinearSystem<TMatrix, TVector>
+class MatrixLinearSystem : public TypedMatrixLinearSystem<TMatrix, TVector>
 {
 public:
-    SOFA_CLASS(SOFA_TEMPLATE2(AssemblingMatrixSystem, TMatrix, TVector), SOFA_TEMPLATE2(TypedMatrixLinearSystem, TMatrix, TVector));
+    SOFA_CLASS(SOFA_TEMPLATE2(MatrixLinearSystem, TMatrix, TVector), SOFA_TEMPLATE2(TypedMatrixLinearSystem, TMatrix, TVector));
 
     using Real = typename TMatrix::Real;
     using Contribution = core::matrixaccumulator::Contribution;
@@ -128,7 +128,7 @@ public:
 
 protected:
 
-    AssemblingMatrixSystem();
+    MatrixLinearSystem();
 
     using Inherit1::m_mappingGraph;
 

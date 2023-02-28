@@ -29,7 +29,7 @@ namespace sofa::component::linearsystem
 /**
  * Local matrix component associated to force fields, masses and mappings
  *
- * They are associated to components by the assembling matrix system @AssemblingMatrixSystem.
+ * They are associated to components by the assembling matrix system @MatrixLinearSystem.
  * AssemblingMatrixAccumulator is not added to the factory. It is not up to the user to add this
  * component in the scene graph.
  *

@@ -20,8 +20,8 @@
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
 #include <sofa/testing/BaseTest.h>
+#include <sofa/component/linearsystem/TypedMatrixLinearSystem.inl>
 #include <sofa/component/linearsystem/MatrixLinearSystem.inl>
-#include <sofa/component/linearsystem/AssemblingMatrixSystem.inl>
 #include <sofa/testing/TestMessageHandler.h>
 
 #include <sofa/core/MechanicalParams.h>
@@ -32,14 +32,14 @@
 #include <sofa/component/solidmechanics/spring/StiffSpringForceField.h>
 #include <sofa/core/behavior/ForceField.h>
 
-#include "sofa/core/behavior/MultiVec.h"
-#include "sofa/testing/NumericTest.h"
+#include <sofa/core/behavior/MultiVec.h>
+#include <sofa/testing/NumericTest.h>
 
-TEST(LinearSystem, AssemblingMatrixSystem_noContext)
+TEST(LinearSystem, MatrixSystem_noContext)
 {
     using MatrixType = sofa::linearalgebra::CompressedRowSparseMatrix<SReal>;
-    using AssemblingMatrixSystem = sofa::component::linearsystem::AssemblingMatrixSystem<MatrixType, sofa::linearalgebra::FullVector<SReal> >;
-    AssemblingMatrixSystem::SPtr linearSystem = sofa::core::objectmodel::New<AssemblingMatrixSystem>();
+    using MatrixSystem = sofa::component::linearsystem::MatrixLinearSystem<MatrixType, sofa::linearalgebra::FullVector<SReal> >;
+    MatrixSystem::SPtr linearSystem = sofa::core::objectmodel::New<MatrixSystem>();
     EXPECT_NE(linearSystem, nullptr);
 
     EXPECT_TRUE(linearSystem->d_assembleStiffness.getValue());
@@ -58,13 +58,13 @@ TEST(LinearSystem, AssemblingMatrixSystem_noContext)
 }
 
 
-TEST(LinearSystem, AssemblingMatrixSystem)
+TEST(LinearSystem, MatrixSystem)
 {
     sofa::simulation::Node::SPtr root = sofa::core::objectmodel::New<sofa::simulation::graph::DAGNode>();
 
     using MatrixType = sofa::linearalgebra::CompressedRowSparseMatrix<SReal>;
-    using AssemblingMatrixSystem = sofa::component::linearsystem::AssemblingMatrixSystem<MatrixType, sofa::linearalgebra::FullVector<SReal> >;
-    AssemblingMatrixSystem::SPtr linearSystem = sofa::core::objectmodel::New<AssemblingMatrixSystem>();
+    using MatrixSystem = sofa::component::linearsystem::MatrixLinearSystem<MatrixType, sofa::linearalgebra::FullVector<SReal> >;
+    MatrixSystem::SPtr linearSystem = sofa::core::objectmodel::New<MatrixSystem>();
     EXPECT_NE(linearSystem, nullptr);
 
     root->addObject(linearSystem);
@@ -85,7 +85,7 @@ TEST(LinearSystem, AssemblingMatrixSystem)
     EXPECT_EQ(linearSystem->getMatrixSize(), sofa::type::Vec2u(mstate->getMatrixSize(), mstate->getMatrixSize()));
 }
 
-TEST(LinearSystem, AssemblingMatrixSystem_springForceField)
+TEST(LinearSystem, MatrixSystem_springForceField)
 {
     // required to be able to use EXPECT_MSG_NOEMIT and EXPECT_MSG_EMIT
     sofa::helper::logging::MessageDispatcher::addHandler(sofa::testing::MainGtestMessageHandler::getInstance() ) ;
@@ -93,8 +93,8 @@ TEST(LinearSystem, AssemblingMatrixSystem_springForceField)
     sofa::simulation::Node::SPtr root = sofa::core::objectmodel::New<sofa::simulation::graph::DAGNode>();
 
     using MatrixType = sofa::linearalgebra::FullMatrix<SReal>;
-    using AssemblingMatrixSystem = sofa::component::linearsystem::AssemblingMatrixSystem<MatrixType, sofa::linearalgebra::FullVector<SReal> >;
-    AssemblingMatrixSystem::SPtr linearSystem = sofa::core::objectmodel::New<AssemblingMatrixSystem>();
+    using MatrixSystem = sofa::component::linearsystem::MatrixLinearSystem<MatrixType, sofa::linearalgebra::FullVector<SReal> >;
+    MatrixSystem::SPtr linearSystem = sofa::core::objectmodel::New<MatrixSystem>();
     linearSystem->f_printLog.setValue(true);
     EXPECT_NE(linearSystem, nullptr);
 
@@ -294,15 +294,15 @@ public:
     static const char* Name() { return "EmptyMatrix"; }
 };
 
-TEST(LinearSystem, AssemblingMatrixSystem_buggyForceField)
+TEST(LinearSystem, MatrixSystem_buggyForceField)
 {
     // required to be able to use EXPECT_MSG_NOEMIT and EXPECT_MSG_EMIT
     sofa::helper::logging::MessageDispatcher::addHandler(sofa::testing::MainGtestMessageHandler::getInstance() ) ;
 
     sofa::simulation::Node::SPtr root = sofa::core::objectmodel::New<sofa::simulation::graph::DAGNode>();
 
-    using AssemblingMatrixSystem = sofa::component::linearsystem::AssemblingMatrixSystem<EmptyMatrix, sofa::linearalgebra::FullVector<SReal> >;
-    AssemblingMatrixSystem::SPtr linearSystem = sofa::core::objectmodel::New<AssemblingMatrixSystem>();
+    using MatrixSystem = sofa::component::linearsystem::MatrixLinearSystem<EmptyMatrix, sofa::linearalgebra::FullVector<SReal> >;
+    MatrixSystem::SPtr linearSystem = sofa::core::objectmodel::New<MatrixSystem>();
 
     root->addObject(linearSystem);
 

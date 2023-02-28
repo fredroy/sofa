@@ -24,7 +24,7 @@
 
 #include <sofa/component/linearsolver/iterative/GraphScatteredTypes.h>
 #include <sofa/component/linearsolver/iterative/LinearSystemData[GraphScattered].h>
-#include <sofa/component/linearsystem/AssemblingMatrixSystem.h>
+#include <sofa/component/linearsystem/MatrixLinearSystem.h>
 
 namespace sofa::component::linearsystem
 {

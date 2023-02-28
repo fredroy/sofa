@@ -21,7 +21,7 @@
 ******************************************************************************/
 #define SOFA_COMPONENT_LINEARSOLVER_MATRIXLINEARSYSTEM_GRAPHSCATTERED_CPP
 #include <sofa/component/linearsolver/iterative/MatrixLinearSystem[GraphScattered].h>
-#include <sofa/component/linearsystem/MatrixLinearSystem.inl>
+#include <sofa/component/linearsystem/TypedMatrixLinearSystem.inl>
 
 namespace sofa::component::linearsystem
 {

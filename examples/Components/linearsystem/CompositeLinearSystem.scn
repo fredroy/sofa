@@ -26,9 +26,9 @@
         <EulerImplicitSolver name="odesolver" rayleighStiffness="0.1" rayleighMass="0.1" />
 
         <Node name="matrices">
-            <AssemblingMatrixSystem template="CompressedRowSparseMatrixd" name="system"/>
-            <AssemblingMatrixSystem template="CompressedRowSparseMatrixd" name="K" assembleMass="false" assembleDamping="false" assembleGeometricStiffness="false" applyProjectiveConstraints="false"/>
-            <AssemblingMatrixSystem template="CompressedRowSparseMatrixd" name="M" assembleStiffness="false" assembleDamping="false" assembleGeometricStiffness="false" applyProjectiveConstraints="false"/>
+            <MatrixLinearSystem template="CompressedRowSparseMatrixd" name="system"/>
+            <MatrixLinearSystem template="CompressedRowSparseMatrixd" name="K" assembleMass="false" assembleDamping="false" assembleGeometricStiffness="false" applyProjectiveConstraints="false"/>
+            <MatrixLinearSystem template="CompressedRowSparseMatrixd" name="M" assembleStiffness="false" assembleDamping="false" assembleGeometricStiffness="false" applyProjectiveConstraints="false"/>
             <GlobalSystemMatrixImage name="imageA" linearSystem="@system"/>
             <GlobalSystemMatrixImage name="imageK" linearSystem="@K"/>
             <GlobalSystemMatrixImage name="imageM" linearSystem="@M"/>

@@ -19,7 +19,7 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#include <sofa/component/linearsystem/AssemblingMatrixSystem.inl>
+#include <sofa/component/linearsystem/MatrixLinearSystem.inl>
 
 #include <sofa/core/ObjectFactory.h>
 
@@ -41,27 +41,27 @@ using sofa::linearalgebra::RotationMatrix;
 using sofa::linearalgebra::FullMatrix;
 using sofa::linearalgebra::FullVector;
 
-template class SOFA_COMPONENT_LINEARSYSTEM_API AssemblingMatrixSystem< FullMatrix<SReal>, FullVector<SReal> >;
-template class SOFA_COMPONENT_LINEARSYSTEM_API AssemblingMatrixSystem< SparseMatrix<SReal>, FullVector<SReal> >;
-template class SOFA_COMPONENT_LINEARSYSTEM_API AssemblingMatrixSystem< CompressedRowSparseMatrix<SReal>, FullVector<SReal> >;
-template class SOFA_COMPONENT_LINEARSYSTEM_API AssemblingMatrixSystem< CompressedRowSparseMatrix<type::Mat<2,2,SReal> >, FullVector<SReal> >;
-template class SOFA_COMPONENT_LINEARSYSTEM_API AssemblingMatrixSystem< CompressedRowSparseMatrix<type::Mat<3,3,SReal> >, FullVector<SReal> >;
-template class SOFA_COMPONENT_LINEARSYSTEM_API AssemblingMatrixSystem< CompressedRowSparseMatrix<type::Mat<4,4,SReal> >, FullVector<SReal> >;
-template class SOFA_COMPONENT_LINEARSYSTEM_API AssemblingMatrixSystem< CompressedRowSparseMatrix<type::Mat<6,6,SReal> >, FullVector<SReal> >;
-template class SOFA_COMPONENT_LINEARSYSTEM_API AssemblingMatrixSystem< CompressedRowSparseMatrix<type::Mat<8,8,SReal> >, FullVector<SReal> >;
-template class SOFA_COMPONENT_LINEARSYSTEM_API AssemblingMatrixSystem< DiagonalMatrix<SReal>, FullVector<SReal> >;
-template class SOFA_COMPONENT_LINEARSYSTEM_API AssemblingMatrixSystem< BlockDiagonalMatrix<3,SReal>, FullVector<SReal> >;
-template class SOFA_COMPONENT_LINEARSYSTEM_API AssemblingMatrixSystem< RotationMatrix<SReal>, FullVector<SReal> >;
+template class SOFA_COMPONENT_LINEARSYSTEM_API MatrixLinearSystem< FullMatrix<SReal>, FullVector<SReal> >;
+template class SOFA_COMPONENT_LINEARSYSTEM_API MatrixLinearSystem< SparseMatrix<SReal>, FullVector<SReal> >;
+template class SOFA_COMPONENT_LINEARSYSTEM_API MatrixLinearSystem< CompressedRowSparseMatrix<SReal>, FullVector<SReal> >;
+template class SOFA_COMPONENT_LINEARSYSTEM_API MatrixLinearSystem< CompressedRowSparseMatrix<type::Mat<2,2,SReal> >, FullVector<SReal> >;
+template class SOFA_COMPONENT_LINEARSYSTEM_API MatrixLinearSystem< CompressedRowSparseMatrix<type::Mat<3,3,SReal> >, FullVector<SReal> >;
+template class SOFA_COMPONENT_LINEARSYSTEM_API MatrixLinearSystem< CompressedRowSparseMatrix<type::Mat<4,4,SReal> >, FullVector<SReal> >;
+template class SOFA_COMPONENT_LINEARSYSTEM_API MatrixLinearSystem< CompressedRowSparseMatrix<type::Mat<6,6,SReal> >, FullVector<SReal> >;
+template class SOFA_COMPONENT_LINEARSYSTEM_API MatrixLinearSystem< CompressedRowSparseMatrix<type::Mat<8,8,SReal> >, FullVector<SReal> >;
+template class SOFA_COMPONENT_LINEARSYSTEM_API MatrixLinearSystem< DiagonalMatrix<SReal>, FullVector<SReal> >;
+template class SOFA_COMPONENT_LINEARSYSTEM_API MatrixLinearSystem< BlockDiagonalMatrix<3,SReal>, FullVector<SReal> >;
+template class SOFA_COMPONENT_LINEARSYSTEM_API MatrixLinearSystem< RotationMatrix<SReal>, FullVector<SReal> >;
 
 int AssemblingMatrixLinearSystemClass = core::RegisterObject("Linear system")
-        .add<AssemblingMatrixSystem< FullMatrix<SReal>, FullVector<SReal> > >()
-        .add<AssemblingMatrixSystem< SparseMatrix<SReal>, FullVector<SReal> > >()
-        .add<AssemblingMatrixSystem< CompressedRowSparseMatrix<SReal>, FullVector<SReal> > >(true)
-        .add<AssemblingMatrixSystem< CompressedRowSparseMatrix<type::Mat<2,2,SReal> >, FullVector<SReal> > >()
-        .add<AssemblingMatrixSystem< CompressedRowSparseMatrix<type::Mat<3,3,SReal> >, FullVector<SReal> > >()
-        .add<AssemblingMatrixSystem< CompressedRowSparseMatrix<type::Mat<4,4,SReal> >, FullVector<SReal> > >()
-        .add<AssemblingMatrixSystem< CompressedRowSparseMatrix<type::Mat<6,6,SReal> >, FullVector<SReal> > >()
-        .add<AssemblingMatrixSystem< CompressedRowSparseMatrix<type::Mat<8,8,SReal> >, FullVector<SReal> > >()
+        .add<MatrixLinearSystem< FullMatrix<SReal>, FullVector<SReal> > >()
+        .add<MatrixLinearSystem< SparseMatrix<SReal>, FullVector<SReal> > >()
+        .add<MatrixLinearSystem< CompressedRowSparseMatrix<SReal>, FullVector<SReal> > >(true)
+        .add<MatrixLinearSystem< CompressedRowSparseMatrix<type::Mat<2,2,SReal> >, FullVector<SReal> > >()
+        .add<MatrixLinearSystem< CompressedRowSparseMatrix<type::Mat<3,3,SReal> >, FullVector<SReal> > >()
+        .add<MatrixLinearSystem< CompressedRowSparseMatrix<type::Mat<4,4,SReal> >, FullVector<SReal> > >()
+        .add<MatrixLinearSystem< CompressedRowSparseMatrix<type::Mat<6,6,SReal> >, FullVector<SReal> > >()
+        .add<MatrixLinearSystem< CompressedRowSparseMatrix<type::Mat<8,8,SReal> >, FullVector<SReal> > >()
         ;
 
 } //namespace sofa::component::linearsystem

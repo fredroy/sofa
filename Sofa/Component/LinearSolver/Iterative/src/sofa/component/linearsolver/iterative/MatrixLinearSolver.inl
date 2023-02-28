@@ -35,7 +35,7 @@ using sofa::simulation::mechanicalvisitor::MechanicalMultiVectorFromBaseVectorVi
 using sofa::simulation::mechanicalvisitor::MechanicalMultiVectorPeqBaseVectorVisitor;
 
 #include <sofa/core/ObjectFactory.h>
-#include <sofa/component/linearsystem/AssemblingMatrixSystem.h>
+#include <sofa/component/linearsystem/MatrixLinearSystem.h>
 
 namespace sofa::component::linearsolver
 {
@@ -66,7 +66,7 @@ void MatrixLinearSolver<Matrix,Vector>::init()
 template <class Matrix, class Vector>
 void MatrixLinearSolver<Matrix, Vector, NoThreadManager>::checkLinearSystem()
 {
-    doCheckLinearSystem<AssemblingMatrixSystem<Matrix, Vector> >();
+    doCheckLinearSystem<MatrixLinearSystem<Matrix, Vector> >();
 }
 
 template <class Matrix, class Vector>

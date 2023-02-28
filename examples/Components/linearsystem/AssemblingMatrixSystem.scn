@@ -4,7 +4,7 @@
         <RequiredPlugin name="Sofa.Component.Constraint.Projective"/> <!-- Needed to use components [FixedConstraint] -->
         <RequiredPlugin name="Sofa.Component.Engine.Select"/> <!-- Needed to use components [BoxROI] -->
         <RequiredPlugin name="Sofa.Component.LinearSolver.Direct"/> <!-- Needed to use components [SparseLDLSolver] -->
-        <RequiredPlugin name="Sofa.Component.LinearSystem"/> <!-- Needed to use components [AssemblingMatrixSystem] -->
+        <RequiredPlugin name="Sofa.Component.LinearSystem"/> <!-- Needed to use components [MatrixLinearSystem] -->
         <RequiredPlugin name="Sofa.Component.Mapping.Linear"/> <!-- Needed to use components [BarycentricMapping] -->
         <RequiredPlugin name="Sofa.Component.Mapping.NonLinear"/> <!-- Needed to use components [RigidMapping] -->
         <RequiredPlugin name="Sofa.Component.Mass"/> <!-- Needed to use components [UniformMass] -->
@@ -29,10 +29,10 @@
         <EulerImplicitSolver name="odesolver" rayleighStiffness="0.1" rayleighMass="0.1" />
 
         <Node name="matrices">
-            <AssemblingMatrixSystem name="A"/>
-            <AssemblingMatrixSystem name="K" assembleMass="false" assembleStiffness="true" assembleDamping="false" assembleGeometricStiffness="false" applyProjectiveConstraints="false" />
-            <AssemblingMatrixSystem name="M" assembleMass="true" assembleStiffness="false" assembleDamping="false" assembleGeometricStiffness="false" applyProjectiveConstraints="false"/>
-            <AssemblingMatrixSystem name="GS" printLog="true" assembleMass="false" assembleStiffness="false" assembleDamping="false" assembleGeometricStiffness="true" applyProjectiveConstraints="false"/>
+            <MatrixLinearSystem name="A"/>
+            <MatrixLinearSystem name="K" assembleMass="false" assembleStiffness="true" assembleDamping="false" assembleGeometricStiffness="false" applyProjectiveConstraints="false" />
+            <MatrixLinearSystem name="M" assembleMass="true" assembleStiffness="false" assembleDamping="false" assembleGeometricStiffness="false" applyProjectiveConstraints="false"/>
+            <MatrixLinearSystem name="GS" printLog="true" assembleMass="false" assembleStiffness="false" assembleDamping="false" assembleGeometricStiffness="true" applyProjectiveConstraints="false"/>
 
             <GlobalSystemMatrixImage name="imageA" linearSystem="@A"/>
             <GlobalSystemMatrixImage name="imageK" linearSystem="@K"/>

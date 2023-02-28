@@ -22,7 +22,7 @@
 #include <sofa/testing/BaseTest.h>
 #include <sofa/component/linearsolver/direct/SparseLDLSolver.h>
 #include <sofa/component/linearsolver/direct/SparseCommon.h>
-#include <sofa/component/linearsystem/AssemblingMatrixSystem.h>
+#include <sofa/component/linearsystem/MatrixLinearSystem.h>
 #include <sofa/simulation/Node.h>
 #include <sofa/simulation/graph/DAGSimulation.h>
 #include <sofa/simulation/graph/SimpleApi.h>
@@ -287,9 +287,9 @@ TEST(SparseLDLSolver, AssociatedLinearSystem)
     auto* system = solver->getLinearSystem();
     EXPECT_NE(system, nullptr);
 
-    using AssemblingMatrixSystem = sofa::component::linearsystem::AssemblingMatrixSystem<MatrixType, sofa::linearalgebra::FullVector<SReal> >;
-    auto* assemblingMatrixSystem = dynamic_cast<AssemblingMatrixSystem*>(system);
-    EXPECT_NE(assemblingMatrixSystem, nullptr);
+    using MatrixSystem = sofa::component::linearsystem::MatrixLinearSystem<MatrixType, sofa::linearalgebra::FullVector<SReal> >;
+    auto* matrixSystem = dynamic_cast<MatrixSystem*>(system);
+    EXPECT_NE(matrixSystem, nullptr);
 
-    EXPECT_EQ(AssemblingMatrixSystem::GetCustomTemplateName(), MatrixType::Name());
+    EXPECT_EQ(MatrixSystem::GetCustomTemplateName(), MatrixType::Name());
 }
