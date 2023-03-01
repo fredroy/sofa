@@ -148,6 +148,53 @@ void MatrixLinearSystem<TMatrix, TVector>::assembleSystem(const core::Mechanical
     }
 }
 
+
+inline sofa::type::vector<core::behavior::BaseMechanicalState*> retrieveAssociatedMechanicalState(
+    const sofa::core::behavior::StateAccessor* component)
+{
+    const auto& mstatesLinks = component->getMechanicalStates();
+
+    sofa::type::vector<core::behavior::BaseMechanicalState*> mstates;
+    mstates.reserve(mstatesLinks.size());
+    for (auto m : mstatesLinks)
+    {
+        mstates.push_back(m);
+    }
+
+    //remove duplicates: it may happen for InteractionForceFields
+    std::sort( mstates.begin(), mstates.end() );
+    mstates.erase( std::unique( mstates.begin(), mstates.end() ), mstates.end() );
+
+    return mstates;
+}
+
+inline sofa::type::vector<core::behavior::BaseMechanicalState*> retrieveAssociatedMechanicalState(BaseMapping* component)
+{
+    type::vector<BaseMechanicalState*> mstates = component->getMechFrom();
+
+    //remove duplicates: it may happen for MultiMappings
+    std::sort( mstates.begin(), mstates.end() );
+    mstates.erase( std::unique( mstates.begin(), mstates.end() ), mstates.end() );
+
+    return mstates;
+}
+
+/// Generate all possible pairs of Mechanical States from a list of Mechanical States
+inline auto generatePairs(const sofa::type::vector<core::behavior::BaseMechanicalState*>& mstates)
+-> sofa::type::vector<sofa::type::fixed_array<core::behavior::BaseMechanicalState*, 2> >
+{
+    sofa::type::vector<sofa::type::fixed_array<core::behavior::BaseMechanicalState*, 2> > pairs;
+    pairs.reserve(mstates.size() * mstates.size());
+    for (auto* a : mstates)
+    {
+        for (auto* b : mstates)
+        {
+            pairs.emplace_back(a, b);
+        }
+    }
+    return pairs;
+}
+
 template <class TMatrix, class TVector>
 template<Contribution c>
 auto MatrixLinearSystem<TMatrix, TVector>::getSharedMatrix(
@@ -530,52 +577,6 @@ template <class TMatrix, class TVector>
 const MappingGraph& MatrixLinearSystem<TMatrix, TVector>::getMappingGraph() const
 {
     return m_mappingGraph;
-}
-
-inline sofa::type::vector<core::behavior::BaseMechanicalState*> retrieveAssociatedMechanicalState(
-    const sofa::core::behavior::StateAccessor* component)
-{
-    const auto& mstatesLinks = component->getMechanicalStates();
-
-    sofa::type::vector<core::behavior::BaseMechanicalState*> mstates;
-    mstates.reserve(mstatesLinks.size());
-    for (auto m : mstatesLinks)
-    {
-        mstates.push_back(m);
-    }
-
-    //remove duplicates: it may happen for InteractionForceFields
-    std::sort( mstates.begin(), mstates.end() );
-    mstates.erase( std::unique( mstates.begin(), mstates.end() ), mstates.end() );
-
-    return mstates;
-}
-
-inline sofa::type::vector<core::behavior::BaseMechanicalState*> retrieveAssociatedMechanicalState(BaseMapping* component)
-{
-    type::vector<BaseMechanicalState*> mstates = component->getMechFrom();
-
-    //remove duplicates: it may happen for MultiMappings
-    std::sort( mstates.begin(), mstates.end() );
-    mstates.erase( std::unique( mstates.begin(), mstates.end() ), mstates.end() );
-
-    return mstates;
-}
-
-/// Generate all possible pairs of Mechanical States from a list of Mechanical States
-inline auto generatePairs(const sofa::type::vector<core::behavior::BaseMechanicalState*>& mstates)
--> sofa::type::vector<sofa::type::fixed_array<core::behavior::BaseMechanicalState*, 2> >
-{
-    sofa::type::vector<sofa::type::fixed_array<core::behavior::BaseMechanicalState*, 2> > pairs;
-    pairs.reserve(mstates.size() * mstates.size());
-    for (auto* a : mstates)
-    {
-        for (auto* b : mstates)
-        {
-            pairs.emplace_back(a, b);
-        }
-    }
-    return pairs;
 }
 
 template <class TMatrix, class TVector>
