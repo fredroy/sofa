@@ -57,6 +57,7 @@ void GlobalSystemMatrixImage::init()
     {
         msg_error() << "No linear solver found in the current context, whereas it is required. This component retrieves the matrix from a linear solver.";
         this->d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
+        return;
     }
 
     this->d_componentState.setValue(sofa::core::objectmodel::ComponentState::Valid);
@@ -73,9 +74,12 @@ void GlobalSystemMatrixImage::handleEvent(core::objectmodel::Event* event)
 
     if (simulation::AnimateEndEvent::checkEventType(event))
     {
-        // even if the pointer to the matrix stays the same, the write accessor leads to an update of the widget
-        auto& bitmap = *helper::getWriteOnlyAccessor(d_bitmap);
-        bitmap.setMatrix(l_linearSystem->getSystemBaseMatrix());
+        if (l_linearSystem)
+        {
+            // even if the pointer to the matrix stays the same, the write accessor leads to an update of the widget
+            auto& bitmap = *helper::getWriteOnlyAccessor(d_bitmap);
+            bitmap.setMatrix(l_linearSystem->getSystemBaseMatrix());
+        }
     }
 }
 } //namespace sofa::component::linearsolver

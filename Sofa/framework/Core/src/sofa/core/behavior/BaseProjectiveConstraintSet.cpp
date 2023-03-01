@@ -41,15 +41,30 @@ void BaseProjectiveConstraintSet::applyConstraint(sofa::core::behavior::ZeroDiri
 
     MatrixAccessorCompat accessor;
 
+    const auto& mstates = this->getMechanicalStates();
+    std::set<BaseMechanicalState*> uniqueMstates(mstates.begin(), mstates.end());
+
+    for(const auto& mstate1 : uniqueMstates)
+    {
+        if (mstate1)
+        {
+            for(const auto& mstate2 : uniqueMstates)
+            {
+                if (mstate2)
+                {
+                    const auto mat = std::make_shared<ApplyConstraintCompat>();
+                    mat->component = this;
+                    mat->zeroDirichletCondition = zeroDirichletCondition;
+                    accessor.setMatrix(mstate1, mstate2, mat);
+                }
+            }
+        }
+    }
+
     MechanicalParams params;
     params.setKFactor(1.);
     params.setMFactor(1.);
     params.setBFactor(1.);
-
-    ApplyConstraintCompat mat;
-    mat.component = this;
-    mat.zeroDirichletCondition = zeroDirichletCondition;
-    accessor.setGlobalMatrix(&mat);
 
     applyConstraint(&params, &accessor);
 }
