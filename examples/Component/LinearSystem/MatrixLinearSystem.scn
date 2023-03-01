@@ -28,25 +28,8 @@
     <Node name="rigidSections">
         <EulerImplicitSolver name="odesolver" rayleighStiffness="0.1" rayleighMass="0.1" />
 
-        <Node name="matrices">
-            <MatrixLinearSystem name="A"/>
-            <MatrixLinearSystem name="K" assembleMass="false" assembleStiffness="true" assembleDamping="false" assembleGeometricStiffness="false" applyProjectiveConstraints="false" />
-            <MatrixLinearSystem name="M" assembleMass="true" assembleStiffness="false" assembleDamping="false" assembleGeometricStiffness="false" applyProjectiveConstraints="false"/>
-            <MatrixLinearSystem name="GS" printLog="true" assembleMass="false" assembleStiffness="false" assembleDamping="false" assembleGeometricStiffness="true" applyProjectiveConstraints="false"/>
-
-            <GlobalSystemMatrixImage name="imageA" linearSystem="@A"/>
-            <GlobalSystemMatrixImage name="imageK" linearSystem="@K"/>
-            <GlobalSystemMatrixImage name="imageM" linearSystem="@M"/>
-            <GlobalSystemMatrixImage name="imageGS" linearSystem="@GS"/>
-
-            <GlobalSystemMatrixExporter linearSystem="@A" exportEveryNumberOfSteps="1" filename="A" printLog="true" format="jpg"/>
-            <GlobalSystemMatrixExporter linearSystem="@K" exportEveryNumberOfSteps="1" filename="K" printLog="true" format="jpg"/>
-            <GlobalSystemMatrixExporter linearSystem="@M" exportEveryNumberOfSteps="1" filename="M" printLog="true" format="jpg"/>
-            <GlobalSystemMatrixExporter linearSystem="@GS" exportEveryNumberOfSteps="1" filename="GS" printLog="true" format="jpg"/>
-        </Node>
-        <CompositeLinearSystem template="CompressedRowSparseMatrixd" name="solverSystem" linearSystems="@matrices/A @matrices/K @matrices/M @matrices/GS" solverLinearSystem="@matrices/A"/>
-
-        <EigenSparseLU template="CompressedRowSparseMatrixd" linearSystem="@solverSystem"/>
+        <MatrixLinearSystem name="A"/>
+        <EigenSparseLU template="CompressedRowSparseMatrixd" linearSystem="@A"/>
 
         <Node name="red">
 

@@ -142,4 +142,30 @@ private:
 
 };
 
+template<class JacobianMatrixType>
+class MappingJacobians
+{
+    const BaseMechanicalState& m_mappedState;
+
+    std::map< core::behavior::BaseMechanicalState*, std::shared_ptr<JacobianMatrixType> > m_map;
+
+public:
+
+    MappingJacobians() = delete;
+    MappingJacobians(const BaseMechanicalState& mappedState) : m_mappedState(mappedState) {}
+
+    void addJacobianToTopMostParent(std::shared_ptr<JacobianMatrixType> jacobian, core::behavior::BaseMechanicalState* topMostParent)
+    {
+        m_map[topMostParent] = jacobian;
+    }
+
+    std::shared_ptr<JacobianMatrixType> getJacobianFrom(core::behavior::BaseMechanicalState* mstate) const
+    {
+        const auto it = m_map.find(mstate);
+        if (it != m_map.end())
+            return it->second;
+        return nullptr;
+    }
+};
+
 } //namespace sofa::component::linearsolver
