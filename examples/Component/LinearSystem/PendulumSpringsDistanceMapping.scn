@@ -26,7 +26,7 @@
     <DefaultAnimationLoop/>
     <StringMeshCreator name="loader" resolution="20" scale3d="1 1 1" />
     
-    <Node  name="withGeometricStiffness" >
+    <Node  name="springsWithGeometricStiffness" >
         <TransformEngine name="translate" input_position="@../loader.position" translation="0 0 0" />
         <EulerImplicitSolver />
 
@@ -50,7 +50,7 @@
         </Node>
     </Node>
 
-    <Node  name="withoutGeometricStiffness" >
+    <Node  name="springsWithoutGeometricStiffness" >
         <TransformEngine name="translate" input_position="@../loader.position" translation="0 0 -2" />
         <EulerImplicitSolver />
 

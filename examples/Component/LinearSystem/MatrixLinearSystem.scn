@@ -28,8 +28,15 @@
     <Node name="rigidSections">
         <EulerImplicitSolver name="odesolver" rayleighStiffness="0.1" rayleighMass="0.1" />
 
-        <MatrixLinearSystem name="A"/>
-        <EigenSparseLU template="CompressedRowSparseMatrixd" linearSystem="@A"/>
+        <Node name="matrices">
+            <MatrixLinearSystem template="CompressedRowSparseMatrixd" name="system" checkIndices="true"/>
+            <MatrixLinearSystem template="CompressedRowSparseMatrixd" name="GS" assembleStiffness="false" assembleMass="false" assembleDamping="false" assembleGeometricStiffness="true" applyProjectiveConstraints="false"/>
+            <GlobalSystemMatrixImage name="imageA" linearSystem="@system"/>
+            <GlobalSystemMatrixImage name="imageGS" linearSystem="@GS"/>
+        </Node>
+
+        <CompositeLinearSystem template="CompressedRowSparseMatrixd" name="solverSystem" linearSystems="@matrices/system @matrices/GS" solverLinearSystem="@matrices/system"/>
+        <EigenSimplicialLDLT template="CompressedRowSparseMatrixd" linearSystem="@solverSystem"/>
 
         <Node name="red">
 
