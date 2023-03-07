@@ -163,18 +163,6 @@ void BaseMapping::buildGeometricStiffnessMatrix()
 
 void BaseMapping::buildGeometricStiffnessMatrix(sofa::core::MappingMatrixAccumulator* matrices)
 {
-    const sofa::linearalgebra::BaseMatrix* mappingK = this->getK();
-
-    if (mappingK)
-    {
-        for (sofa::linearalgebra::BaseMatrix::Index i = 0; i < mappingK->rowSize(); ++i)
-        {
-            for (sofa::linearalgebra::BaseMatrix::Index j = 0; j < mappingK->colSize(); ++j)
-            {
-                matrices->add(i, j, mappingK->element(i, j));
-            }
-        }
-    }
 }
 
 bool BaseMapping::testMechanicalState(BaseState* state)
