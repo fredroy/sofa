@@ -351,7 +351,7 @@ const linearalgebra::BaseMatrix* DistanceMapping<TIn, TOut>::getK()
 
 template <class TIn, class TOut>
 void DistanceMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
-    sofa::core::MappingMatrixAccumulator* matrices)
+    sofa::core::GeometricStiffnessMatrix* matrices)
 {
     const unsigned& geometricStiffness = d_geometricStiffness.getValue();
     if( !geometricStiffness )
@@ -361,6 +361,7 @@ void DistanceMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
 
     const auto childForce = this->toModel->readForces();
     const SeqEdges& links = l_topology->getEdges();
+    const auto dJdx = matrices->getMappingDerivativeIn(this->fromModel).withRespectToPositionsIn(this->fromModel);
 
     for(size_t i=0; i<links.size(); i++)
     {
@@ -382,10 +383,10 @@ void DistanceMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
             }
             b *= childForce[i][0] * invlengths[i];  // (I - uu^T)*f/l
 
-            matrices->add(link[0] * Nin, link[0] * Nin, b);
-            matrices->add(link[0] * Nin, link[1] * Nin, -b);
-            matrices->add(link[1] * Nin, link[0] * Nin, -b);
-            matrices->add(link[1] * Nin, link[1] * Nin, b);
+            dJdx(link[0] * Nin, link[0] * Nin) += b;
+            dJdx(link[0] * Nin, link[1] * Nin) += -b;
+            dJdx(link[1] * Nin, link[0] * Nin) += -b;
+            dJdx(link[1] * Nin, link[1] * Nin) += b;
         }
     }
 }

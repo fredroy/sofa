@@ -25,9 +25,11 @@
 #include <sofa/type/fwd.h>
 #include <sofa/core/MatrixAccumulator.h>
 #include <sofa/core/BaseMapping.h>
+#include <sofa/core/DerivativeMatrix.h>
 
 namespace sofa::core
 {
+class GeometricStiffnessMatrix;
 
 class SOFA_CORE_API MappingMatrixAccumulator : public MatrixAccumulatorInterface {};
 class SOFA_CORE_API ListMappingMatrixAccumulator : public ListMatrixAccumulator<MappingMatrixAccumulator>{};
@@ -40,6 +42,7 @@ struct get_abstract_strong<Contribution::GEOMETRIC_STIFFNESS>
 {
     using type = MappingMatrixAccumulator;
     using ComponentType = core::BaseMapping;
+    using MatrixBuilderType = sofa::core::GeometricStiffnessMatrix;
 };
 
 template<>
@@ -51,4 +54,30 @@ struct get_list_abstract_strong<Contribution::GEOMETRIC_STIFFNESS>
 
 }
 
-} //namespace sofa::core::behavior
+class SOFA_CORE_API GeometricStiffnessMatrix
+    : public DerivativeMatrix<matrixaccumulator::Contribution::GEOMETRIC_STIFFNESS>
+{
+public:
+
+    struct DJ
+    {
+        DJ(BaseState* _mstate1, GeometricStiffnessMatrix* _mat)
+            : mstate1(_mstate1), mat(_mat) {}
+
+        Derivative withRespectToPositionsIn(BaseState* mstate2) const
+        {
+            return Derivative{this->mstate1, mstate2, this->mat};
+        }
+
+    private:
+        BaseState* mstate1 { nullptr };
+        GeometricStiffnessMatrix* mat { nullptr };
+    };
+
+    DJ getMappingDerivativeIn(BaseState* mstate)
+    {
+        return DJ{mstate, this};
+    }
+};
+
+} //namespace sofa::core

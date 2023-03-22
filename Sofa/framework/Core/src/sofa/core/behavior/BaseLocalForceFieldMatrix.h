@@ -22,6 +22,7 @@
 #pragma once
 
 #include <sofa/core/config.h>
+#include <sofa/core/DerivativeMatrix.h>
 #include <sofa/type/fwd.h>
 #include <sofa/core/MatrixAccumulator.h>
 #include <sofa/core/behavior/BaseForceField.h>
@@ -75,78 +76,8 @@ struct get_list_abstract_strong<Contribution::DAMPING>
 namespace sofa::core::behavior
 {
 
-template<matrixaccumulator::Contribution c>
-class ForceDerivativeMatrix : public MechanicalStatesMatrixAccumulators<c>
-{
-public:
-    using MatrixAccumulator = typename MechanicalStatesMatrixAccumulators<c>::MatrixAccumulator;
-
-    struct ForceDerivativeElement
-    {
-        ForceDerivativeElement(sofa::SignedIndex _row, sofa::SignedIndex _col, MatrixAccumulator* _mat)
-            : row(_row), col(_col), mat(_mat)
-        {}
-        void operator+=(const float value) const { mat->add(row, col, value); }
-        void operator+=(const double value) const { mat->add(row, col, value); }
-
-        template<sofa::Size L, sofa::Size C, class real>
-        void operator+=(const sofa::type::Mat<L, C, real> & value) const { mat->matAdd(row, col, value); }
-
-        void operator+=(const sofa::type::Mat<1, 1, float> & value) const { mat->add(row, col, value); }
-        void operator+=(const sofa::type::Mat<1, 1, double>& value) const { mat->add(row, col, value); }
-        void operator+=(const sofa::type::Mat<2, 2, float> & value) const { mat->add(row, col, value); }
-        void operator+=(const sofa::type::Mat<2, 2, double>& value) const { mat->add(row, col, value); }
-        void operator+=(const sofa::type::Mat<3, 3, float> & value) const { mat->add(row, col, value); }
-        void operator+=(const sofa::type::Mat<3, 3, double>& value) const { mat->add(row, col, value); }
-
-        [[nodiscard]] bool isValid() const { return mat != nullptr; }
-        operator bool() const { return isValid(); }
-
-    private:
-        sofa::SignedIndex row;
-        sofa::SignedIndex col;
-        MatrixAccumulator* mat { nullptr };
-    };
-
-    struct ForceDerivative
-    {
-        ForceDerivativeElement operator()(sofa::SignedIndex row, sofa::SignedIndex col) const
-        {
-            return ForceDerivativeElement{row, col, mat};
-        }
-
-        ForceDerivative(BaseMechanicalState* _mstate1,
-             BaseMechanicalState* _mstate2,
-             ForceDerivativeMatrix* _mat)
-        : mstate1(_mstate1)
-        , mstate2(_mstate2)
-        , mat(_mat->m_submatrix[{_mstate1, _mstate2}])
-        {}
-
-        [[nodiscard]] bool isValid() const { return mat != nullptr; }
-        operator bool() const { return isValid(); }
-
-        void checkValidity(const objectmodel::BaseObject* object) const
-        {
-            msg_error_when(!isValid() || !mstate1 || !mstate2, object)
-                << "The force derivative in mechanical state '"
-                << (mstate1 ? mstate1->getPathName() : "null")
-                << "' with respect to state variable in mechanical state '"
-                << (mstate2 ? mstate2->getPathName() : "null")
-                << "' is invalid";
-        }
-
-    private:
-        BaseMechanicalState* mstate1 { nullptr };
-        BaseMechanicalState* mstate2 { nullptr };
-        MatrixAccumulator* mat { nullptr };
-    };
-
-};
-
-
 class SOFA_CORE_API StiffnessMatrix
-    : public ForceDerivativeMatrix<matrixaccumulator::Contribution::STIFFNESS>
+    : public DerivativeMatrix<matrixaccumulator::Contribution::STIFFNESS>
 {
 public:
 
@@ -155,9 +86,9 @@ public:
         DF(BaseMechanicalState* _mstate1, StiffnessMatrix* _mat)
             : mstate1(_mstate1), mat(_mat) {}
 
-        ForceDerivative withRespectToPositionsIn(BaseMechanicalState* mstate2) const
+        Derivative withRespectToPositionsIn(BaseMechanicalState* mstate2) const
         {
-            return ForceDerivative{this->mstate1, mstate2, this->mat};
+            return Derivative{this->mstate1, mstate2, this->mat};
         }
 
     private:
@@ -172,7 +103,7 @@ public:
 };
 
 class SOFA_CORE_API DampingMatrix
-    : public ForceDerivativeMatrix<matrixaccumulator::Contribution::DAMPING>
+    : public DerivativeMatrix<matrixaccumulator::Contribution::DAMPING>
 {
 public:
 
@@ -181,9 +112,9 @@ public:
         DF(BaseMechanicalState* _mstate1, DampingMatrix* _mat)
             : mstate1(_mstate1), mat(_mat) {}
 
-        ForceDerivative withRespectToVelocityIn(BaseMechanicalState* mstate2) const
+        Derivative withRespectToVelocityIn(BaseMechanicalState* mstate2) const
         {
-            return ForceDerivative{this->mstate1, mstate2, this->mat};
+            return Derivative{this->mstate1, mstate2, this->mat};
         }
 
     private:

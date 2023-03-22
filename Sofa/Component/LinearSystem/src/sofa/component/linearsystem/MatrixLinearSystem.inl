@@ -94,7 +94,7 @@ void MatrixLinearSystem<TMatrix, TVector>::contribute(const core::MechanicalPara
                 }
                 else if constexpr (c == Contribution::GEOMETRIC_STIFFNESS)
                 {
-                    contributor->buildGeometricStiffnessMatrix(&accumulators);
+                    contributor->buildGeometricStiffnessMatrix(&m_geometricStiffness[contributor]);
                 }
             }
         }
@@ -465,6 +465,7 @@ void MatrixLinearSystem<TMatrix, TVector>::cleanLocalMatrices()
 
     m_stiffness.clear();
     m_damping.clear();
+    m_geometricStiffness.clear();
 }
 
 template <class TMatrix, class TVector>
@@ -652,7 +653,11 @@ void MatrixLinearSystem<TMatrix, TVector>::associateLocalMatrixTo(
             {
                 m_damping[component].setMatrixAccumulator(mat, mstate0, mstate1);
             }
-            else if constexpr (c == Contribution::MASS || c == Contribution::GEOMETRIC_STIFFNESS)
+            else if constexpr (c == Contribution::GEOMETRIC_STIFFNESS)
+            {
+                m_geometricStiffness[component].setMatrixAccumulator(mat, mstate0, mstate1);
+            }
+            else if constexpr (c == Contribution::MASS)
             {
                 matrixMaps.accumulators[component].push_back(mat);
             }

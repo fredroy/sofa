@@ -617,7 +617,7 @@ const sofa::linearalgebra::BaseMatrix* RigidMapping<TIn, TOut>::getK()
 
 template <class TIn, class TOut>
 void RigidMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
-    sofa::core::MappingMatrixAccumulator* matrices)
+    sofa::core::GeometricStiffnessMatrix* matrices)
 {
     const int geomStiff = geometricStiffness.getValue();
 
@@ -633,6 +633,8 @@ void RigidMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
     }
     else
     {
+        const auto dJdx = matrices->getMappingDerivativeIn(this->fromModel).withRespectToPositionsIn(this->fromModel);
+
         const auto childForces = this->toModel->readForces();
 
         std::map<unsigned, sofa::type::vector<unsigned> > in_out;
@@ -662,7 +664,7 @@ void RigidMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
 
             const auto matrixIndex = TIn::deriv_total_size * rigidIdx + TIn::spatial_dimensions;
 
-            matrices->add(matrixIndex, matrixIndex, block);
+            dJdx(matrixIndex, matrixIndex) += block;
         }
     }
 }

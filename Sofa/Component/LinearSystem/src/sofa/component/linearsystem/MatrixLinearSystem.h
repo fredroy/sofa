@@ -99,6 +99,7 @@ protected:
 
     std::map<BaseForceField*, core::behavior::StiffnessMatrix> m_stiffness;
     std::map<BaseForceField*, core::behavior::DampingMatrix> m_damping;
+    std::map<BaseMapping*, core::GeometricStiffnessMatrix> m_geometricStiffness;
 
     /// List of shared local matrices under mappings
     sofa::type::vector< std::pair<

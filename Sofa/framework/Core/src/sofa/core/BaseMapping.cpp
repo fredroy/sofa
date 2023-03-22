@@ -139,29 +139,7 @@ sofa::linearalgebra::BaseMatrix* BaseMapping::createMappedMatrix(const behavior:
     return nullptr;
 }
 
-void BaseMapping::buildGeometricStiffnessMatrix()
-{
-    const auto& slaves = getSlaves();
-
-    ListMappingMatrixAccumulator matrices;
-
-    for (const auto& slave : slaves )
-    {
-        using type = get_base_object_strong_type<matrixaccumulator::Contribution::GEOMETRIC_STIFFNESS>;
-        if (auto matrix = sofa::core::objectmodel::SPtr_dynamic_cast<type>(slave))
-        {
-            matrices.push_back(matrix.get());
-        }
-    }
-
-    if (!matrices.empty())
-    {
-        matrices.clear();
-        buildGeometricStiffnessMatrix(&matrices);
-    }
-}
-
-void BaseMapping::buildGeometricStiffnessMatrix(sofa::core::MappingMatrixAccumulator* matrices)
+void BaseMapping::buildGeometricStiffnessMatrix(sofa::core::GeometricStiffnessMatrix* matrices)
 {
 }
 

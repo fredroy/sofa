@@ -20,6 +20,7 @@ set(HEADER_FILES
     ${SRC_ROOT}/DataTracker.h
     ${SRC_ROOT}/DataTrackerCallback.h
     ${SRC_ROOT}/DataTrackerFunctor.h
+    ${SRC_ROOT}/DerivativeMatrix.h
     ${SRC_ROOT}/DevBaseMonitor.h
     ${SRC_ROOT}/ExecParams.h
     ${SRC_ROOT}/fwd.h

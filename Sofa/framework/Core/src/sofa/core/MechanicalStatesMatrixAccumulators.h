@@ -34,15 +34,15 @@ public:
     using ComponentType = matrixaccumulator::get_component_type<c>;
 
     void setMatrixAccumulator(MatrixAccumulator* matrixAccumulator,
-                              behavior::BaseMechanicalState* mstate1,
-                              behavior::BaseMechanicalState* mstate2);
+                              BaseState* mstate1,
+                              BaseState* mstate2);
 
     void setMatrixAccumulator(MatrixAccumulator* matrixAccumulator,
-                              behavior::BaseMechanicalState* mstate1);
+                              BaseState* mstate1);
 
 // protected:
 
-    std::map<std::pair<behavior::BaseMechanicalState*, behavior::BaseMechanicalState*>,
+    std::map<std::pair<BaseState*, BaseState*>,
         MatrixAccumulator*> m_submatrix;
 
 public:
@@ -56,15 +56,15 @@ public:
 
 template <matrixaccumulator::Contribution c>
 void MechanicalStatesMatrixAccumulators<c>::setMatrixAccumulator(
-    MatrixAccumulator* matrixAccumulator, behavior::BaseMechanicalState* mstate1,
-    behavior::BaseMechanicalState* mstate2)
+    MatrixAccumulator* matrixAccumulator, BaseState* mstate1,
+    BaseState* mstate2)
 {
     m_submatrix[{mstate1, mstate2}] = matrixAccumulator;
 }
 
 template <matrixaccumulator::Contribution c>
 void MechanicalStatesMatrixAccumulators<c>::setMatrixAccumulator(
-    MatrixAccumulator* matrixAccumulator, behavior::BaseMechanicalState* mstate1)
+    MatrixAccumulator* matrixAccumulator, BaseState* mstate1)
 {
     setMatrixAccumulator(matrixAccumulator, mstate1, mstate1);
 }

@@ -24,6 +24,7 @@
 
 namespace sofa::core
 {
+class GeometricStiffnessMatrix;
 
 class MappingMatrixAccumulator;
 
@@ -156,8 +157,7 @@ public:
     /// For efficiency concerns, please return a pointer to a defaulttype::EigenBaseSparseMatrix
     virtual const linearalgebra::BaseMatrix* getK() { return nullptr; }
 
-    virtual void buildGeometricStiffnessMatrix();
-    virtual void buildGeometricStiffnessMatrix(sofa::core::MappingMatrixAccumulator* matrices);
+    virtual void buildGeometricStiffnessMatrix(sofa::core::GeometricStiffnessMatrix* matrices);
 
     /// @}
 
