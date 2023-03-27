@@ -68,7 +68,7 @@ using sofa::core::objectmodel::ComponentState ;
  * An example using this component can be found in examples/Component/Mapping/MappedMatrix/MechanicalMatrixMapper.pyscn
 */
 template<typename TDataTypes1, typename TDataTypes2>
-SOFA_ATTRIBUTE_DEPRECATED("v23.06", "v23.12", "Matrix mapping is now supported automatically. Therefore, MechanicalMatrixMapper is no longer necessary.")
+// SOFA_ATTRIBUTE_DEPRECATED("v23.06", "v23.12", "Matrix mapping is now supported automatically. Therefore, MechanicalMatrixMapper is no longer necessary.")
 class MechanicalMatrixMapper : public MixedInteractionForceField<TDataTypes1, TDataTypes2>
 {
 public:
