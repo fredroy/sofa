@@ -108,6 +108,8 @@ public:
 
 protected:
 
+    Data<bool> d_yesIKnowMatrixMappingIsSupportedAutomatically;
+
     Data<type::vector<std::string>> d_forceFieldList; ///< List of ForceField Names to work on (by default will take all)
     SingleLink < MechanicalMatrixMapper<DataTypes1, DataTypes2>, sofa::simulation::Node , BaseLink::FLAG_STOREPATH > l_nodeToParse;
     Data <bool> d_stopAtNodeToParse; ///< Boolean to choose whether forceFields in children Nodes of NodeToParse should be considered.
@@ -252,6 +254,10 @@ protected:
     */
     virtual void optimizeAndCopyMappingJacobianToEigenFormat2(const typename DataTypes2::MatrixDeriv& J, Eigen::SparseMatrix<double>& Jeig);
 
+public:
+    void parse(core::objectmodel::BaseObjectDescription* arg) override;
+
+protected:
     ////////////////////////// Inherited attributes ////////////////////////////
     /// https://gcc.gnu.org/onlinedocs/gcc/Name-lookup.html
     /// Bring inherited attributes and function in the current lookup context.
