@@ -31,7 +31,8 @@ namespace sofa::component::mapping::mappedmatrix
 
 using namespace sofa::defaulttype;
 
-int MechanicalMatrixMapperClass = core::RegisterObject("[DEPRECATED] This component allows to map the stiffness (and mass) matrix through a mapping.")
+////////////////////////////////////////////    FACTORY    //////////////////////////////////////////////
+int MechanicalMatrixMapperClass = core::RegisterObject("This component allows to map the stiffness (and mass) matrix through a mapping.")
 
         .add< MechanicalMatrixMapper<Rigid3Types, Rigid3Types> >()
         .add< MechanicalMatrixMapper<Vec3Types, Rigid3Types> >()
