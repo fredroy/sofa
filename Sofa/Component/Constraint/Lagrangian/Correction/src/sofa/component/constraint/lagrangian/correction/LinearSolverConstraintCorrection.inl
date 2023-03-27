@@ -497,6 +497,12 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SRea
     // (in practice they will be put at the beginning of the list)
     if (wire_optimization.getValue())
     {
+        std::vector<bool> bitmask;
+        bitmask.resize(renumbering.size());
+        std::fill(bitmask.begin(), bitmask.end(), true);
+
+        renumbering.clear();
+
         std::vector< std::vector<unsigned int> > ordering_per_dof;
         ordering_per_dof.resize(mstate->getSize());   // for each dof, provide the list of constraint for which this dof is the smallest involved
 
@@ -510,7 +516,14 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SRea
             {
                 ordering_per_dof[VecMinDof[constraintId]].push_back(rowIt.index());
                 constraintId++;
-                renumbering.remove( rowIt.index() );
+                bitmask[rowIt.index()] = false;
+            }
+        }
+        for (std::size_t ib = 0; ib < bitmask.size(); ib++)
+        {
+            if (bitmask[ib])
+            {
+                renumbering.push_back(ib);
             }
         }
 
@@ -524,6 +537,7 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SRea
             }
         }
     }
+
 
     /////////////// SET INFO FOR LINEAR SOLVER /////////////
     core::VecDerivId forceID(core::VecDerivId::V_FIRST_DYNAMIC_INDEX);
