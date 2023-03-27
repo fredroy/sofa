@@ -21,6 +21,8 @@
 ******************************************************************************/
 #include <SofaMatrix/GlobalSystemMatrixExporter.h>
 #include <sofa/core/ObjectFactory.h>
+#include <sofa/core/behavior/LinearSolver.h>
+
 #include <fstream>
 #include <sofa/defaulttype/MatrixExporter.h>
 
@@ -52,7 +54,23 @@ void GlobalSystemMatrixExporter::doInit()
 
     if (!l_linearSystem)
     {
-        msg_error() << "No linear system found in the current context, whereas it is required. This component exports the matrix from a linear solver.";
+        if (const auto* solver = this->getContext()->get<sofa::core::behavior::LinearSolver>())
+        {
+            const auto slaves = solver->getSlaves();
+            const auto it = std::find_if(slaves.begin(), slaves.end(), [](const auto& slave)
+            {
+                return dynamic_cast<sofa::core::behavior::BaseMatrixLinearSystem*>(slave.get());
+            });
+            if (it != slaves.end())
+            {
+                l_linearSystem.set(dynamic_cast<sofa::core::behavior::BaseMatrixLinearSystem*>(it->get()));
+            }
+        }
+    }
+
+    if (!l_linearSystem)
+    {
+        msg_error() << "No linear system found in the current context, whereas it is required. This component exports the matrix from a linear system.";
         this->d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
     }
 }
