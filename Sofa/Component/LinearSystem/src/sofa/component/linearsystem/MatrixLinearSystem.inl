@@ -302,6 +302,11 @@ void MatrixLinearSystem<TMatrix, TVector>::makeLocalMatrixGroups(const core::Mec
 {
     SOFA_UNUSED(mparams);
 
+    const bool assembleStiffness = d_assembleStiffness.getValue();
+    const bool assembleDamping = d_assembleDamping.getValue();
+    const bool assembleMass = d_assembleMass.getValue();
+    const bool assembleGeometricStiffness = d_assembleGeometricStiffness.getValue();
+
     m_localMappedMatrices.clear();
 
     std::map<PairMechanicalStates, GroupOfComponentsAssociatedToAPairOfMechanicalStates> groups;
@@ -316,14 +321,14 @@ void MatrixLinearSystem<TMatrix, TVector>::makeLocalMatrixGroups(const core::Mec
         {
             std::shared_ptr<LocalMappedMatrixType<Real> > mat;
 
-            if (d_assembleStiffness.getValue() || d_assembleDamping.getValue())
+            if (assembleStiffness || assembleDamping)
             for (auto* component : group.forcefieds)
             {
-                if (d_assembleStiffness.getValue())
+                if (assembleStiffness)
                 {
                     mat = getSharedMatrix<Contribution::STIFFNESS>(component, pair);
                 }
-                if (!mat && d_assembleDamping.getValue())
+                if (!mat && assembleDamping)
                 {
                     mat = getSharedMatrix<Contribution::DAMPING>(component, pair);
                 }
@@ -334,7 +339,7 @@ void MatrixLinearSystem<TMatrix, TVector>::makeLocalMatrixGroups(const core::Mec
             }
             if (!mat)
             {
-                if (d_assembleMass.getValue())
+                if (assembleMass)
                 for (auto* component : group.masses)
                 {
                     mat = getSharedMatrix<Contribution::MASS>(component, pair);
@@ -346,7 +351,7 @@ void MatrixLinearSystem<TMatrix, TVector>::makeLocalMatrixGroups(const core::Mec
             }
             if (!mat)
             {
-                if (d_assembleGeometricStiffness.getValue())
+                if (assembleGeometricStiffness)
                 for (auto* component : group.mappings)
                 {
                     mat = getSharedMatrix<Contribution::GEOMETRIC_STIFFNESS>(component, pair);
@@ -358,10 +363,10 @@ void MatrixLinearSystem<TMatrix, TVector>::makeLocalMatrixGroups(const core::Mec
             }
 
             if (!mat && (
-                (d_assembleStiffness.getValue() && !group.forcefieds.empty()) ||
-                (d_assembleDamping.getValue() && !group.forcefieds.empty()) ||
-                (d_assembleMass.getValue() && !group.masses.empty()) ||
-                (d_assembleGeometricStiffness.getValue() && !group.mappings.empty())
+                (assembleStiffness && !group.forcefieds.empty()) ||
+                (assembleDamping && !group.forcefieds.empty()) ||
+                (assembleMass && !group.masses.empty()) ||
+                (assembleGeometricStiffness && !group.mappings.empty())
             ))
             {
                 std::string mstateNames = pair[0]->getPathName();
@@ -377,17 +382,17 @@ void MatrixLinearSystem<TMatrix, TVector>::makeLocalMatrixGroups(const core::Mec
                 };
 
                 std::stringstream ss;
-                if (!group.masses.empty() && d_assembleMass.getValue())
+                if (!group.masses.empty() && assembleMass)
                 {
                     ss << "masses [" << join(group.masses) << "]";
                     if (!group.forcefieds.empty() || !group.mappings.empty()) ss << ", ";
                 }
-                if (!group.forcefieds.empty() && (d_assembleDamping.getValue() || d_assembleStiffness.getValue()))
+                if (!group.forcefieds.empty() && (assembleDamping || assembleStiffness))
                 {
                     ss << "force fields [" << join(group.forcefieds) << "]";
                     if (!group.mappings.empty()) ss << ", ";
                 }
-                if (!group.mappings.empty() && d_assembleGeometricStiffness.getValue())
+                if (!group.mappings.empty() && assembleGeometricStiffness)
                 {
                     ss << "mappings [" << join(group.mappings) << "]";
                 }
@@ -400,10 +405,10 @@ void MatrixLinearSystem<TMatrix, TVector>::makeLocalMatrixGroups(const core::Mec
             if (mat)
             {
                 std::optional<type::Vec2u> matrixSize;
-                if (d_assembleStiffness.getValue() || d_assembleDamping.getValue())
+                if (assembleStiffness || assembleDamping)
                     for (auto* component : group.forcefieds)
                     {
-                        if (d_assembleStiffness.getValue())
+                        if (assembleStiffness)
                         {
                             setSharedMatrix<Contribution::STIFFNESS>(component, pair, mat);
                             if (!matrixSize.has_value())
@@ -411,7 +416,7 @@ void MatrixLinearSystem<TMatrix, TVector>::makeLocalMatrixGroups(const core::Mec
                                 matrixSize = getSharedMatrixSize<Contribution::STIFFNESS>(component, pair);
                             }
                         }
-                        if (d_assembleDamping.getValue())
+                        if (assembleDamping)
                         {
                             setSharedMatrix<Contribution::DAMPING>(component, pair, mat);
 
@@ -422,7 +427,7 @@ void MatrixLinearSystem<TMatrix, TVector>::makeLocalMatrixGroups(const core::Mec
                         }
                     }
 
-                if (d_assembleMass.getValue())
+                if (assembleMass)
                 {
                     for (auto* component : group.masses)
                     {
@@ -434,7 +439,7 @@ void MatrixLinearSystem<TMatrix, TVector>::makeLocalMatrixGroups(const core::Mec
                     }
                 }
 
-                if (d_assembleGeometricStiffness.getValue())
+                if (assembleGeometricStiffness)
                 {
                     for (auto* component : group.mappings)
                     {
