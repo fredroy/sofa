@@ -87,11 +87,17 @@ public:
     }
     SReal element(Index i, Index j) const override
     {
+        SOFA_UNUSED(i);
+        SOFA_UNUSED(j);
+
         msg_error(component) << compatibilityMessage << "element is not a supported operation in the compatibility";
         return {};
     }
     void resize(Index nbRow, Index nbCol) override
     {
+        SOFA_UNUSED(nbRow);
+        SOFA_UNUSED(nbCol);
+
         msg_error(component) << compatibilityMessage << "resize is not a supported operation in the compatibility";
     }
     void clear() override
@@ -100,6 +106,10 @@ public:
     }
     void set(Index i, Index j, double v) override
     {
+        SOFA_UNUSED(i);
+        SOFA_UNUSED(j);
+        SOFA_UNUSED(v);
+
         msg_error(component) << compatibilityMessage << "set is not a supported operation in the compatibility";
     }
     void add(Index row, Index col, double v) override
@@ -182,11 +192,17 @@ public:
     }
     SReal element(Index i, Index j) const override
     {
+        SOFA_UNUSED(i);
+        SOFA_UNUSED(j);
+
         msg_error(component) << compatibilityMessage << "element is not a supported operation in the compatibility";
         return {};
     }
     void resize(Index nbRow, Index nbCol) override
     {
+        SOFA_UNUSED(nbRow);
+        SOFA_UNUSED(nbCol);
+
         msg_error(component) << compatibilityMessage << "resize is not a supported operation in the compatibility";
     }
     void clear() override
@@ -195,10 +211,16 @@ public:
     }
     void set(Index i, Index j, double v) override
     {
-
+        SOFA_UNUSED(i);
+        SOFA_UNUSED(j);
+        SOFA_UNUSED(v);
     }
     void add(Index row, Index col, double v) override
     {
+        SOFA_UNUSED(row);
+        SOFA_UNUSED(col);
+        SOFA_UNUSED(v);
+
         msg_error(component) << compatibilityMessage << "add is not a supported operation in the compatibility";
     }
 

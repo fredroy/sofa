@@ -82,8 +82,8 @@ struct SOFA_CORE_API NoIndexVerification : IndexVerificationStrategy
 {
     using verify_index = std::false_type;
 private:
-    void checkRowIndex(sofa::SignedIndex row) override {}
-    void checkColIndex(sofa::SignedIndex col) override {}
+    void checkRowIndex(sofa::SignedIndex /* row */) override {}
+    void checkColIndex(sofa::SignedIndex /* col */) override {}
 };
 
 struct SOFA_CORE_API RangeVerification : IndexVerificationStrategy
@@ -257,7 +257,7 @@ public:
         return m_list.empty();
     }
 
-    void clear()
+    void clear() override
     {
         for (auto* mat : m_list)
         {

@@ -58,11 +58,15 @@ void TypedMatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::copyLo
 
 template<> SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API
 void TypedMatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::dispatchSystemSolution(core::MultiVecDerivId v)
-{}
+{
+    SOFA_UNUSED(v);
+}
 
 template<> SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API
 void TypedMatrixLinearSystem<GraphScatteredMatrix, GraphScatteredVector>::dispatchSystemRHS(core::MultiVecDerivId v)
-{}
+{
+    SOFA_UNUSED(v);
+}
 
 template class SOFA_COMPONENT_LINEARSOLVER_ITERATIVE_API TypedMatrixLinearSystem< GraphScatteredMatrix, GraphScatteredVector >;
 

@@ -300,6 +300,8 @@ void MatrixLinearSystem<TMatrix, TVector>::buildGroupsOfComponentAssociatedToMec
 template <class TMatrix, class TVector>
 void MatrixLinearSystem<TMatrix, TVector>::makeLocalMatrixGroups(const core::MechanicalParams* mparams)
 {
+    SOFA_UNUSED(mparams);
+
     m_localMappedMatrices.clear();
 
     std::map<PairMechanicalStates, GroupOfComponentsAssociatedToAPairOfMechanicalStates> groups;

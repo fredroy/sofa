@@ -39,9 +39,13 @@ void BaseMatrixLinearSystem::buildSystemMatrix(const core::MechanicalParams* mpa
 }
 
 void BaseMatrixLinearSystem::preAssembleSystem(const core::MechanicalParams* mparams)
-{}
+{
+    SOFA_UNUSED(mparams);
+}
 
-void BaseMatrixLinearSystem::assembleSystem(const core::MechanicalParams* /*mparams*/)
-{}
+void BaseMatrixLinearSystem::assembleSystem(const core::MechanicalParams* mparams)
+{
+    SOFA_UNUSED(mparams);
+}
 
 } //namespace sofa::core::behavior

@@ -22,7 +22,10 @@
 #pragma once
 
 #include <sofa/component/mapping/mappedmatrix/config.h>
+
+#ifndef SOFA_BUILD_SOFA_COMPONENT_MAPPING_MAPPEDMATRIX
 SOFA_DEPRECATED_HEADER_NOT_REPLACED("v23.06", "v23.12")
+#endif
 
 #include <sofa/core/behavior/MixedInteractionForceField.h>
 #include <sofa/core/behavior/MechanicalState.h>

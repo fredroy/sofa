@@ -141,6 +141,7 @@ sofa::linearalgebra::BaseMatrix* BaseMapping::createMappedMatrix(const behavior:
 
 void BaseMapping::buildGeometricStiffnessMatrix(sofa::core::GeometricStiffnessMatrix* matrices)
 {
+    SOFA_UNUSED(matrices);
 }
 
 bool BaseMapping::testMechanicalState(BaseState* state)

@@ -266,6 +266,8 @@ bool MappingGraph::isBuilt() const
 
 void MappingGraph::build(const sofa::core::ExecParams* params, core::objectmodel::BaseContext* rootNode)
 {
+    SOFA_UNUSED(params);
+
     m_rootNode = rootNode;
 
     m_mainMechanicalStates.clear();

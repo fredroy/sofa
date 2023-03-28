@@ -36,6 +36,8 @@ DispatchFromGlobalVectorToLocalVectorVisitor::DispatchFromGlobalVectorToLocalVec
 simulation::Visitor::Result DispatchFromGlobalVectorToLocalVectorVisitor::fwdMechanicalState(simulation::Node* node,
                                                                                            core::behavior::BaseMechanicalState* mm)
 {
+    SOFA_UNUSED(node);
+
     if (mm)
     {
         auto pos = m_mappingGraph.getPositionInGlobalMatrix(mm);

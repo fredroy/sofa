@@ -35,9 +35,10 @@ MechanicalIdentityBlocksInJacobianVisitor::MechanicalIdentityBlocksInJacobianVis
 {
 }
 
-Visitor::Result MechanicalIdentityBlocksInJacobianVisitor::fwdMechanicalMapping(simulation::Node* /*node*/,
+Visitor::Result MechanicalIdentityBlocksInJacobianVisitor::fwdMechanicalMapping(simulation::Node* node,
     sofa::core::BaseMapping* map)
 {
+    SOFA_UNUSED(node);
     const auto parents = map->getMechFrom();
 
     //insert mechanical states which have children
@@ -49,6 +50,7 @@ Visitor::Result MechanicalIdentityBlocksInJacobianVisitor::fwdMechanicalMapping(
 void MechanicalIdentityBlocksInJacobianVisitor::bwdMappedMechanicalState(simulation::Node* node,
     sofa::core::behavior::BaseMechanicalState* mm)
 {
+    SOFA_UNUSED(node);
     if (listParentMStates.find(mm) == listParentMStates.end())
     {
         //this mechanical state does not have any children
@@ -63,6 +65,9 @@ void MechanicalIdentityBlocksInJacobianVisitor::bwdMappedMechanicalState(simulat
 bool MechanicalIdentityBlocksInJacobianVisitor::stopAtMechanicalMapping(simulation::Node* node,
     core::BaseMapping* base_mapping)
 {
+    SOFA_UNUSED(node);
+    SOFA_UNUSED(base_mapping);
+
     return false;
 }
 } //namespace sofa::simulation::mechanicalvisitor

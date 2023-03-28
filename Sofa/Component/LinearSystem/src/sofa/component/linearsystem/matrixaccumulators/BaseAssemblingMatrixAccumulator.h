@@ -46,7 +46,7 @@ public:
     [[nodiscard]]
     type::Vec<2, unsigned> getPositionInGlobalMatrix() const;
 
-    void addContributionsToMatrix(sofa::linearalgebra::BaseMatrix* globalMatrix, SReal factor, const sofa::type::Vec2u& positionInMatrix) {}
+    void addContributionsToMatrix(sofa::linearalgebra::BaseMatrix* /* globalMatrix */, SReal /* factor */, const sofa::type::Vec2u& /* positionInMatrix */) {}
 
 protected:
 
