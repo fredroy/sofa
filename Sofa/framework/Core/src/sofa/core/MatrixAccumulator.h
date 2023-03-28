@@ -203,6 +203,8 @@ public:
 
 protected:
 
+    using TBaseMatrixAccumulator::add;
+
     virtual void add(const matrixaccumulator::no_check_policy&, sofa::SignedIndex row, sofa::SignedIndex col, float value)
     {
         TBaseMatrixAccumulator::add(row, col, value);
@@ -211,7 +213,6 @@ protected:
     {
         TBaseMatrixAccumulator::add(row, col, value);
     }
-
     virtual void add(const matrixaccumulator::no_check_policy&, sofa::SignedIndex row, sofa::SignedIndex col, const sofa::type::Mat<3, 3, float>& value)
     {
         TBaseMatrixAccumulator::add(row, col, value);
