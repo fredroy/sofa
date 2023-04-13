@@ -28,7 +28,8 @@ namespace sofa::gl::component::rendering3d
 using namespace sofa::defaulttype;
 
 int TOglModelClass = core::RegisterObject("Generic visual model for OpenGL display.")
-    .add< TOglModel<defaulttype::Vec3Types>>();
+    .add< TOglModel<defaulttype::Vec3Types>>()
+    .addAlias("OglModel");
 
 template class SOFA_GL_COMPONENT_RENDERING3D_API TOglModel<defaulttype::Vec3Types>;
 

@@ -31,7 +31,9 @@ namespace sofa::component::visual
 using namespace sofa::defaulttype;
 
 int TVisualModelImplClass = core::RegisterObject("Generic visual model. If a viewer is active it will replace the VisualModel alias, otherwise nothing will be displayed.")
-        .add< TVisualModelImpl<defaulttype::Vec3Types>>().addAlias("VisualModel")
+        .add< TVisualModelImpl<defaulttype::Vec3Types>>()
+        .addAlias("VisualModelImpl") 
+        .addAlias("VisualModel")
         ;
 
 template class SOFA_COMPONENT_VISUAL_API TVisualModelImpl<defaulttype::Vec3Types>;
