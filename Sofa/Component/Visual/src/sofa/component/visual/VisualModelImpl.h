@@ -49,7 +49,7 @@ typedef sofa::core::visual::VisualState<defaulttype::Vec3Types> Vec3State;
  *
  */
 template< typename DataTypes = defaulttype::Vec3Types>
-class SOFA_COMPONENT_VISUAL_API TVisualModelImpl : public core::visual::VisualModel, public sofa::core::visual::VisualState<DataTypes>
+class TVisualModelImpl : public core::visual::VisualModel, public sofa::core::visual::VisualState<DataTypes>
 {
 public:
     SOFA_CLASS2(TVisualModelImpl, core::visual::VisualModel, sofa::core::visual::VisualState<DataTypes>);
@@ -408,7 +408,7 @@ protected:
     std::set< sofa::core::topology::BaseMeshTopology::QuadID> m_dirtyQuads;
 };
 
-#if not defined SOFA_COMPONENT_VISUAL_VISUALMODELIMPL_CPP
+#if !defined SOFA_COMPONENT_VISUAL_VISUALMODELIMPL_CPP
 extern template class SOFA_COMPONENT_VISUAL_API TVisualModelImpl<defaulttype::Vec3Types>;
 #endif
 

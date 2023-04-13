@@ -53,7 +53,7 @@ OglShaderVisualModel::~OglShaderVisualModel()
 
 void OglShaderVisualModel::pushTransformMatrix(float* matrix)
 {
-    OglModel::pushTransformMatrix(matrix);
+    Inherit::pushTransformMatrix(matrix);
 
     type::vector<float> tempModelMatrixValue;
 
@@ -73,7 +73,7 @@ void OglShaderVisualModel::pushTransformMatrix(float* matrix)
 
 void OglShaderVisualModel::popTransformMatrix()
 {
-    OglModel::popTransformMatrix();
+    Inherit::popTransformMatrix();
     /*
         if (shader)
             shader->stop();
@@ -83,7 +83,7 @@ void OglShaderVisualModel::popTransformMatrix()
 void OglShaderVisualModel::init()
 {
     if (!shader)
-        OglModel::init();
+        Inherit::init();
 
     sofa::core::objectmodel::BaseContext* context = this->getContext();
     shader = context->core::objectmodel::BaseContext::get<OglShader>();
@@ -135,12 +135,12 @@ void OglShaderVisualModel::init()
 
 void OglShaderVisualModel::initVisual()
 {
-    OglModel::initVisual();
+    Inherit::initVisual();
 }
 
 void OglShaderVisualModel::updateVisual()
 {
-    OglModel::updateVisual();
+    Inherit::updateVisual();
     computeRestPositions();
 }
 
@@ -176,7 +176,7 @@ void OglShaderVisualModel::computeRestPositions()
 void OglShaderVisualModel::handleTopologyChange()
 {
     //init();
-    OglModel::handleTopologyChange();
+    Inherit::handleTopologyChange();
 
     if (m_topology && shader)
     {

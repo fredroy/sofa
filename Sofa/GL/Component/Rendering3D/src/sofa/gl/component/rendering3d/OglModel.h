@@ -42,12 +42,13 @@ namespace sofa::gl::component::rendering3d
  *  using OpenGL.
  *
  */
-class SOFA_GL_COMPONENT_RENDERING3D_API OglModel : public sofa::component::visual::VisualModelImpl
+template< typename DataTypes >
+class TOglModel : public sofa::component::visual::TVisualModelImpl<DataTypes>
 {
 public:
-    using Inherit = sofa::component::visual::VisualModelImpl;
+    using Inherit = sofa::component::visual::TVisualModelImpl<DataTypes>;
 
-    SOFA_CLASS(OglModel, Inherit);
+    SOFA_CLASS(TOglModel, Inherit);
 
 
     Data<bool> blendTransparency; ///< Blend transparent parts
@@ -98,9 +99,9 @@ protected:
     GLenum getGLenum(const char* c ) const;
 
 
-    OglModel();
+    TOglModel();
+    ~TOglModel() override;
 
-    ~OglModel() override;
 public:
 
     bool loadTexture(const std::string& filename) override;
@@ -145,5 +146,11 @@ public:
     void updateTrianglesIndicesBuffer();
     void updateQuadsIndicesBuffer();
 };
+
+#if !defined SOFA_GL_COMPONENT_RENDERING3D_CPP
+extern template class SOFA_GL_COMPONENT_RENDERING3D_API TOglModel<defaulttype::Vec3Types>;
+#endif
+
+using OglModel = TOglModel<defaulttype::Vec3Types>;
 
 } // namespace sofa::gl::component::rendering3d
