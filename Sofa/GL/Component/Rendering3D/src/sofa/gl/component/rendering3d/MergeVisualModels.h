@@ -31,6 +31,7 @@
 #include <sofa/defaulttype/RigidTypes.h>
 #include <sofa/core/objectmodel/vectorLinks.h>
 #include <sofa/core/objectmodel/Link.h>
+#include <sofa/component/visual/VisualModelImpl.h>
 #include <sofa/gl/component/rendering3d/OglModel.h>
 
 namespace sofa::gl::component::rendering3d
@@ -48,7 +49,7 @@ public:
 
     Data<unsigned int> d_nbInput; ///< number of input visual models to merge
 
-    typedef core::objectmodel::SingleLink< MergeVisualModels, VisualModelImpl, BaseLink::FLAG_STOREPATH|BaseLink::FLAG_STRONGLINK> LinkVisualModel;
+    typedef core::objectmodel::SingleLink< MergeVisualModels, sofa::component::visual::VisualModelImpl, BaseLink::FLAG_STOREPATH|BaseLink::FLAG_STRONGLINK> LinkVisualModel;
     core::objectmodel::VectorLinks< LinkVisualModel, MergeVisualModels > vl_input;
 
 

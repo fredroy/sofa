@@ -35,7 +35,7 @@
 namespace sofa::component::visual
 {
 
-SOFA_ATTRIBUTE_DEPRECATED__VEC3STATE_AS_VISUALSTATE() 
+SOFA_ATTRIBUTE_DEPRECATED__VEC3STATE_AS_VISUALSTATE()
 typedef sofa::core::visual::VisualState<defaulttype::Vec3Types> Vec3State;
 
 
@@ -48,10 +48,11 @@ typedef sofa::core::visual::VisualState<defaulttype::Vec3Types> Vec3State;
  *  At the moment, it is only implemented by OglModel for OpenGL systems.
  *
  */
-class SOFA_COMPONENT_VISUAL_API VisualModelImpl : public core::visual::VisualModel, public sofa::core::visual::VisualState<defaulttype::Vec3Types>
+template< typename DataTypes = defaulttype::Vec3Types>
+class SOFA_COMPONENT_VISUAL_API TVisualModelImpl : public core::visual::VisualModel, public sofa::core::visual::VisualState<DataTypes>
 {
 public:
-    SOFA_CLASS2(VisualModelImpl, core::visual::VisualModel, sofa::core::visual::VisualState<defaulttype::Vec3Types>);
+    SOFA_CLASS2(TVisualModelImpl, core::visual::VisualModel, sofa::core::visual::VisualState<DataTypes>);
 
     typedef sofa::type::Vec<2, float> TexCoord;
     typedef type::vector<TexCoord> VecTexCoord;
@@ -68,13 +69,16 @@ public:
     typedef type::vector<VisualTriangle> VecVisualTriangle;
     typedef type::vector<VisualQuad> VecVisualQuad;
 
-    typedef sofa::core::visual::VisualState<defaulttype::Vec3Types>::DataTypes DataTypes;
-    typedef DataTypes::Real Real;
-    typedef DataTypes::Coord Coord;
-    typedef DataTypes::VecCoord VecCoord;
-    typedef DataTypes::Deriv Deriv;
-    typedef DataTypes::VecDeriv VecDeriv;
+    typedef typename DataTypes::Real Real;
+    typedef typename DataTypes::Coord Coord;
+    typedef typename DataTypes::VecCoord VecCoord;
+    typedef typename DataTypes::Deriv Deriv;
+    typedef typename DataTypes::VecDeriv VecDeriv;
 
+    using Inherit2::m_positions;
+    using Inherit2::m_vnormals;
+    using Inherit2::m_restPositions;
+    using Inherit2::modified;
 
     bool useTopology; ///< True if list of facets should be taken from the attached topology
     int lastMeshRev; ///< Time stamps from the last time the mesh was updated from the topology
@@ -200,13 +204,13 @@ public:
     Data< type::vector<FaceGroup> > groups;
 
     /// Link to be set to the topology container in the component graph.
-    SingleLink <VisualModelImpl, sofa::core::topology::BaseMeshTopology, BaseLink::FLAG_STOREPATH | BaseLink::FLAG_STRONGLINK> l_topology;
+    SingleLink <TVisualModelImpl, sofa::core::topology::BaseMeshTopology, BaseLink::FLAG_STOREPATH | BaseLink::FLAG_STRONGLINK> l_topology;
 protected:
     /// Default constructor.
-    VisualModelImpl();
+    TVisualModelImpl();
 
     /// Default destructor.
-    ~VisualModelImpl() override;
+    ~TVisualModelImpl() override;
 
 public:
     void parse(core::objectmodel::BaseObjectDescription* arg) override;
@@ -367,8 +371,6 @@ public:
     void initPositionFromVertices();
     void initFromFileMesh();
 
-    void initVisual() override;
-
     /// Append this mesh to an OBJ format stream.
     /// The number of vertices position, normal, and texture coordinates already written is given as parameters
     /// This method should update them
@@ -406,5 +408,10 @@ protected:
     std::set< sofa::core::topology::BaseMeshTopology::QuadID> m_dirtyQuads;
 };
 
+#if not defined SOFA_COMPONENT_VISUAL_VISUALMODELIMPL_CPP
+extern template class SOFA_COMPONENT_VISUAL_API TVisualModelImpl<defaulttype::Vec3Types>;
+#endif
+
+using VisualModelImpl = TVisualModelImpl<defaulttype::Vec3Types>;
 
 } // namespace sofa::component::visual

@@ -601,7 +601,7 @@ bool OglModel::hasTransparent()
 {
     if(alphaBlend.getValue())
         return true;
-    return VisualModelImpl::hasTransparent();
+    return Inherit::hasTransparent();
 }
 
 bool OglModel::hasTexture()
