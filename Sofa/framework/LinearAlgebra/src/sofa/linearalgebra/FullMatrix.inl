@@ -26,50 +26,50 @@ namespace sofa::linearalgebra
 {
 
 template<class Real>
-FullMatrix<Real>::FullMatrix()
+FullMatrixGeneric<Real>::FullMatrixGeneric()
     : data(nullptr), nRow(0), nCol(0), pitch(0), allocsize(0)
 {
 }
 
 template<class Real>
-FullMatrix<Real>::FullMatrix(Index nbRow, Index nbCol)
+FullMatrixGeneric<Real>::FullMatrixGeneric(Index nbRow, Index nbCol)
     : data(new Real[nbRow*nbCol]), nRow(nbRow), nCol(nbCol), pitch(nbCol), allocsize(nbRow*nbCol)
 {
 }
 
 template<class Real>
-FullMatrix<Real>::FullMatrix(Real* p, Index nbRow, Index nbCol)
+FullMatrixGeneric<Real>::FullMatrixGeneric(Real* p, Index nbRow, Index nbCol)
     : data(p), nRow(nbRow), nCol(nbCol), pitch(nbCol), allocsize(-nbRow*nbCol)
 {
 }
 
 template<class Real>
-FullMatrix<Real>::FullMatrix(Real* p, Index nbRow, Index nbCol, Index pitch)
+FullMatrixGeneric<Real>::FullMatrixGeneric(Real* p, Index nbRow, Index nbCol, Index pitch)
     : data(p), nRow(nbRow), nCol(nbCol), pitch(pitch), allocsize(-nbRow*pitch)
 {
 }
 
 template<class Real>
-FullMatrix<Real>::~FullMatrix()
+FullMatrixGeneric<Real>::~FullMatrixGeneric()
 {
     if (allocsize>0)
         delete[] data;
 }
 
 template<class Real>
-typename FullMatrix<Real>::LineIterator FullMatrix<Real>::begin() { return FullMatrix<Real>::LineIterator(data, 0, nCol, pitch); }
+typename FullMatrixGeneric<Real>::LineIterator FullMatrixGeneric<Real>::begin() { return FullMatrixGeneric<Real>::LineIterator(data, 0, nCol, pitch); }
 
 template<class Real>
-typename FullMatrix<Real>::LineIterator FullMatrix<Real>::end()   { return FullMatrix<Real>::LineIterator(data, nRow, nCol, pitch);   }
+typename FullMatrixGeneric<Real>::LineIterator FullMatrixGeneric<Real>::end()   { return FullMatrixGeneric<Real>::LineIterator(data, nRow, nCol, pitch);   }
 
 template<class Real>
-typename FullMatrix<Real>::LineConstIterator FullMatrix<Real>::begin() const { return FullMatrix<Real>::LineConstIterator(data, 0, nCol, pitch); }
+typename FullMatrixGeneric<Real>::LineConstIterator FullMatrixGeneric<Real>::begin() const { return FullMatrixGeneric<Real>::LineConstIterator(data, 0, nCol, pitch); }
 
 template<class Real>
-typename FullMatrix<Real>::LineConstIterator FullMatrix<Real>::end()   const { return LineConstIterator(data, nRow, nCol, pitch);   }
+typename FullMatrixGeneric<Real>::LineConstIterator FullMatrixGeneric<Real>::end()   const { return LineConstIterator(data, nRow, nCol, pitch);   }
 
 template<class Real>
-void FullMatrix<Real>::resize(Index nbRow, Index nbCol)
+void FullMatrixGeneric<Real>::resize(Index nbRow, Index nbCol)
 {
     if ( FULLMATRIX_VERBOSE && (nbRow != rowSize() || nbCol != colSize()) )
     {
@@ -103,7 +103,7 @@ void FullMatrix<Real>::resize(Index nbRow, Index nbCol)
 }
 
 template<class Real>
-SReal FullMatrix<Real>::element(Index i, Index j) const
+SReal FullMatrixGeneric<Real>::element(Index i, Index j) const
 {
     if ( FULLMATRIX_CHECK &&  (i >= rowSize() || j >= colSize()) )
     {
@@ -114,7 +114,7 @@ SReal FullMatrix<Real>::element(Index i, Index j) const
 }
 
 template<class Real>
-void FullMatrix<Real>::set(Index i, Index j, double v)
+void FullMatrixGeneric<Real>::set(Index i, Index j, double v)
 {
     msg_info_when(FULLMATRIX_VERBOSE) << /*this->Name() <<*/ "(" << rowSize() << "," << colSize() << "): element(" << i << "," << j << ") = " << v;
     if ( FULLMATRIX_CHECK &&  (i >= rowSize() || j >= colSize()) )
@@ -126,7 +126,7 @@ void FullMatrix<Real>::set(Index i, Index j, double v)
 }
 
 template<class Real>
-void FullMatrix<Real>::add(Index i, Index j, double v)
+void FullMatrixGeneric<Real>::add(Index i, Index j, double v)
 {
     msg_info_when(FULLMATRIX_VERBOSE) << /*this->Name() << */"(" << rowSize() << "," << colSize() << "): element(" << i << "," << j << ") += " << v;
     if ( FULLMATRIX_CHECK &&  (i >= rowSize() || j >= colSize()) )
@@ -138,7 +138,7 @@ void FullMatrix<Real>::add(Index i, Index j, double v)
 }
 
 template<class Real>
-void FullMatrix<Real>::clear(Index i, Index j)
+void FullMatrixGeneric<Real>::clear(Index i, Index j)
 {
     msg_info_when(FULLMATRIX_VERBOSE) << /*this->Name() <<*/ "(" << rowSize() << "," << colSize() << "): element(" << i << "," << j << ") = 0";
     if ( FULLMATRIX_CHECK &&  (i >= rowSize() || j >= colSize()) )
@@ -150,7 +150,7 @@ void FullMatrix<Real>::clear(Index i, Index j)
 }
 
 template<class Real>
-void FullMatrix<Real>::clearRow(Index i)
+void FullMatrixGeneric<Real>::clearRow(Index i)
 {
     msg_info_when(FULLMATRIX_VERBOSE) << /*this->Name() <<*/ "(" << rowSize() << "," << colSize() << "): row(" << i << ") = 0";
     if ( FULLMATRIX_CHECK &&  (i >= rowSize()) )
@@ -163,7 +163,7 @@ void FullMatrix<Real>::clearRow(Index i)
 }
 
 template<class Real>
-void FullMatrix<Real>::clearCol(Index j)
+void FullMatrixGeneric<Real>::clearCol(Index j)
 {
     msg_info_when(FULLMATRIX_VERBOSE) <</* this->Name() << */"(" << rowSize() << "," << colSize() << "): col(" << j << ") = 0";
     if ( FULLMATRIX_CHECK &&  (j >= colSize()) )
@@ -176,7 +176,7 @@ void FullMatrix<Real>::clearCol(Index j)
 }
 
 template<class Real>
-void FullMatrix<Real>::clearRowCol(Index i)
+void FullMatrixGeneric<Real>::clearRowCol(Index i)
 {
     msg_info_when(FULLMATRIX_VERBOSE) << /*this->Name() << */"(" << rowSize() << "," << colSize() << "): row(" << i << ") = 0 and col(" << i << ") = 0";
     if ( FULLMATRIX_CHECK &&  (i >= rowSize() || i >= colSize()) )
@@ -189,7 +189,7 @@ void FullMatrix<Real>::clearRowCol(Index i)
 }
 
 template<class Real>
-void FullMatrix<Real>::clear()
+void FullMatrixGeneric<Real>::clear()
 {
     if (pitch == nCol)
         std::fill(data, data+nRow*pitch, (Real)0);
@@ -204,7 +204,7 @@ void FullMatrix<Real>::clear()
 /// matrix-vector product
 /// @returns this * v
 template<class Real>
-FullVector<Real> FullMatrix<Real>::operator*( const FullVector<Real>& v ) const
+FullVector<Real> FullMatrixGeneric<Real>::operator*( const FullVector<Real>& v ) const
 {
     FullVector<Real> res( rowSize() );
     mul( res, v );
@@ -214,7 +214,7 @@ FullVector<Real> FullMatrix<Real>::operator*( const FullVector<Real>& v ) const
 /// matrix-vector product
 /// res = this * v
 template<class Real>
-void FullMatrix<Real>::mul( FullVector<Real>& res,const FullVector<Real>& b ) const
+void FullMatrixGeneric<Real>::mul( FullVector<Real>& res,const FullVector<Real>& b ) const
 {
     for( Index i=0 ; i<nRow ; ++i )
     {
@@ -228,7 +228,7 @@ void FullMatrix<Real>::mul( FullVector<Real>& res,const FullVector<Real>& b ) co
 /// transposed matrix-vector product
 /// res = this^T * v
 template<class Real>
-void FullMatrix<Real>::mulT( FullVector<Real>& res, const FullVector<Real>& b ) const
+void FullMatrixGeneric<Real>::mulT( FullVector<Real>& res, const FullVector<Real>& b ) const
 {
     for( Index i=0 ; i<nCol ; ++i )
     {
@@ -242,9 +242,9 @@ void FullMatrix<Real>::mulT( FullVector<Real>& res, const FullVector<Real>& b ) 
 /// matrix multiplication
 /// @returns this * m
 template<class Real>
-FullMatrix<Real> FullMatrix<Real>::operator*( const FullMatrix<Real>& m ) const
+FullMatrixGeneric<Real> FullMatrixGeneric<Real>::operator*( const FullMatrixGeneric<Real>& m ) const
 {
-    FullMatrix<Real> res( rowSize(), colSize() );
+    FullMatrixGeneric<Real> res( rowSize(), colSize() );
     mul( res, m );
     return res;
 }
@@ -252,7 +252,7 @@ FullMatrix<Real> FullMatrix<Real>::operator*( const FullMatrix<Real>& m ) const
 /// matrix multiplication
 /// res = this * m
 template<class Real>
-void FullMatrix<Real>::mul( FullMatrix<Real>& res, const FullMatrix<Real>& m ) const
+void FullMatrixGeneric<Real>::mul( FullMatrixGeneric<Real>& res, const FullMatrixGeneric<Real>& m ) const
 {
     assert( m.rowSize() == nCol );
 
@@ -271,7 +271,7 @@ void FullMatrix<Real>::mul( FullMatrix<Real>& res, const FullMatrix<Real>& m ) c
 /// transposed matrix multiplication
 /// res = this^T * m
 template<class Real>
-void FullMatrix<Real>::mulT( FullMatrix<Real>& res, const FullMatrix<Real>& m ) const
+void FullMatrixGeneric<Real>::mulT( FullMatrixGeneric<Real>& res, const FullMatrixGeneric<Real>& m ) const
 {
     assert( m.rowSize() == nRow );
 
@@ -288,7 +288,7 @@ void FullMatrix<Real>::mulT( FullMatrix<Real>& res, const FullMatrix<Real>& m ) 
 }
 
 template<typename Real>
-std::ostream& readFromStream(std::ostream& out, const FullMatrix<Real>& v )
+std::ostream& readFromStream(std::ostream& out, const FullMatrixGeneric<Real>& v )
 {
     Index nx = v.colSize();
     Index ny = v.rowSize();
@@ -325,7 +325,7 @@ void LPtrFullMatrix<Real>::resize(Index nbRow, Index nbCol)
         this->clear();
     else
     {
-        this->FullMatrix<Real>::resize(nbRow, nbCol);
+        this->FullMatrixGeneric<Real>::resize(nbRow, nbCol);
         if (nbRow > lallocsize)
         {
             if (lallocsize > 0)
@@ -339,10 +339,10 @@ void LPtrFullMatrix<Real>::resize(Index nbRow, Index nbCol)
 }
 
 template<>
-const char* FullMatrix<double>::Name() { return "FullMatrix"; }
+const char* FullMatrixGeneric<double>::Name() { return "FullMatrixGeneric"; }
 
 template<>
-const char* FullMatrix<float>::Name() { return "FullMatrixf"; }
+const char* FullMatrixGeneric<float>::Name() { return "FullMatrixf"; }
 
 
 } // namespace sofa::linearalgebra

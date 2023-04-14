@@ -30,7 +30,7 @@ namespace sofa::linearalgebra
 
 /// Simple full matrix container
 template<typename T>
-class SOFA_LINEARALGEBRA_API FullMatrix : public linearalgebra::BaseMatrix
+class SOFA_LINEARALGEBRA_API FullMatrixGeneric : public linearalgebra::BaseMatrix
 {
 public:
     typedef T Real;
@@ -70,12 +70,12 @@ protected:
 
 public:
 
-    FullMatrix();
-    FullMatrix(Index nbRow, Index nbCol);
-    FullMatrix(Real* p, Index nbRow, Index nbCol);
-    FullMatrix(Real* p, Index nbRow, Index nbCol, Index pitch);
+    FullMatrixGeneric();
+    FullMatrixGeneric(Index nbRow, Index nbCol);
+    FullMatrixGeneric(Real* p, Index nbRow, Index nbCol);
+    FullMatrixGeneric(Real* p, Index nbRow, Index nbCol, Index pitch);
 
-    ~FullMatrix() override;
+    ~FullMatrixGeneric() override;
 
     Real* ptr() { return data; }
     const Real* ptr() const { return data; }
@@ -118,26 +118,32 @@ public:
 
     /// matrix multiplication
     /// @returns this * m
-    FullMatrix<Real> operator*( const FullMatrix<Real>& m ) const;
+    FullMatrixGeneric<Real> operator*( const FullMatrixGeneric<Real>& m ) const;
 
     /// matrix multiplication
     /// res = this * m
-    void mul( FullMatrix<Real>& res, const FullMatrix<Real>& m ) const;
+    void mul( FullMatrixGeneric<Real>& res, const FullMatrixGeneric<Real>& m ) const;
 
     /// transposed matrix multiplication
     /// res = this^T * m
-    void mulT( FullMatrix<Real>& res, const FullMatrix<Real>& m ) const;
+    void mulT( FullMatrixGeneric<Real>& res, const FullMatrixGeneric<Real>& m ) const;
 
 
     static const char* Name();
 };
 
+template<typename T>
+class SOFA_LINEARALGEBRA_API FullMatrix final : public FullMatrixGeneric<T>
+{
+
+};
+
 /// Simple full matrix container, with an additionnal pointer per line, to be able do get a T** pointer and use [i][j] directly
 template<typename T>
-class SOFA_LINEARALGEBRA_API LPtrFullMatrix : public FullMatrix<T>
+class SOFA_LINEARALGEBRA_API LPtrFullMatrix : public FullMatrixGeneric<T>
 {
 public:
-    typedef typename FullMatrix<T>::Index Index;
+    typedef typename FullMatrixGeneric<T>::Index Index;
 protected:
     T** ldata;
     Index lallocsize;
@@ -150,16 +156,23 @@ public:
     T** lptr() { return ldata; }
 };
 
-template<> const char* FullMatrix<double>::Name();
-template<> const char* FullMatrix<float>::Name();
+template<> const char* FullMatrixGeneric<double>::Name();
+template<> const char* FullMatrixGeneric<float>::Name();
 
-SOFA_LINEARALGEBRA_API std::ostream& operator << (std::ostream& out, const FullMatrix<double>& v );
-SOFA_LINEARALGEBRA_API std::ostream& operator << (std::ostream& out, const FullMatrix<float>& v );
+
+SOFA_LINEARALGEBRA_API std::ostream& operator << (std::ostream& out, const FullMatrix<double>& v);
+SOFA_LINEARALGEBRA_API std::ostream& operator << (std::ostream& out, const FullMatrix<float>& v);
+
+SOFA_LINEARALGEBRA_API std::ostream& operator << (std::ostream& out, const FullMatrixGeneric<double>& v );
+SOFA_LINEARALGEBRA_API std::ostream& operator << (std::ostream& out, const FullMatrixGeneric<float>& v );
 
 SOFA_LINEARALGEBRA_API std::ostream& operator << (std::ostream& out, const LPtrFullMatrix<double>& v );
 SOFA_LINEARALGEBRA_API std::ostream& operator << (std::ostream& out, const LPtrFullMatrix<float>& v );
 
 #if !defined(SOFABASELINEARSOLVER_FULLMATRIX_DEFINITION)
+extern template class SOFA_LINEARALGEBRA_API FullMatrixGeneric<double>;
+extern template class SOFA_LINEARALGEBRA_API FullMatrixGeneric<float>;
+
 extern template class SOFA_LINEARALGEBRA_API FullMatrix<double>;
 extern template class SOFA_LINEARALGEBRA_API FullMatrix<float>;
 

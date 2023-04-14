@@ -29,7 +29,7 @@ namespace sofa::linearalgebra
 {
 
 template< std::size_t N, typename T>
-class BlockVector : public FullVector<T>
+class BlockVector final : public FullVector<T>
 {
 public:
     typedef FullVector<T> Inherit;

@@ -26,6 +26,11 @@ namespace sofa::linearalgebra
 {
 
 #if defined(SOFABASELINEARSOLVER_FULLMATRIX_DEFINITION)
+std::ostream& operator<<(std::ostream& out, const FullMatrixGeneric<double>& v) { return readFromStream(out, v); }
+std::ostream& operator<<(std::ostream& out, const FullMatrixGeneric<float>& v) { return readFromStream(out, v); }
+template class FullMatrixGeneric<double>;
+template class FullMatrixGeneric<float>;
+
 std::ostream& operator<<(std::ostream& out, const FullMatrix<double>& v ){ return readFromStream(out, v); }
 std::ostream& operator<<(std::ostream& out, const FullMatrix<float>& v ){ return readFromStream(out, v); }
 template class FullMatrix<double>;

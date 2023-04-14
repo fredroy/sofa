@@ -32,7 +32,7 @@ namespace sofa::linearalgebra
     
 /// Simple BTD matrix container
 template< std::size_t N, typename T>
-class BTDMatrix : public linearalgebra::BaseMatrix
+class BTDMatrix final : public linearalgebra::BaseMatrix
 {
 public:
     enum { BSIZE = N };
