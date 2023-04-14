@@ -119,6 +119,8 @@ void LinearSolverConstraintCorrection<DataTypes>::init()
         msg_info() << "ODESolver path used: '" << l_ODESolver.getLinkedPath() << "'";
     }
 
+    m_cachePositionIntegrationFactor = l_ODESolver->getPositionIntegrationFactor();
+
 
     if(mstate==nullptr)
     {
@@ -570,12 +572,51 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SRea
     last_disp = 0;
     last_force = nbConstraints - 1;
     _new_force = false;
+
+    m_cachePositionIntegrationFactor = l_ODESolver->getPositionIntegrationFactor();
 }
 
 template<class DataTypes>
-void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(SReal*d, int begin, int end)
+const typename LinearSolverConstraintCorrection<DataTypes>::CachedConstraintMatrix& LinearSolverConstraintCorrection<DataTypes>::getConstraintMatrixCache()
 {
-    const MatrixDeriv& constraints = mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
+    const auto* constraintData = mstate->read(core::ConstMatrixDerivId::constraintJacobian());
+
+    // if the data has been modified, we need to recreate the cache
+    if (m_currentConstraintMatrixRevision < constraintData->m_counter)
+    {
+        const MatrixDeriv& constraints = constraintData->getValue();
+        const auto nbConstraints = constraints.size();
+
+        m_constraintMatrixCache.clear();
+        m_constraintMatrixCache.resize(nbConstraints);
+
+        for (int i = 0; i < nbConstraints; i++)
+        {
+            auto rowIt = constraints.readLine(i);
+            VecLineInfo& vinfo = m_constraintMatrixCache[i];
+
+            if (rowIt != constraints.end()) // useful ??
+            {
+                MatrixDerivColConstIterator rowEnd = rowIt.end();
+
+                for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
+                {
+                    const auto dof = colIt.index();
+                    const Deriv& val = colIt.val();
+
+                    vinfo.emplace_back(dof, val );
+                }
+            }
+        }
+        m_currentConstraintMatrixRevision = constraintData->m_counter;
+    }
+
+    return m_constraintMatrixCache;
+}
+
+template<class DataTypes>
+void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(SReal *d, int begin, int end)
+{
 
     last_disp = begin;
 
@@ -604,30 +645,25 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(SRea
         d[id] += val * disp;
     };
 
-    const auto positionIntegrationFactor = l_ODESolver->getPositionIntegrationFactor();
-
     // TODO => optimisation => for each bloc store J[bloc,dof]
-    for (int i = begin; i <= end; i++)
+    const auto& constraintData = getConstraintMatrixCache();
+    if (systemLHVector_buf_fullvector)
     {
-        MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
-
-        if (rowIt != constraints.end()) // useful ??
+        for (int i = begin; i <= end; i++)
         {
-            MatrixDerivColConstIterator rowEnd = rowIt.end();
-
-            if (systemLHVector_buf_fullvector)
+            for (const auto& [dof, val] : constraintData[i])
             {
-                for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
-                {
-                    addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, positionIntegrationFactor, colIt.index(), colIt.val());
-                }
+                addConstraintDisplacement_impl(d, i, systemLHVector_buf_fullvector, m_cachePositionIntegrationFactor, dof, val);
             }
-            else
+        }
+    }
+    else
+    {
+        for (int i = begin; i <= end; i++)
+        {
+            for (const auto& [dof, val] : constraintData[i])
             {
-                for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != rowEnd; ++colIt)
-                {
-                    addConstraintDisplacement_impl(d, i, systemLHVector_buf, positionIntegrationFactor, colIt.index(), colIt.val());
-                }
+                addConstraintDisplacement_impl(d, i, systemLHVector_buf, m_cachePositionIntegrationFactor, dof, val);
             }
         }
     }
@@ -636,6 +672,7 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(SRea
 template<class DataTypes>
 void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(SReal* df, int begin, int end, bool update)
 {
+
     last_force = begin;
 
     if (!update)
@@ -644,25 +681,14 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(SReal* df,
     _new_force = true;
 
     constexpr const auto derivDim = Deriv::total_size;
-    const MatrixDeriv& constraints = mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
 
+    const auto& constraintData = getConstraintMatrixCache();
     // TODO => optimisation !!!
     for (int i = begin; i <= end; i++)
     {
-         MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
-
-        if (rowIt != constraints.end())
+        for (const auto& [dof, val] : constraintData[i])
         {
-            MatrixDerivColConstIterator colItEnd = rowIt.end();
-
-            for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != colItEnd; ++colIt)
-            {
-                const Deriv n = colIt.val();
-                const unsigned int dof = colIt.index();
-
-                constraint_force[dof] += n * df[i]; // sum of the constraint force in the DOF space
-
-            }
+            constraint_force[dof] += val * df[i]; // sum of the constraint force in the DOF space
         }
     }
 
@@ -684,74 +710,49 @@ void LinearSolverConstraintCorrection<DataTypes>::getBlockDiagonalCompliance(lin
         return ;
 
     // use the OdeSolver to get the position integration factor
-    const SReal factor = l_ODESolver.get()->getPositionIntegrationFactor(); //*m_ODESolver->getPositionIntegrationFactor(); // dt*dt
+    const SReal factor = m_cachePositionIntegrationFactor;
 
     const unsigned int numDOFs = mstate->getSize();
-    const unsigned int N = Deriv::size();
-    const unsigned int numDOFReals = numDOFs*N;
+    constexpr const auto derivDim = Deriv::total_size;
+    const unsigned int numDOFReals = numDOFs * derivDim;
 
     // Compute J
     const MatrixDeriv& constraints = mstate->read(core::ConstMatrixDerivId::constraintJacobian())->getValue();
+    const auto& constraintData = getConstraintMatrixCache();
     const unsigned int totalNumConstraints = W->rowSize();
+
+    // construction of  Vec_I_list_dof : vector containing, for each constraint block, the list of dof concerned
+    ListIndex list_dof;
 
     J.resize(totalNumConstraints, numDOFReals);
 
+#ifndef NDEBUG
+    unsigned int dof_buf = 0;
+    int debug = 0;
+#endif
     for (int i = begin; i <= end; i++)
     {
-
-
-        MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
-
-        if (rowIt != constraints.end())
+        for (const auto& [dof, val] : constraintData[i])
         {
-            MatrixDerivColConstIterator colItEnd = rowIt.end();
-
-            unsigned int dof_buf = 0;
-            int debug = 0;
-
-            for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != colItEnd; ++colIt)
+            for (unsigned int r = 0; r < derivDim; ++r)
+                J.add(i, dof * derivDim + r, val[r]);
+#ifndef NDEBUG
+            if (debug != 0)
             {
-                const unsigned int dof = colIt.index();
-                const Deriv n = colIt.val();
-
-                for (unsigned int r = 0; r < N; ++r)
-                    J.add(i, dof * N + r, n[r]);
-
-                if (debug!=0)
-                {
-                    int test = dof_buf - dof;
-                    if (test>2 || test< -2)
-                        dmsg_info() << "For constraint id1 dof1 = " << dof_buf << " dof2 = " << dof;
-                }
-
-                dof_buf = dof;
+                int test = dof_buf - dof;
+                if (test > 2 || test < -2)
+                    dmsg_info() << "For constraint id1 dof1 = " << dof_buf << " dof2 = " << dof;
             }
+
+            dof_buf = dof;
+#endif
+            list_dof.push_back(dof);
         }
+
     }
 
     // use the Linear solver to compute J*inv(M)*Jt, where M is the mechanical linear system matrix
     l_linearSolver.get()->addJMInvJt(W, &J, factor);
-
-    // construction of  Vec_I_list_dof : vector containing, for each constraint block, the list of dof concerned
-
-    ListIndex list_dof;
-
-    for (int i = begin; i <= end; i++)
-    {
-
-
-        MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
-
-        if (rowIt != constraints.end())
-        {
-            MatrixDerivColConstIterator colItEnd = rowIt.end();
-
-            for (MatrixDerivColConstIterator colIt = rowIt.begin(); colIt != colItEnd; ++colIt)
-            {
-                list_dof.push_back(colIt.index());
-            }
-        }
-    }
 
     list_dof.sort();
     list_dof.unique();

@@ -151,6 +151,18 @@ private:
     linearalgebra::BaseVector* systemLHVector_buf;
     linearalgebra::FullVector<Real>* systemLHVector_buf_fullvector { nullptr };
 
+    // cache constraint matrix with a vector
+    using LineInfo = std::pair<int, const Deriv&>;
+    using VecLineInfo = std::vector< LineInfo >;
+    using CachedConstraintMatrix = std::vector<VecLineInfo>;
+
+    int m_currentConstraintMatrixRevision{ 0 };
+    CachedConstraintMatrix m_constraintMatrixCache{};
+    const CachedConstraintMatrix& getConstraintMatrixCache();
+
+    // cache factor
+    SReal m_cachePositionIntegrationFactor{0.0};
+
     // par un vecteur de listes precaclues pour chaque contrainte
     std::vector< ListIndex > Vec_I_list_dof;   // vecteur donnant la liste des indices des dofs par block de contrainte
     int last_force, last_disp; //last_force indice du dof le plus petit portant la force/le dpt qui a ?t? modifi? pour la derni?re fois (wire optimisation only?)
