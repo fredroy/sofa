@@ -19,38 +19,34 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-
-#include "MapMapSparseMatrix.h"
+#include <sofa/linearalgebra/CompressedRowSparseMatrixConstraint.h>
 #include <Eigen/Sparse>
 #include <sofa/type/Vec.h>
-#include <sofa/defaulttype/RigidTypes.h>
+//#include <sofa/defaulttype/RigidTypes.h>
 #include <cassert>
 #include <type_traits>
 #include <cstdlib>
 
-namespace sofa
+namespace sofa::linearalgebra
 {
-namespace defaulttype
-{
-
 
 template< class TBlock >
-class MapMapSparseMatrixToEigenSparse
+struct CompressedRowSparseMatrixToEigenSparse
 {
 
 };
 
-template <typename TVec, typename Real>
-class MapMapSparseMatrixToEigenSparseVec
+template <typename TVec>
+struct CompressedRowSparseMatrixToEigenSparseVec
 {
-public:
-    typedef MapMapSparseMatrix< TVec >                 TMapMapSparseMatrix;
+    typedef typename TVec::Real Real;
+    typedef CompressedRowSparseMatrixConstraint< TVec > TCompressedRowSparseMatrix;
     typedef Eigen::SparseMatrix<Real, Eigen::RowMajor> EigenSparseMatrix;
 
 
-    EigenSparseMatrix operator() (const TMapMapSparseMatrix& mat, std::size_t size)
+    EigenSparseMatrix operator() (const TCompressedRowSparseMatrix& mat, std::size_t size)
     {
-        auto eigenMatSize = size * TVec::size();
+        std::size_t eigenMatSize = size * TVec::size();
         EigenSparseMatrix eigenMat(eigenMatSize, eigenMatSize);
 
         std::vector<Eigen::Triplet<Real> > triplets;
@@ -60,7 +56,7 @@ public:
             for (auto col = row.begin(), colend = row.end(); col !=colend; ++col)
             {
                 const TVec& vec = col.val();
-                auto   colIndex  = col.index() * TVec::size();
+                int   colIndex  = col.index() * TVec::size();
 
                 for (std::size_t i = 0; i < TVec::size(); ++i)
                 {
@@ -70,7 +66,7 @@ public:
             }
         }
 
-        eigenMat.setFromTriplets(triplets.begin(), triplets.end());
+        eigenMat.setFromTriplets(triplets.begin(), triplets.end());;
         eigenMat.makeCompressed();
 
         return eigenMat;
@@ -78,42 +74,43 @@ public:
 
 };
 
-template< sofa::Size N, typename Real >
-class MapMapSparseMatrixToEigenSparse< sofa::type::Vec<N,Real> >
-    : public  MapMapSparseMatrixToEigenSparseVec< sofa::type::Vec<N, Real>, Real >
+template< int N, typename Real >
+class CompressedRowSparseMatrixToEigenSparse< sofa::type::Vec<N,Real> >
+    : public  CompressedRowSparseMatrixToEigenSparseVec< sofa::type::Vec<N, Real> >
 {
 
 };
 
-template< sofa::Size N, typename Real >
-class MapMapSparseMatrixToEigenSparse< sofa::defaulttype::RigidDeriv<N, Real > >
-    : public MapMapSparseMatrixToEigenSparseVec< sofa::defaulttype::RigidDeriv<N, Real>, Real >
-{
-
-};
+//template< int N, typename Real >
+//class CompressedRowSparseMatrixToEigenSparse< sofa::defaulttype::RigidDeriv<N, Real > >
+//    : public CompressedRowSparseMatrixToEigenSparseVec<sofa::defaulttype::RigidDeriv<N, Real>>
+//{
+//
+//};
 
 
 template< class TBlock >
-class EigenSparseToMapMapSparseMatrix
+struct EigenSparseToCompressedRowSparseMatrix
 {
 
 };
 
 
-template <typename TVec, typename Real>
-struct EigenSparseToMapMapSparseMatrixVec
+template <typename TVec>
+struct EigenSparseToCompressedRowSparseMatrixVec
 {
-    typedef MapMapSparseMatrix< TVec >                 TMapMapSparseMatrix;
-    typedef Eigen::SparseMatrix<Real, Eigen::RowMajor> EigenSparseMatrix;
+    typedef typename TVec::Real Real;
+    typedef CompressedRowSparseMatrixConstraint< TVec > TCompressedRowSparseMatrix;
+    typedef Eigen::SparseMatrix<double, Eigen::RowMajor> EigenSparseMatrix;
 
 
-    TMapMapSparseMatrix operator() (const EigenSparseMatrix& eigenMat)
+    TCompressedRowSparseMatrix operator() (const EigenSparseMatrix& eigenMat)
     {
-        TMapMapSparseMatrix mat;
+        TCompressedRowSparseMatrix mat;
 
         const int* outerIndexPtr  = eigenMat.outerIndexPtr();
         const int* innerIndexPtr  = eigenMat.innerIndexPtr();
-        const Real* valuePtr      = eigenMat.valuePtr();
+        const double* valuePtr      = eigenMat.valuePtr();
 
         for (int rowIndex = 0; rowIndex < eigenMat.outerSize(); ++rowIndex)
         {
@@ -126,6 +123,7 @@ struct EigenSparseToMapMapSparseMatrixVec
 
                 int i = 0;
                 const int*  colPtr = innerIndexPtr + offset;
+                //const Real* valPtr = valuePtr + offset;
                 int   blockIndex   = *colPtr / TVec::size();
                 int   blockOffset  = *colPtr - (blockIndex * TVec::size());
 
@@ -134,12 +132,13 @@ struct EigenSparseToMapMapSparseMatrixVec
                 {
                     TVec val;
                     int currenTBlockkIndex = blockIndex;
+                    //int currentCol   = *colPtr;
                     while (currenTBlockkIndex == blockIndex && i != rowNonZeros)
                     {
-                        val[blockOffset] = *valuePtr;
+                        val[blockOffset] = *valuePtr; // TODO: valPtr ?
                         ++i;
                         ++colPtr;
-                        ++valuePtr;
+                        ++valuePtr; // TODO: valPtr ?
                         blockIndex = *colPtr / TVec::size();
                         blockOffset = *colPtr - (blockIndex * TVec::size());
                     }
@@ -153,16 +152,16 @@ struct EigenSparseToMapMapSparseMatrixVec
     }
 };
 
-template< sofa::Size N, typename Real>
-class EigenSparseToMapMapSparseMatrix< sofa::type::Vec<N, Real> > :
-    public EigenSparseToMapMapSparseMatrixVec<sofa::type::Vec<N, Real>, Real>
+template< int N, typename Real>
+class EigenSparseToCompressedRowSparseMatrix< sofa::type::Vec<N, Real> > :
+    public EigenSparseToCompressedRowSparseMatrixVec<sofa::type::Vec<N, Real> >
 {
 
 };
 
-template< sofa::Size N, typename Real>
-class EigenSparseToMapMapSparseMatrix< sofa::defaulttype::RigidDeriv<N, Real> > :
-    public EigenSparseToMapMapSparseMatrixVec<sofa::defaulttype::RigidDeriv<N, Real>, Real>
+template< int N, typename Real>
+class EigenSparseToCompressedRowSparseMatrix< sofa::defaulttype::RigidDeriv<N, Real> > :
+    public EigenSparseToCompressedRowSparseMatrixVec<sofa::defaulttype::RigidDeriv<N, Real> >
 {
 
 };
@@ -170,12 +169,14 @@ class EigenSparseToMapMapSparseMatrix< sofa::defaulttype::RigidDeriv<N, Real> > 
 
 
 /// Computes lhs += jacobian^T * rhs
-template< typename LhsDeriv, typename RhsDeriv, typename Real >
-void addMultTransposeEigen(MapMapSparseMatrix<LhsDeriv>& lhs, const Eigen::SparseMatrix<Real, Eigen::RowMajor>& jacobian, const MapMapSparseMatrix<RhsDeriv>& rhs)
+template< typename LhsMatrixDeriv, typename RhsMatrixDeriv, typename Real >
+void addMultTransposeEigen(LhsMatrixDeriv& lhs, const Eigen::SparseMatrix<Real, Eigen::RowMajor>& jacobian, const RhsMatrixDeriv& rhs)
 {
     auto rhsRowIt    = rhs.begin();
     auto rhsRowItEnd = rhs.end();
 
+    typedef typename LhsMatrixDeriv::Data LhsDeriv;
+    typedef typename RhsMatrixDeriv::Data RhsDeriv;
     typedef Eigen::SparseMatrix<Real, Eigen::RowMajor> EigenSparseMatrix;
     const EigenSparseMatrix jacobianT = jacobian.transpose();
 
@@ -210,7 +211,7 @@ void addMultTransposeEigen(MapMapSparseMatrix<LhsDeriv>& lhs, const Eigen::Spars
                     // check the next LhsDeriv::total_size rows for potential non zero values
                     // inside the block [k, bCol, k+LhsDeriv::total_size, bCol+RhsDeriv::total_size]
                     bool blockEmpty = true;
-                    for (int j = 0; j < static_cast<int>(LhsDeriv::total_size); ++j)
+                    for (int j = 0; j < LhsDeriv::total_size; ++j)
                     {
                         typename EigenSparseMatrix::InnerIterator it(jacobianT, k+j);
                         // advance until we are either invalid or inside the block
@@ -250,6 +251,4 @@ void addMultTransposeEigen(MapMapSparseMatrix<LhsDeriv>& lhs, const Eigen::Spars
     }
 }
 
-}
-
-}
+} // namespace sofa::defaulttype

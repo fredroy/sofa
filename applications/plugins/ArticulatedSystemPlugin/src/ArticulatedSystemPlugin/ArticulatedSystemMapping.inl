@@ -494,17 +494,6 @@ void ArticulatedSystemMapping<TIn, TInRoot, TOut>::applyJT( InMatrixDeriv& out, 
         {
             typename InMatrixDeriv::RowIterator o = out.writeLine(rowIt.index());
 
-            //Hack to get a RowIterator, withtout default constructor
-            InRootMatrixDeriv temp;
-            typename InRootMatrixDeriv::RowIterator rootRowIt = temp.end();
-            typename InRootMatrixDeriv::RowIterator rootRowItEnd = temp.end();
-
-            if(m_fromRootModel && outRoot)
-            {
-                rootRowIt = outRoot->end();
-                rootRowItEnd = outRoot->end();
-            }
-
             while (colIt != colItEnd)
             {
                 int childIndex = colIt.index();
@@ -558,10 +547,7 @@ void ArticulatedSystemMapping<TIn, TInRoot, TOut>::applyJT( InMatrixDeriv& out, 
                     getVCenter(T) = getVCenter(valueConst);
                     getVOrientation(T) = getVOrientation(valueConst) + cross(C - posRoot, getVCenter(valueConst));
 
-                    if (rootRowIt == rootRowItEnd)
-                        rootRowIt = (*outRoot).writeLine(rowIt.index());
-
-                    rootRowIt.addCol(d_indexFromRoot.getValue(), T);
+                    (*outRoot).writeLine(rowIt.index()).addCol(d_indexFromRoot.getValue(), T);
                 }
 
                 ++colIt;

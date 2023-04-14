@@ -28,7 +28,7 @@
 #include <sofa/simulation/Node.h>
 #include <sofa/core/behavior/BaseForceField.h>
 #include <sofa/core/behavior/MechanicalState.inl>
-#include <sofa/defaulttype/MapMapSparseMatrixEigenUtils.h>
+#include <sofa/linearalgebra/CompressedRowSparseMatrixConstraintEigenUtils.h>
 
 namespace sofa::component::mapping::nonlinear
 {
