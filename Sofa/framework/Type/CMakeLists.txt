@@ -62,6 +62,9 @@ set(SOURCE_FILES
     ${SOFATYPESRC_ROOT}/SVector.cpp
 )
 
+# Add ankler map support
+list(APPEND HEADER_FILES ${SOFATYPESRC_ROOT}/ankerl/unordered_dense.h)
+
 sofa_find_package(Sofa.Config REQUIRED)
 
 ## Boost (1.54.0 or higher) is now mandatory.
