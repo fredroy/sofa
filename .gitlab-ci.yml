@@ -1,0 +1,81 @@
+
+stages:          # List of stages for jobs, and their order of execution
+  - build
+  - upload
+  - release
+  - trigger_plugins
+
+variables:
+  SOFA_WORKING_DIR: ${CI_PROJECT_DIR}/workingdir
+  SOFA_BUILD_DIR: ${SOFA_WORKING_DIR}/build
+  SOFA_ROOT: ${SOFA_WORKING_DIR}/install
+  PACKAGE_VERSION: "${CI_COMMIT_REF_NAME}"
+  PACKAGE_REGISTRY_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/sofa_LNR/${PACKAGE_VERSION}"
+  SOFA_INSTALL_ARCHIVE_FILENAME: sofa_LNR-${CI_COMMIT_REF_NAME}-ubuntu.tgz
+  SOFA_INSTALL_ARCHIVE_PATH: ${SOFA_WORKING_DIR}/${SOFA_INSTALL_ARCHIVE_FILENAME}
+  BEAMADAPTER_PROJECT_ID: 39525328  # ID of LNR_SW/BeamAdapter, TODO query request to get the ID instead of a fixed value ?
+  BEAMDAPTER_TRIGGER_TOKEN: glptt-c5cd1db5ebf1e8e5168c269768c4823eddc09031
+  BEAMDAPTER_TRIGGER_BRANCH: dev_integration
+
+cache:
+  key: one-key-to-rule-them-all # always keep accross all pipelines, branches...
+  paths:
+    - ${SOFA_BUILD_DIR}
+
+build-sofa:
+  image: registry.gitlab.com/frroy/sofalnrobotics # custom-made docker image for building sofa (bin,deps,etc)
+  stage: build
+  script:
+    - mkdir -p ${SOFA_BUILD_DIR}
+    - cd ${SOFA_BUILD_DIR}
+    - rm -f CMakeCache.txt # reset CMake configuration
+    - rm -rf ${SOFA_BUILD_DIR}/external_directories/fetched # bugfix, remove all refs to fetched project (i.e regression)
+    - echo "----- Configure SOFA"
+    - cmake -G Ninja -DCMAKE_BUILD_TYPE=Release 
+                     -DCMAKE_CXX_FLAGS_RELEASE="-O3 -DNDEBUG" -DCMAKE_INSTALL_PREFIX="${SOFA_ROOT}" 
+                     -DSOFA_BUILD_TESTS=OFF -DSOFA_ENABLE_LEGACY_HEADERS=OFF -DSOFA_WITH_DEVTOOLS=OFF 
+                     -DLIBRARY_SOFA_GUI=OFF -DLIBRARY_SOFA_GUI_QT=OFF -DPLUGIN_SOFA_GUI_QT=OFF -DCOLLECTION_SOFAGUI=OFF
+                     -DPLUGIN_CIMGPLUGIN=OFF -DPLUGIN_SOFAMATRIX=OFF -DPLUGIN_ARTICULATEDSYSTEMPLUGIN=OFF
+                     -DPLUGIN_MULTITHREADING=ON
+                     -DSOFA_FETCH_REGRESSION=ON -DAPPLICATION_REGRESSION_TEST=ON  
+                     -B${SOFA_BUILD_DIR} -S${CI_PROJECT_DIR}
+    - echo "----- Build SOFA"
+    - ninja
+    - echo "----- Install SOFA"
+    - ninja install
+    - cd ${SOFA_WORKING_DIR}
+    - tar cvzf ${SOFA_INSTALL_ARCHIVE_PATH} install/
+
+  artifacts:
+    paths:
+      -  ${SOFA_INSTALL_ARCHIVE_PATH}
+    untracked: false
+    expire_in: 1 days
+
+upload_sofa:
+  stage: upload
+  image: curlimages/curl:latest
+  script:
+    - |
+      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ${SOFA_INSTALL_ARCHIVE_PATH} ${PACKAGE_REGISTRY_URL}/${SOFA_INSTALL_ARCHIVE_FILENAME}
+
+trigger_plugins_pipeline:
+  stage: trigger_plugins
+  image: curlimages/curl:latest
+  script:
+    - |
+      curl --request POST "https://gitlab.com/api/v4/projects/${BEAMADAPTER_PROJECT_ID}/trigger/pipeline?token=${BEAMDAPTER_TRIGGER_TOKEN}&ref=${BEAMDAPTER_TRIGGER_BRANCH}"
+
+#release_job:
+#  stage: release
+#  image: registry.gitlab.com/gitlab-org/release-cli:latest
+#  needs:
+#  - job: build-sofa
+#    artifacts: true
+  #rules:
+  #  - if: $CI_COMMIT_TAG                 # Run this job when a tag is created
+#  script:
+#    - echo "running release_job"
+#  release:                               # See https://docs.gitlab.com/ee/ci/yaml/#release for available properties
+#    tag_name: 'test_release'
+#    description: '$test_release'
