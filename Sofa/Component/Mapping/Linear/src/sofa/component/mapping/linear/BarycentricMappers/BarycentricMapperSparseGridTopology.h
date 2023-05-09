@@ -24,6 +24,8 @@
 
 #include <sofa/component/topology/container/grid/SparseGridTopology.h>
 
+#include <sofa/simulation/TaskScheduler.h>
+
 namespace sofa::component::mapping::linear
 {
 
@@ -81,6 +83,8 @@ protected:
     topology::container::grid::SparseGridTopology* m_fromTopology {nullptr};
     MatrixType* m_matrixJ {nullptr};
     bool m_updateJ {false};
+
+    sofa::simulation::TaskScheduler* m_taskScheduler{ nullptr };
 };
 
 #if !defined(SOFA_COMPONENT_MAPPING_BARYCENTRICMAPPERSPARSEGRIDTOPOLOGY_CPP)

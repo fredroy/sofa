@@ -25,6 +25,10 @@
 #include <sofa/core/visual/VisualParams.h>
 #include <sofa/core/State.h>
 
+#include <sofa/simulation/MainTaskSchedulerFactory.h>
+#include <sofa/simulation/ParallelForEach.h>
+#include <execution>
+
 namespace sofa::component::mapping::linear
 {
 
@@ -99,6 +103,9 @@ void BarycentricMapperSparseGridTopology<In,Out>::init ( const typename Out::Vec
             this->addPointInCube ( cube, coefs.ptr() );
         }
     }
+
+    m_taskScheduler = sofa::simulation::MainTaskSchedulerFactory::createInRegistry();
+    m_taskScheduler->init();
 }
 
 
@@ -307,37 +314,61 @@ void BarycentricMapperSparseGridTopology<In,Out>::apply ( typename Out::VecCoord
 {
     out.resize( m_map.size() );
 
-    typedef type::vector< CubeData > CubeDataVector;
-    typedef typename CubeDataVector::const_iterator CubeDataVectorIt;
-
-    CubeDataVectorIt it = m_map.begin();
-    CubeDataVectorIt itEnd = m_map.end();
-
-    unsigned int i = 0;
-
     const auto& hexahedra = this->m_fromTopology->getHexahedra();
 
-    while (it != itEnd)
+    auto apply_impl = [&](const auto& mapIt)
     {
-        assert(it->in_index < hexahedra.size());
-        const topology::container::grid::SparseGridTopology::Hexa& cube = hexahedra[it->in_index];
+        assert(mapIt->in_index < hexahedra.size());
 
-        const Real fx = it->baryCoords[0];
-        const Real fy = it->baryCoords[1];
-        const Real fz = it->baryCoords[2];
+        const unsigned int i = &mapIt - &m_map[0];
 
-        Out::setCPos(out[i] , in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
-                + in[cube[1]] * ( ( fx ) * ( 1-fy ) * ( 1-fz ) )
-                + in[cube[3]] * ( ( 1-fx ) * ( fy ) * ( 1-fz ) )
-                + in[cube[2]] * ( ( fx ) * ( fy ) * ( 1-fz ) )
-                + in[cube[4]] * ( ( 1-fx ) * ( 1-fy ) * ( fz ) )
-                + in[cube[5]] * ( ( fx ) * ( 1-fy ) * ( fz ) )
-                + in[cube[7]] * ( ( 1-fx ) * ( fy ) * ( fz ) )
-                + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) );
+        const auto& cube = hexahedra[mapIt.in_index];
 
-        ++it;
-        ++i;
-    }
+        const Real& fx = mapIt.baryCoords[0];
+        const Real& fy = mapIt.baryCoords[1];
+        const Real& fz = mapIt.baryCoords[2];
+
+        Out::setCPos(out[i], in[cube[0]] * ((1 - fx) * (1 - fy) * (1 - fz))
+            + in[cube[1]] * ((fx) * (1 - fy) * (1 - fz))
+            + in[cube[3]] * ((1 - fx) * (fy) * (1 - fz))
+            + in[cube[2]] * ((fx) * (fy) * (1 - fz))
+            + in[cube[4]] * ((1 - fx) * (1 - fy) * (fz))
+            + in[cube[5]] * ((fx) * (1 - fy) * (fz))
+            + in[cube[7]] * ((1 - fx) * (fy) * (fz))
+            + in[cube[6]] * ((fx) * (fy) * (fz)));
+
+    };
+
+    std::for_each(std::execution::seq, m_map.begin(), m_map.end(), apply_impl);
+
+    //auto apply_impl = [&](const auto& range)
+    //{
+    //    for (auto mapIt = range.start; mapIt != range.end; ++mapIt)
+    //    {
+    //        assert(*mapIt.in_index < hexahedra.size());
+
+    //        const unsigned int i = std::distance(m_map.begin(), mapIt);
+    //        const auto& elem = m_map[i];
+
+    //        const auto& cube = hexahedra[elem.in_index];
+
+    //        const Real& fx = elem.baryCoords[0];
+    //        const Real& fy = elem.baryCoords[1];
+    //        const Real& fz = elem.baryCoords[2];
+
+    //        Out::setCPos(out[i], in[cube[0]] * ((1 - fx) * (1 - fy) * (1 - fz))
+    //            + in[cube[1]] * ((fx) * (1 - fy) * (1 - fz))
+    //            + in[cube[3]] * ((1 - fx) * (fy) * (1 - fz))
+    //            + in[cube[2]] * ((fx) * (fy) * (1 - fz))
+    //            + in[cube[4]] * ((1 - fx) * (1 - fy) * (fz))
+    //            + in[cube[5]] * ((fx) * (1 - fy) * (fz))
+    //            + in[cube[7]] * ((1 - fx) * (fy) * (fz))
+    //            + in[cube[6]] * ((fx) * (fy) * (fz)));
+
+    //    }
+    //};
+
+    //simulation::forEachRange(simulation::ForEachExecutionPolicy::PARALLEL, *m_taskScheduler, m_map.begin(), m_map.end(), apply_impl);
 }
 
 
