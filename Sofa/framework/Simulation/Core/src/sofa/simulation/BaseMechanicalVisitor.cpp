@@ -47,7 +47,7 @@ const std::string BaseMechanicalVisitor::fwdVisitorType = "fwd";
 const std::string BaseMechanicalVisitor::bwdVisitorType = "bwd";
 
 BaseMechanicalVisitor::BaseMechanicalVisitor(const sofa::core::ExecParams *params)
-        : Visitor(params), root(nullptr), rootData(nullptr)
+        : Visitor(params), root(nullptr)
 {
     // mechanical visitors shouldn't be able to acess a sleeping node, only visual visitor should
     canAccessSleepingNode = false;
@@ -170,7 +170,6 @@ Visitor::Result BaseMechanicalVisitor::processNodeTopDown(simulation::Node* node
     VisitorContext ctx;
     ctx.root = root;
     ctx.node = node;
-    ctx.nodeData = rootData;
     return processNodeTopDown(node, &ctx);
 }
 
@@ -180,7 +179,6 @@ void BaseMechanicalVisitor::processNodeBottomUp(simulation::Node* node)
     VisitorContext ctx;
     ctx.root = root;
     ctx.node = node;
-    ctx.nodeData = rootData;
     processNodeBottomUp(node, &ctx);
 }
 
@@ -348,26 +346,6 @@ void BaseMechanicalVisitor::end(simulation::Node* node, core::objectmodel::BaseO
 //{
 //    return dynamic_cast<const sofa::core::ConstraintParams*>(params);
 //}
-
-
-/// Return true if this visitor need to read the node-specific data if given
-bool BaseMechanicalVisitor::readNodeData() const
-{ return false; }
-
-/// Return true if this visitor need to write to the node-specific data if given
-bool BaseMechanicalVisitor::writeNodeData() const
-{ return false; }
-
-void BaseMechanicalVisitor::setNodeData(simulation::Node* /*node*/, SReal* nodeData, const SReal* parentData)
-{
-    *nodeData = (parentData == nullptr) ? 0.0 : *parentData;
-}
-
-void BaseMechanicalVisitor::addNodeData(simulation::Node* /*node*/, SReal* parentData, const SReal* nodeData)
-{
-    if (parentData)
-        *parentData += *nodeData;
-}
 
 /// Return a class name for this visitor
 /// Only used for debugging / profiling purposes

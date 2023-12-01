@@ -45,22 +45,12 @@ class SOFA_SIMULATION_CORE_API BaseMechanicalVisitor : public Visitor
 
 protected:
     simulation::Node* root; ///< root node from which the visitor was executed
-    SReal* rootData; ///< data for root node
 
     virtual Result processNodeTopDown(simulation::Node* node, VisitorContext* ctx);
     virtual void processNodeBottomUp(simulation::Node* node, VisitorContext* ctx);
 
 public:
     BaseMechanicalVisitor(const sofa::core::ExecParams* params);
-
-    /// Return true if this visitor need to read the node-specific data if given
-    virtual bool readNodeData() const;
-
-    /// Return true if this visitor need to write to the node-specific data if given
-    virtual bool writeNodeData() const;
-
-    virtual void setNodeData(simulation::Node* /*node*/, SReal* nodeData, const SReal* parentData);
-    virtual void addNodeData(simulation::Node* /*node*/, SReal* parentData, const SReal* nodeData);
 
     /// Return a class name for this visitor
     /// Only used for debugging / profiling purposes

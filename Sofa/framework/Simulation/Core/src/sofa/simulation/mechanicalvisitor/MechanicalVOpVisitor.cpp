@@ -38,7 +38,7 @@ bool MechanicalVOpVisitor::stopAtMechanicalMapping(simulation::Node *, sofa::cor
 Visitor::Result MechanicalVOpVisitor::fwdMechanicalState(VisitorContext* ctx, core::behavior::BaseMechanicalState* mm)
 {
     if (!only_mapped)
-        mm->vOp(this->params, v.getId(mm) ,a.getId(mm),b.getId(mm),((ctx->nodeData && *ctx->nodeData != 1.0) ? *ctx->nodeData * f : f) );
+        mm->vOp(this->params, v.getId(mm) ,a.getId(mm),b.getId(mm), f );
     return RESULT_CONTINUE;
 }
 
@@ -46,7 +46,7 @@ Visitor::Result MechanicalVOpVisitor::fwdMappedMechanicalState(VisitorContext* c
 {
     if (mapped || only_mapped)
     {
-        mm->vOp(this->params, v.getId(mm) ,a.getId(mm),b.getId(mm),((ctx->nodeData && *ctx->nodeData != 1.0) ? *ctx->nodeData * f : f) );
+        mm->vOp(this->params, v.getId(mm) ,a.getId(mm),b.getId(mm), f );
     }
     return RESULT_CONTINUE;
 }
