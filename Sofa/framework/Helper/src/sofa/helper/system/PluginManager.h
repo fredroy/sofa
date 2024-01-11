@@ -51,6 +51,19 @@ public:
         InitExternalModule():func(nullptr) {}
     } InitExternalModule;
 
+    typedef struct InitExternalModuleWithData
+    {
+        static const char* symbol;
+        typedef void (*FuncPtr) (void*);
+        FuncPtr func;
+        void operator()(void* data)
+        {
+            if (func) return func(data);
+        }
+        InitExternalModuleWithData() :func(nullptr) {}
+    } InitExternalModuleWithData;
+    
+
     typedef struct GetModuleName
     {
         static const char* symbol;
@@ -130,6 +143,7 @@ public:
     };
 
     InitExternalModule     initExternalModule;
+    InitExternalModuleWithData     initExternalModuleWithData;
     GetModuleName          getModuleName;
     GetModuleDescription   getModuleDescription;
     GetModuleLicense       getModuleLicense;
@@ -220,6 +234,8 @@ public:
 
     static std::string GetPluginNameFromPath(const std::string& pluginPath);
 
+    void setData(void* data) { m_data = data; }
+
 private:
     PluginManager();
     ~PluginManager();
@@ -229,6 +245,8 @@ private:
 
     PluginMap m_pluginMap;
     std::map<std::string, std::function<void(const std::string&, const Plugin&)>> m_onPluginLoadedCallbacks;
+
+    void* m_data{nullptr};
 };
 
 

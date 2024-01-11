@@ -101,6 +101,7 @@ using sofa::helper::logging::ExceptionMessageHandler;
 
 #include <sofa/gui/common/ArgumentParser.h>
 
+#include <sofa/core/ObjectFactory.h>
 
 void addGUIParameters(sofa::gui::common::ArgumentParser* argumentParser)
 {
@@ -395,6 +396,7 @@ int main(int argc, char** argv)
     // Add Batch GUI (runSofa without any GUIs wont be useful)
     sofa::gui::batch::init();
 
+    PluginManager::getInstance().setData(static_cast<void*>(sofa::core::ObjectFactory::getInstance()));
     for (unsigned int i=0; i<plugins.size(); i++)
         PluginManager::getInstance().loadPlugin(plugins[i]);
 

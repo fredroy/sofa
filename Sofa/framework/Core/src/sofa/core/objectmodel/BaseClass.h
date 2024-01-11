@@ -229,7 +229,10 @@ public:
     static const ::sofa::core::objectmodel::BaseClass* GetClass() { return MyClass::get(); }   \
     virtual const ::sofa::core::objectmodel::BaseClass* getClass() const override \
 { return GetClass(); }                                              \
-    static const char* HeaderFileLocation() { return __FILE__; }        \
+    static const char* HeaderFileLocation() { return __FILE__; }    \
+    inline static std::string s_target {}; \
+    static std::string GetTarget() { return s_target; } \
+    static void SetTarget(const std::string& target) { s_target = target; } \
     using ::sofa::core::objectmodel::Base::initData;                    \
     ::sofa::core::objectmodel::BaseLink::InitLink<MyType>               \
     initLink(const char* name, const char* help)                        \

@@ -557,12 +557,13 @@ void ObjectFactory::dumpHTML(std::ostream& out)
     out << "</ul>\n";
 }
 
-RegisterObject::RegisterObject(const std::string& description)
+RegisterObject::RegisterObject(const std::string& description, const std::string& target)
 {
     if (!description.empty())
     {
         addDescription(description);
     }
+    entry.target = target;
 }
 
 RegisterObject& RegisterObject::addAlias(std::string val)

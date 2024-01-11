@@ -87,6 +87,7 @@ public:
         std::string authors;
         std::string license;
         std::string defaultTemplate;
+        std::string target;
         CreatorMap creatorMap;
         std::map<std::string, std::vector<std::string>> m_dataAlias ;
     };
@@ -257,11 +258,18 @@ public:
     /// The name of the library or executable containing the binary code for this component
     const char* getTarget() override
     {
+        const auto& target = RealObject::GetTarget();
+
+        if(target == "")
+        {
 #ifdef SOFA_TARGET
-        return sofa_tostring(SOFA_TARGET);
+            return sofa_tostring(SOFA_TARGET);
 #else
-        return "";
+            return "";
 #endif
+        }
+        
+        return target.c_str();
     }
 
     const char* getHeaderFileLocation() override
@@ -295,7 +303,7 @@ protected:
 public:
 
     /// Start the registration by giving the description of this class.
-    RegisterObject(const std::string& description);
+    RegisterObject(const std::string& description, const std::string& target = "");
 
     /// Add an alias name for this class
     RegisterObject& addAlias(std::string val);
@@ -322,10 +330,12 @@ public:
     RegisterObject& add(bool defaultTemplate=false)
     {
         const std::string classname = sofa::core::objectmodel::BaseClassNameHelper::getClassName<RealObject>();
-        const std::string templatename = sofa::core::objectmodel::BaseClassNameHelper::getTemplateName<RealObject>();
+        const std::string templatename = sofa::core::objectmodel::BaseClassNameHelper::getTemplateName<RealObject>();       
 
         if (defaultTemplate)
             entry.defaultTemplate = templatename;
+
+        RealObject::SetTarget(entry.target);
 
         return addCreator(classname, templatename, ObjectFactory::Creator::SPtr(new ObjectCreator<RealObject>));
     }
