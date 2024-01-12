@@ -22,6 +22,7 @@
 #include <sofa/component/linearsolver/direct/init.h>
 #include <sofa/core/ObjectFactory.h>
 
+#include <sofa/component/linearsolver/direct/SparseLDLSolver.h>
 
 namespace sofa::component::linearsolver::direct
 {
@@ -65,7 +66,10 @@ void init(void* data)
             msg_warning("sofa::component::linearsolver::direct") << "init with data";
             if (factory)
             {
-                factory->dumpHTML();
+                core::RegisterObject("Direct Linear Solver using a Sparse LDL^T factorization.")
+                        .add< SparseLDLSolver< sofa::linearalgebra::CompressedRowSparseMatrix<SReal>, sofa::linearalgebra::FullVector<SReal> > >(true)
+                        .add< SparseLDLSolver< sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<3,3,SReal> >, sofa::linearalgebra::FullVector<SReal> > >()
+                        .commit(factory);
             }
         }
         else

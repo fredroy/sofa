@@ -615,13 +615,25 @@ RegisterObject& RegisterObject::addCreator(std::string classname,
 
 RegisterObject::operator int()
 {
-    if (entry.className.empty())
+    if (commit(ObjectFactory::getInstance()))
     {
-        return 0;
+        return 1;
     }
     else
     {
-        ObjectFactory::ClassEntry& reg = ObjectFactory::getInstance()->getEntry(entry.className);
+        return 0;
+    }
+}
+
+bool RegisterObject::commit(sofa::core::ObjectFactory* objectFactory)
+{
+    if (entry.className.empty() || objectFactory == nullptr)
+    {
+        return false;
+    }
+    else
+    {
+        ObjectFactory::ClassEntry& reg = objectFactory->getEntry(entry.className);
         reg.description += entry.description;
         reg.authors += entry.authors;
         reg.license += entry.license;
@@ -636,28 +648,30 @@ RegisterObject::operator int()
                 reg.defaultTemplate = entry.defaultTemplate;
             }
         }
-        for (auto & creator_entry : entry.creatorMap)
+        for (auto& creator_entry : entry.creatorMap)
         {
-            const std::string & template_name = creator_entry.first;
+            const std::string& template_name = creator_entry.first;
             if (reg.creatorMap.find(template_name) != reg.creatorMap.end()) {
                 if (template_name.empty()) {
                     msg_warning("ObjectFactory") << "Class already registered: " << entry.className;
-                } else {
+                }
+                else {
                     msg_warning("ObjectFactory") << "Class already registered: " << entry.className << "<" << template_name << ">";
                 }
-            } else {
+            }
+            else {
                 reg.creatorMap.insert(creator_entry);
             }
         }
 
-        for (const auto & alias : entry.aliases)
+        for (const auto& alias : entry.aliases)
         {
             if (reg.aliases.find(alias) == reg.aliases.end())
             {
-                ObjectFactory::getInstance()->addAlias(alias,entry.className);
+                objectFactory->addAlias(alias, entry.className);
             }
         }
-        return 1;
+        return true;
     }
 }
 

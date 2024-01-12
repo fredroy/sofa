@@ -342,5 +342,7 @@ public:
 
     /// This is the final operation that will actually commit the additions to the ObjectFactory.
     operator int();
+
+    bool commit(sofa::core::ObjectFactory* objectFactory = nullptr);
 };
 } // namespace sofa::core
