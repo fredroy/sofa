@@ -25,5 +25,5 @@
 
 namespace sofa::component::linearsolver::direct
 {
-    SOFA_COMPONENT_LINEARSOLVER_DIRECT_API void init(void* data = nullptr);
+    SOFA_COMPONENT_LINEARSOLVER_DIRECT_API void init();
 } // namespace sofa::component::linearsolver::direct

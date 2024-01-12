@@ -676,36 +676,52 @@ bool RegisterObject::commit(sofa::core::ObjectFactory* objectFactory)
     }
 }
 
-typedef struct InitExternalModuleWithData
+typedef struct RegisterObjectsEntry
 {
-    inline static const char* symbol = "initExternalModuleWithData";
-    typedef void (*FuncPtr) (void*);
+    inline static const char* symbol = "registerObjects";
+    typedef void (*FuncPtr) (sofa::core::ObjectFactory*);
     FuncPtr func;
-    void operator()(void* data)
+    void operator()(sofa::core::ObjectFactory* data)
     {
         if (func) return func(data);
     }
-    InitExternalModuleWithData() :func(nullptr) {}
-} InitExternalModuleWithData;
+    RegisterObjectsEntry() :func(nullptr) {}
+} RegisterObjectsEntry;
 
-bool ObjectFactory::registerObjectsFromPlugin(const std::string& pluginPath)
+bool ObjectFactory::registerObjectsFromPlugin(const std::string& pluginName)
 {
     sofa::helper::system::PluginManager& pluginManager = sofa::helper::system::PluginManager::getInstance();
     auto& pluginMap = pluginManager.getPluginMap();
+    const auto pluginPath = pluginManager.findPlugin(pluginName);
 
-    auto plugin = pluginMap.find(pluginPath);
-    if (plugin == pluginMap.end()) // should never happen if the plugin has been loaded before
+    if(!pluginPath.empty())
     {
-        return false;
+        auto plugin = pluginMap.find(pluginPath);
+        if (plugin != pluginMap.end())
+        {
+            RegisterObjectsEntry registerObjects;
+            if (sofa::helper::system::PluginManager::getPluginEntry(registerObjects, plugin->second.dynamicLibrary))
+            {
+                const std::string msg = "Plugin " + pluginPath + " has registerObjects() entry point.";
+                msg_error("PluginManager") << msg;
+                registerObjects(this);
+                return true;
+            }
+            else
+            {
+                const std::string msg = "Plugin " + pluginPath + " does not have registerObjects() entry point.";
+                msg_error("PluginManager") << msg;
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
     }
     else
     {
-        InitExternalModuleWithData entry;
-        if (sofa::helper::system::PluginManager::getPluginEntry(entry, plugin->second.dynamicLibrary))
-        {
-            const std::string msg = "Plugin " + pluginPath + " has initExternalModuleWithData() entry point.";
-            msg_error("PluginManager") << msg;
-        }
+        return false;
     }
     
 }

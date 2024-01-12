@@ -29,7 +29,7 @@ namespace sofa::component::linearsolver::direct
     
 extern "C" {
     SOFA_EXPORT_DYNAMIC_LIBRARY void initExternalModule();
-    SOFA_EXPORT_DYNAMIC_LIBRARY void initExternalModuleWithData(void* data);
+    SOFA_EXPORT_DYNAMIC_LIBRARY void registerObjects(sofa::core::ObjectFactory* factory);
     SOFA_EXPORT_DYNAMIC_LIBRARY const char* getModuleName();
     SOFA_EXPORT_DYNAMIC_LIBRARY const char* getModuleVersion();
     SOFA_EXPORT_DYNAMIC_LIBRARY const char* getModuleComponentList();
@@ -38,11 +38,6 @@ extern "C" {
 void initExternalModule()
 {
     init();
-}
-
-void initExternalModuleWithData(void* data)
-{
-    init(data);
 }
 
 const char* getModuleName()
@@ -55,28 +50,19 @@ const char* getModuleVersion()
     return MODULE_VERSION;
 }
 
-void init(void* data)
+void registerObjects(sofa::core::ObjectFactory* factory)
+{
+    core::RegisterObject("Direct Linear Solver using a Sparse LDL^T factorization.")
+        .add< SparseLDLSolver< sofa::linearalgebra::CompressedRowSparseMatrix<SReal>, sofa::linearalgebra::FullVector<SReal> > >(true)
+        .add< SparseLDLSolver< sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<3, 3, SReal> >, sofa::linearalgebra::FullVector<SReal> > >()
+        .commit(factory);
+}
+
+void init()
 {
     static bool first = true;
     if (first)
     {
-        if(data)
-        {
-            sofa::core::ObjectFactory* factory = reinterpret_cast<sofa::core::ObjectFactory*>(data);
-            msg_warning("sofa::component::linearsolver::direct") << "init with data";
-            if (factory)
-            {
-                core::RegisterObject("Direct Linear Solver using a Sparse LDL^T factorization.")
-                        .add< SparseLDLSolver< sofa::linearalgebra::CompressedRowSparseMatrix<SReal>, sofa::linearalgebra::FullVector<SReal> > >(true)
-                        .add< SparseLDLSolver< sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<3,3,SReal> >, sofa::linearalgebra::FullVector<SReal> > >()
-                        .commit(factory);
-            }
-        }
-        else
-        {
-            msg_warning("sofa::component::linearsolver::direct") << "init without data";
-        }
-
         first = false;
     }
 }
