@@ -47,7 +47,6 @@ namespace sofa::helper::system
 
 const char* Plugin::GetModuleComponentList::symbol    = "getModuleComponentList";
 const char* Plugin::InitExternalModule::symbol        = "initExternalModule";
-const char* Plugin::InitExternalModuleWithData::symbol = "initExternalModuleWithData";
 const char* Plugin::GetModuleDescription::symbol      = "getModuleDescription";
 const char* Plugin::GetModuleLicense::symbol          = "getModuleLicense";
 const char* Plugin::GetModuleName::symbol             = "getModuleName";
@@ -191,26 +190,11 @@ PluginManager::PluginLoadStatus PluginManager::loadPluginByPath(const std::strin
         getPluginEntry(p.getModuleLicense,d);
         getPluginEntry(p.getModuleComponentList,d);
         getPluginEntry(p.getModuleVersion,d);
-
-        //if (getPluginEntry(p.initExternalModuleWithData, d))
-        //{
-        //    const std::string msg = "Plugin " + pluginPath + " has initExternalModuleWithData() entry point.";
-        //    msg_error("PluginManager") << msg;
-        //}
     }
 
     p.dynamicLibrary = d;
     m_pluginMap[pluginPath] = p;
-
-    //if (p.initExternalModuleWithData.func)
-    //{
-    //    p.initExternalModuleWithData(m_data);
-    //}
-    //else
-    {
-        p.initExternalModule();
-    }
-
+    p.initExternalModule();
 
     // check if the plugin is initialized (if it can report this information)
     if (getPluginEntry(p.moduleIsInitialized, d))

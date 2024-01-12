@@ -558,13 +558,12 @@ void ObjectFactory::dumpHTML(std::ostream& out)
     out << "</ul>\n";
 }
 
-RegisterObject::RegisterObject(const std::string& description, const std::string& target)
+RegisterObject::RegisterObject(const std::string& description)
 {
     if (!description.empty())
     {
         addDescription(description);
     }
-    entry.target = target;
 }
 
 RegisterObject& RegisterObject::addAlias(std::string val)
@@ -700,7 +699,7 @@ bool ObjectFactory::registerObjectsFromPlugin(const std::string& pluginName)
         if (plugin != pluginMap.end())
         {
             RegisterObjectsEntry registerObjects;
-            if (sofa::helper::system::PluginManager::getPluginEntry(registerObjects, plugin->second.dynamicLibrary))
+            if (pluginManager.getEntryFromPlugin(&plugin->second, registerObjects))
             {
                 const std::string msg = "Plugin " + pluginPath + " has registerObjects() entry point.";
                 msg_error("PluginManager") << msg;

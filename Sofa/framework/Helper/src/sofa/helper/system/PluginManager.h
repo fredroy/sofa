@@ -51,19 +51,6 @@ public:
         InitExternalModule():func(nullptr) {}
     } InitExternalModule;
 
-    typedef struct InitExternalModuleWithData
-    {
-        static const char* symbol;
-        typedef void (*FuncPtr) (void*);
-        FuncPtr func;
-        void operator()(void* data)
-        {
-            if (func) return func(data);
-        }
-        InitExternalModuleWithData() :func(nullptr) {}
-    } InitExternalModuleWithData;
-    
-
     typedef struct GetModuleName
     {
         static const char* symbol;
@@ -143,22 +130,19 @@ public:
     };
 
     InitExternalModule     initExternalModule;
-    InitExternalModuleWithData     initExternalModuleWithData;
     GetModuleName          getModuleName;
     GetModuleDescription   getModuleDescription;
     GetModuleLicense       getModuleLicense;
     GetModuleComponentList getModuleComponentList;
     GetModuleVersion       getModuleVersion;
     ModuleIsInitialized    moduleIsInitialized;
-// private:
+private:
     DynamicLibrary::Handle dynamicLibrary;
 
 };
 
-class SOFA_HELPER_API PluginManager
+namespace
 {
-public:
-
     template <class LibraryEntry>
     static bool getPluginEntry(LibraryEntry& entry, DynamicLibrary::Handle handle)
     {
@@ -173,6 +157,11 @@ public:
             return true;
         }
     }
+}
+
+class SOFA_HELPER_API PluginManager
+{
+public:
     /// Map to store the list of plugin registered, key is the plugin path
     typedef std::map<std::string, Plugin > PluginMap;
     typedef PluginMap::iterator PluginIterator;
@@ -237,6 +226,12 @@ public:
 
     Plugin* getPlugin(const std::string& plugin, const std::string& = getDefaultSuffix(), bool = true);
     Plugin* getPluginByName(const std::string& pluginName);
+    
+    template <typename Entry>
+    bool getEntryFromPlugin(Plugin* plugin, Entry& entry)
+    {
+        return getPluginEntry(entry, plugin->dynamicLibrary);
+    }
 
     void readFromIniFile(const std::string& path);
     void readFromIniFile(const std::string& path, type::vector<std::string>& listLoadedPlugins);
@@ -249,8 +244,6 @@ public:
 
     static std::string GetPluginNameFromPath(const std::string& pluginPath);
 
-    void setData(void* data) { m_data = data; }
-
 private:
     PluginManager();
     ~PluginManager();
@@ -260,8 +253,6 @@ private:
 
     PluginMap m_pluginMap;
     std::map<std::string, std::function<void(const std::string&, const Plugin&)>> m_onPluginLoadedCallbacks;
-
-    void* m_data{nullptr};
 };
 
 
