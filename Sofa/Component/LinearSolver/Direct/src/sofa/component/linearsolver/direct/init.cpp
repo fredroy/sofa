@@ -52,10 +52,17 @@ const char* getModuleVersion()
 
 void registerObjects(sofa::core::ObjectFactory* factory)
 {
-    core::RegisterObject("Direct Linear Solver using a Sparse LDL^T factorization.")
-        .add< SparseLDLSolver< sofa::linearalgebra::CompressedRowSparseMatrix<SReal>, sofa::linearalgebra::FullVector<SReal> > >(true)
-        .add< SparseLDLSolver< sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<3, 3, SReal> >, sofa::linearalgebra::FullVector<SReal> > >()
-        .commit(factory);
+    static bool registered = false;
+
+    if (!registered)
+    {
+        core::RegisterObject("Direct Linear Solver using a Sparse LDL^T factorization.")
+            .add< SparseLDLSolver< sofa::linearalgebra::CompressedRowSparseMatrix<SReal>, sofa::linearalgebra::FullVector<SReal> > >(true)
+            .add< SparseLDLSolver< sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<3, 3, SReal> >, sofa::linearalgebra::FullVector<SReal> > >()
+            .commit(factory);
+
+        registered = true;
+    }
 }
 
 void init()

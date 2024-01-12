@@ -123,6 +123,11 @@ bool RequiredPlugin::loadPlugin()
             {
                 loadedPlugins.push_back(name);
                 isNameLoaded = true;
+
+                // Register Objects explicitely
+                // Here we only have access to the path, so we need to find the Plugin from it
+                const auto* plugin = pluginManager.getPluginByName(name);
+                sofa::core::ObjectFactory::getInstance()->registerObjectsFromPlugin(*plugin);
                 if (d_stopAfterFirstSuffixFound.getValue()) break;
             }
         }
@@ -152,6 +157,7 @@ bool RequiredPlugin::loadPlugin()
         }
     }
     pluginManager.init();
+
     return !hasFailed;
 }
 
