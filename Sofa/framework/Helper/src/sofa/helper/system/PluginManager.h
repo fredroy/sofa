@@ -228,7 +228,7 @@ public:
     Plugin* getPluginByName(const std::string& pluginName);
     
     template <typename Entry>
-    bool getEntryFromPlugin(Plugin* plugin, Entry& entry)
+    bool getEntryFromPlugin(const Plugin const* plugin, Entry& entry)
     {
         return getPluginEntry(entry, plugin->dynamicLibrary);
     }

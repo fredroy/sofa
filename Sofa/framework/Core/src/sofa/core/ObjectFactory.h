@@ -25,6 +25,11 @@
 #include <sofa/core/objectmodel/BaseClassNameHelper.h>
 #include <numeric>
 
+namespace sofa::helper::system
+{
+    class Plugin;
+}
+
 namespace sofa::core
 {
 
@@ -190,7 +195,7 @@ public:
 
     void setCallback(OnCreateCallback cb) { m_callbackOnCreate = cb ; }
 
-    bool registerObjectsFromPlugin(const std::string& plugin);
+    bool registerObjectsFromPlugin(const sofa::helper::system::Plugin& plugin);
 };
 
 template<class BaseClass>

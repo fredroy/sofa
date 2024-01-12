@@ -687,36 +687,15 @@ typedef struct RegisterObjectsEntry
     RegisterObjectsEntry() :func(nullptr) {}
 } RegisterObjectsEntry;
 
-bool ObjectFactory::registerObjectsFromPlugin(const std::string& pluginName)
+bool ObjectFactory::registerObjectsFromPlugin(const sofa::helper::system::Plugin& plugin)
 {
     sofa::helper::system::PluginManager& pluginManager = sofa::helper::system::PluginManager::getInstance();
-    auto& pluginMap = pluginManager.getPluginMap();
-    const auto pluginPath = pluginManager.findPlugin(pluginName);
 
-    if(!pluginPath.empty())
+    RegisterObjectsEntry registerObjects;
+    if (pluginManager.getEntryFromPlugin(&plugin, registerObjects))
     {
-        auto plugin = pluginMap.find(pluginPath);
-        if (plugin != pluginMap.end())
-        {
-            RegisterObjectsEntry registerObjects;
-            if (pluginManager.getEntryFromPlugin(&plugin->second, registerObjects))
-            {
-                const std::string msg = "Plugin " + pluginPath + " has registerObjects() entry point.";
-                msg_error("PluginManager") << msg;
-                registerObjects(this);
-                return true;
-            }
-            else
-            {
-                const std::string msg = "Plugin " + pluginPath + " does not have registerObjects() entry point.";
-                msg_error("PluginManager") << msg;
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        registerObjects(this);
+        return true;
     }
     else
     {
