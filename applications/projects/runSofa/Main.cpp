@@ -396,8 +396,8 @@ int main(int argc, char** argv)
     // Add Batch GUI (runSofa without any GUIs wont be useful)
     sofa::gui::batch::init();
 
-    // Instanciate the ObjectFactory (in the future)
-    sofa::core::ObjectFactory* objectFactory = sofa::core::ObjectFactory::getInstance();
+    for (unsigned int i=0; i<plugins.size(); i++)
+        PluginManager::getInstance().loadPlugin(plugins[i]);
 
     if (!noAutoloadPlugins)
     {
@@ -424,6 +424,7 @@ int main(int argc, char** argv)
         msg_info("runSofa") << "Automatic plugin loading disabled.";
     }
 
+    sofa::core::ObjectFactory* objectFactory = sofa::core::ObjectFactory::getInstance();
     // calling explicitely registerObjects from loadedPlugins
     for (const auto& [pluginPath, plugin] : PluginManager::getInstance().getPluginMap())
     {
