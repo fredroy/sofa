@@ -45,26 +45,6 @@ using sofa::helper::Utils;
 namespace sofa::helper::system
 {
 
-namespace
-{
-
-template <class LibraryEntry>
-bool getPluginEntry(LibraryEntry& entry, DynamicLibrary::Handle handle)
-{
-    typedef typename LibraryEntry::FuncPtr FuncPtr;
-    entry.func = (FuncPtr)DynamicLibrary::getSymbolAddress(handle, entry.symbol);
-    if( entry.func == 0 )
-    {
-        return false;
-    }
-    else
-    {
-        return true;
-    }
-}
-
-} // namespace
-
 const char* Plugin::GetModuleComponentList::symbol    = "getModuleComponentList";
 const char* Plugin::InitExternalModule::symbol        = "initExternalModule";
 const char* Plugin::InitExternalModuleWithData::symbol = "initExternalModuleWithData";
@@ -212,21 +192,21 @@ PluginManager::PluginLoadStatus PluginManager::loadPluginByPath(const std::strin
         getPluginEntry(p.getModuleComponentList,d);
         getPluginEntry(p.getModuleVersion,d);
 
-        if (getPluginEntry(p.initExternalModuleWithData, d))
-        {
-            const std::string msg = "Plugin " + pluginPath + " has initExternalModuleWithData() entry point.";
-            msg_error("PluginManager") << msg;
-        }
+        //if (getPluginEntry(p.initExternalModuleWithData, d))
+        //{
+        //    const std::string msg = "Plugin " + pluginPath + " has initExternalModuleWithData() entry point.";
+        //    msg_error("PluginManager") << msg;
+        //}
     }
 
     p.dynamicLibrary = d;
     m_pluginMap[pluginPath] = p;
 
-    if (p.initExternalModuleWithData.func)
-    {
-        p.initExternalModuleWithData(m_data);
-    }
-    else
+    //if (p.initExternalModuleWithData.func)
+    //{
+    //    p.initExternalModuleWithData(m_data);
+    //}
+    //else
     {
         p.initExternalModule();
     }

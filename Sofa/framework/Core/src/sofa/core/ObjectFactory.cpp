@@ -26,6 +26,7 @@
 #include <sofa/helper/ComponentChange.h>
 #include <sofa/helper/StringUtils.h>
 #include <sofa/helper/DiffLib.h>
+#include <sofa/helper/system/PluginManager.h>
 
 namespace sofa::core
 {
@@ -673,6 +674,40 @@ bool RegisterObject::commit(sofa::core::ObjectFactory* objectFactory)
         }
         return true;
     }
+}
+
+typedef struct InitExternalModuleWithData
+{
+    inline static const char* symbol = "initExternalModuleWithData";
+    typedef void (*FuncPtr) (void*);
+    FuncPtr func;
+    void operator()(void* data)
+    {
+        if (func) return func(data);
+    }
+    InitExternalModuleWithData() :func(nullptr) {}
+} InitExternalModuleWithData;
+
+bool ObjectFactory::registerObjectsFromPlugin(const std::string& pluginPath)
+{
+    sofa::helper::system::PluginManager& pluginManager = sofa::helper::system::PluginManager::getInstance();
+    auto& pluginMap = pluginManager.getPluginMap();
+
+    auto plugin = pluginMap.find(pluginPath);
+    if (plugin == pluginMap.end()) // should never happen if the plugin has been loaded before
+    {
+        return false;
+    }
+    else
+    {
+        InitExternalModuleWithData entry;
+        if (sofa::helper::system::PluginManager::getPluginEntry(entry, plugin->second.dynamicLibrary))
+        {
+            const std::string msg = "Plugin " + pluginPath + " has initExternalModuleWithData() entry point.";
+            msg_error("PluginManager") << msg;
+        }
+    }
+    
 }
 
 } // namespace sofa::core

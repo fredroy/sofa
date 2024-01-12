@@ -190,6 +190,8 @@ public:
     void dumpHTML(std::ostream& out = std::cout);
 
     void setCallback(OnCreateCallback cb) { m_callbackOnCreate = cb ; }
+
+    bool registerObjectsFromPlugin(const std::string& plugin);
 };
 
 template<class BaseClass>

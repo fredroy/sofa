@@ -396,9 +396,16 @@ int main(int argc, char** argv)
     // Add Batch GUI (runSofa without any GUIs wont be useful)
     sofa::gui::batch::init();
 
-    PluginManager::getInstance().setData(static_cast<void*>(sofa::core::ObjectFactory::getInstance()));
+    // Instanciate the ObjectFactory (kind of)
+    sofa::core::ObjectFactory* objectFactory = sofa::core::ObjectFactory::getInstance();
+    PluginManager::getInstance().setData(static_cast<void*>(objectFactory));
     for (unsigned int i=0; i<plugins.size(); i++)
-        PluginManager::getInstance().loadPlugin(plugins[i]);
+    {
+        if (PluginManager::getInstance().loadPlugin(plugins[i]) == PluginManager::PluginLoadStatus::SUCCESS)
+        {
+            objectFactory->registerObjectsFromPlugin(plugins[i]);
+        }
+    }
 
     if (!noAutoloadPlugins)
     {

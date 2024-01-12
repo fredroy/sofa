@@ -150,7 +150,7 @@ public:
     GetModuleComponentList getModuleComponentList;
     GetModuleVersion       getModuleVersion;
     ModuleIsInitialized    moduleIsInitialized;
-private:
+// private:
     DynamicLibrary::Handle dynamicLibrary;
 
 };
@@ -158,6 +158,21 @@ private:
 class SOFA_HELPER_API PluginManager
 {
 public:
+
+    template <class LibraryEntry>
+    static bool getPluginEntry(LibraryEntry& entry, DynamicLibrary::Handle handle)
+    {
+        typedef typename LibraryEntry::FuncPtr FuncPtr;
+        entry.func = (FuncPtr)DynamicLibrary::getSymbolAddress(handle, entry.symbol);
+        if (entry.func == 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
     /// Map to store the list of plugin registered, key is the plugin path
     typedef std::map<std::string, Plugin > PluginMap;
     typedef PluginMap::iterator PluginIterator;
