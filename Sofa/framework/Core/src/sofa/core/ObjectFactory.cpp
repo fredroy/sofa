@@ -566,6 +566,20 @@ RegisterObject::RegisterObject(const std::string& description)
     }
 }
 
+RegisterObject::RegisterObject(const std::string& description, ObjectFactory* objectFactory)
+    : RegisterObject(description)
+{
+    m_objectFactory = objectFactory;
+}
+
+RegisterObject::~RegisterObject()
+{
+    if (m_objectFactory)
+    {
+        commit(m_objectFactory);
+    }
+}
+
 RegisterObject& RegisterObject::addAlias(std::string val)
 {
     entry.aliases.insert(val);

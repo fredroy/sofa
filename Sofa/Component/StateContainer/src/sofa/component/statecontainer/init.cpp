@@ -67,7 +67,8 @@ void registerObjects(sofa::core::ObjectFactory* factory)
     if (!registered)
     {
         using namespace sofa::defaulttype;
-
+        
+        // Registration with explicit commit
         // MappedObject
         core::RegisterObject("Mapped state vectors")
             .add< MappedObject<Vec1Types> >()
@@ -78,15 +79,15 @@ void registerObjects(sofa::core::ObjectFactory* factory)
             .add< MappedObject<Rigid2Types> >()
             .commit(factory);
 
+        // Registration with RAII-style commit
         // MechanicalObject
-        core::RegisterObject("mechanical state vectors")
+        core::RegisterObject("mechanical state vectors", factory)
             .add< MechanicalObject<Vec3Types> >(true) // default template
             .add< MechanicalObject<Vec2Types> >()
             .add< MechanicalObject<Vec1Types> >()
             .add< MechanicalObject<Vec6Types> >()
             .add< MechanicalObject<Rigid3Types> >()
-            .add< MechanicalObject<Rigid2Types> >()
-            .commit(factory);
+            .add< MechanicalObject<Rigid2Types> >();
 
         registered = true;
     }

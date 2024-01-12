@@ -299,10 +299,16 @@ class SOFA_CORE_API RegisterObject
 protected:
     /// Class entry being constructed
     ObjectFactory::ClassEntry entry;
+
+    // Store information about the ObjectFactory will register the Object into.
+    ObjectFactory* m_objectFactory{nullptr};
 public:
 
     /// Start the registration by giving the description of this class.
-    RegisterObject(const std::string& description);
+    explicit RegisterObject(const std::string& description);
+
+    explicit RegisterObject(const std::string& description, ObjectFactory* objectFactory);
+    ~RegisterObject();
 
     /// Add an alias name for this class
     RegisterObject& addAlias(std::string val);
