@@ -22,14 +22,11 @@
 #include <sofa/component/linearsolver/direct/init.h>
 #include <sofa/core/ObjectFactory.h>
 
-#include <sofa/component/linearsolver/direct/SparseLDLSolver.h>
-
 namespace sofa::component::linearsolver::direct
 {
     
 extern "C" {
     SOFA_EXPORT_DYNAMIC_LIBRARY void initExternalModule();
-    SOFA_EXPORT_DYNAMIC_LIBRARY void registerObjects(sofa::core::ObjectFactory* factory);
     SOFA_EXPORT_DYNAMIC_LIBRARY const char* getModuleName();
     SOFA_EXPORT_DYNAMIC_LIBRARY const char* getModuleVersion();
     SOFA_EXPORT_DYNAMIC_LIBRARY const char* getModuleComponentList();
@@ -48,21 +45,6 @@ const char* getModuleName()
 const char* getModuleVersion()
 {
     return MODULE_VERSION;
-}
-
-void registerObjects(sofa::core::ObjectFactory* factory)
-{
-    static bool registered = false;
-
-    if (!registered)
-    {
-        core::RegisterObject("Direct Linear Solver using a Sparse LDL^T factorization.")
-            .add< SparseLDLSolver< sofa::linearalgebra::CompressedRowSparseMatrix<SReal>, sofa::linearalgebra::FullVector<SReal> > >(true)
-            .add< SparseLDLSolver< sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<3, 3, SReal> >, sofa::linearalgebra::FullVector<SReal> > >()
-            .commit(factory);
-
-        registered = true;
-    }
 }
 
 void init()
