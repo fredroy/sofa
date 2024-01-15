@@ -87,7 +87,7 @@ void initExternalModule()
 
 const char* getModuleName()
 {
-    return "Image Plugin";
+    return "image";
 }
 
 const char* getModuleVersion()
