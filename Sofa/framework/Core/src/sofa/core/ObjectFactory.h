@@ -25,6 +25,11 @@
 #include <sofa/core/objectmodel/BaseClassNameHelper.h>
 #include <numeric>
 
+namespace sofa::helper::system
+{
+    class Plugin;
+}
+
 namespace sofa::core
 {
 
@@ -189,6 +194,8 @@ public:
     void dumpHTML(std::ostream& out = std::cout);
 
     void setCallback(OnCreateCallback cb) { m_callbackOnCreate = cb ; }
+
+    bool registerObjectsFromPlugin(const sofa::helper::system::Plugin& plugin);
 };
 
 template<class BaseClass>
@@ -292,10 +299,16 @@ class SOFA_CORE_API RegisterObject
 protected:
     /// Class entry being constructed
     ObjectFactory::ClassEntry entry;
+
+    // Store information about the ObjectFactory will register the Object into.
+    ObjectFactory* m_objectFactory{nullptr};
 public:
 
     /// Start the registration by giving the description of this class.
-    RegisterObject(const std::string& description);
+    explicit RegisterObject(const std::string& description);
+
+    explicit RegisterObject(const std::string& description, ObjectFactory* objectFactory);
+    ~RegisterObject();
 
     /// Add an alias name for this class
     RegisterObject& addAlias(std::string val);
@@ -332,5 +345,7 @@ public:
 
     /// This is the final operation that will actually commit the additions to the ObjectFactory.
     operator int();
+
+    bool commit(sofa::core::ObjectFactory* objectFactory);
 };
 } // namespace sofa::core
