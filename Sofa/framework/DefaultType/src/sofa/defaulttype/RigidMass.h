@@ -31,7 +31,7 @@
 #include <sofa/helper/rmath.h>
 #include <cstdlib>
 #include <cmath>
-
+#include <sofa/config/define_assert.h>
 
 namespace sofa::defaulttype
 {

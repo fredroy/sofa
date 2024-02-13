@@ -19,26 +19,28 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#ifndef SOFA_HELPER_CAST_H
-#define SOFA_HELPER_CAST_H
+#pragma once
 
-#include <sofa/config/define_assert.h>
+#include <cassert>
+#include <cstdio>
 
-/// dynamic cast + assert
-template<class T, class U>
-T* safe_cast(U* what) {
-	T* res = dynamic_cast<T*>(what);
-	sofa::checkAssert( res );
-	return res;
+namespace sofa
+{
+
+static constexpr bool enableAssert = true;
+
+static constexpr void checkAssert(bool test)
+{
+    if constexpr(enableAssert)
+    {
+        if(!test)
+        {
+            printf("[ERROR] Assertion failed at %s:%d: \n", __FILE__, __LINE__);
+            return;
+        }
+        return;
+    }
+    return ; // noop
 }
 
-
-/// static_cast + assert
-template<class T, class U>
-T* down_cast(U* what) {
-	sofa::checkAssert( dynamic_cast<T*>(what) );
-    return static_cast<T*>(what);
 }
-
-
-#endif

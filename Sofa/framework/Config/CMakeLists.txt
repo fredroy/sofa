@@ -93,6 +93,7 @@ set(SOFACONFIG_BUILD_OPTIONS_SRC
     ${SOFACONFIGSRC_ROOT}/config/sharedlibrary_defines.h.in
     ${SOFACONFIGSRC_ROOT}/config/build_option_dump_visitor.h.in
     ${SOFACONFIGSRC_ROOT}/config/build_option_bbox.h.in
+    ${SOFACONFIGSRC_ROOT}/config/define_assert.h.in
 )
 
 # Header-only library (not handled well by macros & stuff so commented)
