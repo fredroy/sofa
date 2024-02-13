@@ -262,5 +262,22 @@ using Size = uint32_t;
 
 constexpr Index InvalidID = (std::numeric_limits<Index>::max)();
 
+constexpr bool enableAssert = true;
+
+#include <cassert>
+constexpr void checkAssert(bool test)
+{
+    if constexpr(enableAssert)
+    {
+        if(!test)
+        {
+            printf("Assertion failed at %s:%d: ", __FILE__, __LINE__);
+            return;
+        }
+        return;
+    }
+    return ; // noop
+}
+
 }
 

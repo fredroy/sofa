@@ -28,7 +28,7 @@
 template<class T, class U>
 T* safe_cast(U* what) {
 	T* res = dynamic_cast<T*>(what);
-	assert( res );
+	sofa::checkAssert( res );
 	return res;
 }
 
@@ -36,7 +36,7 @@ T* safe_cast(U* what) {
 /// static_cast + assert
 template<class T, class U>
 T* down_cast(U* what) {
-    assert( dynamic_cast<T*>(what) );
+	sofa::checkAssert( dynamic_cast<T*>(what) );
     return static_cast<T*>(what);
 }
 

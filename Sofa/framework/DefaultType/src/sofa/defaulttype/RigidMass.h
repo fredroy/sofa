@@ -80,8 +80,8 @@ public:
         inertiaMassMatrix = inertiaMatrix * mass;
         const bool canInvert1 = invInertiaMatrix.invert(inertiaMatrix);
         const bool canInvert2 = invInertiaMassMatrix.invert(inertiaMassMatrix);
-        assert(canInvert1);
-        assert(canInvert2);
+        sofa::checkAssert(canInvert1);
+        sofa::checkAssert(canInvert2);
         SOFA_UNUSED(canInvert1);
         SOFA_UNUSED(canInvert2);
     }
