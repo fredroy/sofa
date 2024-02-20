@@ -60,3 +60,10 @@
 #define SOFA_ATTRIBUTE_DEPRECATED__CONSTORDER() \
     SOFA_ATTRIBUTE_DEPRECATED("v23.12", "v24.06", "ConstOrder is now a scoped enumeration. It must be used to access the values.")
 #endif
+
+#ifdef SOFA_BUILD_SOFA_CORE
+#define SOFA_ATTRIBUTE_DEPRECATED__REGISTEROBJECT()
+#else
+#define SOFA_ATTRIBUTE_DEPRECATED__REGISTEROBJECT() \
+    SOFA_ATTRIBUTE_DEPRECATED("v24.06", "v25.06", "RegisterObject and the associated implicit registration is being phased out. Use ObjectRegistrationData and explicit registration from now on. See #4429 for more information.")
+#endif
