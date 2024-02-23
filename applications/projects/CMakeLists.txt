@@ -17,3 +17,5 @@ sofa_add_subdirectory(directory Regression Regression EXTERNAL GIT_REF master)
 sofa_add_subdirectory(directory SofaGLFW SofaGLFW EXTERNAL GIT_REF master)
 sofa_add_subdirectory(application sofaProjectExample sofaProjectExample)
 sofa_add_subdirectory(application sofaInfo sofaInfo)
+
+sofa_add_subdirectory(application ParallelRunSofa ParallelRunSofa ON)
