@@ -60,12 +60,22 @@ public:
     Data<bool> useLinePoint; ///< activate Line-Point intersection tests
     Data<bool> useLineLine; ///< activate Line-Line  intersection tests
 
-protected:
-    MinProximityIntersection();
-public:
     typedef core::collision::IntersectorFactory<MinProximityIntersection> IntersectorFactory;
+    IntersectorFactory* m_intersectorFactory{ nullptr };
+protected:
+    MinProximityIntersection(IntersectorFactory* intersectorFactory);
+public:
 
     void init() override;
+
+    template<class T>
+    static typename T::SPtr create(T*, core::objectmodel::BaseContext* context, core::objectmodel::BaseObjectDescription* arg)
+    {
+        typename T::SPtr obj = sofa::core::objectmodel::New<T>(IntersectorFactory::getInstance());
+        if (context) context->addObject(obj);
+        if (arg) obj->parse(arg);
+        return obj;
+    }
 
     bool getUseSurfaceNormals() const;
 

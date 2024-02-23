@@ -79,6 +79,10 @@ using sofa::helper::logging::ExceptionMessageHandler;
 
 #include <sofa/gui/common/ArgumentParser.h>
 
+#include <execution>
+#include <sofa/simulation/MainTaskSchedulerFactory.h>
+#include <sofa/simulation/DefaultTaskScheduler.h>
+#include <sofa/component/collision/detection/intersection/MeshMinProximityIntersection.h>
 // ---------------------------------------------------------------------
 // ---
 // ---------------------------------------------------------------------
@@ -264,10 +268,23 @@ int main(int argc, char** argv)
     //    msg_error("") << "need >= 1 file";
     //    return 0;
     //}
+    
+    //// moved singletons
+    // Task manager
+    const bool DefaultTaskSchedulerRegistered = sofa::simulation::MainTaskSchedulerFactory::registerScheduler(
+        sofa::simulation::DefaultTaskScheduler::name(),
+        &sofa::simulation::DefaultTaskScheduler::create);
+
+    auto* taskScheduler = sofa::simulation::MainTaskSchedulerFactory::createInRegistry();
+    auto* defaultTaskScheduler = dynamic_cast<sofa::simulation::DefaultTaskScheduler*>(taskScheduler);
+    // intersections
+    using namespace sofa::component::collision::detection::intersection;
+    sofa::core::collision::IntersectorCreator<MinProximityIntersection, MeshMinProximityIntersection> MeshMinProximityIntersectors("Mesh");
+
 
     files.resize(0);
     files.push_back("D:\\sofa\\src\\sandbox\\examples\\Demos\\caduceus.scn");
-    files.push_back("D:\\sofa\\src\\sandbox\\examples\\Demos\\liver.scn");
+    files.push_back("D:\\sofa\\src\\sandbox\\examples\\Demos\\caduceus.scn");
 
     std::vector<sofa::simulation::NodeSPtr> groots;
     for (const auto& filename : files)
@@ -278,32 +295,49 @@ int main(int argc, char** argv)
             msg_error("") << "while loading " << filename;
             return 0;
         }
-
-        sofa::simulation::node::initRoot(groot.get());
-        groot->setAnimate(true);
         groots.push_back(groot);
     }
 
     // Run the main loop
-    std::size_t counter = 0;
-    while (counter < 100)
-    {
-        msg_info("") << ">> Step " << counter << " start";
-
-        std::size_t simuId = 0;
-        for (auto groot : groots)
+    std::vector<std::size_t> simuIds(groots.size());
+    std::iota(simuIds.begin(), simuIds.end(), 0);
+    std::for_each(std::execution::par_unseq, simuIds.begin(), simuIds.end(), [&](auto simuId)
         {
-            msg_info("") << ">>>> " << simuId << " Step " << counter << " start ";
+            std::size_t counter = 0;
+            auto& groot = groots[simuId];
 
-            sofa::simulation::node::animate(groot.get());
+            if (defaultTaskScheduler)
+            {
+                defaultTaskScheduler->addWorkerThread(simuId, std::string("SubMain ")+std::to_string(simuId));
+            }
 
-            msg_info("") << "<<<< " << simuId << " Step " << counter << " end ";
-            simuId++;
+            sofa::simulation::node::initRoot(groot.get());
+            groot->setAnimate(true);
+
+            while (counter < 10000)
+            {
+                msg_info("") << ">>>> " << simuId << " Step " << counter << " start ";
+                sofa::simulation::node::animate(groot.get());
+                msg_info("") << "<<<< " << simuId << " Step " << counter << " end ";
+                counter++;
+            }
         }
+    );
 
-        msg_info("") << "<< Step " << counter << " end";
-        counter++;
-    }
+    //std::size_t counter = 0;
+    //while (counter < 100)
+    //{
+    //    msg_info("") << ">> Step " << counter << " start";
+
+    //    std::size_t simuId = 0;
+    //    for (auto groot : groots)
+    //    {
+
+    //    }
+
+    //    msg_info("") << "<< Step " << counter << " end";
+    //    counter++;
+    //}
 
     for (auto groot : groots)
     {

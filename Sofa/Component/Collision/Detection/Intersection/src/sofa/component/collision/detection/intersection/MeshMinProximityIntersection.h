@@ -58,7 +58,7 @@ public:
 
 protected:
 
-    MinProximityIntersection* intersection;
+    MinProximityIntersection* intersection{nullptr};
 };
 
 
