@@ -78,6 +78,7 @@ public:
             
     static DefaultTaskScheduler* create();
 
+    void addWorkerThread(std::size_t index = 0, const std::string& id = "Main  ");
 private:
             
     bool isInitialized() const { return m_isInitialized; }
