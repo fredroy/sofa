@@ -277,12 +277,12 @@ int main(int argc, char** argv)
 
     auto* taskScheduler = sofa::simulation::MainTaskSchedulerFactory::createInRegistry();
     auto* defaultTaskScheduler = dynamic_cast<sofa::simulation::DefaultTaskScheduler*>(taskScheduler);
-    // intersections
-    using namespace sofa::component::collision::detection::intersection;
-    sofa::core::collision::IntersectorCreator<MinProximityIntersection, MeshMinProximityIntersection> MeshMinProximityIntersectors("Mesh");
 
 
     files.resize(0);
+    files.push_back("D:\\sofa\\src\\sandbox\\examples\\Demos\\caduceus.scn");
+    files.push_back("D:\\sofa\\src\\sandbox\\examples\\Demos\\caduceus.scn");
+    files.push_back("D:\\sofa\\src\\sandbox\\examples\\Demos\\caduceus.scn");
     files.push_back("D:\\sofa\\src\\sandbox\\examples\\Demos\\caduceus.scn");
     files.push_back("D:\\sofa\\src\\sandbox\\examples\\Demos\\caduceus.scn");
 
@@ -305,6 +305,10 @@ int main(int argc, char** argv)
         {
             std::size_t counter = 0;
             auto& groot = groots[simuId];
+
+            // intersections
+            using namespace sofa::component::collision::detection::intersection;
+            sofa::core::collision::IntersectorCreator<MinProximityIntersection, MeshMinProximityIntersection> MeshMinProximityIntersectors("Mesh", groot->getContext());
 
             if (defaultTaskScheduler)
             {

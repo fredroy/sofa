@@ -85,7 +85,7 @@ void LocalMinDistance::init()
     //In the following function, all the C++ components that registered to
     //LocalMinDistance are created. In their constructors, they add
     //new supported pairs of collision models.
-    IntersectorFactory::getInstance()->addIntersectors(this);
+    IntersectorFactory::getInstance(this->getContext()->getRootContext())->addIntersectors(this);
 
     BaseProximityIntersection::init();
 }

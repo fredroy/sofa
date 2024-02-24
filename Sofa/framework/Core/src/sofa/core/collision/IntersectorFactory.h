@@ -23,6 +23,7 @@
 
 #include <sofa/core/CollisionModel.h>
 #include <sofa/core/collision/DetectionOutput.h>
+#include <sofa/simulation/Node.h>
 #include <typeindex>
 #include <typeinfo>
 
@@ -74,10 +75,14 @@ public:
         }
     }
 
-    static IntersectorFactory<TIntersectionClass>* getInstance()
+    // inline static std::mutex s_instanceMutex{};
+
+    static IntersectorFactory<TIntersectionClass>* getInstance(sofa::core::objectmodel::BaseContext* root)
     {
-        static IntersectorFactory<TIntersectionClass> instance;
-        return &instance;
+        static std::map< sofa::core::objectmodel::BaseContext*, IntersectorFactory<TIntersectionClass>> mapRootNodeInstance;
+
+        //std::lock_guard guard(s_instanceMutex);
+        return &mapRootNodeInstance[root];
     }
 };
 
@@ -85,9 +90,9 @@ template<class TIntersectionClass, class TIntersectorClass>
 class IntersectorCreator : public BaseIntersectorCreator<TIntersectionClass>
 {
 public:
-    IntersectorCreator(std::string name) : m_name(name)
+    IntersectorCreator(std::string name, sofa::core::objectmodel::BaseContext* root) : m_name(name)
     {
-        IntersectorFactory<TIntersectionClass>::getInstance()->registerCreator(this);
+        IntersectorFactory<TIntersectionClass>::getInstance(root)->registerCreator(this);
     }
     virtual ~IntersectorCreator() {}
 
