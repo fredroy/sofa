@@ -279,17 +279,14 @@ int main(int argc, char** argv)
     //auto* defaultTaskScheduler = dynamic_cast<sofa::simulation::DefaultTaskScheduler*>(taskScheduler);
 
 
-    files.resize(0);
 #ifdef WIN32
     std::string prefixScenes = "D:\\sofa\\src\\sandbox\\examples\\Demos\\" ;
 #else
     std::string prefixScenes = "/linuxdata/sofa/src/sandbox/examples/Demos/" ;
 #endif
-    files.push_back(prefixScenes + "caduceus.scn");
-    files.push_back(prefixScenes + "caduceus.scn");
-    files.push_back(prefixScenes + "caduceus.scn");
-    files.push_back(prefixScenes + "caduceus.scn");
-
+    files.resize(10);
+    for(auto& file : files)
+        file = prefixScenes + "caduceus.scn";
 
     std::vector<sofa::simulation::NodeSPtr> groots;
     for (const auto& filename : files)
