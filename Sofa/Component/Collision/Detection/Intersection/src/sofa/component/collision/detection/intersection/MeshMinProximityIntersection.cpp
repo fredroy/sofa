@@ -37,7 +37,6 @@ using namespace sofa::component::collision::geometry;
 MeshMinProximityIntersection::MeshMinProximityIntersection(MinProximityIntersection* object, bool addSelf)
     : intersection(object)
 {
-    std::cout << intersection << std::endl;
     if (addSelf)
     {
         if (intersection->usePointPoint.getValue())

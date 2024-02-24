@@ -58,7 +58,7 @@ DefaultTaskScheduler::DefaultTaskScheduler()
             
     // init global static thread local var
     {
-        //_threads[std::this_thread::get_id()] = new WorkerThread(this, 0, "Main  ");// new WorkerThread(this, 0, "Main  ");
+        _threads[std::this_thread::get_id()] = new WorkerThread(this, 0, "Main  ");// new WorkerThread(this, 0, "Main  ");
     }
 }
 
