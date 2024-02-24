@@ -33,7 +33,7 @@ using namespace sofa::defaulttype;
 using namespace sofa::core::collision;
 using namespace sofa::component::collision::geometry;
 
-IntersectorCreator<NewProximityIntersection, MeshNewProximityIntersection> MeshNewProximityIntersectors("Mesh");
+// IntersectorCreator<NewProximityIntersection, MeshNewProximityIntersection> MeshNewProximityIntersectors("Mesh");
 
 MeshNewProximityIntersection::MeshNewProximityIntersection(NewProximityIntersection* object, bool addSelf)
     : intersection(object)

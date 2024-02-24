@@ -43,14 +43,13 @@ int MinProximityIntersectionClass = core::RegisterObject("A set of methods to co
         .add< MinProximityIntersection >()
         ;
 
-MinProximityIntersection::MinProximityIntersection(IntersectorFactory* intersectorFactory)
+MinProximityIntersection::MinProximityIntersection()
     : BaseProximityIntersection()
     , useSphereTriangle(initData(&useSphereTriangle, true, "useSphereTriangle","activate Sphere-Triangle intersection tests"))
     , usePointPoint(initData(&usePointPoint, true, "usePointPoint","activate Point-Point intersection tests"))
     , useSurfaceNormals(initData(&useSurfaceNormals, false, "useSurfaceNormals", "Compute the norms of the Detection Outputs by considering the normals of the surfaces involved."))
     , useLinePoint(initData(&useLinePoint, true, "useLinePoint", "activate Line-Point intersection tests"))
     , useLineLine(initData(&useLineLine, true, "useLineLine", "activate Line-Line  intersection tests"))
-    , m_intersectorFactory(intersectorFactory)
 {
 }
 
@@ -66,14 +65,7 @@ void MinProximityIntersection::init()
     //In the following function, all the C++ components that registered to
     //MinProximityIntersection are created. In their constructors, they add
     //new supported pairs of collision models. For example, see MeshMinProximityIntersection.
-    if (m_intersectorFactory == nullptr)
-    {
-        IntersectorFactory::getInstance()->addIntersectors(this);
-    }
-    else
-    {
-        m_intersectorFactory->addIntersectors(this);
-    }
+    IntersectorFactory::getInstance(this->getContext()->getRootContext())->addIntersectors(this);
     
 
 	BaseProximityIntersection::init();

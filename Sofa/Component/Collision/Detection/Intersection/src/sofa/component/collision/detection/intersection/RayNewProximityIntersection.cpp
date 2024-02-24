@@ -37,7 +37,7 @@ using namespace sofa::defaulttype;
 using namespace sofa::core::collision;
 using namespace sofa::component::collision::geometry;
 
-IntersectorCreator<NewProximityIntersection, RayNewProximityIntersection> RayNewProximityIntersectors("Ray");
+//IntersectorCreator<NewProximityIntersection, RayNewProximityIntersection> RayNewProximityIntersectors("Ray");
 
 RayNewProximityIntersection::RayNewProximityIntersection(NewProximityIntersection* object, bool addSelf)
     : intersection(object)

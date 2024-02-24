@@ -60,7 +60,7 @@ void NewProximityIntersection::init()
     //In the following function, all the C++ components that registered to
     //NewProximityIntersection are created. In their constructors, they add
     //new supported pairs of collision models. For example, see MeshNewProximityIntersection.
-    IntersectorFactory::getInstance()->addIntersectors(this);
+    IntersectorFactory::getInstance(this->getContext()->getRootContext())->addIntersectors(this);
 
 	BaseProximityIntersection::init();
 }

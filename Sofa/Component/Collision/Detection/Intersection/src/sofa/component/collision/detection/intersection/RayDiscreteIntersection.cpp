@@ -36,10 +36,10 @@ using namespace sofa::defaulttype;
 using namespace sofa::core::collision;
 using namespace sofa::component::collision::geometry;
 
-IntersectorCreator<DiscreteIntersection, RayDiscreteIntersection> RayDiscreteIntersectors("Ray");
+// IntersectorCreator<DiscreteIntersection, RayDiscreteIntersection> RayDiscreteIntersectors("Ray");
 
 // since MinProximityIntersection inherits from DiscreteIntersection, should not this line be implicit? (but it is not the case...)
-IntersectorCreator<MinProximityIntersection, RayDiscreteIntersection> RayMinProximityIntersectors("Ray");
+// IntersectorCreator<MinProximityIntersection, RayDiscreteIntersection> RayMinProximityIntersectors("Ray");
 
 RayDiscreteIntersection::RayDiscreteIntersection(DiscreteIntersection* object, bool addSelf)
     : intersection(object)
