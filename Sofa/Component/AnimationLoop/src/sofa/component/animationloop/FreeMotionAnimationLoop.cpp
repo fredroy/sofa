@@ -335,8 +335,8 @@ void FreeMotionAnimationLoop::computeFreeMotionAndCollisionDetection(const sofa:
     else
     {
         SCOPED_TIMER("FreeMotion+CollisionDetection");
-
-        auto* taskScheduler = sofa::simulation::MainTaskSchedulerFactory::createInRegistry();
+        const std::uintptr_t ptrAsNb = reinterpret_cast<std::uintptr_t>(this->getContext()->getRootContext());
+        auto* taskScheduler = sofa::simulation::MainTaskSchedulerFactory::createInRegistry(sofa::simulation::MainTaskSchedulerFactory::defaultTaskSchedulerType()+std::to_string(ptrAsNb));
         assert(taskScheduler != nullptr);
 
         preCollisionComputation(params);
