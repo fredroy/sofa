@@ -280,11 +280,16 @@ int main(int argc, char** argv)
 
 
     files.resize(0);
-    files.push_back("D:\\sofa\\src\\sandbox\\examples\\Demos\\caduceus.scn");
-    files.push_back("D:\\sofa\\src\\sandbox\\examples\\Demos\\caduceus.scn");
-    files.push_back("D:\\sofa\\src\\sandbox\\examples\\Demos\\caduceus.scn");
-    files.push_back("D:\\sofa\\src\\sandbox\\examples\\Demos\\caduceus.scn");
-    files.push_back("D:\\sofa\\src\\sandbox\\examples\\Demos\\caduceus.scn");
+#ifdef WIN32
+    std::string prefixScenes = "D:\\sofa\\src\\sandbox\\examples\\Demos\\" ;
+#else
+    std::string prefixScenes = "/linuxdata/sofa/src/sandbox/examples/Demos/" ;
+#endif
+    files.push_back(prefixScenes + "caduceus.scn");
+    files.push_back(prefixScenes + "caduceus.scn");
+    files.push_back(prefixScenes + "caduceus.scn");
+    files.push_back(prefixScenes + "caduceus.scn");
+
 
     std::vector<sofa::simulation::NodeSPtr> groots;
     for (const auto& filename : files)
