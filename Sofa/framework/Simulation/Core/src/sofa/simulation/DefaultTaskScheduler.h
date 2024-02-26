@@ -32,7 +32,7 @@
 #include <map>
 #include <string> 
 #include <mutex>
-
+#include <atomic>
 
 
 namespace sofa::simulation
@@ -98,8 +98,10 @@ private:
     static const std::string _name;
 
     std::map< std::thread::id, WorkerThread*> _threads;
-            
-    const Task::Status*	m_mainTaskStatus;
+
+    std::atomic<const Task::Status*> m_mainTaskStatus;
+    void setMainTaskStatus(const Task::Status* mainTaskStatus);
+    bool testMainTaskStatus(const Task::Status*);
             
     std::mutex  m_wakeUpMutex;
             
