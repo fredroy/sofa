@@ -61,6 +61,8 @@ public:
 
     std::uint64_t getTaskCount() { return m_tasks.size(); }
 
+    void setFinished();
+
 private:
 
     bool start(DefaultTaskScheduler* const& taskScheduler);

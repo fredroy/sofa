@@ -83,6 +83,7 @@ using sofa::helper::logging::ExceptionMessageHandler;
 #include <sofa/simulation/MainTaskSchedulerFactory.h>
 #include <sofa/simulation/DefaultTaskScheduler.h>
 #include <sofa/component/collision/detection/intersection/MeshMinProximityIntersection.h>
+#include <sofa/simulation/WorkerThread.h>
 // ---------------------------------------------------------------------
 // ---
 // ---------------------------------------------------------------------
@@ -275,8 +276,9 @@ int main(int argc, char** argv)
         sofa::simulation::DefaultTaskScheduler::name(),
         &sofa::simulation::DefaultTaskScheduler::create);
 
-    //auto* taskScheduler = sofa::simulation::MainTaskSchedulerFactory::createInRegistry();
-    //auto* defaultTaskScheduler = dynamic_cast<sofa::simulation::DefaultTaskScheduler*>(taskScheduler);
+    // ownership in Main() i.e will start/stop
+    auto* taskScheduler = sofa::simulation::MainTaskSchedulerFactory::createInRegistry();
+    auto* defaultTaskScheduler = dynamic_cast<sofa::simulation::DefaultTaskScheduler*>(taskScheduler);
 
 
 #ifdef WIN32
@@ -313,11 +315,11 @@ int main(int argc, char** argv)
             std::size_t counter = 0;
             auto& groot = groots[simuId];
 
-            const std::uintptr_t ptrAsNb = reinterpret_cast<std::uintptr_t>(groot->getContext()->getRootContext());
+            assert(defaultTaskScheduler);
+            auto* subMainThread = defaultTaskScheduler->addWorkerThread(0, std::string("SubMain "));
+            
 
-            const bool DefaultTaskSchedulerRegistered = sofa::simulation::MainTaskSchedulerFactory::registerScheduler(
-                sofa::simulation::DefaultTaskScheduler::name()+std::to_string(ptrAsNb),
-                &sofa::simulation::DefaultTaskScheduler::create);
+            const std::uintptr_t ptrAsNb = reinterpret_cast<std::uintptr_t>(groot->getContext()->getRootContext());
 
             // intersections
             using namespace sofa::component::collision::detection::intersection;
@@ -326,13 +328,15 @@ int main(int argc, char** argv)
             sofa::simulation::node::initRoot(groot.get());
             groot->setAnimate(true);
 
-            while (counter < 10000)
+            while (counter < 1000)
             {
                 msg_info("") << ">>>> " << simuId << " Step " << counter << " start ";
                 sofa::simulation::node::animate(groot.get());
                 msg_info("") << "<<<< " << simuId << " Step " << counter << " end ";
                 counter++;
             }
+            subMainThread->setFinished();
+
         }
     );
 

@@ -58,11 +58,11 @@ DefaultTaskScheduler::DefaultTaskScheduler()
             
     // init global static thread local var
     {
-        _threads[std::this_thread::get_id()] = new WorkerThread(this, 0, "Main  ");// new WorkerThread(this, 0, "Main  ");
+        // _threads[std::this_thread::get_id()] = new WorkerThread(this, 0, "Main  ");// new WorkerThread(this, 0, "Main  ");
     }
 }
 
-void DefaultTaskScheduler::addWorkerThread(std::size_t index, const std::string& id)
+WorkerThread* DefaultTaskScheduler::addWorkerThread(std::size_t index, const std::string& id)
 {
     const auto thisThreadId = std::this_thread::get_id();
     if (_threads.find(thisThreadId) != _threads.end())
@@ -70,7 +70,7 @@ void DefaultTaskScheduler::addWorkerThread(std::size_t index, const std::string&
         delete _threads[thisThreadId];
     }
 
-    _threads[thisThreadId] = new WorkerThread(this, index, id);// new WorkerThread(this, 0, "Main  ");
+    return _threads[thisThreadId] = new WorkerThread(this, index, id);// new WorkerThread(this, 0, "Main  ");
     
 }
 
