@@ -26,6 +26,7 @@
 #include <sofa/simulation/Node.h>
 #include <typeindex>
 #include <typeinfo>
+#include <mutex>
 
 namespace sofa::core::collision
 {
@@ -75,14 +76,18 @@ public:
         }
     }
 
-    // inline static std::mutex s_instanceMutex{};
+    inline static std::mutex s_instanceMutex;
 
     static IntersectorFactory<TIntersectionClass>* getInstance(sofa::core::objectmodel::BaseContext* root)
     {
         static std::map< sofa::core::objectmodel::BaseContext*, IntersectorFactory<TIntersectionClass>> mapRootNodeInstance;
 
-        //std::lock_guard guard(s_instanceMutex);
-        return &mapRootNodeInstance[root];
+        IntersectorFactory<TIntersectionClass>* ret = nullptr;
+        {
+            std::lock_guard guard(s_instanceMutex);
+            ret = &mapRootNodeInstance[root];
+        }
+        return ret;
     }
 };
 

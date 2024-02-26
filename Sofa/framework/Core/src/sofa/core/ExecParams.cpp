@@ -37,8 +37,8 @@ ExecParams::ExecParamsThreadStorage::ExecParamsThreadStorage(int tid)
 /// Get the default ExecParams, to be used to provide a default values for method parameters
 ExecParams* ExecParams::defaultInstance()
 {
-    static ExecParams* threadParams;
-    ExecParams* ptr = threadParams;
+    static std::atomic<ExecParams*> threadParams;
+    ExecParams* ptr = threadParams.load(std::memory_order_relaxed);
     if (!ptr)
     {
         ptr = new ExecParams(new ExecParamsThreadStorage(g_nbThreads.fetch_add(1)));
