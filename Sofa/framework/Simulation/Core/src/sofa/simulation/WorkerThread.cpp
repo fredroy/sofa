@@ -55,6 +55,12 @@ bool WorkerThread::isFinished() const
     return m_finished.load(std::memory_order_relaxed);
 }
 
+void WorkerThread::setFinished()
+{
+    int a = 1;
+    m_finished.store(true, std::memory_order_relaxed);
+}
+
 bool WorkerThread::start(DefaultTaskScheduler *const &taskScheduler)
 {
     assert(taskScheduler);
