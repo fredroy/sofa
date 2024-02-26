@@ -63,7 +63,6 @@ if(MSVC)
 endif()
 option(SOFA_ENABLE_FAST_MATH "Enable floating-point model to fast (theoretically faster but can bring unexpected results/bugs)." OFF)
 
-
 ### SOFA_DEV_TOOL
 option(SOFA_WITH_DEVTOOLS "Compile with development extra features." ON)
 
@@ -179,6 +178,9 @@ if(${CMAKE_CXX_COMPILER_ID} MATCHES "GNU" OR ${CMAKE_CXX_COMPILER_ID} MATCHES "C
     if(SOFA_ENABLE_FAST_MATH)
         list(APPEND SOFACONFIG_COMPILE_OPTIONS "-ffast-math")
     endif()
+
+    list(APPEND SOFACONFIG_COMPILE_OPTIONS "-fsanitize=thread")
+    list(APPEND SOFACONFIG_LINK_OPTIONS "-fsanitize=thread")
 endif()
 
 ## Windows-specific
