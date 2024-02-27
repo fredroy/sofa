@@ -276,9 +276,6 @@ int main(int argc, char** argv)
         sofa::simulation::DefaultTaskScheduler::name(),
         &sofa::simulation::DefaultTaskScheduler::create);
 
-    // ownership in Main() i.e will start/stop
-    auto* taskScheduler = sofa::simulation::MainTaskSchedulerFactory::createInRegistry();
-    auto* defaultTaskScheduler = dynamic_cast<sofa::simulation::DefaultTaskScheduler*>(taskScheduler);
 
 
 #ifdef WIN32
@@ -306,6 +303,11 @@ int main(int argc, char** argv)
     //{
     //    defaultTaskScheduler->addWorkerThread(0, std::string("SubMain "));
     //}
+    // 
+    // ownership in Main() i.e will start/stop
+    auto* taskScheduler = sofa::simulation::MainTaskSchedulerFactory::createInRegistry();
+    auto* defaultTaskScheduler = dynamic_cast<sofa::simulation::DefaultTaskScheduler*>(taskScheduler);
+    taskScheduler->init(0);
 
     // Run the main loop
     std::vector<std::size_t> simuIds(groots.size());

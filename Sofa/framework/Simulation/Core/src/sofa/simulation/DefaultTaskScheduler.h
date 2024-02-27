@@ -78,6 +78,7 @@ public:
             
     static DefaultTaskScheduler* create();
 
+    std::mutex s_addWorkerThread;
     WorkerThread* addWorkerThread(std::size_t index = 0, const std::string& id = "Main  ");
 private:
             
