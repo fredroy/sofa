@@ -16,6 +16,8 @@ set(SOURCE_FILES
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_20)
+
 target_link_libraries(${PROJECT_NAME} Sofa.Simulation.Graph)
 target_link_libraries(${PROJECT_NAME} Sofa.GUI.Common)
 target_link_libraries(${PROJECT_NAME} Sofa.GUI.Batch)
