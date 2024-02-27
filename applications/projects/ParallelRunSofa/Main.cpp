@@ -286,7 +286,7 @@ int main(int argc, char** argv)
 #endif
     files.resize(10);
     for(auto& file : files)
-        file = prefixScenes + "liver.scn";
+        file = prefixScenes + "caduceus_nomt.scn";
 
     std::vector<sofa::simulation::NodeSPtr> groots;
     for (const auto& filename : files)
@@ -324,8 +324,8 @@ int main(int argc, char** argv)
             std::size_t counter = 0;
             auto& groot = groots[simuId];
 
-            //assert(defaultTaskScheduler);
-            //auto* subMainThread = defaultTaskScheduler->addWorkerThread(0, std::string("SubMain "));
+//            assert(defaultTaskScheduler);
+//            auto* subMainThread = defaultTaskScheduler->addWorkerThread(0, std::string("SubMain "));
 
             while (counter < 100)
             {
@@ -334,7 +334,7 @@ int main(int argc, char** argv)
                 msg_info("") << "<<<< " << simuId << " Step " << counter << " end ";
                 counter++;
             }
-            //subMainThread->setFinished();
+//            subMainThread->setFinished();
 
         }
     ;
