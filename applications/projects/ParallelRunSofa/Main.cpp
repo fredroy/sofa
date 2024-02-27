@@ -80,6 +80,7 @@ using sofa::helper::logging::ExceptionMessageHandler;
 #include <sofa/gui/common/ArgumentParser.h>
 
 #include <execution>
+#include <thread>
 #include <sofa/simulation/MainTaskSchedulerFactory.h>
 #include <sofa/simulation/DefaultTaskScheduler.h>
 #include <sofa/component/collision/detection/intersection/MeshMinProximityIntersection.h>
@@ -285,7 +286,7 @@ int main(int argc, char** argv)
 #endif
     files.resize(10);
     for(auto& file : files)
-        file = prefixScenes + "caduceus.scn";
+        file = prefixScenes + "liver.scn";
 
     std::vector<sofa::simulation::NodeSPtr> groots;
     for (const auto& filename : files)
@@ -296,6 +297,14 @@ int main(int argc, char** argv)
             msg_error("") << "while loading " << filename;
             return 0;
         }
+
+        // intersections
+        using namespace sofa::component::collision::detection::intersection;
+        sofa::core::collision::IntersectorCreator<MinProximityIntersection, MeshMinProximityIntersection> MeshMinProximityIntersectors("Mesh", groot->getContext());
+
+        sofa::simulation::node::initRoot(groot.get());
+        groot->setAnimate(true);
+
         groots.push_back(groot);
     }
 
@@ -305,42 +314,44 @@ int main(int argc, char** argv)
     //}
     // 
     // ownership in Main() i.e will start/stop
-    auto* taskScheduler = sofa::simulation::MainTaskSchedulerFactory::createInRegistry();
-    auto* defaultTaskScheduler = dynamic_cast<sofa::simulation::DefaultTaskScheduler*>(taskScheduler);
-    taskScheduler->init(0);
+//    auto* taskScheduler = sofa::simulation::MainTaskSchedulerFactory::createInRegistry();
+//    auto* defaultTaskScheduler = dynamic_cast<sofa::simulation::DefaultTaskScheduler*>(taskScheduler);
+//    taskScheduler->init(0);
 
-    // Run the main loop
-    std::vector<std::size_t> simuIds(groots.size());
-    std::iota(simuIds.begin(), simuIds.end(), 0);
-    std::for_each(std::execution::par_unseq, simuIds.begin(), simuIds.end(), [&](auto simuId)
+
+    auto simuLambda = [&](auto simuId)
         {
             std::size_t counter = 0;
             auto& groot = groots[simuId];
 
-            assert(defaultTaskScheduler);
-            auto* subMainThread = defaultTaskScheduler->addWorkerThread(0, std::string("SubMain "));
-            
+            //assert(defaultTaskScheduler);
+            //auto* subMainThread = defaultTaskScheduler->addWorkerThread(0, std::string("SubMain "));
 
-            const std::uintptr_t ptrAsNb = reinterpret_cast<std::uintptr_t>(groot->getContext()->getRootContext());
-
-            // intersections
-            using namespace sofa::component::collision::detection::intersection;
-            sofa::core::collision::IntersectorCreator<MinProximityIntersection, MeshMinProximityIntersection> MeshMinProximityIntersectors("Mesh", groot->getContext());
-
-            sofa::simulation::node::initRoot(groot.get());
-            groot->setAnimate(true);
-
-            while (counter < 1000)
+            while (counter < 100)
             {
                 msg_info("") << ">>>> " << simuId << " Step " << counter << " start ";
                 sofa::simulation::node::animate(groot.get());
                 msg_info("") << "<<<< " << simuId << " Step " << counter << " end ";
                 counter++;
             }
-            subMainThread->setFinished();
+            //subMainThread->setFinished();
 
         }
-    );
+    ;
+
+    // Run the main loop
+    std::vector<std::size_t> simuIds(groots.size());
+    std::iota(simuIds.begin(), simuIds.end(), 0);
+
+    {
+        std::jthread t0(simuLambda, 0);
+        std::jthread t1(simuLambda, 1);
+        std::jthread t2(simuLambda, 2);
+        std::jthread t3(simuLambda, 3);
+    }
+
+    //std::for_each(std::execution::par_unseq, simuIds.begin(), simuIds.end(), simuLambda);
+
 
     //std::size_t counter = 0;
     //while (counter < 100)
