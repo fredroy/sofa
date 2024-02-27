@@ -179,8 +179,11 @@ if(${CMAKE_CXX_COMPILER_ID} MATCHES "GNU" OR ${CMAKE_CXX_COMPILER_ID} MATCHES "C
         list(APPEND SOFACONFIG_COMPILE_OPTIONS "-ffast-math")
     endif()
 
-    list(APPEND SOFACONFIG_COMPILE_OPTIONS "-fsanitize=thread")
-    list(APPEND SOFACONFIG_LINK_OPTIONS "-fsanitize=thread")
+    option(SOFA_ENABLE_TSAN "Enable thread sanitizer (only gcc or clang)" OFF)
+    if(SOFA_ENABLE_TSAN)
+        list(APPEND SOFACONFIG_COMPILE_OPTIONS "-fsanitize=thread")
+        list(APPEND SOFACONFIG_LINK_OPTIONS "-fsanitize=thread")
+    endif()
 endif()
 
 ## Windows-specific
