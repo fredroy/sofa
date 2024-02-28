@@ -284,9 +284,9 @@ int main(int argc, char** argv)
 #else
     std::string prefixScenes = "/linuxdata/sofa/src/sandbox/examples/Demos/" ;
 #endif
-    files.resize(10);
+    files.resize(3);
     for(auto& file : files)
-        file = prefixScenes + "liver.scn" ;//"caduceus_nomt.scn";
+        file = prefixScenes + "caduceus_nomt.scn";
 
     std::vector<sofa::simulation::NodeSPtr> groots;
     for (const auto& filename : files)
