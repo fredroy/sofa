@@ -286,7 +286,7 @@ int main(int argc, char** argv)
 #endif
     files.resize(10);
     for(auto& file : files)
-        file = prefixScenes + "caduceus_nomt.scn";
+        file = prefixScenes + "liver.scn" ;//"caduceus_nomt.scn";
 
     std::vector<sofa::simulation::NodeSPtr> groots;
     for (const auto& filename : files)
@@ -327,7 +327,7 @@ int main(int argc, char** argv)
 //            assert(defaultTaskScheduler);
 //            auto* subMainThread = defaultTaskScheduler->addWorkerThread(0, std::string("SubMain "));
 
-            while (counter < 100)
+            while (counter < 1000)
             {
                 msg_info("") << ">>>> " << simuId << " Step " << counter << " start ";
                 sofa::simulation::node::animate(groot.get());
@@ -340,15 +340,24 @@ int main(int argc, char** argv)
     ;
 
     // Run the main loop
-    std::vector<std::size_t> simuIds(groots.size());
-    std::iota(simuIds.begin(), simuIds.end(), 0);
+    std::vector<std::thread> threads;
 
+    for(std::size_t i = 0 ; i<groots.size() ; i++)
     {
-        std::jthread t0(simuLambda, 0);
-        std::jthread t1(simuLambda, 1);
-        std::jthread t2(simuLambda, 2);
-        std::jthread t3(simuLambda, 3);
+        threads.emplace_back(simuLambda, i);
     }
+
+    for(auto& t : threads)
+    {
+        t.join();
+    }
+
+//    {
+//        std::jthread t0(simuLambda, 0);
+//        std::jthread t1(simuLambda, 1);
+//        std::jthread t2(simuLambda, 2);
+//        std::jthread t3(simuLambda, 3);
+//    }
 
     //std::for_each(std::execution::par_unseq, simuIds.begin(), simuIds.end(), simuLambda);
 
