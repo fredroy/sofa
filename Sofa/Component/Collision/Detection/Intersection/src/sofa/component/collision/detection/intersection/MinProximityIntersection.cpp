@@ -65,8 +65,7 @@ void MinProximityIntersection::init()
     //In the following function, all the C++ components that registered to
     //MinProximityIntersection are created. In their constructors, they add
     //new supported pairs of collision models. For example, see MeshMinProximityIntersection.
-    IntersectorFactory::getInstance(this->getContext()->getRootContext())->addIntersectors(this);
-    
+    IntersectorFactory::getInstance()->addIntersectors(this);
 
 	BaseProximityIntersection::init();
 }

@@ -53,7 +53,7 @@ DiscreteIntersection::DiscreteIntersection()
     //In the following function, all the C++ components that registered to
     //DiscreteIntersection are created. In their constructors, they add
     //new supported pairs of collision models.
-	IntersectorFactory::getInstance(this->getContext()->getRootContext())->addIntersectors(this);
+	IntersectorFactory::getInstance()->addIntersectors(this);
 }
 
 /// Return the intersector class handling the given pair of collision models, or nullptr if not supported.

@@ -60,11 +60,10 @@ public:
     Data<bool> useLinePoint; ///< activate Line-Point intersection tests
     Data<bool> useLineLine; ///< activate Line-Line  intersection tests
 
-    typedef core::collision::IntersectorFactory<MinProximityIntersection> IntersectorFactory;
-    IntersectorFactory* m_intersectorFactory{ nullptr };
 protected:
     MinProximityIntersection();
 public:
+    typedef core::collision::IntersectorFactory<MinProximityIntersection> IntersectorFactory;
 
     void init() override;
 
