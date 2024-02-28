@@ -27,8 +27,6 @@
 #include <sofa/core/objectmodel/TypeOfInsertion.h>
 #include <sofa/core/ComponentNameHelper.h>
 
-#include <optional>
-
 namespace sofa::simulation
 {
     class Visitor;
@@ -403,16 +401,8 @@ public:
 
     friend std::ostream SOFA_CORE_API & operator << (std::ostream& out, const BaseContext& c );
 
-
-    struct RootParams
-    {
-
-    };
-
 protected:
     ComponentNameHelper m_nameHelper;
-
-    std::optional<RootParams> m_rootParams;
 };
 
 template<class T, class Container>

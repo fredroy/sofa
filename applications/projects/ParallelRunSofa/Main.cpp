@@ -286,7 +286,7 @@ int main(int argc, char** argv)
 #endif
     files.resize(3);
     for(auto& file : files)
-        file = prefixScenes + "caduceus_nomt.scn";
+        file = prefixScenes + "liver.scn";
 
     std::vector<sofa::simulation::NodeSPtr> groots;
     for (const auto& filename : files)
@@ -299,8 +299,8 @@ int main(int argc, char** argv)
         }
 
         // intersections
-        using namespace sofa::component::collision::detection::intersection;
-        sofa::core::collision::IntersectorCreator<MinProximityIntersection, MeshMinProximityIntersection> MeshMinProximityIntersectors("Mesh", groot->getContext());
+        //using namespace sofa::component::collision::detection::intersection;
+        //sofa::core::collision::IntersectorCreator<MinProximityIntersection, MeshMinProximityIntersection> MeshMinProximityIntersectors("Mesh", groot->getContext());
 
         sofa::simulation::node::initRoot(groot.get());
         groot->setAnimate(true);

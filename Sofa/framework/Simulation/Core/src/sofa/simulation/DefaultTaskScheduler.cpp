@@ -28,6 +28,10 @@
 namespace sofa::simulation
 {
 
+const bool DefaultTaskSchedulerRegistered = MainTaskSchedulerFactory::registerScheduler(
+    DefaultTaskScheduler::name(),
+    &DefaultTaskScheduler::create);
+
 class StdTaskAllocator : public Task::Allocator
 {
 public:
