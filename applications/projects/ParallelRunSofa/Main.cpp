@@ -281,12 +281,14 @@ int main(int argc, char** argv)
 
 #ifdef WIN32
     std::string prefixScenes = "D:\\sofa\\src\\sandbox\\examples\\Demos\\" ;
-#else
+#elif defined (__linux__)
     std::string prefixScenes = "/linuxdata/sofa/src/sandbox/examples/Demos/" ;
+#else
+    std::string prefixScenes = "/Users/fred/Work/sofa/src/master/examples/Demos/" ;
 #endif
     files.resize(3);
     for(auto& file : files)
-        file = prefixScenes + "liver.scn";
+        file = prefixScenes + "caduceus_nomt.scn";
 
     std::vector<sofa::simulation::NodeSPtr> groots;
     for (const auto& filename : files)
