@@ -281,8 +281,10 @@ int main(int argc, char** argv)
 
 #ifdef WIN32
     std::string prefixScenes = "D:\\sofa\\src\\sandbox\\examples\\Demos\\" ;
-#else
+#elif defined (__linux__)
     std::string prefixScenes = "/linuxdata/sofa/src/sandbox/examples/Demos/" ;
+#else
+    std::string prefixScenes = "/Users/fred/Work/sofa/src/master/examples/Demos/" ;
 #endif
     files.resize(3);
     for(auto& file : files)
@@ -299,8 +301,8 @@ int main(int argc, char** argv)
         }
 
         // intersections
-        using namespace sofa::component::collision::detection::intersection;
-        sofa::core::collision::IntersectorCreator<MinProximityIntersection, MeshMinProximityIntersection> MeshMinProximityIntersectors("Mesh", groot->getContext());
+        //using namespace sofa::component::collision::detection::intersection;
+        //sofa::core::collision::IntersectorCreator<MinProximityIntersection, MeshMinProximityIntersection> MeshMinProximityIntersectors("Mesh", groot->getContext());
 
         sofa::simulation::node::initRoot(groot.get());
         groot->setAnimate(true);
