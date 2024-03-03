@@ -43,6 +43,12 @@ public:
 
     int computeIntersection(collision::geometry::Tetrahedron&, collision::geometry::Point&, OutputVector*);
     int computeIntersection(collision::geometry::Ray&, collision::geometry::Tetrahedron&, OutputVector*);
+    
+    bool testIntersection(collision::geometry::Tetrahedron&, collision::geometry::Point&, const core::collision::IntersectionParameters& params);
+    bool testIntersection(collision::geometry::Ray&, collision::geometry::Tetrahedron&, const core::collision::IntersectionParameters& params);
+
+    int computeIntersection(collision::geometry::Tetrahedron&, collision::geometry::Point&, OutputVector*, const core::collision::IntersectionParameters& params);
+    int computeIntersection(collision::geometry::Ray&, collision::geometry::Tetrahedron&, OutputVector*, const core::collision::IntersectionParameters& params);
 
 protected:
     DiscreteIntersection* intersection;

@@ -62,9 +62,9 @@ ElementIntersector* DiscreteIntersection::findIntersector(core::CollisionModel* 
     return intersectors.get(object1, object2, swapModels);
 }
 
-bool DiscreteIntersection::testIntersection(Cube& cube1, Cube& cube2)
+bool DiscreteIntersection::testIntersection(Cube& cube1, Cube& cube2, const core::collision::IntersectionParameters& params)
 {
-    const SReal alarmDist = this->getAlarmDistance();
+    const SReal alarmDist = params.alarmDistance;
 
     if (cube1 == cube2)
     {
@@ -85,7 +85,7 @@ bool DiscreteIntersection::testIntersection(Cube& cube1, Cube& cube2)
     return true;
 }
 
-int DiscreteIntersection::computeIntersection(Cube& cube1, Cube& cube2, OutputVector* contacts)
+int DiscreteIntersection::computeIntersection(Cube& cube1, Cube& cube2, OutputVector* contacts, const core::collision::IntersectionParameters& params)
 {
     SOFA_UNUSED(cube1);
     SOFA_UNUSED(cube2);
@@ -94,34 +94,75 @@ int DiscreteIntersection::computeIntersection(Cube& cube1, Cube& cube2, OutputVe
     return 0;
 }
 
+bool DiscreteIntersection::testIntersection(Sphere& sph1, Sphere& sph2, const core::collision::IntersectionParameters& params)
+{
+    return testIntersectionSphere(sph1, sph2, params.alarmDistance);
+}
+
+int DiscreteIntersection::computeIntersection(Sphere& sph1, Sphere& sph2, OutputVector* contacts, const core::collision::IntersectionParameters& params)
+{
+    return computeIntersectionSphere(sph1, sph2, contacts, params.alarmDistance, params.contactDistance);
+}
+
+bool DiscreteIntersection::testIntersection(RigidSphere& sph1, RigidSphere& sph2, const core::collision::IntersectionParameters& params)
+{
+    return testIntersectionSphere(sph1, sph2, params.alarmDistance);
+}
+
+int DiscreteIntersection::computeIntersection(RigidSphere& sph1, RigidSphere& sph2, OutputVector* contacts, const core::collision::IntersectionParameters& params)
+{
+    return computeIntersectionSphere(sph1, sph2, contacts, params.alarmDistance, params.contactDistance);
+}
+
+bool DiscreteIntersection::testIntersection(Sphere& sph1, RigidSphere& sph2, const core::collision::IntersectionParameters& params)
+{
+    return testIntersectionSphere(sph1, sph2, params.alarmDistance);
+}
+
+int DiscreteIntersection::computeIntersection(Sphere& sph1, RigidSphere& sph2, OutputVector* contacts, const core::collision::IntersectionParameters& params)
+{
+    return computeIntersectionSphere(sph1, sph2, contacts, params.alarmDistance, params.contactDistance);
+}
+
+
+bool DiscreteIntersection::testIntersection(Cube& cube1, Cube& cube2)
+{
+    return testIntersection(cube1, cube2, {this->getAlarmDistance(), 0.0_sreal});
+}
+
+int DiscreteIntersection::computeIntersection(Cube& cube1, Cube& cube2, OutputVector* contacts)
+{
+    return computeIntersection(cube1, cube2, contacts, {});
+}
+
 bool DiscreteIntersection::testIntersection(Sphere& sph1, Sphere& sph2)
 {
-    return testIntersectionSphere(sph1, sph2, this->getAlarmDistance());
+    return testIntersection(sph1, sph2, {this->getAlarmDistance(), 0.0_sreal});
 }
 
 int DiscreteIntersection::computeIntersection(Sphere& sph1, Sphere& sph2, OutputVector* contacts)
 {
-    return computeIntersectionSphere(sph1, sph2, contacts, this->getAlarmDistance(), this->getContactDistance());
+    return computeIntersection(sph1, sph2, contacts, {this->getAlarmDistance(), this->getContactDistance()});
 }
 
 bool DiscreteIntersection::testIntersection(RigidSphere& sph1, RigidSphere& sph2)
 {
-    return testIntersectionSphere(sph1, sph2, this->getAlarmDistance());
+    return testIntersection(sph1, sph2, {this->getAlarmDistance(), 0.0_sreal});
 }
 
 int DiscreteIntersection::computeIntersection(RigidSphere& sph1, RigidSphere& sph2, OutputVector* contacts)
 {
-    return computeIntersectionSphere(sph1, sph2, contacts, this->getAlarmDistance(), this->getContactDistance());
+    return computeIntersection(sph1, sph2, contacts, {this->getAlarmDistance(), this->getContactDistance()});
 }
 
 bool DiscreteIntersection::testIntersection(Sphere& sph1, RigidSphere& sph2)
 {
-    return testIntersectionSphere(sph1, sph2, this->getAlarmDistance());
+    return testIntersection(sph1, sph2, {this->getAlarmDistance(), 0.0_sreal});
 }
 
 int DiscreteIntersection::computeIntersection(Sphere& sph1, RigidSphere& sph2, OutputVector* contacts)
 {
-    return computeIntersectionSphere(sph1, sph2, contacts, this->getAlarmDistance(), this->getContactDistance());
+    return computeIntersection(sph1, sph2, contacts, {this->getAlarmDistance(), this->getContactDistance()});
 }
 
 } // namespace sofa::component::collision::detection::intersection

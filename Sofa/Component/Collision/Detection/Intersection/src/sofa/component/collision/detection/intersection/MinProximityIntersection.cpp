@@ -70,15 +70,26 @@ void MinProximityIntersection::init()
 	BaseProximityIntersection::init();
 }
 
+bool MinProximityIntersection::testIntersection(Cube& cube1, Cube& cube2, const core::collision::IntersectionParameters& params)
+{
+    return BaseProximityIntersection::testIntersection(cube1, cube2, params);
+}
+
+int MinProximityIntersection::computeIntersection(Cube& cube1, Cube& cube2, OutputVector* contacts, const core::collision::IntersectionParameters& params)
+{
+    return BaseProximityIntersection::computeIntersection(cube1, cube2, contacts, params);
+}
+
 bool MinProximityIntersection::testIntersection(Cube& cube1, Cube& cube2)
 {
-    return BaseProximityIntersection::testIntersection(cube1, cube2);
+    return testIntersection(cube1, cube2, {this->getAlarmDistance(), 0.0_sreal} );
 }
 
 int MinProximityIntersection::computeIntersection(Cube& cube1, Cube& cube2, OutputVector* contacts)
 {
-    return BaseProximityIntersection::computeIntersection(cube1, cube2, contacts);
+    return computeIntersection(cube1, cube2, contacts, {});
 }
+
 
 bool MinProximityIntersection::getUseSurfaceNormals() const
 {

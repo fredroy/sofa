@@ -75,14 +75,28 @@ public:
     template<typename SphereType1, typename SphereType2>
     bool testIntersection(SphereType1& sph1, SphereType2& sph2)
     {
-        const auto alarmDist = this->getAlarmDistance() + sph1.getProximity() + sph2.getProximity();
-        return DiscreteIntersection::testIntersectionSphere(sph1, sph2, alarmDist);
+        return testIntersection(sph1, sph2, {this->getAlarmDistance(), 0.0_sreal});
     }
     template<typename SphereType1, typename SphereType2>
     int computeIntersection(SphereType1& sph1, SphereType2& sph2, OutputVector* contacts)
     {
-        const auto alarmDist = this->getAlarmDistance() + sph1.getProximity() + sph2.getProximity();
-        const auto contactDist = this->getContactDistance() + sph1.getProximity() + sph2.getProximity();
+        return computeIntersection(sph1, sph2, contacts, {this->getAlarmDistance(), this->getContactDistance()});
+    }
+    
+    bool testIntersection(collision::geometry::Cube& cube1, collision::geometry::Cube& cube2, const core::collision::IntersectionParameters& params) override;
+    int computeIntersection(collision::geometry::Cube& cube1, collision::geometry::Cube& cube2, OutputVector* contacts, const core::collision::IntersectionParameters& params) override;
+
+    template<typename SphereType1, typename SphereType2>
+    bool testIntersection(SphereType1& sph1, SphereType2& sph2, const core::collision::IntersectionParameters& params)
+    {
+        const auto alarmDist = params.alarmDistance + sph1.getProximity() + sph2.getProximity();
+        return DiscreteIntersection::testIntersectionSphere(sph1, sph2, alarmDist);
+    }
+    template<typename SphereType1, typename SphereType2>
+    int computeIntersection(SphereType1& sph1, SphereType2& sph2, OutputVector* contacts, const core::collision::IntersectionParameters& params)
+    {
+        const auto alarmDist = params.alarmDistance + sph1.getProximity() + sph2.getProximity();
+        const auto contactDist = params.contactDistance + sph1.getProximity() + sph2.getProximity();
         return DiscreteIntersection::computeIntersectionSphere(sph1, sph2, contacts, alarmDist, contactDist);
     }
 
