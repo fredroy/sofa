@@ -66,6 +66,9 @@ void BruteForceBroadPhase::addCollisionModel (core::CollisionModel *cm)
     if (cm == nullptr || cm->empty())
         return;
     assert(intersectionMethod != nullptr);
+    
+    const core::collision::IntersectionParameters intersectionParams
+        {intersectionMethod->getAlarmDistance(), intersectionMethod->getContactDistance()};
 
     dmsg_info() << "CollisionModel " << cm->getName() << "(" << cm << ") of class " << cm->getClassName()
                 << " is added in broad phase (" << m_collisionModels.size() << " collision models)";
@@ -110,9 +113,9 @@ void BruteForceBroadPhase::addCollisionModel (core::CollisionModel *cm)
         {
             std::swap(cm1, cm2);
         }
-
+        
         // Here we assume a single root element is present in both models
-        if (intersector->canIntersect(cm1->begin(), cm2->begin()))
+        if (intersector->canIntersect(cm1->begin(), cm2->begin(), intersectionParams))
         {
             //both collision models will be further examined in the narrow phase
             cmPairs.emplace_back(cm1, cm2);
@@ -132,12 +135,15 @@ bool BruteForceBroadPhase::doesSelfCollide(core::CollisionModel *cm) const
 {
     if (cm->isSimulated() && cm->getLast()->canCollideWith(cm->getLast()))
     {
+        const core::collision::IntersectionParameters intersectionParams
+            {intersectionMethod->getAlarmDistance(), intersectionMethod->getContactDistance()};
+        
         // self collision
         bool swapModels = false;
         core::collision::ElementIntersector* intersector = intersectionMethod->findIntersector(cm, cm, swapModels);
         if (intersector != nullptr)
         {
-            return intersector->canIntersect(cm->begin(), cm->begin());
+            return intersector->canIntersect(cm->begin(), cm->begin(), intersectionParams);
         }
     }
 
@@ -150,11 +156,14 @@ bool BruteForceBroadPhase::intersectWithBoxModel(core::CollisionModel *cm) const
     core::collision::ElementIntersector* intersector = intersectionMethod->findIntersector(cm, boxModel.get(), swapModels);
     if (intersector)
     {
+        const core::collision::IntersectionParameters intersectionParams
+            {intersectionMethod->getAlarmDistance(), intersectionMethod->getContactDistance()};
+        
         core::CollisionModel* cm1 = (swapModels?boxModel.get():cm);
         core::CollisionModel* cm2 = (swapModels?cm:boxModel.get());
 
         // Here we assume a single root element is present in both models
-        return intersector->canIntersect(cm1->begin(), cm2->begin());
+        return intersector->canIntersect(cm1->begin(), cm2->begin(), intersectionParams);
     }
 
     return true;

@@ -42,6 +42,13 @@ bool BVHNarrowPhase::isSelfCollision(core::CollisionModel* cm1, core::CollisionM
     return (cm1->getContext() == cm2->getContext());
 }
 
+void BVHNarrowPhase::beginNarrowPhase()
+{
+    // store intersection parameters for the next collision phase
+    
+    m_intersectionParams = {intersectionMethod->getAlarmDistance(), intersectionMethod->getContactDistance()};
+}
+
 void BVHNarrowPhase::addCollisionPair(const std::pair<core::CollisionModel*, core::CollisionModel*>& cmPair)
 {
     core::CollisionModel *cm1 = cmPair.first; //->getNext();
@@ -174,7 +181,7 @@ void BVHNarrowPhase::processExternalCell(const TestPair &externalCell,
         TestPair current = internalCells.top();
         internalCells.pop();
 
-        processInternalCell(current, coarseIntersector, finest, externalCells, internalCells, outputs);
+        processInternalCell(current, coarseIntersector, finest, externalCells, internalCells, outputs, m_intersectionParams);
     }
 }
 
@@ -183,18 +190,19 @@ void BVHNarrowPhase::processInternalCell(const TestPair &internalCell,
                                               const FinestCollision &finest,
                                               std::queue<TestPair> &externalCells,
                                               std::stack<TestPair> &internalCells,
-                                              sofa::core::collision::DetectionOutputVector *&outputs)
+                                              sofa::core::collision::DetectionOutputVector *&outputs,
+                                              const sofa::core::collision::IntersectionParameters& params)
 {
     const auto [collisionModel1, collisionModel2] = getCollisionModelsFromTestPair(internalCell);
 
     if (collisionModel1 == finest.cm1 && collisionModel2 == finest.cm2) //the collision models are the finest ones
     {
         // Final collision pairs
-        finalCollisionPairs(internalCell, finest.selfCollision, coarseIntersector, outputs);
+        finalCollisionPairs(internalCell, finest.selfCollision, coarseIntersector, outputs, params);
     }
     else
     {
-        visitCollisionElements(internalCell, coarseIntersector, finest, externalCells, internalCells, outputs);
+        visitCollisionElements(internalCell, coarseIntersector, finest, externalCells, internalCells, outputs, params);
     }
 }
 
@@ -203,18 +211,19 @@ void BVHNarrowPhase::visitCollisionElements(const TestPair &root,
                                                  const FinestCollision &finest,
                                                  std::queue<TestPair> &externalCells,
                                                  std::stack<TestPair> &internalCells,
-                                                 sofa::core::collision::DetectionOutputVector *&outputs)
+                                                 sofa::core::collision::DetectionOutputVector *&outputs,
+                                                 const sofa::core::collision::IntersectionParameters& params)
 {
     const core::CollisionElementIterator begin1 = root.first.first;
     const core::CollisionElementIterator end1 = root.first.second;
     const core::CollisionElementIterator begin2 = root.second.first;
     const core::CollisionElementIterator end2 = root.second.second;
-
+    
     for (auto it1 = begin1; it1 != end1; ++it1)
     {
         for (auto it2 = begin2; it2 != end2; ++it2)
         {
-            if (coarseIntersector->canIntersect(it1, it2))
+            if (coarseIntersector->canIntersect(it1, it2, params))
             {
                 // Need to test recursively
                 // Note that an element cannot have both internal and external children
@@ -249,7 +258,7 @@ void BVHNarrowPhase::visitCollisionElements(const TestPair &root,
                     {
                         // end of both internal tree of elements.
                         // need to test external children
-                        visitExternalChildren(it1, it2, coarseIntersector, finest, externalCells, outputs);
+                        visitExternalChildren(it1, it2, coarseIntersector, finest, externalCells, outputs, params);
                     }
                 }
             }
@@ -262,7 +271,8 @@ void BVHNarrowPhase::visitExternalChildren(const core::CollisionElementIterator 
                                                 core::collision::ElementIntersector *coarseIntersector,
                                                 const FinestCollision &finest,
                                                 std::queue<TestPair> &externalCells,
-                                                sofa::core::collision::DetectionOutputVector *&outputs)
+                                                sofa::core::collision::DetectionOutputVector *&outputs,
+                                                const sofa::core::collision::IntersectionParameters& params)
 {
     const TestPair externalChildren(it1.getExternalChildren(), it2.getExternalChildren());
 
@@ -276,7 +286,7 @@ void BVHNarrowPhase::visitExternalChildren(const core::CollisionElementIterator 
             const auto [collisionModel1, collisionModel2] = getCollisionModelsFromTestPair(externalChildren);
             if (collisionModel1 == finest.cm1 && collisionModel2 == finest.cm2) //the collision models are the finest ones
             {
-                finalCollisionPairs(externalChildren, finest.selfCollision, finest.intersector, outputs);
+                finalCollisionPairs(externalChildren, finest.selfCollision, finest.intersector, outputs, params);
             }
             else
             {
@@ -300,14 +310,15 @@ void BVHNarrowPhase::visitExternalChildren(const core::CollisionElementIterator 
     {
         // No child -> final collision pair
         if (!finest.selfCollision || it1.canCollideWith(it2))
-            coarseIntersector->intersect(it1, it2, outputs);
+            coarseIntersector->intersect(it1, it2, outputs, params);
     }
 }
 
 void BVHNarrowPhase::finalCollisionPairs(const TestPair& pair,
                                               bool selfCollision,
                                               core::collision::ElementIntersector* intersector,
-                                              sofa::core::collision::DetectionOutputVector*& outputs)
+                                              sofa::core::collision::DetectionOutputVector*& outputs,
+                                              const sofa::core::collision::IntersectionParameters& params)
 {
     const core::CollisionElementIterator begin1 = pair.first.first;
     const core::CollisionElementIterator end1 = pair.first.second;
@@ -320,7 +331,7 @@ void BVHNarrowPhase::finalCollisionPairs(const TestPair& pair,
         {
             // Final collision pair
             if (!selfCollision || it1.canCollideWith(it2))
-                intersector->intersect(it1, it2, outputs);
+                intersector->intersect(it1, it2, outputs, params);
         }
     }
 }

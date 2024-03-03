@@ -26,6 +26,8 @@
 #include <queue>
 #include <stack>
 
+#include <sofa/core/collision/Intersection.h>
+
 namespace sofa::core::collision
 {
     class ElementIntersector;
@@ -74,6 +76,7 @@ public:
      */
     void addCollisionPair(const std::pair<core::CollisionModel*, core::CollisionModel*>& cmPair) override;
 
+    void beginNarrowPhase() override;
 
 protected:
 
@@ -114,21 +117,24 @@ protected:
                         const FinestCollision &finest,
                         std::queue<TestPair> &externalCells,
                         std::stack<TestPair> &internalCells,
-                        sofa::core::collision::DetectionOutputVector *&outputs);
+                        sofa::core::collision::DetectionOutputVector *&outputs,
+                        const sofa::core::collision::IntersectionParameters& params);
 
     static void visitCollisionElements(const TestPair &root,
                                        core::collision::ElementIntersector *coarseIntersector,
                                        const FinestCollision &finest,
                                        std::queue<TestPair> &externalCells,
                                        std::stack<TestPair> &internalCells,
-                                       sofa::core::collision::DetectionOutputVector *&outputs);
+                                       sofa::core::collision::DetectionOutputVector *&outputs,
+                                       const sofa::core::collision::IntersectionParameters& params);
 
     static void
     visitExternalChildren(const core::CollisionElementIterator &it1, const core::CollisionElementIterator &it2,
                           core::collision::ElementIntersector *coarseIntersector,
                           const FinestCollision &finest,
                           std::queue<TestPair> &externalCells,
-                          sofa::core::collision::DetectionOutputVector *&outputs);
+                          sofa::core::collision::DetectionOutputVector *&outputs,
+                          const sofa::core::collision::IntersectionParameters& params);
 
     /// Test intersection between two ranges of CollisionElement's
     /// The provided TestPair contains ranges of external CollisionElement's, which means that
@@ -136,7 +142,8 @@ protected:
     static void finalCollisionPairs(const TestPair& pair,
                                     bool selfCollision,
                                     core::collision::ElementIntersector* intersector,
-                                    sofa::core::collision::DetectionOutputVector*& outputs);
+                                    sofa::core::collision::DetectionOutputVector*& outputs,
+                                    const sofa::core::collision::IntersectionParameters& params);
 
 private:
 
@@ -144,6 +151,8 @@ private:
     static std::pair<core::CollisionModel*, core::CollisionModel*> getCollisionModelsFromTestPair(const TestPair& pair);
 
     static bool isRangeEmpty(const CollisionIteratorRange& range);
+    
+    core::collision::IntersectionParameters m_intersectionParams {};
 };
 
 } //namespace sofa::component::collision::detection::algorithm
