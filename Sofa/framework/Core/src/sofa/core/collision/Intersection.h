@@ -75,7 +75,7 @@ public:
 
     /// Test if 2 elements can collide. Note that this can be conservative (i.e. return true even when no collision is present)
     virtual bool canIntersect(core::CollisionElementIterator elem1, core::CollisionElementIterator elem2) = 0;
-    virtual bool canIntersect(core::CollisionElementIterator elem1, core::CollisionElementIterator elem2, const IntersectionParameters& params);
+    virtual bool canIntersect(core::CollisionElementIterator elem1, core::CollisionElementIterator elem2, const IntersectionParameters& params) = 0;
 
     /// Begin intersection tests between two collision models. Return the number of contacts written in the contacts vector.
     /// If the given contacts vector is nullptr, then this method should allocate it.
