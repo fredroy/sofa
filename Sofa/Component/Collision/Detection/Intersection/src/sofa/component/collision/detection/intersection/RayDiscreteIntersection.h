@@ -47,6 +47,12 @@ public:
 
     template<class T> int computeIntersection(collision::geometry::Ray&, collision::geometry::TSphere<T>&, OutputVector*);
     int computeIntersection(collision::geometry::Ray&, collision::geometry::Triangle&, OutputVector*);
+    
+    template<class T> bool testIntersection(collision::geometry::Ray&, collision::geometry::TSphere<T>&, const core::collision::IntersectionParameters& params);
+    bool testIntersection(collision::geometry::Ray&, collision::geometry::Triangle&, const core::collision::IntersectionParameters& params);
+
+    template<class T> int computeIntersection(collision::geometry::Ray&, collision::geometry::TSphere<T>&, OutputVector*, const core::collision::IntersectionParameters& params);
+    int computeIntersection(collision::geometry::Ray&, collision::geometry::Triangle&, OutputVector*, const core::collision::IntersectionParameters& params);
 
 protected:
 

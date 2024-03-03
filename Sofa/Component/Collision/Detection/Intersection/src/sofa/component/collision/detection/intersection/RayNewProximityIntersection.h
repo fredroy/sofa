@@ -47,6 +47,11 @@ public:
     bool testIntersection(collision::geometry::Ray& rRay, collision::geometry::RigidSphere& rSphere);
     int computeIntersection(collision::geometry::Ray& rRay, collision::geometry::RigidSphere& rSphere, OutputVector*);
 
+    bool testIntersection(collision::geometry::Ray & t1, collision::geometry::Triangle& t2, const core::collision::IntersectionParameters& params);
+    int computeIntersection(collision::geometry::Ray& t1, collision::geometry::Triangle& t2, OutputVector*, const core::collision::IntersectionParameters& params);
+
+    bool testIntersection(collision::geometry::Ray& rRay, collision::geometry::RigidSphere& rSphere, const core::collision::IntersectionParameters& params);
+    int computeIntersection(collision::geometry::Ray& rRay, collision::geometry::RigidSphere& rSphere, OutputVector*, const core::collision::IntersectionParameters& params);
 
 protected:
 
