@@ -21,11 +21,17 @@
 ******************************************************************************/
 #include <sofa/component/collision/response/contact/ContactIdentifier.h>
 
+#include <mutex>
+
 namespace sofa::component::collision::response::contact
 {
 
+std::mutex s_listMutex{};
+
 ContactIdentifier::ContactIdentifier()
 {
+    std::lock_guard lock(s_listMutex);
+
     if (!availableId.empty())
     {
         id = availableId.front();
@@ -37,6 +43,7 @@ ContactIdentifier::ContactIdentifier()
 
 ContactIdentifier::~ContactIdentifier()
 {
+    std::lock_guard lock(s_listMutex);
     availableId.push_back(id);
 }
 
