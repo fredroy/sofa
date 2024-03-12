@@ -22,6 +22,7 @@
 #include <sofa/core/ExecParams.h>
 #include <sofa/helper/logging/Messaging.h>
 
+#include <sofa/helper/system/thread/thread_specific_ptr.h>
 
 namespace sofa::core
 {
@@ -37,14 +38,15 @@ ExecParams::ExecParamsThreadStorage::ExecParamsThreadStorage(int tid)
 /// Get the default ExecParams, to be used to provide a default values for method parameters
 ExecParams* ExecParams::defaultInstance()
 {
-    static ExecParams* threadParams;
+    SOFA_THREAD_SPECIFIC_PTR(ExecParams, threadParams);
     ExecParams* ptr = threadParams;
+
     if (!ptr)
     {
         ptr = new ExecParams(new ExecParamsThreadStorage(g_nbThreads.fetch_add(1)));
         threadParams = ptr;
         if (ptr->threadID())
-            msg_info("ExecParams") << "[THREAD " << ptr->threadID() << "]: local ExecParams storage created.";
+            dmsg_info("ExecParams") << "[THREAD " << ptr->threadID() << "]: local ExecParams storage created.";
     }
     return ptr;
 }
