@@ -24,6 +24,48 @@
 #include <sofa/core/collision/Intersection.h>
 #include <sofa/helper/Factory.h>
 
+namespace
+{
+    // primary type trait, is false
+    template<typename Type, typename = void> //this 3rd parameter defaults to void
+    struct has_canIntersect_with_Intersection
+        : std::false_type
+    { };
+
+    template<typename Type, typename = void> //this 3rd parameter defaults to void
+    struct has_intersect_with_Intersection
+        : std::false_type
+    { };
+
+
+    //specializations for types where `t.foo(arg)` is valid
+    template<typename Type>
+    struct has_canIntersect_with_Intersection<Type,std::void_t<decltype(std::declval<Type>().canIntersect(
+        std::declval<sofa::core::CollisionElementIterator>(),
+        std::declval<sofa::core::CollisionElementIterator>(),
+        std::declval<const sofa::core::collision::Intersection*>()
+        ))>>
+        : std::true_type
+    { };
+
+    template<typename Type>
+    struct has_intersect_with_Intersection<Type, std::void_t<decltype(std::declval<Type>().intersect(
+        std::declval<sofa::core::CollisionElementIterator>(),
+        std::declval<sofa::core::CollisionElementIterator>(),
+        std::declval<sofa::core::collision::DetectionOutputVector*>(),
+        std::declval<const sofa::core::collision::Intersection*>()
+    ))>>
+        : std::true_type
+    { };
+
+    //c++17 helpers
+    template<typename Type>
+    constexpr bool has_canIntersect_with_Intersection_v = has_canIntersect_with_Intersection<Type>::value;
+    template<typename Type>
+    constexpr bool has_intersect_with_Intersection_v = has_intersect_with_Intersection<Type>::value;
+
+}
+
 namespace sofa::core::collision
 {
 
@@ -35,11 +77,26 @@ public:
     typedef typename Elem2::Model Model2;
     MemberElementIntersector(T* ptr) : impl(ptr) {}
     /// Test if 2 elements can collide. Note that this can be conservative (i.e. return true even when no collision is present)
+    SOFA_ATTRIBUTE_DEPRECATED__CORE_INTERSECTION_AS_PARAMETER()
     bool canIntersect(core::CollisionElementIterator elem1, core::CollisionElementIterator elem2) override
     {
         Elem1 e1(elem1);
         Elem2 e2(elem2);
         return impl->testIntersection(e1, e2);
+    }
+    
+    bool canIntersect(core::CollisionElementIterator elem1, core::CollisionElementIterator elem2, const core::collision::Intersection* currentIntersection) override
+    {
+        Elem1 e1(elem1);
+        Elem2 e2(elem2);
+        if constexpr (has_canIntersect_with_Intersection_v<T>)
+        {
+            return impl->testIntersection(e1, e2, currentIntersection);
+        }
+        else
+        {
+            return impl->testIntersection(e1, e2);
+        }
     }
 
     /// Begin intersection tests between two collision models. Return the number of contacts written in the contacts vector.
@@ -56,11 +113,26 @@ public:
     }
 
     /// Compute the intersection between 2 elements.
+    SOFA_ATTRIBUTE_DEPRECATED__CORE_INTERSECTION_AS_PARAMETER()
     int intersect(core::CollisionElementIterator elem1, core::CollisionElementIterator elem2,  DetectionOutputVector* contacts) override
     {
         Elem1 e1(elem1);
         Elem2 e2(elem2);
         return impl->computeIntersection(e1, e2, impl->getOutputVector(e1.getCollisionModel(), e2.getCollisionModel(), contacts));
+    }
+    
+    int intersect(core::CollisionElementIterator elem1, core::CollisionElementIterator elem2,  DetectionOutputVector* contacts, const core::collision::Intersection* currentIntersection) override
+    {
+        Elem1 e1(elem1);
+        Elem2 e2(elem2);
+        if constexpr (has_intersect_with_Intersection_v<T>)
+        {
+            return impl->computeIntersection(e1, e2, impl->getOutputVector(e1.getCollisionModel(), e2.getCollisionModel(), contacts), currentIntersection);
+        }
+        else
+        {
+            return impl->computeIntersection(e1, e2, impl->getOutputVector(e1.getCollisionModel(), e2.getCollisionModel(), contacts));
+        }
     }
 
     std::string name() const override
