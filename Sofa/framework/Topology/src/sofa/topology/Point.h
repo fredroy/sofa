@@ -24,8 +24,13 @@
 #include <sofa/topology/config.h>
 #include <sofa/type/vector.h>
 
+#include <sofa/topology/Element.h>
+
+#include <sofa/geometry/Point.h>
+
 namespace sofa::topology
 {
+    using Point = sofa::topology::Element<sofa::geometry::Point>;
 
     typedef sofa::type::vector<sofa::Index> SetIndex;
     typedef sofa::type::vector<sofa::Index> SetIndices;
