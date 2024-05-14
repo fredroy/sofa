@@ -30,6 +30,12 @@ namespace sofa::defaulttype
 {
 
 template<>
+struct DataTypeInfo< sofa::topology::Point > : public FixedArrayTypeInfo< sofa::topology::Point >
+{
+    static std::string name() { return sofa::geometry::ElementInfo<sofa::geometry::Point>::name(); }
+};
+
+template<>
 struct DataTypeInfo< sofa::topology::Edge > : public FixedArrayTypeInfo< sofa::topology::Edge >
 {
     static std::string name() { return sofa::geometry::ElementInfo<sofa::geometry::Edge>::name(); }
@@ -42,7 +48,7 @@ struct DataTypeInfo< sofa::topology::Triangle > : public FixedArrayTypeInfo<sofa
 };
 
 template<>
-struct DataTypeInfo< sofa::topology::Quad > : public FixedArrayTypeInfo<sofa::topology::Element<sofa::geometry::Quad> >
+struct DataTypeInfo< sofa::topology::Quad > : public FixedArrayTypeInfo<sofa::topology::Quad >
 {
     static std::string name() { return sofa::geometry::ElementInfo<sofa::geometry::Quad>::name(); }
 };
