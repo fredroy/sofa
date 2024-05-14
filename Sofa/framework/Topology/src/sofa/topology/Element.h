@@ -24,7 +24,6 @@
 #include <sofa/topology/config.h>
 
 #include <sofa/type/fixed_array.h>
-#include <sofa/topology/Point.h>
 
 #include <type_traits>
 
