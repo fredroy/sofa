@@ -354,6 +354,8 @@ set_target_properties(${PROJECT_NAME} PROPERTIES SOFA_VERSION "${SOFA_VERSION}")
 
 set_target_properties(${PROJECT_NAME} PROPERTIES SOFA_URL "${SOFA_URL}")
 
+target_compile_definitions(${PROJECT_NAME} PUBLIC CMAKE_SOFA_BUILD_TYPE=$<CONFIG>)
+
 # CMakeParseLibraryList.cmake
 configure_file(cmake/CMakeParseLibraryList.cmake ${CMAKE_BINARY_DIR}/lib/cmake/CMakeParseLibraryList.cmake COPYONLY)
 install(FILES cmake/CMakeParseLibraryList.cmake DESTINATION lib/cmake/${PROJECT_NAME} COMPONENT headers)

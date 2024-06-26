@@ -19,8 +19,7 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#ifndef SOFA_VERSION_H
-#define SOFA_VERSION_H
+#pragma once
 
 #cmakedefine SOFA_VERSION_STR @SOFA_VERSION_STR@
 
@@ -30,4 +29,18 @@
 // - SOFA_VERSION % 100 is the patch number
 #cmakedefine SOFA_VERSION @SOFA_VERSION@
 
-#endif
+namespace sofa
+{
+
+// CMake configuration build information
+#define SOFA_BUILD_TYPE CMAKE_SOFA_BUILD_TYPE
+
+#define STRINGIFY(x) #x
+#define TOSTRING(x) STRINGIFY(x)
+
+constexpr const char* SofaBuildType = TOSTRING(SOFA_BUILD_TYPE);
+
+#undef TOSTRING
+#undef STRINGIFY
+
+}
