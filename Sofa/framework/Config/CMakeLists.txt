@@ -268,6 +268,8 @@ endif()
 if(MSVC)
     # Increase Number of Sections in .Obj file
     list(APPEND SOFACONFIG_COMPILE_OPTIONS "/bigobj")
+    list(APPEND SOFACONFIG_COMPILE_OPTIONS "/permissive-")
+    
     if(SOFA_VECTORIZE)
         message("SOFA_VECTORIZE option is deprecated and has been split between SOFA_ENABLE_SIMD and SOFA_ENABLE_FAST_MATH. These 2 options will be enabled.")
         set(SOFA_ENABLE_SIMD ON)
