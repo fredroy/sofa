@@ -130,7 +130,7 @@ protected:
 public:
     void init() override;
 
-    void bwdInit() override {}
+    void bwdInit() override;
 
     void reinit() override;
 

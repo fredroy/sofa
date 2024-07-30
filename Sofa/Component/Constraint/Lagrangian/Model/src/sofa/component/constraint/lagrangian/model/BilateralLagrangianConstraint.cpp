@@ -39,46 +39,7 @@ public:
 
     template<class T>
     static void bwdInit(BilateralLagrangianConstraint<T>& self) {
-        if (!self.d_keepOrientDiff.getValue())
-            return;
-
-        helper::WriteAccessor<Data<typename BilateralLagrangianConstraint<T>::VecDeriv > > wrest = self.d_restVector;
-
-        if (wrest.size() > 0) {
-            msg_warning("BilateralLagrangianConstraintSpecialization") << "keepOrientationDifference is activated, rest_vector will be ignored! " ;
-            wrest.resize(0);
-        }
-
-        const typename BilateralLagrangianConstraint<T>::SubsetIndices& m1Indices = self.d_m1.getValue();
-        const typename BilateralLagrangianConstraint<T>::SubsetIndices& m2Indices = self.d_m2.getValue();
-
-        const unsigned minp = std::min(m1Indices.size(),m2Indices.size());
-
-        const typename BilateralLagrangianConstraint<T>::DataVecCoord &d_x1 = *self.mstate1->read(core::ConstVecCoordId::position());
-        const typename BilateralLagrangianConstraint<T>::DataVecCoord &d_x2 = *self.mstate2->read(core::ConstVecCoordId::position());
-
-        const typename BilateralLagrangianConstraint<T>::VecCoord &x1 = d_x1.getValue();
-        const typename BilateralLagrangianConstraint<T>::VecCoord &x2 = d_x2.getValue();
-
-        for (unsigned pid=0; pid<minp; pid++)
-        {
-            const typename BilateralLagrangianConstraint<T>::Coord P = x1[m1Indices[pid]];
-            const typename BilateralLagrangianConstraint<T>::Coord Q = x2[m2Indices[pid]];
-
-            type::Quat<SReal> qP, qQ, dQP;
-            qP = P.getOrientation();
-            qQ = Q.getOrientation();
-            qP.normalize();
-            qQ.normalize();
-            dQP = qP.quatDiff(qQ, qP);
-            dQP.normalize();
-
-            typename BilateralLagrangianConstraint<T>::Coord df;
-            df.getCenter() = Q.getCenter() - P.getCenter();
-            df.getOrientation() = dQP;
-            self.initialDifference.push_back(df);
-
-        }
+        
     }
 
 
@@ -256,11 +217,6 @@ void BilateralLagrangianConstraint<Rigid3Types>::init(){
 }
 
 template<> SOFA_COMPONENT_CONSTRAINT_LAGRANGIAN_MODEL_API
-void BilateralLagrangianConstraint<Rigid3Types>::bwdInit() {
-    BilateralLagrangianConstraintSpecialization<RigidImpl>::bwdInit(*this);
-}
-
-template<> SOFA_COMPONENT_CONSTRAINT_LAGRANGIAN_MODEL_API
 void BilateralLagrangianConstraint<Rigid3Types>::getConstraintResolution(const ConstraintParams* cParams,
                                                                            std::vector<ConstraintResolution*>& resTab,
                                                                            unsigned int& offset)
@@ -316,8 +272,6 @@ void BilateralLagrangianConstraint<defaulttype::Rigid3Types>::addContact(Deriv n
                                                                         norm, P, Q, contactDistance, m1, m2, Pfree, Qfree,
                                                                         id, localid) ;
 }
-
-
 
 int BilateralLagrangianConstraintClass = core::RegisterObject("BilateralLagrangianConstraint defining an holonomic equality constraint (attachment)")
         .add< BilateralLagrangianConstraint<Vec3Types> >()

@@ -27,6 +27,7 @@
 #include <sofa/core/visual/VisualParams.h>
 #include <sofa/type/RGBAColor.h>
 #include <sofa/type/Vec.h>
+#include <sofa/type/isRigidType.h>
 #include <sofa/core/ConstraintParams.h>
 #include <algorithm> // for std::min
 
@@ -116,6 +117,54 @@ template<class DataTypes>
 void BilateralLagrangianConstraint<DataTypes>::reinit()
 {
     prevForces.clear();
+}
+
+template<typename DataTypes>
+void BilateralLagrangianConstraint<DataTypes>::bwdInit()
+{
+    if constexpr (sofa::type::isRigidType<DataTypes>())
+    {
+        if (!this->d_keepOrientDiff.getValue())
+            return;
+
+        auto wrest = sofa::helper::getWriteAccessor(this->d_restVector);
+
+        if (wrest.size() > 0) {
+            msg_warning("BilateralLagrangianConstraintSpecialization") << "keepOrientationDifference is activated, rest_vector will be ignored! ";
+            wrest.resize(0);
+        }
+
+        const auto& m1Indices = this->d_m1.getValue();
+        const auto& m2Indices = this->d_m2.getValue();
+
+        const unsigned minp = std::min(m1Indices.size(), m2Indices.size());
+
+        const auto& d_x1 = *this->mstate1->read(core::ConstVecCoordId::position());
+        const auto& d_x2 = *this->mstate2->read(core::ConstVecCoordId::position());
+
+        const auto& x1 = d_x1.getValue();
+        const auto& x2 = d_x2.getValue();
+
+        for (unsigned pid = 0; pid < minp; pid++)
+        {
+            const auto& P = x1[m1Indices[pid]];
+            const auto& Q = x2[m2Indices[pid]];
+
+            type::Quat<SReal> qP, qQ, dQP;
+            qP = P.getOrientation();
+            qQ = Q.getOrientation();
+            qP.normalize();
+            qQ.normalize();
+            dQP = qP.quatDiff(qQ, qP);
+            dQP.normalize();
+
+            typename DataTypes::Coord df;
+            df.getCenter() = Q.getCenter() - P.getCenter();
+            df.getOrientation() = dQP;
+            this->initialDifference.push_back(df);
+
+        }
+    }
 }
 
 

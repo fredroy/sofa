@@ -48,6 +48,7 @@ class DeformableOnRigidFrameMapping : public LinearMulti2Mapping<TIn, TInRoot, T
         SOFA_TEMPLATE3(LinearMulti2Mapping, TIn, TInRoot, TOut) );
 
     typedef LinearMulti2Mapping<TIn, TInRoot, TOut> Inherit;
+    using Inherit::initData;
 
     typedef TIn In;
     typedef TInRoot InRoot;

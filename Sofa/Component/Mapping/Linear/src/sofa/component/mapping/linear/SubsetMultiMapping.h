@@ -43,6 +43,8 @@ public:
     SOFA_CLASS(SOFA_TEMPLATE2(SubsetMultiMapping, TIn, TOut), SOFA_TEMPLATE2(LinearMultiMapping, TIn, TOut));
 
     typedef LinearMultiMapping<TIn, TOut> Inherit;
+    using Inherit::initData;
+
     typedef TIn In;
     typedef TOut Out;
 

@@ -42,6 +42,8 @@ public:
     SOFA_CLASS(SOFA_TEMPLATE2(LineSetSkinningMapping,TIn,TOut), SOFA_TEMPLATE2(LinearMapping,TIn,TOut));
 
     typedef LinearMapping<TIn, TOut> Inherit;
+    using Inherit::initData;
+
     typedef TIn In;
     typedef TOut Out;
 

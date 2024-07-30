@@ -47,6 +47,7 @@ public:
     typedef TVector Vector;
     typedef typename TVector::Real Real;
     typedef sofa::component::linearsolver::MatrixLinearSolver<TMatrix,TVector> Inherit;
+    using Inherit::initData;
 
     SOFA_ATTRIBUTE_DEPRECATED__RENAME_DATA_IN_LINEARSOLVER_DIRECT()
     Data<bool> f_verbose;

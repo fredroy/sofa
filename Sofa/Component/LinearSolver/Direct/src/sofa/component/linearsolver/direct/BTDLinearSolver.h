@@ -49,6 +49,9 @@ class BTDLinearSolver : public sofa::component::linearsolver::MatrixLinearSolver
 public:
     SOFA_CLASS(SOFA_TEMPLATE2(BTDLinearSolver, Matrix, Vector), SOFA_TEMPLATE2(sofa::component::linearsolver::MatrixLinearSolver, Matrix, Vector));
 
+    typedef sofa::component::linearsolver::MatrixLinearSolver<Matrix, Vector> Inherit;
+    using Inherit::initData;
+
     Data<bool> d_verbose; ///< Dump system state at each iteration
     Data<bool> d_problem; ///< display debug informations about subpartSolve computation
     Data<bool> d_subpartSolve; ///< Allows for the computation of a subpart of the system

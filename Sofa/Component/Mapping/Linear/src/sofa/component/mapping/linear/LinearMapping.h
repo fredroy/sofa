@@ -34,7 +34,7 @@ template<class TMapping>
 class CRTPLinearMapping : public TMapping
 {
 public:
-    SOFA_CLASS(SOFA_TEMPLATE(CRTPLinearMapping, TMapping), TMapping);
+    SOFA_ABSTRACT_CLASS(SOFA_TEMPLATE(CRTPLinearMapping, TMapping), TMapping);
     using TMapping::TMapping;
 
     virtual bool isLinear() const override { return true; }

@@ -157,6 +157,7 @@ public :
         SOFA_TEMPLATE(ordering::OrderingMethodAccessor, SOFA_TEMPLATE3(sofa::component::linearsolver::MatrixLinearSolver,TMatrix,TVector,TThreadManager))
     );
     typedef ordering::OrderingMethodAccessor<sofa::component::linearsolver::MatrixLinearSolver<TMatrix,TVector, TThreadManager> > Inherit;
+    using Inherit::initData;
 
     typedef TMatrix Matrix;
     typedef TVector Vector;

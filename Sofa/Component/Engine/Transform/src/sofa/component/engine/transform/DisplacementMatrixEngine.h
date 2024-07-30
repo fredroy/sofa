@@ -52,6 +52,8 @@ public:
     SOFA_CLASS( SOFA_TEMPLATE2( DisplacementTransformEngine, DataTypes, OutputType ), sofa::core::DataEngine );
 
     typedef sofa::core::DataEngine Inherit;
+    using Inherit::initData;
+
     typedef typename DataTypes::Real Real;
     typedef typename DataTypes::Coord Coord; // rigid
     typedef typename DataTypes::VecCoord VecCoord;
@@ -101,6 +103,7 @@ public:
     SOFA_CLASS( SOFA_TEMPLATE( DisplacementMatrixEngine, DataTypes ),SOFA_TEMPLATE2( DisplacementTransformEngine, DataTypes, type::Mat4x4 ) );
 
     typedef DisplacementTransformEngine<DataTypes, type::Mat4x4> Inherit;
+    using Inherit::initData;
     typedef typename DataTypes::Real Real;
     typedef typename DataTypes::Coord Coord; // rigid
     typedef typename DataTypes::VecCoord VecCoord;

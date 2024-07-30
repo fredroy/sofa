@@ -42,6 +42,8 @@ public:
     SOFA_CLASS(SOFA_TEMPLATE2(SkinningMapping,TIn,TOut), SOFA_TEMPLATE2(LinearMapping,TIn,TOut));
 
     typedef LinearMapping<TIn, TOut> Inherit;
+    using Inherit::initData;
+
     typedef sofa::core::topology::BaseMeshTopology::SeqTriangles SeqTriangles;
     typedef SReal Real;
 
