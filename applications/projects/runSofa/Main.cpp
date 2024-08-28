@@ -161,7 +161,7 @@ int main(int argc, char** argv)
     unsigned int computationTimeSampling=0; ///< Frequency of display of the computation time statistics, in number of animation steps. 0 means never.
     string    computationTimeOutputType="stdout";
 
-    string gui = "";
+    string guiStr = "";
     string verif = "";
 
     vector<string> plugins;
@@ -216,7 +216,7 @@ int main(int argc, char** argv)
         "Output type for the computation time statistics: either stdout, json or ljson"
     );
     argParser->addArgument(
-        cxxopts::value<std::string>(gui)->default_value(""),
+        cxxopts::value<std::string>(guiStr)->default_value(""),
         "g,gui",
         gui_help.c_str()
     );
@@ -429,7 +429,7 @@ int main(int argc, char** argv)
 
     pluginManager.init();
 
-    if (int err = GUIManager::Init(argv[0],gui.c_str()))
+    if (int err = GUIManager::Init(argv[0]))
     {
         sofa::simulation::common::cleanup();
         sofa::simulation::graph::cleanup();
@@ -455,12 +455,14 @@ int main(int argc, char** argv)
         fileName = DataRepository.getFile(fileName);
     }
 
-    if (int err=GUIManager::createGUI(nullptr))
-        return err;
+    // creating a GUI if possible
+    auto* gui = GUIManager::createGUI(guiStr.c_str());
+    if (gui == nullptr)
+        return 1; // error code
 
     //To set a specific resolution for the viewer, use the component ViewerSetting in you scene graph
-    GUIManager::SetDimension(width, height);
-    GUIManager::CenterWindow();
+    gui->setViewerResolution(width, height);
+    gui->centerWindow();
 
     // Create and register the SceneCheckerListener before scene loading
     if(!noSceneCheck)
@@ -500,7 +502,8 @@ int main(int argc, char** argv)
         groot->setAnimate(true);
 
     // set scene and animation root to the gui
-    GUIManager::SetScene(groot, fileName.c_str(), temporaryFile);
+    gui->setScene(groot, fileName.c_str(), temporaryFile);
+    gui->configureGUI(groot);
 
     if (printFactory)
     {
@@ -518,15 +521,18 @@ int main(int argc, char** argv)
 
     //=======================================
     // Run the main loop
-    if (int err = GUIManager::MainLoop(groot,fileName.c_str()))
-        return err;
-    groot = dynamic_cast<Node*>( GUIManager::CurrentSimulation() );
+    int ret = gui->mainLoop();
+    if (ret)
+    {
+        dmsg_error("runSOFA") << " GUI '"<<gui->GetGUIName()<<"' main loop failed (code "<<ret<<").";
+        return ret;
+    }
 
     if (groot!=nullptr)
         sofa::simulation::node::unload(groot);
 
 
-    GUIManager::closeGUI();
+    gui->closeGUI();
 
     sofa::simulation::common::cleanup();
     sofa::simulation::graph::cleanup();
