@@ -62,26 +62,10 @@ public:
      */
     static int RegisterGUI(const char* name, CreateGUIFn* creator, RegisterGUIParameters* parameters=nullptr, int priority=0);
     static const char* GetValidGUIName();
-    static const std::string& GetCurrentGUIName();
     static std::vector<std::string> ListSupportedGUI();
     static std::string ListSupportedGUI(char separator);
     static void RegisterParameters(ArgumentParser* parser);
     static sofa::gui::common::BaseGUI* createGUI(const char* name, sofa::simulation::NodeSPtr groot = nullptr, const char* filename = nullptr, common::ArgumentParser* args = nullptr);
-    static void closeGUI();
-
-    /// @name Static methods for direct access to GUI
-    /// @{
-    //static int MainLoop(sofa::simulation::NodeSPtr groot = nullptr, const char* filename = nullptr);
-
-    //static void Redraw();
-
-    //static sofa::simulation::Node* CurrentSimulation();
-
-    //static void SetScene(sofa::simulation::NodeSPtr groot, const char* filename=nullptr, bool temporaryFile=false);
-    //static void SetDimension(int  width , int  height );
-    //static void SetFullScreen();
-    //static void CenterWindow();
-    //static void SaveScreenshot(const char* filename);
 
     /// @}
 protected:
@@ -93,10 +77,7 @@ protected:
     static GUICreator* GetGUICreator(const char* name = nullptr);
     /* CLASS FIELDS */
 
-    static std::list<GUICreator> guiCreators;
-
-    static std::vector<std::string> guiOptions;
-    static ArgumentParser* currentArgumentParser;
+    inline static std::list<GUICreator> guiCreators{};
 
 };
 

@@ -39,9 +39,6 @@ using sofa::helper::Utils;
 namespace sofa::gui::common
 {
 
-/*STATIC FIELD DEFINITIONS */
-std::list<GUIManager::GUICreator> GUIManager::guiCreators;
-
 void GUIManager::RegisterParameters(ArgumentParser* argumentParser)
 {
     for (std::list<GUICreator>::iterator it = guiCreators.begin(), itend = guiCreators.end(); it != itend; ++it)
@@ -216,78 +213,5 @@ sofa::gui::common::BaseGUI* GUIManager::createGUI(const char* name, sofa::simula
     }
     return currentGUI;
 }
-//
-//void GUIManager::closeGUI()
-//{
-//    if(currentGUI) currentGUI->closeGUI();
-//}
-//
-//void GUIManager::Redraw()
-//{
-//    if (currentGUI) currentGUI->redraw();
-//}
-//
-//sofa::simulation::Node* GUIManager::CurrentSimulation()
-//{
-//    if (currentGUI)
-//        return currentGUI->currentSimulation();
-//    else
-//        return nullptr;
-//}
-//
-//void GUIManager::SetScene(sofa::simulation::Node::SPtr groot, const char* filename /*=nullptr*/, bool temporaryFile /*=false*/ )
-//{
-//    if (currentGUI)
-//    {
-//        currentGUI->setScene(groot,filename,temporaryFile);
-//        currentGUI->configureGUI(groot);
-//    }
-//
-//}
-//
-//int GUIManager::MainLoop(sofa::simulation::Node::SPtr groot, const char* filename)
-//{
-//    int ret = 0;
-//    if (!currentGUI)
-//    {
-//        createGUI(groot, filename);
-//    }
-//    ret = currentGUI->mainLoop();
-//    if (ret)
-//    {
-//        dmsg_error("GUIManager") << " GUI '"<<currentGUI->GetGUIName()<<"' main loop failed (code "<<ret<<").";
-//        return ret;
-//    }
-//    return ret;
-//}
-//void GUIManager::SetDimension(int  width , int  height )
-//{
-//    if (currentGUI)
-//    {
-//        currentGUI->setViewerResolution(width,height);
-//    }
-//}
-//void GUIManager::SetFullScreen()
-//{
-//    if (currentGUI) currentGUI->setFullScreen();
-//    else{ msg_error("GUIManager") <<"no currentGUI" ; }
-//}
-//
-//void GUIManager::CenterWindow()
-//{
-//    if (currentGUI)
-//    {
-//        currentGUI->centerWindow();
-//    }
-//}
-//
-//void GUIManager::SaveScreenshot(const char* filename)
-//{
-//    if (currentGUI) {
-//        const std::string output = (filename?std::string(filename):"output.png");
-//        currentGUI->saveScreenshot(output);
-//    }
-//}
-
 
 } // namespace sofa::gui::common
