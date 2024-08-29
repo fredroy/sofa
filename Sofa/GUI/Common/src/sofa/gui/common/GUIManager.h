@@ -35,10 +35,11 @@ namespace sofa::gui::common
 class BaseGUI;
 class ArgumentParser;
 
+
 class SOFA_GUI_COMMON_API GUIManager
 {
 public:
-    typedef BaseGUI* CreateGUIFn(const char* name, sofa::simulation::NodeSPtr groot, const char* filename);
+    typedef BaseGUI* CreateGUIFn(const char* name, sofa::simulation::NodeSPtr groot, const char* filename, ArgumentParser* argumentParser);
     typedef int RegisterGUIParameters(ArgumentParser* argumentParser);
 
     struct GUICreator
@@ -65,7 +66,7 @@ public:
     static std::vector<std::string> ListSupportedGUI();
     static std::string ListSupportedGUI(char separator);
     static void RegisterParameters(ArgumentParser* parser);
-    static sofa::gui::common::BaseGUI* createGUI(const char* name, sofa::simulation::NodeSPtr groot = nullptr, const char* filename = nullptr);
+    static sofa::gui::common::BaseGUI* createGUI(const char* name, sofa::simulation::NodeSPtr groot = nullptr, const char* filename = nullptr, common::ArgumentParser* args = nullptr);
     static void closeGUI();
 
     /// @name Static methods for direct access to GUI

@@ -99,7 +99,6 @@ public:
 
     static const char* GetProgramName() { return mProgramName; }
     static void SetProgramName(const char* argv0) { if(argv0) mProgramName = argv0;}
-    static void SetArgumentParser(ArgumentParser* parser) {mArgumentParser = parser;}
 
     static const std::string& getConfigDirectoryPath();
     static const std::string& getScreenshotDirectoryPath();
@@ -120,7 +119,6 @@ protected:
     static std::string configDirectoryPath;
     static std::string screenshotDirectoryPath;
     static const char* mProgramName;
-    static ArgumentParser* mArgumentParser;
 };
 
 } // namespace sofa::gui::common

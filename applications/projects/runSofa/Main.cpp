@@ -103,11 +103,6 @@ using sofa::helper::logging::ExceptionMessageHandler;
 
 #include <sofa/core/ObjectFactory.h>
 
-void addGUIParameters(sofa::gui::common::ArgumentParser* argumentParser)
-{
-    GUIManager::RegisterParameters(argumentParser);
-}
-
 // ---------------------------------------------------------------------
 // ---
 // ---------------------------------------------------------------------
@@ -282,23 +277,6 @@ int main(int argc, char** argv)
         "argv",
         "forward extra args to the python interpreter"
     );
-    
-    // these options are actually read in RealGUI
-    bool enableInteraction = false;
-    unsigned int nbMSSASamples = 1;
-    argParser->addArgument(
-        cxxopts::value<bool>(enableInteraction)
-        ->default_value("false")
-        ->implicit_value("true"),
-        "i,interactive",
-        "enable interactive mode for the GUI which includes idle and mouse events (EXPERIMENTAL)"
-    );
-    argParser->addArgument(
-        cxxopts::value<unsigned int>(nbMSSASamples)
-        ->default_value("1"),
-        "msaa",
-        "Number of samples for MSAA (Multi Sampling Anti Aliasing ; value < 2 means disabled"
-    );
 
     // first option parsing to see if the user requested to show help
     argParser->parse();
@@ -418,8 +396,7 @@ int main(int argc, char** argv)
         objectFactory->registerObjectsFromPlugin(pluginName);
     }
 
-    // Parse again to take into account the potential new options
-    addGUIParameters(argParser);
+    GUIManager::RegisterParameters(argParser);
     argParser->parse();
 
     // Fetching file name must be done after the additionnal potential options have been added
@@ -456,7 +433,7 @@ int main(int argc, char** argv)
     }
 
     // creating a GUI if possible
-    auto* gui = GUIManager::createGUI(guiStr.c_str());
+    auto* gui = GUIManager::createGUI(guiStr.c_str(), nullptr,nullptr,argParser);
     if (gui == nullptr)
         return 1; // error code
 

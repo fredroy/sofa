@@ -32,8 +32,8 @@ namespace sofa::gui::common
 class BaseViewerArgument
 {
 public:
-    BaseViewerArgument(std::string _name, const unsigned int nbMSAASamples = 1) :
-        name(_name), m_nbMSAASamples(nbMSAASamples)
+    BaseViewerArgument(std::string _name) :
+        name(_name)
     {}
 
   virtual ~BaseViewerArgument() { }
@@ -48,18 +48,15 @@ public:
     // and increased link times whenever possible.
     virtual std::string getName() const {return name;}
 
-    virtual unsigned int getNbMSAASamples() {return m_nbMSAASamples; }
-
 protected:
     std::string name;
-    unsigned int m_nbMSAASamples; //for antialiasing (if < 2 then no AntiAliasing)
 };
 
 class ViewerQtArgument : public BaseViewerArgument
 {
 public:
-    ViewerQtArgument(std::string _name, QWidget* _parent, const unsigned int nbMSAASamples = 1) :
-        BaseViewerArgument(_name, nbMSAASamples),
+    ViewerQtArgument(std::string _name, QWidget* _parent) :
+        BaseViewerArgument(_name),
         parent(_parent)
     {}
 

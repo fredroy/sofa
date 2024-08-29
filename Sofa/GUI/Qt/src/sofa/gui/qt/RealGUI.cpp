@@ -203,10 +203,10 @@ public:
 
 //======================= STATIC METHODS ========================= {
 
-void RealGUI::setupSurfaceFormat()
+void RealGUI::setupSurfaceFormat(ArgumentParser* args)
 {
     static std::once_flag flag;
-    std::call_once(flag, []
+    std::call_once(flag, [&]
     {
         QSurfaceFormat format;
         if(!SOFA_GUI_QT_ENABLE_VSYNC)
@@ -220,10 +220,10 @@ void RealGUI::setupSurfaceFormat()
         format.setOption(QSurfaceFormat::DeprecatedFunctions, true); //Used to request that deprecated functions be included in the OpenGL context profile. If not specified, you should get a forward compatible context without support functionality marked as deprecated. This requires OpenGL version 3.0 or higher.
         format.setSwapBehavior(QSurfaceFormat::DoubleBuffer);
 
-        if (mArgumentParser)
+        if (args)
         {
             unsigned int viewerMSAANbSampling = 0;
-            mArgumentParser->getValueFromKey("msaa", viewerMSAANbSampling);
+            args->getValueFromKey("msaa", viewerMSAANbSampling);
             if (viewerMSAANbSampling > 1)
             {
                 msg_info("RealGUI") << "Set multisampling anti-aliasing (MSAA) with " << viewerMSAANbSampling << " samples." ;
@@ -235,14 +235,14 @@ void RealGUI::setupSurfaceFormat()
     });
 }
 
-BaseGUI* RealGUI::CreateGUI ( const char* name, sofa::simulation::Node::SPtr root, const char* filename )
+BaseGUI* RealGUI::CreateGUI ( const char* name, sofa::simulation::Node::SPtr root, const char* filename, ArgumentParser* args)
 {
-    setupSurfaceFormat();
+    setupSurfaceFormat(args);
 
     CreateApplication();
 
     // create interface
-    gui = new RealGUI ( name );
+    gui = new RealGUI ( name, args);
     if ( root )
     {
         gui->setScene ( root, filename );
@@ -251,6 +251,29 @@ BaseGUI* RealGUI::CreateGUI ( const char* name, sofa::simulation::Node::SPtr roo
 
     InitApplication(gui);
     return gui;
+}
+
+int RealGUI::RegisterGUIParameters(ArgumentParser* argumentParser)
+{
+    if (argumentParser)
+    {
+        argumentParser->addArgument(
+            cxxopts::value<unsigned int>()
+            ->default_value("1"),
+            "msaa",
+            "Number of samples for MSAA (Multi Sampling Anti Aliasing ; value < 2 means disabled"
+        );
+
+        argumentParser->addArgument(
+            cxxopts::value<bool>()
+            ->default_value("false")
+            ->implicit_value("true"),
+            "i,interactive",
+            "enable interactive mode for the GUI which includes idle and mouse events (EXPERIMENTAL)"
+        );
+    }
+
+    return 0;
 }
 
 //------------------------------------
@@ -306,7 +329,7 @@ void RealGUI::InitApplication( RealGUI* _gui)
 
 
 //======================= CONSTRUCTOR - DESTRUCTOR ========================= {
-RealGUI::RealGUI ( const char* viewername)
+RealGUI::RealGUI ( const char* viewername, ArgumentParser* args)
     :
       fpsLabel(nullptr),
       timeLabel(nullptr),
@@ -346,8 +369,7 @@ RealGUI::RealGUI ( const char* viewername)
       m_docbrowser(nullptr),
 #endif
       m_animationState(false),
-      m_frameCounter(0),
-      m_viewerMSAANbSampling(1)
+      m_frameCounter(0)
 {
     setupUi(this);
     
@@ -359,7 +381,7 @@ RealGUI::RealGUI ( const char* viewername)
         button->setFixedWidth(button->height());
     }
     
-    parseOptions();
+    parseOptions(args);
 
     createPluginManager();
 
@@ -1100,7 +1122,7 @@ void RealGUI::createViewer(const char* _viewerName, bool _updateViewerList/*=fal
         if( strcmp( iter_map->first.c_str(), _viewerName ) == 0 )
         {
             removeViewer();
-            ViewerQtArgument viewerArg = ViewerQtArgument("viewer", this->widget, m_viewerMSAANbSampling);
+            ViewerQtArgument viewerArg = ViewerQtArgument("viewer", this->widget);
             registerViewer( helper::SofaViewerFactory::CreateObject(iter_map->first, viewerArg) );
             //see to put on checkable
             iter_map->second->setChecked(true);
@@ -1447,12 +1469,11 @@ void RealGUI::initViewer(BaseViewer* _viewer)
 
 //------------------------------------
 
-void RealGUI::parseOptions()
+void RealGUI::parseOptions(common::ArgumentParser* args)
 {
 
-    if (mArgumentParser) {
-        mArgumentParser->getValueFromKey("interactive", m_enableInteraction);
-        mArgumentParser->getValueFromKey("msaa", m_viewerMSAANbSampling);
+    if (args) {
+        args->getValueFromKey("interactive", m_enableInteraction);
 
         if (m_enableInteraction)
             msg_warning("runSofa") << "you activated the interactive mode. This is currently an experimental feature "

@@ -41,13 +41,10 @@ namespace sofa::gui::common
 
 /*STATIC FIELD DEFINITIONS */
 std::list<GUIManager::GUICreator> GUIManager::guiCreators;
-ArgumentParser* GUIManager::currentArgumentParser = nullptr;
-
 
 void GUIManager::RegisterParameters(ArgumentParser* argumentParser)
 {
-    currentArgumentParser = argumentParser;
-    for(std::list<GUICreator>::iterator it =guiCreators.begin(), itend =guiCreators.end(); it != itend; ++it)
+    for (std::list<GUICreator>::iterator it = guiCreators.begin(), itend = guiCreators.end(); it != itend; ++it)
     {
         if (it->parameters)
             it->parameters(argumentParser);
@@ -184,13 +181,11 @@ int GUIManager::Init(const char* argv0)
         return 1;
     }
 
-    BaseGUI::SetArgumentParser(currentArgumentParser);
-
     return 0;
 }
 
 
-sofa::gui::common::BaseGUI* GUIManager::createGUI(const char* name, sofa::simulation::Node::SPtr groot, const char* filename)
+sofa::gui::common::BaseGUI* GUIManager::createGUI(const char* name, sofa::simulation::Node::SPtr groot, const char* filename, ArgumentParser* args)
 {
     std::string guiName = name;
     if (name == nullptr || strcmp(name, "") == 0)
@@ -204,7 +199,7 @@ sofa::gui::common::BaseGUI* GUIManager::createGUI(const char* name, sofa::simula
         return nullptr;
     }
 
-    sofa::gui::common::BaseGUI* currentGUI = (*creator->creator)(guiName.c_str(), groot, filename);
+    sofa::gui::common::BaseGUI* currentGUI = (*creator->creator)(guiName.c_str(), groot, filename, args);
     if (!currentGUI)
     {
         msg_error("GUIManager") << "GUI '"<< guiName <<"' creation failed." ;
