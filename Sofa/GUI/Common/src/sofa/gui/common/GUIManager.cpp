@@ -41,10 +41,12 @@ namespace sofa::gui::common
 
 void GUIManager::RegisterParameters(ArgumentParser* argumentParser)
 {
-    for (std::list<GUICreator>::iterator it = guiCreators.begin(), itend = guiCreators.end(); it != itend; ++it)
+    for (const auto& guiCreator : guiCreators)
     {
-        if (it->parameters)
-            it->parameters(argumentParser);
+        if (guiCreator.parameters)
+        {
+            guiCreator.parameters(argumentParser);
+        }
     }
 }
 
@@ -77,23 +79,18 @@ int GUIManager::RegisterGUI(const char* name, CreateGUIFn* creator, RegisterGUIP
 std::vector<std::string> GUIManager::ListSupportedGUI()
 {
     std::vector<std::string> names;
-    for(std::list<GUICreator>::iterator it = guiCreators.begin(), itend = guiCreators.end(); it != itend; ++it)
+    names.reserve(guiCreators.size());
+    for (const auto& guiCreator : guiCreators)
     {
-        names.push_back(it->name);
+        names.emplace_back(guiCreator.name);
     }
     return names;
 }
 
-std::string GUIManager::ListSupportedGUI(char separator)
+std::string GUIManager::ListSupportedGUI(const char separator)
 {
-    std::string names;
-    bool first = true;
-    for(std::list<GUICreator>::iterator it =guiCreators.begin(), itend =guiCreators.end(); it != itend; ++it)
-    {
-        if (!first) names += separator; else first = false;
-        names += it->name;
-    }
-    return names;
+    const auto guis = GUIManager::ListSupportedGUI();
+    return sofa::helper::join(guis.begin(), guis.end(), separator);
 }
 
 const char* GUIManager::GetValidGUIName()
@@ -102,7 +99,6 @@ const char* GUIManager::GetValidGUIName()
     const std::string lastGuiFilename = BaseGUI::getConfigDirectoryPath() + "/lastUsedGUI.ini";
     if (guiCreators.empty())
     {
-
         msg_error("GUIManager") << "No GUI registered.";
         return nullptr;
     }
@@ -185,6 +181,7 @@ int GUIManager::Init(const char* argv0)
 sofa::gui::common::BaseGUI* GUIManager::createGUI(const char* name, sofa::simulation::Node::SPtr groot, const char* filename, ArgumentParser* args)
 {
     std::string guiName = name;
+    
     if (name == nullptr || strcmp(name, "") == 0)
     {
         guiName = GetValidGUIName(); // get the default gui name
