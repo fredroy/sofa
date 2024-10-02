@@ -283,6 +283,51 @@ TYPED_TEST(SparseMatrixTest, CheckThatTheSizeOfASparseMatrixIsOneAfterTryingToWr
     EXPECT_EQ(1u, matrix.size());
 }
 
+
+//////////////////////////////////////////////////
+TYPED_TEST(SparseMatrixTest, CheckOutInSerialization)
+{
+    typedef TypeParam Matrix;
+    Matrix outMatrix;
+    auto lineIndices = TestHelpers::Populate(outMatrix, 3u, 3u);
+    EXPECT_EQ(3u, outMatrix.size());
+
+    std::ostringstream oss;
+    oss << outMatrix;
+
+    Matrix inMatrix;
+    std::istringstream iss(oss.str());
+    iss >> inMatrix;
+
+    EXPECT_TRUE(!lineIndices.empty());
+
+    for (const auto& lineIndex : lineIndices)
+    {
+        auto inRowIt = inMatrix.readLine(lineIndex);
+        auto outRowIt = outMatrix.readLine(lineIndex);
+
+        EXPECT_TRUE(inRowIt == outRowIt);
+
+        if (inRowIt != inMatrix.end() && outRowIt != outMatrix.end())
+        {
+            auto inColItEnd = inRowIt.end();
+            auto outColItEnd = outRowIt.end();
+
+            auto inColIt = inRowIt.begin();
+            auto outColIt = outRowIt.begin();
+
+            for (; 
+                inColIt != inColItEnd && outColIt != outColItEnd;
+                ++inColIt, ++outColIt)
+            {
+                EXPECT_TRUE(inColIt.index() == outColIt.index());
+                EXPECT_TRUE(inColIt.val() == outColIt.val());
+            }
+        }
+    }
+
+}
+
 //////////////////////////////////////////////////
 TYPED_TEST(SparseMatrixTest, CheckThatAMatrixIsConsideredEmptyAfterIsHasBeenCleared)
 {
