@@ -19,18 +19,4 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#define SOFA_COMPONENT_LINEARSOLVER_COMPRESSEDROWSPARSEMATRIXGENERIC_CPP
-#include <sofa/linearalgebra/CompressedRowSparseMatrixGeneric.inl>
-#include <sofa/helper/narrow_cast.h>
-
-namespace sofa::linearalgebra
-{
-
-template class SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixGeneric<double>;
-template class SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixGeneric<float>;
-template class SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixGeneric<type::Mat1x1d>;
-template class SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixGeneric<type::Mat1x1f>;
-template class SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixGeneric<type::Mat3x3d>;
-template class SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixGeneric<type::Mat3x3f>;
-
-} // namespace sofa::linearalgebra
+#pragma once

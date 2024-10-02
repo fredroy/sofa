@@ -21,6 +21,7 @@
 ******************************************************************************/
 #define SOFA_COMPONENT_LINEARSOLVER_COMPRESSEDROWSPARSEMATRIXMECHANICAL_CPP
 #include <sofa/linearalgebra/CompressedRowSparseMatrixMechanical.h>
+#include <sofa/linearalgebra/CompressedRowSparseMatrixGeneric.inl>
 
 namespace sofa::linearalgebra
 {

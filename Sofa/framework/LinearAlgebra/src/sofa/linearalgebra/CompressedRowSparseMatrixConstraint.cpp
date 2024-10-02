@@ -25,6 +25,7 @@
 #define SOFA_LINEARALGEBRA_COMPRESSEDROWSPARSEMATRIXCONSTRAINT_CPP
 
 #include <sofa/linearalgebra/CompressedRowSparseMatrixConstraint.h>
+#include <sofa/linearalgebra/CompressedRowSparseMatrixGeneric.inl>
 #include <sofa/type/Vec.h>
 
 namespace sofa::linearalgebra
