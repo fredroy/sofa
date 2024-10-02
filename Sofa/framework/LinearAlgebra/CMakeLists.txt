@@ -19,9 +19,12 @@ set(HEADER_FILES
     ${SOFALINEARALGEBRASRC_ROOT}/BlockVector.inl
     ${SOFALINEARALGEBRASRC_ROOT}/CompressedRowSparseMatrix.h
     ${SOFALINEARALGEBRASRC_ROOT}/CompressedRowSparseMatrixConstraint.h
+    ${SOFALINEARALGEBRASRC_ROOT}/CompressedRowSparseMatrixConstraint.inl
     ${SOFALINEARALGEBRASRC_ROOT}/CompressedRowSparseMatrixConstraintEigenUtils.h
     ${SOFALINEARALGEBRASRC_ROOT}/CompressedRowSparseMatrixGeneric.h
+    ${SOFALINEARALGEBRASRC_ROOT}/CompressedRowSparseMatrixGeneric.inl
     ${SOFALINEARALGEBRASRC_ROOT}/CompressedRowSparseMatrixMechanical.h
+    ${SOFALINEARALGEBRASRC_ROOT}/CompressedRowSparseMatrixMechanical.inl
     ${SOFALINEARALGEBRASRC_ROOT}/DiagonalMatrix.h
     ${SOFALINEARALGEBRASRC_ROOT}/DiagonalSystemSolver.h
     ${SOFALINEARALGEBRASRC_ROOT}/EigenBaseSparseMatrix.h
