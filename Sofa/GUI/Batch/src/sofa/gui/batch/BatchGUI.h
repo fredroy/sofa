@@ -60,12 +60,10 @@ public:
     /// @name registration of each GUI
     /// @{
 
-    static BaseGUI* CreateGUI(const char* name, sofa::simulation::NodeSPtr groot = nullptr, const char* filename = nullptr);
+    static BaseGUI* CreateGUI(const char* name, sofa::simulation::NodeSPtr groot = nullptr, const char* filename = nullptr, common::ArgumentParser* args=nullptr);
     static int RegisterGUIParameters(common::ArgumentParser* argumentParser);
-    static void OnNbIterChange(const common::ArgumentParser*, const std::string& strValue);
+    void OnNbIterChange(const std::string& strValue);
 
-
-    static const signed int DEFAULT_NUMBER_OF_ITERATIONS;
     /// @}
 
     bool canBeDefaultGUI() const override { return false; }
@@ -81,8 +79,9 @@ protected:
 
     sofa::simulation::NodeSPtr groot;
     std::string filename;
-    static signed int nbIter;
-    static std::string nbIterInp;
+    inline static const signed int DEFAULT_NUMBER_OF_ITERATIONS = 1000;
+    signed int nbIter = BatchGUI::DEFAULT_NUMBER_OF_ITERATIONS;
+    std::string nbIterInp;
     inline static bool hideProgressBar { false };
 
     /// Return true if the timer output string has a json string and the timer is setup to output json
@@ -90,6 +89,9 @@ protected:
 
     /// Export a text file (with json extension) containing the timer output string
     void exportJson(const std::string& timerOutputStr, int iterationNumber) const;
+
+    /// Process "batch-only" command-lines arguments
+    void parseArguments(common::ArgumentParser* args);
 };
 
 } // namespace sofa::gui::batch

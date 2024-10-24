@@ -43,9 +43,6 @@ namespace sofa::gui::batch
 using sofa::helper::AdvancedTimer;
 using namespace sofa::gui::common;
 
-constexpr signed int BatchGUI::DEFAULT_NUMBER_OF_ITERATIONS = 1000;
-signed int BatchGUI::nbIter = BatchGUI::DEFAULT_NUMBER_OF_ITERATIONS;
-std::string BatchGUI::nbIterInp="";
 BatchGUI::BatchGUI()
     : groot(nullptr)
 {
@@ -182,34 +179,44 @@ sofa::simulation::Node* BatchGUI::currentSimulation()
     return groot.get();
 }
 
-BaseGUI* BatchGUI::CreateGUI(const char* name, sofa::simulation::Node::SPtr groot, const char* filename)
+BaseGUI* BatchGUI::CreateGUI(const char* name, sofa::simulation::Node::SPtr groot, const char* filename, ArgumentParser* args)
 {
     BatchGUI::mGuiName = name;
     BatchGUI* gui = new BatchGUI();
     gui->setScene(groot, filename);
+    gui->parseArguments(args);
     return gui;
 }
 
 int BatchGUI::RegisterGUIParameters(ArgumentParser* argumentParser)
 {
-    argumentParser->addArgument(
-        cxxopts::value<std::string>(nbIterInp),
-        "n,nbIter",
-        "(only batch) Number of iterations of the simulation",
-        BatchGUI::OnNbIterChange
-    );
-    argumentParser->addArgument(
-        cxxopts::value<bool>(hideProgressBar)->default_value("false"),
-        "hideProgressBar",
-        "if defined, hides the progress bar"
-    );
+    if (argumentParser)
+    {
+        argumentParser->addArgument(
+            cxxopts::value<std::string>(),
+            "n,nbIter",
+            "(only batch) Number of iterations of the simulation"
+        );
+        argumentParser->addArgument(
+            cxxopts::value<bool>(),
+            "hideProgressBar",
+            "if defined, hides the progress bar"
+        );
+    }
+
     return 0;
 }
 
-void BatchGUI::OnNbIterChange(const ArgumentParser* argumentParser, const std::string& strValue)
+void BatchGUI::parseArguments(common::ArgumentParser* args)
 {
-    SOFA_UNUSED(argumentParser);
+    args->getValueFromKey<std::string>("nbIter", nbIterInp);
+    args->getValueFromKey<bool>("hideProgressBar", hideProgressBar);
 
+    OnNbIterChange(nbIterInp);
+}
+
+void BatchGUI::OnNbIterChange(const std::string& strValue)
+{
     nbIterInp = strValue;
     const size_t inpLen = nbIterInp.length();
 

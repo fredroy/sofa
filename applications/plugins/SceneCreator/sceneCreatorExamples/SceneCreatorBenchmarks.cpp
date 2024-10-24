@@ -25,6 +25,7 @@
 
 #include <sofa/gui/common/init.h>
 #include <sofa/gui/common/GUIManager.h>
+#include <sofa/gui/common/BaseGUI.h>
 
 #include <sofa/simulation/Simulation.h>
 #include <sofa/simulation/graph/init.h>
@@ -174,8 +175,11 @@ int main(int argc, char** argv)
     sofa::simulation::node::initRoot(root.get());
 
     //=======================================
-    // Run the main loop
-    sofa::gui::common::GUIManager::MainLoop(root);
+    auto* gui = sofa::gui::common::GUIManager::createGUI(nullptr, nullptr, nullptr, argParser);
+    if (gui == nullptr)
+        return 1; // error code
+    gui->setScene(root);
+    gui->mainLoop();
 
     sofa::simulation::graph::cleanup();
 

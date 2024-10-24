@@ -39,21 +39,8 @@ using sofa::helper::Utils;
 namespace sofa::gui::common
 {
 
-/*STATIC FIELD DEFINITIONS */
-BaseGUI* GUIManager::currentGUI = nullptr;
-std::list<GUIManager::GUICreator> GUIManager::guiCreators;
-std::string GUIManager::valid_guiname = "";
-ArgumentParser* GUIManager::currentArgumentParser = nullptr;
-
-
-BaseGUI* GUIManager::getGUI()
-{
-    return currentGUI;
-}
-
 void GUIManager::RegisterParameters(ArgumentParser* argumentParser)
 {
-    currentArgumentParser = argumentParser;
     for (const auto& guiCreator : guiCreators)
     {
         if (guiCreator.parameters)
@@ -61,11 +48,6 @@ void GUIManager::RegisterParameters(ArgumentParser* argumentParser)
             guiCreator.parameters(argumentParser);
         }
     }
-}
-
-const std::string &GUIManager::GetCurrentGUIName()
-{
-    return sofa::gui::common::BaseGUI::GetGUIName();
 }
 
 int GUIManager::RegisterGUI(const char* name, CreateGUIFn* creator, RegisterGUIParameters* parameters, int priority)
@@ -182,20 +164,9 @@ GUIManager::GUICreator* GUIManager::GetGUICreator(const char* name)
         return &(*it);
 }
 
-int GUIManager::Init(const char* argv0, const char* name)
+int GUIManager::Init(const char* argv0)
 {
     BaseGUI::SetProgramName(argv0);
-    BaseGUI::SetArgumentParser(currentArgumentParser);
-    sofa::simulation::common::init();
-
-    static bool first = true;
-    if (first)
-    {
-        first = false;
-    }
-
-    if (currentGUI)
-        return 0; // already initialized
 
     if (guiCreators.empty())
     {
@@ -203,159 +174,41 @@ int GUIManager::Init(const char* argv0, const char* name)
         return 1;
     }
 
-    if( name == nullptr || strcmp(name,"") == 0 )
-    {
-        name = GetValidGUIName(); // get the default gui name
-    }
-    const GUICreator *creator = GetGUICreator(name);
-    if(!creator)
-    {
-        return 1;
-    }
-    valid_guiname = name; // at this point we must have a valid name for the gui.
-
     return 0;
 }
 
 
-int GUIManager::createGUI(sofa::simulation::Node::SPtr groot, const char* filename)
+sofa::gui::common::BaseGUI* GUIManager::createGUI(const char* name, sofa::simulation::Node::SPtr groot, const char* filename, ArgumentParser* args)
 {
-    if (!currentGUI)
+    std::string guiName = name;
+    
+    if (name == nullptr || strcmp(name, "") == 0)
     {
-        const GUICreator* creator = GetGUICreator(valid_guiname.c_str());
-        if (!creator)
-        {
-            return 1;
-        }
-        currentGUI = (*creator->creator)(valid_guiname.c_str(), groot, filename);
-        if (!currentGUI)
-        {
-            msg_error("GUIManager") << "GUI '"<<valid_guiname<<"' creation failed." ;
-            return 1;
-        }
+        guiName = GetValidGUIName(); // get the default gui name
+    }
 
-        if (currentGUI->canBeDefaultGUI())
-        {
-            //Save this GUI type as the last used GUI
-            const std::string lastGuiFilePath = BaseGUI::getConfigDirectoryPath() + "/lastUsedGUI.ini";
-            std::ofstream out(lastGuiFilePath.c_str(),std::ios::out);
-            out << valid_guiname << std::endl;
-            out.close();
-        }
-    }
-    return 0;
-}
-
-void GUIManager::closeGUI()
-{
-    if(currentGUI)
+    const GUICreator* creator = GetGUICreator(guiName.c_str());
+    if (!creator)
     {
-        currentGUI->closeGUI();
-    }
-    else
-    {
-        msg_error("GUIManager") << "Cannot close GUI: GUI is not setup properly";
-    }
-}
-
-void GUIManager::Redraw()
-{
-    if (currentGUI)
-    {
-        currentGUI->redraw();
-    }
-    else
-    {
-        msg_error("GUIManager") << "Cannot redraw: GUI is not setup properly";
-    }
-}
-
-sofa::simulation::Node* GUIManager::CurrentSimulation()
-{
-    if (currentGUI)
-        return currentGUI->currentSimulation();
-    else
         return nullptr;
-}
-
-void GUIManager::SetScene(sofa::simulation::Node::SPtr groot, const char* filename /*=nullptr*/, bool temporaryFile /*=false*/ )
-{
-    if (currentGUI)
-    {
-        currentGUI->setScene(groot,filename,temporaryFile);
-        currentGUI->configureGUI(groot);
     }
-    else
-    {
-        msg_error("GUIManager") << "Cannot set scene: GUI is not setup properly";
-    }
-}
 
-int GUIManager::MainLoop(sofa::simulation::Node::SPtr groot, const char* filename)
-{
-    int ret = 0;
+    sofa::gui::common::BaseGUI* currentGUI = (*creator->creator)(guiName.c_str(), groot, filename, args);
     if (!currentGUI)
     {
-        createGUI(groot, filename);
+        msg_error("GUIManager") << "GUI '"<< guiName <<"' creation failed." ;
+        return nullptr;
     }
-    ret = currentGUI->mainLoop();
-    if (ret)
-    {
-        dmsg_error("GUIManager") << " GUI '"<<currentGUI->GetGUIName()<<"' main loop failed (code "<<ret<<").";
-        return ret;
-    }
-    return ret;
-}
-void GUIManager::SetDimension(int  width , int  height )
-{
-    if (currentGUI)
-    {
-        currentGUI->setViewerResolution(width,height);
-    }
-    else
-    {
-        msg_error("GUIManager") << "Cannot set dimensions: GUI is not setup properly";
-    }
-}
-void GUIManager::SetFullScreen()
-{
-    if (currentGUI)
-    {
-        currentGUI->setFullScreen();
-    }
-    else
-    {
-        msg_error("GUIManager") << "Cannot set fullscreen: GUI is not setup properly";
-    }
-}
 
-void GUIManager::CenterWindow()
-{
-    if (currentGUI)
+    if (currentGUI->canBeDefaultGUI())
     {
-        currentGUI->centerWindow();
+        //Save this GUI type as the last used GUI
+        const std::string lastGuiFilePath = BaseGUI::getConfigDirectoryPath() + "/lastUsedGUI.ini";
+        std::ofstream out(lastGuiFilePath.c_str(),std::ios::out);
+        out << guiName << std::endl;
+        out.close();
     }
-    else
-    {
-        msg_error("GUIManager") << "Cannot center window: GUI is not setup properly";
-    }
+    return currentGUI;
 }
-
-void GUIManager::SaveScreenshot(const char* filename)
-{
-    if (currentGUI)
-    {
-        const std::string output = filename ? std::string(filename) : "output.png";
-        if (!currentGUI->saveScreenshot(output))
-        {
-            msg_error("GUIManager") << "Failed to save screenshot";
-        }
-    }
-    else
-    {
-        msg_error("GUIManager") << "Cannot save screenshot: GUI is not setup properly";
-    }
-}
-
 
 } // namespace sofa::gui::common
