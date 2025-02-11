@@ -225,6 +225,23 @@ if(APPLE)
 endif()
 
 
+## fmt
+include(FetchContent)
+sofa_find_package(fmt QUIET)
+if(NOT fmt_FOUND AND SOFA_ALLOW_FETCH_DEPENDENCIES)
+    FetchContent_Declare(
+      fmt
+      GIT_REPOSITORY https://github.com/fmtlib/fmt
+      GIT_TAG        e69e5f977d458f2650bb346dadf2ad30c5320281 # 10.2.1
+      GIT_SHALLOW TRUE
+      GIT_PROGRESS TRUE
+    )
+    FetchContent_MakeAvailable(fmt)
+
+    # https://discourse.cmake.org/t/using-a-header-only-library-with-fetchcontents-while-build-a-static-lib/2711
+    target_link_libraries(${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:fmt::fmt-header-only>)
+endif()
+
 ## OpenMP
 option(SOFA_OPENMP "Compile Sofa with OpenMP multithreading." OFF)
 if(SOFA_OPENMP)
@@ -241,7 +258,6 @@ endif()
 option(SOFA_TRACY "Compile SOFA with the Tracy profiler client" OFF)
 if (SOFA_TRACY)
     set(SOFA_TRACY_VERSION v0.11.1)
-    include(FetchContent)
     option(TRACY_STATIC "Whether to build Tracy as a static library" OFF)
     FetchContent_Declare (
         tracy
@@ -254,7 +270,6 @@ if (SOFA_TRACY)
     target_link_libraries(${PROJECT_NAME} PUBLIC TracyClient )
     message(STATUS "SOFA is compiled with the Tracy profiler client. Use the Tracy server ${SOFA_TRACY_VERSION}.")
 endif()
-
 
 option(SOFA_ENABLE_BUILTIN_TIMER "Enable the builtin timers" ON)
 if(SOFA_ENABLE_BUILTIN_TIMER)

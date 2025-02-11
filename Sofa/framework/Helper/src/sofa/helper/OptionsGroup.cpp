@@ -23,6 +23,8 @@
 #include <cstdlib>
 #include <sofa/helper/logging/Messaging.h>
 
+#include <fmt/core.h>
+
 namespace sofa::helper
 {
 
@@ -103,7 +105,7 @@ OptionsGroup& OptionsGroup::setSelectedItem(const std::string & m_string)
     const int id_stringinButtonList = isInOptionsList(m_string);
     if (id_stringinButtonList == -1)
     {
-        msg_warning("OptionsGroup") << "\""<< m_string <<"\" is not a parameter in button list :\" "<<(*this)<<"\"";
+        msg_warning("OptionsGroup") << fmt::format("\"{}\" is not a parameter in button list :\"{}\"", m_string, (*this));
     }
     else
     {
