@@ -42,6 +42,7 @@
 #include <sofa/core/behavior/BaseMass.h>
 #include <sofa/core/behavior/OdeSolver.h>
 #include <sofa/core/behavior/ConstraintSolver.h>
+#include <sofa/core/behavior/BaseMatrixLinearSystem.h>
 #include <sofa/core/behavior/LinearSolver.h>
 #include <sofa/core/behavior/BaseAnimationLoop.h>
 #include <sofa/core/topology/BaseTopologyObject.h>
@@ -62,8 +63,8 @@ CategoryLibrary::CategoryLibrary( const std::string &categoryName): name(categor
 ComponentLibrary *CategoryLibrary::addComponent(const std::string &componentName, ClassEntry::SPtr entry, const std::vector< std::string > &exampleFiles)
 {
     //Special case of Mapping and MechanicalMapping
-    bool isMechanicalMapping = (name == "MechanicalMapping");
-    bool isMapping           = (name == "Mapping");
+    const bool isMechanicalMapping = (name == "MechanicalMapping");
+    const bool isMapping           = (name == "Mapping");
 
     ComponentLibrary* component = createComponent(componentName, entry, exampleFiles);
 
@@ -135,7 +136,7 @@ std::vector<std::string> CategoryLibrary::getCategories()
                                          "InteractionForceField", "ProjectiveConstraintSet",
                                          "ConstraintSet", "Mapping", "Engine", "TopologicalMapping",
                                          "Mass", "OdeSolver", "ConstraintSolver", "ConstraintSolver",
-                                         "LinearSolver", "AnimationLoop", "Topology", "TopologyObject",
+                                         "LinearSolver", "LinearSystem", "AnimationLoop", "Topology", "TopologyObject",
                                          "Controller", "Loader", "CollisionAlgorithm",
                                          "ConfigurationSetting", "_Miscellaneous"};
 }
@@ -176,6 +177,8 @@ void CategoryLibrary::getCategories(const objectmodel::BaseClass* mclass,
         v.push_back("ConstraintSolver");
     if (mclass->hasParent(behavior::BaseConstraintCorrection::GetClass()))
         v.push_back("ConstraintSolver");
+    if (mclass->hasParent(behavior::BaseMatrixLinearSystem::GetClass()))
+        v.push_back("LinearSystem");
     if (mclass->hasParent(behavior::LinearSolver::GetClass()))
         v.push_back("LinearSolver");
     if (mclass->hasParent(behavior::BaseAnimationLoop::GetClass()))

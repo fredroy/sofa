@@ -28,9 +28,11 @@
 namespace sofa::component::visual
 {
 
-int VisualGridClass = core::RegisterObject("Display a simple grid")
-        .add< VisualGrid>()
-        ;
+void registerVisualGrid(sofa::core::ObjectFactory* factory)
+{
+    factory->registerObjects(core::ObjectRegistrationData("Display a simple grid.")
+        .add< VisualGrid >());
+}
 
 using namespace sofa::defaulttype;
 
@@ -40,14 +42,13 @@ VisualGrid::VisualGrid()
     , d_nbSubdiv(initData(&d_nbSubdiv, 16,  "nbSubdiv", "Number of subdivisions"))
     , d_color(initData(&d_color, sofa::type::RGBAColor(0.34117647058f,0.34117647058f,0.34117647058f,1.0f),  "color", "Color of the lines in the grid. default=(0.34,0.34,0.34,1.0)"))
     , d_thickness(initData(&d_thickness, 1.0f,  "thickness", "Thickness of the lines in the grid"))
-    , d_draw(initData(&d_draw, true,  "draw", "Display the grid or not"))
     , internalPlane(PLANE_Z)
 {
     d_componentState.setValue(sofa::core::objectmodel::ComponentState::Loading);
     addUpdateCallback("buildGrid", {&d_plane, &d_size, &d_nbSubdiv}, [this](const core::DataTracker& t)
     {
         SOFA_UNUSED(t);
-        updateVisual();
+        updateGrid();
         return sofa::core::objectmodel::ComponentState::Valid;
     }, {});
 }
@@ -55,17 +56,22 @@ VisualGrid::VisualGrid()
 void VisualGrid::init()
 {
     Inherit1::init();
-    updateVisual();
+    updateGrid();
 
     d_componentState.setValue(sofa::core::objectmodel::ComponentState::Valid);
 }
 
 void VisualGrid::reinit()
 {
-    updateVisual();
+    updateGrid();
 }
 
-void VisualGrid::updateVisual()
+void VisualGrid::doUpdateVisual(const core::visual::VisualParams*)
+{
+    updateGrid();
+}
+
+void VisualGrid::updateGrid()
 {
     const auto planeValue = d_plane.getValue();
 
@@ -174,17 +180,10 @@ void VisualGrid::buildGrid()
     }
 }
 
-void VisualGrid::drawVisual(const core::visual::VisualParams* vparams)
+void VisualGrid::doDrawVisual(const core::visual::VisualParams* vparams)
 {
-    if (!d_draw.getValue()) return;
-
-    const auto stateLifeCycle = vparams->drawTool()->makeStateLifeCycle();
     vparams->drawTool()->disableLighting();
-
     vparams->drawTool()->drawLines(m_drawnPoints, d_thickness.getValue(), d_color.getValue());
-
-
-
 }
 
 } // namespace sofa::component::visual
