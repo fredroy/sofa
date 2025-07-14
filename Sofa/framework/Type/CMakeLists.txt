@@ -76,20 +76,27 @@ list(APPEND HEADER_FILES ${SOFATYPESRC_ROOT}/ankerl/unordered_dense.h)
 
 sofa_find_package(Sofa.Config REQUIRED)
 
-## Boost (1.54.0 or higher) is now mandatory.
-set(BOOST_MIN_VERSION "1.54.0")
-set(Boost_NO_BOOST_CMAKE TRUE)
+set(BOOST_NEW_MIN_VERSION "1.81.0") # Boost (1.81.0 or higher) for new unordered container features
 sofa_find_package(Boost ${BOOST_MIN_VERSION} QUIET)
+set(Boost_NO_BOOST_CMAKE TRUE)
 if(NOT Boost_FOUND)
-    if(WIN32)
-        message(FATAL_ERROR "Boost (${BOOST_MIN_VERSION} or higher) is mandatory.\n"
-            "Note that Boost autodetection on Windows was removed.\n"
-            "Please follow CMake documentation to find Boost on your system.\n"
-            "Hint: set BOOST_ROOT to your Boost location."
-            )
+    set(BOOST_MIN_VERSION "1.54.0")
+    sofa_find_package(Boost ${BOOST_MIN_VERSION} QUIET)
+    if(NOT Boost_FOUND)
+        if(WIN32)
+            message(FATAL_ERROR "Boost (${BOOST_MIN_VERSION} or higher) is mandatory.\n"
+                "Note that Boost autodetection on Windows was removed.\n"
+                "Please follow CMake documentation to find Boost on your system.\n"
+                "Hint: set BOOST_ROOT to your Boost location."
+                )
+        else()
+            message(FATAL_ERROR "Boost (${BOOST_MIN_VERSION} or higher) is mandatory.")
+        endif()
     else()
-        message(FATAL_ERROR "Boost (${BOOST_MIN_VERSION} or higher) is mandatory.")
+        message(WARNING "Boost 1.81 (or higher) was not detected, will not use the unordered feature (faster containers).")
     endif()
+else()
+    message(NOTICE "Boost 1.81 (or higher) has been detected, able to use the new unordered feature (faster containers).")
 endif()
 
 sofa_find_package(Boost QUIET REQUIRED)

@@ -25,6 +25,13 @@
 #include <sofa/core/objectmodel/Link.h>
 #include <sofa/simulation/Visitor.h>
 
+#include <boost/version.hpp>
+#if BOOST_VERSION > 108000
+#include <boost/unordered/unordered_flat_map.hpp>
+#else
+#include <map>
+#endif
+
 namespace sofa::simulation::graph
 {
 
@@ -191,7 +198,11 @@ protected:
     };
 
     /// map structure to store a traversal flag for each DAGNode
+#if BOOST_VERSION > 108000
+    typedef boost::unordered_flat_map<DAGNode*, StatusStruct> StatusMap;
+#else
     typedef std::map<DAGNode*,StatusStruct> StatusMap;
+#endif
 
     /// list of DAGNode*
     typedef std::list<DAGNode*> NodeList;
