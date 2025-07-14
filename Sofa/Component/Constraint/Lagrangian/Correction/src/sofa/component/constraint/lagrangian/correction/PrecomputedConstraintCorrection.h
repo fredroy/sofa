@@ -104,7 +104,7 @@ public:
     /// @name Unbuilt constraint system during resolution
     /// @{
 
-    void resetForUnbuiltResolution(SReal* f, std::list<unsigned int>& /*renumbering*/) override;
+    void resetForUnbuiltResolution(SReal* f, core::behavior::BaseConstraintCorrection::ConstraintSequence& /*renumbering*/) override;
 
     bool hasConstraintNumber(int index) override;  // virtual ???
 

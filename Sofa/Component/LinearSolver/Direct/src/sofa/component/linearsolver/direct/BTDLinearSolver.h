@@ -145,6 +145,8 @@ public:
         }
     }
 
+    void handleEvent(core::objectmodel::Event* event) override;
+
 private:
 
 
@@ -168,6 +170,9 @@ private:
     /// step4=> compute solution for the indices in the block
     /// (and accumulate the potential local dRH (set in Vec_dRH) [set in step1] that have not been yet taken into account by the global bwd and fwd
     void fwdComputeLHinBloc(Index indMaxBloc);
+
+    bool m_problem{false}; // store d_showProblem value during a step (avoiding calling getValue() too many times)
+    bool m_verification{ false }; // store d_showProblem value during a step (avoiding calling getValue() too many times)
 
 };
 

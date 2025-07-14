@@ -21,6 +21,8 @@
 ******************************************************************************/
 #include <sofa/component/collision/detection/intersection/BaseProximityIntersection.h>
 
+#include <sofa/simulation/CollisionBeginEvent.h>
+
 namespace sofa::component::collision::detection::intersection
 {
 
@@ -30,8 +32,12 @@ BaseProximityIntersection::BaseProximityIntersection()
     : d_alarmDistance(initData(&d_alarmDistance, 1.0_sreal, "alarmDistance", "Distance above which the intersection computations ignores the proximity pair. This distance can also be used in some broad phase algorithms to reduce the search area"))
     , d_contactDistance(initData(&d_contactDistance, 0.5_sreal, "contactDistance", "Distance below which a contact is created"))
 {
+    this->f_listening.setValue(true);
+    
     d_alarmDistance.setRequired(true);
     d_contactDistance.setRequired(true);
+
+    m_alarmDistance = d_alarmDistance.getValue();
 }
 
 
@@ -61,6 +67,14 @@ int BaseProximityIntersection::computeIntersection(Cube& cube1, Cube& cube2, Out
     SOFA_UNUSED(currentIntersection);
 
     return 0;
+}
+
+void BaseProximityIntersection::handleEvent( core::objectmodel::Event* event )
+{
+    if (simulation::CollisionBeginEvent::checkEventType(event))
+    {
+        m_alarmDistance = d_alarmDistance.getValue();
+    }
 }
 
 } // namespace sofa::component::collision::detection::intersection

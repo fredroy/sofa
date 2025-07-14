@@ -947,7 +947,7 @@ void PrecomputedConstraintCorrection<DataTypes>::rotateResponse()
 
 // new API for non building the constraint system during solving process //
 template<class DataTypes>
-void PrecomputedConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SReal* f, std::list<unsigned int>& /*renumbering*/)
+void PrecomputedConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SReal* f, sofa::core::behavior::BaseConstraintCorrection::ConstraintSequence& /*renumbering*/)
 {
     constraint_force = f;
     const MatrixDeriv& c = this->mstate->read(core::vec_id::read_access::constraintJacobian)->getValue();

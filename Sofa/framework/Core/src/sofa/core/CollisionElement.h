@@ -29,6 +29,13 @@
 namespace sofa::core
 {
 
+namespace
+{
+    static std::vector<int> emptyVector {}; ///< empty vector to be able to initialize the iterator to an empty pair}
+    static auto beginEmptyVector = emptyVector.cbegin();
+    static auto endEmptyVector = emptyVector.cend();
+}
+
 /**
  *  \brief Base class for reference to an collision element defined by its <i>index</i>
  *
@@ -45,7 +52,7 @@ public:
     /// create interators to its elements (such as in the begin() and end()
     /// methods).
     BaseCollisionElementIterator(Index index=0)
-        : index(index), it(emptyVector.begin()), itend(emptyVector.end())
+        : index(index), it(beginEmptyVector), itend(endEmptyVector)
     {
     }
 
@@ -140,7 +147,6 @@ protected:
     Index index;      ///< index of the referenced element inside the CollisionModel.
     VIterator it; ///< current position in a vector of indices, in case this iterator traverse a non-contiguous set of indices
     VIterator itend; ///< end position in a vector of indices, in case this iterator traverse a non-contiguous set of indices
-    static std::vector<int> SOFA_CORE_API emptyVector; ///< empty vector to be able to initialize the iterator to an empty pair
 };
 
 /**

@@ -43,18 +43,22 @@ public:
 protected:
     BaseProximityIntersection();
     ~BaseProximityIntersection() override { }
+    
+    SReal m_alarmDistance;
 public:
+    void handleEvent( core::objectmodel::Event* event ) override;
+    
     /// Returns true if algorithm uses proximity
     bool useProximity() const override { return true; }
 
     /// Returns the alarm distance (must returns 0 if useProximity() is false)
-    SReal getAlarmDistance() const override { return d_alarmDistance.getValue(); }
+    SReal getAlarmDistance() const override { return m_alarmDistance; } //d_alarmDistance.getValue(); }
 
     /// Returns the contact distance (must returns 0 if useProximity() is false)
     SReal getContactDistance() const override { return d_contactDistance.getValue(); }
 
     /// Sets the alarm distance (if useProximity() is false, the alarm distance is equal to 0)
-    void setAlarmDistance(SReal v) override { d_alarmDistance.setValue(v); }
+    void setAlarmDistance(SReal v) override { d_alarmDistance.setValue(v); m_alarmDistance = v; }
 
     /// Sets the contact distance (if useProximity() is false, the contact distance is equal to 0)
     void setContactDistance(SReal v) override { d_contactDistance.setValue(v); }

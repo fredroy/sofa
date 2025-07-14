@@ -23,6 +23,8 @@
 #include <sofa/component/linearsolver/direct/BTDLinearSolver.h>
 #include <sofa/linearalgebra/FullMatrix.h>
 
+#include <sofa/simulation/AnimateBeginEvent.h>
+
 namespace sofa::component::linearsolver::direct
 {
 
@@ -436,7 +438,7 @@ template<class Matrix, class Vector>
 void BTDLinearSolver<Matrix,Vector>::bwdAccumulateRHinBloc(Index indMaxBloc)
 {
     constexpr Index bsize = Matrix::getSubMatrixDim();
-    const bool showProblem = d_problem.getValue();
+    const bool showProblem = m_problem;
 
     Index b=indMaxBloc;
 
@@ -493,7 +495,7 @@ void BTDLinearSolver<Matrix,Vector>::bwdAccumulateLHGlobal( )
     constexpr Index bsize = Matrix::getSubMatrixDim();
     _acc_lh_bloc =  bwdContributionOnLH.asub(current_bloc, bsize);
 
-    const bool showProblem = d_problem.getValue();
+    const bool showProblem = m_problem;
 
     while( current_bloc > 0)
     {
@@ -534,7 +536,7 @@ void BTDLinearSolver<Matrix,Vector>::fwdAccumulateRHGlobal(Index indMinBloc)
     constexpr Index bsize = Matrix::getSubMatrixDim();
     _acc_rh_bloc =fwdContributionOnRH.asub(current_bloc, bsize);
 
-    const bool showProblem = d_problem.getValue();
+    const bool showProblem = m_problem;
 
     while( current_bloc< indMinBloc)
     {
@@ -571,7 +573,7 @@ void BTDLinearSolver<Matrix,Vector>::fwdComputeLHinBloc(Index indMaxBloc)
 {
 
     constexpr Index bsize = Matrix::getSubMatrixDim();
-    const bool showProblem = d_problem.getValue();
+    const bool showProblem = m_problem;
 
     Index b;
 
@@ -606,7 +608,7 @@ template<class Matrix, class Vector>
 void BTDLinearSolver<Matrix,Vector>::partial_solve(ListIndex&  Iout, ListIndex&  Iin , bool NewIn)  ///*Matrix& M, Vector& result, Vector& rh, */
 {
 
-    const bool showProblem = d_problem.getValue();
+    const bool showProblem = m_problem;
 
     Index MinIdBloc_OUT = Iout.front();
     Index MaxIdBloc_OUT = Iout.back();
@@ -650,7 +652,7 @@ void BTDLinearSolver<Matrix,Vector>::partial_solve(ListIndex&  Iout, ListIndex& 
         fwdAccumulateRHGlobal(MinIdBloc_OUT);
 
         // debug
-        if (d_problem.getValue())
+        if (m_problem)
             dmsg_info_when(showProblem) << " new current_bloc = " << current_bloc;
     }
 
@@ -664,7 +666,7 @@ void BTDLinearSolver<Matrix,Vector>::partial_solve(ListIndex&  Iout, ListIndex& 
         dmsg_info_when(showProblem) << "  new _indMaxFwdLHComputed = " << _indMaxFwdLHComputed;
     }
     // debug: test
-    if (d_verification.getValue())
+    if (m_verification)
     {
         constexpr Index bsize = Matrix::getSubMatrixDim();
         Vector *Result_partial_Solve = new Vector();
@@ -724,7 +726,7 @@ bool BTDLinearSolver<Matrix,Vector>::addJMInvJt(RMatrix& result, JMatrix& J, dou
         msg_error() << "AddJMInvJt: incompatible J matrix size.";
         return false;
     }
-
+#ifndef NDEBUG
     if (this->notMuted())
     {
         std::stringstream tmpStr;
@@ -751,15 +753,15 @@ bool BTDLinearSolver<Matrix,Vector>::addJMInvJt(RMatrix& result, JMatrix& J, dou
         tmpStr << "];";
         msg_info() << tmpStr.str();
     }
+#endif
 
-    std::stringstream tmpStr2;
     const typename JMatrix::LineConstIterator jitend = J.end();
     for (typename JMatrix::LineConstIterator jit1 = J.begin(); jit1 != jitend; ++jit1)
     {
-        Index row1 = jit1->first;
+        const Index row1 = jit1->first;
         for (typename JMatrix::LineConstIterator jit2 = jit1; jit2 != jitend; ++jit2)
         {
-            Index row2 = jit2->first;
+            const Index row2 = jit2->first;
             double acc = 0.0;
             for (typename JMatrix::LElementConstIterator i1 = jit1->second.begin(), i1end = jit1->second.end(); i1 != i1end; ++i1)
             {
@@ -769,13 +771,10 @@ bool BTDLinearSolver<Matrix,Vector>::addJMInvJt(RMatrix& result, JMatrix& J, dou
                 {
                     const Index col2 = i2->first;
                     const double val2 = i2->second;
-                    acc += val1 * getMinvElement(col1,col2) * val2;
-                }
-            }
 
-            if (this->notMuted())
-            {
-                tmpStr2 << "W("<<row1<<","<<row2<<") += "<<acc<<" * "<<fact<<msgendl;
+                    const auto minv = getMinvElement(col1, col2);
+                    acc += val1 * minv * val2;
+                }
             }
 
             acc *= fact;
@@ -786,6 +785,16 @@ bool BTDLinearSolver<Matrix,Vector>::addJMInvJt(RMatrix& result, JMatrix& J, dou
     }
 
     return true;
+}
+
+template<class Matrix, class Vector>
+void BTDLinearSolver<Matrix, Vector>::handleEvent(core::objectmodel::Event* event)
+{
+    if (simulation::AnimateBeginEvent::checkEventType(event))
+    {
+        m_problem = d_problem.getValue();
+        m_verification = d_verification.getValue();
+    }
 }
 
 } //namespace sofa::component::linearsolver::direct

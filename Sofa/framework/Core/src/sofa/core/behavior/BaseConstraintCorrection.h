@@ -122,10 +122,11 @@ public:
 
     /// @name Unbuilt constraint system during resolution
     /// @{
+    using ConstraintSequence = std::list<sofa::Index>;
 
     /// Is the constraint managed by this constraint correction?
     virtual bool hasConstraintNumber(int /*index*/);
-    virtual void resetForUnbuiltResolution(SReal* /*f*/, std::list<unsigned int>& /*renumbering*/);
+    virtual void resetForUnbuiltResolution(SReal* /*f*/, ConstraintSequence& /*renumbering*/);
     virtual void addConstraintDisplacement(SReal* /*d*/, int /*begin*/, int /*end*/);
     virtual void setConstraintDForce(SReal* /*df*/, int /*begin*/, int /*end*/, bool /*update*/);	  // f += df
     virtual void getBlockDiagonalCompliance(linearalgebra::BaseMatrix* /*W*/, int /*begin*/,int /*end*/);

@@ -324,7 +324,7 @@ public:
     [[nodiscard]] SReal getProximity() const { return getContactDistance(); }
 
     /// Get distance to the actual (visual) surface
-    [[nodiscard]] SReal getContactDistance() const { return d_contactDistance.getValue(); }
+    [[nodiscard]] SReal getContactDistance() const { return m_contactDistance; }
 
     /// Get contact stiffness
     [[nodiscard]] SReal getContactStiffness(Index /*index*/) const { return contactStiffness.getValue(); }
@@ -366,10 +366,9 @@ public:
     void setColor4f(const float *c);
 
     /// Set of differents parameters
-    void setContactDistance (const SReal a)        { d_contactDistance.setValue(a); }
+    void setContactDistance (const SReal a)        { d_contactDistance.setValue(a); m_contactDistance = a; }
     SOFA_ATTRIBUTE_DEPRECATED__NAME_CHANGED()
     void setProximity (const SReal a)  { setContactDistance(a); }
-
     void setContactResponse (const std::string &a) { contactResponse.setValue(a); }
 
     /// Returns an int corresponding to the type of this.
@@ -383,7 +382,7 @@ public:
 
     /// Get user data
     void* GetUserData() { return userData; }
-
+    
 protected:
 
     /// flag indicating if this collision model is active and should be included in default
@@ -402,7 +401,7 @@ protected:
 
     /// Distance to the actual (visual) surface
     Data<SReal> d_contactDistance;
-
+    SReal m_contactDistance; // store value per step
     
     /// Default contact stiffness
     Data<SReal> contactStiffness;

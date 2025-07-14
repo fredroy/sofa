@@ -104,7 +104,7 @@ public:
 
     bool hasConstraintNumber(int index) override;  // virtual ???
 
-    void resetForUnbuiltResolution(SReal* f, std::list<unsigned int>& renumbering) override;
+    void resetForUnbuiltResolution(SReal* f, sofa::core::behavior::BaseConstraintCorrection::ConstraintSequence& renumbering) override;
 
     void addConstraintDisplacement(SReal*d, int begin,int end) override;
 

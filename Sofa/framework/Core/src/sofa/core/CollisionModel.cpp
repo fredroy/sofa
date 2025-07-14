@@ -29,8 +29,6 @@ using sofa::type::RGBAColor ;
 namespace sofa::core
 {
 
-std::vector<int> BaseCollisionElementIterator::emptyVector; ///< empty vector to be able to initialize the iterator to an empty pair
-
 void CollisionModel::bwdInit()
 {
     getColor4f(); //init the color to default value
@@ -54,6 +52,8 @@ void CollisionModel::bwdInit()
             msg_info() << "CollisionElementActiver named" << l_collElemActiver.get()->getName() << " found !" << this->getName();
         }
     }
+    
+    m_contactDistance = d_contactDistance.getValue();
 
 }
 
@@ -106,6 +106,7 @@ CollisionModel::CollisionModel()
     , bSimulated(initData(&bSimulated, true, "simulated", "flag indicating if this object is controlled by a simulation"))
     , bSelfCollision(initData(&bSelfCollision, false, "selfCollision", "flag indication if the object can self collide"))
     , d_contactDistance(initData(&d_contactDistance, 0.0_sreal, "contactDistance", "This distance is added along the normal of the collision element to apply 'skinning' effect for collision. The contact arise at this distance of the element."))
+    , m_contactDistance(0.0_sreal)
     , contactStiffness(initData(&contactStiffness, 10.0_sreal, "contactStiffness", "Contact stiffness"))
     , contactFriction(initData(&contactFriction, 0.0_sreal, "contactFriction", "Contact friction coefficient (dry or viscous or unused depending on the contact method)"))
     , contactRestitution(initData(&contactRestitution, 0.0_sreal, "contactRestitution", "Contact coefficient of restitution"))
@@ -124,6 +125,7 @@ CollisionModel::CollisionModel()
     addAlias(&d_contactDistance, "proximity");
 
     d_numberOfContacts.setReadOnly(true);
+    m_contactDistance = d_contactDistance.getValue();
 }
 
 /// Set the previous (coarser / upper / parent level) CollisionModel in the hierarchy.
@@ -270,5 +272,6 @@ bool CollisionModel::removeInNode( objectmodel::BaseNode* node )
     Inherit1::removeInNode(node);
     return true;
 }
+
 } // namespace sofa::core
 

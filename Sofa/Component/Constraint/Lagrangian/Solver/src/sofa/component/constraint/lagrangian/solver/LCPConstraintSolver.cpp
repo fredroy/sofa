@@ -419,7 +419,7 @@ int LCPConstraintSolver::nlcp_gaussseidel_unbuilt(SReal *dfree, SReal *f, std::v
     /// each constraintCorrection has an internal force vector that is set to "0"
 
     // indirection of the sequence of contact
-    std::list<unsigned int> contact_sequence;
+    sofa::core::behavior::BaseConstraintCorrection::ConstraintSequence contact_sequence;
 
     for (unsigned int c=0; c< _numConstraints; c++)
     {
@@ -555,7 +555,7 @@ int LCPConstraintSolver::nlcp_gaussseidel_unbuilt(SReal *dfree, SReal *f, std::v
 
     for (it=0; it<_maxIt; it++)
     {
-        std::list<unsigned int>::iterator it_c ;
+        sofa::core::behavior::BaseConstraintCorrection::ConstraintSequence::iterator it_c ;
         error =0;
 
         //constraints are treated 3x3 (friction contact)
@@ -677,7 +677,7 @@ int LCPConstraintSolver::lcp_gaussseidel_unbuilt(SReal *dfree, SReal *f, std::ve
     const int _maxIt = d_maxIt.getValue();
 
     // indirection of the sequence of contact
-    std::list<unsigned int> contact_sequence;
+    sofa::core::behavior::BaseConstraintCorrection::ConstraintSequence contact_sequence;
 
     for (unsigned int c=0; c< _numConstraints; c++)
     {
@@ -786,7 +786,7 @@ int LCPConstraintSolver::lcp_gaussseidel_unbuilt(SReal *dfree, SReal *f, std::ve
 
     for (it=0; it<_maxIt; it++)
     {
-        std::list<unsigned int>::iterator it_c;
+        sofa::core::behavior::BaseConstraintCorrection::ConstraintSequence::iterator it_c;
         error =0;
 
         for (it_c = contact_sequence.begin(); it_c != contact_sequence.end(); ++it_c)

@@ -1,4 +1,4 @@
-﻿/******************************************************************************
+/******************************************************************************
 *                 SOFA, Simulation Open-Framework Architecture                *
 *                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *
 *                                                                             *
@@ -43,7 +43,7 @@ public:
 
     // For unbuilt version :
     linearalgebra::SparseMatrix<SReal> Wdiag;
-    std::list<unsigned int> constraints_sequence;
+    core::behavior::BaseConstraintCorrection::ConstraintSequence constraints_sequence;
     bool change_sequence;
 
     typedef std::vector< core::behavior::BaseConstraintCorrection* > ConstraintCorrections;

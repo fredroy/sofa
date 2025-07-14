@@ -443,7 +443,7 @@ void LinearSolverConstraintCorrection<DataTypes>::verify_constraints()
 }
 
 template<class DataTypes>
-void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SReal* f, std::list<unsigned int>& renumbering)
+void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SReal* f, sofa::core::behavior::BaseConstraintCorrection::ConstraintSequence& renumbering)
 {
     verify_constraints();
 
@@ -454,7 +454,7 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SRea
 
     constraint_dofs.clear();
 
-    const unsigned int nbConstraints = constraints.size();
+    const auto nbConstraints = constraints.size();
     std::vector<unsigned int> VecMinDof;
     VecMinDof.resize(nbConstraints);
 
