@@ -25,6 +25,7 @@
 #include <map>
 #include <sofa/linearalgebra/BaseVector.h>
 
+#include <sofa/type/ankerl/unordered_dense.h>
 
 namespace sofa::defaulttype
 {
@@ -130,7 +131,7 @@ public:
 
 protected:
 
-    typedef std::map< KeyType, RowType > SparseMatrix;
+    typedef ankerl::unordered_dense::map< KeyType, RowType > SparseMatrix;
 
     /// Data container
     SparseMatrix m_data;

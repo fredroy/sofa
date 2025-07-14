@@ -212,7 +212,7 @@ void RotationMatrix<Real>::rotateSparseMatrix(
     for (const auto& [rowId, row] : *Jmat)
     {
         const std::size_t nbIterationsOf3ConsecutiveElements = row.size() / 3;
-        typename std::map<sofa::SignedIndex,real2>::const_iterator it = row.cbegin();
+        auto it = row.cbegin();
 
         for (std::size_t c = 0; c < nbIterationsOf3ConsecutiveElements; ++c)
         {
