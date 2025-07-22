@@ -33,6 +33,8 @@ template<class In, class Out>
 class TopologyBarycentricMapper : public BarycentricMapper<In,Out>
 {
 public:
+    using Inherit = BarycentricMapper<In,Out>;
+    
     SOFA_CLASS(SOFA_TEMPLATE2(TopologyBarycentricMapper,In,Out),
                SOFA_TEMPLATE2(BarycentricMapper,In,Out));
 
@@ -74,7 +76,8 @@ public:
 protected:
     TopologyBarycentricMapper(core::topology::BaseMeshTopology* fromTopology,
         core::topology::BaseMeshTopology* toTopology = nullptr)
-        : m_fromTopology(fromTopology)
+        : Inherit()
+        , m_fromTopology(fromTopology)
         , m_toTopology(toTopology)
     {}
 

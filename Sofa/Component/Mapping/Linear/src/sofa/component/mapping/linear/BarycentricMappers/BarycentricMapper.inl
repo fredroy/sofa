@@ -22,10 +22,25 @@
 #pragma once
 #include <sofa/component/mapping/linear/BarycentricMappers/BarycentricMapper.h>
 
+#include <sofa/simulation/TaskScheduler.h>
+#include <sofa/simulation/MainTaskSchedulerFactory.h>
+
 namespace sofa::component::mapping::linear::_barycentricmapper_
 {
 
 using sofa::linearalgebra::CompressedRowSparseMatrix;
+
+template<class In, class Out>
+void BarycentricMapper<In,Out>::init()
+{
+    if(d_parallelMapping.getValue())
+    {
+        m_taskScheduler = sofa::simulation::MainTaskSchedulerFactory::createInRegistry();
+        assert(m_taskScheduler);
+        
+        m_taskScheduler->init();
+    }
+}
 
 template<class In, class Out>
 void BarycentricMapper<In,Out>::addMatrixContrib(CompressedRowSparseMatrix<MBloc>* m, sofa::Index row, sofa::Index col, Real value)

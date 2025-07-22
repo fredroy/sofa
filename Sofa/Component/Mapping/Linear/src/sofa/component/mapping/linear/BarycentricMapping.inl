@@ -74,14 +74,14 @@ template <class TIn, class TOut>
 BarycentricMapping<TIn, TOut>::BarycentricMapping(core::State<In>* from, core::State<Out>* to, typename Mapper::SPtr mapper)
     : Inherit1 ( from, to )
     , d_useRestPosition(core::objectmodel::Base::initData(&d_useRestPosition, false, "useRestPosition", "Use the rest position of the input and output models to initialize the mapping"))
+    , d_parallelMapping(core::objectmodel::Base::initData(&d_parallelMapping, false, "parallelMapping", "Parallelize loops in apply, applyJ."))
     , d_mapper(initLink("mapper","Internal mapper created depending on the type of topology"), mapper)
     , d_input_topology(initLink("input_topology", "Input topology container (usually the surrounding domain)."))
     , d_output_topology(initLink("output_topology", "Output topology container (usually the immersed domain)."))
-
-
 {
     if (mapper)
         this->addSlave(mapper.get());
+
     internalMatrix = new EigenSparseMatrix<InDataTypes, OutDataTypes>;
 }
 
@@ -89,6 +89,7 @@ template <class TIn, class TOut>
 BarycentricMapping<TIn, TOut>::BarycentricMapping (core::State<In>* from, core::State<Out>* to, BaseMeshTopology * input_topology )
     : Inherit1 ( from, to )
     , d_useRestPosition(core::objectmodel::Base::initData(&d_useRestPosition, false, "useRestPosition", "Use the rest position of the input and output models to initialize the mapping"))
+    , d_parallelMapping(core::objectmodel::Base::initData(&d_parallelMapping, false, "parallelMapping", "Parallelize loops in apply, applyJ."))
     , d_mapper (initLink("mapper","Internal mapper created depending on the type of topology"))
     , d_input_topology(initLink("input_topology", "Input topology container (usually the surrounding domain)."))
     , d_output_topology(initLink("output_topology", "Output topology container (usually the immersed domain)."))
@@ -261,7 +262,7 @@ void BarycentricMapping<TIn, TOut>::init()
 
     if (!this->toModel)
         return;
-
+    
     initMapper();
 
     this->d_componentState.setValue(ComponentState::Valid) ;
@@ -282,6 +283,9 @@ void BarycentricMapping<TIn, TOut>::initMapper()
 {
     if (d_mapper != nullptr && this->toModel != nullptr && this->fromModel != nullptr)
     {
+        d_mapper->d_parallelMapping.setParent(&d_parallelMapping);
+        d_mapper->init();
+        
         if (d_useRestPosition.getValue())
             d_mapper->init (((const core::State<Out> *)this->toModel)->read(core::vec_id::read_access::restPosition)->getValue(), ((const core::State<In> *)this->fromModel)->read(core::vec_id::read_access::restPosition)->getValue() );
         else

@@ -25,6 +25,11 @@
 #include <sofa/core/objectmodel/BaseObject.h>
 #include <sofa/defaulttype/VecTypes.h>
 
+namespace sofa::simulation
+{
+class TaskScheduler;
+}
+
 namespace sofa::component::mapping::linear::_barycentricmapper_
 {
 
@@ -59,8 +64,7 @@ public:
     using Index = sofa::Index;
 
 public:
-
-    using BaseObject::init;
+    void init() override;
     virtual void init(const typename Out::VecCoord& out, const typename In::VecCoord& in) = 0;
 
     using BaseObject::draw;
@@ -77,8 +81,11 @@ public:
     inline friend std::istream& operator >> ( std::istream& in, BarycentricMapper< In, Out > & ) {return in;}
     inline friend std::ostream& operator << ( std::ostream& out, const BarycentricMapper< In, Out > &  ) { return out; }
 
+    Data<bool> d_parallelMapping;
 
 protected:
+    sofa::simulation::TaskScheduler* m_taskScheduler {nullptr};
+    
     void addMatrixContrib(MatrixType* m, sofa::Index row, sofa::Index col, Real value);
 
     template< sofa::Size NC, sofa::Size NP>
@@ -121,7 +128,10 @@ public:
 
 
 protected:
-    BarycentricMapper() {}
+    BarycentricMapper()
+        : d_parallelMapping(initData(&d_parallelMapping, false, "parallelMapping", "Parallelize loops in apply, applyJ."))
+    {}
+    
     ~BarycentricMapper() override {}
 
 private:
