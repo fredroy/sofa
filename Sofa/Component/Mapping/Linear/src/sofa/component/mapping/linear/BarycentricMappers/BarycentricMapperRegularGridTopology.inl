@@ -25,6 +25,7 @@
 #include <sofa/core/visual/VisualParams.h>
 #include <sofa/core/State.h>
 
+#include <sofa/simulation/ParallelForEach.h>
 
 namespace sofa::component::mapping::linear
 {
@@ -103,21 +104,38 @@ void BarycentricMapperRegularGridTopology<In,Out>::apply ( typename Out::VecCoor
 {
     out.resize( m_map.size() );
 
-    for ( unsigned int i=0; i<m_map.size(); i++ )
-    {
-        const topology::container::grid::RegularGridTopology::Hexa cube = this->m_fromTopology->getHexaCopy ( this->m_map[i].in_index );
+    const auto& hexahedra = this->m_fromTopology->getHexahedra();
 
-        const Real fx = m_map[i].baryCoords[0];
-        const Real fy = m_map[i].baryCoords[1];
-        const Real fz = m_map[i].baryCoords[2];
-        Out::setCPos(out[i] , in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
-                + in[cube[1]] * ( ( fx ) * ( 1-fy ) * ( 1-fz ) )
-                + in[cube[3]] * ( ( 1-fx ) * ( fy ) * ( 1-fz ) )
-                + in[cube[2]] * ( ( fx ) * ( fy ) * ( 1-fz ) )
-                + in[cube[4]] * ( ( 1-fx ) * ( 1-fy ) * ( fz ) )
-                + in[cube[5]] * ( ( fx ) * ( 1-fy ) * ( fz ) )
-                + in[cube[7]] * ( ( 1-fx ) * ( fy ) * ( fz ) )
-                + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) );
+    auto apply = [&](const auto& range)
+    {
+        auto i = std::distance(m_map.cbegin(), range.start);
+        for (auto it = range.start; it != range.end; ++it, ++i)
+        {
+            assert(it->in_index < hexahedra.size());
+            const auto& cube = hexahedra[it->in_index];
+
+            const Real fx = it->baryCoords[0];
+            const Real fy = it->baryCoords[1];
+            const Real fz = it->baryCoords[2];
+
+            Out::setCPos(out[i] , in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
+                    + in[cube[1]] * ( ( fx ) * ( 1-fy ) * ( 1-fz ) )
+                    + in[cube[3]] * ( ( 1-fx ) * ( fy ) * ( 1-fz ) )
+                    + in[cube[2]] * ( ( fx ) * ( fy ) * ( 1-fz ) )
+                    + in[cube[4]] * ( ( 1-fx ) * ( 1-fy ) * ( fz ) )
+                    + in[cube[5]] * ( ( fx ) * ( 1-fy ) * ( fz ) )
+                    + in[cube[7]] * ( ( 1-fx ) * ( fy ) * ( fz ) )
+                    + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) );
+        }
+    };
+        
+    if(this->m_taskScheduler)
+    {
+        sofa::simulation::parallelForEachRange(*this->m_taskScheduler, m_map.cbegin(), m_map.cend(), apply);
+    }
+    else
+    {
+        sofa::simulation::forEachRange(m_map.cbegin(), m_map.cend(), apply);
     }
 }
 
@@ -127,21 +145,39 @@ void BarycentricMapperRegularGridTopology<In,Out>::applyJ ( typename Out::VecDer
 {
     out.resize( m_map.size() );
 
-    for( size_t index=0 ; index< out.size() ; ++index)
+    const auto& hexahedra = this->m_fromTopology->getHexahedra();
+    
+    auto applyJ = [&](const auto& range)
     {
-        const topology::container::grid::RegularGridTopology::Hexa cube = this->m_fromTopology->getHexaCopy ( this->m_map[index].in_index );
+        auto i = std::distance(m_map.cbegin(), range.start);
+        
+        for (auto it = range.start; it != range.end; ++it, ++i)
+        {
+            assert(it->in_index < hexahedra.size());
+            const auto& cube = hexahedra[it->in_index];
 
-        const Real fx = m_map[index].baryCoords[0];
-        const Real fy = m_map[index].baryCoords[1];
-        const Real fz = m_map[index].baryCoords[2];
-        Out::setDPos(out[index] , in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
-                + in[cube[1]] * ( ( fx ) * ( 1-fy ) * ( 1-fz ) )
-                + in[cube[3]] * ( ( 1-fx ) * ( fy ) * ( 1-fz ) )
-                + in[cube[2]] * ( ( fx ) * ( fy ) * ( 1-fz ) )
-                + in[cube[4]] * ( ( 1-fx ) * ( 1-fy ) * ( fz ) )
-                + in[cube[5]] * ( ( fx ) * ( 1-fy ) * ( fz ) )
-                + in[cube[7]] * ( ( 1-fx ) * ( fy ) * ( fz ) )
-                + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) );
+            const Real fx = it->baryCoords[0];
+            const Real fy = it->baryCoords[1];
+            const Real fz = it->baryCoords[2];
+
+            Out::setDPos(out[i] , in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
+                    + in[cube[1]] * ( ( fx ) * ( 1-fy ) * ( 1-fz ) )
+                    + in[cube[3]] * ( ( 1-fx ) * ( fy ) * ( 1-fz ) )
+                    + in[cube[2]] * ( ( fx ) * ( fy ) * ( 1-fz ) )
+                    + in[cube[4]] * ( ( 1-fx ) * ( 1-fy ) * ( fz ) )
+                    + in[cube[5]] * ( ( fx ) * ( 1-fy ) * ( fz ) )
+                    + in[cube[7]] * ( ( 1-fx ) * ( fy ) * ( fz ) )
+                    + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) );
+        }
+    };
+        
+    if(this->m_taskScheduler)
+    {
+        sofa::simulation::parallelForEachRange(*this->m_taskScheduler, m_map.cbegin(), m_map.cend(), applyJ);
+    }
+    else
+    {
+        sofa::simulation::forEachRange(m_map.cbegin(), m_map.cend(), applyJ);
     }
 }
 

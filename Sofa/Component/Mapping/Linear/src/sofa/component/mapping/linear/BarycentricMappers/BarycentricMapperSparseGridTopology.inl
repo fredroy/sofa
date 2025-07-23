@@ -290,7 +290,7 @@ void BarycentricMapperSparseGridTopology<In,Out>::applyJ ( typename Out::VecDeri
         for (auto it = range.start; it != range.end; ++it, ++i)
         {
             assert(it->in_index < hexahedra.size());
-            const topology::container::grid::SparseGridTopology::Hexa& cube = hexahedra[it->in_index];
+            const auto& cube = hexahedra[it->in_index];
 
             const Real fx = it->baryCoords[0];
             const Real fy = it->baryCoords[1];
@@ -332,7 +332,7 @@ void BarycentricMapperSparseGridTopology<In,Out>::apply ( typename Out::VecCoord
         for (auto it = range.start; it != range.end; ++it, ++i)
         {
             assert(it->in_index < hexahedra.size());
-            const topology::container::grid::SparseGridTopology::Hexa& cube = hexahedra[it->in_index];
+            const auto& cube = hexahedra[it->in_index];
 
             const Real fx = it->baryCoords[0];
             const Real fy = it->baryCoords[1];
