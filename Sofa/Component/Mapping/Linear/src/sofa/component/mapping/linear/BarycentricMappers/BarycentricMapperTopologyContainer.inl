@@ -24,6 +24,8 @@
 #include <sofa/core/State.h>
 #include <sofa/core/visual/VisualParams.h>
 
+#include <sofa/simulation/ParallelForEach.h>
+
 namespace sofa::component::mapping::linear::_barycentricmappertopologycontainer_
 {
 
@@ -321,21 +323,34 @@ template <class In, class Out, class MappingDataType, class Element>
 void BarycentricMapperTopologyContainer<In,Out,MappingDataType,Element>::applyJ ( typename Out::VecDeriv& out, const typename In::VecDeriv& in )
 {
     const auto& map = d_map.getValue();
-    out.resize( map.size() );
-
     const type::vector<Element>& elements = getElements();
 
-    for( size_t i=0 ; i<out.size() ; ++i)
+    out.resize( map.size() );
+
+    auto applyJ = [&](const auto& range)
     {
-        const Index index = map[i].in_index;
-        const Element& element = elements[index];
+        auto i = std::distance(map.cbegin(), range.start);
+        for (auto it = range.start; it != range.end; ++it, ++i)
+        {
+            const Index index = map[i].in_index;
+            const Element& element = elements[index];
 
-        const auto baryCoef = getBarycentricCoefficients(map[i].baryCoords);
-        InDeriv inPos{0.,0.,0.};
-        for (unsigned int j=0; j<Element::NumberOfNodes; j++)
-            inPos += in[element[j]] * baryCoef[j];
+            const auto baryCoef = getBarycentricCoefficients(map[i].baryCoords);
+            InDeriv inPos{0.,0.,0.};
+            for (unsigned int j=0; j<Element::NumberOfNodes; j++)
+                inPos += in[element[j]] * baryCoef[j];
 
-        Out::setDPos(out[i] , inPos);
+            Out::setDPos(out[i] , inPos);
+        }
+    };
+    
+    if(this->m_taskScheduler)
+    {
+        sofa::simulation::parallelForEachRange(*this->m_taskScheduler, map.cbegin(), map.cend(), applyJ);
+    }
+    else
+    {
+        sofa::simulation::forEachRange(map.cbegin(), map.cend(), applyJ);
     }
 }
 
@@ -358,20 +373,34 @@ template <class In, class Out, class MappingDataType, class Element>
 void BarycentricMapperTopologyContainer<In,Out,MappingDataType,Element>::apply ( typename Out::VecCoord& out, const typename In::VecCoord& in )
 {
     const auto& map = d_map.getValue();
-    out.resize( map.size() );
-
     const type::vector<Element>& elements = getElements();
-    for ( unsigned int i=0; i<map.size(); i++ )
+    
+    out.resize( map.size() );
+    
+    auto apply = [&](const auto& range)
     {
-        const Index index = map[i].in_index;
-        const Element& element = elements[index];
-
-        const auto baryCoef = getBarycentricCoefficients(map[i].baryCoords);
-        InDeriv inPos{0.,0.,0.};
-        for (unsigned int j=0; j< Element::NumberOfNodes; j++)
-            inPos += in[element[j]] * baryCoef[j];
-
-        Out::setCPos(out[i] , inPos);
+        auto i = std::distance(map.cbegin(), range.start);
+        for (auto it = range.start; it != range.end; ++it, ++i)
+        {
+            const Index index = map[i].in_index;
+            const Element& element = elements[index];
+            const auto baryCoef = getBarycentricCoefficients(map[i].baryCoords);
+            
+            InDeriv inPos{0.,0.,0.};
+            for (unsigned int j=0; j< Element::NumberOfNodes; j++)
+                inPos += in[element[j]] * baryCoef[j];
+            
+            Out::setCPos(out[i] , inPos);
+        }
+    };
+    
+    if(this->m_taskScheduler)
+    {
+        sofa::simulation::parallelForEachRange(*this->m_taskScheduler, map.cbegin(), map.cend(), apply);
+    }
+    else
+    {
+        sofa::simulation::forEachRange(map.cbegin(), map.cend(), apply);
     }
 }
 
