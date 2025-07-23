@@ -26,6 +26,8 @@
 #include <sofa/core/visual/VisualParams.h>
 #include <sofa/core/State.h>
 
+#include <sofa/simulation/ParallelForEach.h>
+
 namespace sofa::component::mapping::linear
 {
 
@@ -908,19 +910,11 @@ void BarycentricMapperMeshTopology<In,Out>::applyJ ( typename Out::VecDeriv& out
     const SeqQuads& quads = this->m_fromTopology->getQuads();
     const SeqTetrahedra& tetrahedra = this->m_fromTopology->getTetrahedra();
     const SeqHexahedra& cubes = this->m_fromTopology->getHexahedra();
-
-    const size_t sizeMap1d=m_map1d.size();
-    const size_t sizeMap2d=m_map2d.size();
-    const size_t sizeMap3d=m_map3d.size();
-
-    const size_t idxStart1=sizeMap1d;
-    const size_t idxStart2=sizeMap1d+sizeMap2d;
-    const size_t idxStart3=sizeMap1d+sizeMap2d+sizeMap3d;
-
-    for( size_t i=0 ; i<out.size() ; ++i)
+    
+    auto applyJ1d = [&](const auto& range)
     {
-        // 1D elements
-        if (i < idxStart1)
+        auto i = std::distance(m_map1d.cbegin(), range.start);
+        for (auto it = range.start; it != range.end; ++it, ++i)
         {
             const Real fx = m_map1d[i].baryCoords[0];
             const Index index = m_map1d[i].in_index;
@@ -930,17 +924,20 @@ void BarycentricMapperMeshTopology<In,Out>::applyJ ( typename Out::VecDeriv& out
                         + in[line[1]] * fx );
             }
         }
-        // 2D elements
-        else if (i < idxStart2)
+    };
+    
+    const std::size_t i2d0 = m_map1d.size();
+    const std::size_t c2d0 = triangles.size();
+    auto applyJ2d = [&](const auto& range)
+    {
+        auto i = std::distance(m_map2d.cbegin(), range.start);
+        for (auto it = range.start; it != range.end; ++it, ++i)
         {
-            const size_t i0 = idxStart1;
-            const size_t c0 = triangles.size();
+            const Real fx = m_map2d[i-i2d0].baryCoords[0];
+            const Real fy = m_map2d[i-i2d0].baryCoords[1];
+            const size_t index = m_map2d[i-i2d0].in_index;
 
-            const Real fx = m_map2d[i-i0].baryCoords[0];
-            const Real fy = m_map2d[i-i0].baryCoords[1];
-            const size_t index = m_map2d[i-i0].in_index;
-
-            if ( index<c0 )
+            if ( index<c2d0 )
             {
                 const Triangle& triangle = triangles[index];
                 Out::setDPos(out[i] , in[triangle[0]] * ( 1-fx-fy )
@@ -949,23 +946,27 @@ void BarycentricMapperMeshTopology<In,Out>::applyJ ( typename Out::VecDeriv& out
             }
             else
             {
-                const Quad& quad = quads[index-c0];
+                const Quad& quad = quads[index-c2d0];
                 Out::setDPos(out[i] , in[quad[0]] * ( ( 1-fx ) * ( 1-fy ) )
                         + in[quad[1]] * ( ( fx ) * ( 1-fy ) )
                         + in[quad[3]] * ( ( 1-fx ) * ( fy ) )
                         + in[quad[2]] * ( ( fx ) * ( fy ) ) );
             }
         }
-        // 3D elements
-        else if (i < idxStart3)
+    };
+    
+    const std::size_t i3d0 = m_map1d.size() + m_map2d.size();
+    const std::size_t c3d0 = tetrahedra.size();
+    auto applyJ3d = [&](const auto& range)
+    {
+        auto i = std::distance(m_map3d.cbegin(), range.start);
+        for (auto it = range.start; it != range.end; ++it, ++i)
         {
-            const size_t i0 = idxStart2;
-            const size_t c0 = tetrahedra.size();
-            const Real fx = m_map3d[i-i0].baryCoords[0];
-            const Real fy = m_map3d[i-i0].baryCoords[1];
-            const Real fz = m_map3d[i-i0].baryCoords[2];
-            const size_t index = m_map3d[i-i0].in_index;
-            if ( index<c0 )
+            const Real fx = m_map3d[i-i3d0].baryCoords[0];
+            const Real fy = m_map3d[i-i3d0].baryCoords[1];
+            const Real fz = m_map3d[i-i3d0].baryCoords[2];
+            const size_t index = m_map3d[i-i3d0].in_index;
+            if ( index<c3d0 )
             {
                 const Tetra& tetra = tetrahedra[index];
                 Out::setDPos(out[i] , in[tetra[0]] * ( 1-fx-fy-fz )
@@ -975,7 +976,7 @@ void BarycentricMapperMeshTopology<In,Out>::applyJ ( typename Out::VecDeriv& out
             }
             else
             {
-                const Hexa& cube = cubes[index-c0];
+                const Hexa& cube = cubes[index-c3d0];
 
                 Out::setDPos(out[i] , in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
                         + in[cube[1]] * ( ( fx ) * ( 1-fy ) * ( 1-fz ) )
@@ -987,6 +988,19 @@ void BarycentricMapperMeshTopology<In,Out>::applyJ ( typename Out::VecDeriv& out
                         + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) );
             }
         }
+    };
+    
+    if(this->m_taskScheduler)
+    {
+        sofa::simulation::parallelForEachRange(*this->m_taskScheduler, m_map1d.cbegin(), m_map1d.cend(), applyJ1d);
+        sofa::simulation::parallelForEachRange(*this->m_taskScheduler, m_map2d.cbegin(), m_map2d.cend(), applyJ2d);
+        sofa::simulation::parallelForEachRange(*this->m_taskScheduler, m_map3d.cbegin(), m_map3d.cend(), applyJ3d);
+    }
+    else
+    {
+        sofa::simulation::forEachRange(m_map1d.cbegin(), m_map1d.cend(), applyJ1d);
+        sofa::simulation::forEachRange(m_map2d.cbegin(), m_map2d.cend(), applyJ2d);
+        sofa::simulation::forEachRange(m_map3d.cbegin(), m_map3d.cend(), applyJ3d);
     }
 
 }
@@ -1009,10 +1023,11 @@ void BarycentricMapperMeshTopology<In,Out>::apply ( typename Out::VecCoord& out,
     const SeqQuads& quads = this->m_fromTopology->getQuads();
     const SeqTetrahedra& tetrahedra = this->m_fromTopology->getTetrahedra();
     const SeqHexahedra& cubes = this->m_fromTopology->getHexahedra();
-
-    // 1D elements
+    
+    auto apply1d = [&](const auto& range)
     {
-        for ( std::size_t i=0; i<m_map1d.size(); i++ )
+        auto i = std::distance(m_map1d.cbegin(), range.start);
+        for (auto it = range.start; it != range.end; ++it, ++i)
         {
             const Real fx = m_map1d[i].baryCoords[0];
             const Index index = m_map1d[i].in_index;
@@ -1022,20 +1037,22 @@ void BarycentricMapperMeshTopology<In,Out>::apply ( typename Out::VecCoord& out,
                         + in[line[1]] * fx );
             }
         }
-    }
-    // 2D elements
+    };
+    
+    const std::size_t i2d0 = m_map1d.size();
+    const std::size_t c2d0 = triangles.size();
+    auto apply2d = [&](const auto& range)
     {
-        const std::size_t i0 = m_map1d.size();
-        const std::size_t c0 = triangles.size();
-        for ( std::size_t i=0; i<m_map2d.size(); i++ )
+        auto i = std::distance(m_map2d.cbegin(), range.start);
+        for (auto it = range.start; it != range.end; ++it, ++i)
         {
             const Real fx = m_map2d[i].baryCoords[0];
             const Real fy = m_map2d[i].baryCoords[1];
             const Index index = m_map2d[i].in_index;
-            if ( index<c0 )
+            if ( index<c2d0 )
             {
                 const Triangle& triangle = triangles[index];
-                Out::setCPos(out[i+i0] , in[triangle[0]] * ( 1-fx-fy )
+                Out::setCPos(out[i+i2d0] , in[triangle[0]] * ( 1-fx-fy )
                         + in[triangle[1]] * fx
                         + in[triangle[2]] * fy );
             }
@@ -1043,38 +1060,40 @@ void BarycentricMapperMeshTopology<In,Out>::apply ( typename Out::VecCoord& out,
             {
                 if (quads.size())
                 {
-                    const Quad& quad = quads[index-c0];
-                    Out::setCPos(out[i+i0] , in[quad[0]] * ( ( 1-fx ) * ( 1-fy ) )
+                    const Quad& quad = quads[index-c2d0];
+                    Out::setCPos(out[i+i2d0] , in[quad[0]] * ( ( 1-fx ) * ( 1-fy ) )
                             + in[quad[1]] * ( ( fx ) * ( 1-fy ) )
                             + in[quad[3]] * ( ( 1-fx ) * ( fy ) )
                             + in[quad[2]] * ( ( fx ) * ( fy ) ) );
                 }
             }
         }
-    }
-    // 3D elements
+    };
+    
+    const std::size_t i3d0 = m_map1d.size() + m_map2d.size();
+    const std::size_t c3d0 = tetrahedra.size();
+    auto apply3d = [&](const auto& range)
     {
-        const std::size_t i0 = m_map1d.size() + m_map2d.size();
-        const std::size_t c0 = tetrahedra.size();
-        for ( std::size_t i=0; i<m_map3d.size(); i++ )
+        auto i = std::distance(m_map3d.cbegin(), range.start);
+        for (auto it = range.start; it != range.end; ++it, ++i)
         {
             const Real fx = m_map3d[i].baryCoords[0];
             const Real fy = m_map3d[i].baryCoords[1];
             const Real fz = m_map3d[i].baryCoords[2];
             const Index index = m_map3d[i].in_index;
-            if ( index<c0 )
+            if ( index<c3d0 )
             {
                 const Tetra& tetra = tetrahedra[index];
-                Out::setCPos(out[i+i0] , in[tetra[0]] * ( 1-fx-fy-fz )
+                Out::setCPos(out[i+i3d0] , in[tetra[0]] * ( 1-fx-fy-fz )
                         + in[tetra[1]] * fx
                         + in[tetra[2]] * fy
                         + in[tetra[3]] * fz );
             }
             else
             {
-                const Hexa& cube = cubes[index-c0];
+                const Hexa& cube = cubes[index-c3d0];
 
-                Out::setCPos(out[i+i0] , in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
+                Out::setCPos(out[i+i3d0] , in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
                         + in[cube[1]] * ( ( fx ) * ( 1-fy ) * ( 1-fz ) )
                         + in[cube[3]] * ( ( 1-fx ) * ( fy ) * ( 1-fz ) )
                         + in[cube[2]] * ( ( fx ) * ( fy ) * ( 1-fz ) )
@@ -1084,6 +1103,19 @@ void BarycentricMapperMeshTopology<In,Out>::apply ( typename Out::VecCoord& out,
                         + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) );
             }
         }
+    };
+    
+    if(this->m_taskScheduler)
+    {
+        sofa::simulation::parallelForEachRange(*this->m_taskScheduler, m_map1d.cbegin(), m_map1d.cend(), apply1d);
+        sofa::simulation::parallelForEachRange(*this->m_taskScheduler, m_map2d.cbegin(), m_map2d.cend(), apply2d);
+        sofa::simulation::parallelForEachRange(*this->m_taskScheduler, m_map3d.cbegin(), m_map3d.cend(), apply3d);
+    }
+    else
+    {
+        sofa::simulation::forEachRange(m_map1d.cbegin(), m_map1d.cend(), apply1d);
+        sofa::simulation::forEachRange(m_map2d.cbegin(), m_map2d.cend(), apply2d);
+        sofa::simulation::forEachRange(m_map3d.cbegin(), m_map3d.cend(), apply3d);
     }
 }
 

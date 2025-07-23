@@ -44,13 +44,13 @@
             <TriangleCollisionModel />
             <LineCollisionModel />
             <PointCollisionModel />
-            <BarycentricMapping />
+            <BarycentricMapping parallelMapping="false" />
         </Node>
 
         <Node name="Visualization">
             <OglModel name="VisualModel1" src="@../../meshLoader" useNormals="0" />
             <TriangleSetTopologyContainer src="@../../meshLoader" />
-            <BarycentricMapping />
+            <BarycentricMapping parallelMapping="false" />
         </Node>
     </Node>
 
