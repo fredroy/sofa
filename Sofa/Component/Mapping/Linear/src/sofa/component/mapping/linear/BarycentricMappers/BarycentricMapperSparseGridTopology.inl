@@ -187,28 +187,42 @@ template <class In, class Out>
 void BarycentricMapperSparseGridTopology<In,Out>::applyJT ( typename In::VecDeriv& out, const typename Out::VecDeriv& in )
 {
     const auto& hexahedra = this->m_fromTopology->getHexahedra();
-
-    for( size_t index=0 ; index<in.size() ; ++index)
+    
+    auto applyJT = [&](const auto& range)
     {
-        const typename Out::DPos v = Out::getDPos(in[index]);
+        auto i = std::distance(m_map.cbegin(), range.start);
+        
+        for (auto it = range.start; it != range.end; ++it, ++i)
+        {
+            const auto v = Out::getDPos(in[i]);
 
-        assert(this->m_map[index].in_index < hexahedra.size());
-        const topology::container::grid::SparseGridTopology::Hexa& cube = hexahedra[this->m_map[index].in_index];
+            assert(this->m_map[index].in_index < hexahedra.size());
+            const auto& cube = hexahedra[this->m_map[i].in_index];
 
-        const OutReal fx = ( OutReal ) m_map[index].baryCoords[0];
-        const OutReal fy = ( OutReal ) m_map[index].baryCoords[1];
-        const OutReal fz = ( OutReal ) m_map[index].baryCoords[2];
-        out[cube[0]] += v * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) );
-        out[cube[1]] += v * ( ( fx ) * ( 1-fy ) * ( 1-fz ) );
+            const OutReal fx = ( OutReal ) m_map[i].baryCoords[0];
+            const OutReal fy = ( OutReal ) m_map[i].baryCoords[1];
+            const OutReal fz = ( OutReal ) m_map[i].baryCoords[2];
+            out[cube[0]] += v * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) );
+            out[cube[1]] += v * ( ( fx ) * ( 1-fy ) * ( 1-fz ) );
 
-        out[cube[3]] += v * ( ( 1-fx ) * ( fy ) * ( 1-fz ) );
-        out[cube[2]] += v * ( ( fx ) * ( fy ) * ( 1-fz ) );
+            out[cube[3]] += v * ( ( 1-fx ) * ( fy ) * ( 1-fz ) );
+            out[cube[2]] += v * ( ( fx ) * ( fy ) * ( 1-fz ) );
 
-        out[cube[4]] += v * ( ( 1-fx ) * ( 1-fy ) * ( fz ) );
-        out[cube[5]] += v * ( ( fx ) * ( 1-fy ) * ( fz ) );
+            out[cube[4]] += v * ( ( 1-fx ) * ( 1-fy ) * ( fz ) );
+            out[cube[5]] += v * ( ( fx ) * ( 1-fy ) * ( fz ) );
 
-        out[cube[7]] += v * ( ( 1-fx ) * ( fy ) * ( fz ) );
-        out[cube[6]] += v * ( ( fx ) * ( fy ) * ( fz ) );
+            out[cube[7]] += v * ( ( 1-fx ) * ( fy ) * ( fz ) );
+            out[cube[6]] += v * ( ( fx ) * ( fy ) * ( fz ) );
+        }
+    };
+    
+    if(this->m_taskScheduler)
+    {
+        sofa::simulation::parallelForEachRange(*this->m_taskScheduler, m_map.cbegin(), m_map.cend(), applyJT);
+    }
+    else
+    {
+        sofa::simulation::forEachRange(m_map.cbegin(), m_map.cend(), applyJT);
     }
 }
 
@@ -216,14 +230,14 @@ void BarycentricMapperSparseGridTopology<In,Out>::applyJT ( typename In::VecDeri
 template <class In, class Out>
 void BarycentricMapperSparseGridTopology<In,Out>::applyJT ( typename In::MatrixDeriv& out, const typename Out::MatrixDeriv& in )
 {
-    typename Out::MatrixDeriv::RowConstIterator rowItEnd = in.end();
+    auto rowItEnd = in.end();
 
     const auto& hexahedra = this->m_fromTopology->getHexahedra();
 
     for (typename Out::MatrixDeriv::RowConstIterator rowIt = in.begin(); rowIt != rowItEnd; ++rowIt)
     {
-        typename Out::MatrixDeriv::ColConstIterator colItEnd = rowIt.end();
-        typename Out::MatrixDeriv::ColConstIterator colIt = rowIt.begin();
+        auto colItEnd = rowIt.end();
+        auto colIt = rowIt.begin();
 
         if (colIt != colItEnd)
         {
@@ -232,10 +246,10 @@ void BarycentricMapperSparseGridTopology<In,Out>::applyJT ( typename In::MatrixD
             for ( ; colIt != colItEnd; ++colIt)
             {
                 unsigned indexIn = colIt.index();
-                InDeriv data = (InDeriv) Out::getDPos(colIt.val());
+                const InDeriv& data = (InDeriv) Out::getDPos(colIt.val());
 
                 assert(this->m_map[indexIn].in_index < hexahedra.size());
-                const topology::container::grid::SparseGridTopology::Hexa& cube = hexahedra[this->m_map[indexIn].in_index];
+                const auto& cube = hexahedra[this->m_map[indexIn].in_index];
 
                 const OutReal fx = ( OutReal ) m_map[indexIn].baryCoords[0];
                 const OutReal fy = ( OutReal ) m_map[indexIn].baryCoords[1];
