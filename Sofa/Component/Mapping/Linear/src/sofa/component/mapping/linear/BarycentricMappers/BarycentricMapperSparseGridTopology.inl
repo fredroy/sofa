@@ -216,11 +216,11 @@ void BarycentricMapperSparseGridTopology<In,Out>::applyJT ( typename In::VecDeri
         }
     };
     
-    if(this->m_taskScheduler)
-    {
-        sofa::simulation::parallelForEachRange(*this->m_taskScheduler, m_map.cbegin(), m_map.cend(), applyJT);
-    }
-    else
+    //if(this->m_taskScheduler)
+    //{
+    //    sofa::simulation::parallelForEachRange(*this->m_taskScheduler, m_map.cbegin(), m_map.cend(), applyJT);
+    //}
+    //else
     {
         sofa::simulation::forEachRange(m_map.cbegin(), m_map.cend(), applyJT);
     }
