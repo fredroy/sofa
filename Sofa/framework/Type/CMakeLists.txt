@@ -49,6 +49,8 @@ set(HEADER_FILES
     ${SOFATYPESRC_ROOT}/vector_algebra.h
     ${SOFATYPESRC_ROOT}/vector_algorithm.h
     ${SOFATYPESRC_ROOT}/vector_device.h
+    ${SOFATYPESRC_ROOT}/VecSpan.h
+    ${SOFATYPESRC_ROOT}/MatSpan.h
 )
 
 set(SOURCE_FILES
@@ -69,6 +71,8 @@ set(SOURCE_FILES
     ${SOFATYPESRC_ROOT}/vector_Integral.cpp
     ${SOFATYPESRC_ROOT}/vector_Real.cpp
     ${SOFATYPESRC_ROOT}/vector_String.cpp
+    ${SOFATYPESRC_ROOT}/VecSpan.cpp
+    ${SOFATYPESRC_ROOT}/MatSpan.cpp
 )
 
 sofa_find_package(Sofa.Config REQUIRED)
