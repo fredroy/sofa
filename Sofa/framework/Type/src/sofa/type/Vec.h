@@ -31,6 +31,7 @@
 #include <sofa/type/fwd.h>
 #include <cmath>
 #include <array>
+#include <numeric>
 
 #define EQUALITY_THRESHOLD 1e-6
 
@@ -250,8 +251,7 @@ public:
     // assign one value to all elements
     constexpr void assign(const ValueType& value) noexcept
     {
-        for (size_type i = 0; i < N; i++)
-            elems[i] = value;
+        this->elems.fill(value);
     }
 
     /// Sets every element to 0.
@@ -305,11 +305,11 @@ public:
     }
 
     // LINEAR ALGEBRA
-    constexpr Vec<N,ValueType> mulscalar(const ValueType f) const noexcept
+    constexpr Vec<N, ValueType> mulscalar(const ValueType f) const noexcept
     {
-        Vec<N,ValueType> r(NOINIT);
-        for (Size i=0; i<N; i++)
-            r[i] = this->elems[i]*f;
+        Vec<N, ValueType> r(NOINIT);
+        std::transform(elems.begin(), elems.end(), r.elems.begin(),
+            [f](const ValueType& a) { return a * f; });
         return r;
     }
 
@@ -346,11 +346,11 @@ public:
     }
 
     /// Division by a scalar f.
-    constexpr Vec<N,ValueType> divscalar(const ValueType f) const noexcept
+    constexpr Vec<N, ValueType> divscalar(const ValueType f) const noexcept
     {
-        Vec<N,ValueType> r(NOINIT);
-        for (Size i=0; i<N; i++)
-            r[i] = this->elems[i]/f;
+        Vec<N, ValueType> r(NOINIT);
+        std::transform(elems.begin(), elems.end(), r.elems.begin(),
+            [f](const ValueType& a) { return a / f; });
         return r;
     }
 
@@ -389,19 +389,16 @@ public:
     template<class real2, std::enable_if_t<std::is_convertible_v<real2, ValueType>, bool> = true>
     constexpr ValueType operator*(const Vec<N,real2>& v) const noexcept
     {
-        ValueType r = static_cast<ValueType>(this->elems[0]*v[0]);
-        for (Size i=1; i<N; i++)
-            r += static_cast<ValueType>(this->elems[i]*v[i]);
-        return r;
+        return std::inner_product(elems.begin(), elems.end(), v.elems.begin(), ValueType(0));
     }
 
     /// linear product.
     template<class real2, std::enable_if_t<std::is_convertible_v<real2, ValueType>, bool> = true>
     constexpr Vec<N,ValueType> linearProduct(const Vec<N,real2>& v) const noexcept
     {
-        Vec<N,ValueType> r(NOINIT);
-        for (Size i=0; i<N; i++)
-            r[i]=this->elems[i]* static_cast<ValueType>(v[i]);
+        Vec<N, ValueType> r(NOINIT);
+        std::transform(elems.begin(), elems.end(), v.elems.begin(), r.elems.begin(),
+            [](const ValueType& a, const real2& b) { return a * static_cast<ValueType>(b); });
         return r;
     }
 
@@ -410,9 +407,9 @@ public:
     template<class real2, std::enable_if_t<std::is_convertible_v<real2, ValueType>, bool> = true>
     constexpr Vec<N,ValueType> linearDivision(const Vec<N,real2>& v) const noexcept
     {
-        Vec<N,ValueType> r(NOINIT);
-        for (Size i=0; i<N; i++)
-            r[i]=this->elems[i]/ static_cast<ValueType>(v[i]);
+        Vec<N, ValueType> r(NOINIT);
+        std::transform(elems.begin(), elems.end(), v.elems.begin(), r.elems.begin(),
+            [](const ValueType& a, const real2& b) { return a / static_cast<ValueType>(b); });
         return r;
     }
 
@@ -421,8 +418,8 @@ public:
     constexpr Vec<N,ValueType> operator+(const Vec<N,real2>& v) const noexcept
     {
         Vec<N,ValueType> r(NOINIT);
-        for (Size i=0; i<N; i++)
-            r[i]=this->elems[i] + static_cast<ValueType>(v[i]);
+        std::transform(elems.begin(), elems.end(), v.elems.begin(), r.elems.begin(),
+            [](const ValueType& a, const real2& b) { return a + static_cast<ValueType>(b); });
         return r;
     }
 
@@ -438,9 +435,9 @@ public:
     template<class real2, std::enable_if_t<std::is_convertible_v<real2, ValueType>, bool> = true>
     constexpr Vec<N,ValueType> operator-(const Vec<N,real2>& v) const noexcept
     {
-        Vec<N,ValueType> r(NOINIT);
-        for (Size i=0; i<N; i++)
-            r[i]=this->elems[i]-static_cast<ValueType>(v[i]);
+        Vec<N, ValueType> r(NOINIT);
+        std::transform(elems.begin(), elems.end(), v.elems.begin(), r.elems.begin(),
+            [](const ValueType& a, const real2& b) { return a - static_cast<ValueType>(b); });
         return r;
     }
 
@@ -456,19 +453,16 @@ public:
     template <typename T = ValueType, std::enable_if_t< !std::is_unsigned_v<T>, int > = 0 >
     constexpr Vec<N, ValueType> operator-() const noexcept
     {
-        Vec<N,ValueType> r(NOINIT);
-        for (Size i=0; i<N; i++)
-            r[i]=-this->elems[i];
+        Vec<N, ValueType> r(NOINIT);
+        std::transform(elems.begin(), elems.end(), r.elems.begin(),
+            [](const ValueType& a) { return -a; });
         return r;
     }
 
     /// Squared norm.
     constexpr ValueType norm2() const noexcept
     {
-        ValueType r = this->elems[0]*this->elems[0];
-        for (Size i=1; i<N; i++)
-            r += this->elems[i]*this->elems[i];
-        return r;
+        return std::inner_product(elems.begin(), elems.end(), elems.begin(), ValueType(0));
     }
 
     /// Euclidean norm.
@@ -576,10 +570,7 @@ public:
     /// sum of all elements of the vector
     constexpr ValueType sum() const noexcept
     {
-        ValueType sum = ValueType(0.0);
-        for (Size i=0; i<N; i++)
-            sum += this->elems[i];
-        return sum;
+        return std::accumulate(elems.begin(), elems.end(), ValueType(0));
     }
 
 
