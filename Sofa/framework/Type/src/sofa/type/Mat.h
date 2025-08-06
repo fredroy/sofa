@@ -484,14 +484,14 @@ public:
     constexpr bool operator==(const Mat<L,C,real>& b) const noexcept
     {
         for (Size i=0; i<L; i++)
-            if ((*this)(i) != b[i]) return false;
+            if ((*this)(i) != b(i)) return false;
         return true;
     }
 
     constexpr bool operator!=(const Mat<L,C,real>& b) const noexcept
     {
         for (Size i=0; i<L; i++)
-            if ((*this)(i)!=b[i]) return true;
+            if ((*this)(i) != b(i)) return true;
         return false;
     }
 
@@ -742,7 +742,7 @@ public:
         Mat<L,C,real> m;
         m.identity();
         for (Size i=0; i<C-1; ++i)
-            m.elems(i,C-1) = t[i];
+            m(i,C-1) = t[i];
         return m;
     }
 
@@ -752,7 +752,7 @@ public:
         Mat<L,C,real> m;
         m.identity();
         for (Size i=0; i<C-1; ++i)
-            m.elems(i,i) = s;
+            m(i,i) = s;
         return m;
     }
 
@@ -762,7 +762,7 @@ public:
         Mat<L,C,real> m;
         m.identity();
         for (Size i=0; i<C-1; ++i)
-            m.elems(i,i) = s[i];
+            m(i,i) = s[i];
         return m;
     }
 
