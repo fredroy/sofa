@@ -158,7 +158,7 @@ public:
     {
         for( Size i=0; i<L; i++ )
             for( Size j=0; j<C; j++ )
-                this->elems(i,j) = v;
+                (*this)(i,j) = v;
     }
 
     /// Constructor from another matrix
