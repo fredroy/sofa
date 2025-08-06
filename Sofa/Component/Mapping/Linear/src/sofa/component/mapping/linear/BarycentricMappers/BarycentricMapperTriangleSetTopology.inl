@@ -94,9 +94,9 @@ template <class In, class Out>
 void BarycentricMapperTriangleSetTopology<In,Out>::computeBase(Mat3x3d& base, const typename In::VecCoord& in, const Triangle& element)
 {
     Mat3x3d mt;
-    base[0] = in[element[1]]-in[element[0]];
-    base[1] = in[element[2]]-in[element[0]];
-    base[2] = cross(base[0],base[1]);
+    base(0) = in[element[1]]-in[element[0]];
+    base(1) = in[element[2]]-in[element[0]];
+    base(2) = cross(base(0), base(1));
     mt.transpose(base);
     const bool canInvert = base.invert(mt);
     assert(canInvert);
