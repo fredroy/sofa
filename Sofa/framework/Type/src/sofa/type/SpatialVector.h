@@ -1,4 +1,4 @@
-﻿/******************************************************************************
+/******************************************************************************
 *                 SOFA, Simulation Open-Framework Architecture                *
 *                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *
 *                                                                             *
@@ -40,8 +40,8 @@ public:
     using Vec = sofa::type::Vec<3, TReal>;
     using Mat66 = sofa::type::Mat<6, 6, TReal>;
 
-    Vec lineVec{ type::NOINIT };
-    Vec freeVec{ type::NOINIT };
+    Vec lineVec;//{ type::NOINIT };
+    Vec freeVec;//{ type::NOINIT };
 
     void clear();
     SpatialVector() = default;

@@ -97,7 +97,19 @@ auto dot(const Vec<N, ValueType>& a, const Vec<N, ValueType>& b)
     return a.dot(b);
 }
 
+template < int N, typename ValueType>
+auto dot(const Vec<N, ValueType>& a, const Vec<N, ValueType>& b)
+{
+    return a.dot(b);
+}
+
 template < sofa::Size N, typename ValueType>
+auto cross(const Vec<N, ValueType>& a, const Vec<N, ValueType>& b)
+{
+    return a.cross(b);
+}
+
+template < int N, typename ValueType>
 auto cross(const Vec<N, ValueType>& a, const Vec<N, ValueType>& b)
 {
     return a.cross(b);

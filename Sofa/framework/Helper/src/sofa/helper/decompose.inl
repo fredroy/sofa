@@ -39,9 +39,9 @@ template<class Real>
 void Decompose<Real>::getRotation( Mat<3,3,Real>& r, Vec<3,Real>& edgex, Vec<3,Real>& edgey )
 {
     edgex.normalize();
-    Vec<3,Real> edgez = cross( edgex, edgey );
+    Vec<3,Real> edgez = type::cross( edgex, edgey );
     edgez.normalize();
-    edgey = cross( edgez, edgex );
+    edgey = type::cross( edgez, edgex );
 
     r(0,0) = edgex[0]; r(0,1) = edgey[0]; r(0,2) = edgez[0];
     r(1,0) = edgex[1]; r(1,1) = edgey[1]; r(1,2) = edgez[1];
@@ -65,9 +65,9 @@ void Decompose<Real>::QRDecomposition( const type::Mat<3,2,Real> &M, type::Mat<3
     Vec<3,Real> edgey( M(0,1), M(1,1), M(2,1) );
 
     edgex.normalize();
-    Vec<3,Real> edgez = cross( edgex, edgey );
+    Vec<3,Real> edgez = type::cross( edgex, edgey );
     edgez.normalize();
-    edgey = cross( edgez, edgex );
+    edgey = type::cross( edgez, edgex );
 
     r(0,0) = edgex[0]; r(0,1) = edgey[0];
     r(1,0) = edgex[1]; r(1,1) = edgey[1];
@@ -141,9 +141,9 @@ bool Decompose<Real>::QRDecomposition_stable( const type::Mat<3,3,Real> &M, type
                     }
                 }
 
-                edgey = cross( edgez, edgex );
+                edgey = type::cross( edgez, edgex );
                 edgey.normalize();
-                edgex = cross( edgey, edgez );
+                edgex = type::cross( edgey, edgez );
             }
         }
         else
@@ -184,17 +184,17 @@ bool Decompose<Real>::QRDecomposition_stable( const type::Mat<3,3,Real> &M, type
                     }
                 }
 
-                edgex = cross( edgey, edgez );
+                edgex = type::cross( edgey, edgez );
                 edgex.normalize();
-                edgez = cross( edgex, edgey );
+                edgez = type::cross( edgex, edgey );
             }
             else // collapsed to face (edgey, edgez)
             {
                 //msg_info()<<"QRDecomposition_stable collapased to face (edgey, edgez) "<<M<<std::endl;
 
-                edgex = cross( edgey, edgez );
+                edgex = type::cross( edgey, edgez );
                 edgex.normalize();
-                edgez = cross( edgex, edgey );
+                edgez = type::cross( edgex, edgey );
             }
         }
     }
@@ -240,26 +240,26 @@ bool Decompose<Real>::QRDecomposition_stable( const type::Mat<3,3,Real> &M, type
                     }
                 }
 
-                edgez = cross( edgex, edgey );
+                edgez = type::cross( edgex, edgey );
                 edgez.normalize();
-                edgey = cross( edgez, edgex );
+                edgey = type::cross( edgez, edgex );
             }
             else // collapsed to face (edgez,edgex)
             {
                 //msg_info()<<"QRDecomposition_stable collapased to face (edgez, edgex) "<<M<<std::endl;
 
-                edgey = cross( edgez, edgex );
+                edgey = type::cross( edgez, edgex );
                 edgey.normalize();
-                edgez = cross( edgex, edgey );
+                edgez = type::cross( edgex, edgey );
             }
         }
         else // edgex & edgey are ok (either not collapsed or collapsed to face (edgex,edgey) )
         {
             degenerated = false;
 
-            edgez = cross( edgex, edgey );
+            edgez = type::cross( edgex, edgey );
             edgez.normalize();
-            edgey = cross( edgez, edgex );
+            edgey = type::cross( edgez, edgex );
         }
     }
 
@@ -323,9 +323,9 @@ bool Decompose<Real>::QRDecomposition_stable( const type::Mat<3,2,Real> &M, type
                 }
             }
 
-            Vec<3,Real> edgez = cross( edgex, edgey );
+            Vec<3,Real> edgez = type::cross( edgex, edgey );
             edgez.normalize();
-            edgex = cross( edgey, edgez );
+            edgex = type::cross( edgey, edgez );
         }
     }
     else // not collapsed
@@ -363,9 +363,9 @@ bool Decompose<Real>::QRDecomposition_stable( const type::Mat<3,2,Real> &M, type
                 }
             }
 
-            Vec<3,Real> edgez = cross( edgex, edgey );
+            Vec<3,Real> edgez = type::cross( edgex, edgey );
             edgez.normalize();
-            edgey = cross( edgez, edgex );
+            edgey = type::cross( edgez, edgex );
         }
         else // edgex & edgey are ok (not collapsed)
         {
@@ -373,9 +373,9 @@ bool Decompose<Real>::QRDecomposition_stable( const type::Mat<3,2,Real> &M, type
 
             degenerated = false;
 
-            Vec<3,Real> edgez = cross( edgex, edgey );
+            Vec<3,Real> edgez = type::cross( edgex, edgey );
             edgez.normalize();
-            edgey = cross( edgez, edgex );
+            edgey = type::cross( edgez, edgex );
         }
     }
 
@@ -624,11 +624,11 @@ Real Decompose<Real>::polarDecomposition( const type::Mat<3,3,Real>& M, type::Ma
     type::Mat<3,3,Real> MadjTk;
 
     // row 2 x row 3
-    MadjTk(0) = cross( Mk(1), Mk(2) );
+    MadjTk(0) = type::cross( Mk(1), Mk(2) );
     // row 3 x row 1
-    MadjTk(1) = cross( Mk(2), Mk(0) );
+    MadjTk(1) = type::cross( Mk(2), Mk(0) );
     // row 1 x row 2
-    MadjTk(2) = cross( Mk(0), Mk(1) );
+    MadjTk(2) = type::cross( Mk(0), Mk(1) );
 
     det = Mk(0,0) * MadjTk(0,0) + Mk(0,1) * MadjTk(0,1) + Mk(0,2) * MadjTk(0,2);
     if (det == 0.0)
@@ -1278,7 +1278,7 @@ void Decompose<Real>::ComputeVectors(const Mat<3,3,Real>& A, Vec<3,Real>& U2, in
     // e0*V[i0] = c0*A*R + c1*A*S
     // e0*c0 = c0*R.Dot(A*R) + c1*R.Dot(A*S) = d00*c0 + d01*c1
     // e0*c1 = c0*S.Dot(A*R) + c1*S.Dot(A*S) = d01*c0 + d11*c1
-    Vec<3,Real> S = cross( U2, V[i2] );
+    Vec<3,Real> S = type::cross( U2, V[i2] );
     tmp = A*U2;
     p00 = diag[i0] - U2 * tmp;
     p01 = S * tmp;
@@ -1326,7 +1326,7 @@ void Decompose<Real>::ComputeVectors(const Mat<3,3,Real>& A, Vec<3,Real>& U2, in
         }
     }
 
-    V[i1] = cross( V[i2], V[i0] );
+    V[i1] = type::cross( V[i2], V[i0] );
 }
 
 
@@ -1753,7 +1753,7 @@ bool Decompose<Real>::SVD_stable( const type::Mat<3,3,Real> &F, type::Mat<3,3,Re
     {
         U = F * V.multDiagonal( S_1 );
 
-        Vec<3,Real> c = cross( Vec<3,Real>(U(0, Sorder[1]),U(1, Sorder[1]),U(2, Sorder[1])), Vec<3,Real>(U(0, Sorder[2]),U(1, Sorder[2]),U(2,Sorder[2])) );
+        Vec<3,Real> c = type::cross( Vec<3,Real>(U(0, Sorder[1]),U(1, Sorder[1]),U(2, Sorder[1])), Vec<3,Real>(U(0, Sorder[2]),U(1, Sorder[2]),U(2,Sorder[2])) );
         U(0,Sorder[0]) = c[0];
         U(1,Sorder[0]) = c[1];
         U(2,Sorder[0]) = c[2];
@@ -1794,9 +1794,9 @@ bool Decompose<Real>::SVD_stable( const type::Mat<3,3,Real> &F, type::Mat<3,3,Re
             }
         }
 
-        edge1 = cross( edge2, edge0 );
+        edge1 = type::cross( edge2, edge0 );
         edge1.normalize();
-        edge0 = cross( edge1, edge2 );
+        edge0 = type::cross( edge1, edge2 );
 
         U(0,Sorder[0]) = edge0[0];
         U(1,Sorder[0]) = edge0[1];
@@ -1901,9 +1901,9 @@ bool Decompose<Real>::SVD_stable( const type::Mat<2,2,Real> &F, type::Mat<2,2,Re
             }
         }
 
-        edge2 = cross( edge0, edge1 );
+        edge2 = type::cross( edge0, edge1 );
         edge2.normalize();
-        edge0 = cross( edge1, edge2 );
+        edge0 = type::cross( edge1, edge2 );
 
         U(0,min) = edge0[0];
         U(1,min) = edge0[1];
@@ -2041,9 +2041,9 @@ bool Decompose<Real>::SVD_stable( const type::Mat<3,2,Real> &F, type::Mat<3,2,Re
             }
         }
 
-        edge2 = cross( edge0, edge1 );
+        edge2 = type::cross( edge0, edge1 );
         edge2.normalize();
-        edge0 = cross( edge1, edge2 );
+        edge0 = type::cross( edge1, edge2 );
 
         U(0,min) = edge0[0];
         U(1,min) = edge0[1];

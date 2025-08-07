@@ -37,20 +37,20 @@ public:
     typedef std::pair< sofa::type::Vec3, sofa::type::Vec3 > bbox_t;
     using Real = sofa::type::Vec3::value_type;
 
-    constexpr BoundingBox()
+    BoundingBox()
         : BoundingBox(neutral_bbox().bbox)
     {}
 
     /// Define using the endpoints of the main diagonal
-    constexpr BoundingBox(const sofa::type::Vec3& minBBox, const sofa::type::Vec3& maxBBox)
+    BoundingBox(const sofa::type::Vec3& minBBox, const sofa::type::Vec3& maxBBox)
         : bbox({minBBox, maxBBox}) {}
 
-    constexpr explicit BoundingBox(const bbox_t& bbox)
+    explicit BoundingBox(const bbox_t& bbox)
         : bbox(bbox)
     {}
 
     /// Define using xMin, xMax, yMin, yMax, zMin, zMax in this order
-    constexpr BoundingBox(
+    BoundingBox(
         const Real xMin, const Real xMax,
         const Real yMin, const Real yMax,
         const Real zMin, const Real zMax )
@@ -62,7 +62,7 @@ public:
         : BoundingBox(bbox[0], bbox[1], bbox[2], bbox[3], bbox[4], bbox[5])
     {}
 
-    static constexpr BoundingBox neutral_bbox()
+    static BoundingBox neutral_bbox()
     {
         constexpr Real max_real = std::numeric_limits<Real>::max();
         constexpr Real min_real = std::numeric_limits<Real>::lowest();
@@ -117,7 +117,7 @@ public:
 
     friend std::istream& operator >> ( std::istream& in, BoundingBox& bbox)
     {
-        in >> bbox.minBBox() >> bbox.maxBBox();
+        //in >> bbox.minBBox() >> bbox.maxBBox();
         return in;
     }
 
@@ -202,7 +202,7 @@ public:
 
     friend std::istream& operator >> ( std::istream& in, BoundingBox2D& bbox)
     {
-        in >> bbox.minBBox() >> bbox.maxBBox();
+        //in >> bbox.minBBox() >> bbox.maxBBox();
         return in;
     }
 

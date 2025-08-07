@@ -155,7 +155,8 @@ void Quat<Real>::normalize()
 template<class Real>
 void Quat<Real>::fromFrame(const Vec3& x, const Vec3&y, const Vec3&z)
 {
-    Mat3x3 R(x,y,z);
+    Mat3x3 R;
+    R.row(0) = x;//,y,z);
     R.transpose();
     this->fromMatrix(R);
 }
@@ -382,7 +383,7 @@ auto Quat<Real>::slerp(const Quat &q1, Real t) const -> Quat
 
     q0_1 = q1 * q0_1;
 
-    Vec3 axis(NOINIT), temp(NOINIT);
+    Vec3 axis, temp;
     Real angle;
 
     q0_1.quatToAxis(axis, angle);
@@ -554,7 +555,7 @@ auto Quat<Real>::fromEuler( Real alpha, Real beta, Real gamma, EulerOrder order)
 template<class Real>
 auto Quat<Real>::createFromRotationVector(const Vec3& a) -> Quat
 {
-    Real phi = Real(sqrt(a*a));
+    Real phi = Real(sqrt(a.dot(a)));
     if( phi <= 1.0e-5 )
         return Quat(0,0,0,1);
 
@@ -569,13 +570,13 @@ auto Quat<Real>::createQuaterFromEuler(const Vec3& v, EulerOrder order) -> Quat
 {
     Real quat[4];
 
-    Real c1 = cos( v.elems[0] / 2 );
-    Real c2 = cos( v.elems[1] / 2 );
-    Real c3 = cos( v.elems[2] / 2 );
+    Real c1 = cos( v[0] / 2 );
+    Real c2 = cos( v[1] / 2 );
+    Real c3 = cos( v[2] / 2 );
 
-    Real s1 = sin( v.elems[0] / 2 );
-    Real s2 = sin( v.elems[1] / 2 );
-    Real s3 = sin( v.elems[2] / 2 );
+    Real s1 = sin( v[0] / 2 );
+    Real s2 = sin( v[1] / 2 );
+    Real s3 = sin( v[2] / 2 );
 
     switch(order)
     {

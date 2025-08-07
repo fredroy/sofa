@@ -33,7 +33,7 @@ namespace // anonymous
 {
 
 template<typename QuatReal, typename OtherReal>
-constexpr void getOpenGlMatrix(const QuatReal& q, OtherReal* m)
+ void getOpenGlMatrix(const QuatReal& q, OtherReal* m)
 {
     m[0 * 4 + 0] = static_cast<OtherReal>(1.0 - 2.0 * (q[1] * q[1] + q[2] * q[2]));
     m[1 * 4 + 0] = static_cast<OtherReal>(2.0 * (q[0] * q[1] - q[2] * q[3]));
@@ -62,7 +62,7 @@ namespace sofa::type
 {
 
 struct qNoInit {};
-constexpr qNoInit QNOINIT;
+static qNoInit QNOINIT;
 
 template<class Real>
 class Quat
@@ -77,31 +77,31 @@ public:
     typedef Real value_type;
     typedef sofa::Size Size;
 
-    constexpr Quat()
+     Quat()
     {
         this->clear();
     }
 
     /// Fast constructor: no initialization
-    explicit constexpr Quat(qNoInit)
+    explicit  Quat(qNoInit)
     {
     }
 
     ~Quat() = default;
-    constexpr Quat(Real x, Real y, Real z, Real w)
+     Quat(Real x, Real y, Real z, Real w)
     {
         set(x, y, z, w);
     }
 
     template<class Real2>
-    constexpr Quat(const Real2 q[])
+     Quat(const Real2 q[])
     { 
         for (int i=0; i<4; i++) 
             _q[i] = Real(q[i]); 
     }
 
     template<class Real2>
-    constexpr Quat(const Quat<Real2>& q) 
+     Quat(const Quat<Real2>& q) 
     { 
         for (int i=0; i<4; i++) 
             _q[i] = Real(q[i]); 
@@ -174,7 +174,7 @@ public:
 
     /// Convert the quaternion into an orientation homogeneous matrix
     /// The homogeneous part is set to 0,0,0,1
-    constexpr void toHomogeneousMatrix(Mat4x4 &m) const
+     void toHomogeneousMatrix(Mat4x4 &m) const
     {
         m(0,0) = (1 - 2 * (_q[1] * _q[1] + _q[2] * _q[2]));
         m(0,1) = (2 * (_q[0] * _q[1] - _q[2] * _q[3]));
@@ -198,7 +198,7 @@ public:
     }
 
     /// Apply the rotation to a given vector
-    constexpr auto rotate( const Vec3& v ) const -> Vec3
+     auto rotate( const Vec3& v ) const -> Vec3
     {
         const Vec3 qxyz{ _q[0], _q[1] , _q[2] };
         const auto t = qxyz.cross(v) * 2;
@@ -206,7 +206,7 @@ public:
     }
 
     /// Apply the inverse rotation to a given vector
-    constexpr auto inverseRotate( const Vec3& v ) const -> Vec3
+     auto inverseRotate( const Vec3& v ) const -> Vec3
     {
         const Vec3 qxyz{ -_q[0], -_q[1] , -_q[2] };
         const auto t = qxyz.cross(v) * 2;
@@ -217,7 +217,7 @@ public:
     /// Adding quaternions to get a compound rotation is analogous to adding
     /// translations to get a compound translation.
     auto operator+(const Quat &q1) const -> Quat;
-    constexpr auto operator*(const Quat& q1) const -> Quat
+     auto operator*(const Quat& q1) const -> Quat
     {
         Quat	ret(QNOINIT);
 
@@ -241,7 +241,7 @@ public:
         return ret;
     }
 
-    constexpr auto operator*(const Real &r) const -> Quat
+     auto operator*(const Real &r) const -> Quat
     {
         Quat  ret(QNOINIT);
         ret[0] = _q[0] * r;
@@ -278,7 +278,7 @@ public:
     }
 
     /// Given two Quats, multiply them together to get a third quaternion.
-    constexpr auto quatVectMult(const Vec3& vect) const -> Quat
+     auto quatVectMult(const Vec3& vect) const -> Quat
     {
         Quat ret(QNOINIT);
         ret._q[3] = -(_q[0] * vect[0] + _q[1] * vect[1] + _q[2] * vect[2]);
@@ -289,7 +289,7 @@ public:
         return ret;
     }
 
-    constexpr auto vectQuatMult(const Vec3& vect) const -> Quat
+     auto vectQuatMult(const Vec3& vect) const -> Quat
     {
         Quat ret(QNOINIT);
         ret[3] = -(vect[0] * _q[0] + vect[1] * _q[1] + vect[2] * _q[2]);
@@ -299,38 +299,38 @@ public:
         return ret;
     }
 
-    constexpr Real& operator[](Size index)
+     Real& operator[](Size index)
     {
         assert(index < 4);
         return _q[index];
     }
 
-    constexpr const Real& operator[](Size index) const
+     const Real& operator[](Size index) const
     {
         assert(index < 4);
         return _q[index];
     }
 
     template< std::size_t I >
-    [[nodiscard]] constexpr Real& get() & noexcept requires (I < 4)
+    [[nodiscard]]  Real& get() & noexcept requires (I < 4)
     {
         return _q[I];
     }
 
     template< std::size_t I >
-    [[nodiscard]] constexpr const Real& get() const& noexcept requires (I < 4)
+    [[nodiscard]]  const Real& get() const& noexcept requires (I < 4)
     {
         return _q[I];
     }
 
     template< std::size_t I >
-    [[nodiscard]] constexpr Real&& get() && noexcept requires (I < 4)
+    [[nodiscard]]  Real&& get() && noexcept requires (I < 4)
     {
         return std::move(_q[I]);
     }
 
     template< std::size_t I >
-    [[nodiscard]] constexpr const Real&& get() const&& noexcept requires (I < 4)
+    [[nodiscard]]  const Real&& get() const&& noexcept requires (I < 4)
     {
         return std::move(_q[I]);
     }
@@ -349,7 +349,7 @@ public:
 
     /// A useful function, builds a rotation matrix in Matrix based on
     /// given quaternion.
-    constexpr void buildRotationMatrix(Real m[4][4]) const
+     void buildRotationMatrix(Real m[4][4]) const
     {
         m[0][0] = (1 - 2 * (_q[1] * _q[1] + _q[2] * _q[2]));
         m[0][1] = (2 * (_q[0] * _q[1] - _q[2] * _q[3]));
@@ -372,12 +372,12 @@ public:
         m[3][3] = 1;
     }
 
-    constexpr void writeOpenGlMatrix(double* m) const
+     void writeOpenGlMatrix(double* m) const
     {
         return getOpenGlMatrix<Quat, double>(*this, m);
     }
 
-    constexpr void writeOpenGlMatrix(float* m) const
+     void writeOpenGlMatrix(float* m) const
     {
         return getOpenGlMatrix<Quat, float>(*this, m);
     }
@@ -427,7 +427,7 @@ public:
     auto slerp2(const Quat &q1, Real t) const-> Quat;
 
     void operator+=(const Quat& q2);
-    constexpr void operator*=(const Quat& q1)
+     void operator*=(const Quat& q1)
     {
         Quat q2 = *this;
         _q[3] = q2._q[3] * q1._q[3] -
@@ -452,7 +452,7 @@ public:
     bool operator!=(const Quat& q) const;
 
     static constexpr Size static_size = 4;
-    static Size size() {return static_size;}
+    static constexpr Size size() {return static_size;}
 
     /// Compile-time constant specifying the number of scalars within this vector (equivalent to the size() method)
     static constexpr Size total_size = 4;
@@ -467,7 +467,7 @@ template<class Real>
 class QuatNoInit : public Quat<Real>
 {
 public:
-    constexpr QuatNoInit() noexcept
+     QuatNoInit() noexcept
         : Quat<Real>(QNOINIT)
     {}
     using Quat<Real>::Quat;

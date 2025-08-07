@@ -68,7 +68,7 @@ void generateRigid(Rigid3MassType& mass, type::Vec3& center, const helper::io::M
             // get cross product of edges
             auto kV1mV0 = kV1 - kV0;
             auto kV2mV0 = kV2 - kV0;
-            auto kN = cross(kV1mV0,kV2mV0);
+            auto kN = type::cross(kV1mV0,kV2mV0);
 
             // compute integral terms
             SReal fTmp0, fTmp1, fTmp2;

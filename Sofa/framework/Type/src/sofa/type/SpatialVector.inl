@@ -1,4 +1,4 @@
-﻿/******************************************************************************
+/******************************************************************************
 *                 SOFA, Simulation Open-Framework Architecture                *
 *                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *
 *                                                                             *
@@ -68,7 +68,11 @@ SpatialVector<TReal> SpatialVector<TReal>::operator- ( ) const
 template<class TReal>
 TReal SpatialVector<TReal>::operator* ( const SpatialVector<TReal>& v ) const
 {
-    return lineVec * v.freeVec + freeVec * v.lineVec;
+    auto a = lineVec.dot(v.freeVec);
+    auto b = freeVec.dot(v.lineVec);
+    TReal res = a + b;
+    
+    return res;
 }
 
 /// Spatial cross product

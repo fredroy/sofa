@@ -34,19 +34,86 @@ auto transposed() const
     return this->transpose();
 }
 
+auto norm2() const
+{
+    return this->squaredNorm();
+}
+
 auto& x()
 {
-    return this->operator()(0,0);
+    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime >= 1)
+    {
+        return this->row(0);
+    }
+    else
+    {
+        return (*this)(0,0);
+    }
 }
 
 const auto& x() const
 {
-    return this->operator()(0,0);
+    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime >= 1)
+    {
+        return this->row(0);
+    }
+    else
+    {
+        return (*this)(0,0);
+    }
+}
+
+auto& y()
+{
+    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime >= 2)
+    {
+        return this->row(1);
+    }
+    else
+    {
+        return (*this)(1,0);
+    }
+}
+
+const auto& y() const
+{
+    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime >= 2)
+    {
+        return this->row(1);
+    }
+    else
+    {
+        return (*this)(1,0);
+    }
+}
+
+auto& z()
+{
+    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime >= 3)
+    {
+        return this->row(2);
+    }
+    else
+    {
+        return (*this)(2,0);
+    }
+}
+
+const auto& z() const
+{
+    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime >= 3)
+    {
+        return this->row(2);
+    }
+    else
+    {
+        return (*this)(2,0);
+    }
 }
 
 auto& operator[](Index i)
 {
-    if constexpr (this->IsRowMajor && ColsAtCompileTime > 1)
+    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime > 1)
     {
         return this->row(i);
     }
@@ -58,7 +125,7 @@ auto& operator[](Index i)
 
 const auto& operator[](Index i) const
 {
-    if constexpr (this->IsRowMajor && ColsAtCompileTime > 1)
+    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime > 1)
     {
         return this->row(i);
     }
