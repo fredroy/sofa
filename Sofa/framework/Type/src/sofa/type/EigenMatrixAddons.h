@@ -1,26 +1,26 @@
-﻿struct NoInit;
+struct NoInit;
 
 explicit Matrix(const NoInit& noInit)
 {}
 
 void identity()
 {
-    *this = Identity();
+    *this = this->Identity();
 }
 
 void clear()
 {
-    *this = Zero();
+    this->setZero();
 }
 
 auto ptr()
 {
-    return data();
+    return this->data();
 }
 
 auto ptr() const
 {
-    return data();
+    return this->data();
 }
 
 bool invert(const Matrix& mat)
@@ -31,7 +31,7 @@ bool invert(const Matrix& mat)
 
 auto transposed() const
 {
-    return transpose();
+    return this->transpose();
 }
 
 auto& x()
@@ -46,7 +46,7 @@ const auto& x() const
 
 auto& operator[](Index i)
 {
-    if constexpr (IsRowMajor && ColsAtCompileTime > 1)
+    if constexpr (this->IsRowMajor && ColsAtCompileTime > 1)
     {
         return this->row(i);
     }
@@ -58,7 +58,7 @@ auto& operator[](Index i)
 
 const auto& operator[](Index i) const
 {
-    if constexpr (IsRowMajor && ColsAtCompileTime > 1)
+    if constexpr (this->IsRowMajor && ColsAtCompileTime > 1)
     {
         return this->row(i);
     }

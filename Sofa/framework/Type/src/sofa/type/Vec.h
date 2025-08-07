@@ -32,7 +32,7 @@
 #include <cmath>
 #include <array>
 
-#define EIGEN_MATRIX_PLUGIN "EigenMatrixAddons.h"
+#define EIGEN_MATRIX_PLUGIN "sofa/type/EigenMatrixAddons.h"
 #include <Eigen/Dense>
 
 #define EQUALITY_THRESHOLD 1e-6

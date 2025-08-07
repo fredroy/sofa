@@ -26,20 +26,20 @@
 namespace sofa::type
 {
 
-template class SOFA_TYPE_API Mat<2,2,float>;
-template class SOFA_TYPE_API Mat<2,2,double>;
-
-template class SOFA_TYPE_API Mat<3,3,float>;
-template class SOFA_TYPE_API Mat<3,3,double>;
-
-template class SOFA_TYPE_API Mat<4,4,float>;
-template class SOFA_TYPE_API Mat<4,4,double>;
-
-template class SOFA_TYPE_API Mat<6,6,float>;
-template class SOFA_TYPE_API Mat<6,6,double>;
-
-template class SOFA_TYPE_API Mat<12,12,float>;
-template class SOFA_TYPE_API Mat<12,12,double>;
+//template class SOFA_TYPE_API Mat<2,2,float>;
+//template class SOFA_TYPE_API Mat<2,2,double>;
+//
+//template class SOFA_TYPE_API Mat<3,3,float>;
+//template class SOFA_TYPE_API Mat<3,3,double>;
+//
+//template class SOFA_TYPE_API Mat<4,4,float>;
+//template class SOFA_TYPE_API Mat<4,4,double>;
+//
+//template class SOFA_TYPE_API Mat<6,6,float>;
+//template class SOFA_TYPE_API Mat<6,6,double>;
+//
+//template class SOFA_TYPE_API Mat<12,12,float>;
+//template class SOFA_TYPE_API Mat<12,12,double>;
 
 
 } // namespace sofa::type
