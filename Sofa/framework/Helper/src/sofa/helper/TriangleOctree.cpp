@@ -46,7 +46,7 @@ void TriangleOctree::draw (sofa::helper::visual::DrawTool* drawTool)
         center =
             (type::Vec3 (x, y, z) + type::Vec3 (size / 2, size / 2, size / 2));
         drawTool->pushMatrix();
-        drawTool->translate((float)center[0], (float)center[1], (float)center[2]);
+        drawTool->translate(center[0], center[1], center[2]);
         drawTool->setPolygonMode(0, false);
         drawTool->drawCube(size, sofa::type::RGBAColor(0.5f, 0.5f, 0.5f, 1.0f));
         drawTool->popMatrix();

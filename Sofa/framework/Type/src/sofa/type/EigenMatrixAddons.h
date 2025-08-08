@@ -1,5 +1,7 @@
 struct NoInit;
 
+static constexpr sofa::Size total_size = ColsAtCompileTime;
+
 explicit Matrix(const NoInit& noInit)
 {}
 
@@ -41,96 +43,134 @@ auto norm2() const
 
 auto& x()
 {
-    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime >= 1)
+    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1 && ColsAtCompileTime >= 1)
     {
-        return this->row(0);
+        return (*this)(0,0);
     }
     else
     {
-        return (*this)(0,0);
+        return this->row(0);
     }
 }
 
 const auto& x() const
 {
-    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime >= 1)
+    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1 && ColsAtCompileTime >= 1)
     {
-        return this->row(0);
+        return (*this)(0,0);
     }
     else
     {
-        return (*this)(0,0);
+        return this->row(0);
     }
 }
 
 auto& y()
 {
-    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime >= 2)
+    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1 && ColsAtCompileTime >= 2)
     {
-        return this->row(1);
+        return (*this)(0,1);
     }
     else
     {
-        return (*this)(1,0);
+        return this->row(1);
     }
 }
 
 const auto& y() const
 {
-    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime >= 2)
+    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1 && ColsAtCompileTime >= 2)
     {
-        return this->row(1);
+        return (*this)(0,1);
     }
     else
     {
-        return (*this)(1,0);
+        return this->row(1);
     }
 }
 
 auto& z()
 {
-    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime >= 3)
+    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1 && ColsAtCompileTime >= 3)
     {
-        return this->row(2);
+        return (*this)(0,2);
     }
     else
     {
-        return (*this)(2,0);
+        return this->row(2);
     }
 }
 
 const auto& z() const
 {
-    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime >= 3)
+    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1 && ColsAtCompileTime >= 3)
     {
-        return this->row(2);
+        return (*this)(0,2);
     }
     else
     {
-        return (*this)(2,0);
+        return this->row(2);
     }
 }
 
 auto& operator[](Index i)
 {
-    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime > 1)
+    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1)
     {
-        return this->row(i);
+        return (*this)(0,i);
     }
     else
     {
-        return this->operator()(i);
+        return this->row(i);
     }
 }
 
 const auto& operator[](Index i) const
 {
-    if constexpr (Matrix::IsRowMajor && ColsAtCompileTime > 1)
+    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1)
     {
-        return this->row(i);
+        return (*this)(0,i);
     }
     else
     {
-        return this->operator()(i);
+        return this->row(i);
     }
 }
+
+/// Specific set function for 1-element vectors.
+void set(const auto r1) noexcept
+{
+    (*this) << r1;
+}
+
+template<typename... ArgsT>
+void set(const ArgsT... r) noexcept
+{
+    (((*this) << r), ...);
+}
+
+template<typename Scalar, int Dim>
+auto linearProduct(const Eigen::Ref<const Eigen::Matrix<Scalar, Dim, 1>>& v)
+{
+    static_assert(Matrix::ColsAtCompileTime == Dim);
+    
+    decltype(v) r;
+    for (std::size_t i=0; i<Dim; i++)
+        r[i]=(*this)[i] * v[i];
+    return r;
+}
+
+bool normalizeWithNorm(Matrix::Scalar norm, Matrix::Scalar threshold=std::numeric_limits<Matrix::Scalar>::epsilon())
+{
+    if (norm>threshold)
+    {
+        for(auto& s : (*this))
+        {
+            s /= norm;
+        }
+        return true;
+    }
+    else
+        return false;
+}
+

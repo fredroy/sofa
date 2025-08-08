@@ -54,11 +54,14 @@ namespace // anonymous
 } // anonymous namespace
 
 //enum NoInit { NOINIT }; ///< use when calling Vec or Mat constructor to skip initialization of values to 0
-struct NoInit {};
-constexpr NoInit NOINIT;
+//struct NoInit {};
+//constexpr NoInit NOINIT;
 
 template < sofa::Size N, typename ValueType>
-using Vec = Eigen::Vector<ValueType, N>;
+using Vec = Eigen::Matrix<ValueType, 1, N, Eigen::RowMajor>;
+
+template < sofa::Size N, typename ValueType>
+using VecNoInit = Eigen::Matrix<ValueType, 1, N, Eigen::RowMajor>;
 
 
 typedef Vec<1,float> Vec1f;
@@ -91,27 +94,31 @@ typedef Vec<6,int> Vec6i;
 typedef Vec<6,unsigned> Vec6u;
 typedef Vec<6,SReal> Vec6;
 
-template < sofa::Size N, typename ValueType>
-auto dot(const Vec<N, ValueType>& a, const Vec<N, ValueType>& b)
+template<typename Derived1, typename Derived2>
+auto dot(const Eigen::MatrixBase<Derived1>& a,
+         const Eigen::MatrixBase<Derived2>& b)
 {
     return a.dot(b);
 }
 
-template < int N, typename ValueType>
-auto dot(const Vec<N, ValueType>& a, const Vec<N, ValueType>& b)
-{
-    return a.dot(b);
-}
+//template < sofa::Size N, typename ValueType>
+//auto cross(const Vec<N, ValueType>& a, const Vec<N, ValueType>& b)
+//{
+//    return a.cross(b);
+//}
+//
+//template < int N, typename ValueType>
+//auto cross(const Vec<N, ValueType>& a, const Vec<N, ValueType>& b)
+//{
+//    return a.cross(b);
+//}
 
-template < sofa::Size N, typename ValueType>
-auto cross(const Vec<N, ValueType>& a, const Vec<N, ValueType>& b)
+template<typename Derived1, typename Derived2>
+auto cross(const Eigen::MatrixBase<Derived1>& a,
+           const Eigen::MatrixBase<Derived2>& b)
 {
-    return a.cross(b);
-}
-
-template < int N, typename ValueType>
-auto cross(const Vec<N, ValueType>& a, const Vec<N, ValueType>& b)
-{
+    static_assert(Derived1::SizeAtCompileTime == 3);
+    static_assert(Derived2::SizeAtCompileTime == 3);
     return a.cross(b);
 }
 

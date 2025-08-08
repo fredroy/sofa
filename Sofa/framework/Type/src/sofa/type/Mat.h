@@ -88,4 +88,28 @@ typedef Mat<2,2,SReal> Matrix2;
 typedef Mat<3,3,SReal> Matrix3;
 typedef Mat<4,4,SReal> Matrix4;
 
+template<typename Derived>
+auto oneNorm(const Eigen::MatrixBase<Derived>& m)
+{
+    return m.cwiseAbs().colwise().sum().maxCoeff();
+}
+
+template<typename Derived>
+auto infNorm(const Eigen::MatrixBase<Derived>& m)
+{
+    return m.cwiseAbs().rowwise().sum().maxCoeff();
+}
+
+template<typename Derived>
+auto determinant(const Eigen::MatrixBase<Derived>& mat)
+{
+    return mat.determinant();
+}
+
+template<typename Derived>
+auto trace(const Eigen::MatrixBase<Derived>& mat)
+{
+    return mat.trace();
+}
+
 } // namespace sofa::type

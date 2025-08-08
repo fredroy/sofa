@@ -43,7 +43,7 @@ Monomial_LD<Real,N>::Monomial_LD()
     coef=(Real) 0;
     for(unsigned int i=0; i<N; i++)
     {
-        powers[i]=0;
+        powers[i]=0; 
         std::ostringstream oss; oss << 't' << i ;
         variables[i]=oss.str();
     }
