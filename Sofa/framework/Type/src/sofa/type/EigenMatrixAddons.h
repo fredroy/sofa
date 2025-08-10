@@ -43,7 +43,7 @@ auto norm2() const
 
 auto& x()
 {
-    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1 && ColsAtCompileTime >= 1)
+    if constexpr (ColsAtCompileTime == 1 && RowsAtCompileTime >= 1)
     {
         return (*this)(0,0);
     }
@@ -55,7 +55,7 @@ auto& x()
 
 const auto& x() const
 {
-    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1 && ColsAtCompileTime >= 1)
+    if constexpr (ColsAtCompileTime == 1 && RowsAtCompileTime >= 1)
     {
         return (*this)(0,0);
     }
@@ -67,7 +67,7 @@ const auto& x() const
 
 auto& y()
 {
-    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1 && ColsAtCompileTime >= 2)
+    if constexpr (ColsAtCompileTime == 1 && RowsAtCompileTime >= 2)
     {
         return (*this)(0,1);
     }
@@ -79,7 +79,7 @@ auto& y()
 
 const auto& y() const
 {
-    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1 && ColsAtCompileTime >= 2)
+    if constexpr (ColsAtCompileTime == 1 && RowsAtCompileTime >= 2)
     {
         return (*this)(0,1);
     }
@@ -91,7 +91,7 @@ const auto& y() const
 
 auto& z()
 {
-    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1 && ColsAtCompileTime >= 3)
+    if constexpr (ColsAtCompileTime == 1 && RowsAtCompileTime >= 3)
     {
         return (*this)(0,2);
     }
@@ -103,7 +103,7 @@ auto& z()
 
 const auto& z() const
 {
-    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1 && ColsAtCompileTime >= 3)
+    if constexpr (ColsAtCompileTime == 1 && RowsAtCompileTime >= 3)
     {
         return (*this)(0,2);
     }
@@ -115,7 +115,7 @@ const auto& z() const
 
 auto& operator[](Index i)
 {
-    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1)
+    if constexpr (ColsAtCompileTime == 1)
     {
         return (*this)(0,i);
     }
@@ -127,7 +127,7 @@ auto& operator[](Index i)
 
 const auto& operator[](Index i) const
 {
-    if constexpr (Matrix::IsRowMajor && RowsAtCompileTime == 1)
+    if constexpr (ColsAtCompileTime == 1)
     {
         return (*this)(0,i);
     }
@@ -152,7 +152,7 @@ void set(const ArgsT... r) noexcept
 template<typename Scalar, int Dim>
 auto linearProduct(const Eigen::Ref<const Eigen::Matrix<Scalar, Dim, 1>>& v)
 {
-    static_assert(Matrix::ColsAtCompileTime == Dim);
+    static_assert(Matrix::RowsAtCompileTime == Dim);
     
     decltype(v) r;
     for (std::size_t i=0; i<Dim; i++)

@@ -58,10 +58,10 @@ namespace // anonymous
 //constexpr NoInit NOINIT;
 
 template < sofa::Size N, typename ValueType>
-using Vec = Eigen::Matrix<ValueType, 1, N, Eigen::RowMajor>;
+using Vec = Eigen::Matrix<ValueType, N, 1, Eigen::RowMajor>;
 
 template < sofa::Size N, typename ValueType>
-using VecNoInit = Eigen::Matrix<ValueType, 1, N, Eigen::RowMajor>;
+using VecNoInit = Eigen::Matrix<ValueType, N, 1, Eigen::RowMajor>;
 
 
 typedef Vec<1,float> Vec1f;
