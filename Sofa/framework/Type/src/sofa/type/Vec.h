@@ -141,36 +141,28 @@ auto linearProduct(const Eigen::MatrixBase<Derived1>& vec1,
     return result;
 }
 
-/// Read from an input stream
-template<int N, typename Real>
-std::istream& operator >> ( std::istream& in, Vec<N,Real>& v )
-{
-    for (sofa::Size i = 0; i < N; ++i)
-    {
-        in >> v(i);
-    }
-    return in;
-}
+///// Read from an input stream
+//template<int N, typename Real>
+//std::istream& operator >> ( std::istream& in, Vec<N,Real>& v )
+//{
+//    for (sofa::Size i = 0; i < N; ++i)
+//    {
+//        in >> v(i);
+//    }
+//    return in;
+//}
 
-/// Write to an output stream
-template<int N, typename Real>
-std::ostream& operator << ( std::ostream& out, const Vec<N,Real>& v )
-{
-    for (sofa::Size i = 0; i < N - 1; ++i)
-    {
-        out << v(i) << " ";
-    }
-    out << v[N - 1];
-    return out;
-}
-
-
-template<typename Derived>
-std::ostream& operator << ( std::ostream& os, const Eigen::MatrixBase<Derived>& matrix )
-{
-    return os << matrix.format(Eigen::IOFormat(Eigen::StreamPrecision, 0, " ", "\n", "", "", "", ""));
-}
-
+///// Write to an output stream
+//template<int N, typename Real>
+//std::ostream& operator << ( std::ostream& out, const Vec<N,Real>& v )
+//{
+//    for (sofa::Size i = 0; i < N - 1; ++i)
+//    {
+//        out << v(i) << " ";
+//    }
+//    out << v[N - 1];
+//    return out;
+//}
 
 // Define global operator< for Eigen matrices
 template<int N, class T>

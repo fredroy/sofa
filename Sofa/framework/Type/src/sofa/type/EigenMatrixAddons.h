@@ -231,3 +231,6 @@ static auto fromPtr(const Real* vptr)
     return r;
 }
 
+template<typename Derived>
+friend std::istream& operator >> ( std::istream& is, Eigen::MatrixBase<Derived>& matrix);
+

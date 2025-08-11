@@ -60,7 +60,7 @@ MeshLoader::MeshLoader() : BaseLoader()
   , d_translation(initData(&d_translation, Vec3(), "translation", "Translation of the DOFs"))
   , d_rotation(initData(&d_rotation, Vec3(), "rotation", "Rotation of the DOFs"))
   , d_scale(initData(&d_scale, Vec3(1.0, 1.0, 1.0), "scale3d", "Scale of the DOFs in 3 dimensions"))
-  , d_transformation(initData(&d_transformation, type::Matrix4::Identity(), "transformation", "4x4 Homogeneous matrix to transform the DOFs (when present replace any)"))
+  , d_transformation(initData(&d_transformation, "transformation", "4x4 Homogeneous matrix to transform the DOFs (when present replace any)"))
   , d_previousTransformation(type::Matrix4::Identity() )
 {
     addAlias(&d_tetrahedra, "tetras");
@@ -221,15 +221,21 @@ void MeshLoader::reinit()
         // Transformation of the local frame: scale along the translated and rotated axes, then rotation around the translated origin, then translation
         // is applied to the points to implement the matrix product TRSx
 
-        transformation = type::Matrix4::transformTranslation(translation) *
-                type::Matrix4::transformRotation(type::Quat< SReal >::createQuaterFromEuler(rotation * M_PI / 180.0)) *
-                type::Matrix4::transformScale(scale);
+        Eigen::Translation<SReal, 4> tr(translation);
+        const auto euler = rotation * M_PI / 180.0;
+        Eigen::Quaternion<SReal> q;
+        q = Eigen::AngleAxis<SReal>(euler[0], Eigen::Vector3d::UnitX())
+            * Eigen::AngleAxis<SReal>(euler[1], Eigen::Vector3d::UnitY())
+            * Eigen::AngleAxis<SReal>(euler[2], Eigen::Vector3d::UnitZ());
+        Eigen::Scaling(scale);
+
+        Eigen::Transform<SReal,4,Eigen::Affine> t = tr * q.toRotationMatrix() * Eigen::Scaling(scale);
     }
 
     if (transformation != type::Matrix4::Identity())
     {
         this->applyTransformation(transformation);
-        d_previousTransformation.transformInvert(transformation);
+        d_previousTransformation = transformation.inverse() ;//.transformInvert(transformation);
     }
 
     updateMesh();
@@ -750,17 +756,17 @@ void MeshLoader::updateNormals()
 }
 
 
-void MeshLoader::applyTransformation(type::Matrix4 const& T)
+void MeshLoader::applyTransformation(type::Matrix3 const& T)
 {
-    if (!T.isTransform())
-    {
-        msg_info() << "applyTransformation: ignored matrix which is not a transformation T=" << T ;
-        return;
-    }
+//    if (!T.isTransform())
+//    {
+//        msg_info() << "applyTransformation: ignored matrix which is not a transformation T=" << T ;
+//        return;
+//    }
     sofa::helper::WriteAccessor <Data< type::vector<sofa::type::Vec3 > > > my_positions = d_positions;
     for (Size i = 0; i < my_positions.size(); i++)
     {
-        my_positions[i] = T.transform(my_positions[i]);
+        my_positions[i] = T * my_positions[i];
     }
 }
 

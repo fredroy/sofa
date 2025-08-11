@@ -115,57 +115,126 @@ auto trace(const Eigen::MatrixBase<Derived>& mat)
 } // namespace sofa::type
 
 
-/// Read from an input stream
-template<int L, int C, typename Real>
-std::istream& operator >> ( std::istream& in, Eigen::Matrix<Real, L, C>& m )
-{
-    sofa::Size c;
-    c = in.peek();
-    while (c==' ' || c=='\n' || c=='[')
-    {
-        in.get();
-        if( c=='[' ) break;
-        c = in.peek();
-    }
+///// Read from an input stream
+//template<int L, int C, typename Real>
+//std::istream& operator >> ( std::istream& in, Eigen::Matrix<Real, L, C>& m )
+//{
+//    sofa::Size c;
+//    c = in.peek();
+//    while (c==' ' || c=='\n' || c=='[')
+//    {
+//        in.get();
+//        if( c=='[' ) break;
+//        c = in.peek();
+//    }
 
-    for (sofa::Size i = 0; i < C; ++i)
-    {
-        in >> m(i, 0);
-    }
+//    for (sofa::Size i = 0; i < C; ++i)
+//    {
+//        in >> m(i, 0);
+//    }
 
-    for (sofa::Size i=1; i<L; i++)
-    {
-        c = in.peek();
-        while (c==' ' || c==',')
-        {
-            in.get();
-            c = in.peek();
-        }
+//    for (sofa::Size i=1; i<L; i++)
+//    {
+//        c = in.peek();
+//        while (c==' ' || c==',')
+//        {
+//            in.get();
+//            c = in.peek();
+//        }
 
-        for (sofa::Size j = 0; j < C; ++j)
-        {
-            in >> m(j, i);
-        }
-    }
-    if(in.eof()) return in;
-    c = in.peek();
-    while (c==' ' || c=='\n' || c==']')
-    {
-        in.get();
-        if( c==']' ) break;
-        if(in.eof()) break;
-        c = in.peek();
-    }
-    return in;
-}
+//        for (sofa::Size j = 0; j < C; ++j)
+//        {
+//            in >> m(j, i);
+//        }
+//    }
+//    if(in.eof()) return in;
+//    c = in.peek();
+//    while (c==' ' || c=='\n' || c==']')
+//    {
+//        in.get();
+//        if( c==']' ) break;
+//        if(in.eof()) break;
+//        c = in.peek();
+//    }
+//    return in;
+//}
 
-/// Write to an output stream
-template<int L, int C, typename Real>
-std::ostream& operator << ( std::ostream& o, const Eigen::Matrix<Real, L, C>& m )
-{
-    o << '[' << m[0];
-    for (sofa::Size i=1; i<L; i++)
-        o << ',' << m[i];
-    o << ']';
-    return o;
-}
+///// Write to an output stream
+//template<int L, int C, typename Real>
+//std::ostream& operator << ( std::ostream& o, const Eigen::Matrix<Real, L, C>& m )
+//{
+//    o << '[' << m[0];
+//    for (sofa::Size i=1; i<L; i++)
+//        o << ',' << m[i];
+//    o << ']';
+//    return o;
+//}
+
+
+//template<typename Derived>
+//std::istream& operator >> ( std::istream& is, Eigen::MatrixBase<Derived>& matrix)
+//{
+//    using Scalar = typename Derived::Scalar;
+//    char ch;
+
+//    // Skip whitespace and check for opening bracket
+//    is >> std::ws;
+//    bool hasOuterBrackets = (is.peek() == '[');
+//    if (hasOuterBrackets) {
+//        is >> ch; // consume '['
+//    }
+
+//    for (int i = 0; i < matrix.rows(); ++i) {
+//        // Skip whitespace and check for row opening bracket
+//        is >> std::ws;
+//        bool hasRowBrackets = (is.peek() == '[');
+//        if (hasRowBrackets) {
+//            is >> ch; // consume '['
+//        }
+
+//        for (int j = 0; j < matrix.cols(); ++j) {
+//            Scalar value;
+//            if (!(is >> value)) {
+//                is.setstate(std::ios::failbit);
+//                return is;
+//            }
+//            matrix(i, j) = value;
+
+//            // Skip optional comma or semicolon
+//            is >> std::ws;
+//            if (j < matrix.cols() - 1) {
+//                if (is.peek() == ',' || is.peek() == ';') {
+//                    is >> ch;
+//                }
+//            }
+//        }
+
+//        // Skip row closing bracket if present
+//        is >> std::ws;
+//        if (hasRowBrackets && is.peek() == ']') {
+//            is >> ch;
+//        }
+
+//        // Skip row separator (semicolon or newline)
+//        is >> std::ws;
+//        if (i < matrix.rows() - 1) {
+//            if (is.peek() == ';' || is.peek() == '\n') {
+//                is >> ch;
+//            }
+//        }
+//    }
+
+//    // Skip outer closing bracket if present
+//    is >> std::ws;
+//    if (hasOuterBrackets && is.peek() == ']') {
+//        is >> ch;
+//    }
+
+//    return is;
+//}
+
+//template<typename Derived>
+//std::ostream& operator << ( std::ostream& os, const Eigen::MatrixBase<Derived>& matrix )
+//{
+//    return os << matrix.format(Eigen::IOFormat(Eigen::StreamPrecision, 0, " ", "\n", "", "", "", ""));
+//}

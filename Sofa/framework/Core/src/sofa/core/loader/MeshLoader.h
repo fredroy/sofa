@@ -105,7 +105,7 @@ public:
     virtual bool load() final;
 
     /// Apply Homogeneous transformation to the positions
-    virtual void applyTransformation (sofa::type::Matrix4 const& T);
+    virtual void applyTransformation (sofa::type::Matrix3 const& T);
 
     /// @name Initial transformations accessors.
     /// @{
@@ -121,7 +121,7 @@ public:
     {
         d_scale.setValue(Vec3(sx, sy, sz));
     }
-    void setTransformation(const sofa::type::Matrix4& t)
+    void setTransformation(const sofa::type::Matrix3& t)
     {
         d_transformation.setValue(t);
     }
@@ -138,7 +138,7 @@ public:
     {
         return d_scale.getValue();
     }
-    virtual sofa::type::Matrix4 getTransformation() const
+    virtual sofa::type::Matrix3 getTransformation() const
     {
         return d_transformation.getValue();
     }
@@ -190,7 +190,7 @@ public:
     Data< Vec3 > d_translation; ///< Translation of the DOFs
     Data< Vec3 > d_rotation; ///< Rotation of the DOFs
     Data< Vec3 > d_scale; ///< Scale of the DOFs in 3 dimensions
-    Data< type::Matrix4 > d_transformation; ///< 4x4 Homogeneous matrix to transform the DOFs (when present replace any)
+    Data< type::Matrix3 > d_transformation; ///< 4x4 Homogeneous matrix to transform the DOFs (when present replace any)
 
 
     virtual void updateMesh();
@@ -201,7 +201,7 @@ public:
 protected:
 
     /// to be able to call reinit w/o applying several time the same transform
-    type::Matrix4 d_previousTransformation;
+    type::Matrix3 d_previousTransformation;
 
 
     void addPosition(type::vector< sofa::type::Vec3 >& pPositions, const sofa::type::Vec3& p);
