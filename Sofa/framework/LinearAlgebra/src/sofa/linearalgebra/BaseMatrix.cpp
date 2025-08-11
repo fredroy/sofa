@@ -113,7 +113,7 @@ struct BaseMatrixLinearOpMV_BlockDiagonal
     }
 };
 
-template <sofa::Size L, sofa::Size C, class real>
+template <int L, int C, class real>
 void matrixAdd(BaseMatrix* self, const Index row, const Index col, const sofa::type::Mat<L, C, real>& M)
 {
     for (unsigned int r = 0; r < L; ++r)

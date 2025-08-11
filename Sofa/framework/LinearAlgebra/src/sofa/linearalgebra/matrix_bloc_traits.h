@@ -101,10 +101,17 @@ public:
         b.getsub(row, col, subBlock);
     }
 
+    static const std::string Name()
+    {
+        std::ostringstream o;
+        o << "EigenMat";
+        return o.str();
+    }
+
     static sofa::linearalgebra::BaseMatrix::ElementType getElementType() { return matrix_bloc_traits<Real, IndexType>::getElementType(); }
 };
 
-template <Size L, Size C, class real, typename IndexType>
+template <int L, int C, class real, typename IndexType>
 class matrix_bloc_traits < type::Mat<L,C,real>, IndexType>
 {
 public:

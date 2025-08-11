@@ -555,7 +555,7 @@ auto Quat<Real>::fromEuler( Real alpha, Real beta, Real gamma, EulerOrder order)
 template<class Real>
 auto Quat<Real>::createFromRotationVector(const Vec3& a) -> Quat
 {
-    Real phi = Real(sqrt(a.dot(a)));
+    Real phi = Real(sqrt(type::dot(a,a)));
     if( phi <= 1.0e-5 )
         return Quat(0,0,0,1);
 

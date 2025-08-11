@@ -21,6 +21,8 @@
 ******************************************************************************/
 #pragma once
 
+#include <sofa/type/Vec.h>
+#include <sofa/type/Mat.h>
 #include "vector_T.h"              ///< Declaration of the class vector       (the interface)
 #include "vector_T.inl"            ///< Definition of the default vector      (the default implementation)
 #include "vector_Integral.h"       ///< Extern declaration for integral types (the specialization)

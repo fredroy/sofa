@@ -172,7 +172,7 @@ void generateRigid(Rigid3MassType& mass, type::Vec3& center, io::Mesh *mesh
 {
     if( scale != type::Vec3(1, 1, 1) ) {
         for(size_t i = 0, n = mesh->getVertices().size(); i < n; ++i) {
-            mesh->getVertices()[i] = mesh->getVertices()[i].linearProduct(scale);
+            mesh->getVertices()[i] = type::linearProduct(mesh->getVertices()[i], scale);
         }
     }
 

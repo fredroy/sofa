@@ -159,7 +159,7 @@ public:
         // Transformation between c2 and c1 frames
         type::Quat<real> quat = quat1 * quat2.inverse();
         quat.normalize();
-        type::Vec3 axis(type::NOINIT);
+        type::VecNoInit<3, real> axis;
         real angle{};
         quat.quatToAxis(axis, angle);
         axis *= angle;

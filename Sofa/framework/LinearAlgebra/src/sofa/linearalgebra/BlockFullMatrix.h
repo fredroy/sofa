@@ -77,21 +77,21 @@ public:
         {
             return type::Mat<BSIZE,BSIZE,Real>::operator-(m);
         }
-        type::Vec<BSIZE,Real> operator*(const type::Vec<BSIZE,Real>& v)
-        {
-            return type::Mat<BSIZE,BSIZE,Real>::operator*(v);
-        }
+//        type::Vec<BSIZE,Real> operator*(const type::Vec<BSIZE,Real>& v)
+//        {
+//            return type::Mat<BSIZE,BSIZE,Real>::operator*(v);
+//        }
         type::Mat<BSIZE,BSIZE,Real> operator*(const type::Mat<BSIZE,BSIZE,Real>& m)
         {
-            return sofa::type::operator*(*this, m);
+            return (*this)* m;
         }
         type::Mat<BSIZE,BSIZE,Real> operator*(const Block& m)
         {
-            return sofa::type::operator*(*this, m);
+            return (*this)* m;
         }
         type::Mat<BSIZE,BSIZE,Real> operator*(const TransposedBlock& mt)
         {
-            return operator*(mt.m.transposed());
+            return (*this)* mt.m.transposed(); //operator*(mt.m.transposed());
         }
         TransposedBlock t() const;
         Block i() const;

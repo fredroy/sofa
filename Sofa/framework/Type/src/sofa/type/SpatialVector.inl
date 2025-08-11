@@ -68,8 +68,8 @@ SpatialVector<TReal> SpatialVector<TReal>::operator- ( ) const
 template<class TReal>
 TReal SpatialVector<TReal>::operator* ( const SpatialVector<TReal>& v ) const
 {
-    auto a = lineVec.dot(v.freeVec);
-    auto b = freeVec.dot(v.lineVec);
+    auto a = type::dot(lineVec, v.freeVec);
+    auto b = type::dot(freeVec, v.lineVec);
     TReal res = a + b;
     
     return res;

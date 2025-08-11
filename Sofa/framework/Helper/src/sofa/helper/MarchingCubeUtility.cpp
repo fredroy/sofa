@@ -411,9 +411,12 @@ namespace sofa::helper
                                              const type::Vec3 &p1, const type::Vec3 &p2,
                                              const float valp1, const float valp2 ) const
     {
+        static const auto vec111 = type::Vec3 ( 1_sreal, 1_sreal, 1_sreal);
         const float mu = ( isolevel - valp1 ) / ( valp2 - valp1 );
         p = p1 + ( p2 - p1 ) * mu;
-        p = ( ( p + type::Vec3 ( 1_sreal, 1_sreal, 1_sreal) ) * 0.5_sreal ).linearProduct ( dataVoxelSize.linearProduct ( dataResolution ) ) + dataVoxelSize/2_sreal;
+        auto tempP = ((p + vec111) * 0.5_sreal).eval();
+        auto tempvox = type::linearProduct(dataVoxelSize, dataResolution ).eval();
+        p = type::linearProduct(tempP, tempvox) + dataVoxelSize/2_sreal;
         p += verticesTranslation;
         p[0] = ( int ) helper::round( p[0] * (SReal)PRECISION ) / (SReal)PRECISION;
         p[1] = ( int ) helper::round( p[1] * (SReal)PRECISION ) / (SReal)PRECISION;
@@ -802,7 +805,8 @@ namespace sofa::helper
                         type::Vec3i currentCube ( i, j , k );
                         if (!parsedVoxels.contains ( index ))
                         {
-                            seeds.push_back ( currentCube - type::Vec3 ( 1_sreal, 0_sreal, 0_sreal ) );
+                            const auto e = currentCube - type::Vec3i ( 1, 0, 0 );
+                            seeds.push_back ( e );
                             // propager sur les autres voxels et les incrire ds parsedVoxels.
                             findConnectedVoxels ( parsedVoxels, isoValue, currentCube, data );
                         }
@@ -825,7 +829,7 @@ namespace sofa::helper
 
         for ( vector<type::Vec3>::const_iterator it = realCoords.begin(); it != realCoords.end(); ++it )
         {
-            const type::Vec3 seed = ( ( *it ) - verticesTranslation - ( dataVoxelSize/ 2_sreal ) ).linearProduct ( gridSize );
+            const type::Vec3 seed = ( ( *it ) - verticesTranslation - ( dataVoxelSize/ 2_sreal ) ).eval().linearProduct ( gridSize );
             const type::Vec3i intSeed {static_cast<int>(seed.x()), static_cast<int>(seed.y()), static_cast<int>(seed.z())};
             mCubeCoords.push_back ( intSeed );
             assert ( intSeed[0] >= 0 );

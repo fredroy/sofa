@@ -58,10 +58,10 @@ namespace // anonymous
 //constexpr NoInit NOINIT;
 
 template < sofa::Size N, typename ValueType>
-using Vec = Eigen::Matrix<ValueType, N, 1, Eigen::RowMajor>;
+using Vec = Eigen::Matrix<ValueType, N, 1, Eigen::ColMajor>;
 
 template < sofa::Size N, typename ValueType>
-using VecNoInit = Eigen::Matrix<ValueType, N, 1, Eigen::RowMajor>;
+using VecNoInit = Eigen::Matrix<ValueType, N, 1, Eigen::ColMajor>;
 
 
 typedef Vec<1,float> Vec1f;
@@ -122,27 +122,135 @@ auto cross(const Eigen::MatrixBase<Derived1>& a,
     return a.cross(b);
 }
 
-/// Read from an input stream
-template<sofa::Size N, typename Real>
-std::istream& operator >> ( std::istream& in, Vec<N,Real>& v )
+template<typename Derived1, typename Derived2>
+auto linearProduct(const Eigen::MatrixBase<Derived1>& vec1,
+           const Eigen::MatrixBase<Derived2>& vec2)
 {
-    for (sofa::Size i = 0; i < N; ++i)
-    {
-        in >> v(i);
+    static_assert(Derived1::IsVectorAtCompileTime && Derived2::IsVectorAtCompileTime,
+                 "Both arguments must be vectors");
+
+    assert(vec1.size() == vec2.size() && "Vectors must have the same size");
+
+    using ResultScalar = decltype(typename Derived1::Scalar{} * typename Derived2::Scalar{});
+    using ResultType = Eigen::Vector<ResultScalar, Derived1::SizeAtCompileTime>;
+
+    ResultType result(vec1.size());
+    for (int i = 0; i < vec1.size(); ++i) {
+        result(i) = static_cast<ResultScalar>(vec1(i,0)) * static_cast<ResultScalar>(vec2(i,0));
     }
-    return in;
+    return result;
 }
 
-/// Write to an output stream
-template<sofa::Size N, typename Real>
-std::ostream& operator << ( std::ostream& out, const Vec<N,Real>& v )
+
+///// Read from an input stream
+//template<int N, typename Real>
+//std::istream& operator >> ( std::istream& in, Vec<N,Real>& v )
+//{
+//    for (sofa::Size i = 0; i < N; ++i)
+//    {
+//        in >> v(i);
+//    }
+//    return in;
+//}
+
+///// Write to an output stream
+//template<int N, typename Real>
+//std::ostream& operator << ( std::ostream& out, const Vec<N,Real>& v )
+//{
+//    for (sofa::Size i = 0; i < N - 1; ++i)
+//    {
+//        out << v(i) << " ";
+//    }
+//    out << v[N - 1];
+//    return out;
+//}
+
+
+template<typename Derived>
+std::istream& operator >> ( std::istream& is, Eigen::MatrixBase<Derived>& matrix )
 {
-    for (sofa::Size i = 0; i < N - 1; ++i)
-    {
-        out << v(i) << " ";
+    using Scalar = typename Derived::Scalar;
+    char ch;
+
+    // Skip whitespace and check for opening bracket
+    is >> std::ws;
+    bool hasOuterBrackets = (is.peek() == '[');
+    if (hasOuterBrackets) {
+        is >> ch; // consume '['
     }
-    out << v[N - 1];
-    return out;
+
+    for (int i = 0; i < matrix.rows(); ++i) {
+        // Skip whitespace and check for row opening bracket
+        is >> std::ws;
+        bool hasRowBrackets = (is.peek() == '[');
+        if (hasRowBrackets) {
+            is >> ch; // consume '['
+        }
+
+        for (int j = 0; j < matrix.cols(); ++j) {
+            Scalar value;
+            if (!(is >> value)) {
+                is.setstate(std::ios::failbit);
+                return is;
+            }
+            matrix(i, j) = value;
+
+            // Skip optional comma or semicolon
+            is >> std::ws;
+            if (j < matrix.cols() - 1) {
+                if (is.peek() == ',' || is.peek() == ';') {
+                    is >> ch;
+                }
+            }
+        }
+
+        // Skip row closing bracket if present
+        is >> std::ws;
+        if (hasRowBrackets && is.peek() == ']') {
+            is >> ch;
+        }
+
+        // Skip row separator (semicolon or newline)
+        is >> std::ws;
+        if (i < matrix.rows() - 1) {
+            if (is.peek() == ';' || is.peek() == '\n') {
+                is >> ch;
+            }
+        }
+    }
+
+    // Skip outer closing bracket if present
+    is >> std::ws;
+    if (hasOuterBrackets && is.peek() == ']') {
+        is >> ch;
+    }
+
+    return is;
+}
+
+template<typename Derived>
+std::ostream& operator << ( std::ostream& os, const Eigen::MatrixBase<Derived>& matrix )
+{
+    return os << matrix.format(Eigen::IOFormat(Eigen::StreamPrecision, 0, " ", "\n", "", "", "", ""));
+}
+
+
+// Define global operator< for Eigen matrices
+template<int N, class T>
+bool operator<(const sofa::type::Vec<N,T>& lhs, const  sofa::type::Vec<N,T>& rhs)
+{
+    if (lhs.size() != rhs.size())
+    {
+        return lhs.size() < rhs.size();
+    }
+
+    // Lexicographic comparison
+    for (int i = 0; i < lhs.size(); ++i)
+    {
+        if (lhs(i) < rhs(i)) return true;
+        if (lhs(i) > rhs(i)) return false;
+    }
+    return false; // Equal
 }
 
 } // namespace sofa::type
@@ -152,7 +260,7 @@ namespace std
 {
 
 // template <>
-template<sofa::Size N, class T>
+template<int N, class T>
 struct less< sofa::type::Vec<N,T> >
 {
     bool operator()(const  sofa::type::Vec<N,T>& x, const  sofa::type::Vec<N,T>& y) const

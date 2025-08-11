@@ -72,7 +72,7 @@ struct Tetrahedron
     [[nodiscard]]
     static constexpr auto signedVolume(const Node& n0, const Node& n1, const Node& n2, const Node& n3)
     {
-        constexpr Node n{};
+        Node n{};
         static_assert(std::distance(std::begin(n), std::end(n)) == 3, "volume can only be computed in 3 dimensions.");
 
         const auto a = n1 - n0;

@@ -98,7 +98,7 @@ struct Triangle
         const auto A0 = Triangle::area(n1, n2, p0);
         const auto A1 = Triangle::area(n0, p0, n2);
 
-        sofa::type::Vec<3, T> baryCoefs();
+        sofa::type::Vec<3, T> baryCoefs;
         baryCoefs[0] = A0 / area;
         baryCoefs[1] = A1 / area;
         baryCoefs[2] = 1 - baryCoefs[0] - baryCoefs[1];
@@ -200,13 +200,10 @@ struct Triangle
         const auto e0 = n1 - n0;
         const auto e1 = n2 - n0;
 
-        sofa::type::VecNoInit<3, TReal> tvec();
-        sofa::type::VecNoInit<3, TReal> pvec();
-        sofa::type::VecNoInit<3, TReal> qvec();
         TReal det;
         TReal inv_det;
 
-        pvec = sofa::type::cross(direction, e1);
+        auto pvec = sofa::type::cross(direction, e1);
 
         det = sofa::type::dot(e0, pvec);
 
@@ -217,13 +214,13 @@ struct Triangle
 
         inv_det = one / det;
 
-        tvec = origin - n0;
+        auto tvec = origin - n0;
 
         u = sofa::type::dot(tvec, pvec) * inv_det;
         if (u < zero - epsilon || u > one + epsilon)
             return false;
 
-        qvec = sofa::type::cross(tvec, e0);
+        auto qvec = sofa::type::cross(tvec, e0);
 
         v = sofa::type::dot(direction, qvec) * inv_det;
         if (v < zero - epsilon || (u + v) > one + epsilon)

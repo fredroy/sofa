@@ -1,6 +1,15 @@
 struct NoInit;
 
 static constexpr sofa::Size total_size = ColsAtCompileTime;
+using Real = Matrix::Scalar;
+static constexpr auto nbLines = Matrix::RowsAtCompileTime;
+static constexpr auto nbCols = Matrix::ColsAtCompileTime;
+using Size = decltype (ColsAtCompileTime);
+
+
+static constexpr sofa::Size spatial_dimensions = nbCols;
+static constexpr sofa::Size coord_total_size = nbLines*nbCols;
+static constexpr sofa::Size deriv_total_size = nbLines*nbCols;
 
 explicit Matrix(const NoInit& noInit)
 {}
@@ -149,15 +158,19 @@ void set(const ArgsT... r) noexcept
     (((*this) << r), ...);
 }
 
-template<typename Scalar, int Dim>
-auto linearProduct(const Eigen::Ref<const Eigen::Matrix<Scalar, Dim, 1>>& v)
+template<typename Derived>
+auto linearProduct(const Eigen::MatrixBase<Derived>& vec) const
 {
-    static_assert(Matrix::RowsAtCompileTime == Dim);
-    
-    decltype(v) r;
-    for (std::size_t i=0; i<Dim; i++)
-        r[i]=(*this)[i] * v[i];
-    return r;
+    static_assert(Matrix::IsVectorAtCompileTime && Derived::IsVectorAtCompileTime,
+                 "Both arguments must be vectors");
+    return (*this).cwiseProduct(vec);
+}
+
+template<typename Derived1, typename Derived2>
+auto dot(const Eigen::MatrixBase<Derived1>& a,
+         const Eigen::MatrixBase<Derived2>& b)
+{
+    return a.dot(b);
 }
 
 bool normalizeWithNorm(Matrix::Scalar norm, Matrix::Scalar threshold=std::numeric_limits<Matrix::Scalar>::epsilon())
@@ -174,3 +187,87 @@ bool normalizeWithNorm(Matrix::Scalar norm, Matrix::Scalar threshold=std::numeri
         return false;
 }
 
+template <typename Derived>
+auto multTranspose(const Eigen::MatrixBase<Derived>& m) const noexcept
+{
+    return (*this).transpose() * m;
+}
+
+template <typename Derived>
+void getsub(int L0, int C0, Eigen::MatrixBase<Derived>& m) const noexcept
+{
+    m = (*this)(seq(L0, Eigen::MatrixBase<Derived>::RowsAtCompileTime), seq(C0, Eigen::MatrixBase<Derived>::ColsAtCompileTime));
+}
+
+void getsub(int L0, int C0, Matrix::Scalar& m) const noexcept
+{
+    m = (*this)(L0,C0);
+}
+
+//template<typename Derived>
+//friend std::istream& operator >> ( std::istream& is, Eigen::MatrixBase<Derived>& matrix )
+//{
+//    using Scalar = typename Derived::Scalar;
+//    char ch;
+
+//    // Skip whitespace and check for opening bracket
+//    is >> std::ws;
+//    bool hasOuterBrackets = (is.peek() == '[');
+//    if (hasOuterBrackets) {
+//        is >> ch; // consume '['
+//    }
+
+//    for (int i = 0; i < matrix.rows(); ++i) {
+//        // Skip whitespace and check for row opening bracket
+//        is >> std::ws;
+//        bool hasRowBrackets = (is.peek() == '[');
+//        if (hasRowBrackets) {
+//            is >> ch; // consume '['
+//        }
+
+//        for (int j = 0; j < matrix.cols(); ++j) {
+//            Scalar value;
+//            if (!(is >> value)) {
+//                is.setstate(std::ios::failbit);
+//                return is;
+//            }
+//            matrix(i, j) = value;
+
+//            // Skip optional comma or semicolon
+//            is >> std::ws;
+//            if (j < matrix.cols() - 1) {
+//                if (is.peek() == ',' || is.peek() == ';') {
+//                    is >> ch;
+//                }
+//            }
+//        }
+
+//        // Skip row closing bracket if present
+//        is >> std::ws;
+//        if (hasRowBrackets && is.peek() == ']') {
+//            is >> ch;
+//        }
+
+//        // Skip row separator (semicolon or newline)
+//        is >> std::ws;
+//        if (i < matrix.rows() - 1) {
+//            if (is.peek() == ';' || is.peek() == '\n') {
+//                is >> ch;
+//            }
+//        }
+//    }
+
+//    // Skip outer closing bracket if present
+//    is >> std::ws;
+//    if (hasOuterBrackets && is.peek() == ']') {
+//        is >> ch;
+//    }
+
+//    return is;
+//}
+
+//template<typename Derived>
+//friend std::ostream& operator << ( std::ostream& os, const Eigen::MatrixBase<Derived>& matrix )
+//{
+//    return os << matrix.format(Eigen::IOFormat(Eigen::StreamPrecision, 0, " ", "\n", "", "", "", ""));
+//}

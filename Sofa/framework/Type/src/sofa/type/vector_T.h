@@ -29,6 +29,8 @@
 #include <istream>
 #include <ostream>
 
+#include <sofa/type/Mat.h>
+
 #if !defined(NDEBUG) && !defined(SOFA_NO_VECTOR_ACCESS_FAILURE)
 #define SOFA_VECTOR_CHECK_ACCESS true
 #else

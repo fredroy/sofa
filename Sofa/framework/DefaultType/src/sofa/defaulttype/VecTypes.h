@@ -68,7 +68,7 @@ protected:
     /// @internal size dependent specializations
     /// @{
 
-    template<Size N, class T>
+    template<int N, class T>
     struct Impl
     {
         static constexpr void set( Coord& c, T x, T y, T z )

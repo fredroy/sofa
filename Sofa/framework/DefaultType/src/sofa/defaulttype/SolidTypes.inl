@@ -44,8 +44,8 @@ template<class R>
 typename SolidTypes<R>::SpatialVector SolidTypes<R>::RigidInertia::operator * (const SpatialVector& v ) const
 {
     return SpatialVector(
-            cross(v.lineVec,h)+v.freeVec*m,
-            mult(I,v.lineVec) + cross( h, v.freeVec )
+            type::cross(v.lineVec,h)+v.freeVec*m,
+            mult(I,v.lineVec) + type::cross( h, v.freeVec )
             );
 }
 

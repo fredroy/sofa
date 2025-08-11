@@ -624,7 +624,7 @@ Real Decompose<Real>::polarDecomposition( const type::Mat<3,3,Real>& M, type::Ma
     type::Mat<3,3,Real> MadjTk;
 
     // row 2 x row 3
-    MadjTk(0) = type::cross( Mk(1), Mk(2) );
+    MadjTk(0) = type::cross( Mk[1], Mk[2] );
     // row 3 x row 1
     MadjTk(1) = type::cross( Mk(2), Mk(0) );
     // row 1 x row 2
