@@ -22,6 +22,14 @@
 #include <sofa/core/loader/MeshLoader.h>
 #include <sofa/helper/io/Mesh.h>
 
+
+///// Write to an output stream
+std::ostream& operator << ( std::ostream& o, const Eigen::Transform<SReal,3,Eigen::Affine>& m )
+{
+
+    return o;
+}
+
 namespace sofa::core::loader
 {
 
@@ -61,7 +69,7 @@ MeshLoader::MeshLoader() : BaseLoader()
   , d_rotation(initData(&d_rotation, Vec3(), "rotation", "Rotation of the DOFs"))
   , d_scale(initData(&d_scale, Vec3(1.0, 1.0, 1.0), "scale3d", "Scale of the DOFs in 3 dimensions"))
   , d_transformation(initData(&d_transformation, "transformation", "4x4 Homogeneous matrix to transform the DOFs (when present replace any)"))
-  , d_previousTransformation(type::Matrix4::Identity() )
+  , d_previousTransformation( )
 {
     addAlias(&d_tetrahedra, "tetras");
     addAlias(&d_hexahedra, "hexas");
@@ -199,17 +207,16 @@ void MeshLoader::init()
 
 void MeshLoader::reinit()
 {
-    type::Matrix4 transformation = d_transformation.getValue();
+    auto transformation = d_transformation.getValue();
     const Vec3& scale = d_scale.getValue();
     const Vec3& rotation = d_rotation.getValue();
     const Vec3& translation = d_translation.getValue();
 
 
     this->applyTransformation(d_previousTransformation);
-    d_previousTransformation.identity();
+    d_previousTransformation = TransformationMatrix::Identity();
 
-
-    if (transformation != type::Matrix4::Identity())
+    if (transformation == TransformationMatrix::Identity())
     {
         if (d_scale.getValue() != Vec3(1.0, 1.0, 1.0) || d_rotation.getValue() != Vec3(0.0, 0.0, 0.0) || d_translation.getValue() != Vec3(0.0, 0.0, 0.0))
         {
@@ -221,7 +228,7 @@ void MeshLoader::reinit()
         // Transformation of the local frame: scale along the translated and rotated axes, then rotation around the translated origin, then translation
         // is applied to the points to implement the matrix product TRSx
 
-        Eigen::Translation<SReal, 4> tr(translation);
+        Eigen::Translation<SReal, 3> tr(translation);
         const auto euler = rotation * M_PI / 180.0;
         Eigen::Quaternion<SReal> q;
         q = Eigen::AngleAxis<SReal>(euler[0], Eigen::Vector3d::UnitX())
@@ -229,14 +236,12 @@ void MeshLoader::reinit()
             * Eigen::AngleAxis<SReal>(euler[2], Eigen::Vector3d::UnitZ());
         Eigen::Scaling(scale);
 
-        Eigen::Transform<SReal,4,Eigen::Affine> t = tr * q.toRotationMatrix() * Eigen::Scaling(scale);
+        Transformation temp = tr * q.toRotationMatrix() * Eigen::Scaling(scale);
+        transformation = temp.matrix();
     }
 
-    if (transformation != type::Matrix4::Identity())
-    {
-        this->applyTransformation(transformation);
-        d_previousTransformation = transformation.inverse() ;//.transformInvert(transformation);
-    }
+    this->applyTransformation(transformation);
+    d_previousTransformation = transformation.inverse() ;//.transformInvert(transformation);
 
     updateMesh();
 }
@@ -756,7 +761,7 @@ void MeshLoader::updateNormals()
 }
 
 
-void MeshLoader::applyTransformation(type::Matrix3 const& T)
+void MeshLoader::applyTransformation(TransformationMatrix const& T)
 {
 //    if (!T.isTransform())
 //    {
@@ -764,9 +769,10 @@ void MeshLoader::applyTransformation(type::Matrix3 const& T)
 //        return;
 //    }
     sofa::helper::WriteAccessor <Data< type::vector<sofa::type::Vec3 > > > my_positions = d_positions;
+    Transformation transform(T);
     for (Size i = 0; i < my_positions.size(); i++)
     {
-        my_positions[i] = T * my_positions[i];
+        my_positions[i] = transform * my_positions[i];
     }
 }
 

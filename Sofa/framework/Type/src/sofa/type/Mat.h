@@ -159,18 +159,6 @@ auto trace(const Eigen::MatrixBase<Derived>& mat)
 //    return in;
 //}
 
-///// Write to an output stream
-//template<int L, int C, typename Real>
-//std::ostream& operator << ( std::ostream& o, const Eigen::Matrix<Real, L, C>& m )
-//{
-//    o << '[' << m[0];
-//    for (sofa::Size i=1; i<L; i++)
-//        o << ',' << m[i];
-//    o << ']';
-//    return o;
-//}
-
-
 //template<typename Derived>
 //std::istream& operator >> ( std::istream& is, Eigen::MatrixBase<Derived>& matrix)
 //{
