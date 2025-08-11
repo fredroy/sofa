@@ -92,7 +92,7 @@ void MechanicalPickParticlesVisitor::getClosestParticle( core::behavior::BaseMec
         pointi[0] = mstatei->getPX(indexCollisionElementi);
         pointi[1] = mstatei->getPY(indexCollisionElementi);
         pointi[2] = mstatei->getPZ(indexCollisionElementi);
-        rayLengthi = (pointi-rayOrigin)*rayDirection;
+        rayLengthi = type::dot((pointi-rayOrigin),rayDirection);
 
         if( rayLengthi < rayLength ) // keep the closest particle to the ray origin
         {
