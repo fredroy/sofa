@@ -190,7 +190,21 @@ bool normalizeWithNorm(Matrix::Scalar norm, Matrix::Scalar threshold=std::numeri
 template <typename Derived>
 auto multTranspose(const Eigen::MatrixBase<Derived>& m) const noexcept
 {
-    return (*this).transpose() * m;
+    return ((*this).transpose() * m).eval();
+}
+
+template <typename Derived>
+auto multTransposed(const Eigen::MatrixBase<Derived>& m) const noexcept
+{
+    return ((*this) * m.transpose()).eval();
+}
+
+template <typename Derived>
+auto multDiagonal(const Eigen::MatrixBase<Derived>& m) const noexcept
+{
+    static_assert(Derived::IsVectorAtCompileTime);
+
+    return ((*this) * m.asDiagonal()).eval();
 }
 
 template <typename Derived>

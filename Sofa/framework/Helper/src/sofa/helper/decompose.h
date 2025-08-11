@@ -369,7 +369,7 @@ private:
       * QL algorithm with implicit shifting, applies to tridiagonal matrices
       * Derived from numerical recipes
       */
-    template <sofa::Size iSize>
+    template <int iSize>
     static void QLAlgorithm( type::Vec<iSize,Real> &diag, type::Vec<iSize,Real> &subDiag, type::Mat<iSize,iSize,Real> &V );
 
 }; // class Decompose

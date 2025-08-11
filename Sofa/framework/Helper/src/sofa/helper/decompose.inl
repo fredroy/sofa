@@ -624,11 +624,11 @@ Real Decompose<Real>::polarDecomposition( const type::Mat<3,3,Real>& M, type::Ma
     type::Mat<3,3,Real> MadjTk;
 
     // row 2 x row 3
-    MadjTk(0) = type::cross( Mk[1], Mk[2] );
+    MadjTk.row(0) = type::cross( Mk.row(1), Mk.row(2) );
     // row 3 x row 1
-    MadjTk(1) = type::cross( Mk(2), Mk(0) );
+    MadjTk.row(1) = type::cross( Mk.row(2), Mk.row(0) );
     // row 1 x row 2
-    MadjTk(2) = type::cross( Mk(0), Mk(1) );
+    MadjTk.row(2) = type::cross( Mk.row(0), Mk.row(1) );
 
     det = Mk(0,0) * MadjTk(0,0) + Mk(0,1) * MadjTk(0,1) + Mk(0,2) * MadjTk(0,2);
     if (det == 0.0)
@@ -637,8 +637,8 @@ Real Decompose<Real>::polarDecomposition( const type::Mat<3,3,Real>& M, type::Ma
         break;
     }
 
-    Real MadjT_one = oneNorm(MadjTk);
-    Real MadjT_inf = infNorm(MadjTk);
+    Real MadjT_one = type::oneNorm(MadjTk);
+    Real MadjT_inf = type::infNorm(MadjTk);
 
     Real gamma = sqrt(sqrt((MadjT_one * MadjT_inf) / (M_oneNorm * M_infNorm)) / fabs(det));
     Real g1 = gamma * static_cast<Real>(0.5);
@@ -648,16 +648,16 @@ Real Decompose<Real>::polarDecomposition( const type::Mat<3,3,Real>& M, type::Ma
     Mk = Mk * g1 + MadjTk * g2;
     Ek -= Mk;
 
-    E_oneNorm = oneNorm(Ek);
-    M_oneNorm = oneNorm(Mk);
-    M_infNorm = infNorm(Mk);
+    E_oneNorm = type::oneNorm(Ek);
+    M_oneNorm = type::oneNorm(Mk);
+    M_infNorm = type::infNorm(Mk);
 
   }
   while ( E_oneNorm > M_oneNorm * zeroTolerance() );
 
 
   // Q = Mk^T
-  Q.transpose( Mk );
+  Q = Mk.transpose();
   S = Mk * M;
 
   // S must be symmetric; enforce the symmetry
@@ -677,21 +677,21 @@ Real Decompose<Real>::polarDecomposition( const type::Mat<3,3,Real>& M, type::Ma
   Real det, M_oneNorm, M_infNorm, E_oneNorm;
 
   // Mk = M^T
-  Mk.transpose( M );
+  Mk = M.transpose();
 
-  M_oneNorm = oneNorm(Mk);
-  M_infNorm = infNorm(Mk);
+  M_oneNorm = type::oneNorm(Mk);
+  M_infNorm = type::infNorm(Mk);
 
   do
   {
     type::Mat<3,3,Real> MadjTk;
 
     // row 2 x row 3
-    MadjTk[0] = cross( Mk[1], Mk[2] );
+    MadjTk[0] = type::cross( Mk[1], Mk[2] );
     // row 3 x row 1
-    MadjTk[1] = cross( Mk[2], Mk[0] );
+    MadjTk[1] = type::cross( Mk[2], Mk[0] );
     // row 1 x row 2
-    MadjTk[2] = cross( Mk[0], Mk[1] );
+    MadjTk[2] = type::cross( Mk[0], Mk[1] );
 
     det = Mk(0,0) * MadjTk(0,0) + Mk(0,1) * MadjTk(0,1) + Mk(0,2) * MadjTk(0,2);
     if (det == 0.0)
@@ -700,8 +700,8 @@ Real Decompose<Real>::polarDecomposition( const type::Mat<3,3,Real>& M, type::Ma
         break;
     }
 
-    Real MadjT_one = oneNorm(MadjTk);
-    Real MadjT_inf = infNorm(MadjTk);
+    Real MadjT_one = type::oneNorm(MadjTk);
+    Real MadjT_inf = type::infNorm(MadjTk);
 
     Real gamma = sqrt(sqrt((MadjT_one * MadjT_inf) / (M_oneNorm * M_infNorm)) / fabs(det));
     Real g1 = gamma * static_cast<Real>(0.5);
@@ -711,14 +711,14 @@ Real Decompose<Real>::polarDecomposition( const type::Mat<3,3,Real>& M, type::Ma
     Mk = Mk * g1 + MadjTk * g2;
     Ek -= Mk;
 
-    E_oneNorm = oneNorm(Ek);
-    M_oneNorm = oneNorm(Mk);
-    M_infNorm = infNorm(Mk);
+    E_oneNorm = type::oneNorm(Ek);
+    M_oneNorm = type::oneNorm(Mk);
+    M_infNorm = type::infNorm(Mk);
   }
   while ( E_oneNorm > M_oneNorm * zeroTolerance() );
 
   // Q = Mk^T
-  Q.transpose( Mk );
+  Q = Mk.transpose();
 
   return det;
 }
@@ -730,7 +730,7 @@ void Decompose<Real>::polarDecomposition( const type::Mat<2,2,Real>& M, type::Ma
     Q(0,1) = -M(1,0);
     Q(1,0) = -M(0,1);
     Q(1,1) =  M(0,0);
-    Q = M + ( determinant( M ) < 0 ? (Real)-1.0 : (Real)1.0 ) * Q;
+    Q = M + ( type::determinant( M ) < 0 ? (Real)-1.0 : (Real)1.0 ) * Q;
 
     for (unsigned int i=0; i<2; i++)
     {
@@ -832,7 +832,7 @@ void Decompose<Real>::polarDecompositionGradient_G( const type::Mat<3,3,Real>& Q
     G(1,1) += trace;
     G(2,2) += trace;
 
-    G = G.multTransposed( Q );
+    G = G * Q.transpose();
 
     const bool canInvert = invG.invert( G );
     assert(canInvert);
@@ -1227,9 +1227,9 @@ void Decompose<Real>::ComputeVectors(const Mat<3,3,Real>& A, Vec<3,Real>& U2, in
     // e2*c0 = c0*U0.Dot(A*U0) + c1*U0.Dot(A*U1) = d00*c0 + d01*c1
     // e2*c1 = c0*U1.Dot(A*U0) + c1*U1.Dot(A*U1) = d01*c0 + d11*c1
     Vec<3,Real> tmp = A*U0;
-    Real p00 = diag[i2] - U0 * tmp;
-    Real p01 = U1 * tmp;
-    Real p11 = diag[i2] - U1 * (A*U1);
+    Real p00 = diag[i2] - type::dot(U0, tmp);
+    Real p01 = type::dot(U1, tmp);
+    Real p11 = diag[i2] - type::dot(U1, (A*U1));
     Real invLength;
     Real maxValue = helper::rabs(p00);
     int row = 0;
@@ -1280,9 +1280,9 @@ void Decompose<Real>::ComputeVectors(const Mat<3,3,Real>& A, Vec<3,Real>& U2, in
     // e0*c1 = c0*S.Dot(A*R) + c1*S.Dot(A*S) = d01*c0 + d11*c1
     Vec<3,Real> S = type::cross( U2, V[i2] );
     tmp = A*U2;
-    p00 = diag[i0] - U2 * tmp;
-    p01 = S * tmp;
-    p11 = diag[i0] - S * (A*S);
+    p00 = diag[i0] - type::dot(U2, tmp);
+    p01 = type::dot(S, tmp);
+    p11 = diag[i0] - type::dot(S, A*S);
     maxValue = helper::rabs(p00);
     row = 0;
     absValue = helper::rabs(p01);
@@ -1443,7 +1443,7 @@ void Decompose<Real>::eigenDecomposition( const type::Mat<3,3,Real> &A, type::Ma
         }
     }
 
-    V.transpose();
+    V.transposeInPlace();
 }
 
 
@@ -1452,7 +1452,7 @@ void Decompose<Real>::eigenDecomposition( const type::Mat<2,2,Real> &A, type::Ma
 {
     Real inv2 = A(0,0) + A(1,1); // trace(A)
     Real inv1 = inv2 * (Real)0.5; // trace(A) / 2
-    inv2 = helper::rsqrt( inv2*inv2*(Real)0.25 - determinant( A ) ); // sqrt( tr(A)*tr(A) / 4 - det(A) )
+    inv2 = helper::rsqrt( inv2*inv2*(Real)0.25 - type::determinant( A ) ); // sqrt( tr(A)*tr(A) / 4 - det(A) )
 
     diag[0] = inv1 + inv2;
     diag[1] = inv1 - inv2;
@@ -1480,14 +1480,14 @@ void Decompose<Real>::eigenDecomposition( const type::Mat<2,2,Real> &A, type::Ma
         V[1].set( diag[1] - A(1,1), A(1,0) ); V[1].normalize();
     }
 
-    V.transpose();
+    V.transposeInPlace();
 }
 
 
 
 
 template <typename Real>
-template <sofa::Size iSize>
+template <int iSize>
 void Decompose<Real>::QLAlgorithm( type::Vec<iSize,Real> &diag, type::Vec<iSize,Real> &subDiag, type::Mat<iSize,iSize,Real> &V )
 {
     static const sofa::Index iMaxIter = 32;
@@ -1669,7 +1669,7 @@ bool Decompose<Real>::SVD_stable( const type::Mat<3,3,Real> &F, type::Mat<3,3,Re
     // at that point S = S^2
 
     // if V is a reflexion -> made it a rotation by negating a column
-    if( determinant(V) < (Real)0 )
+    if( type::determinant(V) < (Real)0 )
         for( int i=0 ; i<3; ++i )
             V(i,0) = -V(i,0);
 
@@ -1813,7 +1813,7 @@ bool Decompose<Real>::SVD_stable( const type::Mat<3,3,Real> &F, type::Mat<3,3,Re
         break;
     }
 
-    const bool inverted = ( determinant(U) < (Real)0 );
+    const bool inverted = ( type::determinant(U) < (Real)0 );
 
     // un-inverting the element -> made U a rotation by negating a column
     if( inverted )
@@ -1837,7 +1837,7 @@ bool Decompose<Real>::SVD_stable( const type::Mat<2,2,Real> &F, type::Mat<2,2,Re
     helper::Decompose<Real>::eigenDecomposition_iterative( FtF, V, S );
 
     // if V is a reflexion -> made it a rotation by negating a column
-    if( determinant(V) < (Real)0 )
+    if( type::determinant(V) < (Real)0 )
         for( int i=0 ; i<2; ++i )
             V(i,0) = -V(i,0);
 
@@ -1923,7 +1923,7 @@ bool Decompose<Real>::SVD_stable( const type::Mat<2,2,Real> &F, type::Mat<2,2,Re
     }
     }
 
-    const bool inverted = ( determinant(U) < (Real)0 );
+    const bool inverted = ( type::determinant(U) < (Real)0 );
 
     // un-inverting the element -> made U a rotation by negating a column
     if( inverted )
@@ -1975,7 +1975,7 @@ bool Decompose<Real>::SVD_stable( const type::Mat<3,2,Real> &F, type::Mat<3,2,Re
     helper::Decompose<Real>::eigenDecomposition_iterative( FtF, V, S );
 
     // if V is a reflexion -> made it a rotation by negating a column
-    if( determinant(V) < (Real)0 )
+    if( type::determinant(V) < (Real)0 )
         for( int i=0 ; i<2; ++i )
             V(i,0) = -V(i,0);
 
