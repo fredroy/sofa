@@ -20,7 +20,7 @@
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
 #pragma once
-
+#include <sofa/type/Mat.h>
 #include <sofa/core/collision/DetectionOutput.h>
 #include <sofa/core/collision/Intersection.h>
 #include <sofa/core/objectmodel/Context.h>

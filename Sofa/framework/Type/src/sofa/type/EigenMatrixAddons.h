@@ -1,3 +1,5 @@
+#pragma once
+
 struct NoInit;
 
 static constexpr sofa::Size total_size = ColsAtCompileTime;
@@ -126,11 +128,11 @@ auto& operator[](Index i)
 {
     if constexpr (ColsAtCompileTime == 1)
     {
-        return (*this)(0,i);
+        return (*this)(i,0);
     }
     else
     {
-        return this->row(i);
+        return this->col(i);
     }
 }
 
@@ -138,11 +140,11 @@ const auto& operator[](Index i) const
 {
     if constexpr (ColsAtCompileTime == 1)
     {
-        return (*this)(0,i);
+        return (*this)(i,0);
     }
     else
     {
-        return this->row(i);
+        return this->col(i);
     }
 }
 
@@ -218,70 +220,14 @@ void getsub(int L0, int C0, Matrix::Scalar& m) const noexcept
     m = (*this)(L0,C0);
 }
 
-//template<typename Derived>
-//friend std::istream& operator >> ( std::istream& is, Eigen::MatrixBase<Derived>& matrix )
-//{
-//    using Scalar = typename Derived::Scalar;
-//    char ch;
+// unsafe !
+static auto fromPtr(const Real* vptr)
+{
+    Matrix<Real, nbLines, nbCols> r;
+    for(int i=0 ; i < nbCols ; i++)
+    {
+        r << static_cast<Real>(vptr[i]);
+    }
+    return r;
+}
 
-//    // Skip whitespace and check for opening bracket
-//    is >> std::ws;
-//    bool hasOuterBrackets = (is.peek() == '[');
-//    if (hasOuterBrackets) {
-//        is >> ch; // consume '['
-//    }
-
-//    for (int i = 0; i < matrix.rows(); ++i) {
-//        // Skip whitespace and check for row opening bracket
-//        is >> std::ws;
-//        bool hasRowBrackets = (is.peek() == '[');
-//        if (hasRowBrackets) {
-//            is >> ch; // consume '['
-//        }
-
-//        for (int j = 0; j < matrix.cols(); ++j) {
-//            Scalar value;
-//            if (!(is >> value)) {
-//                is.setstate(std::ios::failbit);
-//                return is;
-//            }
-//            matrix(i, j) = value;
-
-//            // Skip optional comma or semicolon
-//            is >> std::ws;
-//            if (j < matrix.cols() - 1) {
-//                if (is.peek() == ',' || is.peek() == ';') {
-//                    is >> ch;
-//                }
-//            }
-//        }
-
-//        // Skip row closing bracket if present
-//        is >> std::ws;
-//        if (hasRowBrackets && is.peek() == ']') {
-//            is >> ch;
-//        }
-
-//        // Skip row separator (semicolon or newline)
-//        is >> std::ws;
-//        if (i < matrix.rows() - 1) {
-//            if (is.peek() == ';' || is.peek() == '\n') {
-//                is >> ch;
-//            }
-//        }
-//    }
-
-//    // Skip outer closing bracket if present
-//    is >> std::ws;
-//    if (hasOuterBrackets && is.peek() == ']') {
-//        is >> ch;
-//    }
-
-//    return is;
-//}
-
-//template<typename Derived>
-//friend std::ostream& operator << ( std::ostream& os, const Eigen::MatrixBase<Derived>& matrix )
-//{
-//    return os << matrix.format(Eigen::IOFormat(Eigen::StreamPrecision, 0, " ", "\n", "", "", "", ""));
-//}

@@ -21,6 +21,8 @@
 ******************************************************************************/
 #include <sofa/core/behavior/BaseMatrixLinearSystem.h>
 
+#include <sofa/type/Mat.h>
+
 namespace sofa::core::behavior
 {
 

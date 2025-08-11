@@ -394,7 +394,7 @@ public:
     {
         switch(NL)
         {
-        case 1: opDynamicRealNL<Real, 1, M, V1, V2>(mat, result, v, NC, category); break;
+        //case 1: opDynamicRealNL<Real, 1, M, V1, V2>(mat, result, v, NC, category); break; // FRED: ?????
         case 2: opDynamicRealNL<Real, 2, M, V1, V2>(mat, result, v, NC, category); break;
         case 3: opDynamicRealNL<Real, 3, M, V1, V2>(mat, result, v, NC, category); break;
         case 4: opDynamicRealNL<Real, 4, M, V1, V2>(mat, result, v, NC, category); break;

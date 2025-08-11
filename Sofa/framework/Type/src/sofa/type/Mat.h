@@ -58,7 +58,7 @@ namespace sofa::type
 
 
 template <sofa::Size L, sofa::Size C, class real>
-using Mat = Eigen::Matrix<real, L, C, Eigen::AutoAlign | Eigen::RowMajor>;
+using Mat = Eigen::Matrix<real, L, C, Eigen::AutoAlign | Eigen::ColMajor>;
 
 
 typedef Mat<1,1,float> Mat1x1f;
@@ -113,3 +113,59 @@ auto trace(const Eigen::MatrixBase<Derived>& mat)
 }
 
 } // namespace sofa::type
+
+
+/// Read from an input stream
+template<int L, int C, typename Real>
+std::istream& operator >> ( std::istream& in, Eigen::Matrix<Real, L, C>& m )
+{
+    sofa::Size c;
+    c = in.peek();
+    while (c==' ' || c=='\n' || c=='[')
+    {
+        in.get();
+        if( c=='[' ) break;
+        c = in.peek();
+    }
+
+    for (sofa::Size i = 0; i < C; ++i)
+    {
+        in >> m(i, 0);
+    }
+
+    for (sofa::Size i=1; i<L; i++)
+    {
+        c = in.peek();
+        while (c==' ' || c==',')
+        {
+            in.get();
+            c = in.peek();
+        }
+
+        for (sofa::Size j = 0; j < C; ++j)
+        {
+            in >> m(j, i);
+        }
+    }
+    if(in.eof()) return in;
+    c = in.peek();
+    while (c==' ' || c=='\n' || c==']')
+    {
+        in.get();
+        if( c==']' ) break;
+        if(in.eof()) break;
+        c = in.peek();
+    }
+    return in;
+}
+
+/// Write to an output stream
+template<int L, int C, typename Real>
+std::ostream& operator << ( std::ostream& o, const Eigen::Matrix<Real, L, C>& m )
+{
+    o << '[' << m[0];
+    for (sofa::Size i=1; i<L; i++)
+        o << ',' << m[i];
+    o << ']';
+    return o;
+}

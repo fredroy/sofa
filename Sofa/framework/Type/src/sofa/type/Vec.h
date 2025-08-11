@@ -141,92 +141,29 @@ auto linearProduct(const Eigen::MatrixBase<Derived1>& vec1,
     return result;
 }
 
-
-///// Read from an input stream
-//template<int N, typename Real>
-//std::istream& operator >> ( std::istream& in, Vec<N,Real>& v )
-//{
-//    for (sofa::Size i = 0; i < N; ++i)
-//    {
-//        in >> v(i);
-//    }
-//    return in;
-//}
-
-///// Write to an output stream
-//template<int N, typename Real>
-//std::ostream& operator << ( std::ostream& out, const Vec<N,Real>& v )
-//{
-//    for (sofa::Size i = 0; i < N - 1; ++i)
-//    {
-//        out << v(i) << " ";
-//    }
-//    out << v[N - 1];
-//    return out;
-//}
-
-
-template<typename Derived>
-std::istream& operator >> ( std::istream& is, Eigen::MatrixBase<Derived>& matrix )
+/// Read from an input stream
+template<int N, typename Real>
+std::istream& operator >> ( std::istream& in, Vec<N,Real>& v )
 {
-    using Scalar = typename Derived::Scalar;
-    char ch;
-
-    // Skip whitespace and check for opening bracket
-    is >> std::ws;
-    bool hasOuterBrackets = (is.peek() == '[');
-    if (hasOuterBrackets) {
-        is >> ch; // consume '['
+    for (sofa::Size i = 0; i < N; ++i)
+    {
+        in >> v(i);
     }
-
-    for (int i = 0; i < matrix.rows(); ++i) {
-        // Skip whitespace and check for row opening bracket
-        is >> std::ws;
-        bool hasRowBrackets = (is.peek() == '[');
-        if (hasRowBrackets) {
-            is >> ch; // consume '['
-        }
-
-        for (int j = 0; j < matrix.cols(); ++j) {
-            Scalar value;
-            if (!(is >> value)) {
-                is.setstate(std::ios::failbit);
-                return is;
-            }
-            matrix(i, j) = value;
-
-            // Skip optional comma or semicolon
-            is >> std::ws;
-            if (j < matrix.cols() - 1) {
-                if (is.peek() == ',' || is.peek() == ';') {
-                    is >> ch;
-                }
-            }
-        }
-
-        // Skip row closing bracket if present
-        is >> std::ws;
-        if (hasRowBrackets && is.peek() == ']') {
-            is >> ch;
-        }
-
-        // Skip row separator (semicolon or newline)
-        is >> std::ws;
-        if (i < matrix.rows() - 1) {
-            if (is.peek() == ';' || is.peek() == '\n') {
-                is >> ch;
-            }
-        }
-    }
-
-    // Skip outer closing bracket if present
-    is >> std::ws;
-    if (hasOuterBrackets && is.peek() == ']') {
-        is >> ch;
-    }
-
-    return is;
+    return in;
 }
+
+/// Write to an output stream
+template<int N, typename Real>
+std::ostream& operator << ( std::ostream& out, const Vec<N,Real>& v )
+{
+    for (sofa::Size i = 0; i < N - 1; ++i)
+    {
+        out << v(i) << " ";
+    }
+    out << v[N - 1];
+    return out;
+}
+
 
 template<typename Derived>
 std::ostream& operator << ( std::ostream& os, const Eigen::MatrixBase<Derived>& matrix )

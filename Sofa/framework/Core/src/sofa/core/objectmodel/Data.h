@@ -29,6 +29,8 @@
 #include <sofa/core/objectmodel/DataContentValue.h>
 #include <sofa/core/trait/DataTypes.h>
 #include <sofa/type/fixed_array.h>
+#include <sofa/type/Vec.h>
+
 namespace sofa
 {
 namespace core::objectmodel

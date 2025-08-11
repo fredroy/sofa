@@ -1173,7 +1173,7 @@ public:
     virtual void opMulTM(BaseMatrix * result,BaseMatrix * m) const;
 
     /// Subtract the matrix to the m matrix and strore the result in m
-    virtual void opAddM(linearalgebra::BaseMatrix* m,double fact) const;
+    virtual void opAddM(linearalgebra::BaseMatrix* m, double fact) const;
 
     /// Subtract the transposed matrix to the m matrix and strore the result in m
     virtual void opAddMT(linearalgebra::BaseMatrix* m,double fact) const;

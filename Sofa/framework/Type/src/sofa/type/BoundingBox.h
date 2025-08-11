@@ -117,7 +117,7 @@ public:
 
     friend std::istream& operator >> ( std::istream& in, BoundingBox& bbox)
     {
-        //in >> bbox.minBBox() >> bbox.maxBBox();
+        in >> bbox.minBBox() >> bbox.maxBBox();
         return in;
     }
 
@@ -131,9 +131,15 @@ template <typename TReal>
 class TBoundingBox : public BoundingBox
 {
 public:
+    // unsafe method...
     TBoundingBox(const TReal* minBBoxPtr, const TReal* maxBBoxPtr)
-        :BoundingBox(sofa::type::Vec3(minBBoxPtr),sofa::type::Vec3(maxBBoxPtr))
     {
+        bbox.first[0] = minBBoxPtr[0];
+        bbox.first[1] = minBBoxPtr[1];
+        bbox.first[2] = minBBoxPtr[2];
+        bbox.second[0] = maxBBoxPtr[0];
+        bbox.second[1] = maxBBoxPtr[1];
+        bbox.second[2] = maxBBoxPtr[2];
     }
 
     TBoundingBox() : BoundingBox() {}
@@ -202,7 +208,7 @@ public:
 
     friend std::istream& operator >> ( std::istream& in, BoundingBox2D& bbox)
     {
-        //in >> bbox.minBBox() >> bbox.maxBBox();
+        in >> bbox.minBBox() >> bbox.maxBBox();
         return in;
     }
 

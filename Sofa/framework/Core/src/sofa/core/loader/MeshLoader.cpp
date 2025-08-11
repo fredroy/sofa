@@ -715,7 +715,7 @@ void MeshLoader::updateNormals()
         const sofa::type::Vec3  v1 = raPositions[raTriangles[i][0]];
         const sofa::type::Vec3  v2 = raPositions[raTriangles[i][1]];
         const sofa::type::Vec3  v3 = raPositions[raTriangles[i][2]];
-        sofa::type::Vec3 n = cross(v2 - v1, v3 - v1);
+        sofa::type::Vec3 n = type::cross(v2 - v1, v3 - v1);
 
         n.normalize();
         waNormals[raTriangles[i][0]] += n;
@@ -729,10 +729,10 @@ void MeshLoader::updateNormals()
         const sofa::type::Vec3& v2 = raPositions[raQuads[i][1]];
         const sofa::type::Vec3& v3 = raPositions[raQuads[i][2]];
         const sofa::type::Vec3& v4 = raPositions[raQuads[i][3]];
-        sofa::type::Vec3 n1 = cross(v2 - v1, v4 - v1);
-        sofa::type::Vec3 n2 = cross(v3 - v2, v1 - v2);
-        sofa::type::Vec3 n3 = cross(v4 - v3, v2 - v3);
-        sofa::type::Vec3 n4 = cross(v1 - v4, v3 - v4);
+        sofa::type::Vec3 n1 = type::cross(v2 - v1, v4 - v1);
+        sofa::type::Vec3 n2 = type::cross(v3 - v2, v1 - v2);
+        sofa::type::Vec3 n3 = type::cross(v4 - v3, v2 - v3);
+        sofa::type::Vec3 n4 = type::cross(v1 - v4, v3 - v4);
         n1.normalize();
         n2.normalize();
         n3.normalize();
