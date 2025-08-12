@@ -52,7 +52,7 @@ struct Tetrahedron
              typename = std::enable_if_t<std::is_scalar_v<T>>
     >
     [[nodiscard]]
-    static constexpr auto volume(const Node& n0, const Node& n1, const Node& n2, const Node& n3)
+    static auto volume(const Node& n0, const Node& n1, const Node& n2, const Node& n3)
     {
         return std::abs(signedVolume(n0, n1, n2, n3));
     }
@@ -73,7 +73,7 @@ struct Tetrahedron
     static constexpr auto signedVolume(const Node& n0, const Node& n1, const Node& n2, const Node& n3)
     {
         Node n{};
-        static_assert(std::distance(std::cbegin(n), std::cend(n)) == 3, "volume can only be computed in 3 dimensions.");
+        static_assert(Node::static_size == 3, "volume can only be computed in 3 dimensions.");
 
         const auto a = n1 - n0;
         const auto b = n2 - n0;

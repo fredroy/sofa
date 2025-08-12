@@ -124,7 +124,7 @@ struct Hexahedron
         m[0] = p1 - origin;
         m[1] = p3 - origin;
         m[2] = p4 - origin;
-        mt.transpose(m);
+        mt = m.transpose();
         const bool canInvert = base.invert(mt);
         assert(canInvert);
         SOFA_UNUSED(canInvert);
@@ -156,7 +156,7 @@ struct Hexahedron
         T d = std::max(std::max(-v[0], -v[1]), std::max(std::max(-v[2], v[0] - 1), std::max(v[1] - static_cast<T>(1), v[2] - static_cast<T>(1))));
 
         if (d > 0)
-            d = (pos - center(n0, n1, n2, n3, n4, n5, n6, n7)).norm2();
+            d = (pos - center(n0, n1, n2, n3, n4, n5, n6, n7)).eval().norm2();
         else
             d = static_cast<T>(0);
 

@@ -307,10 +307,11 @@ struct Edge
 
             const Node pX = pA + alpha * AB;
             const Node pY = pC + beta * CD;
+            const Node pYpX = pY - pX;
 
             if (alpha < 0 || beta < 0 // if alpha or beta < 0 means on the exact same line but no overlap.
                 || alpha > 1 || beta > 1 // if alpha > 1 means intersection but after outside from [AB]
-                || (pY - pX).norm2() > EQUALITY_THRESHOLD ) // if pY and pX are not se same means no intersection.
+                || pYpX.norm2() > EQUALITY_THRESHOLD ) // if pY and pX are not se same means no intersection.
             {
                 intersectionBaryCoord = sofa::type::Vec<2, T>(0, 0);
                 return false;

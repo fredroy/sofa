@@ -184,7 +184,6 @@ protected:
 
 #if !defined(SOFA_COMPONENT_TOPOLOGY_TETRAHEDRONSETGEOMETRYALGORITHMS_CPP)
 extern template class SOFA_COMPONENT_TOPOLOGY_CONTAINER_DYNAMIC_API TetrahedronSetGeometryAlgorithms<defaulttype::Vec3Types>;
-extern template class SOFA_COMPONENT_TOPOLOGY_CONTAINER_DYNAMIC_API TetrahedronSetGeometryAlgorithms<defaulttype::Vec2Types>;
 #endif
 
 } //namespace sofa::component::topology::container::dynamic

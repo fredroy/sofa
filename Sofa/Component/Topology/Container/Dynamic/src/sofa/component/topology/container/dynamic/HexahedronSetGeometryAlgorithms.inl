@@ -560,9 +560,7 @@ sofa::type::Vec3 HexahedronSetGeometryAlgorithms<DataTypes>::computeHexahedronRe
     }
 
     sofa::type::Mat3x3		m, mt, base;
-    m[0] = p1-origin;
-    m[1] = p3-origin;
-    m[2] = p4-origin;
+    m << (p1-origin).eval() , (p3-origin).eval() , (p4-origin).eval();
     mt = m.transpose();
     const bool canInvert = base.invert(mt);
     assert(canInvert);
@@ -594,11 +592,17 @@ sofa::type::Vec3 HexahedronSetGeometryAlgorithms<DataTypes>::computeHexahedronBa
         pnt[w] = pos[w];
     }
 
+<<<<<<< HEAD
     sofa::type::Mat3x3d		m, mt, base;
     m[0] = p1-origin;
     m[1] = p3-origin;
     m[2] = p4-origin;
     mt.transpose(m);
+=======
+    sofa::type::Mat3x3 m, mt, base;
+    m << (p1-origin).eval() , (p3-origin).eval() , (p4-origin).eval();
+    mt = m.transpose();
+>>>>>>> 45d8676c85 (wip)
     const bool canInvert = base.invert(mt);
     assert(canInvert);
     SOFA_UNUSED(canInvert);
@@ -616,7 +620,7 @@ typename DataTypes::Real HexahedronSetGeometryAlgorithms< DataTypes >::computeEl
     Real d = (Real) std::max(std::max(-v[0], -v[1]), std::max(std::max(-v[2], v[0]-1), std::max(v[1]-1, v[2]-1)));
 
     if(d>0)
-        d = (pos - computeHexahedronCenter(h)).norm2();
+        d = (pos - computeHexahedronCenter(h)).eval().norm2();
 
     return d;
 }
@@ -631,7 +635,7 @@ typename DataTypes::Real HexahedronSetGeometryAlgorithms< DataTypes >::computeEl
     Real d = (Real) std::max(std::max(-v[0], -v[1]), std::max(std::max(-v[2], v[0]-1), std::max(v[1]-1, v[2]-1)));
 
     if(d>0)
-        d = (pos - computeHexahedronRestCenter(h)).norm2();
+        d = (pos - computeHexahedronRestCenter(h)).eval().norm2();
 
     return d;
 }
@@ -806,11 +810,11 @@ void HexahedronSetGeometryAlgorithms<DataTypes>::draw(const core::visual::Visual
         {
 
             Hexahedron the_hexa = hexaArray[i];
-            sofa::type::Vec3f center;
+            sofa::type::Vec3 center;
 
             for (unsigned int j = 0; j<8; j++)
             {
-                type::Vec3 vertex; vertex = DataTypes::getCPos(coords[ the_hexa[j] ]);
+                type::Vec3 vertex = type::toVec3(DataTypes::getCPos(coords[ the_hexa[j] ]));
                 center += vertex;
             }
 
@@ -839,7 +843,7 @@ void HexahedronSetGeometryAlgorithms<DataTypes>::draw(const core::visual::Visual
 
             for (unsigned int j = 0; j<8; j++)
             {
-                sofa::type::Vec3 p; p = DataTypes::getCPos(coords[H[j]]);
+                sofa::type::Vec3 p = type::toVec3(DataTypes::getCPos(coords[H[j]]));
 
                 hexaCoords.push_back(p);
             }

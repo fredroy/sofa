@@ -127,12 +127,11 @@ struct Triangle
     [[nodiscard]]
     static constexpr auto normal(const Node& n0, const Node& n1, const Node& n2)
     {
-        constexpr Node n{};
-        static_assert(std::distance(std::begin(n), std::end(n)) == 3, "Triangle normal can only be computed in 3 dimensions.");
-
         // Vec gives access to cross() and operator-
         if constexpr (std::is_same_v < Node, sofa::type::Vec<3, T> >)
         {
+            static_assert(Node::static_size == 3, "Triangle normal can only be computed in 3 dimensions.");
+
             const auto a = n1 - n0;
             const auto b = n2 - n0;
 
@@ -140,6 +139,9 @@ struct Triangle
         }
         else
         {
+            constexpr Node n{};
+            static_assert(std::distance(std::cbegin(n), std::cend(n)) == 3, "Triangle normal can only be computed in 3 dimensions.");
+
             Node a{}, b{};
             std::transform(n1.cbegin(), n1.cend(), n0.cbegin(), a.begin(), std::minus<T>());
             std::transform(n2.cbegin(), n2.cend(), n0.cbegin(), b.begin(), std::minus<T>());

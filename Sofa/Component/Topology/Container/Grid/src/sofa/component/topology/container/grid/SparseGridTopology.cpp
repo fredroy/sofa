@@ -488,7 +488,7 @@ void SparseGridTopology::buildFromRawVoxelFile(const std::string& filename)
     }
 
     d_min.setValue(type::Vec3(0_sreal, 0_sreal, 0_sreal));
-    d_max.setValue(d_voxelSize.getValue().linearProduct(d_dataResolution.getValue()) * (1));
+    d_max.setValue(d_voxelSize.getValue().linearProduct(d_dataResolution.getValue().cast<SReal>()) * (1));
 
     _regularGrid->setPos(getXmin(),getXmax(),getYmin(),getYmax(),getZmin(),getZmax());
     buildFromRegularGridTypes(_regularGrid, regularGridTypes);
@@ -580,7 +580,7 @@ void SparseGridTopology::updateMesh()
     if (!_usingMC || d_dataVoxels.beginEdit()->size() == 0) return;
 
     d_min.setValue(type::Vec3(0_sreal, 0_sreal, 0_sreal));
-    d_max.setValue(d_voxelSize.getValue().linearProduct(d_dataResolution.getValue()) * (1));
+    d_max.setValue(d_voxelSize.getValue().linearProduct(d_dataResolution.getValue().cast<SReal>()) * (1));
 
     //Creating if needed collision models and visual models
     sofa::type::vector< sofa::core::topology::BaseMeshTopology * > list_mesh;

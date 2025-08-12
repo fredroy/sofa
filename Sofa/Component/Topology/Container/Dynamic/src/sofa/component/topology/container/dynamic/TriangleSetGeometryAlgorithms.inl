@@ -413,8 +413,8 @@ auto TriangleSetGeometryAlgorithms< DataTypes >::computeBaryEdgePoint(PointID p0
 {
     const typename DataTypes::VecCoord& vect_c =(this->object->read(core::vec_id::read_access::position)->getValue());
 
-    sofa::type::Vec<3,Real> c0; c0 = vect_c[p0];
-    sofa::type::Vec<3,Real> c1; c1 = vect_c[p1];
+    sofa::type::Vec<3,Real> c0 = type::toVec3(vect_c[p0]);
+    sofa::type::Vec<3,Real> c1 = type::toVec3(vect_c[p1]);
     return c0*(1-coord_p) + c1*coord_p;
 }
 
@@ -423,9 +423,9 @@ auto TriangleSetGeometryAlgorithms< DataTypes >::computeBaryTrianglePoint(PointI
 {
     const typename DataTypes::VecCoord& vect_c =(this->object->read(core::vec_id::read_access::position)->getValue());
 
-    sofa::type::Vec<3,Real> c0; c0 = vect_c[p0];
-    sofa::type::Vec<3,Real> c1; c1 = vect_c[p1];
-    sofa::type::Vec<3,Real> c2; c2 = vect_c[p2];
+    sofa::type::Vec<3,Real> c0 = type::toVec3(vect_c[p0]);
+    sofa::type::Vec<3,Real> c1 = type::toVec3(vect_c[p1]);
+    sofa::type::Vec<3,Real> c2 = type::toVec3(vect_c[p2]);
     return c0*coord_p[0] + c1*coord_p[1] + c2*coord_p[2];
 }
 
@@ -2182,7 +2182,7 @@ type::vector< std::shared_ptr<PointToAdd> > TriangleSetGeometryAlgorithms< DataT
             const PointID localVId = snapVertexStatus[i];
             const PointID vId = theTris[i][localVId];           
 
-            pathPts[i] = vect_c[vId];
+            pathPts[i] = type::toVec3(vect_c[vId]);
             _elemBorders[i] = sofa::geometry::ElementType::POINT;
 
             // check if point need to be subdivided at start: yes if on border of mesh, otherwise false.
@@ -2224,7 +2224,7 @@ type::vector< std::shared_ptr<PointToAdd> > TriangleSetGeometryAlgorithms< DataT
             newCoefs[0] = newCoefs[0] / sum;
             newCoefs[1] = newCoefs[1] / sum;
 
-            pathPts[i] = vect_c[edge[0]] * newCoefs[0] + vect_c[edge[1]] * newCoefs[1];
+            pathPts[i] = type::toVec3(vect_c[edge[0]] * newCoefs[0] + vect_c[edge[1]] * newCoefs[1]);
 
             _elemBorders[i] = sofa::geometry::ElementType::EDGE;
 
@@ -5247,7 +5247,7 @@ void TriangleSetGeometryAlgorithms<DataTypes>::draw(const core::visual::VisualPa
             Coord vertex1 = coords[ the_tri[0] ];
             Coord vertex2 = coords[ the_tri[1] ];
             Coord vertex3 = coords[ the_tri[2] ];
-            type::Vec3 center = type::Vec3((DataTypes::getCPos(vertex1)+DataTypes::getCPos(vertex2)+DataTypes::getCPos(vertex3))/3);
+            type::Vec3 center = type::toVec3((DataTypes::getCPos(vertex1)+DataTypes::getCPos(vertex2)+DataTypes::getCPos(vertex3))/3);
 
             positions.push_back(center);
 
@@ -5280,7 +5280,7 @@ void TriangleSetGeometryAlgorithms<DataTypes>::draw(const core::visual::VisualPa
 
                 for (unsigned int j = 0; j<3; j++)
                 {
-                    tmpPos[j] = type::Vec3(DataTypes::getCPos(coords[t[j]]));
+                    tmpPos[j] = type::toVec3(DataTypes::getCPos(coords[t[j]]));
                     bary += tmpPos[j];
                 }
                 bary /= 3;
@@ -5300,8 +5300,8 @@ void TriangleSetGeometryAlgorithms<DataTypes>::draw(const core::visual::VisualPa
                 for (size_t i = 0; i<edgeArray.size(); i++)
                 {
                     const Edge& e = edgeArray[i];
-                    pos.push_back(type::Vec3(DataTypes::getCPos(coords[e[0]])));
-                    pos.push_back(type::Vec3(DataTypes::getCPos(coords[e[1]])));
+                    pos.push_back(type::toVec3(DataTypes::getCPos(coords[e[0]])));
+                    pos.push_back(type::toVec3(DataTypes::getCPos(coords[e[1]])));
                 }
             } else {
                 for (size_t i = 0; i<triangleArray.size(); i++)
@@ -5310,8 +5310,8 @@ void TriangleSetGeometryAlgorithms<DataTypes>::draw(const core::visual::VisualPa
 
                     for (unsigned int j = 0; j<3; j++)
                     {
-                        pos.push_back(type::Vec3(DataTypes::getCPos(coords[t[j]])));
-                        pos.push_back(type::Vec3(DataTypes::getCPos(coords[t[(j+1u)%3u]])));
+                        pos.push_back(type::toVec3(DataTypes::getCPos(coords[t[j]])));
+                        pos.push_back(type::toVec3(DataTypes::getCPos(coords[t[(j+1u)%3u]])));
                     }
                 }
             }
@@ -5349,7 +5349,7 @@ void TriangleSetGeometryAlgorithms<DataTypes>::draw(const core::visual::VisualPa
             Coord vertex1 = coords[ _tri[0] ];
             Coord vertex2 = coords[ _tri[1] ];
             Coord vertex3 = coords[ _tri[2] ];
-            sofa::type::Vec3d center; center = (DataTypes::getCPos(vertex1)+DataTypes::getCPos(vertex2)+DataTypes::getCPos(vertex3))/3;
+            sofa::type::Vec3d center = type::toVec3(DataTypes::getCPos(vertex1)+DataTypes::getCPos(vertex2)+DataTypes::getCPos(vertex3))/3;
             sofa::type::Vec3d point2 = center + normal*normalLength;
 
             for(unsigned int j=0; j<3; j++)

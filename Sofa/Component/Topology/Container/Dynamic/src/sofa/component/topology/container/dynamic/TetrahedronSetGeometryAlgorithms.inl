@@ -871,7 +871,7 @@ bool TetrahedronSetGeometryAlgorithms<DataTypes>::computeIntersectionEdgeWithPla
     Real d = type::dot(planNorm, planP0);
 
     //compute intersection between line and plane equation
-    Real t = type::dot((d - planNorm * edgeP1) , (planNorm*(edgeP2 - edgeP1)));
+    Real t = (d - type::dot(planNorm , edgeP1)) / (type::dot(planNorm,(edgeP2 - edgeP1)));
 
     if((t<=1) && (t>=0))
     {
@@ -898,7 +898,7 @@ bool TetrahedronSetGeometryAlgorithms<DataTypes>::checkNodeSequence(const Tetrah
         vec[i-1]=vect_c[tetra[i]]-vect_c[tetra[0]];
         vec[i-1].normalize();
     }
-    Real dotProduct=type::dot((vec[1].cross(vec[0]))*vec[2]);
+    Real dotProduct=type::dot((vec[1].cross(vec[0])),vec[2]);
     if(dotProduct<0)
         return true;
     else
@@ -1457,7 +1457,7 @@ int TetrahedronSetGeometryAlgorithms<DataTypes>::subDivideTetrahedronWithPlane(T
         }
 
         //construct subdivided tetrahedrons
-        Real dot=edgeDirec*planeNormal;
+        Real dot=type::dot(edgeDirec,planeNormal);
         Tetra subTetra[3];
 
         if(pointsID[3]>=m_intialNbPoints)
@@ -3275,7 +3275,7 @@ void TetrahedronSetGeometryAlgorithms<DataTypes>::draw(const core::visual::Visua
             const Tetrahedron& tet = tetraArray[i];
             for (unsigned int j = 0u; j < 4u; ++j)
             {
-                pos.push_back(type::Vec3(DataTypes::getCPos(coords[tet[j]])));
+                pos.push_back(type::toVec3(DataTypes::getCPos(coords[tet[j]])));
             }
         }
 

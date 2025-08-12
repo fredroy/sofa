@@ -382,7 +382,7 @@ void RecordedCamera::initializeViewUp()
         {
             type::Vec3 vecRef(0,0,0);
             vecRef[i] = 1;
-            if(cross(zAxis,vecRef).norm() >= normCrossProduct )
+            if(type::cross(zAxis,vecRef).norm() >= normCrossProduct )
             {
                 normCrossProduct = type::cross(zAxis,vecRef).norm();
                 d_cameraUp.setValue(vecRef);

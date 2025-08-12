@@ -104,7 +104,8 @@ void BarycentricMapperMeshTopology<In,Out>::init ( const typename Out::VecCoord&
                     SReal lengthEdge = lengthEdges[e];
                     Vec3 V12 =unitaryVectors[e];
 
-                    coef = ( V12 ) * Vec3 ( Out::getCPos(out[i])-in[edges[e][0]] ) /lengthEdge;
+                    const auto temp = Vec3 ( Out::getCPos(out[i])-in[edges[e][0]] );
+                    coef = type::dot( V12 , temp) /lengthEdge;
                     if ( coef >= 0 && coef <= 1 ) {addPointInLine ( e,&coef );  break; }
                 }
                 //If no good coefficient has been found, we add to the last element
@@ -122,7 +123,7 @@ void BarycentricMapperMeshTopology<In,Out>::init ( const typename Out::VecCoord&
                 Mat3x3 m,mt;
                 m[0] = in[triangles[t][1]]-in[triangles[t][0]];
                 m[1] = in[triangles[t][2]]-in[triangles[t][0]];
-                m[2] = cross ( m[0],m[1] );
+                m[2] = type::cross ( m[0],m[1] );
                 mt.transpose ( m );
                 const bool canInvert = bases[t].invert ( mt );
                 assert(canInvert);
@@ -134,8 +135,8 @@ void BarycentricMapperMeshTopology<In,Out>::init ( const typename Out::VecCoord&
                 Mat3x3 m,mt;
                 m[0] = in[quads[q][1]]-in[quads[q][0]];
                 m[1] = in[quads[q][3]]-in[quads[q][0]];
-                m[2] = cross ( m[0],m[1] );
-                mt.transpose ( m );
+                m[2] = type::cross ( m[0], m[1] );
+                mt = m.transpose ();
                 const bool canInvert = bases[nbTriangles+q].invert ( mt );
                 assert(canInvert);
                 SOFA_UNUSED(canInvert);
@@ -344,7 +345,7 @@ BarycentricMapperMeshTopology<In,Out>::createPointInLine ( const typename Out::C
     if (L2 < std::numeric_limits<SReal>::epsilon()) // in case of null length edge, avoid division by 0
         baryCoords[0] = 0.0;
     else
-        baryCoords[0] = ((pos * pA) / L2);
+        baryCoords[0] = (type::dot(pos , pA) / L2);
 
     return this->addPointInLine ( lineIndex, baryCoords );
 }
@@ -367,11 +368,11 @@ BarycentricMapperMeshTopology<In,Out>::createPointInTriangle ( const typename Ou
     const typename In::Coord AQ = to_be_projected -p1;
     sofa::type::Mat<2,2,typename In::Real> A;
     sofa::type::Vec<2,typename In::Real> b;
-    A(0,0) = AB*AB;
-    A(1,1) = AC*AC;
-    A(0,1) = A(0,1) = AB*AC;
-    b[0] = AQ*AB;
-    b[1] = AQ*AC;
+    A(0,0) = type::dot(AB,AB);
+    A(1,1) = type::dot(AC,AC);
+    A(0,1) = A(0,1) = type::dot(AB,AC);
+    b[0] = type::dot(AQ,AB);
+    b[1] = type::dot(AB,AC);
     const typename In::Real det = sofa::type::determinant(A);
 
     baryCoords[0] = (b[0]*A(1,1) - b[1]*A(0,1))/det;
@@ -445,15 +446,15 @@ BarycentricMapperMeshTopology<In,Out>::createPointInQuad ( const typename Out::C
     sofa::type::Mat<3,3,typename In::Real> m,mt,base;
     m[0] = pA;
     m[1] = pB;
-    m[2] = cross ( pA, pB );
-    mt.transpose ( m );
+    m[2] = type::cross ( pA, pB );
+    mt = m.transpose ();
     const bool canInvert = base.invert ( mt );
     assert(canInvert);
     SOFA_UNUSED(canInvert);
     const typename In::Coord base0 = base[0];
     const typename In::Coord base1 = base[1];
-    baryCoords[0] = base0 * pos;
-    baryCoords[1] = base1 * pos;
+    baryCoords[0] = type::dot(base0,pos);
+    baryCoords[1] = type::dot(base1,pos);
     return this->addPointInQuad ( quadIndex, baryCoords );
 }
 

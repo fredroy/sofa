@@ -72,7 +72,7 @@ void BarycentricMapperTetrahedronSetTopology<In,Out>::computeBase(Mat3x3d& base,
     base[0] = in[element[1]]-in[element[0]];
     base[1] = in[element[2]]-in[element[0]];
     base[2] = in[element[3]]-in[element[0]];
-    matrixTranspose.transpose(base);
+    matrixTranspose = base.transpose();
     const bool canInvert = base.invert(matrixTranspose);
     assert(canInvert);
     SOFA_UNUSED(canInvert);
@@ -180,7 +180,7 @@ void BarycentricMapperTetrahedronSetTopology<In, Out>::processAddPoint(const sof
         sofa::type::Vec3d v = base * (pos - in[tetrahedra[t][0]]);
         double d = std::max(std::max(-v[0], -v[1]), std::max(-v[2], v[0] + v[1] + v[2] - 1));
 
-        if (d>0) d = (pos - center).norm2();
+        if (d>0) d = (pos - center).eval().norm2();
 
         if (d<distance)
         {

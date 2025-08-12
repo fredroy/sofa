@@ -119,10 +119,10 @@ template <class In, class Out>
 void BarycentricMapperHexahedronSetTopology<In,Out>::computeBase(Mat3x3d& base, const typename In::VecCoord& in, const Hexahedron& element)
 {
     Mat3x3d matrixTranspose;
-    base[0] = in[element[1]]-in[element[0]];
-    base[1] = in[element[3]]-in[element[0]];
-    base[2] = in[element[4]]-in[element[0]];
-    matrixTranspose.transpose(base);
+    base[0] = (in[element[1]]-in[element[0]]).eval();
+    base[1] = (in[element[3]]-in[element[0]]).eval();
+    base[2] = (in[element[4]]-in[element[0]]).eval();
+    matrixTranspose = base.transpose();
     const bool canInvert = base.invert(matrixTranspose);
     assert(canInvert);
     SOFA_UNUSED(canInvert);
