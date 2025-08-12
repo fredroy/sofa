@@ -101,28 +101,28 @@ void AssemblingMatrixAccumulator<c, TStrategy>::add(const core::matrixaccumulato
 {
     m_globalMatrix->add(row + m_cachedPositionInGlobalMatrix[0],
                               col + m_cachedPositionInGlobalMatrix[1],
-                              value * static_cast<float>(m_cachedFactor));
+                              (value * static_cast<float>(m_cachedFactor)).eval());
 }
 template<sofa::core::matrixaccumulator::Contribution c, class TStrategy>
 void AssemblingMatrixAccumulator<c, TStrategy>::add(const core::matrixaccumulator::no_check_policy&, const sofa::SignedIndex row, const sofa::SignedIndex col, const sofa::type::Mat<3, 3, double>& value)
 {
     m_globalMatrix->add(row + m_cachedPositionInGlobalMatrix[0],
                               col + m_cachedPositionInGlobalMatrix[1],
-                              value * static_cast<double>(m_cachedFactor));
+                              (value * static_cast<double>(m_cachedFactor)).eval());
 }
 template<sofa::core::matrixaccumulator::Contribution c, class TStrategy>
 void AssemblingMatrixAccumulator<c, TStrategy>::add(const core::matrixaccumulator::no_check_policy&, const sofa::SignedIndex row, const sofa::SignedIndex col, const sofa::type::Mat<6, 6, float>& value)
 {
     m_globalMatrix->add(row + m_cachedPositionInGlobalMatrix[0],
                               col + m_cachedPositionInGlobalMatrix[1],
-                              value * static_cast<float>(m_cachedFactor));
+                              (value * static_cast<float>(m_cachedFactor)).eval());
 }
 template<sofa::core::matrixaccumulator::Contribution c, class TStrategy>
 void AssemblingMatrixAccumulator<c, TStrategy>::add(const core::matrixaccumulator::no_check_policy&, const sofa::SignedIndex row, const sofa::SignedIndex col, const sofa::type::Mat<6, 6, double>& value)
 {
     m_globalMatrix->add(row + m_cachedPositionInGlobalMatrix[0],
                               col + m_cachedPositionInGlobalMatrix[1],
-                              value * static_cast<double>(m_cachedFactor));
+                              (value * static_cast<double>(m_cachedFactor)).eval());
 }
 template<sofa::core::matrixaccumulator::Contribution c, class TStrategy>
 void AssemblingMatrixAccumulator<c, TStrategy>::clear()

@@ -37,7 +37,7 @@ namespace
 { // helper methods
 
 /// Compute compliance between 2 constraint Jacobians for Vec types
-template<Size N, typename Real, class VecReal>
+template<int N, typename Real, class VecReal>
 inline SReal UncoupledConstraintCorrection_computeCompliance(
     Index index,
     const sofa::type::Vec<N, Real>& n1, const sofa::type::Vec<N, Real>& n2,
@@ -67,7 +67,7 @@ inline SReal UncoupledConstraintCorrection_computeCompliance(
 }
 
 /// Compute displacement from constraint force for Vec types
-template<Size N, typename Real, class VecReal>
+template<int N, typename Real, class VecReal>
 inline sofa::type::Vec<N, Real> UncoupledConstraintCorrection_computeDx(
     Index index,
     const sofa::type::Vec<N, Real>& f,
@@ -393,7 +393,7 @@ void UncoupledConstraintCorrection<DataTypes>::addComplianceInConstraintSpace(co
             
             for (MatrixDerivColConstIterator colIt = colItBegin; colIt != colItEnd; ++colIt)
             {
-                Index dof = static_cast<Index>(colIt.index());
+                sofa::Index dof = static_cast<sofa::Index>(colIt.index());
                 Deriv n = colIt.val();
 
                 if (verbose)

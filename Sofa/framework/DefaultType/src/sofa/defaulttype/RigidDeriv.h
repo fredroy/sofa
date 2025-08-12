@@ -166,7 +166,7 @@ public:
     /// Euclidean norm
     real norm() const
     {
-        return helper::rsqrt(vCenter * vCenter + vOrientation * vOrientation);
+        return helper::rsqrt(type::dot(vCenter , vCenter) + type::dot(vOrientation , vOrientation));
     }
 
 
