@@ -2,11 +2,13 @@
 
 struct NoInit;
 
-static constexpr sofa::Size total_size = ColsAtCompileTime;
+inline static const sofa::Size total_size = Matrix::ColsAtCompileTime * Matrix::RowsAtCompileTime;
+inline static const int static_size = Matrix::ColsAtCompileTime * Matrix::RowsAtCompileTime;
+
 using Real = Matrix::Scalar;
 static constexpr auto nbLines = Matrix::RowsAtCompileTime;
 static constexpr auto nbCols = Matrix::ColsAtCompileTime;
-using Size = decltype (ColsAtCompileTime);
+using Size = int;
 
 
 static constexpr sofa::Size spatial_dimensions = nbCols;
@@ -232,5 +234,8 @@ static auto fromPtr(const Real* vptr)
 }
 
 template<typename Derived>
-friend std::istream& operator >> ( std::istream& is, Eigen::MatrixBase<Derived>& matrix);
+friend std::istream& operator >> ( std::istream& in, Eigen::MatrixBase<Derived>& matrix);
+
+template<typename Derived>
+friend std::ostream& operator << ( std::ostream& out, const Eigen::MatrixBase<Derived>& matrix);
 

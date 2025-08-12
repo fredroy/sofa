@@ -437,7 +437,7 @@ void FastTriangularBendingSprings<_DataTypes>::buildStiffnessMatrix(core::behavi
 {
     static constexpr auto blockSize = DataTypes::deriv_total_size;
     static constexpr auto spatialDimension = DataTypes::spatial_dimensions;
-    sofa::type::Mat<spatialDimension, spatialDimension, Real> localMatrix(type::NOINIT);
+    sofa::type::Mat<spatialDimension, spatialDimension, Real> localMatrix;
 
     auto dfdx = matrix->getForceDerivativeIn(this->mstate)
                        .withRespectToPositionsIn(this->mstate);
@@ -502,10 +502,10 @@ void FastTriangularBendingSprings<_DataTypes>::EdgeSpring::setEdgeSpring( const 
     vid[C]=iC;
     vid[D]=iD;
 
-    Deriv NA = cross( p[vid[A]]-p[vid[C]], p[vid[A]]-p[vid[D]] );
-    Deriv NB = cross( p[vid[B]]-p[vid[D]], p[vid[B]]-p[vid[C]] );
-    Deriv NC = cross( p[vid[C]]-p[vid[B]], p[vid[C]]-p[vid[A]] );
-    Deriv ND = cross( p[vid[D]]-p[vid[A]], p[vid[D]]-p[vid[B]] );
+    Deriv NA = type::cross( p[vid[A]]-p[vid[C]], p[vid[A]]-p[vid[D]] );
+    Deriv NB = type::cross( p[vid[B]]-p[vid[D]], p[vid[B]]-p[vid[C]] );
+    Deriv NC = type::cross( p[vid[C]]-p[vid[B]], p[vid[C]]-p[vid[A]] );
+    Deriv ND = type::cross( p[vid[D]]-p[vid[A]], p[vid[D]]-p[vid[B]] );
 
     alpha[A] =  NB.norm() / (NA.norm() + NB.norm());
     alpha[B] =  NA.norm() / (NA.norm() + NB.norm());
@@ -517,8 +517,8 @@ void FastTriangularBendingSprings<_DataTypes>::EdgeSpring::setEdgeSpring( const 
     edgeDir.normalize();
     Deriv AC = p[vid[C]]-p[vid[A]];
     Deriv BC = p[vid[C]]-p[vid[B]];
-    Real ha = (AC - edgeDir * (AC*edgeDir)).norm(); // distance from A to CD
-    Real hb = (BC - edgeDir * (BC*edgeDir)).norm(); // distance from B to CD
+    Real ha = (AC - edgeDir * type::dot(AC ,edgeDir)).norm(); // distance from A to CD
+    Real hb = (BC - edgeDir * type::dot(BC ,edgeDir)).norm(); // distance from B to CD
     Real l = (p[vid[C]]-p[vid[D]]).norm();          // distance from C to D
     lambda = (Real)(2./3) * (ha+hb)/(ha*ha*hb*hb) * l * materialBendingStiffness;
 }
@@ -532,7 +532,7 @@ typename FastTriangularBendingSprings<_DataTypes>::Real  FastTriangularBendingSp
     f[vid[B]] -= R * lambda * alpha[B];
     f[vid[C]] -= R * lambda * alpha[C];
     f[vid[D]] -= R * lambda * alpha[D];
-    return R * R * lambda * (Real)0.5;
+    return type::dot(R, R) * lambda * (Real)0.5;
 }
 
 template<class _DataTypes>

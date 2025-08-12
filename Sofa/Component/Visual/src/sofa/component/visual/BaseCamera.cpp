@@ -756,7 +756,7 @@ void BaseCamera::setDefaultView(const type::Vec3 & gravity)
         }
         yAxis.normalize();
 
-        if (1.0 - fabs(dot(xAxis, yAxis)) < 0.001)
+        if (1.0 - fabs(type::dot(xAxis, yAxis)) < 0.001)
             xAxis = type::Vec3(0.0, 1.0, 0.0);
 
         type::Vec3 zAxis = xAxis.cross(yAxis);

@@ -79,9 +79,7 @@ typename DataTypes::Real QuadSetGeometryAlgorithms< DataTypes >::computeQuadArea
 {
     const Quad &t = this->m_topology->getQuad(i);
     const typename DataTypes::VecCoord& p =(this->object->read(core::vec_id::read_access::position)->getValue());
-    Real area = (Real)((areaProduct(p[t[1]]-p[t[0]],p[t[2]]-p[t[0]])
-            + areaProduct(p[t[3]]-p[t[2]],p[t[0]]-p[t[2]])) * (Real) 0.5);
-    return area;
+    return sofa::geometry::Quad::area(p[t[0]], p[t[1]], p[t[2]], p[t[3]]);
 }
 
 template< class DataTypes>
@@ -89,9 +87,7 @@ typename DataTypes::Real QuadSetGeometryAlgorithms< DataTypes >::computeRestQuad
 {
     const Quad &t = this->m_topology->getQuad(i);
     const typename DataTypes::VecCoord& p = (this->object->read(core::vec_id::read_access::restPosition)->getValue());
-    Real area = (Real)((areaProduct(p[t[1]]-p[t[0]],p[t[2]]-p[t[0]])
-            + areaProduct(p[t[3]]-p[t[2]],p[t[0]]-p[t[2]])) * (Real) 0.5);
-    return area;
+    return sofa::geometry::Quad::area(p[t[0]], p[t[1]], p[t[2]], p[t[3]]);
 }
 
 template<class DataTypes>
@@ -105,8 +101,7 @@ void QuadSetGeometryAlgorithms<DataTypes>::computeQuadArea( BasicArrayInterface<
     {
         // ta.size()
         const Quad &t = this->m_topology->getQuad(i);  //ta[i];
-        ai[i] = Real((areaProduct(p[t[1]]-p[t[0]],p[t[2]]-p[t[0]])
-                + areaProduct(p[t[3]]-p[t[2]],p[t[0]]-p[t[2]])) * (Real) 0.5);
+        ai[i] = sofa::geometry::Quad::area(p[t[0]], p[t[1]], p[t[2]], p[t[3]]);
     }
 }
 
@@ -195,7 +190,7 @@ bool QuadSetGeometryAlgorithms< DataTypes >::isQuadInPlane(const QuadID ind_q,
     sofa::type::Vec<3,Real> p3;
     p3[0] = (Real) (c3[0]); p3[1] = (Real) (c3[1]); p3[2] = (Real) (c3[2]);
 
-    return((p1-p0)*( plane_vect)>=0.0 && (p2-p0)*( plane_vect)>=0.0 && (p3-p0)*( plane_vect)>=0.0);
+    return( type::dot((p1-p0),( plane_vect))>=0.0 && type::dot((p2-p0),( plane_vect))>=0.0 && type::dot((p3-p0),( plane_vect))>=0.0);
 }
 
 template<class DataTypes>
@@ -212,33 +207,33 @@ bool QuadSetGeometryAlgorithms< DataTypes >::isPointInQuad(const QuadID ind_q, c
     sofa::type::Vec<3,Real> p3(vect_c[q[3]][0], vect_c[q[3]][1], vect_c[q[3]][2]);
 
     sofa::type::Vec<3,Real> v_normal = (p2-p0).cross(p1-p0);
-    Real norm_v_normal = v_normal*(v_normal);
+    Real norm_v_normal = type::dot(v_normal,v_normal);
     if(norm_v_normal > ZERO)
     {
-        if(fabs((ptest-p0)*(v_normal)) < ZERO) // p is in the plane defined by the triangle (p0,p1,p2)
+        if(fabs(type::dot(ptest-p0, v_normal)) < ZERO) // p is in the plane defined by the triangle (p0,p1,p2)
         {
 
             sofa::type::Vec<3,Real> n_01 = (p1-p0).cross(v_normal);
             sofa::type::Vec<3,Real> n_12 = (p2-p1).cross(v_normal);
             sofa::type::Vec<3,Real> n_20 = (p0-p2).cross(v_normal);
 
-            if(((ptest-p0)*(n_01) > -ZERO) && ((ptest-p1)*(n_12) > -ZERO) && ((ptest-p2)*(n_20) > -ZERO))
+            if( type::dot((ptest-p0),(n_01)) > -ZERO && type::dot((ptest-p1),(n_12)) > -ZERO && type::dot((ptest-p2),(n_20)) > -ZERO)
                 return true;
         }
     }
 
     v_normal = (p3-p0).cross(p2-p0);
-    norm_v_normal = v_normal*(v_normal);
+    norm_v_normal = type::dot(v_normal,v_normal);
     if(norm_v_normal > ZERO)
     {
-        if(fabs((ptest-p0)*(v_normal)) < ZERO) // p is in the plane defined by the triangle (p0,p3,p2)
+        if(fabs(type::dot(ptest-p0, v_normal)) < ZERO) // p is in the plane defined by the triangle (p0,p3,p2)
         {
 
             sofa::type::Vec<3,Real> n_01 = (p2-p0).cross(v_normal);
             sofa::type::Vec<3,Real> n_12 = (p3-p2).cross(v_normal);
             sofa::type::Vec<3,Real> n_20 = (p0-p3).cross(v_normal);
 
-            if(((ptest-p0)*(n_01) > -ZERO) && ((ptest-p2)*(n_12) > -ZERO) && ((ptest-p3)*(n_20) > -ZERO))
+            if( type::dot((ptest-p0),(n_01)) > -ZERO && type::dot((ptest-p2),(n_12)) > -ZERO && type::dot((ptest-p3),(n_20)) > -ZERO)
                 return true;
         }
 

@@ -88,10 +88,15 @@ void SphereLoader::applyTransform()
                 msg_warning() << "Data scale should not be set to zero";
             }
         }
-        const Matrix4 transformation = Matrix4::transformTranslation(translation) *
-            Matrix4::transformRotation(type::Quat< SReal >::createQuaterFromEuler(rotation * M_PI / 180.0)) *
-            Matrix4::transformScale(scale);
+        Eigen::Translation<SReal, 3> tr(translation);
+        const auto euler = rotation * M_PI / 180.0;
+        Eigen::Quaternion<SReal> q;
+        q = Eigen::AngleAxis<SReal>(euler[0], Eigen::Vector3d::UnitX())
+            * Eigen::AngleAxis<SReal>(euler[1], Eigen::Vector3d::UnitY())
+            * Eigen::AngleAxis<SReal>(euler[2], Eigen::Vector3d::UnitZ());
+        Eigen::Scaling(scale);
 
+        auto transformation = tr * q.toRotationMatrix() * Eigen::Scaling(scale);
         auto my_positions = getWriteOnlyAccessor(d_positions);
 
         if(my_positions.size() != m_savedPositions.size()) {
@@ -99,7 +104,7 @@ void SphereLoader::applyTransform()
         }
 
         for (size_t i = 0; i < my_positions.size(); i++) {
-            my_positions[i] = transformation.transform(m_savedPositions[i]);
+            my_positions[i] = transformation * m_savedPositions[i];
         }
     }
 }

@@ -236,9 +236,9 @@ RegularGridTopology::Index RegularGridTopology::findCube(const type::Vec3& pos)
     if (n[0]<2 || n[1]<2 || n[2]<2)
         return InvalidID;
     const type::Vec3 p = pos-d_p0.getValue();
-    const SReal x = p*dx*inv_dx2;
-    const SReal y = p*dy*inv_dy2;
-    const SReal z = p*dz*inv_dz2;
+    const SReal x = type::dot(p*dx,inv_dx2);
+    const SReal y = type::dot(p*dy,inv_dx2);
+    const SReal z = type::dot(p*dz,inv_dx2);
     const int ix = int(std::floor(x));
     const int iy = int(std::floor(y));
     const int iz = int(std::floor(z));
@@ -260,9 +260,9 @@ RegularGridTopology::Index RegularGridTopology::findNearestCube(const type::Vec3
     const auto n = d_n.getValue();
     if (n[0]<2 || n[1]<2 || n[2]<2) return InvalidID;
     const type::Vec3 p = pos-d_p0.getValue();
-    const SReal x = p*dx*inv_dx2;
-    const SReal y = p*dy*inv_dy2;
-    const SReal z = p*dz*inv_dz2;
+    const SReal x = type::dot(p*dx,inv_dx2);
+    const SReal y = type::dot(p*dy,inv_dx2);
+    const SReal z = type::dot(p*dz,inv_dx2);
     int ix = int(std::floor(x));
     int iy = int(std::floor(y));
     int iz = int(std::floor(z));
@@ -280,9 +280,9 @@ RegularGridTopology::Index RegularGridTopology::findCube(const type::Vec3& pos, 
     if (n[0]<2 || n[1]<2 || n[2]<2) return InvalidID;
     const type::Vec3 p = pos-d_p0.getValue();
 
-    const SReal x = p*dx*inv_dx2;
-    const SReal y = p*dy*inv_dy2;
-    const SReal z = p*dz*inv_dz2;
+    const SReal x = type::dot(p*dx,inv_dx2);
+    const SReal y = type::dot(p*dy,inv_dx2);
+    const SReal z = type::dot(p*dz,inv_dx2);
 
     const int ix = int(std::floor(x));
     const int iy = int(std::floor(y));
@@ -308,9 +308,9 @@ RegularGridTopology::Index RegularGridTopology::findNearestCube(const type::Vec3
     const auto n = d_n.getValue();
     if (n[0]<2 || n[1]<2 || n[2]<2) return InvalidID;
     const type::Vec3 p = pos-d_p0.getValue();
-    const SReal x = p*dx*inv_dx2;
-    const SReal y = p*dy*inv_dy2;
-    const SReal z = p*dz*inv_dz2;
+    const SReal x = type::dot(p*dx,inv_dx2);
+    const SReal y = type::dot(p*dy,inv_dx2);
+    const SReal z = type::dot(p*dz,inv_dx2);
     int ix = int(std::floor(x));
     int iy = int(std::floor(y));
     int iz = int(std::floor(z));

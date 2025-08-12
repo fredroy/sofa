@@ -262,7 +262,7 @@ public:
         for(unsigned int j=0; j<u.size(); ++j) if(j!=axis)
             {
                 for(unsigned int i=0; i<u.size(); ++i)  {u[i]=M1(i,j); v[i]=M2(i,j);}
-                count++;  getVectorAngle(u,v,w); if(dot(w,W)<0) angle -= w.norm(); else angle += w.norm();
+                count++;  getVectorAngle(u,v,w); if(type::dot(w,W)<0) angle -= w.norm(); else angle += w.norm();
             }
         angle /= (Real)count;
         return angle;
@@ -270,8 +270,8 @@ public:
 
     inline void getVectorAngle(Vector u,Vector v,Vector &w)
     {
-        w=cross(u,v);
-        Real nw=w.norm(),dt=dot(u,v);
+        w=type::cross(u,v);
+        Real nw=w.norm(),dt=type::dot(u,v);
         if(nw) w*=atan2(nw,dt)/nw;
     }
 

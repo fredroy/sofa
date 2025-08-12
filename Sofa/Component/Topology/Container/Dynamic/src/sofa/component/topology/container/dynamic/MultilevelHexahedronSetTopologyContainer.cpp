@@ -344,27 +344,27 @@ void MultilevelHexahedronSetTopologyContainer::connectionToNodeAdjacency(const V
 
     if(nodeMap.size() == 4) // face connection
     {
-        if((connection - Vec3i(1,0,0)).norm2() == 0) // cube is on the right from neighbor
+        if((connection - Vec3i(1,0,0)).eval().norm2() == 0) // cube is on the right from neighbor
         {
             nodeMap[0] = 1; nodeMap[3] = 2; nodeMap[4] = 5; nodeMap[7] = 6;
         }
-        else if((connection - Vec3i(-1,0,0)).norm2() == 0) // cube is on the left from neighbor
+        else if((connection - Vec3i(-1,0,0)).eval().norm2() == 0) // cube is on the left from neighbor
         {
             nodeMap[1] = 0; nodeMap[2] = 3; nodeMap[5] = 4; nodeMap[6] = 7;
         }
-        else if((connection - Vec3i(0,1,0)).norm2() == 0) // cube is on the top from neighbor
+        else if((connection - Vec3i(0,1,0)).eval().norm2() == 0) // cube is on the top from neighbor
         {
             nodeMap[0] = 3; nodeMap[1] = 2; nodeMap[4] = 7; nodeMap[5] = 6;
         }
-        else if((connection - Vec3i(0,-1,0)).norm2() == 0) // cube is on the bottom from neighbor
+        else if((connection - Vec3i(0,-1,0)).eval().norm2() == 0) // cube is on the bottom from neighbor
         {
             nodeMap[3] = 0; nodeMap[2] = 1; nodeMap[7] = 4; nodeMap[6] = 5;
         }
-        else if((connection - Vec3i(0,0,1)).norm2() == 0) // cube is on the front from neighbor
+        else if((connection - Vec3i(0,0,1)).eval().norm2() == 0) // cube is on the front from neighbor
         {
             nodeMap[0] = 4; nodeMap[1] = 5; nodeMap[2] = 6; nodeMap[3] = 7;
         }
-        else if((connection - Vec3i(0,0,-1)).norm2() == 0) // cube is on the back from neighbor
+        else if((connection - Vec3i(0,0,-1)).eval().norm2() == 0) // cube is on the back from neighbor
         {
             nodeMap[4] = 0; nodeMap[5] = 1; nodeMap[6] = 2; nodeMap[7] = 3;
         }
@@ -558,7 +558,7 @@ bool MultilevelHexahedronSetTopologyContainer::Component::isStronglyConnected() 
 
 bool MultilevelHexahedronSetTopologyContainer::Component::isConnected(const Component* other) const
 {
-    if((this->_id - other->_id).norm2() > 3)
+    if((this->_id - other->_id).eval().norm2() > 3)
         return false;
 
     for(std::set<Vec3i>::const_iterator voxelIter = other->_voxels.begin();
@@ -590,7 +590,7 @@ bool MultilevelHexahedronSetTopologyContainer::Component::isConnected(const std:
 bool MultilevelHexahedronSetTopologyContainer::Component::getConnection(const Component* other,
         Vec<3, int>& connection) const
 {
-    if((this->_id - other->_id).norm2() > 3)
+    if((this->_id - other->_id).eval().norm2() > 3)
         return false;
 
     const int level = this->getLevel();
@@ -700,7 +700,7 @@ bool MultilevelHexahedronSetTopologyContainer::Component::getConnection(const Co
 
 bool MultilevelHexahedronSetTopologyContainer::Component::merge(Component* other)
 {
-    if((this->_id - other->_id).norm2() != 0 || this->_parent != other->_parent)
+    if((this->_id - other->_id).eval().norm2() != 0 || this->_parent != other->_parent)
         return false;
 
     for(std::set<Component*>::const_iterator it = other->_children.begin();

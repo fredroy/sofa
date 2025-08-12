@@ -317,8 +317,8 @@ bool TriangleSubdivider::subdivide_2Edge(const sofa::type::fixed_array<sofa::typ
     }
 
     // compute diagonals
-    auto diag0 = (quadPoints[0] - quadPoints[2]).norm2();
-    auto diag1 = (quadPoints[1] - quadPoints[3]).norm2();
+    auto diag0 = (quadPoints[0] - quadPoints[2]).eval().norm2();
+    auto diag1 = (quadPoints[1] - quadPoints[3]).eval().norm2();
 
     SReal areaFull = geometry::Triangle::area(triCoords[0], triCoords[1], triCoords[2]);
     newAreas[0] = geometry::Triangle::area(triCoords[communLocalID], p1, p0);

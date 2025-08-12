@@ -719,7 +719,7 @@ bool MeshExporter::writeMeshTetgen()
             {
                 sofa::core::topology::BaseMeshTopology::Tetra t = m_inputtopology->getTetra(i);
                 // check tetra inversion
-                if (dot(pointsPos[t[1]]-pointsPos[t[0]],cross(pointsPos[t[2]]-pointsPos[t[0]],pointsPos[t[3]]-pointsPos[t[0]])) > 0)
+                if (type::dot(pointsPos[t[1]]-pointsPos[t[0]],type::cross(pointsPos[t[2]]-pointsPos[t[0]],pointsPos[t[3]]-pointsPos[t[0]])) > 0)
                 {
                     unsigned int tmp = t[3]; t[3] = t[2]; t[2] = tmp;
                 }

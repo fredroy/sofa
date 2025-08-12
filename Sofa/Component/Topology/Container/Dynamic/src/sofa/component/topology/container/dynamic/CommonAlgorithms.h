@@ -80,7 +80,7 @@ type::Vec<1,Real> cross(const type::Vec<1,Real>&, const type::Vec<1,Real>&)
 template<typename real>
 inline real tripleProduct(const sofa::type::Vec<3,real>& a, const sofa::type::Vec<3,real>& b,const sofa::type::Vec<3,real> &c)
 {
-    return dot(a,cross(b,c));
+    return type::dot(a,type::cross(b,c));
 }
 
 /// Volume invalid for 2-elements sofa::type::vectors.

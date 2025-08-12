@@ -559,11 +559,11 @@ sofa::type::Vec3 HexahedronSetGeometryAlgorithms<DataTypes>::computeHexahedronRe
         pnt[w] = pos[w];
     }
 
-    sofa::type::Mat3x3d		m, mt, base;
+    sofa::type::Mat3x3		m, mt, base;
     m[0] = p1-origin;
     m[1] = p3-origin;
     m[2] = p4-origin;
-    mt.transpose(m);
+    mt = m.transpose();
     const bool canInvert = base.invert(mt);
     assert(canInvert);
     SOFA_UNUSED(canInvert);

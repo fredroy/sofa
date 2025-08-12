@@ -87,8 +87,8 @@ void FrameSpringForceField<DataTypes>::addSpringForce ( SReal& /*potentialEnergy
                                                                                                                         // rotation vector please use the following line instead
     //VecN fR = ksr.linearProduct( ( p1[a].getOrientation().inverse() * p2[b].getOrientation()).toEulerVector());
 
-    VecN C1 = fR + cross( Mr01 * ( spring.vec1), fT) + damping.linearProduct ( getVOrientation(Vp1p2) );
-    VecN C2 = fR + cross( Mr02 * ( spring.vec2), fT) + damping.linearProduct ( -getVOrientation(Vp1p2) );
+    VecN C1 = fR + type::cross( Mr01 * ( spring.vec1), fT) + damping.linearProduct ( getVOrientation(Vp1p2) );
+    VecN C2 = fR + type::cross( Mr02 * ( spring.vec2), fT) + damping.linearProduct ( -getVOrientation(Vp1p2) );
 
     f1[a] += Deriv ( fT, C1);
     f2[b] -= Deriv ( fT, C2);

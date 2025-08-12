@@ -101,15 +101,25 @@ auto infNorm(const Eigen::MatrixBase<Derived>& m)
 }
 
 template<typename Derived>
-auto determinant(const Eigen::MatrixBase<Derived>& mat)
+auto determinant(const Eigen::MatrixBase<Derived>& m)
 {
-    return mat.determinant();
+    return m.determinant();
 }
 
 template<typename Derived>
-auto trace(const Eigen::MatrixBase<Derived>& mat)
+auto trace(const Eigen::MatrixBase<Derived>& m)
 {
-    return mat.trace();
+    return m.trace();
+}
+
+template<typename Derived1, typename Derived2>
+bool invertMatrix(Eigen::MatrixBase<Derived1>& dest, const Eigen::MatrixBase<Derived2>& from)
+{
+    //TODO: static check if up to 4x4
+    bool isInvertible = false;
+    from.computeInverseWithCheck(dest, isInvertible);
+
+    return isInvertible;
 }
 
 } // namespace sofa::type

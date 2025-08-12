@@ -98,7 +98,7 @@ void InteractiveCamera::moveCamera(int x, int y)
             trans = cameraToWorldTransform(trans);
             translate(trans);
             const type::Vec3 newLookAt = cameraToWorldCoordinates(type::Vec3(0,0,-zoomStep));
-            if (dot(getLookAt() - getPosition(), newLookAt - getPosition()) < 0
+            if (type::dot(getLookAt() - getPosition(), newLookAt - getPosition()) < 0
                 && !d_fixedLookAtPoint.getValue() )
             {
                 translateLookAt(newLookAt - getLookAt());
@@ -129,7 +129,7 @@ void InteractiveCamera::moveCamera(int x, int y)
         trans = cameraToWorldTransform(trans);
         translate(trans);
         const type::Vec3 newLookAt = cameraToWorldCoordinates(type::Vec3(0,0,-zoomStep));
-        if (dot(getLookAt() - getPosition(), newLookAt - getPosition()) < 0
+        if (type::dot(getLookAt() - getPosition(), newLookAt - getPosition()) < 0
             && !d_fixedLookAtPoint.getValue() )
         {
             translateLookAt(newLookAt - getLookAt());

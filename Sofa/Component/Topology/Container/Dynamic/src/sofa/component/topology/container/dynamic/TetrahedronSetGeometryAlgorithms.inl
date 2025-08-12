@@ -434,7 +434,7 @@ typename DataTypes::Coord TetrahedronSetGeometryAlgorithms<DataTypes>::computeTe
     std::copy_n(t2.begin(), minDimensions, b.begin());
     std::copy_n(t3.begin(), minDimensions, c.begin());
 
-    sofa::type::Vec<3,Real> d = (cross(b, c) * a.norm2() + cross(c, a) * b.norm2() + cross(a, b) * c.norm2()) / (12* computeTetrahedronVolume(i));
+    sofa::type::Vec<3,Real> d = (type::cross(b, c) * a.norm2() + type::cross(c, a) * b.norm2() + type::cross(a, b) * c.norm2()) / (12* computeTetrahedronVolume(i));
 
     center[0] += d[0];
     center[1] += d[1];
@@ -456,12 +456,20 @@ bool TetrahedronSetGeometryAlgorithms< DataTypes >::isPointInTetrahedron(const T
     const sofa::type::Vec<3,Real> t2(p[t[2]][0], p[t[2]][1], p[t[2]][2]);
     const sofa::type::Vec<3,Real> t3(p[t[3]][0], p[t[3]][1], p[t[3]][2]);
 
-    Real v0 = tripleProduct(t1-pTest, t2-pTest, t3-pTest);
-    Real v1 = tripleProduct(pTest-t0, t2-t0, t3-t0);
-    Real v2 = tripleProduct(t1-t0, pTest-t0, t3-t0);
-    Real v3 = tripleProduct(t1-t0, t2-t0, pTest-t0);
+    const auto diff_t1pTest = (t1-pTest).eval();
+    const auto diff_t2pTest = (t2-pTest).eval();
+    const auto diff_t3pTest = (t3-pTest).eval();
+    const auto diff_pTestt0 = (pTest-t0).eval();
+    const auto diff_t2t0 = (t2-t0).eval();
+    const auto diff_t3t0 = (t3-t0).eval();
+    const auto diff_t1t0 = (t1-t0).eval();
 
-    Real V = tripleProduct(t1-t0, t2-t0, t3-t0);
+    Real v0 = tripleProduct(diff_t1pTest, diff_t2pTest, diff_t3pTest);
+    Real v1 = tripleProduct(diff_pTestt0, diff_t2t0, diff_t3t0);
+    Real v2 = tripleProduct(diff_t1t0, diff_pTestt0, diff_t3t0);
+    Real v3 = tripleProduct(diff_t1t0, diff_t2t0, diff_pTestt0);
+
+    Real V = tripleProduct(diff_t1t0, diff_t2t0, diff_t3t0);
     if(fabs(V)>ZERO)
         return (v0/V > -ZERO) && (v1/V > -ZERO) && (v2/V > -ZERO) && (v3/V > -ZERO);
 
@@ -482,12 +490,20 @@ bool TetrahedronSetGeometryAlgorithms< DataTypes >::isPointInTetrahedron(const T
     const sofa::type::Vec<3,Real> t2(p[t[2]][0], p[t[2]][1], p[t[2]][2]);
     const sofa::type::Vec<3,Real> t3(p[t[3]][0], p[t[3]][1], p[t[3]][2]);
 
-    Real v0 = tripleProduct(t1-pTest, t2-pTest, t3-pTest);
-    Real v1 = tripleProduct(pTest-t0, t2-t0, t3-t0);
-    Real v2 = tripleProduct(t1-t0, pTest-t0, t3-t0);
-    Real v3 = tripleProduct(t1-t0, t2-t0, pTest-t0);
+    const auto diff_t1pTest = (t1-pTest).eval();
+    const auto diff_t2pTest = (t2-pTest).eval();
+    const auto diff_t3pTest = (t3-pTest).eval();
+    const auto diff_pTestt0 = (pTest-t0).eval();
+    const auto diff_t2t0 = (t2-t0).eval();
+    const auto diff_t3t0 = (t3-t0).eval();
+    const auto diff_t1t0 = (t1-t0).eval();
 
-    Real V = tripleProduct(t1-t0, t2-t0, t3-t0);
+    Real v0 = tripleProduct(diff_t1pTest, diff_t2pTest, diff_t3pTest);
+    Real v1 = tripleProduct(diff_pTestt0, diff_t2t0, diff_t3t0);
+    Real v2 = tripleProduct(diff_t1t0, diff_pTestt0, diff_t3t0);
+    Real v3 = tripleProduct(diff_t1t0, diff_t2t0, diff_pTestt0);
+
+    Real V = tripleProduct(diff_t1t0, diff_t2t0, diff_t3t0);
     if(fabs(V)>ZERO)
     {
         if( (v0/V > -ZERO) && (v1/V > -ZERO) && (v2/V > -ZERO) && (v3/V > -ZERO) )
@@ -536,10 +552,10 @@ typename DataTypes::Real TetrahedronSetGeometryAlgorithms< DataTypes >::computeT
 {
     const Tetrahedron t = this->m_topology->getTetrahedron(i);
     const typename DataTypes::VecCoord& p =(this->object->read(core::vec_id::read_access::position)->getValue());
-    Real volume = (Real)(tripleProduct(p[t[1]]-p[t[0]],p[t[2]]-p[t[0]],p[t[3]]-p[t[0]])/6.0);
-    if(volume<0)
-        volume=-volume;
-    return volume;
+
+    const Real volume = sofa::geometry::Tetrahedron::volume(p[t[0]], p[t[1]], p[t[2]], p[t[3]]);
+
+    return std::abs(volume);
 }
 
 template< class DataTypes>
@@ -552,10 +568,9 @@ template< class DataTypes>
 typename DataTypes::Real TetrahedronSetGeometryAlgorithms< DataTypes >::computeRestTetrahedronVolume( const Tetrahedron& t) const
 {
     const typename DataTypes::VecCoord& p = (this->object->read(core::vec_id::read_access::restPosition)->getValue());
-    Real volume = (Real)(tripleProduct(p[t[1]]-p[t[0]],p[t[2]]-p[t[0]],p[t[3]]-p[t[0]])/6.0);
-    if(volume<0)
-        volume=-volume;
-    return volume;
+    const Real volume = sofa::geometry::Tetrahedron::volume(p[t[0]], p[t[1]], p[t[2]], p[t[3]]);
+
+    return std::abs(volume);
 }
 
 /// computes the edge length of all edges are store in the array interface
@@ -567,7 +582,7 @@ void TetrahedronSetGeometryAlgorithms<DataTypes>::computeTetrahedronVolume( Basi
     for (unsigned int i=0; i<ta.size(); ++i)
     {
         const Tetrahedron &t = ta[i];
-        ai[i] = (Real)(tripleProduct(p[t[1]]-p[t[0]],p[t[2]]-p[t[0]],p[t[3]]-p[t[0]])/6.0);
+        ai[i] = sofa::geometry::Tetrahedron::volume(p[t[0]], p[t[1]], p[t[2]], p[t[3]]);
     }
 }
 
@@ -608,7 +623,7 @@ typename DataTypes::Real TetrahedronSetGeometryAlgorithms<DataTypes>::computeDih
 
     nF1.normalize();
     nF2.normalize();
-    Real cosTheta = nF1 * nF2;
+    Real cosTheta = type::dot(nF1 , nF2);
     angle = std::acos(cosTheta) * (180 / M_PI);    
 
     return angle;
@@ -634,7 +649,7 @@ void TetrahedronSetGeometryAlgorithms< DataTypes >::getTetraInBall(const TetraID
     std::copy_n(ca.begin(), minDimensions, pa.begin());
     std::copy_n(cb.begin(), minDimensions, pb.begin());
 
-    Real d = (pa-pb)*(pa-pb);
+    Real d = type::dot(pa-pb,pa-pb);
 
     getTetraInBall(ind_ta, d, indices);
 }
@@ -701,7 +716,7 @@ void TetrahedronSetGeometryAlgorithms< DataTypes >::getTetraInBall(const TetraID
 
                         std::copy_n(cc.begin(), std::min<sofa::Size>(DataTypes::spatial_dimensions, 3u), pc.begin());
 
-                        Real d_test = (pa-pc)*(pa-pc);
+                        Real d_test = type::dot(pa-pc,pa-pc);
 
                         if(d_test<d)
                         {
@@ -795,7 +810,7 @@ void TetrahedronSetGeometryAlgorithms< DataTypes >::getTetraInBall(const Coord& 
                         sofa::type::Vec<3,Real> pc;
                         std::copy_n(cc.begin(), std::min<sofa::Size>(DataTypes::spatial_dimensions, 3u), pc.begin());
 
-                        Real d_test = (pa-pc)*(pa-pc);
+                        Real d_test = type::dot(pa-pc, pa-pc);
 
                         if(d_test<d)
                         {
@@ -853,10 +868,10 @@ bool TetrahedronSetGeometryAlgorithms<DataTypes>::computeIntersectionEdgeWithPla
 {
     //plane equation
     sofa::type::Vec<3, Real> planNorm = normal.normalized();
-    Real d = planNorm * planP0;
+    Real d = type::dot(planNorm, planP0);
 
     //compute intersection between line and plane equation
-    Real t = (d - planNorm * edgeP1) / (planNorm*(edgeP2 - edgeP1));
+    Real t = type::dot((d - planNorm * edgeP1) , (planNorm*(edgeP2 - edgeP1)));
 
     if((t<=1) && (t>=0))
     {
@@ -883,7 +898,7 @@ bool TetrahedronSetGeometryAlgorithms<DataTypes>::checkNodeSequence(const Tetrah
         vec[i-1]=vect_c[tetra[i]]-vect_c[tetra[0]];
         vec[i-1].normalize();
     }
-    Real dotProduct=(vec[1].cross(vec[0]))*vec[2];
+    Real dotProduct=type::dot((vec[1].cross(vec[0]))*vec[2]);
     if(dotProduct<0)
         return true;
     else
@@ -910,7 +925,7 @@ bool TetrahedronSetGeometryAlgorithms< DataTypes >::isTetrahedronElongated(const
     {
         for (unsigned int j = i + 1; j < 4; j++)
         {
-            Real length = (points[j] - points[i]).norm2();
+            Real length = (points[j] - points[i]).eval().norm2();
             if (length < minLength) {
                 minLength = length;
             }
@@ -1250,7 +1265,7 @@ int TetrahedronSetGeometryAlgorithms<DataTypes>::subDivideTetrahedronWithPlane(T
         //construct subdivided tetrahedrons
         Tetra subTetra[2];
         edgeDirec=this->computeEdgeDirection(intersectedEdgeID[0])*-1;
-        Real dot=edgeDirec*planeNormal;
+        Real dot=type::dot(edgeDirec, planeNormal);
 
         //inspect the tetrahedron is already subdivided
         if((pointsID[0]>=m_intialNbPoints) && (pointsID[1]>=m_intialNbPoints))
@@ -1611,7 +1626,7 @@ int TetrahedronSetGeometryAlgorithms<DataTypes>::subDivideTetrahedronWithPlane(T
             }
 
             //construct subdivided tetrahedrons
-            Real dot=edgeDirec*planeNormal;
+            Real dot=type::dot(edgeDirec, planeNormal);
             Tetra subTetra[4];
             if(dot>0)
             {
@@ -1768,7 +1783,7 @@ int TetrahedronSetGeometryAlgorithms<DataTypes>::subDivideTetrahedronWithPlane(T
             }
 
             //construct subdivided tetrahedrons
-            Real dot=edgeDirec*planeNormal;
+            Real dot=type::dot(edgeDirec,planeNormal);
             Tetra subTetra[5];
 
             if(dot>0)
@@ -1938,7 +1953,7 @@ int TetrahedronSetGeometryAlgorithms<DataTypes>::subDivideTetrahedronWithPlane(T
         edgeDirec=this->computeEdgeDirection(intersectedEdgeID[0])*-1;
 
         //construct subdivided tetrahedrons
-        Real dot=edgeDirec*planeNormal;
+        Real dot=type::dot(edgeDirec,planeNormal);
         Tetra subTetra[6];
         if(dot>0)
         {
@@ -2361,7 +2376,7 @@ int TetrahedronSetGeometryAlgorithms<DataTypes>::subDivideRestTetrahedronWithPla
         //construct subdivided tetrahedrons
         Tetra subTetra[2];
         edgeDirec=this->computeRestEdgeDirection(intersectedEdgeID[0])*-1;
-        Real dot=edgeDirec*planeNormal;
+        Real dot=type::dot(edgeDirec,planeNormal);
 
         //inspect the tetrahedron is already subdivided
         if((pointsID[0]>=m_intialNbPoints) && (pointsID[1]>=m_intialNbPoints))
@@ -2553,7 +2568,7 @@ int TetrahedronSetGeometryAlgorithms<DataTypes>::subDivideRestTetrahedronWithPla
         }
 
         //construct subdivided tetrahedrons
-        Real dot=edgeDirec*planeNormal;
+        Real dot=type::dot(edgeDirec,planeNormal);
         Tetra subTetra[3];
 
         if(pointsID[3]>=m_intialNbPoints)
@@ -2722,7 +2737,7 @@ int TetrahedronSetGeometryAlgorithms<DataTypes>::subDivideRestTetrahedronWithPla
             }
 
             //construct subdivided tetrahedrons
-            Real dot=edgeDirec*planeNormal;
+            Real dot=type::dot(edgeDirec,planeNormal);
             Tetra subTetra[4];
             if(dot>0)
             {
@@ -2879,7 +2894,7 @@ int TetrahedronSetGeometryAlgorithms<DataTypes>::subDivideRestTetrahedronWithPla
             }
 
             //construct subdivided tetrahedrons
-            Real dot=edgeDirec*planeNormal;
+            Real dot=type::dot(edgeDirec,planeNormal);
             Tetra subTetra[5];
 
             if(dot>0)
@@ -3049,7 +3064,7 @@ int TetrahedronSetGeometryAlgorithms<DataTypes>::subDivideRestTetrahedronWithPla
         edgeDirec=this->computeRestEdgeDirection(intersectedEdgeID[0])*-1;
 
         //construct subdivided tetrahedrons
-        Real dot=edgeDirec*planeNormal;
+        Real dot=type::dot(edgeDirec,planeNormal);
         Tetra subTetra[6];
         if(dot>0)
         {

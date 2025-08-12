@@ -1249,7 +1249,7 @@ bool SparseGridRamificationTopology::intersectionSegmentTriangle(type::Vec3 s0, 
     //   |Dot(D,N)|*b1 = sign(Dot(D,N))*Dot(D,Cross(Q,E2))
     //   |Dot(D,N)|*b2 = sign(Dot(D,N))*Dot(D,Cross(E1,Q))
     //   |Dot(D,N)|*t = -sign(Dot(D,N))*Dot(Q,N)
-    SReal fDdN = dir * kNormal;
+    SReal fDdN = type::dot(dir, kNormal);
     SReal fSign;
     if (fDdN > 1.0e-10)
     {
@@ -1267,16 +1267,16 @@ bool SparseGridRamificationTopology::intersectionSegmentTriangle(type::Vec3 s0, 
         return false;
     }
 
-    const SReal fDdQxE2 = fSign * (dir * kDiff.cross(kEdge2));
+    const SReal fDdQxE2 = type::dot(fSign , (dir * kDiff.cross(kEdge2)));
     if (fDdQxE2 >= (SReal)0.0)
     {
-        const SReal fDdE1xQ = fSign* (dir * kEdge1.cross(kDiff));
+        const SReal fDdE1xQ = type::dot(fSign, (dir * kEdge1.cross(kDiff)));
         if (fDdE1xQ >= (SReal)0.0)
         {
             if (fDdQxE2 + fDdE1xQ <= fDdN)
             {
                 // line intersects triangle, check if segment does
-                const SReal fQdN = -fSign*(kDiff*kNormal);
+                const SReal fQdN = type::dot(-fSign,(kDiff*kNormal));
                 const SReal fExtDdN = norm*fDdN;
                 if (-fExtDdN <= fQdN && fQdN <= fExtDdN)
                 {

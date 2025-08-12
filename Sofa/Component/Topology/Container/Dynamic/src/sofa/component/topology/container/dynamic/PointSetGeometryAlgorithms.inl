@@ -129,7 +129,7 @@ void  PointSetGeometryAlgorithms<DataTypes>::getEnclosingSphere(typename DataTyp
     for(unsigned int i=0; i<numVertices; ++i)
     {
         const CPos dp = DataTypes::getCPos(center)-DataTypes::getCPos(p[i]);
-        const Real val = dot(dp,dp);
+        const Real val = type::dot(dp,dp);
         if(val > radius)
             radius = val;
     }
@@ -195,7 +195,7 @@ PointSetGeometryAlgorithms<DataTypes>::computeAngle(PointID ind_p0, PointID ind_
     Coord p0 = p[ind_p0];
     Coord p1 = p[ind_p1];
     Coord p2 = p[ind_p2];
-    const double t = (p1 - p0)*(p2 - p0);
+    const double t = type::dot((p1 - p0),(p2 - p0));
 
     if(fabs(t) < ZERO)
         return RIGHT;
@@ -283,7 +283,7 @@ void PointSetGeometryAlgorithms<DataTypes>::draw(const core::visual::VisualParam
         std::vector<type::Vec3> positions;
         for (unsigned int i =0; i<coords.size(); i++)
         {
-            type::Vec3 center; center = DataTypes::getCPos(coords[i]);
+            type::Vec3 center = DataTypes::getCPos(coords[i]);
             positions.push_back(center);
 
         }

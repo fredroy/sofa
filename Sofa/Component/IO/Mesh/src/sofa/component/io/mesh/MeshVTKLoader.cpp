@@ -201,7 +201,7 @@ bool MeshVTKLoader::setInputsMesh()
             if (inPoints)
                 for (int i = 0; i < vtkpd->dataSize; i += 3)
                 {
-                    my_positions.push_back(Vec3d (double(inPoints[i + 0]), double(inPoints[i + 1]), double(inPoints[i + 2])));
+                    my_positions.push_back(Vec3 (static_cast<SReal>(inPoints[i + 0]), static_cast<SReal>(inPoints[i + 1]), static_cast<SReal>(inPoints[i + 2])));
                 }
             else
             {
@@ -214,7 +214,7 @@ bool MeshVTKLoader::setInputsMesh()
             if (inPoints)
                 for (int i = 0; i < vtkpf->dataSize; i += 3)
                 {
-                    my_positions.push_back(Vec3f (inPoints[i + 0], inPoints[i + 1], inPoints[i + 2]));
+                    my_positions.push_back(Vec3 (static_cast<SReal>(inPoints[i + 0]), static_cast<SReal>(inPoints[i + 1]), static_cast<SReal>(inPoints[i + 2])));
                 }
             else
             {
@@ -244,7 +244,7 @@ bool MeshVTKLoader::setInputsMesh()
             if (inNormals)
                 for (int i = 0; i < vtkpd->dataSize; i += 3)
                 {
-                    my_normals.push_back(Vec3 (double(inNormals[i + 0]), double(inNormals[i + 1]), double(inNormals[i + 2])));
+                    my_normals.push_back(Vec3(static_cast<SReal>(inNormals[i + 0]), static_cast<SReal>(inNormals[i + 1]), static_cast<SReal>(inNormals[i + 2])));
                 }
             else
             {
@@ -257,7 +257,7 @@ bool MeshVTKLoader::setInputsMesh()
             if (inNormals)
                 for (int i = 0; i < vtkpf->dataSize; i += 3)
                 {
-                    my_normals.push_back(Vec3f (inNormals[i + 0], inNormals[i + 1], inNormals[i + 2]));
+                    my_normals.push_back(Vec3(static_cast<SReal>(inNormals[i + 0]), static_cast<SReal>(inNormals[i + 1]), static_cast<SReal>(inNormals[i + 2])));
                 }
             else
             {

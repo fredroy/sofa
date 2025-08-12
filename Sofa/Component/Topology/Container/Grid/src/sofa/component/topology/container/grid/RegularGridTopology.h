@@ -100,9 +100,9 @@ public:
     const type::Vec3& getP0() const { return d_p0.getValue(); }
 
     /// Set the distance between points in the grid
-    void setDx(const type::Vec3& val) { dx = val; inv_dx2 = 1/(dx*dx); }
-    void setDy(const type::Vec3& val) { dy = val; inv_dy2 = 1/(dy*dy); }
-    void setDz(const type::Vec3& val) { dz = val; inv_dz2 = 1/(dz*dz); }
+    void setDx(const type::Vec3& val) { dx = val; inv_dx2 = 1/(type::dot(dx,dx)); }
+    void setDy(const type::Vec3& val) { dy = val; inv_dy2 = 1/(type::dot(dy,dy)); }
+    void setDz(const type::Vec3& val) { dz = val; inv_dz2 = 1/(type::dot(dz,dz)); }
 
     /// Get the distance between points in the grid
     const type::Vec3& getDx() const { return dx; }

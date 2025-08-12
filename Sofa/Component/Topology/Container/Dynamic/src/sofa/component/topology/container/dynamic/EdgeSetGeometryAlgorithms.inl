@@ -354,7 +354,7 @@ bool EdgeSetGeometryAlgorithms<DataTypes>::isPointOnEdge(const sofa::type::Vec<3
 {
     Coord vertices[2];
     getEdgeVertexCoordinates(ind_e, vertices);
-    sofa::type::Vec<3, Real> p1(type::NOINIT), p2(type::NOINIT);
+    sofa::type::VecNoInit<3, Real> p1, p2;
 
     DataTypes::get(p1[0], p1[1], p1[2], vertices[0]);
     DataTypes::get(p2[0], p2[1], p2[2], vertices[1]);
@@ -495,7 +495,7 @@ typename DataTypes::Coord EdgeSetGeometryAlgorithms<DataTypes>::compute2EdgesInt
     auto b0 = type::Vec3(DataTypes::getCPos(edge2[0]));
     auto b1 = type::Vec3(DataTypes::getCPos(edge2[1]));
 
-    type::Vec2 baryCoords(type::NOINIT);
+    type::VecNoInit<2,SReal> baryCoords;
     intersected = sofa::geometry::Edge::intersectionWithEdge(a0, a1, b0, b1, baryCoords);
 
     type::vector< Coord > ancestors = {edge1[0], edge1[1]};
@@ -516,7 +516,7 @@ typename DataTypes::Coord EdgeSetGeometryAlgorithms<DataTypes>::computeEdgeSegme
     auto p0 = type::Vec3(DataTypes::getCPos(e0));
     auto p1 = type::Vec3(DataTypes::getCPos(e1));
 
-    type::Vec2 baryCoords(type::NOINIT);
+    type::VecNoInit<2,SReal> baryCoords;
     intersected = sofa::geometry::Edge::intersectionWithEdge(p0, p1, a, b, baryCoords);
 
     type::vector< Coord > ancestors = {e0, e1};

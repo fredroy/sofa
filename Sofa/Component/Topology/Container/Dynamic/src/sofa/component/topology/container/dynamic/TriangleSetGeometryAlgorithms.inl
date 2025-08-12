@@ -323,9 +323,9 @@ void TriangleSetGeometryAlgorithms<DataTypes>::computeTriangleCircumcenterBaryCo
     const Triangle &t = this->m_topology->getTriangle(i);
     const typename DataTypes::VecCoord& p =(this->object->read(core::vec_id::read_access::position)->getValue());
     Real a2, b2, c2; // square lengths of the 3 edges
-    a2 = (p[t[1]]-p[t[0]]).norm2();
-    b2 = (p[t[2]]-p[t[1]]).norm2();
-    c2 = (p[t[0]]-p[t[2]]).norm2();
+    a2 = (p[t[1]]-p[t[0]]).eval().norm2();
+    b2 = (p[t[2]]-p[t[1]]).eval().norm2();
+    c2 = (p[t[0]]-p[t[2]]).eval().norm2();
 
     Real n = a2*(-a2+b2+c2) + b2*(a2-b2+c2) + c2*(a2+b2-c2);
 
@@ -378,7 +378,7 @@ typename DataTypes::Real TriangleSetGeometryAlgorithms< DataTypes >::computeTria
 {
     const Triangle &t = this->m_topology->getTriangle(i);
     const typename DataTypes::VecCoord& p =(this->object->read(core::vec_id::read_access::position)->getValue());
-    Real area = (Real)(areaProduct(p[t[1]]-p[t[0]], p[t[2]]-p[t[0]]) * 0.5);
+    Real area = sofa::geometry::Triangle::area(p[t[0]],p[t[1]],p[t[2]]);
     return area;
 }
 
@@ -387,7 +387,7 @@ typename DataTypes::Real TriangleSetGeometryAlgorithms< DataTypes >::computeRest
 {
     const Triangle &t = this->m_topology->getTriangle(i);
     const typename DataTypes::VecCoord& p = (this->object->read(core::vec_id::read_access::restPosition)->getValue());
-    Real area = (Real) (areaProduct(p[t[1]]-p[t[0]],p[t[2]]-p[t[0]]) * 0.5);
+    Real area = sofa::geometry::Triangle::area(p[t[0]],p[t[1]],p[t[2]]);
     return area;
 }
 
@@ -403,7 +403,7 @@ void TriangleSetGeometryAlgorithms<DataTypes>::computeTriangleArea( BasicArrayIn
         const Triangle &t=ta[i];
         Coord vec1 = p[t[1]] - p[t[0]];
         Coord vec2 = p[t[2]] - p[t[0]];
-        ai[(int)i]=(Real)(areaProduct(vec1, vec2) * 0.5);
+        ai[(int)i]=sofa::geometry::Triangle::area(p[t[0]],p[t[1]],p[t[2]]);
     }
 }
 
@@ -542,7 +542,7 @@ auto TriangleSetGeometryAlgorithms< DataTypes >::compute3PointsBarycoefs(
     c[2] = (Real) (c2[2]);
 
     sofa::type::Vec<3,Real> M = (sofa::type::Vec<3,Real>) (b-a).cross(c-a);
-    Real norm2_M = M*(M);
+    Real norm2_M = type::dot(M,M);
 
     Real coef_a, coef_b, coef_c;
 
@@ -558,8 +558,8 @@ auto TriangleSetGeometryAlgorithms< DataTypes >::compute3PointsBarycoefs(
     {
         sofa::type::Vec<3,Real> N =  M/norm2_M;
 
-        coef_a = N*((b-p).cross(c-p));
-        coef_b = N*((c-p).cross(a-p));
+        coef_a = type::dot(N, ((b-p).cross(c-p)));
+        coef_b = type::dot(N, ((c-p).cross(a-p)));
         coef_c = (Real) (1.0 - (coef_a + coef_b)); //N*((a-p).cross(b-p));
     }
 
@@ -599,7 +599,7 @@ void TriangleSetGeometryAlgorithms< DataTypes >::computeClosestIndexPair(const T
             pb[1] = (Real) (cb[1]);
             pb[2] = (Real) (cb[2]);
 
-            Real norm_v_normal = (pa-pb)*(pa-pb);
+            Real norm_v_normal = type::dot((pa-pb),(pa-pb));
             if(!is_init)
             {
                 min_value = norm_v_normal;
@@ -657,16 +657,16 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::isPointInsideTriangle(const Tri
 
     sofa::type::Vec<3,Real> v_normal = (p2-p0).cross(p1-p0);
 
-    Real norm_v_normal = v_normal*(v_normal);
+    Real norm_v_normal = type::dot(v_normal,v_normal);
     if(norm_v_normal != 0.0)
     {
         sofa::type::Vec<3,Real> n_01 = (p1-p0).cross(v_normal);
         sofa::type::Vec<3,Real> n_12 = (p2-p1).cross(v_normal);
         sofa::type::Vec<3,Real> n_20 = (p0-p2).cross(v_normal);
 
-        Real v_01 = (Real) ((ptest-p0)*(n_01));
-        Real v_12 = (Real) ((ptest-p1)*(n_12));
-        Real v_20 = (Real) ((ptest-p2)*(n_20));
+        Real v_01 = (Real) type::dot(ptest-p0,n_01);
+        Real v_12 = (Real) type::dot(ptest-p1,n_12);
+        Real v_20 = (Real) type::dot(ptest-p2,n_20);
 
         const bool is_inside = (v_01 > ZERO) && (v_12 > ZERO) && (v_20 > ZERO);
 
@@ -794,7 +794,7 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::isPointInTriangle(const Triangl
 
     sofa::type::Vec<3,Real> v_normal = (p2-p0).cross(p1-p0);
 
-    Real norm_v_normal = v_normal*(v_normal);
+    Real norm_v_normal = type::dot(v_normal,v_normal);
     //if(norm_v_normal != 0.0)
     if(norm_v_normal > ZERO)
     {
@@ -802,9 +802,9 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::isPointInTriangle(const Triangl
         sofa::type::Vec<3,Real> n_12 = (p2-p1).cross(v_normal);
         sofa::type::Vec<3,Real> n_20 = (p0-p2).cross(v_normal);
 
-        Real v_01 = (Real) ((ptest-p0)*(n_01));
-        Real v_12 = (Real) ((ptest-p1)*(n_12));
-        Real v_20 = (Real) ((ptest-p2)*(n_20));
+        Real v_01 = (Real) type::dot(ptest-p0,n_01);
+        Real v_12 = (Real) type::dot(ptest-p1,n_12);
+        Real v_20 = (Real) type::dot(ptest-p2,n_20);
 
         //bool is_inside = (v_01 > 0.0) && (v_12 > 0.0) && (v_20 > 0.0);
         const bool is_inside = (v_01 > -ZERO) && (v_12 > -ZERO) && (v_20 >= -ZERO);
@@ -946,11 +946,11 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::isQuadDeulaunayOriented(const t
 
     AB.normalize();
     AD.normalize();
-    Real alpha = acos(dot(AB, AD));
+    Real alpha = acos(type::dot(AB, AD));
 
     CB.normalize();
     CD.normalize();
-    Real beta = acos(CB * CD);
+    Real beta = acos(type::dot(CB, CD));
     const bool isDelau = (alpha + beta <= M_PI);
 
     return isDelau;
@@ -1016,10 +1016,10 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::isDiagonalsIntersectionInQuad (
 
         sofa::type::Vec<3,Real> X; DataTypes::get(X[0], X[1], X[2], inter);
 
-        Real ABAX = (A - B)*(A - X);
-        Real CDCX = (C - D)*(C - X);
+        Real ABAX = type::dot((A - B),(A - X));
+        Real CDCX = type::dot((C - D),(C - X));
 
-        if ( (ABAX < 0) || (CDCX < 0) || ((A - X).norm2() > (A - B).norm2()) || ((C - X).norm2() > (C - D).norm2()) )
+        if ( (ABAX < 0) || (CDCX < 0) || ((A - X).eval().norm2() > (A - B).eval().norm2()) || ((C - X).eval().norm2() > (C - D).eval().norm2()) )
             return false;
         else
             return true;
@@ -1080,7 +1080,7 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::isTriangleInPlane(const Triangl
     p2[1] = (Real) (c2[1]);
     p2[2] = (Real) (c2[2]);
 
-    return((p1-p0)*( plane_vect)>=0.0 && (p1-p0)*( plane_vect)>=0.0);
+    return( type::dot( (p1-p0),( plane_vect)) >=0.0 && type::dot((p1-p0),( plane_vect))>=0.0);
 }
 
 // Prepares the duplication of a vertex
@@ -1254,7 +1254,7 @@ void TriangleSetGeometryAlgorithms< DataTypes >::prepareVertexDuplication(const 
         if(shell.size()>1)
         {
             sofa::type::Vec<3,Real> normal_test = plane_from.cross( plane_to);
-            Real value_test =   normal_test*(normal_from+normal_to);
+            Real value_test =   type::dot(normal_test,(normal_from+normal_to));
 
             if(value_test<=0.0)
             {
@@ -1335,8 +1335,8 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeSegmentTriangleIntersect
     // Project A and B into triangle plan
     Vec3 v_normal = (triP[2] - triP[0]).cross(triP[1] - triP[0]);
     v_normal.normalize();
-    const Vec3 pa_proj = ptA - v_normal * dot(ptA - triP[0], v_normal);
-    const Vec3 pb_proj = ptB - v_normal * dot(ptB - triP[0], v_normal);
+    const Vec3 pa_proj = ptA - v_normal * type::dot(ptA - triP[0], v_normal);
+    const Vec3 pb_proj = ptB - v_normal * type::dot(ptB - triP[0], v_normal);
 
     // check intersection between AB and each edge of the triangle
     const sofa::type::fixed_array<EdgeID, 3>& edgesInTri = this->m_topology->getEdgesInTriangle(triId);
@@ -1356,7 +1356,7 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeSegmentTriangleIntersect
             }
         }
 
-        type::Vec2 baryCoords(type::NOINIT);
+        type::VecNoInit<2,SReal> baryCoords;
         bool res = geometry::Edge::intersectionWithEdge(triP[localIds[0]], triP[localIds[1]], pa_proj, pb_proj, baryCoords);
         if (res)
         {
@@ -1421,7 +1421,7 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeSegmentTriangleIntersect
         v_normal/=norm_v_normal;
 
         sofa::type::Vec<3,Real> v_ab = pb-pa;
-        sofa::type::Vec<3,Real> v_ab_proj = v_ab - v_normal * dot(v_ab,v_normal); // projection (same values if incision in the plan)
+        sofa::type::Vec<3,Real> v_ab_proj = v_ab - v_normal * type::dot(v_ab,v_normal); // projection (same values if incision in the plan)
         sofa::type::Vec<3,Real> pb_proj = v_ab_proj + pa;
 
         sofa::type::Vec<3,Real> v_01 = p1-p0;
@@ -1434,7 +1434,7 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeSegmentTriangleIntersect
         sofa::type::Vec<3,Real> n_12 = v_12.cross(v_normal);
         sofa::type::Vec<3,Real> n_20 = v_20.cross(v_normal);
 
-        Real norm2_v_ab_proj = v_ab_proj*(v_ab_proj); //dot product WARNING
+        Real norm2_v_ab_proj = type::dot(v_ab_proj,v_ab_proj); //dot product WARNING
 
         if(norm2_v_ab_proj != 0.0) // pb_proj != pa
         {
@@ -1453,14 +1453,14 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeSegmentTriangleIntersect
             if(!is_full_01)
             {
                 /// Test of edge (p0,p1) :
-                s_t = (p0-p1)*n_proj;
-                s_k = (pa-pb_proj)*n_01;
+                s_t = type::dot((p0-p1),n_proj);
+                s_k = type::dot((pa-pb_proj),n_01);
                 if(s_t==0.0) // (pa,pb_proj) and (p0,p1) are parallel
                 {
-                    if((p0-pa)*(n_proj)==0.0) // (pa,pb_proj) and (p0,p1) are on the same line
+                    if(type::dot((p0-pa),(n_proj))==0.0) // (pa,pb_proj) and (p0,p1) are on the same line
                     {
-                        coord_test1 = (pa-p0)*(pa-pb_proj)/norm2_v_ab_proj; // HYP : pb_proj != pa
-                        coord_test2 = (pa-p1)*(pa-pb_proj)/norm2_v_ab_proj; // HYP : pb_proj != pa
+                        coord_test1 = type::dot((pa-p0),(pa-pb_proj))/norm2_v_ab_proj; // HYP : pb_proj != pa
+                        coord_test2 = type::dot((pa-p1),(pa-pb_proj))/norm2_v_ab_proj; // HYP : pb_proj != pa
 
                         if(coord_test1>=0)
                         {
@@ -1483,8 +1483,8 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeSegmentTriangleIntersect
                 }
                 else // s_t != 0.0 and s_k != 0.0
                 {
-                    coord_k=Real((pa-p0)*(n_01))*1.0/Real(s_k);
-                    coord_t=Real((p0-pa)*(n_proj))*1.0/Real(s_t);
+                    coord_k=type::dot((pa-p0),(n_01))*1.0/Real(s_k);
+                    coord_t=type::dot((p0-pa),(n_proj))*1.0/Real(s_t);
 
                     is_intersected = ((coord_k > 0.0) && (coord_t >= 0.0 && coord_t <= 1.0));
                 }
@@ -1512,17 +1512,17 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeSegmentTriangleIntersect
             {
                 /// Test of edge (p1,p2) :
 
-                s_t = (p1-p2)*(n_proj);
-                s_k = (pa-pb_proj)*(n_12);
+                s_t = type::dot((p1-p2),(n_proj));
+                s_k = type::dot((pa-pb_proj),(n_12));
 
                 // s_t == 0.0 iff s_k == 0.0
 
                 if(s_t==0.0) // (pa,pb_proj) and (p1,p2) are parallel
                 {
-                    if((p1-pa)*(n_proj)==0.0) // (pa,pb_proj) and (p1,p2) are on the same line
+                    if(type::dot((p1-pa),(n_proj))==0.0) // (pa,pb_proj) and (p1,p2) are on the same line
                     {
-                        coord_test1 = (pa-p1)*(pa-pb_proj)/norm2_v_ab_proj; // HYP : pb_proj != pa
-                        coord_test2 = (pa-p2)*(pa-pb_proj)/norm2_v_ab_proj; // HYP : pb_proj != pa
+                        coord_test1 = type::dot((pa-p1),(pa-pb_proj))/norm2_v_ab_proj; // HYP : pb_proj != pa
+                        coord_test2 = type::dot((pa-p2),(pa-pb_proj))/norm2_v_ab_proj; // HYP : pb_proj != pa
 
                         if(coord_test1>=0)
                         {
@@ -1546,8 +1546,8 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeSegmentTriangleIntersect
                 else   // s_t != 0.0 and s_k != 0.0
                 {
 
-                    coord_k=Real((pa-p1)*(n_12))*1.0/Real(s_k);
-                    coord_t=Real((p1-pa)*(n_proj))*1.0/Real(s_t);
+                    coord_k=type::dot((pa-p1),(n_12))*1.0/Real(s_k);
+                    coord_t=type::dot((p1-pa),(n_proj))*1.0/Real(s_t);
 
                     is_intersected = ((coord_k > 0.0) && (coord_t >= 0.0 && coord_t <= 1.0));
                 }
@@ -1575,17 +1575,17 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeSegmentTriangleIntersect
             {
                 /// Test of edge (p2,p0) :
 
-                s_t = (p2-p0)*(n_proj);
-                s_k = (pa-pb_proj)*(n_20);
+                s_t = type::dot((p2-p0),(n_proj));
+                s_k = type::dot((pa-pb_proj),(n_20));
 
                 // s_t == 0.0 iff s_k == 0.0
 
                 if(s_t==0.0) // (pa,pb_proj) and (p2,p0) are parallel
                 {
-                    if((p2-pa)*(n_proj)==0.0) // (pa,pb_proj) and (p2,p0) are on the same line
+                    if(type::dot((p2-pa),(n_proj))==0.0) // (pa,pb_proj) and (p2,p0) are on the same line
                     {
-                        coord_test1 = (pa-p2)*(pa-pb_proj)/norm2_v_ab_proj; // HYP : pb_proj != pa
-                        coord_test2 = (pa-p0)*(pa-pb_proj)/norm2_v_ab_proj; // HYP : pb_proj != pa
+                        coord_test1 = type::dot((pa-p2),(pa-pb_proj))/norm2_v_ab_proj; // HYP : pb_proj != pa
+                        coord_test2 = type::dot((pa-p0),(pa-pb_proj))/norm2_v_ab_proj; // HYP : pb_proj != pa
 
                         if(coord_test1>=0)
                         {
@@ -1608,8 +1608,8 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeSegmentTriangleIntersect
                 }
                 else // s_t != 0.0 and s_k != 0.0
                 {
-                    coord_k=Real((pa-p2)*(n_20))*1.0/Real(s_k);
-                    coord_t=Real((p2-pa)*(n_proj))*1.0/Real(s_t);
+                    coord_k=type::dot((pa-p2),(n_12))*1.0/Real(s_k);
+                    coord_t=type::dot((p2-pa),(n_proj))*1.0/Real(s_t);
 
                     is_intersected = ((coord_k > 0.0) && (coord_t >= 0.0 && coord_t <= 1.0));
                 }
@@ -1700,7 +1700,7 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeIntersectionsLineTriangl
         v_normal /= norm_v_normal;
 
         sofa::type::Vec<3, Real> v_ab = pb - pa;
-        sofa::type::Vec<3, Real> v_ab_proj = v_ab - v_normal * dot(v_ab, v_normal); // projection (same values if incision in the plan)
+        sofa::type::Vec<3, Real> v_ab_proj = v_ab - v_normal * type::dot(v_ab, v_normal); // projection (same values if incision in the plan)
         sofa::type::Vec<3, Real> pb_proj = v_ab_proj + pa;
 
         sofa::type::Vec<3, Real> v_01 = p1 - p0;

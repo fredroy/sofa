@@ -414,7 +414,7 @@ bool MeshOBJLoader::readOBJ (std::ifstream &file, const char* filename)
                 unsigned int ti = tIndices[i];
                 if (pi >= vertexCount) continue;
                 if (ti < my_texCoords.size() && (vTexCoords[pi] == sofa::type::Vec2() ||
-                                                 (my_texCoords[ti]-vTexCoords[pi])*sofa::type::Vec2(-1,1) > 0))
+                                                 type::dot((my_texCoords[ti]-vTexCoords[pi]), sofa::type::Vec2(-1,1)) > 0))
                     vTexCoords[pi] = my_texCoords[ti];
                 if (ni < my_normals.size())
                     vNormals[pi] += my_normals[ni];

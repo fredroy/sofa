@@ -68,9 +68,9 @@ public:
     int point(int x, int y, int z, Plane p = PLANE_UNKNOWN) const;
 
     void setP0(const Vec3& val) { p0 = val; }
-    void setDx(const Vec3& val) { dx = val; inv_dx2 = 1/(dx*dx); }
-    void setDy(const Vec3& val) { dy = val; inv_dy2 = 1/(dy*dy); }
-    void setDz(const Vec3& val) { dz = val; inv_dz2 = 1/(dz*dz); }
+    void setDx(const Vec3& val) { dx = val; inv_dx2 = 1/(type::dot(dx,dx)); }
+    void setDy(const Vec3& val) { dy = val; inv_dy2 = 1/(type::dot(dy,dy)); }
+    void setDz(const Vec3& val) { dz = val; inv_dz2 = 1/(type::dot(dz,dz)); }
 
     void setPos(SReal xmin, SReal xmax, SReal ymin, SReal ymax, SReal zmin, SReal zmax);
 
