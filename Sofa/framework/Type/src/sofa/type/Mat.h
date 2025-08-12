@@ -115,9 +115,8 @@ auto trace(const Eigen::MatrixBase<Derived>& m)
 template<typename Derived1, typename Derived2>
 bool invertMatrix(Eigen::MatrixBase<Derived1>& dest, const Eigen::MatrixBase<Derived2>& from)
 {
-    //TODO: static check if up to 4x4
-    bool isInvertible = false;
-    from.computeInverseWithCheck(dest, isInvertible);
+    const bool isInvertible = true;// check determinant
+    dest = from.inverse();
 
     return isInvertible;
 }

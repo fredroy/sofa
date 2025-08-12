@@ -398,7 +398,11 @@ void VisualModelImpl::setMesh(helper::io::Mesh &objLoader, bool tex)
             if (d_useNormals.getValue() && n < normalsImport.size())
                 vnormals[j] = normalsImport[n];
             if (t < texCoordsImport.size())
-                vtexcoords[j] = texCoordsImport[t];
+            {
+                // convert 3d texcoord to 2d(f) texcoord
+                vtexcoords[j][0] = static_cast<float>(texCoordsImport[t][0]);
+                vtexcoords[j][1] = static_cast<float>(texCoordsImport[t][1]);
+            }
 
             if (vsplit)
             {
@@ -1102,7 +1106,7 @@ void VisualModelImpl::computeTangents()
         TexCoord t3 = texcoords[triangles[i][2]];
         if (fixMergedUVSeams)
         {
-            for (Size j=0; j<TexCoord::size(); ++j)
+            for (Size j=0; j<TexCoord::static_size; ++j)
             {
                 t2[j] += helper::rnear(t1[j]-t2[j]);
                 t3[j] += helper::rnear(t1[j]-t3[j]);
