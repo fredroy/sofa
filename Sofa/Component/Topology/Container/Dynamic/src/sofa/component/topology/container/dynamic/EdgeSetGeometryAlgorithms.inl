@@ -20,17 +20,13 @@
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
 #pragma once
-#include <fstream>
-
-#include <Eigen/Dense>
-#include <Eigen/Jacobi>
 
 #include <sofa/component/topology/container/dynamic/EdgeSetGeometryAlgorithms.h>
 #include <sofa/core/visual/VisualParams.h>
-#include <sofa/helper/MatEigen.h>
 #include <sofa/type/Mat_solve_Cholesky.h>
 #include <sofa/component/topology/container/dynamic/CommonAlgorithms.h>
 #include <sofa/component/topology/container/dynamic/PointSetGeometryAlgorithms.inl>
+#include <sofa/helper/MatEigen.h>
 
 namespace sofa::component::topology::container::dynamic
 {
@@ -273,7 +269,7 @@ typename DataTypes::Real EdgeSetGeometryAlgorithms< DataTypes >::computeRestSqua
 {
     const Edge &e = this->m_topology->getEdge(i);
     const VecCoord& p = (this->object->read(core::vec_id::read_access::restPosition)->getValue());
-    const Real length = (DataTypes::getCPos(p[e[0]])-DataTypes::getCPos(p[e[1]])).norm2();
+    const Real length = (DataTypes::getCPos(p[e[0]])-DataTypes::getCPos(p[e[1]])).eval().norm2();
     return length;
 }
 
@@ -419,8 +415,8 @@ auto EdgeSetGeometryAlgorithms<DataTypes>::computePointProjectionOnEdge (const E
 
     sofa::type::Vec<3, Real> AB; DataTypes::get(AB[0], AB[1], AB[2], coord_AB);
     sofa::type::Vec<3, Real> AC; DataTypes::get(AC[0], AC[1], AC[2], coord_AC);
-    sofa::type::Vec<3, Real> ortho_ABC = cross (AB, AC)*1000;
-    sofa::type::Vec<3, Real> coef_CH = cross (ortho_ABC, AB)*1000;
+    sofa::type::Vec<3, Real> ortho_ABC = type::cross (AB, AC)*1000;
+    sofa::type::Vec<3, Real> coef_CH = type::cross (ortho_ABC, AB)*1000;
 
     for (unsigned int i = 0; i<Coord::spatial_dimensions; i++)
         coord_edge2[1][i] = coord_edge2[0][i] + (float)coef_CH[i];
@@ -448,8 +444,8 @@ bool EdgeSetGeometryAlgorithms<DataTypes>::computeEdgePlaneIntersection (EdgeID 
 
     //plane equation
     normalOfPlane.normalize();
-    Real d=normalOfPlane*pointOnPlane;
-    Real t=(d-normalOfPlane*p1)/(normalOfPlane*(p2-p1));
+    Real d = type::dot(normalOfPlane, pointOnPlane);
+    Real t = (d-type::dot(normalOfPlane,p1))/(type::dot(normalOfPlane,(p2-p1)));
 
     if((t<1)&&(t>=0))
     {
@@ -473,8 +469,8 @@ bool EdgeSetGeometryAlgorithms<DataTypes>::computeRestEdgePlaneIntersection (Edg
 
     //plane equation
     normalOfPlane.normalize();
-    Real d=normalOfPlane*pointOnPlane;
-    Real t=(d-normalOfPlane*p1)/(normalOfPlane*(p2-p1));
+    Real d = type::dot(normalOfPlane, pointOnPlane);
+    Real t = (d-type::dot(normalOfPlane,p1))/(type::dot(normalOfPlane,(p2-p1)));
 
     if((t<1)&&(t>=0))
     {
@@ -490,10 +486,10 @@ bool EdgeSetGeometryAlgorithms<DataTypes>::computeRestEdgePlaneIntersection (Edg
 template<class DataTypes>
 typename DataTypes::Coord EdgeSetGeometryAlgorithms<DataTypes>::compute2EdgesIntersection (const Coord edge1[2], const Coord edge2[2], bool& intersected)
 {
-    auto a0 = type::Vec3(DataTypes::getCPos(edge1[0]));
-    auto a1 = type::Vec3(DataTypes::getCPos(edge1[1]));
-    auto b0 = type::Vec3(DataTypes::getCPos(edge2[0]));
-    auto b1 = type::Vec3(DataTypes::getCPos(edge2[1]));
+    auto a0 = type::toVec3(DataTypes::getCPos(edge1[0]));
+    auto a1 = type::toVec3(DataTypes::getCPos(edge1[1]));
+    auto b0 = type::toVec3(DataTypes::getCPos(edge2[0]));
+    auto b1 = type::toVec3(DataTypes::getCPos(edge2[1]));
 
     type::VecNoInit<2,SReal> baryCoords;
     intersected = sofa::geometry::Edge::intersectionWithEdge(a0, a1, b0, b1, baryCoords);
@@ -513,8 +509,8 @@ typename DataTypes::Coord EdgeSetGeometryAlgorithms<DataTypes>::computeEdgeSegme
 
     const typename DataTypes::Coord& e0 = pos[theEdge[0]];
     const typename DataTypes::Coord& e1 = pos[theEdge[1]];
-    auto p0 = type::Vec3(DataTypes::getCPos(e0));
-    auto p1 = type::Vec3(DataTypes::getCPos(e1));
+    auto p0 = type::toVec3(DataTypes::getCPos(e0));
+    auto p1 = type::toVec3(DataTypes::getCPos(e1));
 
     type::VecNoInit<2,SReal> baryCoords;
     intersected = sofa::geometry::Edge::intersectionWithEdge(p0, p1, a, b, baryCoords);
@@ -552,8 +548,7 @@ void EdgeSetGeometryAlgorithms<DataTypes>::draw(const core::visual::VisualParams
             Edge the_edge = edgeArray[i];
             Coord vertex1 = coords[the_edge[0]];
             Coord vertex2 = coords[the_edge[1]];
-            type::Vec3 center;
-            center = (DataTypes::getCPos(vertex1) + DataTypes::getCPos(vertex2)) / 2;
+            type::Vec3 center = type::toVec3(DataTypes::getCPos(vertex1) + DataTypes::getCPos(vertex2)) / 2;
 
             positions.push_back(center);
         }
@@ -573,8 +568,8 @@ void EdgeSetGeometryAlgorithms<DataTypes>::draw(const core::visual::VisualParams
         for (size_t i = 0; i<edgeArray.size(); i++)
         {
             const Edge& e = edgeArray[i];
-            positions.push_back(type::Vec3(DataTypes::getCPos(coords[e[0]])));
-            positions.push_back(type::Vec3(DataTypes::getCPos(coords[e[1]])));
+            positions.push_back(type::toVec3(DataTypes::getCPos(coords[e[0]])));
+            positions.push_back(type::toVec3(DataTypes::getCPos(coords[e[1]])));
         }
         vparams->drawTool()->drawLines(positions, 1.0f, _drawColor.getValue());
         vparams->drawTool()->drawPoints(positions, 4.0f, _drawColor.getValue());
@@ -618,15 +613,15 @@ void EdgeSetGeometryAlgorithms< DataTypes >::computeLocalFrameEdgeWeights( type:
             vertexEdges.push_back(edge);              // concatenate
             const CPos& p0 = DataTypes::getCPos(pos[edge[0]]);
             const CPos& p1 = DataTypes::getCPos(pos[edge[1]]);
-            edgeVec[e] = p1 - p0;
+            edgeVec[e] = type::toVec3(p1) - type::toVec3(p0);
             // each edge vector adds e.et to the matrix
             for(unsigned j=0; j<3; j++)
                 for(unsigned k=0; k<3; k++)
-                    EEt(j,k) += edgeVec[e][k]*edgeVec[e][j];
+                    EEt(j,k) += edgeVec[e][k] * edgeVec[e][j];
         }
 
         // decompose E.Et for system solution
-        if( cholDcmp(L,EEt) ) // Cholesky decomposition of the covariance matrix succeeds, we use it to solve the systems
+        if( type::cholDcmp(L,EEt) ) // Cholesky decomposition of the covariance matrix succeeds, we use it to solve the systems
         {
             const size_t n = weights.size();     // start index for this vertex
             weights.resize( n + ve.size() ); // concatenate all the W of the nodes
@@ -634,26 +629,26 @@ void EdgeSetGeometryAlgorithms< DataTypes >::computeLocalFrameEdgeWeights( type:
 
             // axis x
             a = { 1,0,0 };
-            cholBksb(u,L,a); // solve EEt.u=x using the Cholesky decomposition
+            type::cholBksb(u,L,a); // solve EEt.u=x using the Cholesky decomposition
             for(size_t i=0; i<ve.size(); i++ )
             {
-                weights[n+i][0] = u * edgeVec[i];
+                weights[n+i][0] = type::dot(u, edgeVec[i]);
             }
 
             // axis y
             a = { 0,1,0 };
-            cholBksb(u,L,a); // solve EEt.u=y using the Cholesky decomposition
+            type::cholBksb(u,L,a); // solve EEt.u=y using the Cholesky decomposition
             for(size_t i=0; i<ve.size(); i++ )
             {
-                weights[n+i][1] = u * edgeVec[i];
+                weights[n+i][1] = type::dot(u , edgeVec[i]);
             }
 
             // axis z
             a = { 0,0,1 };
-            cholBksb(u,L,a); // solve EEt.u=z using the Cholesky decomposition
+            type::cholBksb(u,L,a); // solve EEt.u=z using the Cholesky decomposition
             for(size_t i=0; i<ve.size(); i++ )
             {
-                weights[n+i][2] = u * edgeVec[i];
+                weights[n+i][2] = type::dot(u , edgeVec[i]);
             }
         }
         else
@@ -662,42 +657,40 @@ void EdgeSetGeometryAlgorithms< DataTypes >::computeLocalFrameEdgeWeights( type:
             weights.resize( n + ve.size() ); // concatenate all the W of the nodes
             sofa::type::Vec<3, Real> a,u;
 
-            typedef Eigen::Matrix<Real,3,3> EigenM33;
-            EigenM33 emat = helper::eigenMat(EEt);
-            Eigen::JacobiSVD<EigenM33> jacobi(emat, Eigen::ComputeFullU | Eigen::ComputeFullV);
+            Eigen::JacobiSVD jacobi(EEt, Eigen::ComputeFullU | Eigen::ComputeFullV);
             Eigen::Matrix<Real,3,1> solution;
 
             // axis x
             a = { 1,0,0 };
-            solution = jacobi.solve( helper::eigenVec(a) );
+            solution = jacobi.solve( a );
             // least-squares solve EEt.u=x
             for(int i=0; i<3; i++)
                 u[i] = solution(i);
             for(size_t i=0; i<ve.size(); i++ )
             {
-                weights[n+i][0] = u * edgeVec[i];
+                weights[n+i][0] = type::dot(u , edgeVec[i]);
             }
 
             // axis y
             a = { 0,1,0 };
-            solution = jacobi.solve(helper::eigenVec(a) );
+            solution = jacobi.solve(a );
             // least-squares solve EEt.u=y
             for(int i=0; i<3; i++)
                 u[i] = solution(i);
             for(size_t i=0; i<ve.size(); i++ )
             {
-                weights[n+i][1] = u * edgeVec[i];
+                weights[n+i][1] = type::dot(u , edgeVec[i]);
             }
 
             // axis z
             a = { 0,0,1 };
-            solution = jacobi.solve(helper::eigenVec(a) );
+            solution = jacobi.solve(a );
             // least-squares solve EEt.u=z
             for(int i=0; i<3; i++)
                 u[i] = solution(i);
             for(size_t i=0; i<ve.size(); i++ )
             {
-                weights[n+i][2] = u * edgeVec[i];
+                weights[n+i][2] = type::dot(u , edgeVec[i]);
             }
         }
 

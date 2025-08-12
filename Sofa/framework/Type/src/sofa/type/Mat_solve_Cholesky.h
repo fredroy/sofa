@@ -30,7 +30,7 @@ namespace sofa::type
   \pre M must be symmetric positive definite
   returns false is the decomposition fails
   */
-template<Size n, class real>
+template<int n, class real>
 bool cholDcmp(Mat<n,n,real>& L, const Mat<n,n,real>& M)
 {
     if( M(0,0) <= 0 ) return false;
@@ -58,7 +58,7 @@ bool cholDcmp(Mat<n,n,real>& L, const Mat<n,n,real>& M)
 /** Cholesky back-substitution: solve the system Mx=b using the triangular matrix L such that M=L.Lt
   \pre L was computed using the Cholesky decomposition of L
   */
-template<Size n, class real>
+template<int n, class real>
 void cholBksb(Vec<n,real>& x, const Mat<n,n,real>& L, const Vec<n,real>& b)
 {
     //Solve L u = b
@@ -89,7 +89,7 @@ void cholBksb(Vec<n,real>& x, const Mat<n,n,real>& L, const Vec<n,real>& b)
   Returns false is the decomposition fails.
   If you have several solutions to perform with the same matrix M and different vectors b, it is more efficient to factor the matrix once and then use back-substitution for each vector.
   */
-template<Size n, class real>
+template<int n, class real>
 bool cholSlv(Vec<n,real>& x, const Mat<n,n,real>& M, const Vec<n,real>& b)
 {
     Mat<n,n,real> L;
@@ -101,7 +101,7 @@ bool cholSlv(Vec<n,real>& x, const Mat<n,n,real>& M, const Vec<n,real>& b)
 /** Inversion of a positive symmetric definite (PSD) matrix using a Cholesky decomposition.
   Returns false if the matrix is not PSD.
   */
-template<Size n, class real>
+template<int n, class real>
 bool cholInv(Mat<n,n,real>& Inv, const Mat<n,n,real>& M )
 {
     Mat<n,n,real> L;
