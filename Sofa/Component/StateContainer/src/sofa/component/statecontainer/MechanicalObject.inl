@@ -2258,7 +2258,7 @@ void MechanicalObject<DataTypes>::vThreshold(core::VecId a, SReal threshold)
         const Real t2 = static_cast<Real>(threshold*threshold);
         for (unsigned int i=0; i<vv.size(); i++)
         {
-            if( vv[i]*vv[i] < t2 )
+            if( type::dot(vv[i],vv[i]) < t2 )
                 clear(vv[i]);
         }
     }
@@ -2283,7 +2283,7 @@ SReal MechanicalObject<DataTypes>::vDot(const core::ExecParams*, core::ConstVecI
             auto vb = this->getReadAccessor<vtype>(b);
             for (unsigned int i = 0; i < va.size(); ++i)
             {
-                r += va[i] * vb[i];
+                r += type::dot(va[i], vb[i]);
             }
         });
     }
@@ -2620,7 +2620,7 @@ SReal MechanicalObject<DataTypes>::getConstraintJacobianTimesVecDeriv(unsigned i
 
     while (it != itEnd)
     {
-        result += it.val() * (*data)[it.index()];
+        result += type::dot(it.val() , (*data)[it.index()]); // TODO: is it correct ??
         ++it;
     }
 
@@ -2750,7 +2750,7 @@ bool MechanicalObject<DataTypes>::pickParticles(const core::ExecParams* /* param
             DataTypes::get(pos[0],pos[1],pos[2],x[i]);
 
             if (pos == origin) continue;
-            SReal dist = (pos-origin)*direction;
+            SReal dist = type::dot((pos-origin),direction);
             if (dist < 0) continue; // discard particles behind the camera, such as mouse position
 
             type::Vec<3,Real> vecPoint = (pos-origin) - direction*dist;

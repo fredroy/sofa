@@ -15,6 +15,11 @@ static constexpr sofa::Size spatial_dimensions = nbCols;
 static constexpr sofa::Size coord_total_size = nbLines*nbCols;
 static constexpr sofa::Size deriv_total_size = nbLines*nbCols;
 
+static constexpr auto size()
+{
+    return static_size;
+}
+
 explicit Matrix(const NoInit& noInit)
 {}
 

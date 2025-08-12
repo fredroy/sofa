@@ -41,7 +41,7 @@ using sofa::type::Vec;
 using sofa::type::vector;
 
 /// In case of a vector<Vec>, zero can be set directly with memset on all the memory space for a faster reset
-template < sofa::Size N, typename ValueType>
+template < int N, typename ValueType>
 void resetVecTypeVec(vector<Vec<N, ValueType> >& vec)
 {
     std::memset(static_cast<void*>(vec.data()), 0, sizeof(ValueType) * N * vec.size());
