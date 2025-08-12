@@ -52,11 +52,14 @@ void VisualVectorField<DataTypes>::doDrawVisual(const core::visual::VisualParams
     for (std::size_t i = 0; i < minSize; ++i)
     {
         const auto& start = position[i];
-        const auto end = start + vectorScale * vector[i];
+        const auto end = (start + vectorScale * vector[i]).eval();
 
         if (drawMode == VectorFieldDrawMode("Line"))
         {
-            drawTool->drawLines(std::vector<type::Vec3>{{start, end}}, 1, color);
+            std::vector<type::Vec3> v;v.reserve(2);
+            v.push_back(start);
+            v.push_back(end);
+            drawTool->drawLines(v, 1, color);
         }
         else if (drawMode == VectorFieldDrawMode("Cylinder"))
         {

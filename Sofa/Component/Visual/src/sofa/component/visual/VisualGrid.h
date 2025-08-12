@@ -47,7 +47,7 @@ public:
     Data<PlaneType> d_plane; ///< Plane of the grid
 
 
-    Data<float> d_size; ///< Size of the squared grid
+    Data<SReal> d_size; ///< Size of the squared grid
     Data<int> d_nbSubdiv; ///< Number of subdivisions
 
     Data<sofa::type::RGBAColor> d_color; ///< Color of the lines in the grid. default=(0.34,0.34,0.34,1.0)

@@ -38,7 +38,7 @@ using namespace sofa::defaulttype;
 
 VisualGrid::VisualGrid()
     : d_plane(initData(&d_plane, PlaneType("z"),  "plane", ("Plane of the grid\n"+PlaneType::dataDescription()).c_str()))
-    , d_size(initData(&d_size, 10.0f,  "size", "Size of the squared grid"))
+    , d_size(initData(&d_size, 10.0_sreal,  "size", "Size of the squared grid"))
     , d_nbSubdiv(initData(&d_nbSubdiv, 16,  "nbSubdiv", "Number of subdivisions"))
     , d_color(initData(&d_color, sofa::type::RGBAColor(0.34117647058f,0.34117647058f,0.34117647058f,1.0f),  "color", "Color of the lines in the grid. default=(0.34,0.34,0.34,1.0)"))
     , d_thickness(initData(&d_thickness, 1.0f,  "thickness", "Thickness of the lines in the grid"))
@@ -82,9 +82,9 @@ void VisualGrid::updateGrid()
     buildGrid();
 
     //bounding box for the camera
-    auto s = d_size.getValue() * 0.5f;
-    sofa::type::Vec3f min(-s, -s, -s);
-    sofa::type::Vec3f max( s,  s,  s);
+    auto s = d_size.getValue() * 0.5_sreal;
+    sofa::type::Vec3 min(-s, -s, -s);
+    sofa::type::Vec3 max( s,  s,  s);
     const auto& plane = d_plane.getValue();
     min[static_cast<unsigned int>(plane)] = -s * 0.2f;
     max[static_cast<unsigned int>(plane)] =  s * 0.2f;

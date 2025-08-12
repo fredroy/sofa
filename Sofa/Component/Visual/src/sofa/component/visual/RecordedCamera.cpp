@@ -179,9 +179,9 @@ void RecordedCamera::moveCamera_rotation()
     // dV to compute circle tangente
     type::Vec3 _poskk;
     if (d_cameraUp.isSet() && d_cameraUp.getValue().norm() > 0.000001)
-        _poskk = -cross(_pos - d_lookAt.getValue(), d_cameraUp.getValue());
+        _poskk = -type::cross(_pos - d_lookAt.getValue(), d_cameraUp.getValue());
     else
-        _poskk = -cross(_pos - d_rotationCenter.getValue(), d_rotationAxis.getValue());
+        _poskk = -type::cross(_pos - d_rotationCenter.getValue(), d_rotationAxis.getValue());
 
     // Compute orientation
     type::Vec3 zAxis = -(d_lookAt.getValue() - _pos);
@@ -307,9 +307,9 @@ void RecordedCamera::configureRotation()
     // dV to compute circle tangente
     type::Vec3 _poskk;
     if (d_cameraUp.isSet() && d_cameraUp.getValue().norm() > 0.000001)
-        _poskk = -cross(_pos - d_lookAt.getValue(), d_cameraUp.getValue());
+        _poskk = -type::cross(_pos - d_lookAt.getValue(), d_cameraUp.getValue());
     else
-        _poskk = -cross(_pos - d_rotationCenter.getValue(), d_rotationAxis.getValue());
+        _poskk = -type::cross(_pos - d_rotationCenter.getValue(), d_rotationAxis.getValue());
 
     // Compute orientation
     type::Vec3 zAxis = -(d_lookAt.getValue() - _pos);
@@ -377,14 +377,14 @@ void RecordedCamera::initializeViewUp()
         const type::Vec3 xRef(1,0,0);
         // Initialize the view-up vector with the reference vector the "most perpendicular" to zAxis.
          d_cameraUp.setValue(xRef);
-        double normCrossProduct = cross(zAxis,xRef).norm();
+        double normCrossProduct = type::cross(zAxis,xRef).norm();
         for(int i = 1; i<3; ++ i)
         {
             type::Vec3 vecRef(0,0,0);
             vecRef[i] = 1;
             if(cross(zAxis,vecRef).norm() >= normCrossProduct )
             {
-                normCrossProduct = cross(zAxis,vecRef).norm();
+                normCrossProduct = type::cross(zAxis,vecRef).norm();
                 d_cameraUp.setValue(vecRef);
             }
         }

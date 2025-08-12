@@ -1713,7 +1713,7 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeIntersectionsLineTriangl
         sofa::type::Vec<3, Real> n_12 = v_12.cross(v_normal);
         sofa::type::Vec<3, Real> n_20 = v_20.cross(v_normal);
 
-        Real norm2_v_ab_proj = v_ab_proj * (v_ab_proj); //dot product WARNING
+        Real norm2_v_ab_proj = type::dot(v_ab_proj , (v_ab_proj)); //dot product WARNING
 
         if (norm2_v_ab_proj >= EPS) // pb_proj != pa
         {
@@ -1735,14 +1735,14 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeIntersectionsLineTriangl
                 bool is_intersected_01 = false;
                 bool is_initialized_01 = false;
                 /// Test of edge (p0,p1) :
-                s_t = (p0 - p1) * n_proj;
-                s_k = (pa - pb_proj) * n_01;
+                s_t = type::dot((p0 - p1) , n_proj);
+                s_k = type::dot((pa - pb_proj) , n_01);
                 if (s_t == 0.0) // (pa,pb_proj) and (p0,p1) are parallel
                 {
-                    if ((p0 - pa) * (n_proj) == 0.0) // (pa,pb_proj) and (p0,p1) are on the same line
+                    if (type::dot((p0 - pa) , (n_proj)) == 0.0) // (pa,pb_proj) and (p0,p1) are on the same line
                     {
-                        coord_test1 = (pa - p0) * (pa - pb_proj) / norm2_v_ab_proj; // HYP : pb_proj != pa
-                        coord_test2 = (pa - p1) * (pa - pb_proj) / norm2_v_ab_proj; // HYP : pb_proj != pa
+                        coord_test1 = type::dot((pa-p0),(pa-pb_proj))/norm2_v_ab_proj; // HYP : pb_proj != pa
+                        coord_test2 = type::dot((pa-p1),(pa-pb_proj))/norm2_v_ab_proj; // HYP : pb_proj != pa
 
                         if (coord_test1 >= 0)
                         {
@@ -1765,8 +1765,8 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeIntersectionsLineTriangl
                 }
                 else // s_t != 0.0 and s_k != 0.0
                 {
-                    coord_k = Real((pa - p0) * (n_01)) * 1.0 / Real(s_k);
-                    coord_t = Real((p0 - pa) * (n_proj)) * 1.0 / Real(s_t);
+                    coord_k=type::dot((pa-p0),(n_01))*1.0/Real(s_k);
+                    coord_t=type::dot((p0-pa),(n_proj))*1.0/Real(s_t);
 
                     is_intersected_01 = ((coord_k > 0.0) && (coord_t >= 0.0 && coord_t <= 1.0));
                 }
@@ -1799,17 +1799,17 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeIntersectionsLineTriangl
                 bool is_initialized_12 = false;
                 /// Test of edge (p1,p2) :
 
-                s_t = (p1 - p2) * (n_proj);
-                s_k = (pa - pb_proj) * (n_12);
+                s_t = type::dot((p1 - p2) , n_proj);
+                s_k = type::dot((pa - pb_proj) , n_12);
 
                 // s_t == 0.0 iff s_k == 0.0
 
                 if (s_t == 0.0) // (pa,pb_proj) and (p1,p2) are parallel
                 {
-                    if ((p1 - pa) * (n_proj) == 0.0) // (pa,pb_proj) and (p1,p2) are on the same line
+                    if (type::dot((p1 - pa) , (n_proj)) == 0.0) // (pa,pb_proj) and (p1,p2) are on the same line
                     {
-                        coord_test1 = (pa - p1) * (pa - pb_proj) / norm2_v_ab_proj; // HYP : pb_proj != pa
-                        coord_test2 = (pa - p2) * (pa - pb_proj) / norm2_v_ab_proj; // HYP : pb_proj != pa
+                        coord_test1 = type::dot((pa-p1),(pa-pb_proj))/norm2_v_ab_proj; // HYP : pb_proj != pa
+                        coord_test2 = type::dot((pa-p2),(pa-pb_proj))/norm2_v_ab_proj; // HYP : pb_proj != pa
 
                         if (coord_test1 >= 0)
                         {
@@ -1833,8 +1833,8 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeIntersectionsLineTriangl
                 else   // s_t != 0.0 and s_k != 0.0
                 {
 
-                    coord_k = Real((pa - p1) * (n_12)) * 1.0 / Real(s_k);
-                    coord_t = Real((p1 - pa) * (n_proj)) * 1.0 / Real(s_t);
+                    coord_k=type::dot((pa-p1),(n_12))*1.0/Real(s_k);
+                    coord_t=type::dot((p1-pa),(n_proj))*1.0/Real(s_t);
 
                     is_intersected_12 = ((coord_k > 0.0) && (coord_t >= 0.0 && coord_t <= 1.0));
                 }
@@ -1867,17 +1867,17 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeIntersectionsLineTriangl
                 bool is_initialized_20 = false;
                 /// Test of edge (p2,p0) :
 
-                s_t = (p2 - p0) * (n_proj);
-                s_k = (pa - pb_proj) * (n_20);
+                s_t = type::dot((p2 - p0) , n_proj);
+                s_k = type::dot((pa - pb_proj) , n_20);
 
                 // s_t == 0.0 iff s_k == 0.0
 
                 if (s_t == 0.0) // (pa,pb_proj) and (p2,p0) are parallel
                 {
-                    if ((p2 - pa) * (n_proj) == 0.0) // (pa,pb_proj) and (p2,p0) are on the same line
+                    if (type::dot((p2 - pa) , (n_proj)) == 0.0) // (pa,pb_proj) and (p2,p0) are on the same line
                     {
-                        coord_test1 = (pa - p2) * (pa - pb_proj) / norm2_v_ab_proj; // HYP : pb_proj != pa
-                        coord_test2 = (pa - p0) * (pa - pb_proj) / norm2_v_ab_proj; // HYP : pb_proj != pa
+                        coord_test1 = type::dot((pa-p2),(pa-pb_proj))/norm2_v_ab_proj; // HYP : pb_proj != pa
+                        coord_test2 = type::dot((pa-p0),(pa-pb_proj))/norm2_v_ab_proj; // HYP : pb_proj != pa
 
                         if (coord_test1 >= 0)
                         {
@@ -1900,8 +1900,8 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeIntersectionsLineTriangl
                 }
                 else // s_t != 0.0 and s_k != 0.0
                 {
-                    coord_k = Real((pa - p2) * (n_20)) * 1.0 / Real(s_k);
-                    coord_t = Real((p2 - pa) * (n_proj)) * 1.0 / Real(s_t);
+                    coord_k=type::dot((pa-p2),(n_20))*1.0/Real(s_k);
+                    coord_t=type::dot((p2-pa),(n_proj))*1.0/Real(s_t);
 
                     is_intersected_20 = ((coord_k > 0.0) && (coord_t >= 0.0 && coord_t <= 1.0));
                 }
@@ -2445,7 +2445,7 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeIntersectedPointsList(co
                 << "*********************************" ;
     
     coord_k_test=coord_k;
-    dist_min=(b-a)*(b-a);
+    dist_min=type::dot((b-a),(b-a));
 
     while((coord_k_test<1.0 && is_validated) && is_intersected)
     {
@@ -2532,7 +2532,7 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeIntersectedPointsList(co
                                 c_t_test[1]=(Real) ((1.0-coord_t)*((Real) (vect_c[indices[0]][1]))+coord_t*((Real) (vect_c[indices[1]][1])));
                                 c_t_test[2]=(Real) ((1.0-coord_t)*((Real) (vect_c[indices[0]][2]))+coord_t*((Real) (vect_c[indices[1]][2])));
 
-                                Real dist_test=(b-c_t_test)*(b-c_t_test);
+                                Real dist_test=type::dot((b-c_t_test),(b-c_t_test));
 
                                 if(is_test_init)
                                 {
@@ -2623,7 +2623,7 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::computeIntersectedPointsList(co
                                 c_t_test[1]=(Real) ((1.0-coord_t)*((Real) (vect_c[indices[0]][1]))+coord_t*((Real) (vect_c[indices[1]][1])));
                                 c_t_test[2]=(Real) ((1.0-coord_t)*((Real) (vect_c[indices[0]][2]))+coord_t*((Real) (vect_c[indices[1]][2])));
 
-                                Real dist_test=(b-c_t_test)*(b-c_t_test);
+                                Real dist_test=type::dot((b-c_t_test),(b-c_t_test));
 
                                 if(is_test_init)
                                 {
@@ -2820,8 +2820,8 @@ int TriangleSetGeometryAlgorithms<DataTypes>::getTriangleInDirection(PointID p, 
             sofa::type::Vec<3,Real> n_01 = e1.cross(v_normal);
             sofa::type::Vec<3,Real> n_02 = e2.cross(v_normal);
 
-            Real v_01 = (Real) ((dtest)*(n_01));
-            Real v_02 = (Real) ((dtest)*(n_02));
+            Real v_01 = (Real) type::dot(dtest,n_01);
+            Real v_02 = (Real) type::dot(dtest,n_02);
 
             const bool is_inside = (v_01 >= 0.0) && (v_02 < 0.0);
             if (is_inside) return ind_t;
@@ -2852,7 +2852,7 @@ void TriangleSetGeometryAlgorithms<DataTypes>::reorderTrianglesOrientationFromNo
         {
             TriangleID triId = _neighTri[i];
             triNormal = this->computeTriangleNormal(triId);
-            Real prod = (firstNormal*triNormal)/(firstNormal.norm()*triNormal.norm());
+            Real prod = type::dot(firstNormal,triNormal)/(firstNormal.norm()*triNormal.norm());
             if (prod < 0.15) //change orientation
                 this->m_topology->reOrientateTriangle(triId);
         }
@@ -4886,7 +4886,7 @@ void TriangleSetGeometryAlgorithms<DataTypes>::SnapBorderPath(PointID pa, Coord&
 
                     const Edge theEdgeFirst = m_container->getEdge(theEdge);
                     Vec3 pos1 = computeBaryEdgePoint(theEdgeFirst, new_coord[1]);
-                    for (unsigned int j = 0; j < std::min(3u, a.size()); j++)
+                    for (unsigned int j = 0; j < std::min(static_cast<decltype(a.size())>(3), a.size()); j++)
                         a[j] = (decltype (a[j]))pos1[j];
 
                     break;
@@ -4991,7 +4991,7 @@ void TriangleSetGeometryAlgorithms<DataTypes>::SnapBorderPath(PointID pa, Coord&
 
                     const Edge theEdgeLast = m_container->getEdge(theEdge);
                     Vec3 pos1 = computeBaryEdgePoint(theEdgeLast, new_coord[1]);
-                    for (unsigned int j = 0; j < std::min(3u, a.size()); j++)
+                    for (unsigned int j = 0; j < std::min(static_cast<decltype(a.size())>(3), a.size()); j++)
                         a[j] = (decltype (a[j]))pos1[j];
 
                     break;

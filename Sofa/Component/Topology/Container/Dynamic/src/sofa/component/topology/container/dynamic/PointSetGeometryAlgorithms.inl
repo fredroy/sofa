@@ -283,8 +283,7 @@ void PointSetGeometryAlgorithms<DataTypes>::draw(const core::visual::VisualParam
         std::vector<type::Vec3> positions;
         for (unsigned int i =0; i<coords.size(); i++)
         {
-            type::Vec3 center = DataTypes::getCPos(coords[i]);
-            positions.push_back(center);
+            positions.push_back(type::toVec3(DataTypes::getCPos(coords[i])));
 
         }
         vparams->drawTool()->draw3DText_Indices(positions, scale, color4);

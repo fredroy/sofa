@@ -152,7 +152,7 @@ void Edge2QuadTopologicalMapping::init()
 
             // CREATION of the points (new DOFs for the output topology) along the circles around each point of the input topology
 
-            constexpr Vec3 X0(1.,0.,0.);
+            const Vec3 X0(1.,0.,0.);
             Vec3 Y0;
             Vec3 Z0;
 

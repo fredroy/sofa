@@ -364,7 +364,7 @@ void QuadSetGeometryAlgorithms<DataTypes>::draw(const core::visual::VisualParams
 
                 for (unsigned int j = 0; j<4; j++)
                 {
-                    tmpPos[j] = type::Vec3(DataTypes::getCPos(coords[q[j]]));
+                    tmpPos[j] = type::toVec3(DataTypes::getCPos(coords[q[j]]));
                     bary += tmpPos[j];
                 }
                 bary /= 4;
@@ -391,8 +391,8 @@ void QuadSetGeometryAlgorithms<DataTypes>::draw(const core::visual::VisualParams
                 for (size_t i = 0u; i<edgeArray.size(); i++)
                 {
                     const Edge& e = edgeArray[i];
-                    pos.push_back(type::Vec3(DataTypes::getCPos(coords[e[0]])));
-                    pos.push_back(type::Vec3(DataTypes::getCPos(coords[e[1]])));
+                    pos.push_back(type::toVec3(DataTypes::getCPos(coords[e[0]])));
+                    pos.push_back(type::toVec3(DataTypes::getCPos(coords[e[1]])));
                 }
             } else {
                 for (size_t i = 0u; i<quadArray.size(); i++)
@@ -400,8 +400,8 @@ void QuadSetGeometryAlgorithms<DataTypes>::draw(const core::visual::VisualParams
                     const Quad& q = quadArray[i];
                     for (unsigned int j = 0; j<4; j++)
                     {
-                        pos.push_back(type::Vec3(DataTypes::getCPos(coords[q[j]])));
-                        pos.push_back(type::Vec3(DataTypes::getCPos(coords[q[(j+1u)%4u]])));
+                        pos.push_back(type::toVec3(DataTypes::getCPos(coords[q[j]])));
+                        pos.push_back(type::toVec3(DataTypes::getCPos(coords[q[(j+1u)%4u]])));
                     }
                 }
             }

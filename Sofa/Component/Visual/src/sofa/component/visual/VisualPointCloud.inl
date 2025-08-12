@@ -174,12 +174,12 @@ void VisualPointCloud<DataTypes>::drawFrames(const core::visual::VisualParams* v
             if (isColorSet)
             {
                 drawTool->drawFrame(type::Vec3(), type::Quat<SReal>(),
-                                    type::Vec3(1_sreal, 1_sreal, 1_sreal), color);
+                                    type::Vec3f(1.f, 1.f, 1.f), color);
             }
             else
             {
                 drawTool->drawFrame(type::Vec3(), type::Quat<SReal>(),
-                                    type::Vec3(1_sreal, 1_sreal, 1_sreal));
+                                    type::Vec3f(1.f, 1.f, 1.f));
             }
             drawTool->popMatrix();
         }

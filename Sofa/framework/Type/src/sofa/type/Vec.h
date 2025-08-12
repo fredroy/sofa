@@ -141,6 +141,20 @@ auto linearProduct(const Eigen::MatrixBase<Derived1>& vec1,
     return result;
 }
 
+template<typename Derived>
+auto toVec3(const Eigen::MatrixBase<Derived>& v)
+{
+    static_assert(Derived::IsVectorAtCompileTime);
+
+    Vec3 result;
+    for(int i=0 ; i<Derived::RowsAtCompileTime && i < 3; i++)
+    {
+        result[i] = v[i];
+    }
+
+    return result;
+}
+
 ///// Read from an input stream
 //template<int N, typename Real>
 //std::istream& operator >> ( std::istream& in, Vec<N,Real>& v )
