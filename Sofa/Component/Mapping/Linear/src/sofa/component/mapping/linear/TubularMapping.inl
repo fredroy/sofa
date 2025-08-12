@@ -150,7 +150,7 @@ void TubularMapping<TIn, TOut>::applyJ( const core::MechanicalParams* /* mparams
 
         for(unsigned int j=0; j<N; ++j)
         {
-            out[i*N+j] = v - cross(rotatedPoints[i*N+j],omega);
+            out[i*N+j] = v - type::cross(rotatedPoints[i*N+j],omega);
         }
     }
 
@@ -184,7 +184,7 @@ void TubularMapping<TIn, TOut>::applyJT( const core::MechanicalParams* /* mparam
 
             OutDeriv f = in[i*N+j];
             v += f;
-            omega += cross(rotatedPoints[i*N+j],f);
+            omega += type::cross(rotatedPoints[i*N+j],f);
         }
 
         getVCenter(out[i]) += v;
@@ -225,7 +225,7 @@ void TubularMapping<TIn, TOut>::applyJT( const core::ConstraintParams * /*cparam
                 const OutDeriv f = (OutDeriv) colIt.val();
                 OutDeriv v, omega;
                 v+=f;
-                omega += cross(rotatedPoints[iIn],f);
+                omega += type::cross(rotatedPoints[iIn],f);
                 unsigned int Iout = iIn/N;
                 InDeriv result(v, omega);
 

@@ -37,9 +37,9 @@ type::Vec<3,double> LineSetSkinningMapping<TIn, TOut>::projectToSegment(const ty
     v_f = vertice-first;
     v_l = vertice-last;
 
-    if(v_f*segment>0.0 && -segment*v_l>0.0)
+    const double prod = type::dot(v_f,segment);
+    if(prod>0.0 && type::dot(-segment,v_l)>0.0)
     {
-        const double prod = v_f*segment;
         return first + (segment * (prod/segment.norm2()));
     }
     else

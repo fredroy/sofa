@@ -321,7 +321,7 @@ void BTDLinearSolver<Matrix,Vector>::solve (Matrix& /*M*/, Vector& x, Vector& b)
     x.asub(0,bsize) = alpha_inv[0] * b.asub(0,bsize);
     for (Index i=1; i<nb; ++i)
     {
-        x.asub(i,bsize) = alpha_inv[i]*(b.asub(i,bsize) - B[i]*x.asub((i-1),bsize));
+        x.asub(i,bsize) = type::dot(alpha_inv[i]*(b.asub(i,bsize)) -type::dot(B[i]*x.asub((i-1),bsize)));
     }
     for (sofa::SignedIndex i=nb-2; i>=0; --i)
     {

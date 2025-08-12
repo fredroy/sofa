@@ -149,8 +149,8 @@ void CenterOfMassMapping<TIn, TOut>::draw(const core::visual::VisualParams* vpar
     {
         OutCoord v;
         v[i] = 0.1f;
-        point1 = Out::getCPos((X[0] -v));
-        point2 = Out::getCPos((X[0] +v));
+        point1 = toVec3(Out::getCPos((X[0] -v)));
+        point2 = toVec3(Out::getCPos((X[0] +v)));
         points.push_back(point1);
         points.push_back(point2);
     }

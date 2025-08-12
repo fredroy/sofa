@@ -508,7 +508,17 @@ SReal UniformMass<DataTypes>::getKineticEnergy ( const MechanicalParams* params,
     const MassType& m = d_vertexMass.getValue();
 
     for (const auto i : indices)
-        e += v[i] * m * v[i];
+    {
+        if constexpr(type::isRigidType<DataTypes>)
+        {
+            e += v[i] * m * v[i];
+        }
+        else
+        {
+
+            e += type::dot(v[i] , m * v[i]);
+        }
+    }
 
     return e/2;
 }
@@ -530,7 +540,7 @@ SReal UniformMass<DataTypes>::getPotentialEnergy ( const MechanicalParams* param
     Deriv mg = gravity * m;
 
     for (const auto i : indices)
-        e -= mg * x[i];
+        e -= type::dot(mg , x[i]);
 
     return e;
 }

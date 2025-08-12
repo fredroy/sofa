@@ -386,7 +386,8 @@ SReal UniformMass<VecTypes>::getPotentialEnergyRigidImpl(const core::MechanicalP
     typename Coord::Pos g ( getContext()->getGravity() );
     for (const unsigned int index : indices)
     {
-        e -= g * d_vertexMass.getValue().mass * x[index].getCenter();
+
+        e -= type::dot(g * d_vertexMass.getValue().mass , x[index].getCenter());
     }
 
     return e;

@@ -258,7 +258,7 @@ void PrecomputedConstraintCorrection<DataTypes>::bwdInit()
         // for the initial computation, the gravity has to be put at 0
         const sofa::type::Vec3& gravity = this->getContext()->getGravity();
 
-        static constexpr sofa::type::Vec3 gravity_zero(0_sreal, 0_sreal, 0_sreal);
+        static const sofa::type::Vec3 gravity_zero(0_sreal, 0_sreal, 0_sreal);
         this->getContext()->setGravity(gravity_zero);
 
         sofa::component::odesolver::backward::EulerImplicitSolver* eulerSolver;
@@ -537,7 +537,7 @@ void PrecomputedConstraintCorrection< DataTypes >::addComplianceInConstraintSpac
             for (MatrixDerivRowConstIterator rowIt2 = rowIt; rowIt2 != rowItEnd; ++rowIt2)
             {
                 int indexCurColConst = rowIt2.index();
-                Real w = _sparseCompliance[temp + curColConst] * n1 * factor;
+                Real w = type::dot(_sparseCompliance[temp + curColConst] , n1) * factor;
 
                 W->add(indexCurRowConst, indexCurColConst, w);
 
@@ -1100,7 +1100,7 @@ void PrecomputedConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SReal
 
             for (MatrixDerivRowConstIterator rowIt2 = rowIt; rowIt2 != rowItEnd; ++rowIt2)
             {
-                Real w = _sparseCompliance[temp + curColConst] * n1;
+                Real w = type::dot(_sparseCompliance[temp + curColConst] , n1);
 
                 localW.add(curRowConst, curColConst, w);
 

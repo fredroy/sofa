@@ -43,7 +43,7 @@ inline SReal UncoupledConstraintCorrection_computeCompliance(
     const sofa::type::Vec<N, Real>& n1, const sofa::type::Vec<N, Real>& n2,
     const Real comp0, const VecReal& comp)
 {
-    return (n1 * n2) * ((index < comp.size()) ? comp[index] : comp0);
+    return type::dot(n1 , n2) * ((index < comp.size()) ? comp[index] : comp0);
 }
 
 /// Compute compliance between 2 constraint Jacobians for Rigid types
@@ -57,7 +57,7 @@ inline SReal UncoupledConstraintCorrection_computeCompliance(
     SOFA_UNUSED(comp0);
 
     // translation part
-    SReal w = (n1.getVCenter() * n2.getVCenter()) * comp[0];
+    SReal w = type::dot(n1.getVCenter() , n2.getVCenter()) * comp[0];
     // rotation part
     w += (n1.getVOrientation()[0] * comp[1] + n1.getVOrientation()[1] * comp[2] + n1.getVOrientation()[2] * comp[3]) * n2.getVOrientation()[0];
     w += (n1.getVOrientation()[0] * comp[2] + n1.getVOrientation()[1] * comp[4] + n1.getVOrientation()[2] * comp[5]) * n2.getVOrientation()[1];
@@ -748,7 +748,7 @@ void UncoupledConstraintCorrection<DataTypes>::addConstraintDisplacement(SReal *
 
             while (colIt != colItEnd)
             {
-                d[id] += colIt.val() * constraint_disp[colIt.index()];
+                d[id] += type::dot(colIt.val() , constraint_disp[colIt.index()]);
 
                 ++colIt;
             }

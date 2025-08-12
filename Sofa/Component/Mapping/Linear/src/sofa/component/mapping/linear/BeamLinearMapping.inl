@@ -144,16 +144,16 @@ void BeamLinearMapping<TIn, TOut>::applyJ(const core::MechanicalParams * /*mpara
     {
         // out = J in
         // J = [ I -OM^ ]
-        //out[i] =  v - cross(rotatedPoints[i],omega);
+        //out[i] =  v - type::cross(rotatedPoints[i],omega);
 
         type::Vec<N, typename In::Real> inpos = points[i];
         int in0 = helper::rfloor(inpos[0]);
         if (in0<0) in0 = 0; else if (in0 > (int)in.size()-2) in0 = in.size()-2;
         inpos[0] -= in0;
         Deriv omega0 = getVOrientation(in[in0]);
-        Deriv out0 = getVCenter(in[in0]) - cross(rotatedPoints0[i], omega0);
+        Deriv out0 = getVCenter(in[in0]) - type::cross(rotatedPoints0[i], omega0);
         Deriv omega1 = getVOrientation(in[in0+1]);
-        Deriv out1 = getVCenter(in[in0+1]) - cross(rotatedPoints1[i], omega1);
+        Deriv out1 = getVCenter(in[in0+1]) - type::cross(rotatedPoints1[i], omega1);
         Real fact = (Real)inpos[0];
         fact = 3*(fact*fact)-2*(fact*fact*fact);
         out[i] = out0 * (1-fact) + out1 * (fact);
@@ -176,7 +176,7 @@ void BeamLinearMapping<TIn, TOut>::applyJT(const core::MechanicalParams * /*mpar
 
         //Deriv f = in[i];
         //v += f;
-        //omega += cross(rotatedPoints[i],f);
+        //omega += type::cross(rotatedPoints[i],f);
 
         type::Vec<N, typename In::Real> inpos = points[i];
         int in0 = helper::rfloor(inpos[0]);
@@ -186,9 +186,9 @@ void BeamLinearMapping<TIn, TOut>::applyJT(const core::MechanicalParams * /*mpar
         Real fact = (Real)inpos[0];
         fact = 3*(fact*fact)-2*(fact*fact*fact);
         getVCenter(out[in0]) += f * (1-fact);
-        getVOrientation(out[in0]) += cross(rotatedPoints0[i], f) * (1-fact);
+        getVOrientation(out[in0]) += type::cross(rotatedPoints0[i], f) * (1-fact);
         getVCenter(out[in0+1]) += f * (fact);
-        getVOrientation(out[in0+1]) += cross(rotatedPoints1[i], f) * (fact);
+        getVOrientation(out[in0+1]) += type::cross(rotatedPoints1[i], f) * (fact);
     }
     //out[index.getValue()].getVCenter() += v;
     //out[index.getValue()].getVOrientation() += omega;
@@ -243,10 +243,10 @@ void BeamLinearMapping<TIn, TOut>::applyJT(const core::ConstraintParams * /*cpar
                 // Compute the mapped Constraint on the beam nodes
                 InDeriv direction0;
                 getVCenter(direction0) = w_n * (1-fact);
-                getVOrientation(direction0) = cross(rotatedPoints0[indexIn], w_n) * (1-fact);
+                getVOrientation(direction0) = type::cross(rotatedPoints0[indexIn], w_n) * (1-fact);
                 InDeriv direction1;
                 getVCenter(direction1) = w_n * (fact);
-                getVOrientation(direction1) = cross(rotatedPoints1[indexIn], w_n) * (fact);
+                getVOrientation(direction1) = type::cross(rotatedPoints1[indexIn], w_n) * (fact);
 
                 o.addCol(in0, direction0);
                 o.addCol(in0+1, direction1);
@@ -302,7 +302,7 @@ const sofa::linearalgebra::BaseMatrix* BeamLinearMapping<TIn, TOut>::getJ()
             // applyJ :
             // out = J in
             // J = [ I -OM^ ]
-            // out[i] =  v - cross(rotatedPoints[i],omega);
+            // out[i] =  v - type::cross(rotatedPoints[i],omega);
 
             const unsigned int outIdx = i;
             type::Vec<N, typename In::Real> inpos = points[i];
@@ -315,10 +315,10 @@ const sofa::linearalgebra::BaseMatrix* BeamLinearMapping<TIn, TOut>::getJ()
             fact = 3*(fact*fact)-2*(fact*fact*fact);
 
 //	        Deriv omega0 = getVOrientation(in[in0]);
-//	        Deriv out0 = getVCenter(in[in0]) - cross(rotatedPoints0[i], omega0);
+//	        Deriv out0 = getVCenter(in[in0]) - type::cross(rotatedPoints0[i], omega0);
 
 //	        Deriv omega1 = getVOrientation(in[in1]);
-//	        Deriv out1 = getVCenter(in[in1]) - cross(rotatedPoints1[i], omega1);
+//	        Deriv out1 = getVCenter(in[in1]) - type::cross(rotatedPoints1[i], omega1);
 
             Coord rotatedPoint0 = rotatedPoints0[outIdx] * (1-fact);
             MBloc& block0 = *matrixJ->wblock(outIdx, in0, true);
