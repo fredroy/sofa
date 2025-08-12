@@ -91,16 +91,15 @@ void ParabolicProjectiveConstraint<DataTypes>::init()
         Vec3R P1P3 = P3 - P1;
 
         Vec3R ax = P1P3;
-        Vec3R az = cross(P1P3, P1P2);
-        Vec3R ay = cross(az, ax);
+        Vec3R az = type::cross(P1P3, P1P2);
+        Vec3R ay = type::cross(az, ax);
         ax.normalize();
         ay.normalize();
         az.normalize();
 
         
-        type::Mat<3,3,Real> Mrot(ax, ay, az);
-        type::Mat<3,3,Real> Mrot2;
-        Mrot2.transpose(Mrot);
+        type::Mat<3,3,Real> Mrot; Mrot << ax, ay, az;
+        type::Mat<3,3,Real> Mrot2 = Mrot.transpose();
         m_projection.fromMatrix(Mrot2);
         m_projection.normalize();
 

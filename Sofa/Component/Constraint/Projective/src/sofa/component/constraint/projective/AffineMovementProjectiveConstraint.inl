@@ -246,7 +246,7 @@ void AffineMovementProjectiveConstraint<defaulttype::Rigid3Types>::transform(con
                                                                    defaulttype::Rigid3Types::VecCoord& xf)
 {
     // Get quaternion and translation values
-    RotationMatrix rotationMat(0);
+    RotationMatrix rotationMat;
     const Quat quat =  d_quaternion.getValue();
     quat.toMatrix(rotationMat);
     const Vec3 translation = d_translation.getValue();

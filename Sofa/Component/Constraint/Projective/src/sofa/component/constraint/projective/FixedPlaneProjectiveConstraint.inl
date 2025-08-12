@@ -224,8 +224,8 @@ void FixedPlaneProjectiveConstraint<DataTypes>::projectJacobianMatrix(const Mech
             if (std::find(indices.begin(), indices.end(), colIt.index()) != indices.end())
             {
                 auto val = getVec(colIt.val());
-                Deriv r(type::NOINIT);
-                DataTypes::setDPos(r, -(dir * dot(val, dir)));
+                Deriv r;
+                DataTypes::setDPos(r, -(dir * type::dot(val, dir)));
                 dx.writeLine(itRow.index()).addCol(colIt.index(), r);
             }
         }

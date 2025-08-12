@@ -53,16 +53,13 @@ public:
 
     virtual void clear() {}
 
-    template<sofa::Size L, sofa::Size C, class real>
-    void matAdd(sofa::SignedIndex row, sofa::SignedIndex col, const sofa::type::Mat<L, C, real>& value);
-
     template<int L, int C, class real>
     void matAdd(sofa::SignedIndex row, sofa::SignedIndex col, const sofa::type::Mat<L, C, real>& value);
 
     virtual void setIndexCheckerStrategy(std::shared_ptr<matrixaccumulator::IndexVerificationStrategy>) {}
 };
 
-template <sofa::Size L, sofa::Size C, class real>
+template <int L, int C, class real>
 void MatrixAccumulatorInterface::matAdd(sofa::SignedIndex row, sofa::SignedIndex col,
     const sofa::type::Mat<L, C, real>& value)
 {

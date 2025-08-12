@@ -36,7 +36,7 @@ using namespace sofa::helper;
 template <>
 void FixedLagrangianConstraint< Vec6Types >::doBuildConstraintLine( helper::WriteAccessor<DataMatrixDeriv> &c, unsigned int lineNumber)
 {
-    constexpr Coord c0(1,0,0,0,0,0), c1(0,1,0,0,0,0), c2(0,0,1,0,0,0), c3(0,0,0,1,0,0), c4(0,0,0,0,1,0), c5(0,0,0,0,0,1);
+    static const Coord c0(1,0,0,0,0,0), c1(0,1,0,0,0,0), c2(0,0,1,0,0,0), c3(0,0,0,1,0,0), c4(0,0,0,0,1,0), c5(0,0,0,0,0,1);
     const unsigned dofIdx = d_fixAll.getValue() ? lineNumber : d_indices.getValue()[lineNumber];
 
     MatrixDerivRowIterator c_it = c->writeLine(m_cid[lineNumber]);
@@ -87,7 +87,7 @@ void FixedLagrangianConstraint<Vec6Types>::doGetSingleConstraintResolution(std::
 template <>
 void FixedLagrangianConstraint< Vec3Types >::doBuildConstraintLine( helper::WriteAccessor<DataMatrixDeriv> &c, unsigned int lineNumber)
 {
-    constexpr Coord cx(1,0,0), cy(0,1,0), cz(0,0,1);
+    static const Coord cx(1,0,0), cy(0,1,0), cz(0,0,1);
     const unsigned dofIdx = d_fixAll.getValue() ? lineNumber : d_indices.getValue()[lineNumber];
 
     MatrixDerivRowIterator c_it = c->writeLine(m_cid[lineNumber]);
@@ -125,7 +125,7 @@ void FixedLagrangianConstraint<Vec3Types>::doGetSingleConstraintResolution(std::
 template <>
 void FixedLagrangianConstraint< Vec2Types >::doBuildConstraintLine( helper::WriteAccessor<DataMatrixDeriv> &c, unsigned int lineNumber)
 {
-    constexpr Coord cx(1, 0), cy(0, 1);
+    static const Coord cx(1, 0), cy(0, 1);
     const unsigned dofIdx = d_fixAll.getValue() ? lineNumber : d_indices.getValue()[lineNumber];
 
     MatrixDerivRowIterator c_it = c->writeLine(m_cid[lineNumber]);
@@ -158,7 +158,7 @@ void FixedLagrangianConstraint<Vec2Types>::doGetSingleConstraintResolution(std::
 template <>
 void FixedLagrangianConstraint< Vec1Types >::doBuildConstraintLine( helper::WriteAccessor<DataMatrixDeriv> &c, unsigned int lineNumber)
 {
-    constexpr Coord cx(1);
+    static const Coord cx(1);
     const unsigned dofIdx = d_fixAll.getValue() ? lineNumber : d_indices.getValue()[lineNumber];
 
     MatrixDerivRowIterator c_it = c->writeLine(m_cid[lineNumber]);
@@ -186,7 +186,7 @@ void FixedLagrangianConstraint<Vec1Types>::doGetSingleConstraintResolution(std::
 template<>
 void FixedLagrangianConstraint<Rigid3Types>::doBuildConstraintLine( helper::WriteAccessor<DataMatrixDeriv> &c, unsigned int lineNumber)
 {
-    constexpr type::Vec3 cx(1,0,0), cy(0,1,0), cz(0,0,1), zero(0,0,0);
+    static const type::Vec3 cx(1,0,0), cy(0,1,0), cz(0,0,1), zero(0,0,0);
     const unsigned dofIdx = d_fixAll.getValue() ? lineNumber : d_indices.getValue()[lineNumber];
 
     MatrixDerivRowIterator c_it = c->writeLine(m_cid[lineNumber]);

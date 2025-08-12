@@ -125,8 +125,8 @@ public:
         auto c1 = sofa::helper::getWriteAccessor(c1_d);
         auto c2 = sofa::helper::getWriteAccessor(c2_d);
 
-        static constexpr Vec<3, Real_t<T>> cx(1,0,0), cy(0,1,0), cz(0,0,1);
-        static constexpr Vec<3, Real_t<T>> vZero(0,0,0);
+        static const Vec<3, Real_t<T>> cx(1,0,0), cy(0,1,0), cz(0,0,1);
+        static const Vec<3, Real_t<T>> vZero(0,0,0);
 
         for (unsigned pid = 0; pid < minp; ++pid)
         {

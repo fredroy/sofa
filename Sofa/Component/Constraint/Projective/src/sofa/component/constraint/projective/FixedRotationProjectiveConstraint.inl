@@ -92,7 +92,7 @@ void FixedRotationProjectiveConstraint<DataTypes>::projectPosition(const core::M
         const sofa::type::Quat<SReal>& Q_prev = previousOrientation[i];
 
         auto project = [](const Vec3 a, const Vec3 b) -> Vec3 {
-            return (a * b) * b;
+            return type::dot(a , b) * b;
         };
         auto decompose_ts = [&](const sofa::type::Quat<SReal> q, const Vec3 twistAxis) {
             Vec3 vec3_part(q[0], q[1], q[2]);

@@ -1,6 +1,7 @@
 #pragma once
 
-struct NoInit;
+struct NoInit{};
+inline static constexpr NoInit NOINIT{};
 
 inline static const sofa::Size total_size = Matrix::ColsAtCompileTime * Matrix::RowsAtCompileTime;
 inline static const int static_size = Matrix::ColsAtCompileTime * Matrix::RowsAtCompileTime;

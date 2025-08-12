@@ -156,12 +156,12 @@ void BilateralLagrangianConstraint<DataTypes>::buildConstraintMatrix(
 
     cid.resize(minp);
 
+    static const type::Vec<3, Real> cx(1,0,0), cy(0,1,0), cz(0,0,1);
+
     for (unsigned pid = 0; pid < minp; ++pid)
     {
         int tm1 = m1Indices[pid];
         int tm2 = m2Indices[pid];
-
-        constexpr type::Vec<3, Real> cx(1,0,0), cy(0,1,0), cz(0,0,1);
 
         cid[pid] = constraintId;
         constraintId += 3;

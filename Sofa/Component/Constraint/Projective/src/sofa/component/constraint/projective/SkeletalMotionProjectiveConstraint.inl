@@ -369,15 +369,15 @@ void SkeletalMotionProjectiveConstraint<DataTypes>::draw(const core::visual::Vis
             points.push_back(point);
 
             linesX.push_back(point);
-            line = point + DataTypes::getCRot(jointWorldRigid).rotate(type::Vec3f(0.1f, 0.0f, 0.0f));
+            line = point + DataTypes::getCRot(jointWorldRigid).rotate(type::Vec3(0.1_sreal, 0.0_sreal, 0.0_sreal));
             linesX.push_back(line);
 
             linesY.push_back(point);
-            line = point + DataTypes::getCRot(jointWorldRigid).rotate(type::Vec3f(0.0f, 0.1f, 0.0f));
+            line = point + DataTypes::getCRot(jointWorldRigid).rotate(type::Vec3(0.0_sreal, 0.1_sreal, 0.0_sreal));
             linesY.push_back(line);
 
             linesZ.push_back(point);
-            line = point + DataTypes::getCRot(jointWorldRigid).rotate(type::Vec3f(0.0f, 0.0f, 0.1f));
+            line = point + DataTypes::getCRot(jointWorldRigid).rotate(type::Vec3(0.0_sreal, 0.0_sreal, 0.1_sreal));
             linesZ.push_back(line);
         }
         vparams->drawTool()->drawPoints(points, 10, sofa::type::RGBAColor (1.0f , 0.5f , 0.5f , 1.0f));
@@ -401,15 +401,15 @@ void SkeletalMotionProjectiveConstraint<DataTypes>::draw(const core::visual::Vis
             points.push_back(point);
 
             linesX.push_back(point);
-            line = point + DataTypes::getCRot(boneWorldRigid).rotate(type::Vec3f(0.1f, 0.0f, 0.0f));
+            line = point + DataTypes::getCRot(boneWorldRigid).rotate(type::Vec3(0.1_sreal, 0.0_sreal, 0.0_sreal));
             linesX.push_back(line);
 
             linesY.push_back(point);
-            line = point + DataTypes::getCRot(boneWorldRigid).rotate(type::Vec3f(0.0f, 0.1f, 0.0f));
+            line = point + DataTypes::getCRot(boneWorldRigid).rotate(type::Vec3(0.0_sreal, 0.1_sreal, 0.0_sreal));
             linesY.push_back(line);
 
             linesZ.push_back(point);
-            line = point + DataTypes::getCRot(boneWorldRigid).rotate(type::Vec3f(0.0f, 0.0f, 0.1f));
+            line = point + DataTypes::getCRot(boneWorldRigid).rotate(type::Vec3(0.0_sreal, 0.0_sreal, 0.1_sreal));
             linesZ.push_back(line);
         }
         vparams->drawTool()->drawPoints(points, 10, sofa::type::RGBAColor (1.0f, 0.5f, 0.5f, 1.0f));

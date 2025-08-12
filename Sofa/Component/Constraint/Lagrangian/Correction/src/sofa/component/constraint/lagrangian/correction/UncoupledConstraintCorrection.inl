@@ -393,7 +393,7 @@ void UncoupledConstraintCorrection<DataTypes>::addComplianceInConstraintSpace(co
             
             for (MatrixDerivColConstIterator colIt = colItBegin; colIt != colItEnd; ++colIt)
             {
-                auto dof = colIt.index();
+                Index dof = static_cast<Index>(colIt.index());
                 Deriv n = colIt.val();
 
                 if (verbose)

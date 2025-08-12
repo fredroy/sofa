@@ -90,7 +90,7 @@ template <core::matrixaccumulator::Contribution c>
 void BaseAssemblingMatrixAccumulator<c>::setPositionInGlobalMatrix(const sofa::type::Vec2u& pos)
 {
     d_positionInGlobalMatrix.setValue(pos);
-    m_cachedPositionInGlobalMatrix = pos;
+    m_cachedPositionInGlobalMatrix = pos.cast<int>();
 }
 
 template<core::matrixaccumulator::Contribution c>

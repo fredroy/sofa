@@ -100,7 +100,7 @@ void SlidingLagrangianConstraint<DataTypes>::buildConstraintMatrix(const core::C
         DataTypes::setDPos(dirAxe,DataTypes::getDPos(dirAxe).normalized());
 
         // Distance to point A on sliding direction
-        Real r = dot(DataTypes::getCPos(P) - DataTypes::getCPos(A) , DataTypes::getDPos(dirAxe));
+        Real r = type::dot(DataTypes::getCPos(P) - DataTypes::getCPos(A) , DataTypes::getDPos(dirAxe));
         // Normalized distance to point A on sliding direction, if equal to 1 then it is the same distance to A as B
         Real r2 = r / ab;
 
@@ -120,10 +120,10 @@ void SlidingLagrangianConstraint<DataTypes>::buildConstraintMatrix(const core::C
         {
             typename DataTypes::DPos xVec;
             xVec[0] = 1;
-            if ( cross(xVec, DataTypes::getDPos(dirAxe)).norm() < std::numeric_limits<Real>::epsilon())
+            if ( type::cross(xVec, DataTypes::getDPos(dirAxe)).norm() < std::numeric_limits<Real>::epsilon())
                 xVec[1] = 1;
 
-            DataTypes::setDPos(dirProj, cross(xVec, DataTypes::getDPos(dirAxe)));
+            DataTypes::setDPos(dirProj, type::cross(xVec, DataTypes::getDPos(dirAxe)));
         }
         DataTypes::setDPos(dirProj,DataTypes::getDPos(dirProj).normalized()); // direction of the constraint
 
@@ -131,7 +131,7 @@ void SlidingLagrangianConstraint<DataTypes>::buildConstraintMatrix(const core::C
         Deriv_t<DataTypes> dirOrtho;
         if constexpr ( Deriv_t<DataTypes>::spatial_dimensions > 2 )
         {
-            DataTypes::setDPos(dirOrtho, cross(DataTypes::getDPos(dirProj), DataTypes::getDPos(dirAxe)).normalized());
+            DataTypes::setDPos(dirOrtho, type::cross(DataTypes::getDPos(dirProj), DataTypes::getDPos(dirAxe)).normalized());
         }
 
         m_constraintDirections.push_back(dirProj);
@@ -221,10 +221,10 @@ void SlidingLagrangianConstraint<DataTypes>::getConstraintViolation(const core::
 
         for(unsigned i=0; i<m_constraintDirections.size()  - 2 ; ++i)
         {
-            v->set(constraintIndex + i, dot(PtoProj, DataTypes::getDPos(m_constraintDirections[i])) );
+            v->set(constraintIndex + i, type::dot(PtoProj, DataTypes::getDPos(m_constraintDirections[i])) );
         }
-        v->set(constraintIndex + 2, dot(PtoA ,  DataTypes::getDPos(m_constraintDirections[2])) );
-        v->set(constraintIndex + 3, dot(PtoB ,  DataTypes::getDPos(m_constraintDirections[3])) );
+        v->set(constraintIndex + 2, type::dot(PtoA ,  DataTypes::getDPos(m_constraintDirections[2])) );
+        v->set(constraintIndex + 3, type::dot(PtoB ,  DataTypes::getDPos(m_constraintDirections[3])) );
     }
 }
 

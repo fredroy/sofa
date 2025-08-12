@@ -87,9 +87,9 @@ void BaseContactLagrangianConstraint<DataTypes, ContactParams>::addContact(const
     c.m2		= m2;
     c.norm		= norm;
     c.t			= Deriv(norm.z(), norm.x(), norm.y());
-    c.s			= cross(norm, c.t);
+    c.s			= type::cross(norm, c.t);
     c.s			= c.s / c.s.norm();
-    c.t			= cross((-norm), c.s);
+    c.t			= type::cross((-norm), c.s);
     c.parameters= parameters;
     c.contactId = id;
     c.localId	= localid;
@@ -201,13 +201,13 @@ void BaseContactLagrangianConstraint<DataTypes, ContactParams>::getPositionViola
 
         const Real ref_dist = PPfree.norm() + QQfree.norm();
 
-        dfree = dot(Pfree - Qfree, c.norm) - c.contactDistance;
-        const Real delta = dot(c.P - c.Q, c.norm) - c.contactDistance;
+        dfree = type::dot(Pfree - Qfree, c.norm) - c.contactDistance;
+        const Real delta = type::dot(c.P - c.Q, c.norm) - c.contactDistance;
 
         if ((helper::rabs(delta) < 0.00001 * ref_dist) && (helper::rabs(dfree) < 0.00001 * ref_dist))
         {
-            dfree_t = dot(PPfree, c.t) - dot(QQfree, c.t);
-            dfree_s = dot(PPfree, c.s) - dot(QQfree, c.s);
+            dfree_t = type::dot(PPfree, c.t) - type::dot(QQfree, c.t);
+            dfree_s = type::dot(PPfree, c.s) - type::dot(QQfree, c.s);
         }
         else if (helper::rabs(delta - dfree) > 0.001 * delta)
         {
@@ -220,13 +220,13 @@ void BaseContactLagrangianConstraint<DataTypes, ContactParams>::getPositionViola
                 const Coord PtPfree = Pfree - Pt;
                 const Coord QtQfree = Qfree - Qt;
 
-                dfree_t = dot(PtPfree, c.t) - dot(QtQfree, c.t);
-                dfree_s = dot(PtPfree, c.s) - dot(QtQfree, c.s);
+                dfree_t = type::dot(PtPfree, c.t) - type::dot(QtQfree, c.t);
+                dfree_s = type::dot(PtPfree, c.s) - type::dot(QtQfree, c.s);
             }
             else if (dfree < 0.0)
             {
-                dfree_t = dot(PPfree, c.t) - dot(QQfree, c.t);
-                dfree_s = dot(PPfree, c.s) - dot(QQfree, c.s);
+                dfree_t = type::dot(PPfree, c.t) - type::dot(QQfree, c.t);
+                dfree_s = type::dot(PPfree, c.s) - type::dot(QQfree, c.s);
             }
             else
             {
@@ -236,8 +236,8 @@ void BaseContactLagrangianConstraint<DataTypes, ContactParams>::getPositionViola
         }
         else
         {
-            dfree_t = dot(PPfree, c.t) - dot(QQfree, c.t);
-            dfree_s = dot(PPfree, c.s) - dot(QQfree, c.s);
+            dfree_t = type::dot(PPfree, c.t) - type::dot(QQfree, c.t);
+            dfree_s = type::dot(PPfree, c.s) - type::dot(QQfree, c.s);
         }
 
         // Sets dfree in global violation vector
@@ -277,12 +277,12 @@ void BaseContactLagrangianConstraint<DataTypes, ContactParams>::getVelocityViola
         const Deriv QP_vfree  = PvfreeVec[c.m2] - QvfreeVec[c.m1];
         const Deriv dFreeVec = QP_vfree + QP_invDt;
 
-        v->set(c.id, dot(dFreeVec, c.norm) - c.contactDistance*invDt ); // dvfree = 1/dt *  [ dot ( P - Q, n) - contactDist ] + dot(v_P - v_Q , n ) ]
+        v->set(c.id, type::dot(dFreeVec, c.norm) - c.contactDistance*invDt ); // dvfree = 1/dt *  [ dot ( P - Q, n) - contactDist ] + type::dot(v_P - v_Q , n ) ]
 
         if (c.parameters.hasTangentialComponent())
         {
-            v->set(c.id + 1, dot(QP_vfree, c.t)); // dfree_t
-            v->set(c.id + 2, dot(QP_vfree, c.s)); // dfree_s
+            v->set(c.id + 1, type::dot(QP_vfree, c.t)); // dfree_t
+            v->set(c.id + 2, type::dot(QP_vfree, c.s)); // dfree_s
         }
     }
 }

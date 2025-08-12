@@ -70,15 +70,15 @@ void TetrahedronDiffusionFEMForceField<DataTypes>::computeEdgeDiffusionCoefficie
             point[j]= position[t[j]];
 
         // compute 6 times the rest volume
-        volume = dot(cross(point[1]-point[0], point[2]-point[0]), point[0]-point[3]);
+        volume = type::dot(type::cross(point[1]-point[0], point[2]-point[0]), point[0]-point[3]);
 
         // store shape vectors
         for(j=0;j<4;++j)
         {
             if ((j%2)==0)
-                shapeVector[j] = -cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/volume;
+                shapeVector[j] = -type::cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/volume;
             else
-                shapeVector[j] = cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/volume;
+                shapeVector[j] = type::cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/volume;
         }
 
         diff=(d_tetraDiffusionCoefficient.getValue())[i]*fabs(volume)/6;
@@ -92,7 +92,7 @@ void TetrahedronDiffusionFEMForceField<DataTypes>::computeEdgeDiffusionCoefficie
                 k = m_topology->getLocalEdgesInTetrahedron(j)[0];
                 l = m_topology->getLocalEdgesInTetrahedron(j)[1];
 
-                val1 = dot(shapeVector[k],shapeVector[l])*diff;
+                val1 = type::dot(shapeVector[k],shapeVector[l])*diff;
                 edgeDiffusionCoefficient[te[j]] += val1;
             }
         }
@@ -108,7 +108,7 @@ void TetrahedronDiffusionFEMForceField<DataTypes>::computeEdgeDiffusionCoefficie
                 k = m_topology->getLocalEdgesInTetrahedron(j)[0];
                 l = m_topology->getLocalEdgesInTetrahedron(j)[1];
 
-                val1= dot(shapeVector[k],shapeVector[l]+direction * ((anisotropyRatio-1)*dot(direction,shapeVector[l])))*diff;
+                val1= type::dot(shapeVector[k],shapeVector[l]+direction * ((anisotropyRatio-1)*type::dot(direction,shapeVector[l])))*diff;
                 edgeDiffusionCoefficient[te[j]] += val1;
             }
         }

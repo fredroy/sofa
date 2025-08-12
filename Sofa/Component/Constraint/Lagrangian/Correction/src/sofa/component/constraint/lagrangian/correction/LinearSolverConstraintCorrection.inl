@@ -600,7 +600,7 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(SRea
     constexpr auto addConstraintDisplacement_impl = [](SReal* d, unsigned int id, auto* systemLHVector_buf, SReal positionIntegrationFactor, unsigned int dof, const Deriv& val)
     {
         constexpr const auto derivDim = Deriv::total_size;
-        Deriv disp(type::NOINIT);
+        Deriv disp;
 
         for (Size j = 0; j < derivDim; j++)
         {
@@ -614,7 +614,7 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(SRea
             }
         }
 
-        d[id] += val * disp;
+        d[id] += type::dot(val, disp);
     };
 
     const auto positionIntegrationFactor = l_ODESolver->getPositionIntegrationFactor();

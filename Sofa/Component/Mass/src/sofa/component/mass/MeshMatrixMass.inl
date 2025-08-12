@@ -2121,7 +2121,7 @@ SReal MeshMatrixMass<DataTypes, GeometricalTypes>::getKineticEnergy( const core:
 
     for (unsigned int i=0; i<v.size(); i++)
     {
-        e += dot(v[i],v[i]) * vertexMass[i]; // v[i]*v[i]*masses[i] would be more efficient but less generic
+        e += type::dot(v[i],v[i]) * vertexMass[i]; // v[i]*v[i]*masses[i] would be more efficient but less generic
     }
 
     for (unsigned int i = 0; i < nbEdges; ++i)
@@ -2129,7 +2129,7 @@ SReal MeshMatrixMass<DataTypes, GeometricalTypes>::getKineticEnergy( const core:
         v0 = l_topology->getEdge(i)[0];
         v1 = l_topology->getEdge(i)[1];
 
-        e += 2 * dot(v[v0], v[v1])*edgeMass[i];
+        e += 2 * type::dot(v[v0], v[v1])*edgeMass[i];
 
     }
 
@@ -2151,7 +2151,7 @@ SReal MeshMatrixMass<DataTypes, GeometricalTypes>::getPotentialEnergy( const cor
     DataTypes::set ( theGravity, g[0], g[1], g[2]);
 
     for (unsigned int i=0; i<x.size(); i++)
-        e -= dot(theGravity,x[i])*vertexMass[i] * m_massLumpingCoeff;
+        e -= type::dot(theGravity,x[i])*vertexMass[i] * m_massLumpingCoeff;
 
     return e;
 }
