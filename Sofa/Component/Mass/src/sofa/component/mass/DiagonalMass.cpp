@@ -53,7 +53,7 @@ SReal DiagonalMass<RigidTypes, GeometricalTypes>::getPotentialEnergyRigidImpl( c
     RigidTypes::set( theGravity, g[0], g[1], g[2]);
     for (unsigned int i=0; i<_x.size(); i++)
     {
-        e -= getVCenter(theGravity) * masses[i].mass * _x[i].getCenter();
+        e -= type::dot(getVCenter(theGravity) * masses[i].mass , _x[i].getCenter());
     }
     return e;
 }

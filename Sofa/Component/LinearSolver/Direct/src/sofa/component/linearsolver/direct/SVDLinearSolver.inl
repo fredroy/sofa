@@ -23,8 +23,6 @@
 #include <sofa/component/linearsolver/direct/SVDLinearSolver.h>
 
 #include <sofa/helper/ScopedAdvancedTimer.h>
-#include <Eigen/Dense>
-#include <Eigen/Core>
 
 namespace sofa::component::linearsolver::direct
 {

@@ -25,13 +25,13 @@
 #include <map>
 #include <mutex>
 #include <string>
-#include <Eigen/SparseCholesky>
-#include <Eigen/SparseLU>
-#include <Eigen/SparseQR>
 #include <sofa/defaulttype/typeinfo/DataTypeInfo.h>
 #include <sofa/helper/logging/Messaging.h>
 #include <sofa/type/vector.h>
 
+#include <Eigen/SparseCholesky>
+#include <Eigen/SparseLU>
+#include <Eigen/SparseQR>
 
 namespace sofa::component::linearsolver::direct
 {

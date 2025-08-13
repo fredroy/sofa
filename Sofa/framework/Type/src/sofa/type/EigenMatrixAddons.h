@@ -12,8 +12,8 @@ static constexpr auto nbCols = Matrix::ColsAtCompileTime;
 using Size = int;
 
 
-static constexpr sofa::Size spatial_dimensions = nbCols;
-static constexpr sofa::Size coord_total_size = nbLines*nbCols;
+static constexpr sofa::Size spatial_dimensions = nbLines;
+static constexpr sofa::Size coord_total_size = nbLines;
 static constexpr sofa::Size deriv_total_size = nbLines*nbCols;
 
 static constexpr auto size()

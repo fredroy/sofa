@@ -24,7 +24,6 @@
 #include <sofa/component/linearsolver/iterative/MatrixLinearSolver.h>
 #include <sofa/component/linearsolver/ordering/OrderingMethodAccessor.h>
 #include <variant>
-#include <Eigen/SparseCore>
 #include <sofa/component/linearsolver/direct/EigenSolverFactory.h>
 
 #include <sofa/helper/OptionsGroup.h>

@@ -34,8 +34,8 @@ template< std::size_t N, typename T>
 class BlockFullMatrix : public linearalgebra::BaseMatrix
 {
 public:
+    inline static const int BSIZE = N;
 
-    enum { BSIZE = N };
     typedef T Real;
 
     class TransposedBlock{
@@ -81,18 +81,18 @@ public:
 //        {
 //            return type::Mat<BSIZE,BSIZE,Real>::operator*(v);
 //        }
-        type::Mat<BSIZE,BSIZE,Real> operator*(const type::Mat<BSIZE,BSIZE,Real>& m)
-        {
-            return (*this)* m;
-        }
-        type::Mat<BSIZE,BSIZE,Real> operator*(const Block& m)
-        {
-            return (*this)* m;
-        }
-        type::Mat<BSIZE,BSIZE,Real> operator*(const TransposedBlock& mt)
-        {
-            return (*this)* mt.m.transposed(); //operator*(mt.m.transposed());
-        }
+//        type::Mat<BSIZE,BSIZE,Real> operator*(const type::Mat<BSIZE,BSIZE,Real>& m)
+//        {
+//            return (*this)* m;
+//        }
+//        type::Mat<BSIZE,BSIZE,Real> operator*(const Block& m)
+//        {
+//            return (*this)* m;
+//        }
+//        type::Mat<BSIZE,BSIZE,Real> operator*(const TransposedBlock& mt)
+//        {
+//            return (*this)* mt.m.transposed(); //operator*(mt.m.transposed());
+//        }
         TransposedBlock t() const;
         Block i() const;
     };

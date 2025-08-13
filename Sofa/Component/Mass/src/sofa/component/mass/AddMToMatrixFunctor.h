@@ -66,7 +66,7 @@ struct AddMToMatrixFunctor< defaulttype::RigidDeriv<N,Real>, defaulttype::RigidM
         const auto m = mass.mass * fact;
         for (sofa::Size i = 0; i < N; ++i)
             mat->add(pos + i, pos + i, m);
-        mat->add(pos + N, pos + N, mass.inertiaMassMatrix * fact);
+        mat->add(pos + N, pos + N, mass.inertiaMassMatrix.eval() * fact);
     }
 };
 

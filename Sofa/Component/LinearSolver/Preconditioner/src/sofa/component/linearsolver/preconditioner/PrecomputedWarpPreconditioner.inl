@@ -291,7 +291,7 @@ void PrecomputedWarpPreconditioner<TDataTypes>::loadMatrixWithSolver()
 
     // for the initial computation, the gravity has to be put at 0
     const sofa::type::Vec3 gravity = this->getContext()->getGravity();
-    static constexpr sofa::type::Vec3 gravity_zero(0_sreal, 0_sreal, 0_sreal);
+    static const sofa::type::Vec3 gravity_zero(0_sreal, 0_sreal, 0_sreal);
     this->getContext()->setGravity(gravity_zero);
 
     component::linearsolver::iterative::CGLinearSolver<GraphScatteredMatrix,GraphScatteredVector>* CGlinearSolver;
@@ -479,7 +479,6 @@ void PrecomputedWarpPreconditioner<TDataTypes>::rotateConstraints()
         msg_warning_when(rotationFinder == nullptr) << "No rotation defined : only applicable for components implementing RotationFinder!";
     }
 
-    Transformation Rotation;
     if (rotationFinder != nullptr)
     {
         const type::vector<type::Mat<3,3,Real> > & rotations = rotationFinder->getRotations();
@@ -488,7 +487,7 @@ void PrecomputedWarpPreconditioner<TDataTypes>::rotateConstraints()
             int pid;
             pid = k;
 
-            Rotation = rotations[pid];
+            const auto Rotation = rotations[pid];
             for (int j=0; j<3; j++)
             {
                 for (int i=0; i<3; i++)
@@ -663,7 +662,7 @@ void PrecomputedWarpPreconditioner<TDataTypes>::draw(const core::visual::VisualP
     const auto stateLifeCycle = vparams->drawTool()->makeStateLifeCycle();
 
     const VecCoord& x = mstate->read(core::vec_id::read_access::position)->getValue();
-    const Real& scale = this->d_draw_rotations_scale.getValue();
+    const float scale = static_cast<float>(this->d_draw_rotations_scale.getValue());
 
     for (unsigned int i=0; i< nb_dofs; i++)
     {
@@ -681,7 +680,7 @@ void PrecomputedWarpPreconditioner<TDataTypes>::draw(const core::visual::VisualP
 
         sofa::type::Quat<SReal> q;
         q.fromMatrix(RotMat);
-        vparams->drawTool()->drawFrame(DataTypes::getCPos(x[pid]), q, sofa::type::Vec3(scale,scale,scale));
+        vparams->drawTool()->drawFrame(type::toVec3(DataTypes::getCPos(x[pid])), q, sofa::type::Vec3f(scale,scale,scale));
     }
 
 }

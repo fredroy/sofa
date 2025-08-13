@@ -212,8 +212,15 @@ struct Hexahedron
     static constexpr auto volume(const Node& n0, const Node& n1, const Node& n2, const Node& n3,
                                  const Node& n4, const Node& n5, const Node& n6, const Node& n7)
     {
-        constexpr Node n{};
-        static_assert(std::distance(std::begin(n), std::end(n)) == 3, "volume can only be computed in 3 dimensions.");
+        if constexpr (std::is_same_v< Node, sofa::type::Vec<3, T> >)
+        {
+            static_assert(Node::static_size == 3, "volume can only be computed in 3 dimensions.");
+        }
+        else
+        {
+            constexpr Node n{};
+            static_assert(std::distance(std::begin(n), std::end(n)) == 3, "volume can only be computed in 3 dimensions.");
+        }
 
         return sofa::geometry::Tetrahedron::volume(n0, n5, n1, n6)
              + sofa::geometry::Tetrahedron::volume(n0, n1, n3, n6)
