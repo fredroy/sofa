@@ -90,17 +90,17 @@ public:
 //        {
 //            return type::Mat<BSIZE,BSIZE,Real>::operator*(v);
 //        }
-        type::Mat<BSIZE,BSIZE,Real> operator*(const type::Mat<BSIZE,BSIZE,Real>& m)
+//        type::Mat<BSIZE,BSIZE,Real> operator*(const type::Mat<BSIZE,BSIZE,Real>& m)
+//        {
+//            return (*this) * m;
+//        }
+//        type::Mat<BSIZE,BSIZE,Real> operator*(const TransposedBlock& mt)
+//        {
+//            return operator*(mt.m.transposed());
+//        }
+        auto t() const
         {
-            return (*this) * m;
-        }
-        type::Mat<BSIZE,BSIZE,Real> operator*(const TransposedBlock& mt)
-        {
-            return operator*(mt.m.transposed());
-        }
-        TransposedBlock t() const
-        {
-            return TransposedBlock(*this);
+            return this->transpose();
         }
         Block i() const
         {

@@ -58,15 +58,15 @@ BarycentricMapperQuadSetTopology<In,Out>::createPointInQuad ( const typename Out
     sofa::type::Mat<3,3,typename In::Real> m,mt,base;
     m[0] = pA;
     m[1] = pB;
-    m[2] = cross ( pA, pB );
-    mt.transpose ( m );
+    m[2] = type::cross ( pA, pB );
+    mt = m.transpose ();
     const bool canInvert = base.invert ( mt );
     assert(canInvert);
     SOFA_UNUSED(canInvert);
     const typename In::Coord base0 = base[0];
     const typename In::Coord base1 = base[1];
-    baryCoords[0] = base0 * pos;
-    baryCoords[1] = base1 * pos;
+    baryCoords[0] = type::dot(base0 , pos);
+    baryCoords[1] = type::dot(base1 , pos);
     return this->addPointInQuad ( quadIndex, baryCoords );
 }
 
@@ -96,9 +96,9 @@ template <class In, class Out>
 void BarycentricMapperQuadSetTopology<In,Out>::computeBase(Mat3x3d& base, const typename In::VecCoord& in, const Quad& element)
 {
     Mat3x3d matrixTranspose;
-    base[0] = in[element[1]]-in[element[0]];
-    base[1] = in[element[3]]-in[element[0]];
-    base[2] = type::cross(base[0].eval(),base[1].eval()).eval();
+    base.col(0) = (in[element[1]]-in[element[0]]).eval();
+    base[1] = (in[element[3]]-in[element[0]]).eval();
+    base[2] = type::cross(base[0],base[1]);
     matrixTranspose = base.transpose();
     const bool canInvert = base.invert(matrixTranspose);
     assert(canInvert);

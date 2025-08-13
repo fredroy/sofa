@@ -444,8 +444,8 @@ BarycentricMapperMeshTopology<In,Out>::createPointInQuad ( const typename Out::C
     const typename In::Coord pB = ( *points ) [elem[3]] - p0;
     typename In::Coord pos = Out::getCPos(p) - p0;
     sofa::type::Mat<3,3,typename In::Real> m,mt,base;
-    m[0] = pA;
-    m[1] = pB;
+    m[0] = pA.eval();
+    m[1] = pB.eval();
     m[2] = type::cross ( pA, pB );
     mt = m.transpose ();
     const bool canInvert = base.invert ( mt );

@@ -215,7 +215,7 @@ void BTDLinearSolver<Matrix,Vector>::computeMinvBlock(Index i, Index j)
         {
             // compute block (i0,i0-1)
             //Minv[i0][i0-1] = Minv[i0][i0]*-L[i0-1].t()
-            Minv.asub((i0  ),(i0-1),bsize,bsize) = Minv.asub((i0  ),(i0  ),bsize,bsize)*(-(lambda[i0-1].t()));
+            Minv.asub((i0  ),(i0-1),bsize,bsize) = Minv.asub((i0  ),(i0  ),bsize,bsize)*(-(lambda[i0-1].transpose()));
             ++nBlockComputedMinv[i0];
 
             if(d_subpartSolve.getValue() )
@@ -321,7 +321,7 @@ void BTDLinearSolver<Matrix,Vector>::solve (Matrix& /*M*/, Vector& x, Vector& b)
     x.asub(0,bsize) = alpha_inv[0] * b.asub(0,bsize);
     for (Index i=1; i<nb; ++i)
     {
-        x.asub(i,bsize) = type::dot(alpha_inv[i]*(b.asub(i,bsize)) -type::dot(B[i]*x.asub((i-1),bsize)));
+        x.asub(i,bsize) = alpha_inv[i]*(b.asub(i,bsize) - B[i]*x.asub((i-1),bsize));
     }
     for (sofa::SignedIndex i=nb-2; i>=0; --i)
     {

@@ -323,8 +323,7 @@ public:
     }
 
 
-    template<class Mat>
-    void writeRotationMatrix(Mat& m) const
+    void writeRotationMatrix(type::Mat3x3& m) const
     {
         orientation.toMatrix(m);
     }

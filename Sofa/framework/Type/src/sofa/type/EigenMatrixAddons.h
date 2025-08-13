@@ -62,99 +62,92 @@ auto norm2() const
 
 auto& x()
 {
-    if constexpr (ColsAtCompileTime == 1 && RowsAtCompileTime >= 1)
+    if constexpr (IsVectorAtCompileTime && static_size >= 1)
     {
-        return (*this)(0,0);
+        return (*this)[0];
     }
     else
     {
-        return this->row(0);
+        return this->col(0);
     }
 }
 
 const auto& x() const
 {
-    if constexpr (ColsAtCompileTime == 1 && RowsAtCompileTime >= 1)
+    if constexpr (IsVectorAtCompileTime && static_size >= 1)
     {
-        return (*this)(0,0);
+        return (*this)[0];
     }
     else
     {
-        return this->row(0);
+        return this->col(0);
     }
 }
 
 auto& y()
 {
-    if constexpr (ColsAtCompileTime == 1 && RowsAtCompileTime >= 2)
+    if constexpr (IsVectorAtCompileTime && static_size >= 2)
     {
-        return (*this)(0,1);
+        return (*this)[1];
     }
     else
     {
-        return this->row(1);
+        return this->col(1);
     }
 }
 
 const auto& y() const
 {
-    if constexpr (ColsAtCompileTime == 1 && RowsAtCompileTime >= 2)
+    if constexpr (IsVectorAtCompileTime && static_size >= 2)
     {
-        return (*this)(0,1);
+        return (*this)[1];
     }
     else
     {
-        return this->row(1);
+        return this->col(1);
     }
 }
 
 auto& z()
 {
-    if constexpr (ColsAtCompileTime == 1 && RowsAtCompileTime >= 3)
+    if constexpr (IsVectorAtCompileTime && static_size >= 3)
     {
-        return (*this)(0,2);
+        return (*this)[2];
     }
     else
     {
-        return this->row(2);
+        return this->col(2);
     }
 }
 
 const auto& z() const
 {
-    if constexpr (ColsAtCompileTime == 1 && RowsAtCompileTime >= 3)
+    if constexpr (IsVectorAtCompileTime && static_size >= 3)
     {
-        return (*this)(0,2);
+        return (*this)[2];
     }
     else
     {
-        return this->row(2);
+        return this->col(2);
     }
 }
 
-auto& operator[](Index i)
-{
-    if constexpr (ColsAtCompileTime == 1)
-    {
-        return (*this)(i,0);
-    }
-    else
-    {
-        return this->col(i);
-    }
-}
+//auto operator[](Index i)
+//{
+//    return (*this)(i);
+//}
 
-const auto& operator[](Index i) const
-{
-    if constexpr (ColsAtCompileTime == 1)
-    {
-        return (*this)(i,0);
-    }
-    else
-    {
-        return this->col(i);
-    }
-}
+//const auto& operator[](Index i) const
+//{
+//    if constexpr (IsVectorAtCompileTime)
+//    {
+//        return (*this)(0,i);
+//    }
+//    else
+//    {
+//        return this->col(i);
+//    }
+//}
 
 /// Specific set function for 1-element vectors.
 void set(const auto r1) noexcept
