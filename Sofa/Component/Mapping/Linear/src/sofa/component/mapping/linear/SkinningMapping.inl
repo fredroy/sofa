@@ -254,7 +254,7 @@ void SkinningMapping<TIn, TOut>::applyJ( const sofa::core::MechanicalParams* mpa
 
             for ( unsigned int j=0; j<nbref && m_weights[i][j]>0.; j++ )
             {
-                out[i] += getLinear( in[index[i][j]] ) * m_weights[i][j] + cross(getAngular(in[index[i][j]]), f_rotatedPos[i][j]);
+                out[i] += getLinear( in[index[i][j]] ) * m_weights[i][j] + type::cross(getAngular(in[index[i][j]]), f_rotatedPos[i][j]);
             }
         }
     }
@@ -282,7 +282,7 @@ void SkinningMapping<TIn, TOut>::applyJT( const sofa::core::MechanicalParams* mp
         for ( unsigned int j=0; j<nbref && m_weights[i][j]>0.; j++ )
         {
             getLinear(out[index[i][j]])  += in[i] * m_weights[i][j];
-            getAngular(out[index[i][j]]) += cross(f_rotatedPos[i][j], in[i]);
+            getAngular(out[index[i][j]]) += type::cross(f_rotatedPos[i][j], in[i]);
         }
     }
 
@@ -319,7 +319,7 @@ void SkinningMapping<TIn, TOut>::applyJT ( const sofa::core::ConstraintParams* c
             {
                 InDeriv parentJacobianVec;
                 getLinear(parentJacobianVec)  += childJacobianVec * m_weights[childIndex][j];
-                getAngular(parentJacobianVec) += cross(f_rotatedPos[childIndex][j], childJacobianVec);
+                getAngular(parentJacobianVec) += type::cross(f_rotatedPos[childIndex][j], childJacobianVec);
                 parentJacobian.addCol(index[childIndex][j],parentJacobianVec);
             }
         }

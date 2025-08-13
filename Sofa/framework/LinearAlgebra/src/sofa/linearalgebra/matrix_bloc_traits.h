@@ -112,6 +112,7 @@ public:
 };
 
 template <int L, int C, class real, typename IndexType>
+requires (C > 1)
 class matrix_bloc_traits < type::Mat<L,C,real>, IndexType>
 {
 public:
@@ -171,7 +172,7 @@ public:
     }
 };
 
-template <Size N, class T, typename IndexType >
+template <int N, class T, typename IndexType >
 class matrix_bloc_traits < sofa::type::Vec<N, T>, IndexType >
 {
 public:
@@ -198,11 +199,19 @@ public:
 
     static void transpose(Block& res, const Block& b) { res = b; }
 
-    template<class TSubBlock, std::enable_if_t<std::is_scalar_v<TSubBlock>, bool> = true>
+    template<class TSubBlock>//, std::enable_if_t<std::is_scalar_v<TSubBlock>, bool> = true>
     static void subBlock(const Block& b, IndexType row, IndexType col, TSubBlock& subBlock)
     {
-        SOFA_UNUSED(row);
-        b.getsub(col, subBlock);
+        if constexpr(std::is_scalar_v<TSubBlock>)
+        {
+            SOFA_UNUSED(row);
+            b.getsub(col, subBlock);
+        }
+        else // workaround for mat[1,1]?
+        {
+            SOFA_UNUSED(row);
+            b.getsub(0, col, subBlock);
+        }
     }
 
     static sofa::linearalgebra::BaseMatrix::ElementType getElementType() { return matrix_bloc_traits<Real, IndexType>::getElementType(); }

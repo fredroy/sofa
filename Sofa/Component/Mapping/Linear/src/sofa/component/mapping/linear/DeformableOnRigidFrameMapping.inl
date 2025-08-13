@@ -264,7 +264,7 @@ void DeformableOnRigidFrameMapping<TIn, TInRoot, TOut>::applyJ( typename Out::Ve
 
         for(unsigned int i=0; i<inDeformed.size(); i++)
         {
-            out[i] = cross(omega,rotatedPoints[i]);
+            out[i] = type::cross(omega,rotatedPoints[i]);
             out[i] += rootX.getOrientation().rotate(inDeformed[i]); //velocity on the local system : (Vrigid + Vdeform)
             out[i]+= v; //center velocity
         }
@@ -329,7 +329,7 @@ void DeformableOnRigidFrameMapping<TIn, TInRoot, TOut>::applyJT( typename In::Ve
         {
             Deriv f = in[i];
             v += f;
-            omega += cross(rotatedPoints[i],f);
+            omega += type::cross(rotatedPoints[i],f);
         }
 
         if (d_indexFromEnd.getValue())
@@ -418,7 +418,7 @@ void DeformableOnRigidFrameMapping<TIn, TInRoot, TOut>::applyJT( typename In::Ma
 
                     const Deriv f = colIt.val();
                     v += f;
-                    omega += cross(rotatedPoints[node_index], f);
+                    omega += type::cross(rotatedPoints[node_index], f);
                     InDeriv f_deform = rootX.getOrientation().inverseRotate(f);
 
                     o.addCol(node_index, f_deform);

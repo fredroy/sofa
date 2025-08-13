@@ -438,7 +438,7 @@ void FixedProjectiveConstraint<DataTypes>::draw(const core::visual::VisualParams
         {
             for (unsigned i = 0; i < x.size(); i++)
             {
-                point = DataTypes::getCPos(x[i]);
+                point = type::toVec3(DataTypes::getCPos(x[i]));
                 points.push_back(point);
             }
         }
@@ -446,7 +446,7 @@ void FixedProjectiveConstraint<DataTypes>::draw(const core::visual::VisualParams
         {
             for (const auto index : indices)
             {
-                point = DataTypes::getCPos(x[index]);
+                point = type::toVec3(DataTypes::getCPos(x[index]));
                 points.push_back(point);
             }
         }

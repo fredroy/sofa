@@ -92,12 +92,12 @@ void DistanceToPlaneMapping<TIn>::apply(const core::MechanicalParams *mparams, D
 
     const auto planeNormal = d_planeNormal.getValue();
 
-    SReal planeDistanceToOrigin = dot(d_planePoint.getValue(),planeNormal);
+    SReal planeDistanceToOrigin = type::dot(d_planePoint.getValue(),planeNormal);
 
 
     for ( unsigned i = 0; i<readIn.size(); i++ )
     {
-        writeOut[i] = type::dot(TIn::getCPos(readIn[i]),planeNormal) - planeDistanceToOrigin;
+        writeOut[i][0] = type::dot(TIn::getCPos(readIn[i]),planeNormal) - planeDistanceToOrigin;
     }
 }
 
@@ -115,7 +115,7 @@ void DistanceToPlaneMapping<TIn>::applyJ(const core::MechanicalParams *mparams, 
 
     for ( unsigned i = 0; i<readIn.size(); i++ )
     {
-        writeOut[i] = type::dot(TIn::getDPos(readIn[i]),planeNormal);
+        writeOut[i][0] = type::dot(TIn::getDPos(readIn[i]),planeNormal);
     }
 }
 

@@ -121,9 +121,9 @@ struct Hexahedron
         }
 
         sofa::type::Mat<3,3,T> m, mt, base;
-        m[0] = p1 - origin;
-        m[1] = p3 - origin;
-        m[2] = p4 - origin;
+        m.col(0) = p1 - origin;
+        m.col(1) = p3 - origin;
+        m.col(2) = p4 - origin;
         mt = m.transpose();
         const bool canInvert = base.invert(mt);
         assert(canInvert);

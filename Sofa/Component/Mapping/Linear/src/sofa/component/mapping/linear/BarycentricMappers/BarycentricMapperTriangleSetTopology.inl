@@ -62,11 +62,11 @@ BarycentricMapperTriangleSetTopology<In,Out>::createPointInTriangle ( const type
     const typename In::Coord pB = ( *points ) [elem[2]] - p0;
     typename In::Coord pos = Out::getCPos(p) - p0;
     // First project to plane
-    typename In::Coord normal = cross ( pA, pB );
+    typename In::Coord normal = type::cross ( pA, pB );
     Real norm2 = normal.norm2();
-    pos -= normal* ( ( pos*normal ) /norm2 );
-    baryCoords[0] = ( Real ) sqrt ( cross ( pB, pos ).norm2() / norm2 );
-    baryCoords[1] = ( Real ) sqrt ( cross ( pA, pos ).norm2() / norm2 );
+    pos -= normal* ( type::dot( pos,normal ) /norm2 );
+    baryCoords[0] = ( Real ) sqrt ( type::cross ( pB, pos ).eval().norm2() / norm2 );
+    baryCoords[1] = ( Real ) sqrt ( type::cross ( pA, pos ).eval().norm2() / norm2 );
     return this->addPointInTriangle ( triangleIndex, baryCoords );
 }
 
@@ -94,9 +94,9 @@ template <class In, class Out>
 void BarycentricMapperTriangleSetTopology<In,Out>::computeBase(Mat3x3d& base, const typename In::VecCoord& in, const Triangle& element)
 {
     Mat3x3d mt;
-    base[0] = (in[element[1]]-in[element[0]]).eval();
-    base[1] = (in[element[2]]-in[element[0]]).eval();
-    base[2] = type::cross(base[0], base[1]);
+    base.col(0) = in[element[1]]-in[element[0]];
+    base.col(1) = in[element[2]]-in[element[0]];
+    base.col(2) = type::cross(base.col(0), base.col(1));
     mt = base.transpose();
     const bool canInvert = base.invert(mt);
     assert(canInvert);

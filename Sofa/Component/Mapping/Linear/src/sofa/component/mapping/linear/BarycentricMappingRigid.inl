@@ -87,7 +87,7 @@ BarycentricMapperTetrahedronSetTopologyRigid<In,Out>::addPointOrientationInTetra
         // IPTR_BARCPP_ADDOR("baryCoords of vector["<<dir<<"]: ");
         for (unsigned int coor = 0; coor < 3; coor++)
         {
-            data[dir].baryCoords[coor] = ( Real ) baryCoorsOrient[coor][dir];
+            data[dir].baryCoords[coor] = ( Real ) baryCoorsOrient(coor,dir);
             //IPNTR_BARCPP_ADDOR(data[dir].baryCoords[coor] << " ");
         }
         //IPNTR_BARCPP_ADDOR(endl);
@@ -113,10 +113,10 @@ void BarycentricMapperTetrahedronSetTopologyRigid<In,Out>::init(const typename O
     for ( unsigned int t = 0; t < tetrahedra.size(); t++ )
     {
         sofa::type::Mat3x3d m,mt;
-        m[0] = in[tetrahedra[t][1]]-in[tetrahedra[t][0]];
-        m[1] = in[tetrahedra[t][2]]-in[tetrahedra[t][0]];
-        m[2] = in[tetrahedra[t][3]]-in[tetrahedra[t][0]];
-        mt.transpose ( m );
+        m.col(0) = in[tetrahedra[t][1]]-in[tetrahedra[t][0]];
+        m.col(1) = in[tetrahedra[t][2]]-in[tetrahedra[t][0]];
+        m.col(2) = in[tetrahedra[t][3]]-in[tetrahedra[t][0]];
+        mt = m.transpose ( );
         const bool canInvert = bases[t].invert ( mt );
         assert(canInvert);
         SOFA_UNUSED(canInvert);
@@ -136,7 +136,7 @@ void BarycentricMapperTetrahedronSetTopologyRigid<In,Out>::init(const typename O
         {
             const auto v = bases[t] * ( pos - in[tetrahedra[t][0]] );
             SReal d = std::max(std::max(SReal(-v[0]), SReal(-v[1])), std::max(SReal(-v[2]), SReal(v[0] + v[1] + v[2] - 1)));
-            if ( d>0 ) d = ( pos-centers[t] ).norm2();
+            if ( d>0 ) d = ( pos-centers[t] ).eval().norm2();
             if ( d<distance )
             {
                 coefs = v; distance = d; index = t;
@@ -151,8 +151,8 @@ void BarycentricMapperTetrahedronSetTopologyRigid<In,Out>::init(const typename O
         orientationMatrix.transpose(); //to simplify the multiplication below
         for (unsigned c=0; c < 3; c++)
         {
-            orientationMatrixBary[c]=bases[index]*orientationMatrix[c];
-            orientationMatrixBary[c].normalize();
+            orientationMatrixBary.col(c) = bases[index]*orientationMatrix[c];
+            orientationMatrixBary.col(c).normalize();
         }
         orientationMatrixBary.transpose();  //to get the directions as columns
 
@@ -194,7 +194,7 @@ void BarycentricMapperTetrahedronSetTopologyRigid<In,Out>::apply( typename Out::
         Out::setCPos(out[i] , rotatedPosition); // glPointPositions[i] );
     }
 
-    sofa::type::vector< sofa::type::Mat<12,3> > rotJ;
+    sofa::type::vector< sofa::type::Mat<12,3, SReal> > rotJ;
     rotJ.resize(map.size());
     //point running over each DoF (assoc. with frame) in the out vector; get it from the d_mapOrient[0]
     for (unsigned int point = 0; point < mapOrient.size(); point++)
@@ -205,10 +205,10 @@ void BarycentricMapperTetrahedronSetTopologyRigid<In,Out>::apply( typename Out::
         //compute the rotation of the rigid point using the "basis" approach
         sofa::type::Matrix3 orientationMatrix, polarMatrixQ; // orthogMatrix
         sofa::type::Matrix3 m,basis;
-        m[0] = in[tetra[1]]-in[tetra[0]];
-        m[1] = in[tetra[2]]-in[tetra[0]];
-        m[2] = in[tetra[3]]-in[tetra[0]];
-        basis.transpose ( m );
+        m.col(0) = in[tetra[1]]-in[tetra[0]];
+        m.col(1) = in[tetra[2]]-in[tetra[0]];
+        m.col(2) = in[tetra[3]]-in[tetra[0]];
+        basis = m.transpose ( );
 
         for (unsigned int dir = 0; dir < 3; dir++)   //go through the three maps
         {
@@ -217,7 +217,7 @@ void BarycentricMapperTetrahedronSetTopologyRigid<In,Out>::apply( typename Out::
             inGlobal[1] = mapOrient[point][dir].baryCoords[1];
             inGlobal[2] = mapOrient[point][dir].baryCoords[2];
 
-            orientationMatrix[dir]= basis*inGlobal;
+            orientationMatrix.col(dir) = basis*inGlobal;
         }
 
         orientationMatrix.transpose();
@@ -258,7 +258,7 @@ void BarycentricMapperTetrahedronSetTopologyRigid<In,Out>::applyJ( typename Out:
         for (unsigned int vert = 0; vert < 4; vert++)
         {
             //if (in[tetra[vert]].norm() > 10e-6)
-            actualDRot += cross(actualTetraPosition[tetra[vert]], in[tetra[vert]]);
+            actualDRot += type::cross(actualTetraPosition[tetra[vert]], in[tetra[vert]]);
         }
 
         Out::setDRot(out[i], actualDRot);
@@ -299,7 +299,7 @@ void BarycentricMapperTetrahedronSetTopologyRigid<In,Out>::applyJT( typename In:
         sofa::type::Vec3 torque = getVOrientation(in[i]);
         //if (torque.norm() > 10e-6) {
         for (unsigned int ti = 0; ti<4; ti++)
-            out[tetra[ti]] -= cross(actualTetraPosition[tetra[ti]],torque);
+            out[tetra[ti]] -= type::cross(actualTetraPosition[tetra[ti]],torque);
     }
 
 

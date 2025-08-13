@@ -438,9 +438,9 @@ void BarycentricMapperTriangleSetTopology<In,Out>::handleTopologyChange(core::to
             for ( unsigned int t = 0; t < triangles.size(); t++ )
             {
                 Mat3x3d m,mt;
-                m[0] = in[triangles[t][1]]-in[triangles[t][0]];
-                m[1] = in[triangles[t][2]]-in[triangles[t][0]];
-                m[2] = cross ( m[0],m[1] );
+                m.col(0) = in[triangles[t][1]]-in[triangles[t][0]];
+                m.col(1) = in[triangles[t][2]]-in[triangles[t][0]];
+                m.col(2) = cross ( m.col(0),m.col(1) );
                 mt.transpose ( m );
                 bases[t].invert ( mt );
                 centers[t] = ( in[triangles[t][0]]+in[triangles[t][1]]+in[triangles[t][2]] ) /3;

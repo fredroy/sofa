@@ -109,7 +109,7 @@ bool derivVectors<sofa::defaulttype::Rigid3Types>(const sofa::defaulttype::Rigid
 template <>
 double computeDot<sofa::defaulttype::Rigid3Types>(const sofa::defaulttype::Rigid3Types::Deriv& v0, const sofa::defaulttype::Rigid3Types::Deriv& v1)
 {
-    return sofa::type::dot(getVCenter(v0),getVCenter(v1)) + dot(getVOrientation(v0), getVOrientation(v1));
+    return sofa::type::dot(getVCenter(v0),getVCenter(v1)) + sofa::type::dot(getVOrientation(v0), getVOrientation(v1));
 }
 
 

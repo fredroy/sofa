@@ -174,7 +174,7 @@ void FixedPlaneProjectiveConstraint<DataTypes>::projectResponse(const Mechanical
     {
         /// only constraint one projection of the displacement to be zero
         auto val = getVec(dx[i]);
-        val = val - (dir * dot(val, dir));
+        val = val - (dir * type::dot(val, dir));
         DataTypes::setDPos(dx[i], val);
     }
 }
@@ -310,7 +310,7 @@ void FixedPlaneProjectiveConstraint<DataTypes>::draw(const VisualParams* vparams
 template<class DataTypes>
 bool FixedPlaneProjectiveConstraint<DataTypes>::isPointInPlane(const Coord& p) const
 {
-    const Real d = getVec(p) * getVec(d_direction.getValue());
+    const Real d = sofa::type::dot(getVec(p) * getVec(d_direction.getValue()));
     return d > d_dmin.getValue() && d < d_dmax.getValue();
 }
 

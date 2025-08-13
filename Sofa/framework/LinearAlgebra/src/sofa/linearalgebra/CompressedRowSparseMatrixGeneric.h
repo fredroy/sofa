@@ -113,8 +113,8 @@ public:
     enum { category = MATRIX_SPARSE };
     enum { operand = 1 };
 
-    static constexpr sofa::Index NL = traits::NL;  ///< Number of rows of a block
-    static constexpr sofa::Index NC = traits::NC;  ///< Number of columns of a block
+    static constexpr int NL = traits::NL;  ///< Number of rows of a block
+    static constexpr int NC = traits::NC;  ///< Number of columns of a block
 
     using VecBlock  = typename CRSBlockTraits<Block>::VecBlock;
     using VecIndex = typename CRSBlockTraits<Block>::VecIndex;
@@ -131,7 +131,7 @@ public:
 
     struct IndexedBlock
     {
-        Index l,c;
+        int l,c;
         Block value;
         IndexedBlock() {}
         IndexedBlock(Index i, Index j) : l(i), c(j) {}

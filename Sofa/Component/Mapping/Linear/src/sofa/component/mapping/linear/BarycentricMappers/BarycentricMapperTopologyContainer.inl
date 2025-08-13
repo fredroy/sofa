@@ -224,7 +224,7 @@ void BarycentricMapperTopologyContainer<In,Out,MappingDataType,Element>::checkDi
     SReal dist;
     computeDistance(dist, bary);
     if ( dist>0 )
-        dist = ( outPos-m_centers[e] ).norm2();
+        dist = ( outPos-m_centers[e] ).eval().norm2();
     if ( dist<nearestParams.distance )
     {
         nearestParams.baryCoords = bary;

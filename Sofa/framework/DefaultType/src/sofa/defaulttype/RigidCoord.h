@@ -201,7 +201,7 @@ public:
       */
     constexpr real norm2() const
     {
-        return center * center
+        return type::dot(center, center)
             + orientation[0] * orientation[0]
             + orientation[1] * orientation[1]
             + orientation[2] * orientation[2]; // xyzw quaternion has null x,y,z if rotation is null

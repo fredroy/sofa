@@ -163,6 +163,11 @@ void HermiteSplineProjectiveConstraint<DataTypes>::projectVelocity(const core::M
     helper::WriteAccessor<DataVecDeriv> dx = vData;
     Real t = (Real) this->getContext()->getTime();
 
+    const auto& x0 = d_x0.getValue();
+    const auto& x1 = d_x1.getValue();
+    const auto& dx0 = d_dx0.getValue();
+    const auto& dx1 = d_dx1.getValue();
+
     if (t >= d_tBegin.getValue() && t <= d_tEnd.getValue()	)
     {
         Real DT = d_tEnd.getValue() - d_tBegin.getValue();
@@ -176,7 +181,7 @@ void HermiteSplineProjectiveConstraint<DataTypes>::projectVelocity(const core::M
 
         for(SetIndexArray::const_iterator it = indices.begin(); it != indices.end(); ++it)
         {
-            dx[*it] = d_x0.getValue() * dH00 + d_dx0.getValue() * dH10 + d_x1.getValue() * dH01 + d_dx1.getValue() * dH11;
+            dx[*it] = (x0 * dH00).eval() + (dx0 * dH10).eval() + (x1 * dH01).eval() + (dx1 * dH11).eval();
         }
     }
 }
