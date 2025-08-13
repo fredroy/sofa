@@ -677,7 +677,7 @@ Real Decompose<Real>::polarDecomposition( const type::Mat<3,3,Real>& M, type::Ma
   Real det, M_oneNorm, M_infNorm, E_oneNorm;
 
   // Mk = M^T
-  Mk = M.transpose();
+  Mk = M.transpose().eval();
 
   M_oneNorm = type::oneNorm(Mk);
   M_infNorm = type::infNorm(Mk);
@@ -687,11 +687,11 @@ Real Decompose<Real>::polarDecomposition( const type::Mat<3,3,Real>& M, type::Ma
     type::Mat<3,3,Real> MadjTk;
 
     // row 2 x row 3
-    MadjTk[0] = type::cross( Mk[1], Mk[2] );
+    MadjTk.row(0) << type::cross( Mk.row(1), Mk.row(2) );
     // row 3 x row 1
-    MadjTk[1] = type::cross( Mk[2], Mk[0] );
+    MadjTk.row(1) << type::cross( Mk.row(2), Mk.row(0) );
     // row 1 x row 2
-    MadjTk[2] = type::cross( Mk[0], Mk[1] );
+    MadjTk.row(2) << type::cross( Mk.row(0), Mk.row(1) );
 
     det = Mk(0,0) * MadjTk(0,0) + Mk(0,1) * MadjTk(0,1) + Mk(0,2) * MadjTk(0,2);
     if (det == 0.0)
@@ -1466,8 +1466,8 @@ void Decompose<Real>::eigenDecomposition( const type::Mat<2,2,Real> &A, type::Ma
         }
         else
         {
-            V[0].set( A(0,1), diag[0] - A(0,0) ); V[0].normalize();
-            V[1].set( A(0,1), diag[1] - A(0,0) ); V[1].normalize();
+            V[0] << A(0,1), diag[0] - A(0,0) ; V[0].normalize();
+            V[1] << A(0,1), diag[1] - A(0,0) ; V[1].normalize();
         }
     }
     else
@@ -1476,8 +1476,8 @@ void Decompose<Real>::eigenDecomposition( const type::Mat<2,2,Real> &A, type::Ma
         V(0,1) = diag[1] - A(1,1);
         V(1,0) = V(1,1) = A(1,0);
 
-        V[0].set( diag[0] - A(1,1), A(1,0) ); V[0].normalize();
-        V[1].set( diag[1] - A(1,1), A(1,0) ); V[1].normalize();
+        V[0] << diag[0] - A(1,1), A(1,0) ; V[0].normalize();
+        V[1] << diag[1] - A(1,1), A(1,0) ; V[1].normalize();
     }
 
     V.transposeInPlace();

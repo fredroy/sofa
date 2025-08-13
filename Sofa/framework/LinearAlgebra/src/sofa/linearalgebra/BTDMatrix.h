@@ -35,7 +35,7 @@ template< std::size_t N, typename T>
 class BTDMatrix : public linearalgebra::BaseMatrix
 {
 public:
-    enum { BSIZE = N };
+    inline static const int BSIZE = N;
     typedef T Real;
     typedef typename linearalgebra::BaseMatrix::Index Index;
 

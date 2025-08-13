@@ -165,7 +165,7 @@ template<class Real>
 void Quat<Real>::fromMatrix(const Mat3x3 &m)
 {
     Real tr, s;
-    tr = m.x().x() + m.y().y() + m.z().z();
+    tr = m(0,0) + m(1,1) + m(2,2);
 
     // check the diagonal
     if (tr > 0)
@@ -173,50 +173,50 @@ void Quat<Real>::fromMatrix(const Mat3x3 &m)
         s = sqrt (tr + 1);
         _q[3] = s * 0.5f; // w OK
         s = 0.5f / s;
-        _q[0] = (m.z().y() - m.y().z()) * s; // x OK
-        _q[1] = (m.x().z() - m.z().x()) * s; // y OK
-        _q[2] = (m.y().x() - m.x().y()) * s; // z OK
+        _q[0] = (m(2,1) - m(1,2)) * s; // x OK
+        _q[1] = (m(0,2) - m(2,0)) * s; // y OK
+        _q[2] = (m(1,0) - m(0,1)) * s; // z OK
     }
     else
     {
-        if (m.y().y() > m.x().x() && m.z().z() <= m.y().y())
+        if (m(1,1) > m(0,0) && m(2,2) <= m(1,1))
         {
-            s = sqrt ((m.y().y() - (m.z().z() + m.x().x())) + 1.0f);
+            s = sqrt ((m(1,1) - (m(2,2) + m(0,0))) + 1.0f);
 
             _q[1] = s * 0.5f; // y OK
 
             if (s != 0.0f)
                 s = 0.5f / s;
 
-            _q[2] = (m.y().z() + m.z().y()) * s; // z OK
-            _q[0] = (m.x().y() + m.y().x()) * s; // x OK
-            _q[3] = (m.x().z() - m.z().x()) * s; // w OK
+            _q[2] = (m(1,2) + m(2,1)) * s; // z OK
+            _q[0] = (m(0,1) + m(1,0)) * s; // x OK
+            _q[3] = (m(0,2) - m(2,0)) * s; // w OK
         }
-        else if ((m.y().y() <= m.x().x()  &&  m.z().z() > m.x().x())  ||  (m.z().z() > m.y().y()))
+        else if ((m(1,1) <= m(0,0)  &&  m(2,2) > m(0,0))  ||  (m(2,2) > m(1,1)))
         {
-            s = sqrt ((m.z().z() - (m.x().x() + m.y().y())) + 1.0f);
+            s = sqrt ((m(2,2) - (m(0,0) + m(1,1))) + 1.0f);
 
             _q[2] = s * 0.5f; // z OK
 
             if (s != 0.0f)
                 s = 0.5f / s;
 
-            _q[0] = (m.z().x() + m.x().z()) * s; // x OK
-            _q[1] = (m.y().z() + m.z().y()) * s; // y OK
-            _q[3] = (m.y().x() - m.x().y()) * s; // w OK
+            _q[0] = (m(2,0) + m(0,2)) * s; // x OK
+            _q[1] = (m(1,2) + m(2,1)) * s; // y OK
+            _q[3] = (m(1,0) - m(0,1)) * s; // w OK
         }
         else
         {
-            s = sqrt ((m.x().x() - (m.y().y() + m.z().z())) + 1.0f);
+            s = sqrt ((m(0,0) - (m(1,1) + m(2,2))) + 1.0f);
 
             _q[0] = s * 0.5f; // x OK
 
             if (s != 0.0f)
                 s = 0.5f / s;
 
-            _q[1] = (m.x().y() + m.y().x()) * s; // y OK
-            _q[2] = (m.z().x() + m.x().z()) * s; // z OK
-            _q[3] = (m.z().y() - m.y().z()) * s; // w OK
+            _q[1] = (m(0,1) + m(1,0)) * s; // y OK
+            _q[2] = (m(2,0) + m(0,2)) * s; // z OK
+            _q[3] = (m(2,1) - m(1,2)) * s; // w OK
         }
     }
 }
