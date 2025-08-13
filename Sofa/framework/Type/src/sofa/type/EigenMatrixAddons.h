@@ -176,12 +176,12 @@ auto linearProduct(const Eigen::MatrixBase<Derived>& vec) const
     return (*this).cwiseProduct(vec);
 }
 
-template<typename Derived1, typename Derived2>
-auto dot(const Eigen::MatrixBase<Derived1>& a,
-         const Eigen::MatrixBase<Derived2>& b)
-{
-    return a.dot(b);
-}
+//template<typename Derived1, typename Derived2>
+//auto dot(const Eigen::MatrixBase<Derived1>& a,
+//         const Eigen::MatrixBase<Derived2>& b)
+//{
+//    return a.dot(b);
+//}
 
 bool normalizeWithNorm(Matrix::Scalar norm, Matrix::Scalar threshold=std::numeric_limits<Matrix::Scalar>::epsilon())
 {
