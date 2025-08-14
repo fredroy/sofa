@@ -234,7 +234,7 @@ public:
     /// double cross product: a * ( b * c )
     static constexpr Vec3 crosscross(const Vec3& a, const Vec3& b, const Vec3& c)
     {
-        return cross(a, cross(b, c));
+        return type::cross(a, type::cross(b, c));
     }
 
     /// create a rotation from Euler angles. For homogeneity with 2D.
@@ -399,7 +399,7 @@ public:
     /// specialized version of the double cross product: a * ( b * c ) for the variation of torque applied to the frame due to a small rotation with constant force.
     static constexpr Real crosscross ( const Vec2& f, const Real& dtheta, const Vec2& OP)
     {
-        return dtheta * dot( f,OP );
+        return dtheta * type::dot( f,OP );
     }
 
     /// specialized version of the double cross product: a * ( b * c ) for point acceleration

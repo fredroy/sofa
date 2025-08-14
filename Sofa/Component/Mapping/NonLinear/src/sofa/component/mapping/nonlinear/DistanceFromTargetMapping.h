@@ -72,7 +72,7 @@ public:
     using InCoord = Coord_t<In>;
     using InVecCoord = VecCoord_t<In>;
 
-    typedef type::Vec<In::deriv_total_size> Direction;
+    typedef type::Vec<In::deriv_total_size, Real> Direction;
 
     Data<type::vector<unsigned>> d_indices; ///< Indices of the parent points
     Data<InVecCoord> d_targetPositions; ///< Positions to compute the distances from

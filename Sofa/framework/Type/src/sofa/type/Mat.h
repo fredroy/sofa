@@ -29,6 +29,7 @@
 
 #include <iostream>
 
+#define EIGEN_MATRIXBASE_PLUGIN "sofa/type/EigenMatrixBaseAddons.h"
 #define EIGEN_MATRIX_PLUGIN "sofa/type/EigenMatrixAddons.h"
 #include <Eigen/Dense>
 
@@ -60,6 +61,8 @@ namespace sofa::type
 template <int L, int C, class real>
 using Mat = Eigen::Matrix<real, L, C, Eigen::AutoAlign | Eigen::ColMajor>;
 
+template <int L, int C, class real>
+using MatNoInit = Eigen::Matrix<real, L, C, Eigen::AutoAlign | Eigen::ColMajor>;
 
 typedef Mat<1,1,float> Mat1x1f;
 typedef Mat<1,1,double> Mat1x1d;
@@ -121,12 +124,18 @@ bool invertMatrix(Eigen::MatrixBase<Derived1>& dest, const Eigen::MatrixBase<Der
     return isInvertible;
 }
 
-template<typename Derived>
-requires (Derived::IsVectorCompileTime == 1)
+/// Create a matrix as \f$ u v^T \f$
+template<typename DerivedU, typename DerivedV>
+auto dyad(const Eigen::MatrixBase<DerivedU>& u,
+          const Eigen::MatrixBase<DerivedV>& v) {
+    return u * v.transpose();
+}
+
+template<typename Real, typename Derived>
+requires (Derived::IsVectorAtCompileTime == 1 && Derived::SizeAtCompileTime == 3)
 auto crossProductMatrix(const Eigen::MatrixBase<Derived>& v) noexcept
 {
-    using Scalar = typename Eigen::MatrixBase<Derived>::Scalar;
-    type::Mat<3, 3, Scalar> res;
+    type::Mat<3, 3, Real> res;
     res(0,0)=0;
     res(0,1)=-v[2];
     res(0,2)=v[1];
@@ -137,6 +146,13 @@ auto crossProductMatrix(const Eigen::MatrixBase<Derived>& v) noexcept
     res(2,1)=v[0];
     res(2,2)=0;
     return res;
+}
+
+template<typename Derived>
+requires (Derived::IsVectorAtCompileTime == 1 && Derived::SizeAtCompileTime == 3)
+auto crossProductMatrix(const Eigen::MatrixBase<Derived>& v) noexcept
+{
+    return crossProductMatrix<typename Eigen::MatrixBase<Derived>::Scalar>(v);
 }
 
 } // namespace sofa::type

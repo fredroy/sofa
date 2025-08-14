@@ -50,10 +50,10 @@ bool invert(const Matrix& mat)
     return true;
 }
 
-auto transposed() const
-{
-    return this->transpose();
-}
+//auto transposed() const
+//{
+//    return this->transpose();
+//}
 
 auto norm2() const
 {
@@ -219,6 +219,16 @@ void getsub(int L0, int C0, Eigen::MatrixBase<Derived>& m) const noexcept
 void getsub(int L0, int C0, Matrix::Scalar& m) const noexcept
 {
     m = (*this)(L0,C0);
+}
+
+/// for square matrices
+/// @warning in-place simple symmetrization
+/// this = ( this + this.transposed() ) / 2.0
+template<int NbLines = nbLines, int NbColumns = nbCols>
+requires (NbLines == NbColumns)
+void symmetrize() noexcept
+{
+    (*this) = (*this + this->transpose() ) / 2.0;
 }
 
 // unsafe !

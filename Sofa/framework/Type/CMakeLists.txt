@@ -9,6 +9,7 @@ set(HEADER_FILES
     ${SOFATYPESRC_ROOT}/BoundingBox.h
     ${SOFATYPESRC_ROOT}/DualQuat.h
     ${SOFATYPESRC_ROOT}/DualQuat.inl
+    ${SOFATYPESRC_ROOT}/EigenMatrixBaseAddons.h
     ${SOFATYPESRC_ROOT}/EigenMatrixAddons.h
     ${SOFATYPESRC_ROOT}/Frame.h
     ${SOFATYPESRC_ROOT}/Mat.h

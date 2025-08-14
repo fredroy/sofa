@@ -49,7 +49,7 @@ auto AreaMapping<TIn, TOut>::computeSecondDerivativeArea(
 
     const auto ka = 1 / (2 * std::sqrt(std::pow(n2, 3)));
 
-    static constexpr auto skewSign = type::crossProductMatrix(sofa::type::Vec<3, Real>{1,1,1});
+    static const auto skewSign = type::crossProductMatrix(sofa::type::Vec<3, Real>{1,1,1});
 
     for (unsigned int i = 0; i < 3; ++i)
     {
@@ -163,7 +163,7 @@ void AreaMapping<TIn, TOut>::apply(const core::MechanicalParams* mparams,
 
         const auto area = static_cast<typename In::Real>(0.5) * norm;
 
-        _out[triangleId] = area;
+        _out[triangleId] << area;
 
         const auto k = 1 / (2 * norm);
 
@@ -309,7 +309,7 @@ void AreaMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
             {
                 for (unsigned int j = 0; j < 3; ++j)
                 {
-                    dJdx(triangle[i] * Nin, triangle[j] * Nin) += d2Area_d2x(i,j) * childForceTri[0];
+                    dJdx(triangle[i] * Nin, triangle[j] * Nin) += (d2Area_d2x(i,j) * childForceTri[0]).eval();
                 }
             }
         }

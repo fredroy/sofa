@@ -129,7 +129,7 @@ void DistanceFromTargetMapping<TIn, TOut>::init()
 template <class TIn, class TOut>
 void DistanceFromTargetMapping<TIn, TOut>::computeCoordPositionDifference( Direction& r, const InCoord& a, const InCoord& b )
 {
-    r = TIn::getCPos(b)-TIn::getCPos(a);
+    r = type::toVecN<Direction::static_size>(TIn::getCPos(b)-TIn::getCPos(a));
 }
 
 template <class TIn, class TOut>
@@ -155,7 +155,7 @@ void DistanceFromTargetMapping<TIn, TOut>::apply(const core::MechanicalParams * 
         computeCoordPositionDifference( gap, targetPositions[i], in[indices[i]] );
 
         Real gapNorm = gap.norm();
-        out[i] = gapNorm - restDistances[i];  // output
+        out[i] << gapNorm - restDistances[i];  // output
 
         if( gapNorm>1.e-10 )
         {
@@ -327,8 +327,8 @@ void DistanceFromTargetMapping<TIn, TOut>::draw(const core::visual::VisualParams
 
     for(unsigned i=0; i<indices.size(); i++ )
     {
-        points.push_back( sofa::type::Vec3(TIn::getCPos(targetPositions[i]) ) );
-        points.push_back( sofa::type::Vec3(TIn::getCPos(pos[indices[i]]) ) );
+        points.push_back( sofa::type::Vec3(type::toVec3(TIn::getCPos(targetPositions[i]) ) ));
+        points.push_back( sofa::type::Vec3(type::toVec3(TIn::getCPos(pos[indices[i]]) ) ));
     }
 
     if( !arrowsize )

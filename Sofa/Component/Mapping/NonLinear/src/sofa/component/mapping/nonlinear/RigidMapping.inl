@@ -461,7 +461,7 @@ void RigidMapping<TIn, TOut>::applyJT(const core::ConstraintParams * /*cparams*/
 template <class TIn, class TOut>
 void RigidMapping<TIn, TOut>::updateOmega(typename InDeriv::Rot& omega, const OutDeriv& out, const OutCoord& rotatedpoint)
 {
-    omega += (typename InDeriv::Rot)cross(Out::getCPos(rotatedpoint), Out::getDPos(out));
+    omega += (typename InDeriv::Rot) type::cross(Out::getCPos(rotatedpoint), Out::getDPos(out));
 }
 
 namespace impl {
@@ -783,7 +783,7 @@ void RigidMapping<TIn, TOut>::draw(const core::visual::VisualParams* vparams)
     const OutVecCoord& x =this->toModel->read(core::vec_id::read_access::position)->getValue();
     for (unsigned int i = 0; i < x.size(); i++)
     {
-        point = Out::getCPos(x[i]);
+        point = type::toVec3(Out::getCPos(x[i]));
         points.push_back(point);
     }
     vparams->drawTool()->drawPoints(points, 7, sofa::type::RGBAColor::yellow() );

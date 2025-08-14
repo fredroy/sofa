@@ -32,6 +32,7 @@
 #include <cmath>
 #include <array>
 
+#define EIGEN_MATRIXBASE_PLUGIN "sofa/type/EigenMatrixBaseAddons.h"
 #define EIGEN_MATRIX_PLUGIN "sofa/type/EigenMatrixAddons.h"
 #include <Eigen/Dense>
 
@@ -117,8 +118,9 @@ template<typename Derived1, typename Derived2>
 auto cross(const Eigen::MatrixBase<Derived1>& a,
            const Eigen::MatrixBase<Derived2>& b)
 {
-    static_assert(Derived1::SizeAtCompileTime == 3);
-    static_assert(Derived2::SizeAtCompileTime == 3);
+    static_assert((Derived1::SizeAtCompileTime == 3 && Derived2::SizeAtCompileTime == 3)
+            || (Derived1::SizeAtCompileTime == 2 && Derived2::SizeAtCompileTime == 2));
+
     return a.cross(b);
 }
 
@@ -141,19 +143,28 @@ auto linearProduct(const Eigen::MatrixBase<Derived1>& vec1,
     return result;
 }
 
-template<typename Derived>
-auto toVec3(const Eigen::MatrixBase<Derived>& v)
+template<int N, typename Derived>
+auto toVecN(const Eigen::MatrixBase<Derived>& v)
 {
     static_assert(Derived::IsVectorAtCompileTime);
 
-    Vec3 result;
-    for(int i=0 ; i<Derived::RowsAtCompileTime && i < 3; i++)
+    using Scalar = typename Derived::Scalar;
+
+    Vec<N, Scalar> result;
+    for(int i=0 ; i<Derived::RowsAtCompileTime && i < N; i++)
     {
         result[i] = v[i];
     }
 
     return result;
 }
+
+template<typename Derived>
+auto toVec3(const Eigen::MatrixBase<Derived>& v)
+{
+    return toVecN<3>(v);
+}
+
 
 ///// Read from an input stream
 //template<int N, typename Real>

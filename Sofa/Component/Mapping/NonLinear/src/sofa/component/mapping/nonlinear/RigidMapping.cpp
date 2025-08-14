@@ -38,7 +38,7 @@ void RigidMapping<Rigid3Types, Rigid3Types>::getGlobalToLocalCoords(OutCoord& re
 template <>
 void RigidMapping<Rigid3Types, Rigid3Types>::updateOmega(typename InDeriv::Rot& omega, const OutDeriv& out, const OutCoord& rotatedpoint)
 {
-    omega += getVOrientation(out) + (typename InDeriv::Rot)cross(Out::getCPos(rotatedpoint), Out::getDPos(out));
+    omega += getVOrientation(out) + (typename InDeriv::Rot)type::cross(Out::getCPos(rotatedpoint), Out::getDPos(out));
 }
 
 void registerRigidMapping(sofa::core::ObjectFactory* factory)

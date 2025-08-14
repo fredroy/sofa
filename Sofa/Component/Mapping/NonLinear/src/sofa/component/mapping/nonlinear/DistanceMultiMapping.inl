@@ -188,7 +188,7 @@ void DistanceMultiMapping<TIn, TOut>::apply(const type::vector<OutVecCoord*>& ou
         computeCoordPositionDifference( gap, pos0, pos1 );
 
         Real gapNorm = gap.norm();
-        out[i] = gapNorm - restLengths[i];  // output
+        out[i] << gapNorm - restLengths[i];  // output
 
         // normalize
         if( gapNorm>std::numeric_limits<SReal>::epsilon() )
@@ -439,7 +439,7 @@ void DistanceMultiMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
             {
                 for(unsigned k=0; k<In::spatial_dimensions; k++)
                 {
-                    b(j,k) = static_cast<Real>(1) * ( j==k ) - directions[j] * directions[k];
+                    b(j,k) = static_cast<Real>(1) * ( j==k ) - type::dot(directions[j] , directions[k]);
                 }
             }
             b *= force_i[0] * invlengths[i];  // (I - uu^T)*f/l
@@ -461,6 +461,7 @@ void DistanceMultiMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
             dJ1f_dX0.checkValidity(this);
             dJ1f_dX1.checkValidity(this);
 
+            b = b.eval();
             dJ0f_dX0(pair0[1], pair0[1]) += b;
             dJ0f_dX1(pair0[1], pair1[1]) += -b;
             dJ1f_dX0(pair1[1], pair0[1]) += -b;

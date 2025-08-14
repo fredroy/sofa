@@ -316,14 +316,14 @@ constexpr const typename RigidDeriv<N,T>::Rot& getVOrientation(const RigidDeriv<
 template<typename T, typename R>
 constexpr type::Vec<3,T> velocityAtRotatedPoint(const RigidDeriv<3,R>& v, const type::Vec<3,T>& p)
 {
-    return getLinear(v) + cross( getAngular(v), p );
+    return getLinear(v) + type::cross( getAngular(v), p );
 }
 
 template<typename T, typename R>
 constexpr RigidDeriv<3,R> velocityAtRotatedPoint(const RigidDeriv<3,R>& v, const RigidCoord<3,T>& p)
 {
     RigidDeriv<3,R> r;
-    r.getLinear() = getLinear(v) + cross( getAngular(v), p.getCenter() );
+    r.getLinear() = getLinear(v) + type::cross( getAngular(v), p.getCenter() );
     r.getAngular() = getAngular(v);
     return r;
 }

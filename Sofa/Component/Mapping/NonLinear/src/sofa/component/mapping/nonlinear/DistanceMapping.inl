@@ -124,7 +124,7 @@ void DistanceMapping<TIn, TOut>::apply(const core::MechanicalParams * /*mparams*
         computeCoordPositionDifference( direction, in[link[0]], in[link[1]] );
 
         const Real distance = direction.norm();
-        out[i] = distance - restLengths[i];  // output
+        out[i] << distance - restLengths[i];  // output
 
         // normalize
         if (distance > std::numeric_limits<SReal>::epsilon())
@@ -288,6 +288,7 @@ void DistanceMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
             }
             b *= force_i[0] * invlengths[i];  // (I - uu^T)*f/l
 
+            b = b.eval();
             dJdx(link[0] * Nin, link[0] * Nin) += b;
             dJdx(link[0] * Nin, link[1] * Nin) += -b;
             dJdx(link[1] * Nin, link[0] * Nin) += -b;

@@ -28,9 +28,6 @@
 namespace sofa::type
 {
 
-template <sofa::Size L, sofa::Size C, class Real=float>
-class MatNoInit;
-
 template <typename RealType> class Quat;
 using Quatd = type::Quat<double>;
 using Quatf = type::Quat<float>;
