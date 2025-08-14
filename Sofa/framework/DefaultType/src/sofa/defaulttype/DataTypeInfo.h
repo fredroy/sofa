@@ -32,6 +32,7 @@
 #include <sofa/defaulttype/typeinfo/DataTypeInfo.h>
 #include <sofa/defaulttype/typeinfo/TypeInfo_Bool.h>
 #include <sofa/defaulttype/typeinfo/TypeInfo_Integer.h>
+#include <sofa/defaulttype/typeinfo/TypeInfo_EigenMatrix.h>
 #include <sofa/defaulttype/typeinfo/TypeInfo_Mat.h>
 #include <sofa/defaulttype/typeinfo/TypeInfo_Quat.h>
 #include <sofa/defaulttype/typeinfo/TypeInfo_Scalar.h>

@@ -151,7 +151,7 @@ void BarycentricMapperTetrahedronSetTopologyRigid<In,Out>::init(const typename O
         orientationMatrix.transpose(); //to simplify the multiplication below
         for (unsigned c=0; c < 3; c++)
         {
-            orientationMatrixBary.col(c) = bases[index]*orientationMatrix[c];
+            orientationMatrixBary.col(c) = bases[index]*orientationMatrix.col(c);
             orientationMatrixBary.col(c).normalize();
         }
         orientationMatrixBary.transpose();  //to get the directions as columns
@@ -306,7 +306,7 @@ void BarycentricMapperTetrahedronSetTopologyRigid<In,Out>::applyJT( typename In:
     actualOut.clear();
     actualOut.resize(out.size());
     for (size_t i = 0; i < out.size(); i++)
-        for (size_t j = 0; j < out[i].size(); j++)
+        for (size_t j = 0; j < static_cast<size_t>(out[i].size()); j++)
             actualOut[i][j] = 0.1f*out[i][j];
 
 }  //applyJT

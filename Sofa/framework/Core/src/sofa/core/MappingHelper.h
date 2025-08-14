@@ -28,17 +28,17 @@
 namespace sofa::core
 {
 
-    template<class T1, class T2>
-    static inline void eq(T1& dest, const T2& src)
-    {
-        dest = src;
-    }
+//    template<class T1, class T2>
+//    static inline void eq(T1& dest, const T2& src)
+//    {
+//        dest = src;
+//    }
 
-    template<class T1, class T2>
-    static inline void peq(T1& dest, const T2& src)
-    {
-        dest += src;
-    }
+//    template<class T1, class T2>
+//    static inline void peq(T1& dest, const T2& src)
+//    {
+//        dest += src;
+//    }
 
     // float <-> double (to remove warnings)
 
@@ -56,29 +56,30 @@ namespace sofa::core
 
     // Vec <-> Vec
 
-    template<Size N1, Size N2, class T1, class T2>
+    template<int N1, int N2, class T1, class T2>
     static inline void eq(type::Vec<N1,T1>& dest, const type::Vec<N2,T2>& src)
     {
-        dest = src;
+        for (int i=0; i<(N1>N2?N2:N1); i++)
+            dest[i] = (T1)src[i];
     }
 
-    template<Size N1, Size N2, class T1, class T2>
+    template<int N1, int N2, class T1, class T2>
     static inline void peq(type::Vec<N1,T1>& dest, const type::Vec<N2,T2>& src)
     {
-        for (Size i=0; i<(N1>N2?N2:N1); i++)
+        for (int i=0; i<(N1>N2?N2:N1); i++)
             dest[i] += (T1)src[i];
     }
 
     // RigidDeriv <-> RigidDeriv
 
-    template<Size N, class T1, class T2>
+    template<int N, class T1, class T2>
     static inline void eq(defaulttype::RigidDeriv<N,T1>& dest, const defaulttype::RigidDeriv<N,T2>& src)
     {
         dest.getVCenter() = src.getVCenter();
         dest.getVOrientation() = (typename defaulttype::RigidDeriv<N,T1>::Rot)src.getVOrientation();
     }
 
-    template<Size N, class T1, class T2>
+    template<int N, class T1, class T2>
     static inline void peq(defaulttype::RigidDeriv<N,T1>& dest, const defaulttype::RigidDeriv<N,T2>& src)
     {
         dest.getVCenter() += src.getVCenter();
@@ -87,14 +88,14 @@ namespace sofa::core
 
     // RigidCoord <-> RigidCoord
 
-    template<Size N, class T1, class T2>
+    template<int N, class T1, class T2>
     static inline void eq(defaulttype::RigidCoord<N,T1>& dest, const defaulttype::RigidCoord<N,T2>& src)
     {
         dest.getCenter() = src.getCenter();
         dest.getOrientation() = (typename defaulttype::RigidCoord<N,T1>::Rot)src.getOrientation();
     }
 
-    template<Size N, class T1, class T2>
+    template<int N, class T1, class T2>
     static inline void peq(defaulttype::RigidCoord<N,T1>& dest, const defaulttype::RigidCoord<N,T2>& src)
     {
         dest.getCenter() += src.getCenter();
@@ -103,50 +104,50 @@ namespace sofa::core
 
     // RigidDeriv <-> Vec
 
-    template<Size N, class T1, class T2>
+    template<int N, class T1, class T2>
     static inline void eq(type::Vec<N,T1>& dest, const defaulttype::RigidDeriv<N,T2>& src)
     {
         dest = src.getVCenter();
     }
 
-    template<Size N, class T1, class T2>
+    template<int N, class T1, class T2>
     static inline void peq(type::Vec<N,T1>& dest, const defaulttype::RigidDeriv<N,T2>& src)
     {
         dest += src.getVCenter();
     }
 
-    template<Size N, class T1, class T2>
+    template<int N, class T1, class T2>
     static inline void eq(defaulttype::RigidDeriv<N,T1>& dest, const type::Vec<N,T2>& src)
     {
         dest.getVCenter() = src;
     }
 
-    template<Size N, class T1, class T2>
+    template<int N, class T1, class T2>
     static inline void peq(defaulttype::RigidDeriv<N,T1>& dest, const type::Vec<N,T2>& src)
     {
         dest.getVCenter() += src;
     }
 
     // RigidCoord <-> Vec
-    template<Size N, class T1, class T2>
+    template<int N, class T1, class T2>
     static inline void eq(type::Vec<N,T1>& dest, const defaulttype::RigidCoord<N,T2>& src)
     {
         dest = src.getCenter();
     }
 
-    template<Size N, class T1, class T2>
+    template<int N, class T1, class T2>
     static inline void peq(type::Vec<N,T1>& dest, const defaulttype::RigidCoord<N,T2>& src)
     {
         dest += src.getCenter();
     }
 
-    template<Size N, class T1, class T2>
+    template<int N, class T1, class T2>
     static inline void eq(defaulttype::RigidCoord<N,T1>& dest, const type::Vec<N,T2>& src)
     {
         dest.getCenter() = src;
     }
 
-    template<Size N, class T1, class T2>
+    template<int N, class T1, class T2>
     static inline void peq(defaulttype::RigidCoord<N,T1>& dest, const type::Vec<N,T2>& src)
     {
         dest.getCenter() += src;

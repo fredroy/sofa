@@ -31,6 +31,7 @@ set(HEADER_FILES
     ${SRC_ROOT}/typeinfo/NameOnlyTypeInfo.h
     ${SRC_ROOT}/typeinfo/TypeInfo_Bool.h
     ${SRC_ROOT}/typeinfo/TypeInfo_BoundingBox.h
+    ${SRC_ROOT}/typeinfo/TypeInfo_EigenMatrix.h
     ${SRC_ROOT}/typeinfo/TypeInfo_FixedArray.h
     ${SRC_ROOT}/typeinfo/TypeInfo_Integer.h
     ${SRC_ROOT}/typeinfo/TypeInfo_Mat.h
@@ -48,8 +49,9 @@ set(HEADER_FILES
 
     ${SRC_ROOT}/typeinfo/models/IncompleteTypeInfo.h
     ${SRC_ROOT}/typeinfo/models/BoolTypeInfo.h
-    ${SRC_ROOT}/typeinfo/models/IntegerTypeInfo.h
+    ${SRC_ROOT}/typeinfo/models/EigenMatrixTypeInfo.h
     ${SRC_ROOT}/typeinfo/models/FixedArrayTypeInfo.h
+    ${SRC_ROOT}/typeinfo/models/IntegerTypeInfo.h
     ${SRC_ROOT}/typeinfo/models/SetTypeInfo.h
     ${SRC_ROOT}/typeinfo/models/ScalarTypeInfo.h
     ${SRC_ROOT}/typeinfo/models/TextTypeInfo.h
@@ -67,6 +69,7 @@ set(SOURCE_FILES
     ${SRC_ROOT}/init.cpp
     ${SRC_ROOT}/typeinfo/TypeInfo_Bool.cpp
     ${SRC_ROOT}/typeinfo/TypeInfo_BoundingBox.cpp
+    ${SRC_ROOT}/typeinfo/TypeInfo_EigenMatrix.cpp
     ${SRC_ROOT}/typeinfo/TypeInfo_FixedArray.cpp
     ${SRC_ROOT}/typeinfo/TypeInfo_Integer.cpp
     ${SRC_ROOT}/typeinfo/TypeInfo_Mat.cpp

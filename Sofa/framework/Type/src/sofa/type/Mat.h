@@ -57,7 +57,7 @@ namespace sofa::type
 
 
 
-template <sofa::Size L, sofa::Size C, class real>
+template <int L, int C, class real>
 using Mat = Eigen::Matrix<real, L, C, Eigen::AutoAlign | Eigen::ColMajor>;
 
 

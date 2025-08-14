@@ -99,12 +99,12 @@ void IdentityMultiMapping<TIn, TOut>::apply(const core::MechanicalParams* mparam
 
     OutVecCoord& out = *(dataVecOutPos[0]->beginEdit());
 
-    unsigned offset = 0;
+    int offset = 0;
     for(unsigned i=0; i<dataVecInPos.size(); i++ )
     {
         const InVecCoord& inpos = dataVecInPos[i]->getValue();
 
-        for(unsigned int j=0; j<inpos.size(); j++)
+        for(int j=0; j<inpos.size(); j++)
         {
             core::eq( out[offset+j], inpos[j]);
         }

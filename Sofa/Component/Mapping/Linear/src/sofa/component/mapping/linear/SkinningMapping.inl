@@ -157,7 +157,7 @@ void SkinningMapping<TIn, TOut>::updateWeights ()
         for (unsigned int j=0; j<xfrom.size(); j++ )
         {
             sofa::type::Vec<3,InReal> cfrom; In::get( cfrom[0],cfrom[1],cfrom[2], xfrom[j] );
-            InReal w=(cto-cfrom)*(cto-cfrom);
+            InReal w=type::dot((cto-cfrom),(cto-cfrom));
             if(w!=0) w=1.0f/w;
             else w=std::numeric_limits<InReal>::max();
             unsigned int m=0; while (m!=nbref && m_weights[i][m]>w) m++;

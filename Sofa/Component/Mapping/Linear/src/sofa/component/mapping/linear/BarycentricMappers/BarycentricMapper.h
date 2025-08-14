@@ -52,7 +52,8 @@ public:
 
     enum { NIn = sofa::defaulttype::DataTypeInfo<InDeriv>::Size };
     enum { NOut = sofa::defaulttype::DataTypeInfo<OutDeriv>::Size };
-    typedef type::Mat<NOut, NIn, Real> MBloc;
+
+    typedef Eigen::Matrix<Real, NOut, NIn> MBloc; // Mat with AutoAlign and ColMajor throws an assert error
     typedef sofa::linearalgebra::CompressedRowSparseMatrix<MBloc> MatrixType;
 
     using Index = sofa::Index;

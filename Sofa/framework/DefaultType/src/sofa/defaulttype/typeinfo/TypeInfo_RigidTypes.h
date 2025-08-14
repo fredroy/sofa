@@ -29,7 +29,7 @@
 namespace sofa::defaulttype
 {
 
-template<sofa::Size N, typename real>
+template<int N, typename real>
 struct DataTypeInfo< sofa::defaulttype::StdRigidTypes<N, real> > : public IncompleteTypeInfo<sofa::defaulttype::StdRigidTypes<N, real>>
 {
     static std::string GetTypeName() { std::ostringstream o; o << "RigidTypes<" << N << "," << DataTypeInfo<real>::GetTypeName() << ">"; return o.str(); }
@@ -41,7 +41,7 @@ struct DataTypeInfo< sofa::defaulttype::StdRigidTypes<N, real> > : public Incomp
     }
 };
 
-template<sofa::Size N, typename real>
+template<int N, typename real>
 struct DataTypeInfo< sofa::defaulttype::RigidCoord<N,real> > : public FixedArrayTypeInfo< sofa::defaulttype::RigidCoord<N,real>, sofa::defaulttype::RigidCoord<N,real>::total_size >
 //struct DataTypeInfo< sofa::defaulttype::RigidCoord<N,real> > : public IncompleteTypeInfo< sofa::defaulttype::RigidCoord<N,real> >
 {
@@ -54,7 +54,7 @@ struct DataTypeInfo< sofa::defaulttype::RigidCoord<N,real> > : public FixedArray
     }
 };
 
-template<sofa::Size N, typename real>
+template<int N, typename real>
 struct DataTypeInfo< sofa::defaulttype::RigidDeriv<N,real> > : public FixedArrayTypeInfo< sofa::defaulttype::RigidDeriv<N,real>,
                                                                                           sofa::defaulttype::RigidDeriv<N,real>::total_size >
 //struct DataTypeInfo< sofa::defaulttype::RigidDeriv<N,real> > : public IncompleteTypeInfo< sofa::defaulttype::RigidDeriv<N,real> >
@@ -68,7 +68,7 @@ struct DataTypeInfo< sofa::defaulttype::RigidDeriv<N,real> > : public FixedArray
     }
 };
 
-template<sofa::Size N, typename real>
+template<int N, typename real>
 struct DataTypeInfo< sofa::defaulttype::RigidMass<N,real> > : public IncompleteTypeInfo<RigidMass<N,real>>
 {
     static std::string GetTypeName() { std::ostringstream o; o << "RigidMass<" << N << "," << DataTypeInfo<real>::GetTypeName() << ">"; return o.str(); }

@@ -41,7 +41,7 @@ class RigidDeriv<3, real>
 {
 public:
     typedef real value_type;
-    typedef sofa::Size Size;
+    typedef int Size;
     typedef real Real;
     typedef type::Vec<3,Real> Pos;
     typedef type::Vec<3,Real> Rot;
@@ -205,10 +205,10 @@ public:
     }
 
     /// Compile-time constant specifying the number of scalars within this vector (equivalent to the size() method)
-    static constexpr sofa::Size total_size = 6;
+    static constexpr int total_size = 6;
 
     /// Compile-time constant specifying the number of dimensions of space (NOT equivalent to total_size for rigids)
-    static constexpr sofa::Size spatial_dimensions = 3;
+    static constexpr int spatial_dimensions = 3;
 
     constexpr real* ptr() { return vCenter.ptr(); }
     constexpr const real* ptr() const { return vCenter.ptr(); }
@@ -264,49 +264,49 @@ constexpr RigidDeriv<3,real> operator/(RigidDeriv<3, real> r,real2 a)
     return r;
 }
 
-template<sofa::Size N,typename T>
+template<int N,typename T>
 constexpr typename RigidDeriv<N,T>::Pos& getLinear(RigidDeriv<N,T>& v)
 {
     return v.getLinear();
 }
 
-template<sofa::Size N, typename T>
+template<int N, typename T>
 constexpr const typename RigidDeriv<N,T>::Pos& getLinear(const RigidDeriv<N,T>& v)
 {
     return v.getLinear();
 }
 
-template<sofa::Size N, typename T>
+template<int N, typename T>
 constexpr typename RigidDeriv<N,T>::Rot& getAngular(RigidDeriv<N,T>& v)
 {
     return v.getAngular();
 }
 
-template<sofa::Size N, typename T>
+template<int N, typename T>
 constexpr const typename RigidDeriv<N,T>::Rot& getAngular(const RigidDeriv<N,T>& v)
 {
     return v.getAngular();
 }
 
-template<sofa::Size N,typename T>
+template<int N,typename T>
 constexpr typename RigidDeriv<N,T>::Pos& getVCenter(RigidDeriv<N,T>& v)
 {
     return v.getLinear();
 }
 
-template<sofa::Size N, typename T>
+template<int N, typename T>
 constexpr const typename RigidDeriv<N,T>::Pos& getVCenter(const RigidDeriv<N,T>& v)
 {
     return v.getLinear();
 }
 
-template<sofa::Size N, typename T>
+template<int N, typename T>
 constexpr typename RigidDeriv<N,T>::Rot& getVOrientation(RigidDeriv<N,T>& v)
 {
     return v.getAngular();
 }
 
-template<sofa::Size N, typename T>
+template<int N, typename T>
 constexpr const typename RigidDeriv<N,T>::Rot& getVOrientation(const RigidDeriv<N,T>& v)
 {
     return v.getAngular();
@@ -333,7 +333,7 @@ class RigidDeriv<2,real>
 {
 public:
     typedef real value_type;
-    typedef sofa::Size Size;
+    typedef int Size;
     typedef real Real;
     typedef type::Vec<2,Real> Pos;
     typedef Real Rot;
@@ -487,10 +487,10 @@ public:
     }
 
     /// Compile-time constant specifying the number of scalars within this vector (equivalent to the size() method)
-    static constexpr sofa::Size total_size = 3;
+    static constexpr int total_size = 3;
 
     /// Compile-time constant specifying the number of dimensions of space (NOT equivalent to total_size for rigids)
-    static constexpr sofa::Size spatial_dimensions = 2;
+    static constexpr int spatial_dimensions = 2;
 
     constexpr real* ptr() { return vCenter.ptr(); }
     constexpr const real* ptr() const { return vCenter.ptr(); }
@@ -567,7 +567,7 @@ constexpr RigidDeriv<2,T> velocityAtRotatedPoint(const RigidDeriv<2,T>& v, const
 
 namespace sofa::linearalgebra
 {
-    template <Size N, class T, typename IndexType>
+    template <int N, class T, typename IndexType>
     class matrix_bloc_traits < defaulttype::RigidDeriv<N, T>, IndexType >
     {
     public:

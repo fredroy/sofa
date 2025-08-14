@@ -57,10 +57,10 @@ namespace // anonymous
 //struct NoInit {};
 //constexpr NoInit NOINIT;
 
-template < sofa::Size N, typename ValueType>
+template < int N, typename ValueType>
 using Vec = Eigen::Matrix<ValueType, N, 1, Eigen::ColMajor>;
 
-template < sofa::Size N, typename ValueType>
+template < int N, typename ValueType>
 using VecNoInit = Eigen::Matrix<ValueType, N, 1, Eigen::ColMajor>;
 
 

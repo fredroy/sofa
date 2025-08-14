@@ -58,12 +58,13 @@ public:
     typedef typename In::Deriv InDeriv;
 
     typedef typename Coord::value_type Real;
-    enum { N    = OutDataTypes::spatial_dimensions               };
-    enum { NIn  = sofa::defaulttype::DataTypeInfo<InDeriv>::Size };
-    enum { NOut = sofa::defaulttype::DataTypeInfo<Deriv>::Size   };
+    static constexpr int N = OutDataTypes::spatial_dimensions;
+    static constexpr int NIn = sofa::defaulttype::DataTypeInfo<InDeriv>::Size;
+    static constexpr int NOut = sofa::defaulttype::DataTypeInfo<Deriv>::Size ;
+
     typedef type::Mat<N, N, Real> Mat;
     typedef type::Vec<N, Real> Vector;
-    typedef type::Mat<NOut, NIn, Real> MBloc;
+    typedef Eigen::Matrix<Real, NOut, NIn> MBloc; // Mat with AutoAlign and ColMajor throws an assert error
     typedef sofa::linearalgebra::CompressedRowSparseMatrix<MBloc> MatrixType;
 
 protected:

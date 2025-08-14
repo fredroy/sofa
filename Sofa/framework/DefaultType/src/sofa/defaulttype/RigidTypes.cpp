@@ -1,50 +1,37 @@
 /******************************************************************************
-*                 SOFA, Simulation Open-Framework Architecture                *
-*                    (c) 2006 INRIA, USTL, UJF, CNRS, MGH                     *
+*       SOFA, Simulation Open-Framework Architecture, version 1.0 RC 1        *
+*            (c) 2006-2021 MGH, INRIA, USTL, UJF, CNRS, InSimo                *
 *                                                                             *
-* This program is free software; you can redistribute it and/or modify it     *
+* This library is free software; you can redistribute it and/or modify it     *
 * under the terms of the GNU Lesser General Public License as published by    *
 * the Free Software Foundation; either version 2.1 of the License, or (at     *
 * your option) any later version.                                             *
 *                                                                             *
-* This program is distributed in the hope that it will be useful, but WITHOUT *
+* This library is distributed in the hope that it will be useful, but WITHOUT *
 * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or       *
 * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License *
 * for more details.                                                           *
 *                                                                             *
 * You should have received a copy of the GNU Lesser General Public License    *
-* along with this program. If not, see <http://www.gnu.org/licenses/>.        *
+* along with this library; if not, write to the Free Software Foundation,     *
+* Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301 USA.          *
 *******************************************************************************
+*                               SOFA :: Modules                               *
+*                                                                             *
 * Authors: The SOFA Team and external contributors (see Authors.txt)          *
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#pragma once
+#define SOFA_DEFAULTTYPE_RIGIDTYPES_CPP
 
-#include <type_traits>
-#include <sofa/type/Mat.h>
-#include <sofa/defaulttype/typeinfo/TypeInfo_FixedArray.h>
+#include <sofa/defaulttype/RigidTypes.h>
+#include <sofa/linearalgebra/CompressedRowSparseMatrixConstraint.h>
+#include <sofa/linearalgebra/CompressedRowSparseMatrixGeneric.inl>
 
-namespace sofa::defaulttype
+namespace sofa::linearalgebra
 {
 
-//template<int L, int C, typename real>
-//struct DataTypeInfo< sofa::type::Mat<L,C,real> > : public FixedArrayTypeInfo<sofa::type::Mat<L,C,real> >
-//{
-//    static std::string GetTypeName()
-//    {
-//        std::ostringstream o;
-//        o << "Mat<" << L << "," << C << "," <<  DataTypeInfo<real>::GetTypeName() << ">";
-//        return o.str();
-//    }
+template class SOFA_DEFAULTTYPE_API CompressedRowSparseMatrixConstraint<defaulttype::Rigid2dTypes::Deriv>;
+template class SOFA_DEFAULTTYPE_API CompressedRowSparseMatrixConstraint<defaulttype::Rigid3dTypes::Deriv>;
 
-//    static std::string name()
-//    {
-//        std::ostringstream o;
-//        o << "Mat" << L << "x" << C << DataTypeInfo<real>::name();
-//        return o.str();
-//    }
-//};
-
-} /// namespace sofa::defaulttype
-
+} // namespace sofa::linearalgebra

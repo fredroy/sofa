@@ -482,7 +482,8 @@ const type::vector< linearalgebra::BaseMatrix*>* BarycentricMapping<TIn, TOut>::
     if(mat==nullptr)
         throw std::runtime_error("Unable to downcast the matrix");
 
-    static_cast<EigenSparseMatrix<InDataTypes, OutDataTypes>*>(internalMatrix)->copyFrom(*mat);
+    auto* castInternalMatrix = static_cast<EigenSparseMatrix<InDataTypes, OutDataTypes>*>(internalMatrix);
+    castInternalMatrix->copyFrom(*mat);
 
     js.resize( 1 );
     js[0] = internalMatrix;

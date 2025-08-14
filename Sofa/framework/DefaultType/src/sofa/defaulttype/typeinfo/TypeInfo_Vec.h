@@ -29,12 +29,12 @@
 namespace sofa::defaulttype
 {
 
-template<sofa::Size N, typename real>
-struct DataTypeInfo< sofa::type::Vec<N,real> > : public FixedArrayTypeInfo< sofa::type::Vec<N,real> >
-{
-    static std::string GetTypeName() { std::ostringstream o; o << "Vec<" << N << "," << DataTypeInfo<real>::GetTypeName() << ">"; return o.str(); }
-    static std::string name() { std::ostringstream o; o << "Vec" << N << DataTypeInfo<real>::name() ; return o.str(); }
-};
+//template<int N, typename real>
+//struct DataTypeInfo< sofa::type::Vec<N,real> > : public FixedArrayTypeInfo< sofa::type::Vec<N,real> >
+//{
+//    static std::string GetTypeName() { std::ostringstream o; o << "Vec<" << N << "," << DataTypeInfo<real>::GetTypeName() << ">"; return o.str(); }
+//    static std::string name() { std::ostringstream o; o << "Vec" << N << DataTypeInfo<real>::name() ; return o.str(); }
+//};
 
 //template<sofa::Size N, typename real>
 //struct DataTypeInfo< sofa::type::VecNoInit<N,real> > : public FixedArrayTypeInfo<sofa::type::VecNoInit<N,real> >

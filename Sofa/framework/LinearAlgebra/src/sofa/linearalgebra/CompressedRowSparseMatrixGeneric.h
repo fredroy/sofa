@@ -132,7 +132,7 @@ public:
     struct IndexedBlock
     {
         int l,c;
-        Block value;
+        Block value{};
         IndexedBlock() {}
         IndexedBlock(Index i, Index j) : l(i), c(j) {}
         IndexedBlock(Index i, Index j, const Block& v) : l(i), c(j), value(v) {}
@@ -870,7 +870,8 @@ public:
             {
                 if (btemp.empty() || btemp.back().l != i || btemp.back().c != j)
                 {
-                    btemp.push_back(IndexedBlock(i,j));
+                    const auto b = IndexedBlock();
+                    btemp.push_back(b);
                     traits::clear(btemp.back().value);
                 }
                 return &btemp.back().value;

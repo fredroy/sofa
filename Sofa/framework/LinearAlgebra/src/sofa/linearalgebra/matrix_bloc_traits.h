@@ -29,7 +29,7 @@
 namespace sofa::linearalgebra
 {
 
-template<Size TN, typename T> class bloc_index_func
+template<int TN, typename T> class bloc_index_func
 {
 public:
     enum { N = TN };
@@ -76,8 +76,9 @@ public:
     typedef T BlockTranspose;
 
     typedef typename T::Real Real;
-    enum { NL = T::nbLines };
-    enum { NC = T::nbCols };
+    inline static const int NL = T::nbLines;
+    inline static const int NC = T::nbCols;
+
     static Real& v(Block& b, IndexType row, IndexType col) { return b(row,col); }
     static const Real& v(const Block& b, IndexType row, IndexType col) { return b(row,col); }
     static void vset(Block& b, int row, int col, Real val) { b(row,col) = val; }

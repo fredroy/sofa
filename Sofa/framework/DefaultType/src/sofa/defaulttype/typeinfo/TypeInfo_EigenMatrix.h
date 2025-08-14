@@ -21,53 +21,37 @@
 ******************************************************************************/
 #pragma once
 
-#include <sofa/defaulttype/config.h>
-#include <sofa/type/fwd.h>
-#include <sofa/linearalgebra/fwd.h>
+#include <type_traits>
+#include <sofa/type/Mat.h>
+#include <sofa/defaulttype/typeinfo/models/EigenMatrixTypeInfo.h>
 
 namespace sofa::defaulttype
 {
-template<int N, typename real>
-class RigidDeriv;
+
+template<int L, int C, typename real>
+struct DataTypeInfo< sofa::type::Mat<L,C,real> > : public EigenMatrixTypeInfo<sofa::type::Mat<L,C,real> >
+{
+    static std::string GetTypeName()
+    {
+        std::ostringstream o;
+        o << "EigenMat<" << L << "," << C << "," <<  DataTypeInfo<real>::GetTypeName() << ">";
+        return o.str();
+    }
+
+    static std::string name()
+    {
+        std::ostringstream o;
+        o << "EigenMat" << L << "x" << C << DataTypeInfo<real>::name();
+        return o.str();
+    }
+};
 
 template<int N, typename real>
-class RigidCoord;
+struct DataTypeInfo< sofa::type::Vec<N,real> > : public EigenMatrixTypeInfo< sofa::type::Vec<N,real> >
+{
+    static std::string GetTypeName() { std::ostringstream o; o << "Vec<" << N << "," << DataTypeInfo<real>::GetTypeName() << ">"; return o.str(); }
+    static std::string name() { std::ostringstream o; o << "Vec" << N << DataTypeInfo<real>::name() ; return o.str(); }
+};
 
-template<sofa::Size N, typename real>
-class RigidMass;
-
-template<sofa::Size N, typename real>
-class StdRigidTypes;
-
-template<typename real>
-class StdRigidTypes<3, real>;
-
-typedef StdRigidTypes<2,double> Rigid2dTypes;
-typedef RigidMass<2,double> Rigid2dMass;
-
-typedef StdRigidTypes<2,float> Rigid2fTypes;
-typedef RigidMass<2,float> Rigid2fMass;
-
-typedef StdRigidTypes<2,SReal> Rigid2Types;
-typedef RigidMass<2,SReal> Rigid2Mass;
-
-typedef RigidMass<3,double> Rigid3dMass;
-typedef RigidMass<3,float> Rigid3fMass;
-
-typedef StdRigidTypes<3,SReal> Rigid3Types;  ///< un-defined precision type
-typedef RigidMass<3,SReal>     Rigid3Mass;   ///< un-defined precision type
-
-template<class TCoord, class TDeriv, class TReal = typename TCoord::value_type>
-class StdVectorTypes;
-
-typedef StdVectorTypes<sofa::type::Vec3d,sofa::type::Vec3d,double> Vec3dTypes;
-typedef StdVectorTypes<sofa::type::Vec2d,sofa::type::Vec2d,double> Vec2dTypes;
-typedef StdVectorTypes<sofa::type::Vec1d,sofa::type::Vec1d,double> Vec1dTypes;
-typedef StdVectorTypes<sofa::type::Vec6d,sofa::type::Vec6d,double> Vec6dTypes;
-typedef StdVectorTypes<sofa::type::Vec3f,sofa::type::Vec3f,float> Vec3fTypes;
-typedef StdVectorTypes<sofa::type::Vec2f,sofa::type::Vec2f,float> Vec2fTypes;
-typedef StdVectorTypes<sofa::type::Vec1f,sofa::type::Vec1f,float> Vec1fTypes;
-typedef StdVectorTypes<sofa::type::Vec6f,sofa::type::Vec6f,float> Vec6fTypes;
-
-}
+} /// namespace sofa::defaulttype
 

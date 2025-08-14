@@ -62,6 +62,7 @@ public:
     typedef typename InDataTypes::Real InReal;
     typedef typename OutDataTypes::Deriv OutDeriv;
     typedef typename OutDataTypes::VecDeriv OutVecDeriv;
+
     enum { Nin=InDataTypes::deriv_total_size, Nout=OutDataTypes::deriv_total_size };
     typedef type::Mat<Nout,Nin, OutReal> Block;  ///< block relating an OutDeriv to an InDeriv. This is used for input only, not for internal storage.
 
