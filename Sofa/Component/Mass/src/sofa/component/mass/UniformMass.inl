@@ -643,8 +643,7 @@ void UniformMass<DataTypes>::draw(const VisualParams* vparams)
     std::vector<  sofa::type::Vec3 > points;
     for (const auto i : indices)
     {
-        sofa::type::Vec3 p;
-        p = DataTypes::getCPos(x[i]);
+        sofa::type::Vec3 p= type::toVec3(DataTypes::getCPos(x[i]));
 
         points.push_back ( p );
         gravityCenter += x[i];

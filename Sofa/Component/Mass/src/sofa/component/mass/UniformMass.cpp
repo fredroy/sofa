@@ -215,12 +215,13 @@ void UniformMass<RigidTypes>::drawRigid2DImpl(const VisualParams* vparams)
     len[0] = len[1] = sqrt(d_vertexMass.getValue().inertiaMatrix);
     len[2] = 0;
 
+    const auto axisSizes = (len*d_showAxisSize.getValue()).cast<float>();
     for (const unsigned int index : indices)
     {
         Quatd orient(Vec3d(0,0,1), x[index].getOrientation());
-        Vec3d center; center = x[index].getCenter();
+        Vec3 center = type::toVec3(x[index].getCenter());
 
-        vparams->drawTool()->drawFrame(center, orient, len*d_showAxisSize.getValue() );
+        vparams->drawTool()->drawFrame(center, orient, axisSizes );
     }
 }
 
@@ -250,12 +251,14 @@ void UniformMass<RigidTypes>::drawRigid3DImpl(const VisualParams* vparams)
     len[1] = sqrt(m00+m22-m11);
     len[2] = sqrt(m00+m11-m22);
 
+    const auto axisSizes = (len*d_showAxisSize.getValue()).cast<float>();
+
     for (const unsigned int index : indices)
     {
         if (getContext()->isSleeping())
-            vparams->drawTool()->drawFrame(x[index].getCenter(), x[index].getOrientation(), len*d_showAxisSize.getValue(), sofa::type::RGBAColor::gray());
+            vparams->drawTool()->drawFrame(type::toVec3(x[index].getCenter()), x[index].getOrientation(), axisSizes, sofa::type::RGBAColor::gray());
         else
-            vparams->drawTool()->drawFrame(x[index].getCenter(), x[index].getOrientation(), len*d_showAxisSize.getValue() );
+            vparams->drawTool()->drawFrame(type::toVec3(x[index].getCenter()), x[index].getOrientation(), axisSizes );
         gravityCenter += (x[index].getCenter());
     }
 
@@ -264,7 +267,7 @@ void UniformMass<RigidTypes>::drawRigid3DImpl(const VisualParams* vparams)
         const VecCoord& x0 = mstate->read(core::vec_id::read_access::restPosition)->getValue();
 
         for (const unsigned int index : indices)
-            vparams->drawTool()->drawFrame(x0[index].getCenter(), x0[index].getOrientation(), len*d_showAxisSize.getValue());
+            vparams->drawTool()->drawFrame(type::toVec3(x[index].getCenter()), x0[index].getOrientation(), axisSizes);
     }
 
     if(d_showCenterOfGravity.getValue())
@@ -285,7 +288,8 @@ void UniformMass<Vec6Types>::drawVec6Impl(const core::visual::VisualParams* vpar
     const VecCoord& x0 = mstate->read(core::vec_id::read_access::restPosition)->getValue();
     const ReadAccessor<Data<SetIndexArray > > indices = d_indices;
 
-    Mat3x3d R; R.identity();
+    Mat3x3 R;
+    R.identity();
 
     std::vector<Vec3> vertices;
     std::vector<sofa::type::RGBAColor> colors;
@@ -299,11 +303,11 @@ void UniformMass<Vec6Types>::drawVec6Impl(const core::visual::VisualParams* vpar
 
     for (unsigned int i=0; i<indices.size(); i++)
     {
-        type::Vec3d len(1,1,1);
+        type::Vec3 len(1,1,1);
         int a = (i<indices.size()-1)?i : i-1;
         int b = a+1;
-        type::Vec3d dp; dp = x0[b]-x0[a];
-        type::Vec3d p; p = x[indices[i]];
+        const auto dp = type::toVec3(x0[b]-x0[a]);
+        const auto p = type::toVec3(x[indices[i]]);
         len[0] = dp.norm();
         len[1] = len[0];
         len[2] = len[0];
@@ -312,7 +316,7 @@ void UniformMass<Vec6Types>::drawVec6Impl(const core::visual::VisualParams* vpar
         for(unsigned int j=0 ; j<3 ; j++)
         {
             vertices.push_back(p);
-            vertices.push_back(p + R.col(j)*len[j]);
+            vertices.push_back(p + (R.col(j) * len[j]));
             colors.push_back(colorSet[j]);
         }
     }
@@ -383,10 +387,9 @@ SReal UniformMass<VecTypes>::getPotentialEnergyRigidImpl(const core::MechanicalP
     ReadAccessor< DataVecCoord > x = p_x;
     const ReadAccessor<Data<SetIndexArray > > indices = d_indices;
 
-    typename Coord::Pos g ( getContext()->getGravity() );
+    const auto g ( getContext()->getGravity() );
     for (const unsigned int index : indices)
     {
-
         e -= type::dot(g * d_vertexMass.getValue().mass , x[index].getCenter());
     }
 

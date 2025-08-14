@@ -58,7 +58,7 @@ struct AddMToMatrixFunctor
 /**
  * Specialization for Rigid types
  */
-template<sofa::Size N, typename Real, class MatrixType>
+template<int N, typename Real, class MatrixType>
 struct AddMToMatrixFunctor< defaulttype::RigidDeriv<N,Real>, defaulttype::RigidMass<N,Real>, MatrixType >
 {
     void operator()(MatrixType * mat, const defaulttype::RigidMass<N,Real>& mass, int pos, Real fact)
@@ -66,7 +66,14 @@ struct AddMToMatrixFunctor< defaulttype::RigidDeriv<N,Real>, defaulttype::RigidM
         const auto m = mass.mass * fact;
         for (sofa::Size i = 0; i < N; ++i)
             mat->add(pos + i, pos + i, m);
-        mat->add(pos + N, pos + N, mass.inertiaMassMatrix.eval() * fact);
+        if constexpr ( N == 2)
+        {
+            mat->add(pos + N, pos + N, mass.inertiaMassMatrix * fact);
+        }
+        else
+        {
+            mat->add(pos + N, pos + N, (mass.inertiaMassMatrix * fact).eval());
+        }
     }
 };
 

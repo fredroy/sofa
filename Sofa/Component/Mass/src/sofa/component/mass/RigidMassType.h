@@ -31,9 +31,10 @@ namespace sofa::component::mass
 /*
  * Mass components templated on RigidTypes will use the associated RigidMass class for their MassType.
  */
-template<sofa::Size N, typename real>
+template<int N, typename real>
 struct MassType<sofa::defaulttype::StdRigidTypes<N, real> >
 {
+
     using type = sofa::defaulttype::RigidMass< N, real>;
 };
 

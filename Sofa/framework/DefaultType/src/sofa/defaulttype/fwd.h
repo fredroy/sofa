@@ -33,10 +33,10 @@ class RigidDeriv;
 template<int N, typename real>
 class RigidCoord;
 
-template<sofa::Size N, typename real>
+template<int N, typename real>
 class RigidMass;
 
-template<sofa::Size N, typename real>
+template<int N, typename real>
 class StdRigidTypes;
 
 template<typename real>

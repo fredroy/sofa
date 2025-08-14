@@ -121,6 +121,24 @@ bool invertMatrix(Eigen::MatrixBase<Derived1>& dest, const Eigen::MatrixBase<Der
     return isInvertible;
 }
 
+template<typename Derived>
+requires (Derived::IsVectorCompileTime == 1)
+auto crossProductMatrix(const Eigen::MatrixBase<Derived>& v) noexcept
+{
+    using Scalar = typename Eigen::MatrixBase<Derived>::Scalar;
+    type::Mat<3, 3, Scalar> res;
+    res(0,0)=0;
+    res(0,1)=-v[2];
+    res(0,2)=v[1];
+    res(1,0)=v[2];
+    res(1,1)=0;
+    res(1,2)=-v[0];
+    res(2,0)=-v[1];
+    res(2,1)=v[0];
+    res(2,2)=0;
+    return res;
+}
+
 } // namespace sofa::type
 
 

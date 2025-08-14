@@ -584,7 +584,14 @@ SReal DiagonalMass<DataTypes, GeometricalTypes>::getKineticEnergy( const core::M
     SReal e = 0.0;
     for (unsigned int i=0; i<masses.size(); i++)
     {
-        e += _v[i]*masses[i]*_v[i]; // v[i]*v[i]*masses[i] would be more efficient but less generic
+        if constexpr(type::isRigidType<DataTypes>)
+        {
+            e += _v[i]* masses[i]*_v[i]; // v[i]*v[i]*masses[i] would be more efficient but less generic
+        }
+        else
+        {
+            e += type::dot(_v[i], masses[i]*_v[i]); // v[i]*v[i]*masses[i] would be more efficient but less generic
+        }
     }
     return e/2;
 }
@@ -1444,8 +1451,7 @@ void DiagonalMass<DataTypes, GeometricalTypes>::draw(const core::visual::VisualP
 
     for (unsigned int i = 0; i < x.size(); i++)
     {
-        sofa::type::Vec3 p;
-        p = GeometricalTypes::getCPos(x[i]);
+        sofa::type::Vec3 p = type::toVec3(GeometricalTypes::getCPos(x[i]));
 
         points.push_back(p);
         gravityCenter += p * masses[i];

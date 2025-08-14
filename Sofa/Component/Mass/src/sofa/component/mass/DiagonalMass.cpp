@@ -92,7 +92,8 @@ void DiagonalMass<RigidTypes, GeometricalTypes>::drawRigid3dImpl(const VisualPar
         len[1] = sqrt(m00+m22-m11);
         len[2] = sqrt(m00+m11-m22);
 
-        vparams->drawTool()->drawFrame(center, orient, len*d_showAxisSize.getValue() );
+        const auto axisSizes = (len*d_showAxisSize.getValue()).template cast<float>();
+        vparams->drawTool()->drawFrame(center, orient, axisSizes );
 
         gravityCenter += (center * masses[i].mass);
         totalMass += masses[i].mass;
@@ -114,6 +115,7 @@ void DiagonalMass<RigidTypes, GeometricalTypes>::drawRigid2dImpl(const VisualPar
     const MassVector &masses= d_vertexMass.getValue();
     if (!vparams->displayFlags().getShowBehaviorModels()) return;
     const VecCoord& x =mstate->read(core::vec_id::read_access::position)->getValue();
+
     for (unsigned int i=0; i<x.size(); i++)
     {
         if (masses[i].mass == 0) continue;
@@ -121,9 +123,11 @@ void DiagonalMass<RigidTypes, GeometricalTypes>::drawRigid2dImpl(const VisualPar
         len[0] = len[1] = sqrt(masses[i].inertiaMatrix);
         len[2] = 0;
 
+        const auto axisSizes = (len*d_showAxisSize.getValue()).cast<float>();
+
         Quatd orient(Vec3d(0,0,1), x[i].getOrientation());
-        Vec3d center; center = x[i].getCenter();
-        vparams->drawTool()->drawFrame(center, orient, len*d_showAxisSize.getValue() );
+        Vec3d center = type::toVec3(x[i].getCenter());
+        vparams->drawTool()->drawFrame(center, orient, axisSizes );
     }
 }
 

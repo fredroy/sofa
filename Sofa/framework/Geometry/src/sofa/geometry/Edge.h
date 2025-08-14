@@ -54,17 +54,17 @@ struct Edge
              typename = std::enable_if_t<std::is_scalar_v<T>>
     >
     [[nodiscard]]
-    static constexpr auto squaredLength(const Node& n0, const Node& n1)
+    static auto squaredLength(const Node& n0, const Node& n1)
     {
-        constexpr Node v{};
-        constexpr auto size = std::distance(std::cbegin(v), std::cend(v));
+//        static const Node v{};
+//        static const auto size = std::distance(std::cbegin(v), std::cend(v));
 
-        // specialized function is faster than the generic (using STL) one
-        if constexpr (std::is_same_v< Node, sofa::type::Vec<size, T>>)
-        {
-            return (static_cast<sofa::type::Vec<size, T>>(n1) - static_cast<sofa::type::Vec<size, T>>(n0)).norm2();
-        }
-        else
+//        // specialized function is faster than the generic (using STL) one
+//        if constexpr (std::is_same_v< Node, sofa::type::Vec<size, T>>)
+//        {
+//            return (static_cast<sofa::type::Vec<size, T>>(n1) - static_cast<sofa::type::Vec<size, T>>(n0)).norm2();
+//        }
+//        else
         {
             Node diff{};
             std::transform(n0.cbegin(), n0.cend(), n1.cbegin(), diff.begin(), std::minus<T>());
