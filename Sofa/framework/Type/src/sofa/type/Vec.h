@@ -115,13 +115,19 @@ auto dot(const Eigen::MatrixBase<Derived1>& a,
 //}
 
 template<typename Derived1, typename Derived2>
+requires (Derived1::IsVectorAtCompileTime == 1 && Derived2::IsVectorAtCompileTime == 1 && Derived1::SizeAtCompileTime == 3 && Derived2::SizeAtCompileTime == 3)
 auto cross(const Eigen::MatrixBase<Derived1>& a,
            const Eigen::MatrixBase<Derived2>& b)
 {
-    static_assert((Derived1::SizeAtCompileTime == 3 && Derived2::SizeAtCompileTime == 3)
-            || (Derived1::SizeAtCompileTime == 2 && Derived2::SizeAtCompileTime == 2));
-
     return a.cross(b);
+}
+
+template<typename Derived1, typename Derived2>
+requires (Derived1::IsVectorAtCompileTime == 1  && Derived2::IsVectorAtCompileTime == 1 && Derived1::SizeAtCompileTime == 2 && Derived2::SizeAtCompileTime == 2)
+auto cross(const Eigen::MatrixBase<Derived1>& a,
+           const Eigen::MatrixBase<Derived2>& b)
+{
+    return (a[0]*b[1] - a[1]*b[0]);
 }
 
 template<typename Derived1, typename Derived2>
