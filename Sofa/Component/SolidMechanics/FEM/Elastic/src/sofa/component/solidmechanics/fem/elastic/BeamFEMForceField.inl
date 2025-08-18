@@ -493,7 +493,7 @@ void BeamFEMForceField<DataTypes>::addKToMatrix(sofa::linearalgebra::BaseMatrix 
             q.normalize();
             Transformation R,Rt;
             q.toMatrix(R);
-            Rt.transpose(R);
+            Rt = R.transpose();
             const StiffnessMatrix& K0 = d_beamsData.getValue()[i]._k_loc;
             StiffnessMatrix K;
             for (int x1=0; x1<12; x1+=3)
@@ -527,7 +527,7 @@ void BeamFEMForceField<DataTypes>::addKToMatrix(sofa::linearalgebra::BaseMatrix 
             q.normalize();
             Transformation R,Rt;
             q.toMatrix(R);
-            Rt.transpose(R);
+            Rt = R.transpose();
             const StiffnessMatrix& K0 = d_beamsData.getValue()[i]._k_loc;
             StiffnessMatrix K;
             const bool exploitSymmetry = d_useSymmetricAssembly.getValue();
@@ -593,7 +593,7 @@ void BeamFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::Stiffnes
             q.normalize();
             Transformation R,Rt;
             q.toMatrix(R);
-            Rt.transpose(R);
+            Rt = R.transpose();
             const StiffnessMatrix& K0 = d_beamsData.getValue()[i]._k_loc;
             StiffnessMatrix K;
             for (int x1=0; x1<12; x1+=3)
@@ -627,7 +627,7 @@ void BeamFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::Stiffnes
             q.normalize();
             Transformation R,Rt;
             q.toMatrix(R);
-            Rt.transpose(R);
+            Rt = R.transpose();
             const StiffnessMatrix& K0 = d_beamsData.getValue()[i]._k_loc;
             StiffnessMatrix K;
             const bool exploitSymmetry = d_useSymmetricAssembly.getValue();

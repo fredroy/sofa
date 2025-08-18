@@ -189,7 +189,7 @@ protected:
     inline const VecElement *getIndexedElements(){ return & (this->l_topology->getHexahedra()); }
 
     virtual void computeElementStiffness( ElementStiffness &K, const MaterialStiffness &M,
-                                          const type::Vec<8, Coord> &nodes, const sofa::Index elementIndice,
+                                          const type::Vec<8,Coord> &nodes, const sofa::Index elementIndice,
                                           double stiffnessFactor=1.0) const;
     static Mat33 integrateStiffness( int signx0, int signy0, int signz0, int signx1, int signy1, int signz1,
                               const Real u, const Real v, const Real w, const Mat33& J_1  );
@@ -200,7 +200,7 @@ protected:
 
 
     ////////////// large displacements method
-    type::vector<type::fixed_array<Coord,8> > _rotatedInitialElements;   ///< The initials positions in its frame
+    type::vector<type::Vec<8,Coord> > _rotatedInitialElements;   ///< The initials positions in its frame
     type::vector<Transformation> _rotations;
     type::vector<Transformation> _initialrotations;
     void initLarge(sofa::Index i, const Element&elem);

@@ -212,7 +212,7 @@ template<class DataTypes>
 void TetrahedronFEMForceField<DataTypes>::computeStiffnessMatrix( StiffnessMatrix& S,StiffnessMatrix& SR,const MaterialStiffness &K, const StrainDisplacement &J, const Transformation& Rot )
 {
     type::MatNoInit<6, 12, Real> Jt;
-    Jt.transpose( J );
+    Jt = J.transpose();
 
     type::MatNoInit<12, 12, Real> JKJt;
     JKJt = J*K*Jt;
@@ -704,10 +704,10 @@ inline SReal TetrahedronFEMForceField<DataTypes>::getPotentialEnergy(const core:
                 F[11] = J(11,2)*KJtD[2]+ J(11,4)*KJtD[4]+ J(11,5)*KJtD[5];
 
                 // Compute potentialEnergy
-                energyPotential += dot(Deriv( F[0], F[1], F[2] ) ,-Deriv( D[0], D[1], D[2]));
-                energyPotential += dot(Deriv( F[3], F[4], F[5] ) ,-Deriv( D[3], D[4], D[5] ));
-                energyPotential += dot(Deriv( F[6], F[7], F[8] ) ,-Deriv( D[6], D[7], D[8] ));
-                energyPotential += dot(Deriv( F[9], F[10], F[11]),-Deriv( D[9], D[10], D[11] ));
+                energyPotential += type::dot(Deriv( F[0], F[1], F[2] ) ,-Deriv( D[0], D[1], D[2]));
+                energyPotential += type::dot(Deriv( F[3], F[4], F[5] ) ,-Deriv( D[3], D[4], D[5] ));
+                energyPotential += type::dot(Deriv( F[6], F[7], F[8] ) ,-Deriv( D[6], D[7], D[8] ));
+                energyPotential += type::dot(Deriv( F[9], F[10], F[11]),-Deriv( D[9], D[10], D[11] ));
             }
         }
         energyPotential/=-2.0;
@@ -761,8 +761,8 @@ inline void TetrahedronFEMForceField<DataTypes>::computeRotationLarge( Transform
 
     const Coord edgex = (p[b]-p[a]).normalized();
           Coord edgey = p[c]-p[a];
-    const Coord edgez = cross( edgex, edgey ).normalized();
-                edgey = cross( edgez, edgex ); //edgey is unit vector because edgez and edgex are orthogonal unit vectors
+    const Coord edgez = type::cross( edgex, edgey ).normalized();
+                edgey = type::cross( edgez, edgex ); //edgey is unit vector because edgez and edgex are orthogonal unit vectors
 
     r(0,0) = edgex[0];
     r(0,1) = edgex[1];
@@ -803,7 +803,7 @@ inline void TetrahedronFEMForceField<DataTypes>::getRotation(Mat33& R, unsigned 
         if (!_rotationIdx.empty())
         {
             Transformation R0t;
-            R0t.transpose(_initialRotations[_rotationIdx[nodeIdx]]);
+            R0t = _initialRotations[_rotationIdx[nodeIdx]].transpose();
             R = rotations[_rotationIdx[nodeIdx]] * R0t;
         }
         else
@@ -817,7 +817,7 @@ inline void TetrahedronFEMForceField<DataTypes>::getRotation(Mat33& R, unsigned 
     for (unsigned int ti=0; ti<numTetra; ti++)
     {
         Transformation R0t;
-        R0t.transpose(_initialRotations[liste_tetra[ti]]);
+        R0t = _initialRotations[liste_tetra[ti]].transpose();
         R += rotations[liste_tetra[ti]] * R0t;
     }
 
@@ -843,7 +843,7 @@ void TetrahedronFEMForceField<DataTypes>::initLarge(Index i, Index&a, Index&b, I
     const VecCoord &initialPoints=d_initialPoints.getValue();
     Transformation R_0_1;
     computeRotationLarge( R_0_1, initialPoints, a, b, c);
-    _initialRotations[i].transpose(R_0_1);
+    _initialRotations[i] = R_0_1.transpose();
     rotations[i] = _initialRotations[i];
 
     //save the element index as the node index
@@ -877,7 +877,7 @@ inline void TetrahedronFEMForceField<DataTypes>::accumulateForceLarge( Vector& f
     Transformation R_0_2;
     computeRotationLarge( R_0_2, p, index[0],index[1],index[2]);
 
-    rotations[elementIndex].transpose(R_0_2);
+    rotations[elementIndex] = R_0_2.transpose();
 
     // positions of the deformed and displaced Tetrahedron in its frame
     type::fixed_array<Coord,4> deforme;
@@ -995,15 +995,15 @@ void TetrahedronFEMForceField<DataTypes>::initPolar(Index i, Index& a, Index&b, 
 {
     const VecCoord &initialPoints=d_initialPoints.getValue();
     Transformation A;
-    A(0) = initialPoints[b]-initialPoints[a];
-    A(1) = initialPoints[c]-initialPoints[a];
-    A(2) = initialPoints[d]-initialPoints[a];
+    A.col(0) = initialPoints[b]-initialPoints[a];
+    A.col(1) = initialPoints[c]-initialPoints[a];
+    A.col(2) = initialPoints[d]-initialPoints[a];
     //_initialTransformation[i] = A;
 
     Transformation R_0_1;
     helper::Decompose<Real>::polarDecomposition( A, R_0_1 );
 
-    _initialRotations[i].transpose( R_0_1 );
+    _initialRotations[i] = R_0_1.transpose();
     rotations[i] = _initialRotations[i];
 
     //save the element index as the node index
@@ -1028,14 +1028,14 @@ inline void TetrahedronFEMForceField<DataTypes>::accumulateForcePolar( Vector& f
     Element index = *elementIt;
 
     Transformation A;
-    A(0) = p[index[1]]-p[index[0]];
-    A(1) = p[index[2]]-p[index[0]];
-    A(2) = p[index[3]]-p[index[0]];
+    A.col(0) = p[index[1]]-p[index[0]];
+    A.col(1) = p[index[2]]-p[index[0]];
+    A.col(2) = p[index[3]]-p[index[0]];
 
     Transformation R_0_2;
     helper::Decompose<Real>::polarDecomposition( A, R_0_2 );
 
-    rotations[elementIndex].transpose( R_0_2 );
+    rotations[elementIndex] = R_0_2.transpose();
 
     // positions of the deformed and displaced Tetrahedre in its frame
     type::fixed_array<Coord, 4>  deforme;
@@ -1089,9 +1089,9 @@ void TetrahedronFEMForceField<DataTypes>::initSVD(Index i, Index& a, Index&b, In
 {
     const VecCoord &initialPoints=d_initialPoints.getValue();
     Transformation A;
-    A(0) = initialPoints[b]-initialPoints[a];
-    A(1) = initialPoints[c]-initialPoints[a];
-    A(2) = initialPoints[d]-initialPoints[a];
+    A.col(0) = initialPoints[b]-initialPoints[a];
+    A.col(1) = initialPoints[c]-initialPoints[a];
+    A.col(2) = initialPoints[d]-initialPoints[a];
     const bool canInvert = _initialTransformation[i].invert( A );
     assert(canInvert);
     SOFA_UNUSED(canInvert);
@@ -1099,7 +1099,7 @@ void TetrahedronFEMForceField<DataTypes>::initSVD(Index i, Index& a, Index&b, In
     Transformation R_0_1;
     helper::Decompose<Real>::polarDecomposition( A, R_0_1 );
 
-    _initialRotations[i].transpose( R_0_1 );
+    _initialRotations[i] = R_0_1.transpose();
     rotations[i] = _initialRotations[i];
 
     //save the element index as the node index
@@ -1131,9 +1131,9 @@ inline void TetrahedronFEMForceField<DataTypes>::accumulateForceSVD( Vector& f, 
     Element index = *elementIt;
 
     Transformation A;
-    A(0) = p[index[1]]-p[index[0]];
-    A(1) = p[index[2]]-p[index[0]];
-    A(2) = p[index[3]]-p[index[0]];
+    A.col(0) = p[index[1]]-p[index[0]];
+    A.col(1) = p[index[2]]-p[index[0]];
+    A.col(2) = p[index[3]]-p[index[0]];
 
     type::Mat<3,3,Real> R_0_2;
 
@@ -1149,7 +1149,7 @@ inline void TetrahedronFEMForceField<DataTypes>::accumulateForceSVD( Vector& f, 
         helper::Decompose<Real>::polarDecomposition( A, R_0_2 );
     }
 
-    rotations[elementIndex].transpose( R_0_2 );
+    rotations[elementIndex] = R_0_2.transpose();
 
     // positions of the deformed and displaced tetrahedron in its frame
     type::fixed_array<Coord, 4>  deforme;
@@ -1974,14 +1974,7 @@ template <class DataTypes>
 void TetrahedronFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrix)
 {
     StiffnessMatrix JKJt, RJKJtRt;
-    sofa::type::Mat<3, 3, Real> localMatrix(type::NOINIT);
-
-    static constexpr Transformation identity = []
-    {
-        Transformation i;
-        i.identity();
-        return i;
-    }();
+    sofa::type::Mat<3, 3, Real> localMatrix;
 
     constexpr auto S = DataTypes::deriv_total_size; // size of node blocks
     constexpr auto N = Element::size();
@@ -1992,7 +1985,7 @@ void TetrahedronFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::S
     sofa::Size tetraId = 0;
     for (auto it = _indexedElements->begin(); it != _indexedElements->end(); ++it, ++tetraId)
     {
-        const auto& rotation = method == SMALL ? identity : rotations[tetraId];
+        const auto& rotation = method == SMALL ? Transformation::Identity() : rotations[tetraId];
         computeStiffnessMatrix(JKJt, RJKJtRt, materialsStiffnesses[tetraId], strainDisplacements[tetraId], rotation);
 
         for (sofa::Index n1 = 0; n1 < N; n1++)
@@ -2265,7 +2258,7 @@ void TetrahedronFEMForceField<DataTypes>::computeVonMisesStress()
             Displacement D;
             if (method == LARGE) {
                 computeRotationLarge( R_0_2, X, index[0],index[1],index[2]);
-                rotations[elementIndex].transpose(R_0_2);
+                rotations[elementIndex] = R_0_2.transpose();
 
                 // positions of the deformed and displaced Tetrahedron in its frame
                 type::fixed_array<Coord,4> deforme;
@@ -2294,13 +2287,13 @@ void TetrahedronFEMForceField<DataTypes>::computeVonMisesStress()
             else // POLAR / SVD
             {
                 Transformation A;
-                A(0) = X[index[1]]-X[index[0]];
-                A(1) = X[index[2]]-X[index[0]];
-                A(2) = X[index[3]]-X[index[0]];
+                A.col(0) = X[index[1]]-X[index[0]];
+                A.col(1) = X[index[2]]-X[index[0]];
+                A.col(2) = X[index[3]]-X[index[0]];
 
                 helper::Decompose<Real>::polarDecomposition( A, R_0_2 );
 
-                rotations[elementIndex].transpose(R_0_2);
+                rotations[elementIndex] = R_0_2.transpose();
 
                 // positions of the deformed and displaced Tetrahedron in its frame
                 type::fixed_array<Coord,4> deforme;

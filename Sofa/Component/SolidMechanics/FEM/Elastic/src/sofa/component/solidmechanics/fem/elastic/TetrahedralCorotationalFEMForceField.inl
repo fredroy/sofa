@@ -331,7 +331,7 @@ template<class DataTypes>
 void TetrahedralCorotationalFEMForceField<DataTypes>::computeStiffnessMatrix( StiffnessMatrix& S,StiffnessMatrix& SR,const MaterialStiffness &K, const StrainDisplacementTransposed &J, const Transformation& Rot )
 {
     type::MatNoInit<6, 12, Real> Jt;
-    Jt.transpose(J);
+    Jt = J.transpose();
 
     type::MatNoInit<12, 12, Real> JKJt;
     JKJt = J * K * Jt;
@@ -750,8 +750,8 @@ inline void TetrahedralCorotationalFEMForceField<DataTypes>::computeRotationLarg
 
     const Coord edgex = (p[b]-p[a]).normalized();
           Coord edgey = p[c]-p[a];
-    const Coord edgez = cross( edgex, edgey ).normalized();
-                edgey = cross( edgez, edgex ); //edgey is unit vector because edgez and edgex are orthogonal unit vectors
+    const Coord edgez = type::cross( edgex, edgey ).normalized();
+                edgey = type::cross( edgez, edgex ); //edgey is unit vector because edgez and edgex are orthogonal unit vectors
 
     r(0,0) = edgex[0];
     r(0,1) = edgex[1];
@@ -804,10 +804,10 @@ inline void TetrahedralCorotationalFEMForceField<DataTypes>::getRotation(Transfo
     ex.normalize();
     ey.normalize();
 
-    ez=cross(ex,ey);
+    ez=type::cross(ex,ey);
     ez.normalize();
 
-    ey=cross(ez,ex);
+    ey=type::cross(ez,ex);
     ey.normalize();
 
     for(int i=0; i<3; i++)
@@ -889,7 +889,7 @@ void TetrahedralCorotationalFEMForceField<DataTypes>::accumulateForceLarge( Vect
     // Rotation matrix (deformed and displaced Tetrahedron/world)
     Transformation R_0_2;
     computeRotationLarge( R_0_2, p, t[0],t[1],t[2]);
-    tetrahedronInf[elementIndex].rotation.transpose(R_0_2);
+    tetrahedronInf[elementIndex].rotation = R_0_2.transpose();
 
     // positions of the deformed and displaced Tetrahedron in its frame
     type::fixed_array<Coord,4> deforme;
@@ -1003,7 +1003,7 @@ void TetrahedralCorotationalFEMForceField<DataTypes>::applyStiffnessLarge( Vecto
     const type::vector<typename TetrahedralCorotationalFEMForceField<DataTypes>::TetrahedronInformation>& tetrahedronInf = d_tetrahedronInfo.getValue();
 
     Transformation R_0_2;
-    R_0_2.transpose(tetrahedronInf[i].rotation);
+    R_0_2 = tetrahedronInf[i].rotation.transpose();
 
     Displacement X;
     Coord x_2;
@@ -1050,9 +1050,9 @@ void TetrahedralCorotationalFEMForceField<DataTypes>::initPolar(int i, Index& a,
     type::vector<typename TetrahedralCorotationalFEMForceField<DataTypes>::TetrahedronInformation>& tetrahedronInf = *(d_tetrahedronInfo.beginEdit());
 
     Transformation A;
-    A(0) = (X0)[b]-(X0)[a];
-    A(1) = (X0)[c]-(X0)[a];
-    A(2) = (X0)[d]-(X0)[a];
+    A.col(0) = (X0)[b]-(X0)[a];
+    A.col(1) = (X0)[c]-(X0)[a];
+    A.col(2) = (X0)[d]-(X0)[a];
     tetrahedronInf[i].initialTransformation = A;
 
     Transformation R_0_1;
@@ -1074,16 +1074,16 @@ void TetrahedralCorotationalFEMForceField<DataTypes>::accumulateForcePolar( Vect
     const core::topology::BaseMeshTopology::Tetrahedron t=this->l_topology->getTetrahedron(elementIndex);
 
     Transformation A;
-    A(0) = p[t[1]]-p[t[0]];
-    A(1) = p[t[2]]-p[t[0]];
-    A(2) = p[t[3]]-p[t[0]];
+    A.col(0) = p[t[1]]-p[t[0]];
+    A.col(1) = p[t[2]]-p[t[0]];
+    A.col(2) = p[t[3]]-p[t[0]];
 
     Transformation R_0_2;
     helper::Decompose<Real>::polarDecomposition(A, R_0_2);
 
     type::vector<typename TetrahedralCorotationalFEMForceField<DataTypes>::TetrahedronInformation>& tetrahedronInf = *(d_tetrahedronInfo.beginEdit());
 
-    tetrahedronInf[elementIndex].rotation.transpose( R_0_2 );
+    tetrahedronInf[elementIndex].rotation = R_0_2.transpose();
 
     // positions of the deformed and displaced Tetrahedre in its frame
     type::fixed_array<Coord, 4>  deforme;
@@ -1132,7 +1132,7 @@ void TetrahedralCorotationalFEMForceField<DataTypes>::applyStiffnessPolar( Vecto
     type::vector<typename TetrahedralCorotationalFEMForceField<DataTypes>::TetrahedronInformation>& tetrahedronInf = *(d_tetrahedronInfo.beginEdit());
 
     Transformation R_0_2;
-    R_0_2.transpose( tetrahedronInf[i].rotation );
+    R_0_2 = tetrahedronInf[i].rotation.transpose();
 
     Displacement X;
     Coord x_2;
@@ -1436,14 +1436,7 @@ template <class DataTypes>
 void TetrahedralCorotationalFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrix)
 {
     StiffnessMatrix JKJt, RJKJtRt;
-    sofa::type::Mat<3, 3, Real> localMatrix(type::NOINIT);
-
-    static constexpr Transformation identity = []
-    {
-        Transformation i;
-        i.identity();
-        return i;
-    }();
+    sofa::type::Mat<3, 3, Real> localMatrix;
 
     const type::vector<TetrahedronInformation>& tetrahedronInf = d_tetrahedronInfo.getValue();
     const sofa::core::topology::BaseMeshTopology::SeqTetrahedra& tetrahedra = this->l_topology->getTetrahedra();
@@ -1453,7 +1446,7 @@ void TetrahedralCorotationalFEMForceField<DataTypes>::buildStiffnessMatrix(core:
 
     for (std::size_t tetraId = 0; tetraId != tetrahedra.size(); ++tetraId)
     {
-        const auto& rotation = method == SMALL ? identity : tetrahedronInf[tetraId].rotation;
+        const auto& rotation = method == SMALL ? Transformation::Identity() : tetrahedronInf[tetraId].rotation;
         computeStiffnessMatrix(JKJt, RJKJtRt, tetrahedronInf[tetraId].materialMatrix,
                                tetrahedronInf[tetraId].strainDisplacementTransposedMatrix, rotation);
 

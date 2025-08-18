@@ -187,7 +187,7 @@ void HexahedralFEMForceField<DataTypes>::addDForce (const core::MechanicalParams
     for(Size i = 0 ; i<this->l_topology->getNbHexahedra(); ++i)
     {
         Transformation R_0_2;
-        R_0_2.transpose(hexahedronInf[i].rotation);
+        R_0_2 = hexahedronInf[i].rotation.transpose();
 
         Displacement X;
 
@@ -412,9 +412,9 @@ void HexahedralFEMForceField<DataTypes>::computeRotationLarge( Transformation &r
 {
     edgex.normalize();
 
-    const Coord edgez = cross( edgex, edgey ).normalized();
+    const Coord edgez = type::cross( edgex, edgey ).normalized();
 
-    edgey = cross( edgez, edgex ); //edgey is unit vector because edgez and edgex are orthogonal unit vectors
+    edgey = type::cross( edgez, edgex ); //edgey is unit vector because edgez and edgex are orthogonal unit vectors
 
     r(0,0) = edgex[0];
     r(0,1) = edgex[1];
@@ -444,7 +444,7 @@ void HexahedralFEMForceField<DataTypes>::accumulateForceLarge( WDataRefVecDeriv&
 
     type::vector<typename HexahedralFEMForceField<DataTypes>::HexahedronInformation>& hexahedronInf = *(d_hexahedronInfo.beginEdit());
 
-    hexahedronInf[i].rotation.transpose(R_0_2);
+    hexahedronInf[i].rotation = R_0_2.transpose();
 
     // positions of the deformed and displaced Hexahedre in its frame
     type::Vec<8,Coord> deformed;
@@ -544,7 +544,7 @@ void HexahedralFEMForceField<DataTypes>::accumulateForcePolar(WDataRefVecDeriv& 
 
     type::vector<typename HexahedralFEMForceField<DataTypes>::HexahedronInformation>& hexahedronInf = *(d_hexahedronInfo.beginEdit());
 
-    hexahedronInf[i].rotation.transpose( R_0_2 );
+    hexahedronInf[i].rotation = R_0_2.transpose();
 
     // positions of the deformed and displaced Hexahedre in its frame
     type::Vec<8,Coord> deformed;
@@ -601,9 +601,11 @@ void HexahedralFEMForceField<DataTypes>::addKToMatrix(sofa::linearalgebra::BaseM
             for (n2=0; n2<8; n2++)
             {
                 node2 = this->l_topology->getHexahedron(e)[n2];
-                Mat33 tmp = hexahedronInf[e].rotation.multTranspose( Mat33(Coord(Ke(3*n1+0,3*n2+0),Ke(3*n1+0,3*n2+1),Ke(3*n1+0,3*n2+2)),
-                        Coord(Ke(3*n1+1,3*n2+0),Ke(3*n1+1,3*n2+1),Ke(3*n1+1,3*n2+2)),
-                        Coord(Ke(3*n1+2,3*n2+0),Ke(3*n1+2,3*n2+1),Ke(3*n1+2,3*n2+2))) ) * hexahedronInf[e].rotation;
+                Mat33 tmpKe;
+                tmpKe << Coord(Ke(3*n1+0,3*n2+0),Ke(3*n1+0,3*n2+1),Ke(3*n1+0,3*n2+2)),
+                         Coord(Ke(3*n1+1,3*n2+0),Ke(3*n1+1,3*n2+1),Ke(3*n1+1,3*n2+2)),
+                         Coord(Ke(3*n1+2,3*n2+0),Ke(3*n1+2,3*n2+1),Ke(3*n1+2,3*n2+2));
+                Mat33 tmp = hexahedronInf[e].rotation.multTranspose( tmpKe ) * hexahedronInf[e].rotation;
                 for(i=0; i<3; i++)
                     for (j=0; j<3; j++)
                         matrix->add(offset+3*node1+i, offset+3*node2+j, - tmp(i,j)*kFact);
@@ -635,10 +637,11 @@ void HexahedralFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::St
             for (sofa::Size n2 = 0; n2 < Element::size(); n2++)
             {
                 const Index node2 = hexahedra[e][n2];
-                const Mat33 tmp = hexahedronInf[e].rotation.multTranspose(
-                            Mat33(Coord(Ke(3 * n1 + 0,3 * n2 + 0), Ke(3 * n1 + 0,3 * n2 + 1), Ke(3 * n1 + 0,3 * n2 + 2)),
-                                  Coord(Ke(3 * n1 + 1,3 * n2 + 0), Ke(3 * n1 + 1,3 * n2 + 1), Ke(3 * n1 + 1,3 * n2 + 2)),
-                                  Coord(Ke(3 * n1 + 2,3 * n2 + 0), Ke(3 * n1 + 2,3 * n2 + 1), Ke(3 * n1 + 2,3 * n2 + 2))))
+                Mat33 tmpKe;
+                tmpKe<< Coord(Ke(3 * n1 + 0,3 * n2 + 0), Ke(3 * n1 + 0,3 * n2 + 1), Ke(3 * n1 + 0,3 * n2 + 2)),
+                        Coord(Ke(3 * n1 + 1,3 * n2 + 0), Ke(3 * n1 + 1,3 * n2 + 1), Ke(3 * n1 + 1,3 * n2 + 2)),
+                        Coord(Ke(3 * n1 + 2,3 * n2 + 0), Ke(3 * n1 + 2,3 * n2 + 1), Ke(3 * n1 + 2,3 * n2 + 2));
+                const Mat33 tmp = hexahedronInf[e].rotation.multTranspose(tmpKe)
                             * hexahedronInf[e].rotation;
                 dfdx(3 * node1, 3 * node2) += - tmp;
             }

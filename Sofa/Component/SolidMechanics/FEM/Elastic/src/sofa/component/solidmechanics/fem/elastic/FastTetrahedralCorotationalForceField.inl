@@ -74,16 +74,16 @@ void FastTetrahedralCorotationalForceField<DataTypes>::createTetrahedronRestInfo
     for(j=0; j<4; ++j)
     {
         if ((j%2)==0)
-            my_tinfo.shapeVector[j] = cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/(tetrahedronVolume * 6);
+            my_tinfo.shapeVector[j] = type::cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/(tetrahedronVolume * 6);
         else
-            my_tinfo.shapeVector[j] = -cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/(tetrahedronVolume * 6);
+            my_tinfo.shapeVector[j] = -type::cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/(tetrahedronVolume * 6);
     }
 
     /// compute the vertex stiffness of the linear elastic material, needed for addKToMatrix
     for(j=0; j<4; ++j)
     {
         // the linear stiffness matrix using shape vectors and Lame coefficients
-        val=mu*dot(my_tinfo.shapeVector[j],my_tinfo.shapeVector[j]);
+        val=mu*type::dot(my_tinfo.shapeVector[j],my_tinfo.shapeVector[j]);
         for(m=0; m<3; ++m)
         {
             for(n=m; n<3; ++n)
@@ -111,7 +111,7 @@ void FastTetrahedralCorotationalForceField<DataTypes>::createTetrahedronRestInfo
         my_tinfo.restEdgeVector[j]=point[l]-point[k];
 
         // the linear stiffness matrix using shape vectors and Lame coefficients
-        val=mu*dot(my_tinfo.shapeVector[l],my_tinfo.shapeVector[k]);
+        val=mu*type::dot(my_tinfo.shapeVector[l],my_tinfo.shapeVector[k]);
         for(m=0; m<3; ++m)
         {
             for(n=0; n<3; ++n)
@@ -131,9 +131,9 @@ void FastTetrahedralCorotationalForceField<DataTypes>::createTetrahedronRestInfo
         computeQRRotation(my_tinfo.restRotation,my_tinfo.restEdgeVector);
     } else 	if (m_decompositionMethod ==POLAR_DECOMPOSITION_MODIFIED) {
         Mat3x3NoInit Transformation;
-        Transformation[0]=point[1]-point[0];
-        Transformation[1]=point[2]-point[0];
-        Transformation[2]=point[3]-point[0];
+        Transformation.col(0)=point[1]-point[0];
+        Transformation.col(1)=point[2]-point[0];
+        Transformation.col(2)=point[3]-point[0];
         helper::Decompose<Real>::polarDecomposition( Transformation, my_tinfo.restRotation );
     }
 }
@@ -274,8 +274,8 @@ void FastTetrahedralCorotationalForceField<DataTypes>::computeQRRotation( Mat3x3
 
     const Coord edgex = dp[0].normalized();
           Coord edgey = dp[1];
-    const Coord edgez = cross( edgex, edgey ).normalized();
-                edgey = cross( edgez, edgex ); //edgey is unit vector because edgez and edgex are orthogonal unit vectors
+    const Coord edgez = type::cross( edgex, edgey ).normalized();
+                edgey = type::cross( edgez, edgex ); //edgey is unit vector because edgez and edgex are orthogonal unit vectors
 
     r(0,0) = edgex[0];
     r(0,1) = edgex[1];
@@ -356,9 +356,9 @@ void FastTetrahedralCorotationalForceField<DataTypes>::addForce(const sofa::core
         } 
         else if (m_decompositionMethod == POLAR_DECOMPOSITION_MODIFIED) 
         {
-            S[0]= displ[0];
-            S[1]= displ[1];
-            S[2]= displ[2];
+            S.col(0)= displ[0];
+            S.col(1)= displ[1];
+            S.col(2)= displ[2];
             helper::Decompose<Real>::polarDecomposition( S, R );
             R=R.transposed()*tetraInfo.restRotation;
         }  

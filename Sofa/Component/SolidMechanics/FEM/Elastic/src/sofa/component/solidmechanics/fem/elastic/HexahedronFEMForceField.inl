@@ -347,7 +347,7 @@ void HexahedronFEMForceField<DataTypes>::computeElementStiffness( ElementStiffne
         const bool canInvert = J_1.invert(J);
         assert(canInvert);
         SOFA_UNUSED(canInvert);
-        J_1t.transpose(J_1);
+        J_1t = J_1.transpose();
 
         dmsg_info_when(verbose) << "J = " << J << msgendl
                                 << "invJ = "  << J_1 << msgendl
@@ -383,7 +383,7 @@ void HexahedronFEMForceField<DataTypes>::computeElementStiffness( ElementStiffne
                     const bool canInvert = J_1.invert(J);
                     assert(canInvert);
                     SOFA_UNUSED(canInvert);
-                    J_1t.transpose(J_1);
+                    J_1t = J_1.transpose();
 
                     dmsg_info_when(verbose) << "J = " << J << msgendl
                                             << "invJ = "  << J_1 << msgendl
@@ -749,7 +749,7 @@ void HexahedronFEMForceField<DataTypes>::accumulateForceSmall ( WDataRefVecDeriv
         nodes[w] = p[elem[w]];
 
     // positions of the deformed and displaced Tetrahedron in its frame
-    sofa::type::fixed_array<Coord, 8> deformed;
+    type::Vec<8,Coord> deformed;
     for(int w=0; w<8; ++w)
         deformed[w] = nodes[w];
 
@@ -851,7 +851,7 @@ void HexahedronFEMForceField<DataTypes>::accumulateForceLarge( WDataRefVecDeriv 
     computeRotationLarge( _rotations[i], horizontal,vertical);
 
     // positions of the deformed and displaced Tetrahedron in its frame
-    sofa::type::fixed_array<Coord, 8> deformed;
+    type::Vec<8,Coord> deformed;
     for(int w=0; w<8; ++w)
         deformed[w] = _rotations[i] * nodes[w];
 
@@ -957,8 +957,7 @@ void HexahedronFEMForceField<DataTypes>::getNodeRotation(Transformation& R, unsi
 
     for (Index ti=0; ti<numHexa; ti++)
     {
-        Transformation R0t;
-        R0t.transpose(_initialrotations[liste_hexa[ti]]);
+        Transformation R0t = _initialrotations[liste_hexa[ti]].transpose();
         Transformation Rcur = getElementRotation(liste_hexa[ti]);
         R += Rcur * R0t;
     }
@@ -1037,7 +1036,7 @@ void HexahedronFEMForceField<DataTypes>::accumulateForcePolar( WDataRefVecDeriv 
     computeRotationPolar( _rotations[i], nodes );
 
     // positions of the deformed and displaced Tetrahedre in its frame
-    sofa::type::fixed_array<Coord, 8> deformed;
+    type::Vec<8,Coord> deformed;
     for(int j=0; j<8; ++j)
         deformed[j] = _rotations[i] * nodes[j];
 
@@ -1133,11 +1132,11 @@ void HexahedronFEMForceField<DataTypes>::addKToMatrix(sofa::linearalgebra::BaseM
             for (Element::size_type n2 = 0; n2 < Element::size(); n2++)
             {
                 const auto node2 = element[n2];
-
-                const Mat33 tmp = Rot.multTranspose( Mat33(
-                        Coord(Ke(3*n1+0,3*n2+0),Ke(3*n1+0,3*n2+1),Ke(3*n1+0,3*n2+2)),
-                        Coord(Ke(3*n1+1,3*n2+0),Ke(3*n1+1,3*n2+1),Ke(3*n1+1,3*n2+2)),
-                        Coord(Ke(3*n1+2,3*n2+0),Ke(3*n1+2,3*n2+1),Ke(3*n1+2,3*n2+2))) ) * Rot;
+                Mat33 tmpKe;
+                tmpKe << Coord(Ke(3*n1+0,3*n2+0),Ke(3*n1+0,3*n2+1),Ke(3*n1+0,3*n2+2)),
+                         Coord(Ke(3*n1+1,3*n2+0),Ke(3*n1+1,3*n2+1),Ke(3*n1+1,3*n2+2)),
+                         Coord(Ke(3*n1+2,3*n2+0),Ke(3*n1+2,3*n2+1),Ke(3*n1+2,3*n2+2));
+                const Mat33 tmp = Rot.multTranspose( tmpKe ) * Rot;
 
                 matrix->add( offset + 3 * node1, offset + 3 * node2, tmp * (-kFact));
             }
@@ -1168,11 +1167,11 @@ void HexahedronFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::St
             for (Element::size_type n2 = 0; n2 < Element::size(); n2++)
             {
                 const auto node2 = element[n2];
-
-                const Mat33 tmp = Rot.multTranspose( Mat33(
-                        Coord(Ke(3*n1+0,3*n2+0),Ke(3*n1+0,3*n2+1),Ke(3*n1+0,3*n2+2)),
-                        Coord(Ke(3*n1+1,3*n2+0),Ke(3*n1+1,3*n2+1),Ke(3*n1+1,3*n2+2)),
-                        Coord(Ke(3*n1+2,3*n2+0),Ke(3*n1+2,3*n2+1),Ke(3*n1+2,3*n2+2))) ) * Rot;
+                Mat33 tmpKe;
+                tmpKe << Coord(Ke(3*n1+0,3*n2+0),Ke(3*n1+0,3*n2+1),Ke(3*n1+0,3*n2+2)),
+                         Coord(Ke(3*n1+1,3*n2+0),Ke(3*n1+1,3*n2+1),Ke(3*n1+1,3*n2+2)),
+                         Coord(Ke(3*n1+2,3*n2+0),Ke(3*n1+2,3*n2+1),Ke(3*n1+2,3*n2+2));
+                const Mat33 tmp = Rot.multTranspose(tmpKe) * Rot;
 
                 dfdx(3 * node1, 3 * node2) += - tmp;
             }

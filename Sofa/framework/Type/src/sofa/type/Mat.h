@@ -58,10 +58,10 @@ namespace sofa::type
 
 
 
-template <int L, int C, class real>
+template <int L, int C, class real = SReal>
 using Mat = Eigen::Matrix<real, L, C, Eigen::AutoAlign | Eigen::ColMajor>;
 
-template <int L, int C, class real>
+template <int L, int C, class real = SReal>
 using MatNoInit = Eigen::Matrix<real, L, C, Eigen::AutoAlign | Eigen::ColMajor>;
 
 typedef Mat<1,1,float> Mat1x1f;

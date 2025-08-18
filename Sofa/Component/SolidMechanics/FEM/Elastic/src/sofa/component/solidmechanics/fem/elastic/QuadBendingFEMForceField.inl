@@ -450,22 +450,22 @@ void QuadBendingFEMForceField<DataTypes>::computeElementStiffness( Stiffness &K,
   type::Mat<20, 32, Real> Jb0_t;
   StrainDisplacement Jb0;
   computeBendingStrainDisplacement(Jb0, (sqrt(3))/3 , (sqrt(3))/3 , length, height);
-  Jb0_t.transpose(Jb0);
+  Jb0_t = Jb0.transpose();
   
   type::Mat<20, 32, Real> Jb1_t;
   StrainDisplacement Jb1;
   computeBendingStrainDisplacement(Jb1,  (-sqrt(3))/3 , (sqrt(3))/3 , length, height);
-  Jb1_t.transpose(Jb1);
+  Jb1_t = Jb1.transpose();
   
   type::Mat<20, 32, Real> Jb2_t;
   StrainDisplacement Jb2;
   computeBendingStrainDisplacement(Jb2, (sqrt(3))/3 , (-sqrt(3))/3 , length, height);
-  Jb2_t.transpose(Jb2);
+  Jb2_t = Jb2.transpose();
   
   type::Mat<20, 32, Real> Jb3_t;
   StrainDisplacement Jb3;
   computeBendingStrainDisplacement(Jb3, (-sqrt(3))/3 , (-sqrt(3))/3 , length, height);
-  Jb3_t.transpose(Jb3);
+  Jb3_t = Jb3.transpose();
   // Bending component of material stiffness
   MaterialStiffness Cb;
   Cb = quadInf[elementIndex].BendingmaterialMatrix ;
@@ -512,7 +512,7 @@ void QuadBendingFEMForceField<DataTypes>::computeElementStiffness( Stiffness &K,
   type::Mat<20, 32, Real> Js_t;
   StrainDisplacement Js;
   computeShearStrainDisplacement(Js, length, height /*p[idx0], p[idx1], p[idx2], p[idx3]*/);
-  Js_t.transpose(Js);
+  Js_t = Js.transpose();
   // Shear component of material stiffness
   MaterialStiffness Cs;
   Cs = quadInf[elementIndex].ShearmaterialMatrix ;
@@ -722,7 +722,7 @@ void QuadBendingFEMForceField<DataTypes>::buildStiffnessMatrix(core::behavior::S
     const auto quads = m_topology->getQuads();
     const sofa::Size nbQuads = m_topology->getNbQuads();
 
-    sofa::type::Mat<N, N, Real> localMatrix(type::NOINIT);
+    sofa::type::Mat<N, N, Real> localMatrix;
 
     for (sofa::Size i = 0; i < nbQuads; i++)
     {

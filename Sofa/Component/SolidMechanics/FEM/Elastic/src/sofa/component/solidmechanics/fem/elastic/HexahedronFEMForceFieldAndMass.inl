@@ -131,7 +131,7 @@ void HexahedronFEMForceFieldAndMass<DataTypes>::computeElementMasses(  )
 
 
 template<class DataTypes>
-void HexahedronFEMForceFieldAndMass<DataTypes>::computeElementMass( ElementMass &Mass, const type::fixed_array<Coord,8> &nodes, const Index /*elementIndice*/, SReal stiffnessFactor)
+void HexahedronFEMForceFieldAndMass<DataTypes>::computeElementMass( ElementMass &Mass, const type::Vec<8,Coord> &nodes, const Index /*elementIndice*/, SReal stiffnessFactor)
 {
     Real vol = (nodes[1]-nodes[0]).norm()*(nodes[3]-nodes[0]).norm()*(nodes[4]-nodes[0]).norm();
 
@@ -244,9 +244,10 @@ void HexahedronFEMForceFieldAndMass<DataTypes>::addMToMatrix(sofa::linearalgebra
             {
                 node2 = (*it)[n2];
 
-                Mat33 tmp = Mat33(Coord(Me(3*n1+0,3*n2+0),Me(3*n1+0,3*n2+1),Me(3*n1+0,3*n2+2)),
-                        Coord(Me(3*n1+1,3*n2+0),Me(3*n1+1,3*n2+1),Me(3*n1+1,3*n2+2)),
-                        Coord(Me(3*n1+2,3*n2+0),Me(3*n1+2,3*n2+1),Me(3*n1+2,3*n2+2)));
+                Mat33 tmp;
+                tmp << Coord(Me(3*n1+0,3*n2+0),Me(3*n1+0,3*n2+1),Me(3*n1+0,3*n2+2)),
+                       Coord(Me(3*n1+1,3*n2+0),Me(3*n1+1,3*n2+1),Me(3*n1+1,3*n2+2)),
+                       Coord(Me(3*n1+2,3*n2+0),Me(3*n1+2,3*n2+1),Me(3*n1+2,3*n2+2));
                 for(i=0; i<3; i++)
                     for (j=0; j<3; j++)
                         mat->add(offset+3*node1+i, offset+3*node2+j, tmp(i,j)*mFact);
@@ -279,9 +280,10 @@ void HexahedronFEMForceFieldAndMass<DataTypes>::buildMassMatrix(sofa::core::beha
             {
                 const int node2 = (*it)[n2];
 
-                const Mat33 tmp = Mat33(Coord(Me(3*n1+0,3*n2+0),Me(3*n1+0,3*n2+1),Me(3*n1+0,3*n2+2)),
+                Mat33 tmp;
+                tmp << Coord(Me(3*n1+0,3*n2+0),Me(3*n1+0,3*n2+1),Me(3*n1+0,3*n2+2)),
                         Coord(Me(3*n1+1,3*n2+0),Me(3*n1+1,3*n2+1),Me(3*n1+1,3*n2+2)),
-                        Coord(Me(3*n1+2,3*n2+0),Me(3*n1+2,3*n2+1),Me(3*n1+2,3*n2+2)));
+                        Coord(Me(3*n1+2,3*n2+0),Me(3*n1+2,3*n2+1),Me(3*n1+2,3*n2+2));
                 matrices->add(3 * node1, 3 * node2, tmp);
             }
         }

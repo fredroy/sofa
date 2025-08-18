@@ -208,12 +208,20 @@ auto multDiagonal(const Eigen::MatrixBase<Derived>& m) const noexcept
 template <typename Derived>
 void getsub(int L0, int C0, Eigen::MatrixBase<Derived>& m) const noexcept
 {
-    m = (*this)(seq(L0, Eigen::MatrixBase<Derived>::RowsAtCompileTime), seq(C0, Eigen::MatrixBase<Derived>::ColsAtCompileTime));
+    m = (*this)(seq(L0, Derived::RowsAtCompileTime), seq(C0, Derived::ColsAtCompileTime));
 }
 
 void getsub(int L0, int C0, Matrix::Scalar& m) const noexcept
 {
     m = (*this)(L0,C0);
+}
+
+template <typename Derived>
+void setsub(Size L0, Size C0, const Eigen::MatrixBase<Derived>& m) noexcept
+{
+    for (Size i=0; i<Derived::RowsAtCompileTime; i++)
+        for (Size j=0; j<Derived::ColsAtCompileTime; j++)
+            (*this)(i+L0,j+C0) = m(i,j);
 }
 
 /// for square matrices

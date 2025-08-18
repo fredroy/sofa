@@ -180,11 +180,11 @@ void TriangularAnisotropicFEMForceField<DataTypes>::computeMaterialStiffness(int
     Q22 = young2Array[index]/(1-elementPoissonRatio*poisson2Array[index]);
     Q66 = (Real)(elementYoungModulus / (2.0*(1 + elementPoissonRatio)));
 
-    T[0] = (initialPoints)[v2]-(initialPoints)[v1];
-    T[1] = (initialPoints)[v3]-(initialPoints)[v1];
-    T[2] = cross(T[0], T[1]);
+    T.col(0) = (initialPoints)[v2]-(initialPoints)[v1];
+    T.col(1) = (initialPoints)[v3]-(initialPoints)[v1];
+    T.col(2) = type::cross(T.col(0), T.col(1));
 
-    if (T[2] == Coord())
+    if (T.col(2) == Coord())
     {
         msg_error() << "Cannot compute material stiffness for a flat triangle. Abort computation. ";
         return;
@@ -194,7 +194,7 @@ void TriangularAnisotropicFEMForceField<DataTypes>::computeMaterialStiffness(int
     {
         Coord tcenter = ((initialPoints)[v1]+(initialPoints)[v2]+(initialPoints)[v3])*(Real)(1.0/3.0);
         Coord fcenter = d_fiberCenter.getValue()[0];
-        fiberDirGlobal = cross(T[2], fcenter-tcenter);  // was fiberDir
+        fiberDirGlobal = type::cross(T.col(2), fcenter-tcenter);  // was fiberDir
     }
     else // for unidirectional fibers
     {
@@ -230,13 +230,13 @@ void TriangularAnisotropicFEMForceField<DataTypes>::computeMaterialStiffness(int
         fiberDirLocal.normalize();
     }
 
-    T[0] = (initialPoints)[v2]-(initialPoints)[v1];
-    T[1] = (initialPoints)[v3]-(initialPoints)[v1];
-    T[2] = cross(T[0], T[1]);
-    T[1] = cross(T[2], T[0]);
-    T[0].normalize();
-    T[1].normalize();
-    T[2].normalize();
+    T.col(0) = (initialPoints)[v2]-(initialPoints)[v1];
+    T.col(1) = (initialPoints)[v3]-(initialPoints)[v1];
+    T.col(2) = type::cross(T.col(0), T.col(1));
+    T.col(1) = type::cross(T.col(2), T.col(0));
+    T.col(0).normalize();
+    T.col(1).normalize();
+    T.col(2).normalize();
     T.transpose();
     const bool canInvert = Tinv.invert(T);
     assert(canInvert);

@@ -62,8 +62,8 @@ constexpr void TriangleFEMUtils<DataTypes>::computeRotationLarge(Transformation&
 {
     const Coord edgex = (pB - pA).normalized();
     Coord edgey = pC - pA;
-    const Coord edgez = cross(edgex, edgey).normalized();
-    edgey = cross(edgez, edgex); //edgey is unit vector because edgez and edgex are orthogonal unit vectors
+    const Coord edgez = type::cross(edgex, edgey).normalized();
+    edgey = type::cross(edgez, edgex); //edgey is unit vector because edgez and edgex are orthogonal unit vectors
 
     r(0,0) = edgex[0];
     r(0,1) = edgex[1];
@@ -130,7 +130,7 @@ constexpr void TriangleFEMUtils<DataTypes>::computeForceLarge(Displacement& F, c
 template<class DataTypes>
 constexpr void TriangleFEMUtils<DataTypes>::computeStrainDisplacementGlobal(StrainDisplacement& J, const Coord& pA, const Coord& pB, const Coord& pC) const
 {
-    const Coord ab_cross_ac = cross(pB - pA, pC - pA);
+    const Coord ab_cross_ac = type::cross(pB - pA, pC - pA);
     const Real determinant = ab_cross_ac.norm();
     
     if (fabs(determinant) < std::numeric_limits<Real>::epsilon())

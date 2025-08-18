@@ -273,7 +273,8 @@ void HexahedralFEMForceFieldAndMass<DataTypes>::addMToMatrix(sofa::linearalgebra
             {
                 node2 = hexahedra[e][n2];
 
-                Mat33 tmp = Mat33(Coord(Me(3*n1+0,3*n2+0),Me(3*n1+0,3*n2+1),Me(3*n1+0,3*n2+2)),
+                Mat33 tmp;
+                tmp << (Coord(Me(3*n1+0,3*n2+0),Me(3*n1+0,3*n2+1),Me(3*n1+0,3*n2+2)),
                         Coord(Me(3*n1+1,3*n2+0),Me(3*n1+1,3*n2+1),Me(3*n1+1,3*n2+2)),
                         Coord(Me(3*n1+2,3*n2+0),Me(3*n1+2,3*n2+1),Me(3*n1+2,3*n2+2)));
                 for(i=0; i<3; i++)
@@ -313,9 +314,12 @@ void HexahedralFEMForceFieldAndMass<DataTypes>::addKToMatrix(sofa::linearalgebra
             {
                 node2 = hexa[n2];
 
-                Mat33 tmp = it->rotation.multTranspose( Mat33(Coord(Ke(3*n1+0,3*n2+0),Ke(3*n1+0,3*n2+1),Ke(3*n1+0,3*n2+2)),
-                        Coord(Ke(3*n1+1,3*n2+0),Ke(3*n1+1,3*n2+1),Ke(3*n1+1,3*n2+2)),
-                        Coord(Ke(3*n1+2,3*n2+0),Ke(3*n1+2,3*n2+1),Ke(3*n1+2,3*n2+2))) ) * it->rotation;
+                Mat33 tmpKe;
+                tmpKe << Coord{Ke(3*n1+0,3*n2+0),Ke(3*n1+0,3*n2+1),Ke(3*n1+0,3*n2+2)},
+                         Coord{Ke(3*n1+1,3*n2+0),Ke(3*n1+1,3*n2+1),Ke(3*n1+1,3*n2+2)},
+                         Coord{Ke(3*n1+2,3*n2+0),Ke(3*n1+2,3*n2+1),Ke(3*n1+2,3*n2+2)};
+
+                Mat33 tmp = it->rotation.multTranspose(tmpKe) * it->rotation;
                 for(i=0; i<3; i++)
                     for (j=0; j<3; j++)
                         matrix->add(offset+3*node1+i, offset+3*node2+j, - tmp(i,j)*kFact);
@@ -364,17 +368,20 @@ void HexahedralFEMForceFieldAndMass<DataTypes>::addMBKToMatrix (const core::Mech
                 node2 = hexa[n2];
 
                 // add M to matrix
-                Mat33 tmp = Mat33 ( Coord ( Me(3*n1+0,3*n2+0), Me(3*n1+0,3*n2+1), Me(3*n1+0,3*n2+2) ),
-                        Coord ( Me(3*n1+1,3*n2+0), Me(3*n1+1,3*n2+1), Me(3*n1+1,3*n2+2) ),
-                        Coord ( Me(3*n1+2,3*n2+0), Me(3*n1+2,3*n2+1), Me(3*n1+2,3*n2+2) ) );
+                Mat33 tmp;
+                tmp <<  Coord{ Me(3*n1+0,3*n2+0), Me(3*n1+0,3*n2+1), Me(3*n1+0,3*n2+2) },
+                        Coord{ Me(3*n1+1,3*n2+0), Me(3*n1+1,3*n2+1), Me(3*n1+1,3*n2+2) },
+                        Coord{ Me(3*n1+2,3*n2+0), Me(3*n1+2,3*n2+1), Me(3*n1+2,3*n2+2) };
                 for ( i = 0; i < 3; i++ )
                     for ( j = 0; j < 3; j++ )
                         r.matrix->add ( r.offset + 3*node1 + i, r.offset + 3*node2 + j, tmp(i,j)*mFactor);
 
                 // add K to matrix
-                tmp = it->rotation.multTranspose ( Mat33 ( Coord ( Ke(3*n1+0,3*n2+0), Ke(3*n1+0,3*n2+1), Ke(3*n1+0,3*n2+2) ),
-                        Coord ( Ke(3*n1+1,3*n2+0), Ke(3*n1+1,3*n2+1), Ke(3*n1+1,3*n2+2) ),
-                        Coord ( Ke(3*n1+2,3*n2+0), Ke(3*n1+2,3*n2+1), Ke(3*n1+2,3*n2+2) ) ) ) * it->rotation;
+                Mat33 tmpKe;
+                tmpKe << Coord{ Ke(3*n1+0,3*n2+0), Ke(3*n1+0,3*n2+1), Ke(3*n1+0,3*n2+2) },
+                         Coord{ Ke(3*n1+1,3*n2+0), Ke(3*n1+1,3*n2+1), Ke(3*n1+1,3*n2+2) },
+                         Coord{ Ke(3*n1+2,3*n2+0), Ke(3*n1+2,3*n2+1), Ke(3*n1+2,3*n2+2) };
+                tmp = it->rotation.multTranspose ( tmpKe ) * it->rotation;
                 for ( i = 0; i < 3; i++ )
                     for ( j = 0; j < 3; j++ )
                         r.matrix->add ( r.offset + 3*node1 + i, r.offset + 3*node2 + j, - tmp(i,j)*kFactor);
