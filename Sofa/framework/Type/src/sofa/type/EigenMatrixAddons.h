@@ -55,11 +55,6 @@ bool invert(const Matrix& mat)
 //    return this->transpose();
 //}
 
-auto norm2() const
-{
-    return this->squaredNorm();
-}
-
 auto& x()
 {
     if constexpr (IsVectorAtCompileTime && static_size >= 1)

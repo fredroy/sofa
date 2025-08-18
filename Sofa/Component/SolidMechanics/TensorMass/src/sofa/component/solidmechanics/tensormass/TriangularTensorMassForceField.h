@@ -48,21 +48,7 @@ public:
     typedef core::objectmodel::Data<VecCoord>    DataVecCoord;
 
     using Index = sofa::Index;
-
-    class Mat3 : public sofa::type::fixed_array<Deriv,3>
-    {
-    public:
-        Deriv operator*(const Deriv& v)
-        {
-            return Deriv((*this)[0]*v,(*this)[1]*v,(*this)[2]*v);
-        }
-        Deriv transposeMultiply(const Deriv& v)
-        {
-            return Deriv(v[0]*((*this)[0])[0]+v[1]*((*this)[1])[0]+v[2]*((*this)[2][0]),
-                    v[0]*((*this)[0][1])+v[1]*((*this)[1][1])+v[2]*((*this)[2][1]),
-                    v[0]*((*this)[0][2])+v[1]*((*this)[1][2])+v[2]*((*this)[2][2]));
-        }
-    };
+    using Mat3 = type::Mat<3,3, Real>;
 
 protected:
 

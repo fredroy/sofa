@@ -45,7 +45,7 @@ void TriangularTensorMassForceField<DataTypes>::applyEdgeCreation(Index /*edgeIn
     {
         for (v=0; v<3; ++v)
         {
-            ei.DfDx[u][v]=0;
+            ei.DfDx(u,v)=0;
         }
     }
 }
@@ -128,7 +128,7 @@ void TriangularTensorMassForceField<DataTypes>::applyTriangleCreation(const sofa
                 {
                     for (v=0; v<3; ++v)
                     {
-                        m[v][u]+= lambdastar*dpl[u]*dpk[v]+mustar*dpk[u]*dpl[v];
+                        m(u,v)+= lambdastar*dpl[u]*dpk[v]+mustar*dpk[u]*dpl[v];
                     }
                     m(u,u)+=val1;
                 }
@@ -212,7 +212,7 @@ void TriangularTensorMassForceField<DataTypes>::applyTriangleDestruction(const s
                 {
                     for (v=0; v<3; ++v)
                     {
-                        m[v][u]-= lambdastar*dpl[u]*dpk[v]+mustar*dpk[u]*dpl[v];
+                        m(v,u)-= lambdastar*dpl[u]*dpk[v]+mustar*dpk[u]*dpl[v];
                     }
                     m(u,u)-=val1;
                 }
@@ -345,7 +345,7 @@ void TriangularTensorMassForceField<DataTypes>::addForce(const core::MechanicalP
         dp = dp1-dp0;
 
         f[v1]+=einfo->DfDx*dp;
-        f[v0]-=einfo->DfDx.transposeMultiply(dp);
+        f[v0]-=einfo->DfDx.multTranspose(dp);
     }
 
     d_edgeInfo.endEdit();
@@ -378,7 +378,7 @@ void TriangularTensorMassForceField<DataTypes>::addDForce(const core::Mechanical
         dp = dp1-dp0;
 
         df[v1]+= (einfo->DfDx*dp) * kFactor;
-        df[v0]-= (einfo->DfDx.transposeMultiply(dp)) * kFactor;
+        df[v0]-= (einfo->DfDx.multTranspose(dp)) * kFactor;
     }
 
     d_edgeInfo.endEdit();

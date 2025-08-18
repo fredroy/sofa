@@ -86,14 +86,14 @@ void TetrahedralTensorMassForceField<DataTypes>::applyTetrahedronCreation(const 
         for(j=0; j<4; ++j)
             point[j]=(restPosition)[tetra[j]];
         /// compute 6 times the rest volume
-        volume=dot(cross(point[1]-point[0],point[2]-point[0]),point[0]-point[3]);
+        volume = sofa::geometry::Tetrahedron::volume(point[0], point[1], point[2], point[3]);
         // store shape vectors
         for(j=0; j<4; ++j)
         {
             if ((j%2)==0)
-                shapeVector[j]=cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/volume;
+                shapeVector[j]=type::cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/volume;
             else
-                shapeVector[j]= -cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/volume;
+                shapeVector[j]= -type::cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/volume;
         }
 
         lambdastar=lambda*fabs(volume)/6;
@@ -108,7 +108,7 @@ void TetrahedralTensorMassForceField<DataTypes>::applyTetrahedronCreation(const 
 
             auto& m = edgeData[te[j]].DfDx;
 
-            val1= dot(shapeVector[k],shapeVector[l])*mustar;
+            val1= type::dot(shapeVector[k],shapeVector[l])*mustar;
 
             // print if obtuse tetrahedron along that edge
             msg_info_when(val1 < 0) << "negative cotangent[" << tetrahedronAdded[tetraId] << "][" << j << "]";
@@ -167,14 +167,14 @@ void TetrahedralTensorMassForceField<DataTypes>::applyTetrahedronDestruction(con
         for(j=0; j<4; ++j)
             point[j]=(restPosition)[t[j]];
         /// compute 6 times the rest volume
-        volume=dot(cross(point[1]-point[0],point[2]-point[0]),point[0]-point[3]);
+        volume=type::dot(type::cross(point[1]-point[0],point[2]-point[0]),point[0]-point[3]);
         // store shape vectors
         for(j=0; j<4; ++j)
         {
             if ((j%2)==0)
-                shapeVector[j]=cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/volume;
+                shapeVector[j]=type::cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/volume;
             else
-                shapeVector[j]= -cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/volume;
+                shapeVector[j]= -type::cross(point[(j+2)%4] - point[(j+1)%4],point[(j+3)%4] - point[(j+1)%4])/volume;
         }
 
         lambdastar=lambda*fabs(volume)/6;
@@ -189,7 +189,7 @@ void TetrahedralTensorMassForceField<DataTypes>::applyTetrahedronDestruction(con
 
             auto& m = edgeData[te[j]].DfDx;
 
-            val1= dot(shapeVector[k],shapeVector[l])*mustar;
+            val1= type::dot(shapeVector[k],shapeVector[l])*mustar;
             // print if obtuse tetrahedron along that edge
             msg_info_when(val1<0) <<"negative cotangent["<<tetrahedronRemoved[i]<<"]["<<j<<"]" ;
 
@@ -364,9 +364,9 @@ SReal  TetrahedralTensorMassForceField<DataTypes>::getPotentialEnergy(const core
         dp1=x[v1]-_initialPoints[v1];
         dp = dp1-dp0;
         force=einfo->DfDx*dp;
-        energy+=dot(force,dp1);
+        energy+=type::dot(force,dp1);
         force=einfo->DfDx.multTranspose(dp);
-        energy-=dot(force,dp0);
+        energy-=type::dot(force,dp0);
     }
 
     energy/=-2.0;
@@ -464,12 +464,12 @@ void TetrahedralTensorMassForceField<DataTypes>::buildStiffnessMatrix(sofa::core
         const unsigned p1 = Deriv::total_size * edge[1];
 
         const auto& localDfdx = edgeInf[i].DfDx;
-        const auto localDfdx_T = edgeInf[i].DfDx.transposed();
+        const auto localDfdx_T = edgeInf[i].DfDx.transpose();
 
-        dfdx(p0, p0) +=  localDfdx_T;
-        dfdx(p0, p1) += -localDfdx_T;
-        dfdx(p1, p0) += -localDfdx;
-        dfdx(p1, p1) +=  localDfdx;
+        dfdx(p0, p0) +=  localDfdx_T.eval();
+        dfdx(p0, p1) += (-localDfdx_T).eval();
+        dfdx(p1, p0) += (-localDfdx_T).eval();
+        dfdx(p1, p1) +=  localDfdx.eval();
     }
 }
 
