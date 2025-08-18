@@ -982,23 +982,25 @@ void NonUniformHexahedralFEMForceFieldAndMass<DataTypes>::addMBKdx(const core::M
             const ElementStiffness &Ke = hexahedronInf[e].stiffness;
             const Mat33& Re = hexahedronInf[e].rotation;
             Mat33 Ret = Re.transposed();
-            ElementStiffness MBKe(0.);
+            ElementStiffness MBKe;
+            MBKe.Zero();
 
             for ( unsigned n1 = 0; n1 < 8; n1++ )
             {
                 for (unsigned n2=0; n2<8; n2++)
                 {
                     // add M to matrix
-                    Mat33 tmp( Deriv ( Me(3*n1+0,3*n2+0)*mFactor, Me(3*n1+0,3*n2+1)*mFactor, Me(3*n1+0,3*n2+2)*mFactor ),
+                    Mat33 tmp;
+                    tmp << Deriv ( Me(3*n1+0,3*n2+0)*mFactor, Me(3*n1+0,3*n2+1)*mFactor, Me(3*n1+0,3*n2+2)*mFactor ),
                             Deriv ( Me(3*n1+1,3*n2+0)*mFactor, Me(3*n1+1,3*n2+1)*mFactor, Me(3*n1+1,3*n2+2)*mFactor ),
-                            Deriv ( Me(3*n1+2,3*n2+0)*mFactor, Me(3*n1+2,3*n2+1)*mFactor, Me(3*n1+2,3*n2+2)*mFactor )
-                             );
+                            Deriv ( Me(3*n1+2,3*n2+0)*mFactor, Me(3*n1+2,3*n2+1)*mFactor, Me(3*n1+2,3*n2+2)*mFactor );
 
+                    Mat33 tmpKe;
+                    tmpKe << Deriv ( Ke(3*n1+0,3*n2+0)*kFactor, Ke(3*n1+0,3*n2+1)*kFactor, Ke(3*n1+0,3*n2+2)*kFactor ),
+                             Deriv ( Ke(3*n1+1,3*n2+0)*kFactor, Ke(3*n1+1,3*n2+1)*kFactor, Ke(3*n1+1,3*n2+2)*kFactor ),
+                             Deriv ( Ke(3*n1+2,3*n2+0)*kFactor, Ke(3*n1+2,3*n2+1)*kFactor, Ke(3*n1+2,3*n2+2)*kFactor );
                     // sub K to matrix
-                    tmp -= Mat33(
-                            Deriv ( Ke(3*n1+0,3*n2+0)*kFactor, Ke(3*n1+0,3*n2+1)*kFactor, Ke(3*n1+0,3*n2+2)*kFactor ),
-                            Deriv ( Ke(3*n1+1,3*n2+0)*kFactor, Ke(3*n1+1,3*n2+1)*kFactor, Ke(3*n1+1,3*n2+2)*kFactor ),
-                            Deriv ( Ke(3*n1+2,3*n2+0)*kFactor, Ke(3*n1+2,3*n2+1)*kFactor, Ke(3*n1+2,3*n2+2)*kFactor ) );
+                    tmp -= tmpKe;
 
                     // rotate the matrix
                     tmp = Re * tmp * Ret;

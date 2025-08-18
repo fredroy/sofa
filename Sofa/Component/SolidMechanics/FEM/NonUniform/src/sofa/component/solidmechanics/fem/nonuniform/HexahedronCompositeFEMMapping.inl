@@ -148,9 +148,9 @@ void HexahedronCompositeFEMMapping<BasicMapping>::init()
         for(int w=0; w<8; ++w)
         {
             Weight W;
-            W[0] = _forcefield->_finalWeights[i].second[ w*3   ];
-            W[1] = _forcefield->_finalWeights[i].second[ w*3+1 ];
-            W[2] = _forcefield->_finalWeights[i].second[ w*3+2 ];
+            W << _forcefield->_finalWeights[i].second.col(w*3),
+                 _forcefield->_finalWeights[i].second.col(w*3+1),
+                 _forcefield->_finalWeights[i].second.col(w*3+2);
 
             _finestWeights[ finehexa[w] ][_forcefield->_finalWeights[i].first] =  W ;
         }
@@ -229,7 +229,11 @@ void HexahedronCompositeFEMMapping<BasicMapping>::apply( const sofa::core::Mecha
 // 			meanRotation += _rotations[ _finestWeights(i,j).first ];
             Transformation& rotation = _rotations[(*it).first ];
 
-            _qFine[i] += rotation.multTranspose( _qFine0[i] + (*it).second * coarseDisplacements[ (*it).first ] );
+            const auto tmp1 = coarseDisplacements[ (*it).first ]; // tmp1 = vec<24>
+            const auto tmp2 = (*it).second * tmp1; // Mat<3,24> *  Mat<3,24>::Line aka vec<24> (Multiplication operator Matrix * Line) -> tmp2 = Vec3
+            const auto tmp3 = _qFine0[i] +  tmp2; // Vec3+Vec3
+
+            _qFine[i] += rotation.multTranspose( tmp3  ); // Multiplication of the transposed Matrix * Column, rotation = Mat33, Col Vec3 -> Vec3
         }
 // 		meanRotation /= _finestWeights[i].size(); meanRotation.toMatrix( meanRotations[i] );
         _qFine[i] /= _finestWeights[i].size();

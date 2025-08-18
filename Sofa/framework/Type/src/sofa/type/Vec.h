@@ -58,11 +58,11 @@ namespace // anonymous
 //struct NoInit {};
 //constexpr NoInit NOINIT;
 
-template < int N, typename ValueType>
+template < int N, typename ValueType = SReal>
 using Vec = Eigen::Matrix<ValueType, N, 1, Eigen::ColMajor>;
 
-template < int N, typename ValueType>
-using VecNoInit = Eigen::Matrix<ValueType, N, 1, Eigen::ColMajor>;
+template < int N, typename ValueType = SReal>
+using VecNoInit = Vec<N, ValueType>;
 
 
 typedef Vec<1,float> Vec1f;

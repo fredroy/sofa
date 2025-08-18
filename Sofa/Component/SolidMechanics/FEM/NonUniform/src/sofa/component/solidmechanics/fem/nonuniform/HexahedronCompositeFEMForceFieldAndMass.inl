@@ -467,7 +467,7 @@ void HexahedronCompositeFEMForceFieldAndMass<T>::computeMechanicalMatricesByCond
             //Get the 8 indices of the coarser Hexa
             const auto& points = this->_sparseGrid->getHexahedra()[i];
             //Get the 8 points of the coarser Hexa
-            type::fixed_array<Coord,8> nodes;
+            type::Vec<8, Coord> nodes;
 
             for (unsigned int k=0; k<8; ++k) nodes[k] =  this->_sparseGrid->getPointPos(points[k]);
 
@@ -720,7 +720,7 @@ void HexahedronCompositeFEMForceFieldAndMass<T>::computeMechanicalMatricesDirect
     Coord a = this->_sparseGrid->getPointPos(coarsehexa[0]);
     Coord b = this->_sparseGrid->getPointPos(coarsehexa[6]);
     Coord dx( b[0]-a[0],0,0),dy( 0,b[1]-a[1],0), dz( 0,0,b[2]-a[2]);
-    Coord inv_d2( 1.0f/(dx*dx),1.0f/(dy*dy),1.0f/(dz*dz) );
+    Coord inv_d2( 1.0f/type::dot(dx,dx),1.0f/type::dot(dy,dy),1.0f/type::dot(dz,dz) );
     for( auto it = map_idxq_idxass.begin(); it!=map_idxq_idxass.end(); ++it)
     {
         Index localidx = (*it).second; // indice du noeud fin dans l'assemblage
@@ -739,9 +739,9 @@ void HexahedronCompositeFEMForceFieldAndMass<T>::computeMechanicalMatricesDirect
             // find barycentric coord
             Coord p = finestSparseGrid->getPointPos( (*it).first ) - a;
 
-            Real fx = p*dx*inv_d2[0];
-            Real fy = p*dy*inv_d2[1];
-            Real fz = p*dz*inv_d2[2];
+            Real fx = type::dot(p,dx)*inv_d2[0];
+            Real fy = type::dot(p,dy)*inv_d2[1];
+            Real fz = type::dot(p,dz)*inv_d2[2];
 
 
             type::fixed_array<Real,8> baryCoefs;
@@ -990,7 +990,7 @@ void HexahedronCompositeFEMForceFieldAndMass<T>::computeMechanicalMatricesRecurs
         for(int i=0; i<27-8; ++i)
         {
             for(int m=0; m<3; ++m)
-                Ainvf(i*3+m) = - Ainv.line( i*3+m );
+                Ainvf.row(i*3+m) = - Ainv.row( i*3+m );
         }
 
         type::Mat<(27-8)*3, 8*3, Real> W;
@@ -1003,9 +1003,9 @@ void HexahedronCompositeFEMForceFieldAndMass<T>::computeMechanicalMatricesRecurs
             int idx = i/3;
             int mod = i%3;
             if( IS_CONSTRAINED_27[idx] )
-                WB( i )[ FineHexa_FineNode_IndiceForCutAssembling_27[idx]*3+mod ] = 1.0;
+                WB.row( i )[ FineHexa_FineNode_IndiceForCutAssembling_27[idx]*3+mod ] = 1.0;
             else
-                WB( i ) = W( FineHexa_FineNode_IndiceForCutAssembling_27[idx]*3+mod );
+                WB.row( i ) = W.row( FineHexa_FineNode_IndiceForCutAssembling_27[idx]*3+mod );
         }
 
         // apply the mask to take only concerned values (an edge stays an edge, a face stays a face, if corner=1 opposite borders=0....)

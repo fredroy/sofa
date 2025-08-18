@@ -62,7 +62,7 @@ template <int L, int C, class real = SReal>
 using Mat = Eigen::Matrix<real, L, C, Eigen::AutoAlign | Eigen::ColMajor>;
 
 template <int L, int C, class real = SReal>
-using MatNoInit = Eigen::Matrix<real, L, C, Eigen::AutoAlign | Eigen::ColMajor>;
+using MatNoInit = Mat<L, C, real>;
 
 typedef Mat<1,1,float> Mat1x1f;
 typedef Mat<1,1,double> Mat1x1d;
