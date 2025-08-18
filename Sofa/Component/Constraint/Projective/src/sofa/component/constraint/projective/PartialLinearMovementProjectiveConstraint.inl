@@ -498,8 +498,8 @@ void PartialLinearMovementProjectiveConstraint<DataTypes>::draw(const core::visu
         {
             for (SetIndexArray::const_iterator it = indices.begin(); it != indices.end(); ++it)
             {
-                const type::Vec3 v0 { DataTypes::getCPos(x0[*it]) + DataTypes::getDPos(keyMovements[i]) };
-                const type::Vec3 v1 { DataTypes::getCPos(x0[*it]) + DataTypes::getDPos(keyMovements[i + 1]) };
+                const type::Vec3 v0 { type::toVec3(DataTypes::getCPos(x0[*it]) + DataTypes::getDPos(keyMovements[i])) };
+                const type::Vec3 v1 { type::toVec3(DataTypes::getCPos(x0[*it]) + DataTypes::getDPos(keyMovements[i + 1])) };
 
                 vertices.push_back(v0);
                 vertices.push_back(v1);
@@ -515,7 +515,7 @@ void PartialLinearMovementProjectiveConstraint<DataTypes>::draw(const core::visu
         const SetIndexArray & indices = d_indices.getValue();
         for (SetIndexArray::const_iterator it = indices.begin(); it != indices.end(); ++it)
         {
-            point = DataTypes::getCPos(x[*it]);
+            point = type::toVec3(DataTypes::getCPos(x[*it]));
             vertices.push_back(point);
         }
         vparams->drawTool()->drawPoints(vertices, 10, color);

@@ -215,7 +215,9 @@ void DirectionProjectiveConstraint<DataTypes>::projectPosition(const core::Mecha
         // replace the point with its projection to the line
 
         const CPos xi = DataTypes::getCPos( x[indices[i]] );
-        DataTypes::setCPos( x[indices[i]], m_origin[i] + n * ((xi-m_origin[i])*n) );
+        const auto xi_sub_origin = xi-m_origin[i];
+        const auto dot_xi_sub_origin_n = type::dot(xi_sub_origin, n);
+        DataTypes::setCPos( x[indices[i]], m_origin[i] + n * (dot_xi_sub_origin_n) );
     }
 
     xData.endEdit();
@@ -253,7 +255,7 @@ void DirectionProjectiveConstraint<DataTypes>::draw(const core::visual::VisualPa
         sofa::type::Vec3 point;
         for (unsigned int index : indices)
         {
-            point = DataTypes::getCPos(x[index]);
+            point = type::toVec3(DataTypes::getCPos(x[index]));
             points.push_back(point);
         }
         vparams->drawTool()->drawPoints(points, 10, sofa::type::RGBAColor(1,0.5,0.5,1));
@@ -264,7 +266,7 @@ void DirectionProjectiveConstraint<DataTypes>::draw(const core::visual::VisualPa
         sofa::type::Vec3 point;
         for (unsigned int index : indices)
         {
-            point = DataTypes::getCPos(x[index]);
+            point = type::toVec3(DataTypes::getCPos(x[index]));
             points.push_back(point);
         }
         vparams->drawTool()->drawSpheres(points, (float)d_drawSize.getValue(), sofa::type::RGBAColor(1.0f, 0.35f, 0.35f, 1.0f));

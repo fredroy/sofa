@@ -220,7 +220,8 @@ void LineProjectiveConstraint<DataTypes>::projectPosition(const core::Mechanical
         // replace the point with its projection to the line
 
         const CPos xi = DataTypes::getCPos( x[indices[i]] );
-        DataTypes::setCPos( x[indices[i]], o + n * (type::dot(xi-o).eval(),n) );
+        const auto x_sub_io= (xi-o).eval();
+        DataTypes::setCPos( x[indices[i]], o + n * (type::dot(x_sub_io,n)) );
     }
 
     xData.endEdit();
@@ -262,7 +263,7 @@ void LineProjectiveConstraint<DataTypes>::draw(const core::visual::VisualParams*
                 it != indices.end();
                 ++it)
         {
-            point = DataTypes::getCPos(x[*it]);
+            point = type::toVec3(DataTypes::getCPos(x[*it]));
             points.push_back(point);
         }
         vparams->drawTool()->drawPoints(points, 10, sofa::type::RGBAColor(1,0.5,0.5,1));
@@ -273,7 +274,7 @@ void LineProjectiveConstraint<DataTypes>::draw(const core::visual::VisualParams*
         sofa::type::Vec3 point;
         for (unsigned int index : indices)
         {
-            point = DataTypes::getCPos(x[index]);
+            point = type::toVec3(DataTypes::getCPos(x[index]));
             points.push_back(point);
         }
         vparams->drawTool()->drawSpheres(points, (float)d_drawSize.getValue(), sofa::type::RGBAColor(1.0f, 0.35f, 0.35f, 1.0f));

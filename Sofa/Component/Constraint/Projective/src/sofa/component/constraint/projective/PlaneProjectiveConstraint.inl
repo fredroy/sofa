@@ -216,7 +216,12 @@ void PlaneProjectiveConstraint<DataTypes>::projectPosition(const core::Mechanica
         // replace the point with its projection to the plane
 //        x[indices[i]] -= n * ((x[indices[i]]-o)*n);
         const CPos xi = DataTypes::getCPos( x[indices[i]] );
-        DataTypes::setCPos( x[indices[i]], xi - n * ((xi-o)*n) );
+
+        const auto xi_sub_o= (xi-o).eval();
+        const auto dot_xi_sub_o_n = type::dot(xi_sub_o,n);
+        DataTypes::setCPos( x[indices[i]], xi - n * dot_xi_sub_o_n );
+
+        //DataTypes::setCPos( x[indices[i]], xi - n * ((xi-o)*n) );
     }
 
     xData.endEdit();
@@ -251,7 +256,7 @@ void PlaneProjectiveConstraint<DataTypes>::draw(const core::visual::VisualParams
         sofa::type::Vec3 point;
         for (unsigned int index : indices)
         {
-            point = DataTypes::getCPos(x[index]);
+            point = type::toVec3(DataTypes::getCPos(x[index]));
             points.push_back(point);
         }
         vparams->drawTool()->drawPoints(points, 10, sofa::type::RGBAColor(1,0.5,0.5,1));
@@ -263,7 +268,7 @@ void PlaneProjectiveConstraint<DataTypes>::draw(const core::visual::VisualParams
 
         for (unsigned int index : indices)
         {
-            point = DataTypes::getCPos(x[index]);
+            point = type::toVec3(DataTypes::getCPos(x[index]));
             points.push_back(point);
         }
         vparams->drawTool()->drawSpheres(points, (float)d_drawSize.getValue(), sofa::type::RGBAColor(1.0f, 0.35f, 0.35f, 1.0f));

@@ -448,8 +448,8 @@ void LinearVelocityProjectiveConstraint<TDataTypes>::draw(const core::visual::Vi
             const typename DataTypes::CPos& cpos0 = DataTypes::getCPos(p0);
             const typename DataTypes::CPos& cpos1 = DataTypes::getCPos(p1);
 
-            vertices.push_back(sofa::type::Vec3(cpos0));
-            vertices.push_back(sofa::type::Vec3(cpos1));
+            vertices.push_back(sofa::type::toVec3(cpos0));
+            vertices.push_back(sofa::type::toVec3(cpos1));
         }
 
     }

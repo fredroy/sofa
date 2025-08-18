@@ -316,7 +316,7 @@ void AttachProjectiveConstraint<DataTypes>::projectPosition(const core::Mechanic
             Coord p = res1[indices1[i]];
             sofa::type::Vec<3,Real> p3d;
             DataTypes::get(p3d[0],p3d[1],p3d[2],p);
-            lastDist[i] = (Real)( (p3d-f_lastPos.getValue())*f_lastDir.getValue());
+            lastDist[i] = (Real)(type::dot(p3d - f_lastPos.getValue(),f_lastDir.getValue()));
             if (lastDist[i] > 0.0)
             {
                 if (clamp)

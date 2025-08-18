@@ -463,7 +463,7 @@ void LinearMovementProjectiveConstraint<DataTypes>::draw(const core::visual::Vis
         const SetIndexArray & indices = d_indices.getValue();
         for (SetIndexArray::const_iterator it = indices.begin(); it != indices.end(); ++it)
         {
-            point = DataTypes::getCPos(x[*it]);
+            point = type::toVec3(DataTypes::getCPos(x[*it]));
             points.push_back(point);
         }
         vparams->drawTool()->drawPoints(points, 10, color);

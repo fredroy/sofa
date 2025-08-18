@@ -181,7 +181,12 @@ void HermiteSplineProjectiveConstraint<DataTypes>::projectVelocity(const core::M
 
         for(SetIndexArray::const_iterator it = indices.begin(); it != indices.end(); ++it)
         {
-            dx[*it] = (x0 * dH00).eval() + (dx0 * dH10).eval() + (x1 * dH01).eval() + (dx1 * dH11).eval();
+            const auto x0xdH00 = (x0 * dH00);
+            const auto dx0xdH10 = (dx0 * dH10);
+            const auto x1xdH01 = (x1 * dH01);
+            const auto dx1xdH11 = (dx1 * dH11);
+
+            dx[*it] = (x0xdH00 + dx0xdH10 + x1xdH01 + dx1xdH11).eval();
         }
     }
 }

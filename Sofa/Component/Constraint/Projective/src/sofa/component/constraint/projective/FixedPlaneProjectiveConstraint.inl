@@ -310,7 +310,7 @@ void FixedPlaneProjectiveConstraint<DataTypes>::draw(const VisualParams* vparams
 template<class DataTypes>
 bool FixedPlaneProjectiveConstraint<DataTypes>::isPointInPlane(const Coord& p) const
 {
-    const Real d = sofa::type::dot(getVec(p) * getVec(d_direction.getValue()));
+    const Real d = sofa::type::dot(getVec(p) , getVec(d_direction.getValue()));
     return d > d_dmin.getValue() && d < d_dmax.getValue();
 }
 
