@@ -39,11 +39,11 @@ void addBlockMat(TMatrix& self, Index row, Index col, const TBlockMatrix& _M)
     }
 }
 
-template <>
-void CompressedRowSparseMatrixMechanical<type::Mat<3, 3, double> >::add(Index row, Index col, const type::Mat3x3d& _M)
-{
-    addBlockMat(*this, row, col, _M);
-}
+//template <>
+//void CompressedRowSparseMatrixMechanical<type::Mat<3, 3, double> >::add(Index row, Index col, const type::Mat3x3d& _M)
+//{
+//    addBlockMat(*this, row, col, _M);
+//}
 
 //template <>
 //void CompressedRowSparseMatrixMechanical<type::Mat<3, 3, double> >::add(Index row, Index col, const type::Mat3x3f& _M)
@@ -57,11 +57,11 @@ void CompressedRowSparseMatrixMechanical<type::Mat<3, 3, double> >::add(Index ro
 //    addBlockMat(*this, row, col, _M);
 //}
 
-template <>
-void CompressedRowSparseMatrixMechanical<type::Mat<3, 3, float> >::add(Index row, Index col, const type::Mat3x3f& _M)
-{
-    addBlockMat(*this, row, col, _M);
-}
+//template <>
+//void CompressedRowSparseMatrixMechanical<type::Mat<3, 3, float> >::add(Index row, Index col, const type::Mat3x3f& _M)
+//{
+//    addBlockMat(*this, row, col, _M);
+//}
 
 using namespace sofa::type;
 

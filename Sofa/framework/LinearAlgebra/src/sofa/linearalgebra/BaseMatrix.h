@@ -66,23 +66,35 @@ public:
     /// Add v to the existing value of the element at row i, column j (using 0-based indices)
     virtual void add(Index row, Index col, double v) = 0;
 
-    ///Adding values from a 3x3d matrix. This function may be overload to obtain better performances
-    virtual void add(Index row, Index col, const type::Mat3x3d & _M);
+    template<typename Derived>
+    void add(Index row, Index col, const Eigen::MatrixBase<Derived>& M)
+    {
+        for (unsigned int r = 0; r < Derived::RowsAtCompileTime; ++r)
+        {
+            for (unsigned int c = 0; c < Derived::ColsAtCompileTime; ++c)
+            {
+                this->add(row + r, col + c, M(r,c));
+            }
+        }
+    }
 
-    ///Adding values from a 3x3f matrix. This function may be overload to obtain better performances
-    virtual void add(Index row, Index col, const type::Mat3x3f & _M);
+//    ///Adding values from a 3x3d matrix. This function may be overload to obtain better performances
+//    virtual void add(Index row, Index col, const type::Mat3x3d & _M);
 
-    ///Adding values from a 2x2d matrix. This function may be overload to obtain better performances
-    virtual void add(Index row, Index col, const type::Mat2x2d & _M);
+//    ///Adding values from a 3x3f matrix. This function may be overload to obtain better performances
+//    virtual void add(Index row, Index col, const type::Mat3x3f & _M);
 
-    ///Adding values from a 2x2f matrix. This function may be overload to obtain better performances
-    virtual void add(Index row, Index col, const type::Mat2x2f & _M);
+//    ///Adding values from a 2x2d matrix. This function may be overload to obtain better performances
+//    virtual void add(Index row, Index col, const type::Mat2x2d & _M);
 
-    ///Adding values from a 6x6d matrix. This function may be overload to obtain better performances
-    virtual void add(Index row, Index col, const type::Mat6x6d & _M);
+//    ///Adding values from a 2x2f matrix. This function may be overload to obtain better performances
+//    virtual void add(Index row, Index col, const type::Mat2x2f & _M);
 
-    ///Adding values from a 6x6f matrix. This function may be overload to obtain better performances
-    virtual void add(Index row, Index col, const type::Mat6x6f & _M);
+//    ///Adding values from a 6x6d matrix. This function may be overload to obtain better performances
+//    virtual void add(Index row, Index col, const type::Mat6x6d & _M);
+
+//    ///Adding values from a 6x6f matrix. This function may be overload to obtain better performances
+//    virtual void add(Index row, Index col, const type::Mat6x6f & _M);
 
     /*    /// Write the value of the element at row i, column j (using 0-based indices)
         virtual void set(Index i, Index j, float v) { set(i,j,(double)v); }

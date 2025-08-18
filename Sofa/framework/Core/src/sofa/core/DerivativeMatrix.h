@@ -41,17 +41,20 @@ public:
         void operator+=(const float value) const { mat->add(row, col, value); }
         void operator+=(const double value) const { mat->add(row, col, value); }
 
-        template<sofa::Size L, sofa::Size C, class real>
-        void operator+=(const sofa::type::Mat<L, C, real> & value) const { mat->matAdd(row, col, value); }
+        template<typename Derived>
+        void operator+=(const Eigen::MatrixBase<Derived>& value) const { mat->add(row, col, value); }
 
-        void operator+=(const sofa::type::Mat<1, 1, float> & value) const { mat->add(row, col, value); }
-        void operator+=(const sofa::type::Mat<1, 1, double>& value) const { mat->add(row, col, value); }
-        void operator+=(const sofa::type::Mat<2, 2, float> & value) const { mat->add(row, col, value); }
-        void operator+=(const sofa::type::Mat<2, 2, double>& value) const { mat->add(row, col, value); }
-        void operator+=(const sofa::type::Mat<3, 3, float> & value) const { mat->add(row, col, value); }
-        void operator+=(const sofa::type::Mat<3, 3, double>& value) const { mat->add(row, col, value); }
-        void operator+=(const sofa::type::Mat<6, 6, float> & value) const { mat->add(row, col, value); }
-        void operator+=(const sofa::type::Mat<6, 6, double>& value) const { mat->add(row, col, value); }
+//        template<sofa::Size L, sofa::Size C, class real>
+//        void operator+=(const sofa::type::Mat<L, C, real> & value) const { mat->matAdd(row, col, value); }
+
+//        void operator+=(const sofa::type::Mat<1, 1, float> & value) const { mat->add(row, col, value); }
+//        void operator+=(const sofa::type::Mat<1, 1, double>& value) const { mat->add(row, col, value); }
+//        void operator+=(const sofa::type::Mat<2, 2, float> & value) const { mat->add(row, col, value); }
+//        void operator+=(const sofa::type::Mat<2, 2, double>& value) const { mat->add(row, col, value); }
+//        void operator+=(const sofa::type::Mat<3, 3, float> & value) const { mat->add(row, col, value); }
+//        void operator+=(const sofa::type::Mat<3, 3, double>& value) const { mat->add(row, col, value); }
+//        void operator+=(const sofa::type::Mat<6, 6, float> & value) const { mat->add(row, col, value); }
+//        void operator+=(const sofa::type::Mat<6, 6, double>& value) const { mat->add(row, col, value); }
 
         [[nodiscard]] bool isValid() const { return mat != nullptr; }
         operator bool() const { return isValid(); }

@@ -318,15 +318,16 @@ public:
             traits::vset(*b, bi, bj, 0);
     }
 
-    void add(Index i, Index j, const type::Mat3x3d& _M) override
-    {
-        BaseMatrix::add(i, j, _M);
-    }
+    using BaseMatrix::add;
+//    void add(Index i, Index j, const type::Mat3x3d& _M) override
+//    {
+//        BaseMatrix::add(i, j, _M);
+//    }
 
-    void add(Index i, Index j, const type::Mat3x3f& _M) override
-    {
-        BaseMatrix::add(i, j, _M);
-    }
+//    void add(Index i, Index j, const type::Mat3x3f& _M) override
+//    {
+//        BaseMatrix::add(i, j, _M);
+//    }
 
     /**
     * \brief Clear row scalar method. Clear all col of this line.
@@ -1401,10 +1402,10 @@ public:
 };
 
 
-template<> void SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixMechanical<type::Mat3x3d >::add(Index row, Index col, const type::Mat3x3d& _M);
-template<> void SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixMechanical<type::Mat3x3d >::add(Index row, Index col, const type::Mat3x3f& _M);
-template<> void SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixMechanical<type::Mat3x3f >::add(Index row, Index col, const type::Mat3x3d& _M);
-template<> void SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixMechanical<type::Mat3x3f >::add(Index row, Index col, const type::Mat3x3f& _M);
+//template<> void SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixMechanical<type::Mat3x3d >::add(Index row, Index col, const type::Mat3x3d& _M);
+//template<> void SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixMechanical<type::Mat3x3d >::add(Index row, Index col, const type::Mat3x3f& _M);
+//template<> void SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixMechanical<type::Mat3x3f >::add(Index row, Index col, const type::Mat3x3d& _M);
+//template<> void SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixMechanical<type::Mat3x3f >::add(Index row, Index col, const type::Mat3x3f& _M);
 
 #if !defined(SOFA_COMPONENT_LINEARSOLVER_COMPRESSEDROWSPARSEMATRIXMECHANICAL_CPP) 
 extern template class SOFA_LINEARALGEBRA_API CompressedRowSparseMatrixMechanical<float>;

@@ -659,21 +659,7 @@ void SpringForceField<DataTypes>::addToMatrix(Matrix* globalMatrix,
 {
     if (globalMatrix)
     {
-        if constexpr(N == 2 || N == 3 )
-        {
-            // BaseMatrix::add can accept Mat2x2 and Mat3x3 and it's sometimes faster than the 2 loops
-            globalMatrix->add(offsetRow, offsetCol, (-localMatrix).eval());
-        }
-        else
-        {
-            for(sofa::Index i = 0; i < N; ++i)
-            {
-                for (sofa::Index j = 0; j < N; ++j)
-                {
-                    globalMatrix->add(offsetRow + i, offsetCol + j, (Real)localMatrix(i,j));
-                }
-            }
-        }
+        globalMatrix->add(offsetRow, offsetCol, localMatrix);
     }
 }
 

@@ -42,6 +42,12 @@ public:
     virtual void add(sofa::SignedIndex /*row*/, sofa::SignedIndex /*col*/, float /*value*/) {}
     virtual void add(sofa::SignedIndex /*row*/, sofa::SignedIndex /*col*/, double /*value*/) {}
 
+    template <typename Derived>
+    void add(sofa::SignedIndex row, sofa::SignedIndex col, const Eigen::MatrixBase<Derived> & value)
+    {
+        matAdd(row, col, value);
+    }
+
     virtual void add(sofa::SignedIndex row, sofa::SignedIndex col, const sofa::type::Mat<1, 1, float> & value);
     virtual void add(sofa::SignedIndex row, sofa::SignedIndex col, const sofa::type::Mat<1, 1, double>& value);
     virtual void add(sofa::SignedIndex row, sofa::SignedIndex col, const sofa::type::Mat<2, 2, float> & value);
@@ -56,6 +62,9 @@ public:
     template<int L, int C, class real>
     void matAdd(sofa::SignedIndex row, sofa::SignedIndex col, const sofa::type::Mat<L, C, real>& value);
 
+    template<typename Derived>
+    void matAdd(sofa::SignedIndex row, sofa::SignedIndex col, const Eigen::MatrixBase<Derived>& value);
+
     virtual void setIndexCheckerStrategy(std::shared_ptr<matrixaccumulator::IndexVerificationStrategy>) {}
 };
 
@@ -66,6 +75,19 @@ void MatrixAccumulatorInterface::matAdd(sofa::SignedIndex row, sofa::SignedIndex
     for (sofa::SignedIndex i = 0; i < sofa::SignedIndex(L); ++i)
     {
         for (sofa::SignedIndex j = 0; j < sofa::SignedIndex(C); ++j)
+        {
+            add(row + i, col + j, value(i, j));
+        }
+    }
+}
+
+template <typename Derived>
+void MatrixAccumulatorInterface::matAdd(sofa::SignedIndex row, sofa::SignedIndex col,
+    const Eigen::MatrixBase<Derived>& value)
+{
+    for (sofa::SignedIndex i = 0; i < Derived::RowsAtCompileTime; ++i)
+    {
+        for (sofa::SignedIndex j = 0; j < Derived::ColsAtCompileTime; ++j)
         {
             add(row + i, col + j, value(i, j));
         }

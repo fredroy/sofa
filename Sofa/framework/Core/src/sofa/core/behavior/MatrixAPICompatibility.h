@@ -129,40 +129,40 @@ public:
             dfdx(row, col) += v;
         }
     }
-    void add(Index row, Index col, const type::Mat3x3d& _M) override
-    {
-        if constexpr (c == matrixaccumulator::Contribution::MASS)
-        {
-            matrices->add(row, col, _M);
-        }
-        else if constexpr (c == matrixaccumulator::Contribution::STIFFNESS)
-        {
-            const auto dfdx = matrices->getForceDerivativeIn(mstate1).withRespectToPositionsIn(mstate2);
-            dfdx(row, col) += _M;
-        }
-        else if constexpr (c == matrixaccumulator::Contribution::DAMPING)
-        {
-            const auto dfdx = matrices->getForceDerivativeIn(mstate1).withRespectToVelocityIn(mstate2);
-            dfdx(row, col) += _M;
-        }
-    }
-    void add(Index row, Index col, const type::Mat3x3f& _M) override
-    {
-        if constexpr (c == matrixaccumulator::Contribution::MASS)
-        {
-            matrices->add(row, col, _M);
-        }
-        else if constexpr (c == matrixaccumulator::Contribution::STIFFNESS)
-        {
-            const auto dfdx = matrices->getForceDerivativeIn(mstate1).withRespectToPositionsIn(mstate2);
-            dfdx(row, col) += _M;
-        }
-        else if constexpr (c == matrixaccumulator::Contribution::DAMPING)
-        {
-            const auto dfdx = matrices->getForceDerivativeIn(mstate1).withRespectToVelocityIn(mstate2);
-            dfdx(row, col) += _M;
-        }
-    }
+//    void add(Index row, Index col, const type::Mat3x3d& _M) override
+//    {
+//        if constexpr (c == matrixaccumulator::Contribution::MASS)
+//        {
+//            matrices->add(row, col, _M);
+//        }
+//        else if constexpr (c == matrixaccumulator::Contribution::STIFFNESS)
+//        {
+//            const auto dfdx = matrices->getForceDerivativeIn(mstate1).withRespectToPositionsIn(mstate2);
+//            dfdx(row, col) += _M;
+//        }
+//        else if constexpr (c == matrixaccumulator::Contribution::DAMPING)
+//        {
+//            const auto dfdx = matrices->getForceDerivativeIn(mstate1).withRespectToVelocityIn(mstate2);
+//            dfdx(row, col) += _M;
+//        }
+//    }
+//    void add(Index row, Index col, const type::Mat3x3f& _M) override
+//    {
+//        if constexpr (c == matrixaccumulator::Contribution::MASS)
+//        {
+//            matrices->add(row, col, _M);
+//        }
+//        else if constexpr (c == matrixaccumulator::Contribution::STIFFNESS)
+//        {
+//            const auto dfdx = matrices->getForceDerivativeIn(mstate1).withRespectToPositionsIn(mstate2);
+//            dfdx(row, col) += _M;
+//        }
+//        else if constexpr (c == matrixaccumulator::Contribution::DAMPING)
+//        {
+//            const auto dfdx = matrices->getForceDerivativeIn(mstate1).withRespectToVelocityIn(mstate2);
+//            dfdx(row, col) += _M;
+//        }
+//    }
 
     sofa::core::matrixaccumulator::get_component_type<c>* component { nullptr };
     sofa::core::matrixaccumulator::get_matrix_builder_type<c>* matrices { nullptr };

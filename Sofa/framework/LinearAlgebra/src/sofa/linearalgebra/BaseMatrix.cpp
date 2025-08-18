@@ -125,39 +125,39 @@ void matrixAdd(BaseMatrix* self, const Index row, const Index col, const sofa::t
     }
 }
 
-///Adding values from a 3x3d matrix this function may be overload to obtain better performances
-void BaseMatrix::add(const Index row, const Index col, const type::Mat3x3d & _M)
-{
-    matrixAdd(this, row, col, _M);
-}
+/////Adding values from a 3x3d matrix this function may be overload to obtain better performances
+//void BaseMatrix::add(const Index row, const Index col, const type::Mat3x3d & _M)
+//{
+//    matrixAdd(this, row, col, _M);
+//}
 
-///Adding values from a 3x3f matrix this function may be overload to obtain better performances
-void BaseMatrix::add(const Index row, const Index col, const type::Mat3x3f & _M)
-{
-    matrixAdd(this, row, col, _M);
-}
+/////Adding values from a 3x3f matrix this function may be overload to obtain better performances
+//void BaseMatrix::add(const Index row, const Index col, const type::Mat3x3f & _M)
+//{
+//    matrixAdd(this, row, col, _M);
+//}
 
-///Adding values from a 2x2d matrix this function may be overload to obtain better performances
-void BaseMatrix::add(const Index row, const Index col, const type::Mat2x2d & _M)
-{
-    matrixAdd(this, row, col, _M);
-}
+/////Adding values from a 2x2d matrix this function may be overload to obtain better performances
+//void BaseMatrix::add(const Index row, const Index col, const type::Mat2x2d & _M)
+//{
+//    matrixAdd(this, row, col, _M);
+//}
 
-///Adding values from a 2x2f matrix this function may be overload to obtain better performances
-void BaseMatrix::add(const Index row, const Index col, const type::Mat2x2f & _M)
-{
-    matrixAdd(this, row, col, _M);
-}
+/////Adding values from a 2x2f matrix this function may be overload to obtain better performances
+//void BaseMatrix::add(const Index row, const Index col, const type::Mat2x2f & _M)
+//{
+//    matrixAdd(this, row, col, _M);
+//}
 
-void BaseMatrix::add(const Index row, const Index col, const type::Mat6x6d& _M)
-{
-    matrixAdd(this, row, col, _M);
-}
+//void BaseMatrix::add(const Index row, const Index col, const type::Mat6x6d& _M)
+//{
+//    matrixAdd(this, row, col, _M);
+//}
 
-void BaseMatrix::add(const Index row, const Index col, const type::Mat6x6f& _M)
-{
-    matrixAdd(this, row, col, _M);
-}
+//void BaseMatrix::add(const Index row, const Index col, const type::Mat6x6f& _M)
+//{
+//    matrixAdd(this, row, col, _M);
+//}
 
 
 // specialication for 1x1 blocks
