@@ -117,9 +117,9 @@ void TriangularTensorMassForceField<DataTypes>::applyTriangleCreation(const sofa
                 {
                     for (v=0; v<3; ++v)
                     {
-                        m[u][v]+= lambdastar*dpl[u]*dpk[v]+mustar*dpk[u]*dpl[v];
+                        m(u,v)+= lambdastar*dpl[u]*dpk[v]+mustar*dpk[u]*dpl[v];
                     }
-                    m[u][u]+=val1;
+                    m(u,u)+=val1;
                 }
             }
             else
@@ -130,7 +130,7 @@ void TriangularTensorMassForceField<DataTypes>::applyTriangleCreation(const sofa
                     {
                         m[v][u]+= lambdastar*dpl[u]*dpk[v]+mustar*dpk[u]*dpl[v];
                     }
-                    m[u][u]+=val1;
+                    m(u,u)+=val1;
                 }
             }
         }
@@ -201,9 +201,9 @@ void TriangularTensorMassForceField<DataTypes>::applyTriangleDestruction(const s
                 {
                     for (v=0; v<3; ++v)
                     {
-                        m[u][v]-= lambdastar*dpl[u]*dpk[v]+mustar*dpk[u]*dpl[v];
+                        m(u,v)-= lambdastar*dpl[u]*dpk[v]+mustar*dpk[u]*dpl[v];
                     }
-                    m[u][u]-=val1;
+                    m(u,u)-=val1;
                 }
             }
             else
@@ -214,7 +214,7 @@ void TriangularTensorMassForceField<DataTypes>::applyTriangleDestruction(const s
                     {
                         m[v][u]-= lambdastar*dpl[u]*dpk[v]+mustar*dpk[u]*dpl[v];
                     }
-                    m[u][u]-=val1;
+                    m(u,u)-=val1;
                 }
             }
         }

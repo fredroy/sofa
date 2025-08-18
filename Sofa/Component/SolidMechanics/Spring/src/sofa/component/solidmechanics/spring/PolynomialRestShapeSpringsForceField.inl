@@ -267,7 +267,7 @@ void PolynomialRestShapeSpringsForceField<DataTypes>::addForce(const core::Mecha
                 ext_index= m_ext_indices[i];
 
             Deriv dx = p1[index] - p0[ext_index];
-            m_coordinateSquaredNorm[i] = dot(dx, dx);
+            m_coordinateSquaredNorm[i] = type::dot(dx, dx);
             msg_info() << "dx value: " << dx;
 
             // to compute stress value use original spring length
@@ -279,8 +279,8 @@ void PolynomialRestShapeSpringsForceField<DataTypes>::addForce(const core::Mecha
             msg_info() << "Force value: " << forceValue;
 
             // to compute direction use the modified length denominator: dx^2 + exp^(shift - scale * dx^2)
-            Real squaredDenominator = dot(dx, dx);
-            squaredDenominator += exp(d_smoothShift.getValue() - d_smoothScale.getValue() * dot(dx, dx));
+            Real squaredDenominator = type::dot(dx, dx);
+            squaredDenominator += exp(d_smoothShift.getValue() - d_smoothScale.getValue() * type::dot(dx, dx));
             msg_info() << "Denominator value: " << std::sqrt(squaredDenominator);
 
             // compute the length with modified values
@@ -304,7 +304,7 @@ void PolynomialRestShapeSpringsForceField<DataTypes>::addForce(const core::Mecha
                 ext_index= m_ext_indices[i];
 
             Deriv dx = p1[index] - p0[ext_index];
-            m_coordinateSquaredNorm[i] = dot(dx, dx);
+            m_coordinateSquaredNorm[i] = type::dot(dx, dx);
             msg_info() << "dx value: " << dx;
 
             // to compute stress value use original spring length
@@ -316,8 +316,8 @@ void PolynomialRestShapeSpringsForceField<DataTypes>::addForce(const core::Mecha
             msg_info() << "Force value: " << forceValue;
 
             // to compute direction use the modified length denominator: dx^2 + exp^(shift - scale * dx^2)
-            Real squaredDenominator = dot(dx, dx);
-            squaredDenominator += exp(d_smoothShift.getValue() - d_smoothScale.getValue() * dot(dx, dx));
+            Real squaredDenominator = type::dot(dx, dx);
+            squaredDenominator += exp(d_smoothShift.getValue() - d_smoothScale.getValue() * type::dot(dx, dx));
             msg_info() << "Denominator value: " << std::sqrt(squaredDenominator);
 
             // compute the length with modified values

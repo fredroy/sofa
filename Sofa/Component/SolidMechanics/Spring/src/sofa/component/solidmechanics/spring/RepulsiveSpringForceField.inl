@@ -56,7 +56,7 @@ void RepulsiveSpringForceField<DataTypes>::addForce(const sofa::core::Mechanical
             u *= inverseLength;
             Real elongation = (Real)(d - springs[i].initpos);
             Deriv relativeVelocity = v2[b]-v1[a];
-            Real elongationVelocity = dot(u,relativeVelocity);
+            Real elongationVelocity = type::dot(u,relativeVelocity);
             Real forceIntensity = (Real)(springs[i].ks*elongation+springs[i].kd*elongationVelocity);
             Deriv force = u*forceIntensity;
             f1[a]+=force;

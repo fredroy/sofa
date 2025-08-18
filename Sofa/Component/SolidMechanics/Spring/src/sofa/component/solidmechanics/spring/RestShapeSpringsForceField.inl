@@ -397,7 +397,7 @@ void RestShapeSpringsForceField<DataTypes>::addForce(const MechanicalParams*  mp
             type::Quat<Real> dq = p1[index].getOrientation() * p0[ext_index].getOrientation().inverse();
             dq.normalize();
 
-            type::Vec<3, Real> dir{type::NOINIT};
+            type::Vec<3, Real> dir;
             Real angle = 0.;
 
             if (dq[3] < 0.)

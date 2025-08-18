@@ -241,7 +241,7 @@ void TriangularQuadraticSpringsForceField<DataTypes>::addForce(const core::Mecha
         dp=x[v0]-x[v1];
         dv=v[v0]-v[v1];
         L=einfo->currentLength=dp.norm();
-        einfo->dl=einfo->currentLength-einfo->restLength +_dampingRatio*dot(dv,dp)/L;
+        einfo->dl=einfo->currentLength-einfo->restLength +_dampingRatio*type::dot(dv,dp)/L;
 
         val=einfo->stiffness*(einfo->dl)/L;
         f[v1]+=dp*val;
@@ -333,9 +333,9 @@ void TriangularQuadraticSpringsForceField<DataTypes>::addDForce(const core::Mech
                     {
                         for (v=0; v<3; ++v)
                         {
-                            m[u][v]=dpk[u]*dpk[v]*val2;
+                            m(u,v)=dpk[u]*dpk[v]*val2;
                         }
-                        m[u][u]+=val1;
+                        m(u,u)+=val1;
                     }
 
                 }
@@ -363,13 +363,13 @@ void TriangularQuadraticSpringsForceField<DataTypes>::addDForce(const core::Mech
                     {
                         for (v=0; v<3; ++v)
                         {
-                            m[u][v]=dpk[u]*dpk[v]*val2
+                            m(u,v)=dpk[u]*dpk[v]*val2
                                     +dpj[u]*dpi[v]*valk
                                     -dpj[u]*dpk[v]*vali
                                     +dpk[u]*dpi[v]*valj;
 
                         }
-                        m[u][u]+=val1;
+                        m(u,u)+=val1;
                     }
                 }
             }
@@ -391,7 +391,7 @@ void TriangularQuadraticSpringsForceField<DataTypes>::addDForce(const core::Mech
             deltax= dx[ta[i]] -dx[ta[j]];
             res=tinfo->DfDx[k]*deltax;
             df[ta[i]]+= res * kFactor;
-            df[ta[j]]-= (tinfo->DfDx[k].transposeMultiply(deltax)) * kFactor;
+            df[ta[j]]-= tinfo->DfDx[k].multTranspose(deltax) * kFactor;
         }
     }
     d_edgeInfo.endEdit();

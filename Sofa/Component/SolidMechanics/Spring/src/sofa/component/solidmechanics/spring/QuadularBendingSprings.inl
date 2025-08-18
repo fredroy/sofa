@@ -576,10 +576,10 @@ void QuadularBendingSprings<DataTypes>::buildStiffnessMatrix(
 
                 const auto& dfdxLocal = s.DfDx;
 
-                dfdx(a, a) += -dfdxLocal;
+                dfdx(a, a) += (-dfdxLocal).eval();
                 dfdx(a, b) +=  dfdxLocal;
                 dfdx(b, a) +=  dfdxLocal;
-                dfdx(b, b) += -dfdxLocal;
+                dfdx(b, b) += (-dfdxLocal).eval();
             }
         }
     }

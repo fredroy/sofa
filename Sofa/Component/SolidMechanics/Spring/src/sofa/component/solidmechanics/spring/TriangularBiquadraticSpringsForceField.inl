@@ -67,7 +67,7 @@ void TriangularBiquadraticSpringsForceField<DataTypes>::applyTriangleCreation(In
     }
     area=sqrt(area)/4;
     tinfo.restArea=area;
-    tinfo.currentNormal= cross((restPosition)[t[1]]-(restPosition)[t[0]],(restPosition)[t[2]]-(restPosition)[t[0]])/(2*area);
+    tinfo.currentNormal= type::cross((restPosition)[t[1]]-(restPosition)[t[0]],(restPosition)[t[2]]-(restPosition)[t[0]])/(2*area);
     tinfo.lastValidNormal=tinfo.currentNormal;
 
     for(j=0; j<3; ++j)
@@ -266,7 +266,7 @@ void TriangularBiquadraticSpringsForceField<DataTypes>::addForce(const core::Mec
         dp=x[v0]-x[v1];
         dv=v[v0]-v[v1];
         L=einfo->currentSquareLength=dp.norm2();
-        einfo->deltaL2=einfo->currentSquareLength-einfo->restSquareLength +_dampingRatio*dot(dv,dp)/L;
+        einfo->deltaL2=einfo->currentSquareLength-einfo->restSquareLength +_dampingRatio*type::dot(dv,dp)/L;
 
         val=einfo->stiffness*einfo->deltaL2;
         force=dp*val;
@@ -298,7 +298,7 @@ void TriangularBiquadraticSpringsForceField<DataTypes>::addForce(const core::Mec
             }
             if (compressible)
             {
-                tinfo->currentNormal= -cross(tinfo->dp[2],tinfo->dp[1]);
+                tinfo->currentNormal= -type::cross(tinfo->dp[2],tinfo->dp[1]);
                 tinfo->area=tinfo->currentNormal.norm()/2;
                 tinfo->J=(tinfo->area/tinfo->restArea);
                 if (tinfo->J<1)   // only apply compressible force if the triangle is compressed
@@ -314,7 +314,7 @@ void TriangularBiquadraticSpringsForceField<DataTypes>::addForce(const core::Mec
                     else
                     {
                         tinfo->currentNormal/= (2*tinfo->area);
-                        if (dot(tinfo->currentNormal,tinfo->lastValidNormal) >-0.5) // if the normal has suddenly flipped (= angle changed is large)
+                        if (type::dot(tinfo->currentNormal,tinfo->lastValidNormal) >-0.5) // if the normal has suddenly flipped (= angle changed is large)
                             tinfo->lastValidNormal=tinfo->currentNormal;
                         else
                         {
@@ -326,7 +326,7 @@ void TriangularBiquadraticSpringsForceField<DataTypes>::addForce(const core::Mec
                     // computes area vector
                     for(j=0; j<3; ++j)
                     {
-                        tinfo->areaVector[j]=cross(tinfo->currentNormal,tinfo->dp[j])/2;
+                        tinfo->areaVector[j]=type::cross(tinfo->currentNormal,tinfo->dp[j])/2;
                         f[ta[j]]-= tinfo->areaVector[j]*val;
                     }
                 }
@@ -408,9 +408,9 @@ void TriangularBiquadraticSpringsForceField<DataTypes>::addDForce(const core::Me
                     {
                         for (v=0; v<3; ++v)
                         {
-                            m[u][v]=dpk[u]*dpk[v]*val2;
+                            m(u,v)=dpk[u]*dpk[v]*val2;
                         }
-                        m[u][u]+=val1;
+                        m(u,u)+=val1;
                     }
                 }
                 else
@@ -433,12 +433,12 @@ void TriangularBiquadraticSpringsForceField<DataTypes>::addDForce(const core::Me
                     {
                         for (v=0; v<3; ++v)
                         {
-                            m[u][v]=dpk[u]*dpk[v]*val2
+                            m(u,v)=dpk[u]*dpk[v]*val2
                                     +dpj[u]*dpi[v]*valk
                                     -dpj[u]*dpk[v]*vali
                                     +dpk[u]*dpi[v]*valj;
                         }
-                        m[u][u]+=val1;
+                        m(u,u)+=val1;
                     }
                 }
             }
@@ -456,7 +456,7 @@ void TriangularBiquadraticSpringsForceField<DataTypes>::addDForce(const core::Me
                 {
                     for (v=0; v<3; ++v)
                     {
-                        m1[u][v]=tinfo->currentNormal[u]*tinfo->currentNormal[v]*val1;
+                        m1(u,v)=tinfo->currentNormal[u]*tinfo->currentNormal[v]*val1;
                     }
                 }
                 lengthSquare[0]=edgeInf[tea[0]].currentSquareLength;
@@ -468,27 +468,27 @@ void TriangularBiquadraticSpringsForceField<DataTypes>::addDForce(const core::Me
                     Mat3 &m=tinfo->DfDx[k];
                     val1= totalLength-2*lengthSquare[k];
                     // add antisymmetric matrix
-                    m[0][1]+=dp[2];
-                    m[0][2]-=dp[1];
-                    m[1][0]-=dp[2];
-                    m[1][2]+=dp[0];
-                    m[2][0]+=dp[1];
-                    m[2][1]-=dp[0];
+                    m(0,1)+=dp[2];
+                    m(0,2)-=dp[1];
+                    m(1,0)-=dp[2];
+                    m(1,2)+=dp[0];
+                    m(2,0)+=dp[1];
+                    m(2,1)-=dp[0];
                     dpi=tinfo->areaVector[(k+1)%3];
                     dpj=tinfo->areaVector[(k+2)%3];
                     /// the trace of the tensor product av[k]^T av[l]
-                    dpij=dot(dpi,dpj);
+                    dpij=type::dot(dpi,dpj);
                     /// adds a weighted average between the tensor product of av[k]^T av[l] and the trace* Identity
                     /// if h = 0 matrix is singular if h=1 matrix is proportional to identity
                     for (u=0; u<3; ++u)
                     {
                         for (v=0; v<3; ++v)
                         {
-                            m[u][v]+=(1-h)*dpi[u]*dpj[v]*val2;
-                            m[u][v]+=m1[u][v]*val1;
+                            m(u,v)+=(1-h)*dpi[u]*dpj[v]*val2;
+                            m(u,v)+=m1(u,v)*val1;
                             if (u==v)
                             {
-                                m[u][v]+=h*val2*dpij;
+                                m(u,v)+=h*val2*dpij;
                             }
                         }
                     }
@@ -511,7 +511,7 @@ void TriangularBiquadraticSpringsForceField<DataTypes>::addDForce(const core::Me
             deltax= dx[ta[i]] -dx[ta[j]];
             res=tinfo->DfDx[k]*deltax;
             df[ta[i]]+= res * kFactor;
-            df[ta[j]]-= (tinfo->DfDx[k].transposeMultiply(deltax)) * kFactor;
+            df[ta[j]]-= (tinfo->DfDx[k].multTranspose(deltax)) * kFactor;
         }
     }
     d_edgeInfo.endEdit();

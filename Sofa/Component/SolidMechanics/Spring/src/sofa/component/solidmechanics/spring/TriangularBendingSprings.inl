@@ -465,7 +465,7 @@ void TriangularBendingSprings<DataTypes>::addForce(const core::MechanicalParams*
             m_potentialEnergy += elongation * elongation * einfo.ks / 2;
 
             Deriv relativeVelocity = v[b]-v[a];
-            Real elongationVelocity = dot(u,relativeVelocity);
+            Real elongationVelocity = type::dot(u,relativeVelocity);
             Real forceIntensity = (Real)(einfo.ks*elongation+einfo.kd*elongationVelocity);
             Deriv force = u*forceIntensity;
             f[a]+=force;
@@ -544,10 +544,10 @@ void TriangularBendingSprings<DataTypes>::buildStiffnessMatrix(
 
             const Mat& dfdxLocal = einfo.DfDx;
 
-            dfdx(a, a) += -dfdxLocal;
+            dfdx(a, a) += (-dfdxLocal).eval();
             dfdx(a, b) +=  dfdxLocal;
             dfdx(b, a) +=  dfdxLocal;
-            dfdx(b, b) += -dfdxLocal;
+            dfdx(b, b) += (-dfdxLocal).eval();
         }
     }
 }

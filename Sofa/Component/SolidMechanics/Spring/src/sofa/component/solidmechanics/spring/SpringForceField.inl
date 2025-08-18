@@ -530,7 +530,7 @@ auto SpringForceField<DataTypes>::computeSpringForce(
         Real elongation = (Real)(d - spring.initpos);
         springForce->energy = elongation * elongation * spring.ks / 2;
         typename DataTypes::DPos relativeVelocity = DataTypes::getDPos(v2[b])-DataTypes::getDPos(v1[a]);
-        Real elongationVelocity = dot(u,relativeVelocity);
+        Real elongationVelocity = type::dot(u,relativeVelocity);
         Real forceIntensity = (Real)(spring.ks*elongation+spring.kd*elongationVelocity);
         typename DataTypes::DPos force = u*forceIntensity;
 
@@ -662,7 +662,7 @@ void SpringForceField<DataTypes>::addToMatrix(Matrix* globalMatrix,
         if constexpr(N == 2 || N == 3 )
         {
             // BaseMatrix::add can accept Mat2x2 and Mat3x3 and it's sometimes faster than the 2 loops
-            globalMatrix->add(offsetRow, offsetCol, -localMatrix);
+            globalMatrix->add(offsetRow, offsetCol, (-localMatrix).eval());
         }
         else
         {
@@ -786,10 +786,10 @@ void SpringForceField<DataTypes>::buildStiffnessMatrix(core::behavior::Stiffness
             const unsigned p1 = Deriv::total_size * s.m1;
             const unsigned p2 = Deriv::total_size * s.m2;
 
-            df1_dx1(p1, p1) += -m;
+            df1_dx1(p1, p1) += (-m).eval();
             df1_dx2(p1, p2) +=  m;
             df2_dx1(p2, p1) +=  m;
-            df2_dx2(p2, p2) += -m;
+            df2_dx2(p2, p2) += (-m).eval();
         }
     }
 }
@@ -824,8 +824,8 @@ void SpringForceField<DataTypes>::draw(const core::visual::VisualParams* vparams
         assert(springs[i].m1 < p1.size());
         Real d = (p2[springs[i].m2] - p1[springs[i].m1]).norm();
         Vec3 point2, point1;
-        point1 = DataTypes::getCPos(p1[springs[i].m1]);
-        point2 = DataTypes::getCPos(p2[springs[i].m2]);
+        point1 = type::toVec3(DataTypes::getCPos(p1[springs[i].m1]));
+        point2 = type::toVec3(DataTypes::getCPos(p2[springs[i].m2]));
 
         if (external)
         {
