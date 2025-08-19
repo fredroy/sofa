@@ -100,11 +100,11 @@ bool MeshMinProximityIntersection::testIntersection(Line& e1, Line& e2, const co
     MatNoInit<2, 2, Real> A;
     VecNoInit<2, Real> b;
 
-    A(0,0) = AB * AB;
-    A(1,1) = CD * CD;
-    A(0,1) = A(1,0) = -CD*AB;
-    b[0] = AB*AC;
-    b[1] = -CD*AC;
+    A(0,0) = type::dot(AB , AB);
+    A(1,1) = type::dot(CD , CD);
+    A(0,1) = A(1,0) = type::dot(-CD , AB);
+    b[0] = type::dot(AB , AC);
+    b[1] = type::dot(-CD , AC);
 
     const Real det = type::determinant(A);
 
@@ -143,11 +143,12 @@ int MeshMinProximityIntersection::computeIntersection(Line& e1, Line& e2, Output
     MatNoInit<2, 2, Real> A;
     VecNoInit<2, Real> b;
 
-    A(0,0) = AB*AB;
-    A(1,1) = CD*CD;
-    A(0,1) = A(1,0) = -CD*AB;
-    b[0] = AB*AC;
-    b[1] = -CD*AC;
+    A(0,0) = type::dot(AB , AB);
+    A(1,1) = type::dot(CD , CD);
+    A(0,1) = A(1,0) = type::dot(-CD , AB);
+    b[0] = type::dot(AB , AC);
+    b[1] = type::dot(-CD , AC);
+
     const Real det = type::determinant(A);
 
     Real alpha = 0.5;
@@ -243,11 +244,12 @@ bool MeshMinProximityIntersection::testIntersection(Triangle& e2, Point& e1, con
     // AB.AC*alpha + AC.AC*beta = AP.AC
     //
     // A . [alpha beta] = b
-    A(0,0) = AB*AB;
-    A(1,1) = AC*AC;
-    A(0,1) = A(1,0) = AB*AC;
-    b[0] = AP*AB;
-    b[1] = AP*AC;
+    A(0,0) = type::dot(AB , AB);
+    A(1,1) = type::dot(AC , AC);
+    A(0,1) = A(1,0) = type::dot(AB , AC);
+    b[0] = type::dot(AP , AB);
+    b[1] = type::dot(AP , AC);
+
     const Real det = type::determinant(A);
 
     const Real alpha=(b[0]*A(1,1)-b[1]*A(0,1))/det;
@@ -287,11 +289,11 @@ int MeshMinProximityIntersection::computeIntersection(Triangle& e2, Point& e1, O
     MatNoInit<2, 2, Real> A;
     VecNoInit<2, Real> b;
 
-    A(0,0) = AB*AB;
-    A(1,1) = AC*AC;
-    A(0,1) = A(1,0) = AB*AC;
-    b[0] = AP*AB;
-    b[1] = AP*AC;
+    A(0,0) = type::dot(AB , AB);
+    A(1,1) = type::dot(AC , AC);
+    A(0,1) = A(1,0) = type::dot(AB , AC);
+    b[0] = type::dot(AP , AB);
+    b[1] = type::dot(AP , AC);
 
     const Real det = type::determinant(A);
 
@@ -371,8 +373,8 @@ bool MeshMinProximityIntersection::testIntersection(Line& e2, Point& e1, const c
     const Vec3 AB = e2p2 - e2p1;
     const Vec3 AP = e1p1 - e2p1;
 
-    const Real A=AB*AB;
-    const Real b=AP*AB;
+    const Real A = type::dot(AB , AB);
+    const Real b = type::dot(AP , AB);
 
     const Real alpha = b / A;
     if (alpha < 0.000001 || alpha > 0.999999)
@@ -401,10 +403,10 @@ int MeshMinProximityIntersection::computeIntersection(Line& e2, Point& e1, Outpu
     const Vec3 AB = e2p2 - e2p1;
     const Vec3 AP = e1p1 - e2p1;
 
-    const Line::Coord::value_type A = AB * AB;
-    const Line::Coord::value_type b = AP * AB;
+    const Line::Coord::value_type A = type::dot(AB , AB);
+    const Line::Coord::value_type b = type::dot(AP , AB);
 
-    Line::Coord Q(NOINIT);
+    Line::Coord Q;
 
     const Line::Coord::value_type alpha=b/A;
 

@@ -99,7 +99,7 @@ void TriangleOctreeModel::computeBoundingTree(int maxDepth)
         pt[0] = &t.p1();
         pt[1] = &t.p2();
         pt[2] = &t.p3();
-        t.n() = cross(*pt[1]-*pt[0],*pt[2]-*pt[0]);
+        t.n() = type::cross(*pt[1]-*pt[0],*pt[2]-*pt[0]);
         t.n().normalize();
 
         for (auto& p : pt)

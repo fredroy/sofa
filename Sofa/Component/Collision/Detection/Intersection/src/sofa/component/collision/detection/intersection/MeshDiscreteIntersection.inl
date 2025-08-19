@@ -45,11 +45,11 @@ bool MeshDiscreteIntersection::testIntersection(collision::geometry::TSphere<T>&
     const double r = sph.r();
 
     //Normal to the plane (plane spanned by tree points of the triangle)
-    type::Vec3 normal = cross( (p1 - p0), (p2 - p0) );
+    type::Vec3 normal = type::cross( (p1 - p0), (p2 - p0) );
     normal.normalize();
 
     //Distance from the center of the sphere to the plane.
-    double distance = sphCenter*normal - normal*p0;
+    double distance = type::dot(sphCenter, normal) - type::dot(normal, p0);
 
     //Projection of the center of the sphere onto the plane
     const type::Vec3 projPoint = sphCenter - normal*distance;
@@ -72,7 +72,7 @@ bool MeshDiscreteIntersection::testIntersection(collision::geometry::TSphere<T>&
     //However, if the plane has intersected the sphere, then it is
     //necessary to check if the projected point "projPoint" is inside
     //the triangle.
-#define SAMESIDE(ap1,ap2,ap3,ap4) (((cross((ap4-ap3),(ap1-ap3))) * (cross((ap4-ap3),(ap2-ap3)))) >= 0)
+#define SAMESIDE(ap1,ap2,ap3,ap4) (type::dot((type::cross((ap4-ap3),(ap1-ap3))) , (type::cross((ap4-ap3),(ap2-ap3)))) >= 0)
     if ( (SAMESIDE(projPoint,p0,p1,p2) && SAMESIDE(projPoint,p1,p0,p2) && SAMESIDE(projPoint,p2,p0,p1)))
     {
         return true;
@@ -98,11 +98,11 @@ int MeshDiscreteIntersection::computeIntersection(collision::geometry::TSphere<T
     const double r = sph.r();
 
     //Normal to the plane (plane spanned by tree points of the triangle)
-    type::Vec3 normal = cross( (p1 - p0), (p2 - p0) );
+    type::Vec3 normal = type::cross( (p1 - p0), (p2 - p0) );
     normal.normalize();
 
     //Distance from the center of the sphere to the plane.
-    double distance = sphCenter*normal - normal*p0;
+    double distance = type::dot(sphCenter, normal) - type::dot(normal, p0);
 
     //Projection of the center of the sphere onto the plane
     const type::Vec3 projPoint = sphCenter - normal*distance;
@@ -125,7 +125,7 @@ int MeshDiscreteIntersection::computeIntersection(collision::geometry::TSphere<T
     //However, if the plane has intersected the sphere, then it is
     //necessary to check if the proyected point "projPoint" is inside
     //the triangle.
-#define SAMESIDE(ap1,ap2,ap3,ap4) (((cross((ap4-ap3),(ap1-ap3))) * (cross((ap4-ap3),(ap2-ap3)))) >= 0)
+#define SAMESIDE(ap1,ap2,ap3,ap4) (type::dot((type::cross((ap4-ap3),(ap1-ap3))) , (type::cross((ap4-ap3),(ap2-ap3)))) >= 0)
     if ( (SAMESIDE(projPoint,p0,p1,p2) && SAMESIDE(projPoint,p1,p0,p2) && SAMESIDE(projPoint,p2,p0,p1)))
     {
         contacts->resize(contacts->size()+1);

@@ -160,7 +160,7 @@ void RayTraceNarrowPhase::findPairsVolume (CubeCollisionModel * cm1, CubeCollisi
             if (resTriangle == -1)
                 continue;
             Triangle triang2 (tm2, resTriangle);
-            cosAngle = dot (tri1.n (), triang2.n ());
+            cosAngle = type::dot(tri1.n (), triang2.n ());
             if (cosAngle > 0)
                 continue;
             /*search a triangle on t1, to be sure that the triangle found on t2 isn't outside the t1 object */
@@ -180,7 +180,7 @@ void RayTraceNarrowPhase::findPairsVolume (CubeCollisionModel * cm1, CubeCollisi
 
 
             Triangle tri3 (tm1, resTriangle2);
-            cosAngle2 = dot (tri1.n (), tri3.n ());
+            cosAngle2 = type::dot(tri1.n (), tri3.n ());
             if (cosAngle2 > 0)
                 continue;
 

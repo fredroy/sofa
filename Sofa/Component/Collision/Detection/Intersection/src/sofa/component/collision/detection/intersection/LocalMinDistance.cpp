@@ -117,11 +117,11 @@ bool LocalMinDistance::testIntersection(Line& e1, Line& e2, const core::collisio
     MatNoInit<2, 2, Line::Coord::value_type> A;
     VecNoInit<2, Line::Coord::value_type> b;
 
-    A(0,0) = AB*AB;
-    A(1,1) = CD*CD;
-    A(0,1) = A(1,0) = -CD*AB;
-    b[0] = AB*AC;
-    b[1] = -CD*AC;
+    A(0,0) = type::dot(AB , AB);
+    A(1,1) = type::dot(CD , CD);
+    A(0,1) = A(1,0) = type::dot(-CD , AB);
+    b[0] = type::dot(AB , AC);
+    b[1] = type::dot(-CD , AC);
 
     const Line::Coord::value_type det = type::determinant(A);
 
@@ -178,11 +178,12 @@ int LocalMinDistance::computeIntersection(Line& e1, Line& e2, OutputVector* cont
     Matrix2 A;
     Vec2 b;
 
-    A(0,0) = AB*AB;
-    A(1,1) = CD*CD;
-    A(0,1) = A(1,0) = -CD*AB;
-    b[0] = AB*AC;
-    b[1] = -CD*AC;
+    A(0,0) = type::dot(AB , AB);
+    A(1,1) = type::dot(CD , CD);
+    A(0,1) = A(1,0) = type::dot(-CD , AB);
+    b[0] = type::dot(AB , AC);
+    b[1] = type::dot(-CD , AC);
+
     const double det = type::determinant(A);
 
     double alpha;
@@ -299,11 +300,11 @@ bool LocalMinDistance::testIntersection(Triangle& e2, Point& e1, const core::col
     // AB.AC*alpha + AC.AC*beta = AP.AC
     //
     // A . [alpha beta] = b
-    A(0,0) = AB*AB;
-    A(1,1) = AC*AC;
-    A(0,1) = A(1,0) = AB*AC;
-    b[0] = AP*AB;
-    b[1] = AP*AC;
+    A(0,0) = type::dot(AB , AB);
+    A(1,1) = type::dot(AC , AC);
+    A(0,1) = A(1,0) = type::dot(AB , AC);
+    b[0] = type::dot(AP , AB);
+    b[1] = type::dot(AP , AC);
     const double det = type::determinant(A);
 
     double alpha = 0.5;
@@ -356,11 +357,11 @@ int LocalMinDistance::computeIntersection(Triangle& e2, Point& e1, OutputVector*
     MatNoInit<2, 2, Real> A;
     VecNoInit<2, Real> b;
 
-    A(0,0) = AB*AB;
-    A(1,1) = AC*AC;
-    A(0,1) = A(1,0) = AB*AC;
-    b[0] = AP*AB;
-    b[1] = AP*AC;
+    A(0,0) = type::dot(AB , AB);
+    A(1,1) = type::dot(AC , AC);
+    A(0,1) = A(1,0) = type::dot(AB , AC);
+    b[0] = type::dot(AP , AB);
+    b[1] = type::dot(AP , AC);
 
     const Real det = type::determinant(A);
 
@@ -454,11 +455,12 @@ bool LocalMinDistance::testIntersection(Triangle& e2, Sphere& e1, const core::co
     // AB.AC*alpha + AC.AC*beta = AP.AC
     //
     // A . [alpha beta] = b
-    A(0,0) = AB*AB;
-    A(1,1) = AC*AC;
-    A(0,1) = A(1,0) = AB*AC;
-    b[0] = AP*AB;
-    b[1] = AP*AC;
+    A(0,0) = type::dot(AB , AB);
+    A(1,1) = type::dot(AC , AC);
+    A(0,1) = A(1,0) = type::dot(AB , AC);
+    b[0] = type::dot(AP , AB);
+    b[1] = type::dot(AP , AC);
+
     const Real det = type::determinant(A);
 
     const Real alpha=(b[0]*A(1,1)-b[1]*A(0,1))/det;
@@ -511,11 +513,11 @@ int LocalMinDistance::computeIntersection(Triangle& e2, Sphere& e1, OutputVector
     MatNoInit<2, 2, Real> A;
     VecNoInit<2, Real> b;
 
-    A(0,0) = AB*AB;
-    A(1,1) = AC*AC;
-    A(0,1) = A(1,0) = AB*AC;
-    b[0] = AP*AB;
-    b[1] = AP*AC;
+    A(0,0) = type::dot(AB , AB);
+    A(1,1) = type::dot(AC , AC);
+    A(0,1) = A(1,0) = type::dot(AB , AC);
+    b[0] = type::dot(AP , AB);
+    b[1] = type::dot(AP , AC);
 
     const Real det = type::determinant(A);
 
@@ -590,8 +592,8 @@ bool LocalMinDistance::testIntersection(Line& e2, Point& e1, const core::collisi
     const Line::Coord AB = e2.p2()-e2.p1();
     const Line::Coord AP = e1.p()-e2.p1();
 
-    const Real A = AB*AB;
-    const Real b = AP*AB;
+    const Real A = type::dot(AB , AB);
+    const Real b = type::dot(AP , AB);
 
     const Real alpha = b / A;
 
@@ -642,8 +644,8 @@ int LocalMinDistance::computeIntersection(Line& e2, Point& e1, OutputVector* con
         return 0;
     }
 
-    const Real A=AB*AB;
-    const Real b=AP*AB;
+    const Real A = type::dot(AB , AB);
+    const Real b = type::dot(AP , AB);
 
     const Real alpha = b / A;
     if (alpha < 0.000001 || alpha > 0.999999)
@@ -709,8 +711,8 @@ bool LocalMinDistance::testIntersection(Line& e2, Sphere& e1, const core::collis
     const Line::Coord AB = e2.p2()-e2.p1();
     const Line::Coord AP = e1.p()-e2.p1();
 
-    const Real A = AB * AB;
-    const Real b = AP * AB;
+    const Real A = type::dot(AB , AB);
+    const Real b = type::dot(AP , AB);
 
     const Real alpha = b / A;
     if (alpha < 0.000001 || alpha > 0.999999)
@@ -757,8 +759,8 @@ int LocalMinDistance::computeIntersection(Line& e2, Sphere& e1, OutputVector* co
         return 0;
     }
 
-    const Real A = AB * AB;
-    const Real b = AP * AB;
+    const Real A = type::dot(AB , AB);
+    const Real b = type::dot(AP , AB);
 
     const Real alpha = b / A;
     if (alpha < 0.000001 || alpha > 0.999999)
@@ -1076,7 +1078,7 @@ bool LocalMinDistance::testIntersection(Ray &t1,Triangle &t2, const core::collis
 
     const SReal alarmDist = currentIntersection->getAlarmDistance() + t1.getContactDistance() + t2.getContactDistance();
 
-    if (fabs(t2.n() * t1.direction()) < 0.000001)
+    if (fabs(type::dot(t2.n() , t1.direction())) < 0.000001)
         return false; // no intersection for edges parallel to the triangle
 
     const Vec3 A = t1.origin();
@@ -1101,7 +1103,7 @@ int LocalMinDistance::computeIntersection(Ray &t1, Triangle &t2, OutputVector* c
     const SReal alarmDist = currentIntersection->getAlarmDistance() + t1.getContactDistance() + t2.getContactDistance();
 
 
-    if (fabs(t2.n() * t1.direction()) < 0.000001)
+    if (fabs(type::dot(t2.n() , t1.direction())) < 0.000001)
         return false; // no intersection for edges parallel to the triangle
 
     const Vec3 A = t1.origin();
@@ -1148,7 +1150,7 @@ bool LocalMinDistance::testIntersection(Ray &ray1,Sphere &sph2, const sofa::core
     const Vec3 ray1Direction(ray1.direction());
     const double length2 = ray1.l();
     const Vec3 tmp = sph2Pos - ray1Origin;
-    const double rayPos = tmp*ray1Direction;
+    const double rayPos = type::dot(tmp,ray1Direction);
     const double rayPosInside = std::max(std::min(rayPos,length2),0.0);
     const double dist2 = tmp.norm2() - (rayPosInside*rayPosInside);
     return (dist2 < (radius1*radius1));
@@ -1165,7 +1167,7 @@ int LocalMinDistance::computeIntersection(Ray &ray1, Sphere &sph2, OutputVector*
     const Vec3 ray1Direction(ray1.direction());
     const double length2 = ray1.l();
     const Vec3 tmp = sph2Pos - ray1Origin;
-    const double rayPos = tmp*ray1Direction;
+    const double rayPos = type::dot(tmp,ray1Direction);
     const double rayPosInside = std::max(std::min(rayPos,length2),0.0);
     const double dist2 = tmp.norm2() - (rayPosInside*rayPosInside);
     if (dist2 >= (radius1*radius1))
@@ -1306,7 +1308,7 @@ bool LocalMinDistance::testValidity(Line &l, const Vec3 &PQ) const
 
         nMean.normalize();
 
-        if ((nMean*PQ) < 0  && !bothSide_computation) // test
+        if (type::dot(nMean,PQ) < 0  && !bothSide_computation) // test
         {
             msg_info_when(EMIT_EXTRA_DEBUG_MESSAGE)
                     <<" rejected because of nMean: "<<nMean ;
@@ -1314,12 +1316,12 @@ bool LocalMinDistance::testValidity(Line &l, const Vec3 &PQ) const
         }
 
         // compute the angle for the cone to filter contacts using the normal of the triangle situated on the right
-        double computedAngleCone = (nMean * t1) * d_coneFactor.getValue();
+        double computedAngleCone = type::dot(nMean , t1) * d_coneFactor.getValue();
         if (computedAngleCone<0)
             computedAngleCone=0.0;
         computedAngleCone+=d_angleCone.getValue();
 
-        if (t1*PQ < -computedAngleCone*PQ.norm())
+        if (type::dot(t1,PQ) < -computedAngleCone*PQ.norm())
         {
             msg_info_when(EMIT_EXTRA_DEBUG_MESSAGE)
                     <<" rejected because of right triangle normal: "<<n1<<" tang "<< t1 ;
@@ -1327,12 +1329,12 @@ bool LocalMinDistance::testValidity(Line &l, const Vec3 &PQ) const
         }
 
         // compute the angle for the cone to filter contacts using the normal of the triangle situated on the left
-        computedAngleCone = (nMean * t2) * d_coneFactor.getValue();
+        computedAngleCone = type::dot(nMean , t2) * d_coneFactor.getValue();
         if (computedAngleCone<0)
             computedAngleCone=0.0;
         computedAngleCone+=d_angleCone.getValue();
 
-        if (t2*PQ < -computedAngleCone*PQ.norm())
+        if (type::dot(t2,PQ) < -computedAngleCone*PQ.norm())
         {
             msg_info_when(EMIT_EXTRA_DEBUG_MESSAGE)
                 <<" rejected because of left triangle normal: "<<n2 ;
@@ -1371,7 +1373,7 @@ bool LocalMinDistance::testValidity(Triangle &t, const Vec3 &PQ) const
 
     const Vec3 n = cross(pt2-pt1,pt3-pt1);
 
-    return n * PQ >= 0.0;
+    return type::dot(n , PQ) >= 0.0;
 }
 
 } //namespace sofa::component::collision::detection::intersection

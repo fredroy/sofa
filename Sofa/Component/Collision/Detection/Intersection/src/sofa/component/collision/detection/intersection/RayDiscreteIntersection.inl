@@ -44,7 +44,7 @@ bool RayDiscreteIntersection::testIntersection(collision::geometry::Ray & ray1, 
     const type::Vec3 ray1Direction(ray1.direction());
     const SReal length2 = ray1.l();
     const type::Vec3 tmp = sph2Pos - ray1Origin;
-    const SReal rayPos = tmp*ray1Direction;
+    const SReal rayPos = type::dot(tmp,ray1Direction);
     const SReal rayPosInside = std::max(std::min(rayPos,length2),(SReal)0.0);
     const SReal dist2 = tmp.norm2() - (rayPosInside*rayPosInside);
     return (dist2 < (radius1*radius1));
@@ -64,7 +64,7 @@ int RayDiscreteIntersection::computeIntersection(collision::geometry::Ray& ray1,
     const type::Vec3 ray1Direction(ray1.direction());
     const SReal length2 = ray1.l();
     const type::Vec3 tmp = sph2Pos - ray1Origin;
-    const SReal rayPos = tmp*ray1Direction;
+    const SReal rayPos = type::dot(tmp,ray1Direction);
     const SReal rayPosInside = std::max(std::min(rayPos,length2),(SReal)0.0);
     const SReal dist2 = tmp.norm2() - (rayPosInside*rayPosInside);
     if (dist2 >= (radius1*radius1))

@@ -58,15 +58,15 @@ constexpr bool computeClosestPointsSegmentAndTriangle(
     A(3,0) = -one; A(3,1) = -one; A(3,2) = zero; A(3,3) = zero; A(3,4) = zero;
     A(4,0) = zero; A(4,1) = zero; A(4,2) = -one; A(4,3) = zero; A(4,4) = zero;
 
-    A(0,0) =  dot(P0P1,P0P1);  A(0,1) =  dot(P0P2,P0P1);  A(0,2) = -dot(Q0Q1,P0P1);
-    A(1,0) =  dot(P0P1,P0P2);  A(1,1) =  dot(P0P2,P0P2);  A(1,2) = -dot(Q0Q1,P0P2);
-    A(2,0) = -dot(P0P1,Q0Q1);  A(2,1) = -dot(P0P2,Q0Q1);  A(2,2) =  dot(Q0Q1,Q0Q1);
+    A(0,0) =  type::dot(P0P1,P0P1);  A(0,1) =  type::dot(P0P2,P0P1);  A(0,2) = -type::dot(Q0Q1,P0P1);
+    A(1,0) =  type::dot(P0P1,P0P2);  A(1,1) =  type::dot(P0P2,P0P2);  A(1,2) = -type::dot(Q0Q1,P0P2);
+    A(2,0) = -type::dot(P0P1,Q0Q1);  A(2,1) = -type::dot(P0P2,Q0Q1);  A(2,2) =  type::dot(Q0Q1,Q0Q1);
 
     b[3] = one;
     b[4] = one;
-    b[0] = -dot(P0Q0,P0P1);
-    b[1] = -dot(P0Q0,P0P2);
-    b[2] =  dot(P0Q0,Q0Q1);
+    b[0] = -type::dot(P0Q0,P0P1);
+    b[1] = -type::dot(P0Q0,P0P2);
+    b[2] =  type::dot(P0Q0,Q0Q1);
 
     if (type::solveLCP(b, A, result))
     {

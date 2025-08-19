@@ -58,7 +58,7 @@ bool RayNewProximityIntersection::testIntersection(Ray &t1,Triangle &t2, const c
     Vec3 P,Q,PQ;
     const SReal alarmDist = currentIntersection->getAlarmDistance() + t1.getContactDistance() + t2.getContactDistance();
 
-    if (fabs(t2.n() * t1.direction()) < 0.000001)
+    if (fabs(type::dot(t2.n() , t1.direction())) < 0.000001)
         return false; // no intersection for edges parallel to the triangle
 
     const Vec3 A = t1.origin();
@@ -83,7 +83,7 @@ int RayNewProximityIntersection::computeIntersection(Ray &t1, Triangle &t2, Outp
 {
     const SReal alarmDist = currentIntersection->getAlarmDistance() + t1.getContactDistance() + t2.getContactDistance();
 
-    if (fabs(t2.n() * t1.direction()) < 0.000001)
+    if (fabs(type::dot(t2.n() , t1.direction())) < 0.000001)
         return false; // no intersection for edges parallel to the triangle
 
     const Vec3 A = t1.origin();
@@ -136,8 +136,8 @@ int RayNewProximityIntersection::computeIntersection(Ray& rRay, RigidSphere& rSp
     const SReal fSphereRadii = rSphere.r();
 
     const Vec3 v3RayOriginToSphereCenter = rRay.origin() - v3SphereCenter;
-    const SReal fB = v3RayOriginToSphereCenter * rRay.direction();
-    const SReal fC = v3RayOriginToSphereCenter * v3RayOriginToSphereCenter - fSphereRadii * fSphereRadii;
+    const SReal fB = type::dot(v3RayOriginToSphereCenter , rRay.direction());
+    const SReal fC = type::dot(v3RayOriginToSphereCenter , v3RayOriginToSphereCenter) - fSphereRadii * fSphereRadii;
 
     // Exit if ray's origin outside sphere & ray's pointing away from sphere
     if((fC > 0.f) && (fB > 0.f))

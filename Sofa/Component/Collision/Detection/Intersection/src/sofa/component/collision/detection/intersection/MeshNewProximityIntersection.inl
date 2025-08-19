@@ -36,11 +36,13 @@ inline int MeshNewProximityIntersection::doIntersectionLineLine(SReal dist2, con
     const auto AC = q1 - p1;
     type::Matrix2 A;
     type::Vec2 b;
-    A(0,0) = AB * AB;
-    A(1,1) = CD * CD;
-    A(0,1) = A(1,0) = -CD * AB;
-    b[0] = AB * AC;
-    b[1] = -CD * AC;
+
+    A(0,0) = type::dot(AB , AB);
+    A(1,1) = type::dot(CD , CD);
+    A(0,1) = A(1,0) = type::dot(-CD , AB);
+    b[0] = type::dot(AB , AC);
+    b[1] = type::dot(-CD , AC);
+
     const double det = type::determinant(A);
 
     double alpha = 0.5;
@@ -82,8 +84,8 @@ inline int MeshNewProximityIntersection::doIntersectionLinePoint(SReal dist2, co
     const auto AQ = q - p1;
     double A;
     double b;
-    A = AB * AB;
-    b = AQ * AB;
+    A = type::dot(AB , AB);
+    b = type::dot(AQ , AB);
 
     double alpha = 0.5;
 
@@ -127,11 +129,13 @@ inline int MeshNewProximityIntersection::doIntersectionTrianglePoint2(SReal dist
     const type::Vec3 AQ = q -p1;
     type::Matrix2 A;
     type::Vec2 b;
-    A(0,0) = AB*AB;
-    A(1,1) = AC*AC;
-    A(0,1) = A(1,0) = AB*AC;
-    b[0] = AQ*AB;
-    b[1] = AQ*AC;
+
+    A(0,0) = type::dot(AB , AB);
+    A(1,1) = type::dot(AC , AC);
+    A(0,1) = A(1,0) = type::dot(AB , AC);
+    b[0] = type::dot(AQ , AB);
+    b[1] = type::dot(AQ , AC);
+
     const SReal det = type::determinant(A);
 
     SReal alpha = 0.5;
@@ -231,11 +235,13 @@ inline int MeshNewProximityIntersection::doIntersectionTrianglePoint(SReal dist2
     const type::Vec3 AQ = q -p1;
     type::Matrix2 A;
     type::Vec2 b;
-    A(0,0) = AB*AB;
-    A(1,1) = AC*AC;
-    A(0,1) = A(1,0) = AB*AC;
-    b[0] = AQ*AB;
-    b[1] = AQ*AC;
+
+    A(0,0) = type::dot(AB , AB);
+    A(1,1) = type::dot(AC , AC);
+    A(0,1) = A(1,0) = type::dot(AB , AC);
+    b[0] = type::dot(AQ , AB);
+    b[1] = type::dot(AQ , AC);
+
     const SReal det = type::determinant(A);
 
     SReal alpha = 0.5;
@@ -413,11 +419,13 @@ int MeshNewProximityIntersection::computeIntersection(collision::geometry::Trian
     const type::Vec3 AQ = e2.center() - e1.p1();
     type::Matrix2 A;
     type::Vec2 b;
-    A(0,0) = AB*AB;
-    A(1,1) = AC*AC;
-    A(0,1) = A(1,0) = AB*AC;
-    b[0] = AQ*AB;
-    b[1] = AQ*AC;
+
+    A(0,0) = type::dot(AB , AB);
+    A(1,1) = type::dot(AC , AC);
+    A(0,1) = A(1,0) = type::dot(AB , AC);
+    b[0] = type::dot(AQ , AB);
+    b[1] = type::dot(AQ , AC);
+
     const SReal det = type::determinant(A);
 
     SReal alpha = 0.5;

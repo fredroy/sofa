@@ -120,7 +120,7 @@ void TriangleCollisionModel<DataTypes>::updateNormals()
         const type::Vec3& pt2 = t.p2();
         const type::Vec3& pt3 = t.p3();
 
-        t.n() = cross(pt2-pt1,pt3-pt1);
+        t.n() = type::cross(pt2-pt1,pt3-pt1);
         t.n().normalize();
     }
 }
@@ -262,7 +262,7 @@ void TriangleCollisionModel<DataTypes>::computeBoundingTree(int maxDepth)
             if (calcNormals)
             {
                 // Also recompute normal vector
-                t.n() = cross(pt2-pt1,pt3-pt1);
+                t.n() = type::cross(pt2-pt1,pt3-pt1);
                 t.n().normalize();
             }
 
@@ -325,11 +325,11 @@ void TriangleCollisionModel<DataTypes>::computeContinuousBoundingTree(SReal dt, 
             }
 
             // Also recompute normal vector
-            t.n() = cross(pt2-pt1,pt3-pt1);
+            t.n() = type::cross(pt2-pt1,pt3-pt1);
             t.n().normalize();
 
             if(d_useCurvature.getValue())
-                cubeModel->setParentOf(i, minElem, maxElem, t.n(), acos(cross(pt2v-pt1v,pt3v-pt1v).normalized() * t.n()));
+                cubeModel->setParentOf(i, minElem, maxElem, t.n(), acos(type::dot(type::cross(pt2v-pt1v,pt3v-pt1v).normalized() , t.n())));
             else
                 cubeModel->setParentOf(i, minElem, maxElem);
         }

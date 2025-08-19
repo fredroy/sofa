@@ -136,7 +136,7 @@ void CubeCollisionModel::updateCube(sofa::Index index)
             const SReal alpha = std::max<SReal>(elems[index].coneAngle, c.getConeAngle());
             if(alpha <= M_PI/2)
             {
-                const SReal beta = acos(c.getConeAxis() *  elems[index].coneAxis);
+                const SReal beta = acos( type::dot(c.getConeAxis() ,  elems[index].coneAxis));
                 elems[index].coneAxis = (c.getConeAxis() + elems[index].coneAxis).normalized();
                 elems[index].coneAngle = beta/2 + alpha;
             }

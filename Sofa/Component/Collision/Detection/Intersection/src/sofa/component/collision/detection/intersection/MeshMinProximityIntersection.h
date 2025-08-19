@@ -108,11 +108,13 @@ bool MeshMinProximityIntersection::testIntersection(collision::geometry::Triangl
     const type::Vec3 x03 = e2.p1()-e1.center();
     type::Matrix2 A;
     type::Vec2 b;
-    A(0,0) = x13*x13;
-    A(1,1) = x23*x23;
-    A(0,1) = A(1,0) = x13*x23;
-    b[0] = x13*x03;
-    b[1] = x23*x03;
+
+    A(0,0) = type::dot(x13 , x13);
+    A(1,1) = type::dot(x23 , x23);
+    A(0,1) = A(1,0) = type::dot(x13 , x23);
+    b[0] = type::dot(x13 , x03);
+    b[1] = type::dot(x23 , x03);
+
     const SReal det = type::determinant(A);
 
     SReal alpha = 0.5;
@@ -151,11 +153,13 @@ int MeshMinProximityIntersection::computeIntersection(collision::geometry::Trian
     const type::Vec3 x03 = e2.p1()-e1.center();
     type::Matrix2 A;
     type::Vec2 b;
-    A(0,0) = x13*x13;
-    A(1,1) = x23*x23;
-    A(0,1) = A(1,0) = x13*x23;
-    b[0] = x13*x03;
-    b[1] = x23*x03;
+
+    A(0,0) = type::dot(x13 , x13);
+    A(1,1) = type::dot(x23 , x23);
+    A(0,1) = A(1,0) = type::dot(x13 , x23);
+    b[0] = type::dot(x13 , x03);
+    b[1] = type::dot(x23 , x03);
+
     const SReal det = type::determinant(A);
 
     SReal alpha = 0.5;
@@ -211,8 +215,9 @@ bool MeshMinProximityIntersection::testIntersection(collision::geometry::Line& e
     const auto x31 = e1.center()-e2.p2();
     SReal A;
     SReal b;
-    A = x32*x32;
-    b = x32*x31;
+
+    A = type::dot(x32 , x32);
+    b = type::dot(x32 , x31);
 
     SReal alpha = 0.5;
 
@@ -244,8 +249,9 @@ int MeshMinProximityIntersection::computeIntersection(collision::geometry::Line&
 
     const geometry::Line::Coord x32 = e2.p1()-e2.p2();
     const auto x31 = e1.center()-e2.p2();
-    const geometry::Line::Coord::value_type A=x32*x32;
-    const geometry::Line::Coord::value_type b=x32*x31;
+
+    const geometry::Line::Coord::value_type A = type::dot(x32 , x32);
+    const geometry::Line::Coord::value_type b = type::dot(x32 , x31);
 
     geometry::Line::Coord::value_type alpha = 0.5;
 
