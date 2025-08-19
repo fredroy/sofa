@@ -131,6 +131,21 @@ public:
         return data[i];
     }
 
+    // to comply with traits
+    T& at(Index i)
+    {
+        if constexpr(DO_CHECK_VECTOR_ACCESS)
+            checkIndex(i);
+        return data[i];
+    }
+
+    const T& at(Index i) const
+    {
+        if constexpr(DO_CHECK_VECTOR_ACCESS)
+            checkIndex(i);
+        return data[i];
+    }
+
     SReal element(Index i) const override
     {
         if constexpr(DO_CHECK_VECTOR_ACCESS)
