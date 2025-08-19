@@ -42,7 +42,7 @@ TransformPosition<DataTypes>::TransformPosition()
     , f_translation(initData(&f_translation, "translation", "translation vector ") )
     , f_rotation(initData(&f_rotation, "rotation", "rotation vector ") )
     , f_scale(initData(&f_scale, Coord(1.0,1.0,1.0), "scale", "scale factor") )
-    , f_affineMatrix(initData(&f_affineMatrix, Mat4x4::Identity(), "matrix", "4x4 affine matrix") )
+    , f_affineMatrix(initData(&f_affineMatrix, Mat4x4::Identity().eval(), "matrix", "4x4 affine matrix") )
     , f_method(initData(&f_method, "method", "transformation method either translation or scale or rotation or random or projectOnPlane") )
     , f_seed(initData(&f_seed, (long) 0, "seedValue", "the seed value for the random generator") )
     , f_maxRandomDisplacement(initData(&f_maxRandomDisplacement, (Real) 1.0, "maxRandomDisplacement", "the maximum displacement around initial position for the random transformation") )
@@ -396,7 +396,7 @@ void TransformPosition<DataTypes>::doUpdate()
     case PROJECT_ON_PLANE :
         for (i=0; i< in.size(); ++i)
         {
-            out[i]=in[i]+normal.ref()*dot((origin.ref()-in[i]),normal.ref());
+            out[i]=in[i]+normal.ref()*type::dot((origin.ref()-in[i]),normal.ref());
         }
         break;
     case RANDOM :
@@ -453,9 +453,11 @@ void TransformPosition<DataTypes>::doUpdate()
     case AFFINE:
         for (i=0; i< in.size(); ++i)
         {
-            Vec4 coord = affineMatrix.ref()*Vec4(in[i], 1);
+            Vec4 invec4;
+            invec4 << in[i], 1;
+            Vec4 coord = affineMatrix.ref()*invec4;
             if ( fabs(coord[3]) > 1e-10)
-                out[i]=coord/coord[3];
+                out[i]=type::toVec3(coord/coord[3]);
         }
         break;
     }

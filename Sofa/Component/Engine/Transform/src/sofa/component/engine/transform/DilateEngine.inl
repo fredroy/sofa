@@ -107,17 +107,17 @@ void DilateEngine<DataTypes>::doUpdate()
         normals[i].clear();
     for (int i=0; i<nbt; ++i)
     {
-        Coord n = cross(in[triangles[i][1]] - in[triangles[i][0]], in[triangles[i][2]] - in[triangles[i][0]]);
+        Coord n = type::cross(in[triangles[i][1]] - in[triangles[i][0]], in[triangles[i][2]] - in[triangles[i][0]]);
         normals[triangles[i][0]] += n;
         normals[triangles[i][1]] += n;
         normals[triangles[i][2]] += n;
     }
     for (int i=0; i<nbq; ++i)
     {
-        normals[quads[i][0]] += cross(in[quads[i][1]] - in[quads[i][0]], in[quads[i][3]] - in[quads[i][0]]);
-        normals[quads[i][1]] += cross(in[quads[i][2]] - in[quads[i][1]], in[quads[i][0]] - in[quads[i][1]]);
-        normals[quads[i][2]] += cross(in[quads[i][3]] - in[quads[i][2]], in[quads[i][1]] - in[quads[i][2]]);
-        normals[quads[i][3]] += cross(in[quads[i][0]] - in[quads[i][3]], in[quads[i][2]] - in[quads[i][3]]);
+        normals[quads[i][0]] += type::cross(in[quads[i][1]] - in[quads[i][0]], in[quads[i][3]] - in[quads[i][0]]);
+        normals[quads[i][1]] += type::cross(in[quads[i][2]] - in[quads[i][1]], in[quads[i][0]] - in[quads[i][1]]);
+        normals[quads[i][2]] += type::cross(in[quads[i][3]] - in[quads[i][2]], in[quads[i][1]] - in[quads[i][2]]);
+        normals[quads[i][3]] += type::cross(in[quads[i][0]] - in[quads[i][3]], in[quads[i][2]] - in[quads[i][3]]);
     }
     for (int i=0; i<nbp; ++i)
         normals[i].normalize();

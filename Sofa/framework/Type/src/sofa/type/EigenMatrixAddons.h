@@ -158,14 +158,6 @@ void set(const ArgsT... r) noexcept
     (((*this) << r), ...);
 }
 
-template<typename Derived>
-auto linearProduct(const Eigen::MatrixBase<Derived>& vec) const
-{
-    static_assert(Matrix::IsVectorAtCompileTime && Derived::IsVectorAtCompileTime,
-                 "Both arguments must be vectors");
-    return (*this).cwiseProduct(vec);
-}
-
 //template<typename Derived1, typename Derived2>
 //auto dot(const Eigen::MatrixBase<Derived1>& a,
 //         const Eigen::MatrixBase<Derived2>& b)
@@ -207,24 +199,24 @@ auto multDiagonal(const Eigen::MatrixBase<Derived>& m) const noexcept
     return ((*this) * m.asDiagonal()).eval();
 }
 
-template <typename Derived>
-void getsub(int L0, int C0, Eigen::MatrixBase<Derived>& m) const noexcept
-{
-    m = (*this)(seq(L0, Derived::RowsAtCompileTime), seq(C0, Derived::ColsAtCompileTime));
-}
+//template <typename Derived>
+//void getsub(int L0, int C0, Eigen::MatrixBase<Derived>& m) const noexcept
+//{
+//    m = (*this)(seq(L0, Derived::RowsAtCompileTime), seq(C0, Derived::ColsAtCompileTime));
+//}
 
-void getsub(int L0, int C0, Matrix::Scalar& m) const noexcept
-{
-    m = (*this)(L0,C0);
-}
+//void getsub(int L0, int C0, Matrix::Scalar& m) const noexcept
+//{
+//    m = (*this)(L0,C0);
+//}
 
-template <typename Derived>
-void setsub(Size L0, Size C0, const Eigen::MatrixBase<Derived>& m) noexcept
-{
-    for (Size i=0; i<Derived::RowsAtCompileTime; i++)
-        for (Size j=0; j<Derived::ColsAtCompileTime; j++)
-            (*this)(i+L0,j+C0) = m(i,j);
-}
+//template <typename Derived>
+//void setsub(Size L0, Size C0, const Eigen::MatrixBase<Derived>& m) noexcept
+//{
+//    for (Size i=0; i<Derived::RowsAtCompileTime; i++)
+//        for (Size j=0; j<Derived::ColsAtCompileTime; j++)
+//            (*this)(i+L0,j+C0) = m(i,j);
+//}
 
 /// for square matrices
 /// @warning in-place simple symmetrization

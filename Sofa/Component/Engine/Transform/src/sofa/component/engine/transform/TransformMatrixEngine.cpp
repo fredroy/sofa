@@ -62,7 +62,7 @@ void registerRotateTransformMatrixEngine(sofa::core::ObjectFactory* factory)
  */
 
 AbstractTransformMatrixEngine::AbstractTransformMatrixEngine()
-    : d_inT ( initData (&d_inT, Matrix4::Identity(), "inT", "input transformation if any") )
+    : d_inT ( initData (&d_inT, Matrix4::Identity().eval(), "inT", "input transformation if any") )
     , d_outT( initData (&d_outT, "outT", "output transformation") )
 {
     addInput(&d_inT);

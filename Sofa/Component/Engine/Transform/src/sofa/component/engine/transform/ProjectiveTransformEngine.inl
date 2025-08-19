@@ -79,7 +79,9 @@ void ProjectiveTransformEngine<DataTypes>::doUpdate()
     for (i=0; i< in.size(); ++i)
     {
         out[i]=Vec3(in[i][0],in[i][1],in[i][2]);
-        out[i]=P*Vec4(out[i],1);
+        Vec4 outvec4;
+        outvec4 << out[i], 1;
+        out[i]=type::toVec3(outvec4);
         s = out[i][2];
         if (fabs(s) < 1e-10) s=s<0 ? -1e-10 : 1e-10; // handle undefined case where out(i,2) == 0 -> set it to 1e-10 (and keep its sign)
         r = f/out[i][2];

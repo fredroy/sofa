@@ -100,7 +100,7 @@ void QuatToRigidEngine<DataTypes>::doUpdate()
         {
             Vec3 colP = colinearPositions[i];
             Vec3 dir = q.rotate(Vec3(0,0,1));
-            pos = colP + dir*(dot(dir,(pos-colP))/dir.norm());
+            pos = colP + dir*(type::dot(dir,(pos-colP))/dir.norm());
         }
         RigidVec3 r(pos, q);
         rigids.push_back(r);

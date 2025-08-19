@@ -172,8 +172,58 @@ auto crossProductMatrix(const Eigen::MatrixBase<Derived>& v) noexcept
     return crossProductMatrix<typename Eigen::MatrixBase<Derived>::Scalar>(v);
 }
 
+/// Inverse Matrix considering the matrix as a transformation.
+template<typename Derived1, typename Derived2>
+requires ((Derived1::ColsAtCompileTime == Derived2::ColsAtCompileTime)
+          && (Derived1::RowsAtCompileTime == Derived2::RowsAtCompileTime)
+          && (Derived1::RowsAtCompileTime == Derived1::RowsAtCompileTime)
+          && (std::is_same_v<typename Derived1::Scalar, typename Derived2::Scalar>))
+bool transformInvertMatrix(Eigen::MatrixBase<Derived1>& dest, const Eigen::MatrixBase<Derived2>& from)
+{
+    using Scalar = typename Derived1::Scalar;
+    constexpr int Dim = Derived1::RowsAtCompileTime;
+
+    Mat<Dim-1,Dim-1,Scalar> R, R_inv;
+    from.getsub(0,0,R);
+    const bool b = invertMatrix(R_inv, R);
+
+    Mat<Dim-1,1,Scalar> t, t_inv;
+    from.getsub(0,Dim-1,t);
+    t_inv = -1.*R_inv*t;
+
+    dest.setsub(0,0,R_inv);
+    dest.setsub(0,Dim-1,t_inv);
+    for (sofa::Size i=0; i<Dim-1; ++i)
+        dest(Dim-1,i)=0.0;
+    dest(Dim-1,Dim-1)=1.0;
+
+    return b;
+}
+
 } // namespace sofa::type
 
+//using Scalar = typename Derived1::Scalar;
+//constexpr int Dim = Derived1::RowsAtCompileTime;
+
+//Mat<Dim-1,Dim-1,Scalar> R, R_inv;
+//R = from.block(0,0,Dim-1,Dim-1);
+//const bool b = invertMatrix(R_inv, R);
+
+//Mat<Dim-1,1,Scalar> t, t_inv;
+//t = from.block(0,Dim-1, Dim-1 , 1);
+//t_inv = -1.*R_inv*t;
+
+//for (Size i=0; i<Dim-1; i++)
+//    for (Size j=0; j<Dim-1; j++)
+//        (*this)(i+L0,j+C0) = m(i,j);
+
+//dest.setsub(0,0,R_inv);
+//dest.setsub(0,Dim-1,t_inv);
+//for (sofa::Size i=0; i<Dim-1; ++i)
+//    dest(Dim-1,i)=0.0;
+//dest(Dim-1,Dim-1)=1.0;
+
+//return b;
 
 ///// Read from an input stream
 //template<int L, int C, typename Real>
