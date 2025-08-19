@@ -142,7 +142,7 @@ void EdgePressureForceField<DataTypes>::setDminAndDmax(const SReal _dmin, const 
 template<class DataTypes>
 bool EdgePressureForceField<DataTypes>::isPointInPlane(Coord p)
 {
-    const Real d = dot(p, d_normal.getValue());
+    const Real d = type::dot(p, d_normal.getValue());
     return d > d_dmin.getValue() && d < d_dmax.getValue();
 }
 
@@ -253,7 +253,7 @@ void EdgePressureForceField<DataTypes>::initEdgeInformation()
 
                     Vec3d tt = vert - x[e[0]];
                     n1 = n2.cross(tang);
-                    if(n1*tt < 0)
+                    if(type::dot(n1,tt) < 0)
                     {
                         n1 = -n1;
                     }

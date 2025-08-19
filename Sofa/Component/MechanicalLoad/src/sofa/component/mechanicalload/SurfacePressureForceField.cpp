@@ -82,7 +82,7 @@ SurfacePressureForceField<defaulttype::Rigid3Types>::Real SurfacePressureForceFi
         const defaulttype::Rigid3Types::CPos a = x[t[0]].getCenter();
         const defaulttype::Rigid3Types::CPos b = x[t[1]].getCenter();
         const defaulttype::Rigid3Types::CPos c = x[t[2]].getCenter();
-        volume += dot(cross(a, b), c);
+        volume += type::dot(type::cross(a, b), c);
     }
 
     unsigned int nQuads = 0;
@@ -112,8 +112,8 @@ SurfacePressureForceField<defaulttype::Rigid3Types>::Real SurfacePressureForceFi
         const defaulttype::Rigid3Types::CPos b = x[q[1]].getCenter();
         const defaulttype::Rigid3Types::CPos c = x[q[2]].getCenter();
         const defaulttype::Rigid3Types::CPos d = x[q[3]].getCenter();
-        volume += dot(cross(a, b), c);
-        volume += dot(cross(a, c), d);
+        volume += type::dot(type::cross(a, b), c);
+        volume += type::dot(type::cross(a, c), d);
     }
 
     // Divide by 6 when computing tetrahedron volume
@@ -185,7 +185,7 @@ void SurfacePressureForceField<defaulttype::Rigid3Types>::addTriangleSurfacePres
     {
         defaulttype::Rigid3Types::CPos n = ab.cross(ac);
         n.normalize();
-        const Real scal = n * d_mainDirection.getValue().getVCenter();
+        const Real scal = type::dot(n , d_mainDirection.getValue().getVCenter());
         p *= fabs(scal);
     }
 

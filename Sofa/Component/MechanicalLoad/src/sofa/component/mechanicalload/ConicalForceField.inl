@@ -92,17 +92,17 @@ void ConicalForceField<DataTypes>::addForce(const sofa::core::MechanicalParams* 
             else
             {
                 //side of the cone
-                if (dot(cp,n) > 0)
+                if (type::dot(cp,n) > 0)
                 {
                     n_cp = cp/cp.norm();
-                    alpha = (Real)( acos(n_cp*n) - coneAngle.getValue()*M_PI/180 );
+                    alpha = (Real)( acos(type::dot(n_cp,n)) - coneAngle.getValue()*M_PI/180 );
                     t = n.cross(cp) ;
                     t /= t.norm();
                     type::Quat<SReal> q(t, -alpha);
                     cp_new = q.rotate(cp);
 
                     cp_new.normalize();
-                    length_cp_prime = dot(cp_new, cp);
+                    length_cp_prime = type::dot(cp_new, cp);
                     cp_prime = cp_new * length_cp_prime;
                     p_prime = cp_prime + center;
 
@@ -118,7 +118,7 @@ void ConicalForceField<DataTypes>::addForce(const sofa::core::MechanicalParams* 
                 }
 
                 force = dir * (stiffness.getValue()*d);
-                force += dir * (damping.getValue() * (-dot(dir,v1[i])));
+                force += dir * (damping.getValue() * (-type::dot(dir,v1[i])));
                 f1[i] += force;
                 Contact c;
                 c.index = i;
@@ -148,7 +148,7 @@ void ConicalForceField<DataTypes>::addDForce(const sofa::core::MechanicalParams*
         assert((unsigned)c.index<dx1.size());
         Deriv du = dx1[c.index];
         Deriv dforce;
-        dforce = (c.normal * ((du*c.normal)))*(-this->stiffness.getValue());
+        dforce = (c.normal * (type::dot(du,c.normal)))*(-this->stiffness.getValue());
         df1[c.index] += dforce * kFact;
     }
     this->contacts.endEdit();
@@ -223,7 +223,7 @@ bool ConicalForceField<DataTypes>::isIn(Coord p)
     for(unsigned i=0 ; i<3 ; ++i)
         vecP[i]=p[i]-c[i];
 
-    if ( (acos(vecP*height/(h*distP))*180/M_PI) > coneAngle.getValue() )
+    if ( (acos(type::dot(vecP,height)/(h*distP))*180/M_PI) > coneAngle.getValue() )
     {
         return false;
     }

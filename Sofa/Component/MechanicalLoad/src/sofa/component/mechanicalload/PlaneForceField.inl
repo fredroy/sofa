@@ -185,7 +185,7 @@ void PlaneForceField<DataTypes>::addForce(const core::MechanicalParams* /* mpara
 
     for (unsigned int i=ibegin; i<iend; i++)
     {
-        Real d = DataTypes::getCPos(p1[i])*planeN-d_planeD.getValue();
+        Real d = type::dot(DataTypes::getCPos(p1[i]),planeN)-d_planeD.getValue();
         if (d_bilateral.getValue() || d<0 )
         {
             Real forceIntensity = -stiff*d;
@@ -221,7 +221,9 @@ void PlaneForceField<DataTypes>::addDForce(const core::MechanicalParams* mparams
     {
         unsigned int p = this->m_contacts[i];
         assert(p<dx1.size());
-        DataTypes::setDPos(df1[p], DataTypes::getDPos(df1[p]) + planeN * (fact * (DataTypes::getDPos(dx1[p]) * planeN)));
+
+        DataTypes::setDPos(df1[p], DataTypes::getDPos(df1[p]) + planeN * (fact * type::dot(DataTypes::getDPos(dx1[p]) , planeN)));
+
     }
 }
 
@@ -299,7 +301,7 @@ void PlaneForceField<DataTypes>::updateStiffness( const VecCoord& vx )
 
     for (unsigned int i=ibegin; i<iend; i++)
     {
-        Real d = DataTypes::getCPos(x[i])*d_planeNormal.getValue()-d_planeD.getValue();
+        Real d = type::dot(DataTypes::getCPos(x[i]), d_planeNormal.getValue())-d_planeD.getValue();
         if (d<0)
             this->m_contacts.push_back(i);
     }
@@ -313,13 +315,13 @@ void PlaneForceField<DataTypes>::rotate( Deriv axe, Real angle )
     if(this->d_componentState.getValue() != ComponentState::Valid)
         return ;
 
-    const type::Vec3d axe3d { DataTypes::getDPos(axe) };
-    type::Vec3d normal3d { d_planeNormal.getValue() };
-    type::Vec3d v = normal3d.cross(axe3d);
+    const type::Vec3 axe3d { type::toVec3(DataTypes::getDPos(axe)) };
+    type::Vec3 normal3d { type::toVec3(d_planeNormal.getValue()) };
+    type::Vec3 v = normal3d.cross(axe3d);
     if (v.norm2() < 1.0e-10) return;
     v.normalize();
     v = normal3d * cos ( angle ) + v * sin ( angle );
-    *d_planeNormal.beginEdit() = v;
+    *d_planeNormal.beginEdit() = type::toVecN<DPos::SizeAtCompileTime>(v);
     d_planeNormal.endEdit();
 }
 
@@ -347,7 +349,7 @@ void PlaneForceField<DataTypes>::drawPlane(const core::visual::VisualParams* vpa
 
     helper::ReadAccessor<VecCoord> p1 = this->mstate->read(core::vec_id::read_access::position)->getValue();
 
-    type::Vec3 normal{type::NOINIT}, v1{ type::NOINIT }, v2{ type::NOINIT };
+    type::Vec3 normal, v1, v2;
     get3DFrameFromDPosNormal<DataTypes>(d_planeNormal.getValue(), v1, v2, normal);
 
     const type::Vec3d center = normal*d_planeD.getValue();
@@ -388,13 +390,13 @@ void PlaneForceField<DataTypes>::drawPlane(const core::visual::VisualParams* vpa
     type::Vec3 point1,point2;
     for (unsigned int i=ibegin; i<iend; i++)
     {
-        Real d = DataTypes::getCPos(p1[i])*d_planeNormal.getValue()-d_planeD.getValue();
+        Real d = type::dot(DataTypes::getCPos(p1[i]), d_planeNormal.getValue())-d_planeD.getValue();
         CPos p2 = DataTypes::getCPos(p1[i]);
         p2 += d_planeNormal.getValue()*(-d);
         if (d<0)
         {
-            point1 = DataTypes::getCPos(p1[i]);
-            point2 = p2;
+            point1 = type::toVec3(DataTypes::getCPos(p1[i]));
+            point2 = type::toVec3(p2);
             pointsLine.push_back(point1);
             pointsLine.push_back(point2);
         }

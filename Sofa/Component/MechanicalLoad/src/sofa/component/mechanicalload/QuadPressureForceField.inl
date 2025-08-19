@@ -212,7 +212,7 @@ void QuadPressureForceField<DataTypes>::selectQuadsFromString()
 template <class DataTypes>
 bool QuadPressureForceField<DataTypes>::isPointInPlane(Coord p)
 {
-    Real d=dot(p, d_normal.getValue());
+    Real d=type::dot(p, d_normal.getValue());
     if ((d > d_dmin.getValue()) && (d < d_dmax.getValue()))
         return true;
     else

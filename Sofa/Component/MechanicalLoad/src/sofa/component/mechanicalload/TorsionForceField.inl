@@ -71,7 +71,7 @@ void TorsionForceField<DataTypes>::addForce(const MechanicalParams* /*params*/, 
 	{
 		PointId id = indices[n];
 		const Pos lever = tau*m_u;
-		fq[id] += lever.cross(q[id] - (o + (q[id] * m_u)*m_u) );
+        fq[id] += lever.cross(q[id] - (o + (type::dot(q[id] , m_u))*m_u) );
 	}
 
 	f.endEdit();
@@ -170,7 +170,7 @@ void TorsionForceField<Rigid3Types>::addForce(const core::MechanicalParams *, Da
 	{
 		const PointId id = indices[n];
 		const Pos t = tau*m_u;
-		fq[id].getVCenter() += t.cross(q[id].getCenter() - (o + (q[id].getCenter() * m_u)*m_u) );
+        fq[id].getVCenter() += t.cross(q[id].getCenter() - (o + type::dot(q[id].getCenter() , m_u)*m_u) );
 		fq[id].getVOrientation() += t;
 	}
 

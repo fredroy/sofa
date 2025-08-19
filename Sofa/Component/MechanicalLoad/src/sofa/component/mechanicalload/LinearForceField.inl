@@ -210,7 +210,7 @@ SReal LinearForceField<DataTypes>::getPotentialEnergy(const core::MechanicalPara
 
         for(unsigned i = 0; i < indices.size(); i++)
         {
-            e -= ff*_x[i]*f;
+            e -= type::dot(ff,_x[i])*f;
         }
     }
 

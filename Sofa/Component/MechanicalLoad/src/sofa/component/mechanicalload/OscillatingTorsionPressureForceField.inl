@@ -164,7 +164,7 @@ void OscillatingTorsionPressureForceField<DataTypes>::addForce(const core::Mecha
             if (distFromCenter[i] > 1e-10 && origVecFromCenter[i].norm() > 1e-10)
             {
                 momentDir[i] = d_axis.getValue().cross(vecFromCenter[i] ); momentDir[i].normalize();
-                appliedMoment += dot( force, momentDir[i] ) * distFromCenter[i];
+                appliedMoment += type::dot( force, momentDir[i] ) * distFromCenter[i];
             }
             // error stats
             Real error = deltaPos.norm();
@@ -358,7 +358,7 @@ void OscillatingTorsionPressureForceField<DataTypes>::draw(const core::visual::V
 template<class DataTypes>
 bool OscillatingTorsionPressureForceField<DataTypes>::isPointInPlane(Coord p)
 {
-    Real d=dot(p, d_axis.getValue());
+    Real d=type::dot(p, d_axis.getValue());
     if ((d > d_dmin.getValue()) && (d < d_dmax.getValue()))
         return true;
     else
@@ -369,18 +369,18 @@ template<class DataTypes>
 typename OscillatingTorsionPressureForceField<DataTypes>::Coord OscillatingTorsionPressureForceField<DataTypes>::getVecFromRotAxis( const Coord &x )
 {
     Coord vecFromCenter = x - d_center.getValue();
-    Coord axisProj = d_axis.getValue() * dot(vecFromCenter, d_axis.getValue() ) + d_center.getValue();
+    Coord axisProj = d_axis.getValue() * type::dot(vecFromCenter, d_axis.getValue() ) + d_center.getValue();
     return (x - axisProj);
 }
 
 template<class DataTypes>
 typename OscillatingTorsionPressureForceField<DataTypes>::Real OscillatingTorsionPressureForceField<DataTypes>::getAngle( const Coord &v1, const Coord &v2 )
 {
-    Real dp = dot( v1, v2 ) / (v1.norm()*v2.norm());
+    Real dp = type::dot( v1, v2 ) / (v1.norm()*v2.norm());
     if (dp>1.0) dp=1.0; else if (dp<-1.0) dp=-1.0;
     Real angle = acos( dp );
     // check direction!
-    if (dot(d_axis.getValue(), v1.cross(v2 ) ) > 0) angle *= -1;
+    if (type::dot(d_axis.getValue(), v1.cross(v2 ) ) > 0) angle *= -1;
     return angle;
 }
 

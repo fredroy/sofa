@@ -251,7 +251,7 @@ void TaitSurfacePressureForceField<DataTypes>::addForce(const core::MechanicalPa
     for (unsigned int i = 0; i < pressureTriangles.size(); i++)
     {
         Triangle t = pressureTriangles[i];
-        Deriv n = cross(x[t[1]] - x[t[0]],x[t[2]] - x[t[0]]);
+        Deriv n = type::cross(x[t[1]] - x[t[0]],x[t[2]] - x[t[0]]);
         gradV[t[0]] += n;
         gradV[t[1]] += n;
         gradV[t[2]] += n;
@@ -268,7 +268,7 @@ void TaitSurfacePressureForceField<DataTypes>::addForce(const core::MechanicalPa
         for (unsigned int i = 0; i < pressureTriangles.size(); i++)
         {
             Triangle t = pressureTriangles[i];
-            Deriv force = cross(x[t[1]] - x[t[0]],x[t[2]] - x[t[0]]) * fscale;
+            Deriv force = type::cross(x[t[1]] - x[t[0]],x[t[2]] - x[t[0]]) * fscale;
             f[t[0]] += force;
             f[t[1]] += force;
             f[t[2]] += force;
@@ -294,7 +294,7 @@ void TaitSurfacePressureForceField<DataTypes>::addDForce(const core::MechanicalP
     // First compute dV
     Real dV = 0;
     for (unsigned int i = 0; i < gradV.size(); i++)
-        dV += dot(gradV[i],dx[i]);
+        dV += type::dot(gradV[i],dx[i]);
 
     // Then add first component of df : K * dV * gradV
 
@@ -309,8 +309,8 @@ void TaitSurfacePressureForceField<DataTypes>::addDForce(const core::MechanicalP
     for (unsigned int i = 0; i < pressureTriangles.size(); i++)
     {
         Triangle t = pressureTriangles[i];
-        Deriv df_dn = ( cross(dx[t[1]] - dx[t[0]],x[t[2]] - x[t[0]]) +
-                cross(x[t[1]] - x[t[0]],dx[t[2]] - dx[t[0]]) ) * dfscale2;
+        Deriv df_dn = ( type::cross(dx[t[1]] - dx[t[0]],x[t[2]] - x[t[0]]) +
+                type::cross(x[t[1]] - x[t[0]],dx[t[2]] - dx[t[0]]) ) * dfscale2;
         df[t[0]] += df_dn;
         df[t[1]] += df_dn;
         df[t[2]] += df_dn;
@@ -331,11 +331,22 @@ SReal TaitSurfacePressureForceField<DataTypes>::getPotentialEnergy(const core::M
     return 0.0;
 }
 
-/// Convert a vector cross-product to a to matrix multiplication, i.e. cross(a,b) = matCross(a)*b
-template <typename T>
-inline sofa::type::Mat<3,3,T> matCross( const sofa::type::Vec<3,T>& u )
+/// Convert a vector cross-product to a to matrix multiplication, i.e. type::cross(a,b) = mattype::cross(a)*b
+//template <typename T>
+//inline sofa::type::Mat<3,3,T> matCross( const sofa::type::Vec<3,T>& u )
+//{
+//    sofa::type::Mat<3,3,T> res;
+//    res(0,0) =  0   ; res(0,1) = -u[2]; res(0,2) =  u[1];
+//    res(1,0) =  u[2]; res(1,1) =  0   ; res(1,2) = -u[0];
+//    res(2,0) = -u[1]; res(2,1) =  u[0]; res(2,2) =  0   ;
+//    return res;
+//}
+
+template <typename Derived>
+requires (Derived::IsVectorAtCompileTime == 1 && Derived::SizeAtCompileTime == 3)
+auto matCross( const Eigen::MatrixBase<Derived>& u )
 {
-    sofa::type::Mat<3,3,T> res(sofa::type::NOINIT);
+    sofa::type::Mat<3,3,typename Derived::Scalar> res;
     res(0,0) =  0   ; res(0,1) = -u[2]; res(0,2) =  u[1];
     res(1,0) =  u[2]; res(1,1) =  0   ; res(1,2) = -u[0];
     res(2,0) = -u[1]; res(2,1) =  u[0]; res(2,2) =  0   ;
@@ -485,8 +496,8 @@ void TaitSurfacePressureForceField<DataTypes>::computeMeshVolumeAndArea(Real& vo
         Coord a = x[t[0]] - center;
         Coord b = x[t[1]] - center;
         Coord c = x[t[2]] - center;
-        volume6 += dot(cross(a,b),c);
-        area2 += cross(b-a,c-a).norm();
+        volume6 += type::dot(type::cross(a,b),c);
+        area2 += type::cross(b-a,c-a).norm();
     }
 
     volume = volume6 / (Real)6.0;
@@ -525,7 +536,7 @@ void TaitSurfacePressureForceField<DataTypes>::draw(const core::visual::VisualPa
             sofa::type::Vec3 a = x[t[0]];
             sofa::type::Vec3 b = x[t[1]];
             sofa::type::Vec3 c = x[t[2]];
-            sofa::type::Vec3 n = cross(b-a,c-a) * fscale;
+            sofa::type::Vec3 n = type::cross(b-a,c-a) * fscale;
             sofa::type::Vec3 center = (a+b+c)/(Real)3;
             points.push_back(center);
             points.push_back(center+n);

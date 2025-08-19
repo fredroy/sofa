@@ -341,7 +341,7 @@ typename SurfacePressureForceField<DataTypes>::Real SurfacePressureForceField<Da
         const Coord a = x[t[0]];
         const Coord b = x[t[1]];
         const Coord c = x[t[2]];
-        volume += dot(cross(a, b), c);
+        volume += type::dot(type::cross(a, b), c);
     }
 
     unsigned int nQuads = 0;
@@ -371,8 +371,8 @@ typename SurfacePressureForceField<DataTypes>::Real SurfacePressureForceField<Da
         const Coord b = x[q[1]];
         const Coord c = x[q[2]];
         const Coord d = x[q[3]];
-        volume += dot(cross(a, b), c);
-        volume += dot(cross(a, c), d);
+        volume += type::dot(type::cross(a, b), c);
+        volume += type::dot(type::cross(a, c), d);
     }
 
     // Divide by 6 when computing tetrahedron volume
@@ -427,7 +427,7 @@ void SurfacePressureForceField<DataTypes>::addTriangleSurfacePressure(unsigned i
     {
         Deriv n = ab.cross(ac);
         n.normalize();
-        Real scal = n * d_mainDirection.getValue();
+        Real scal = type::dot(n , d_mainDirection.getValue());
         p *= fabs(scal);
     }
 

@@ -380,14 +380,14 @@ SReal ConstantForceField<DataTypes>::getPotentialEnergy(const core::MechanicalPa
     {
         for (; i<indices.size(); i++)
         {
-            e -= f[i] * _x[indices[i]];
+            e -= type::dot(f[i] , _x[indices[i]]);
         }
     }
     else
     {
         for (; i < indices.size(); i++)
         {
-            e -= f[i] * _x[_x.size() - indices[i] -1];
+            e -= type::dot(f[i] , _x[_x.size() - indices[i] -1]);
         }
     }
 

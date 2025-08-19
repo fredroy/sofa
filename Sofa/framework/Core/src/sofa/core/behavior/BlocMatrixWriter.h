@@ -114,14 +114,18 @@ public:
         {
             unsigned int boffsetL = offsetL / NL;
             unsigned int boffsetC = offsetC / NC;
-            if (sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<NL,NC,double> > * mat = dynamic_cast<sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<NL,NC,double> > * >(m))
+            if (sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<NL,NC,SReal> > * mat = dynamic_cast<sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<NL,NC,SReal> > * >(m))
             {
-                dispatch(BlocCRSMatrixWriter<double>(mat, boffsetL, boffsetC));
+                dispatch(BlocCRSMatrixWriter<SReal>(mat, boffsetL, boffsetC));
             }
-            else if (sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<NL,NC,float> > * mat = dynamic_cast<sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<NL,NC,float> > * >(m))
-            {
-                dispatch(BlocCRSMatrixWriter<float>(mat, boffsetL, boffsetC));
-            }
+//            if (sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<NL,NC,double> > * mat = dynamic_cast<sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<NL,NC,double> > * >(m))
+//            {
+//                dispatch(BlocCRSMatrixWriter<double>(mat, boffsetL, boffsetC));
+//            }
+//            else if (sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<NL,NC,float> > * mat = dynamic_cast<sofa::linearalgebra::CompressedRowSparseMatrix<type::Mat<NL,NC,float> > * >(m))
+//            {
+//                dispatch(BlocCRSMatrixWriter<float>(mat, boffsetL, boffsetC));
+//            }
             else
             {
                 dispatch(BlocBaseMatrixWriter(m, boffsetL, boffsetC));
@@ -129,14 +133,18 @@ public:
         }
         else
         {
-            if (sofa::linearalgebra::CompressedRowSparseMatrix<double> * mat = dynamic_cast<sofa::linearalgebra::CompressedRowSparseMatrix<double> * >(m))
+            if (sofa::linearalgebra::CompressedRowSparseMatrix<SReal> * mat = dynamic_cast<sofa::linearalgebra::CompressedRowSparseMatrix<SReal> * >(m))
             {
-                dispatch(CRSMatrixWriter<double>(mat, offsetL, offsetC));
+                dispatch(CRSMatrixWriter<SReal>(mat, offsetL, offsetC));
             }
-            else if (sofa::linearalgebra::CompressedRowSparseMatrix<float> * mat = dynamic_cast<sofa::linearalgebra::CompressedRowSparseMatrix<float> * >(m))
-            {
-                dispatch(CRSMatrixWriter<float>(mat, offsetL, offsetC));
-            }
+//            if (sofa::linearalgebra::CompressedRowSparseMatrix<double> * mat = dynamic_cast<sofa::linearalgebra::CompressedRowSparseMatrix<double> * >(m))
+//            {
+//                dispatch(CRSMatrixWriter<double>(mat, offsetL, offsetC));
+//            }
+//            else if (sofa::linearalgebra::CompressedRowSparseMatrix<float> * mat = dynamic_cast<sofa::linearalgebra::CompressedRowSparseMatrix<float> * >(m))
+//            {
+//                dispatch(CRSMatrixWriter<float>(mat, offsetL, offsetC));
+//            }
             else
             {
                 dispatch(BaseMatrixWriter(m, offsetL, offsetC));

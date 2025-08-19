@@ -131,6 +131,23 @@ auto dyad(const Eigen::MatrixBase<DerivedU>& u,
     return u * v.transpose();
 }
 
+/// generic function (used for Rigid* types)
+template <class Tu, class Tv, int N = Tu::static_size, int M = Tv::static_size>
+requires (std::is_same_v<typename Tu::value_type, typename Tv::value_type>)
+auto dyad(const Tu& u, const Tv& v) noexcept
+{
+    Mat<N, M, typename Tu::value_type> res;
+    for (sofa::Size i = 0; i < Tu::size(); ++i)
+    {
+        for (sofa::Size j = 0; j < Tv::size(); ++j)
+        {
+            res(i,j) = u[i] * v[j];
+        }
+    }
+    return res;
+}
+
+
 template<typename Real, typename Derived>
 requires (Derived::IsVectorAtCompileTime == 1 && Derived::SizeAtCompileTime == 3)
 auto crossProductMatrix(const Eigen::MatrixBase<Derived>& v) noexcept

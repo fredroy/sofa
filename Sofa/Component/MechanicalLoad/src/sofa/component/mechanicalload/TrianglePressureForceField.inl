@@ -120,7 +120,7 @@ void TrianglePressureForceField<DataTypes>::addForce(const core::MechanicalParam
 		for (unsigned int i=0; i<my_map.size(); ++i)
 		{
 			const Triangle &t=ta[my_map[i]];
-			areaVector=cross(p[t[1]]-p[t[0]],p[t[2]]-p[t[0]])/6.0f;
+            areaVector=type::cross(p[t[1]]-p[t[0]],p[t[2]]-p[t[0]])/6.0f;
 			const auto force=cauchy*areaVector;
 			for (size_t j=0;j<3;++j) {
 				f[t[j]]+=force;
