@@ -132,7 +132,7 @@ auto dyad(const Eigen::MatrixBase<DerivedU>& u,
 }
 
 /// generic function (used for Rigid* types)
-template <class Tu, class Tv, int N = Tu::static_size, int M = Tv::static_size>
+template <class Tu, class Tv, int N = Tu::size(), int M = Tv::size()>
 requires (std::is_same_v<typename Tu::value_type, typename Tv::value_type>)
 auto dyad(const Tu& u, const Tv& v) noexcept
 {
