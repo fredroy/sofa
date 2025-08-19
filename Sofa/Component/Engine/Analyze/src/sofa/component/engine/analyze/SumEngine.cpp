@@ -35,7 +35,7 @@ void registerSumEngine(sofa::core::ObjectFactory* factory)
         .add< SumEngine<Vec3> >(true));
 }
 
-template class SOFA_COMPONENT_ENGINE_ANALYZE_API SumEngine<Vec1>;
+template class SOFA_COMPONENT_ENGINE_ANALYZE_API SumEngine<SReal>;
 template class SOFA_COMPONENT_ENGINE_ANALYZE_API SumEngine<Vec3>;
 
 

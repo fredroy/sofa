@@ -50,9 +50,19 @@ template<class T>
 concept StdArray = is_std_array<T>::value;
 
 template<class T>
-concept FixedArrayLike = StdArray<T> || requires(std::remove_cv_t<T> t, const std::remove_cv_t<T> ct)
+concept EigenArray = requires
 {
-    T::static_size;
+    T::IsVectorAtCompileTime == 1;
+
+    // ensure contiguous data
+    (T::ColMajor == 1 && T::ColsAtCompileTime >= 1) || (T::RowMajor == 1 && T::RowsAtCompileTime >= 1);
+};
+
+template<class T>
+concept FixedArrayLike = EigenArray<T> || StdArray<T> || requires(std::remove_cv_t<T> t, const std::remove_cv_t<T> ct)
+{
+    std::is_unsigned_v<typename T::size_type>; // to avoid eigen types (where the index_type is signed)
+    T::static_size > 0;
 
     {t.begin()} -> std::convertible_to<typename T::iterator>;
     {t.end()} -> std::convertible_to<typename T::iterator>;

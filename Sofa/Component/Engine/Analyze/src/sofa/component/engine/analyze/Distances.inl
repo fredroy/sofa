@@ -645,7 +645,7 @@ void Distances< DataTypes >::computeGradients ( const unsigned int mapIndex, typ
         gradients.push_back ( grad );
 
         // compute the distance value for the point from the distance on the voxel center
-        double pointDist = (point - d_offset.getValue() - hexaGeoAlgo->computeHexahedronCenter(hID)) * grad + distance;
+        double pointDist = type::dot( (point - d_offset.getValue() - hexaGeoAlgo->computeHexahedronCenter(hID)) , grad) + distance;
         if ( pointDist < 0.0) pointDist = 0.0;
         distances.push_back ( pointDist );
     }

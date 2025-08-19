@@ -76,11 +76,11 @@ typename HausdorffDistance<DataTypes>::Real HausdorffDistance<DataTypes>::distan
 
     for (unsigned int i = 0 ; i < S.size(); i++)
     {
-        Real d = (p-S[i]).norm();
+        Real d = (p-S[i]).norm2();
         if (d<min) min = d;
     }
 
-    return min;
+    return std::sqrt(min);
 }
 
 /**

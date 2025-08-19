@@ -3,15 +3,16 @@
 struct NoInit{};
 inline static constexpr NoInit NOINIT{};
 
-inline static const sofa::Size total_size = Matrix::ColsAtCompileTime * Matrix::RowsAtCompileTime;
-inline static const int static_size = Matrix::ColsAtCompileTime * Matrix::RowsAtCompileTime;
 
 using Real = Matrix::Scalar;
-static constexpr auto nbLines = Matrix::RowsAtCompileTime;
-static constexpr auto nbCols = Matrix::ColsAtCompileTime;
+using value_type = Matrix::Scalar;
 using Size = int;
 
 
+inline static const sofa::Size total_size = Matrix::ColsAtCompileTime * Matrix::RowsAtCompileTime;
+inline static const int static_size = (Matrix::RowsAtCompileTime == Eigen::Dynamic || Matrix::ColsAtCompileTime == Eigen::Dynamic) ? 0 : total_size;
+static constexpr auto nbLines = Matrix::RowsAtCompileTime;
+static constexpr auto nbCols = Matrix::ColsAtCompileTime;
 static constexpr sofa::Size spatial_dimensions = nbLines;
 static constexpr sofa::Size coord_total_size = nbLines;
 static constexpr sofa::Size deriv_total_size = nbLines*nbCols;

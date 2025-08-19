@@ -54,7 +54,7 @@ void SumEngine<DataType>::doUpdate()
 {
     helper::ReadAccessor<Data<VecData> > in = d_input;
 
-    helper::WriteOnlyAccessor<Data<DataType> > out = d_output;
+    auto out = sofa::helper::getWriteOnlyAccessor(d_output);
     out.wref() = std::accumulate(in.begin(), in.end(), DataType() );
 }
 

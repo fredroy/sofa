@@ -23,6 +23,8 @@
 
 #include <sofa/helper/config.h>
 
+#include <sofa/type/trait/is_vector.h>
+
 namespace sofa::helper
 {
 

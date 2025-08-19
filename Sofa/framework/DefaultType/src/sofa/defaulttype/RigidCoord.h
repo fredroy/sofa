@@ -562,7 +562,7 @@ public:
     Real norm2() const
     {
         Real angle = fmod((Real)orientation, (Real)M_PI * 2); // fmod is constexpr in c++23
-        return center * center + angle * angle;
+        return type::dot(center, center) + angle * angle;
     }
 
     /// Euclidean norm
