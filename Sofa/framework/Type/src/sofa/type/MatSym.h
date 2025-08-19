@@ -46,31 +46,27 @@ public:
     typedef Vec<D,Real> Coord;
     static constexpr auto NumberStoredValues = D * (D + 1) / 2;
 
-    constexpr MatSym() noexcept
+    MatSym() noexcept
     {
-        clear();
-    }
 
-    constexpr explicit MatSym(NoInit) noexcept
-    {
     }
 
     /// Constructor from 6 elements
     template<sofa::Size TD = D, typename = std::enable_if_t<TD == 3> >
-    constexpr MatSym(
+    MatSym(
         const real& v1, const real& v2, const real& v3,
         const real& v4, const real& v5, const real& v6)
     {
-        this->elems[0] = v1;
-        this->elems[1] = v2;
-        this->elems[2] = v3;
-        this->elems[3] = v4;
-        this->elems[4] = v5;
-        this->elems[5] = v6;
+        (*this)[0] = v1;
+        (*this)[1] = v2;
+        (*this)[2] = v3;
+        (*this)[3] = v4;
+        (*this)[4] = v5;
+        (*this)[5] = v6;
     }
 
     /// Constructor from an element
-    constexpr MatSym(const sofa::Size sizeM, const real& v)
+    MatSym(const sofa::Size sizeM, const real& v)
     {
         assert(sizeM <= D);
         for (sofa::Size i = 0; i < sizeM * (sizeM + 1) / 2; ++i)
@@ -99,7 +95,7 @@ public:
     {
         for (sofa::Size i = 0; i < NumberStoredValues; i++)
         {
-            this->elems[i] = 0;
+            (*this)[i] = 0;
         }
     }
 
@@ -117,9 +113,9 @@ public:
     {
         if (i >= j)
         {
-            return this->elems[(i * (i + 1)) / 2 + j];
+            return (*this)[(i * (i + 1)) / 2 + j];
         }
-        return this->elems[(j * (j + 1)) / 2 + i];
+        return (*this)[(j * (j + 1)) / 2 + i];
     }
 
     /// Read-only access to element (i,j).
@@ -127,9 +123,9 @@ public:
     {
         if (i >= j)
         {
-            return this->elems[(i * (i + 1)) / 2 + j];
+            return (*this)[(i * (i + 1)) / 2 + j];
         }
-        return this->elems[(j * (j + 1)) / 2 + i];
+        return (*this)[(j * (j + 1)) / 2 + i];
     }
 
     /// convert matrix to sym
@@ -148,7 +144,7 @@ public:
     template<sofa::Size TD = D, typename = std::enable_if_t<TD == 3 || TD == 2> >
     inline Vec<NumberStoredValues, real> getVoigt() const
     {
-        Vec<NumberStoredValues, real> result {NOINIT};
+        Vec<NumberStoredValues, real> result ;
         if constexpr (D == 2)
         {
             result[0] = this->elems[0];
@@ -168,14 +164,14 @@ public:
     }
 
     /// Set matrix to identity.
-    constexpr void identity()
+    void identity()
     {
         for (sofa::Size i = 0; i < D; i++)
         {
-            this->elems[i * (i + 1) / 2 + i] = 1;
+            (*this)[i * (i + 1) / 2 + i] = 1;
             for (sofa::Size j = i + 1; j < D; j++)
             {
-                this->elems[i * (i + 1) / 2 + j] = 0;
+                (*this)[i * (i + 1) / 2 + j] = 0;
             }
         }
     }
@@ -214,7 +210,7 @@ public:
     /// Matrix multiplication operator: product of two symmetric matrices
     [[nodiscard]] Mat<D, D, real> SymSymMultiply(const MatSym<D, real>& m) const
     {
-        Mat<D, D, real> r(NOINIT);
+        Mat<D, D, real> r;
 
         for (sofa::Size i = 0; i < D; i++)
         {
@@ -238,7 +234,7 @@ public:
     //Multiplication by a non symmetric matrix on the right
     [[nodiscard]] Mat<D,D,real> SymMatMultiply(const Mat<D,D,real>& m) const
     {
-        Mat<D,D,real> r(NOINIT);
+        Mat<D,D,real> r;
 
         for (sofa::Size i = 0; i < D; i++)
         {
@@ -262,7 +258,7 @@ public:
     //Multiplication by a non symmetric matrix on the left
     Mat<D, D, real> MatSymMultiply(const Mat<D, D, real>& m) const
     {
-        Mat<D, D, real> r(NOINIT);
+        Mat<D, D, real> r;
 
         for (sofa::Size i = 0; i < D; i++)
         {
@@ -282,7 +278,7 @@ public:
     /// Matrix addition operator with a symmetric matrix
     MatSym<D, real> operator+(const MatSym<D, real>& m) const
     {
-        MatSym<D, real> r(NOINIT);
+        MatSym<D, real> r;
         for (sofa::Size i = 0; i < NumberStoredValues; i++)
         {
             r[i] = (*this)[i] + m[i];
@@ -293,7 +289,7 @@ public:
     /// Matrix addition operator with a non-symmetric matrix
     Mat<D, D, real> operator+(const Mat<D, D, real>& m) const
     {
-        Mat<D, D, real> r(NOINIT);
+        Mat<D, D, real> r;
         for (sofa::Size i = 0; i < D; i++)
         {
             for (sofa::Size j = 0; j < D; j++)
@@ -307,7 +303,7 @@ public:
     /// Matrix substractor operator with a symmetric matrix
     MatSym<D, real> operator-(const MatSym<D, real>& m) const
     {
-        MatSym<D, real> r(NOINIT);
+        MatSym<D, real> r;
         for (sofa::Size i = 0; i < NumberStoredValues; i++)
         {
             r[i] = (*this)[i] - m[i];
@@ -318,7 +314,7 @@ public:
     /// Matrix substractor operator with a non-symmetric matrix
     Mat<D, D, real> operator-(const Mat<D, D, real>& m) const
     {
-        Mat<D, D, real> r(NOINIT);
+        Mat<D, D, real> r;
         for (sofa::Size i = 0; i < D; i++)
         {
             for (sofa::Size j = 0; j < D; j++)
@@ -332,7 +328,7 @@ public:
     /// Multiplication operator Matrix * Vector.
     Coord operator*(const Coord& v) const
     {
-        Coord r(NOINIT);
+        Coord r;
         for (sofa::Size i = 0; i < D; i++)
         {
             r[i] = (*this)(i, 0) * v[0];
@@ -347,7 +343,7 @@ public:
     /// Scalar multiplication operator.
     MatSym<D, real> operator*(real f) const
     {
-        MatSym<D, real> r(NOINIT);
+        MatSym<D, real> r;
         for (sofa::Size i = 0; i < NumberStoredValues; i++)
         {
             r[i] = (*this)[i] * f;
@@ -364,7 +360,7 @@ public:
     /// Scalar division operator.
     MatSym<D, real> operator/(real f) const
     {
-        MatSym<D, real> r(NOINIT);
+        MatSym<D, real> r;
         for (sofa::Size i = 0; i < NumberStoredValues; i++)
         {
             r[i] = (*this)[i] / f;

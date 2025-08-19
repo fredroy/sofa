@@ -80,9 +80,9 @@ public:
         Real k0 = param.parameterArray[2];
         MatrixSym ID;
         ID.identity();
-        SPKTensorGeneral = (-1*inversematrix*I1/3+ID)*(2*c1*pow(sinfo->J, (Real)(-2.0/3.0)))+(
-                               -1*inversematrix*2*I2/3+ID*I1-C)*(
-                               2*c2*pow(sinfo->J, (Real)(-4.0/3.0)))+inversematrix*k0*log(sinfo->J);
+        SPKTensorGeneral = (-1.0*inversematrix*I1/3.0+ID)*(2*c1*pow(sinfo->J, (Real)(-2.0/3.0)))+(
+                               -1.0*inversematrix*2.0*I2/3.0+ID*I1-C)*(
+                               2.0*c2*pow(sinfo->J, (Real)(-4.0/3.0)))+inversematrix*k0*log(sinfo->J);
     }
 
 
@@ -176,49 +176,49 @@ public:
         C_H_C(4,5) = _C[4]*_C[5];
         C_H_C(5,4) = 2*C_H_C(4,5);
         Matrix6 trC_HC_;
-        trC_HC_[0] = _C[0]*CC;
-        trC_HC_[1] = _C[1]*CC;
-        trC_HC_[2] = _C[2]*CC;
-        trC_HC_[3] = _C[3]*CC;
-        trC_HC_[4] = _C[4]*CC;
-        trC_HC_[5] = _C[5]*CC;
+        trC_HC_.col(0) = _C[0]*CC;
+        trC_HC_.col(1) = _C[1]*CC;
+        trC_HC_.col(2) = _C[2]*CC;
+        trC_HC_.col(3) = _C[3]*CC;
+        trC_HC_.col(4) = _C[4]*CC;
+        trC_HC_.col(5) = _C[5]*CC;
         Matrix6 trCH_C; //(C-1:H)C
-        trCH_C[0] = sinfo->deformationTensor[0]*CC;
-        trCH_C[1] = sinfo->deformationTensor[1]*CC;
-        trCH_C[2] = sinfo->deformationTensor[2]*CC;
-        trCH_C[3] = sinfo->deformationTensor[3]*CC;
-        trCH_C[4] = sinfo->deformationTensor[4]*CC;
-        trCH_C[5] = sinfo->deformationTensor[5]*CC;
+        trCH_C.col(0) = sinfo->deformationTensor[0]*CC;
+        trCH_C.col(1) = sinfo->deformationTensor[1]*CC;
+        trCH_C.col(2) = sinfo->deformationTensor[2]*CC;
+        trCH_C.col(3) = sinfo->deformationTensor[3]*CC;
+        trCH_C.col(4) = sinfo->deformationTensor[4]*CC;
+        trCH_C.col(5) = sinfo->deformationTensor[5]*CC;
         Matrix6 trC_HC;
-        trC_HC[0] = _C[0]*C;
-        trC_HC[1] = _C[1]*C;
-        trC_HC[2] = _C[2]*C;
-        trC_HC[3] = _C[3]*C;
-        trC_HC[4] = _C[4]*C;
-        trC_HC[5] = _C[5]*C;
+        trC_HC.col(0) = _C[0]*C;
+        trC_HC.col(1) = _C[1]*C;
+        trC_HC.col(2) = _C[2]*C;
+        trC_HC.col(3) = _C[3]*C;
+        trC_HC.col(4) = _C[4]*C;
+        trC_HC.col(5) = _C[5]*C;
         Matrix6 trID_HC_;
-        trID_HC_[0] = ID[0]*CC;
-        trID_HC_[1] = ID[1]*CC;
-        trID_HC_[2] = ID[2]*CC;
-        trID_HC_[3] = ID[3]*CC;
-        trID_HC_[4] = ID[4]*CC;
-        trID_HC_[5] = ID[5]*CC;
+        trID_HC_.col(0) = ID[0]*CC;
+        trID_HC_.col(1) = ID[1]*CC;
+        trID_HC_.col(2) = ID[2]*CC;
+        trID_HC_.col(3) = ID[3]*CC;
+        trID_HC_.col(4) = ID[4]*CC;
+        trID_HC_.col(5) = ID[5]*CC;
         Matrix6 trC_HID;
-        trC_HID[0] = _C[0]*ID;
-        trC_HID[1] = _C[1]*ID;
-        trC_HID[2] = _C[2]*ID;
-        trC_HID[3] = _C[3]*ID;
-        trC_HID[4] = _C[4]*ID;
-        trC_HID[5] = _C[5]*ID;
+        trC_HID.col(0) = _C[0]*ID;
+        trC_HID.col(1) = _C[1]*ID;
+        trC_HID.col(2) = _C[2]*ID;
+        trC_HID.col(3) = _C[3]*ID;
+        trC_HID.col(4) = _C[4]*ID;
+        trC_HID.col(5) = _C[5]*ID;
         Matrix6 IDHID;
         IDHID.identity();
         Matrix6 trIDHID;
-        trIDHID[0] = ID[0]*ID;
-        trIDHID[1] = ID[1]*ID;
-        trIDHID[2] = ID[2]*ID;
-        trIDHID[3] = ID[3]*ID;
-        trIDHID[4] = ID[4]*ID;
-        trIDHID[5] = ID[5]*ID;
+        trIDHID.col(0) = ID[0]*ID;
+        trIDHID.col(1) = ID[1]*ID;
+        trIDHID.col(2) = ID[2]*ID;
+        trIDHID.col(3) = ID[3]*ID;
+        trIDHID.col(4) = ID[4]*ID;
+        trIDHID.col(5) = ID[5]*ID;
         Real I1 = sinfo->trC;
         Real I1square = (Real)(sinfo->deformationTensor[0]*sinfo->deformationTensor[0]+sinfo->
                                deformationTensor[2]*sinfo->deformationTensor[2]+sinfo->

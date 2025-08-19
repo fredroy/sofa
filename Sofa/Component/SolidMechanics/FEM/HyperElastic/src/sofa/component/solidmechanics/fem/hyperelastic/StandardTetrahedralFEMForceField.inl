@@ -234,16 +234,16 @@ void StandardTetrahedralFEMForceField<DataTypes>::createTetrahedronRestInformati
         point[j] = (restPosition)[t[j]];
     }
     /// compute 6 times the rest volume
-    volume = dot(cross(point[2] - point[0], point[3] - point[0]), point[1] - point[0]);
+    volume = type::dot(type::cross(point[2] - point[0], point[3] - point[0]), point[1] - point[0]);
     /// store the rest volume
     tinfo.volScale = (Real)(1.0 / volume);
     tinfo.restVolume = fabs(volume / 6);
     // store shape vectors at the rest configuration
     for (j = 0; j < 4; ++j) {
         if (!(j % 2))
-            tinfo.shapeVector[j] = -cross(point[(j + 2) % 4] - point[(j + 1) % 4], point[(j + 3) % 4] - point[(j + 1) % 4]) / volume;
+            tinfo.shapeVector[j] = -type::cross(point[(j + 2) % 4] - point[(j + 1) % 4], point[(j + 3) % 4] - point[(j + 1) % 4]) / volume;
         else
-            tinfo.shapeVector[j] = cross(point[(j + 2) % 4] - point[(j + 1) % 4], point[(j + 3) % 4] - point[(j + 1) % 4]) / volume;;
+            tinfo.shapeVector[j] = type::cross(point[(j + 2) % 4] - point[(j + 1) % 4], point[(j + 3) % 4] - point[(j + 1) % 4]) / volume;;
     }
 
 
@@ -375,12 +375,12 @@ void StandardTetrahedralFEMForceField<DataTypes>::addForce(const core::Mechanica
         if(globalParameters.anisotropyDirection.size()>0){
             tetInfo->fiberDirection=globalParameters.anisotropyDirection[0];
             Coord vectCa=tetInfo->deformationTensor*tetInfo->fiberDirection;
-            Real aDotCDota=dot(tetInfo->fiberDirection,vectCa);
+            Real aDotCDota=type::dot(tetInfo->fiberDirection,vectCa);
             tetInfo->lambda=(Real)sqrt(aDotCDota);
         }
-        Coord areaVec = cross( dp[1], dp[2] );
+        Coord areaVec = type::cross( dp[1], dp[2] );
 
-        tetInfo->J = dot( areaVec, dp[0] ) * tetInfo->volScale;
+        tetInfo->J = type::dot( areaVec, dp[0] ) * tetInfo->volScale;
         tetInfo->trC = (Real)( tetInfo->deformationTensor(0,0) + tetInfo->deformationTensor(1,1) + tetInfo->deformationTensor(2,2));
         //tetInfo->strainEnergy=myMaterial->getStrainEnergy(tetInfo,globalParameters); // to uncomment for test derivatives
     //	tetInfo->SPKTensorGeneral.clear();
@@ -426,7 +426,7 @@ void StandardTetrahedralFEMForceField<DataTypes>::addForce(const core::Mechanica
                 Real productSD=0;
 
                 Coord vectSD=SPK*svk;
-                productSD=dot(vectSD,svl);
+                productSD=type::dot(vectSD,svl);
                 M(0,1)=M(0,2)=M(1,0)=M(1,2)=M(2,0)=M(2,1)=0;
                 M(0,0)=M(1,1)=M(2,2)=(Real)productSD;
 
@@ -503,7 +503,7 @@ void StandardTetrahedralFEMForceField<DataTypes>::addDForce(const core::Mechanic
                 //Now M
                 Real productSD=0;
                 Coord vectSD=tetInfo->SPKTensorGeneral*svk;
-                productSD=dot(vectSD,svl);
+                productSD=type::dot(vectSD,svl);
                 M[0][1]=M[0][2]=M[1][0]=M[1][2]=M[2][0]=M[2][1]=0;
                 M[0][0]=M[1][1]=M[2][2]=(Real)productSD;
                 edgeDfDx += (M+N.transposed())*tetInfo->restVolume;
@@ -701,7 +701,7 @@ void StandardTetrahedralFEMForceField<DataTypes>::testDerivatives()
             energy2 += tetrahedronInf[vTetras[i]].strainEnergy * tetrahedronInf[vTetras[i]].restVolume;
         }
         Coord forceAtMI = force1[moveIdx];
-        Real deltaEnergyPredicted = -dot( forceAtMI, epsilon );
+        Real deltaEnergyPredicted = -type::dot( forceAtMI, epsilon );
         Real deltaEnergyFactual = (energy2 - energy1);
         Real energyError = fabs( deltaEnergyPredicted - deltaEnergyFactual );
         if (energyError > 0.05*fabs(deltaEnergyFactual)) { // allow up to 5% error
