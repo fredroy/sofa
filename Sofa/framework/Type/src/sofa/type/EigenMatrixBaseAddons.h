@@ -19,9 +19,22 @@ void getsub(int L0, int C0, Eigen::MatrixBase<OtherDerived>& m) const noexcept
     m = (*this)(seq(L0, OtherDerived::RowsAtCompileTime), seq(C0, OtherDerived::ColsAtCompileTime));
 }
 
+template <typename OtherDerived>
+void getsub(int C0, Eigen::MatrixBase<OtherDerived>& m) const noexcept
+requires (MatrixBase::IsVectorAtCompileTime == 1 && OtherDerived::IsVectorAtCompileTime == 1 && OtherDerived::SizeAtCompileTime <= MatrixBase::SizeAtCompileTime)
+{
+    m = (*this)(0, seq(C0, OtherDerived::ColsAtCompileTime));
+}
+
 void getsub(int L0, int C0, MatrixBase::Scalar& m) const noexcept
 {
     m = (*this)(L0,C0);
+}
+
+void getsub(int C0, MatrixBase::Scalar& m) const noexcept
+requires (MatrixBase::IsVectorAtCompileTime == 1)
+{
+    m = (*this)(0,C0);
 }
 
 template <typename OtherDerived>

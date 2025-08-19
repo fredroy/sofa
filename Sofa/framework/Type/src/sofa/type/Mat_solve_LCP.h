@@ -33,7 +33,7 @@ namespace sofa::type
 // ---   res[0..dim-1] = U
 // ---   res[dim..2*dim-1] = F
 // -----------------------------------------------------------------
-template <Size dim, typename real>
+template <int dim, typename real>
 [[nodiscard]] 
 bool solveLCP(const Vec<dim,real> &q, const Mat<dim,dim,real> &M, Vec<dim * 2, real> &res)
 {

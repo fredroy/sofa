@@ -83,7 +83,7 @@ void PenalityContactForceField<DataTypes>::addForce(const sofa::core::Mechanical
     {
         Contact& c = cc[i];
         Coord u = x2[c.m2]-x1[c.m1];
-        c.pen = c.dist - u*c.norm;
+        c.pen = c.dist - type::dot(u, c.norm);
         if (c.pen > 0)
         {
             Real fN = c.ks * c.pen;
@@ -118,7 +118,7 @@ void PenalityContactForceField<DataTypes>::addDForce(const sofa::core::Mechanica
         if (c.pen > 0) // + dpen > 0)
         {
             Coord du = dx2[c.m2]-dx1[c.m1];
-            Real dpen = - du*c.norm;
+            Real dpen = - type::dot(du, c.norm);
             //if (c.pen < 0) dpen += c.pen; // start penalty at distance 0
             Real dfN = c.ks * dpen * (Real)kFactor;
             Deriv dforce = -c.norm*dfN;
@@ -286,7 +286,7 @@ void PenalityContactForceField<DataTypes>::draw(const core::visual::VisualParams
     for (sofa::Index i=0; i<cc.size(); i++)
     {
         const Contact& c = cc[i];
-        Real d = c.dist - (p2[c.m2]-p1[c.m1])*c.norm;
+        Real d = c.dist - type::dot((p2[c.m2]-p1[c.m1]),c.norm);
         if (c.age > 10) //c.spen > c.mu_s * c.ks * 0.99)
             if (d > 0)
             {
@@ -339,7 +339,7 @@ template<class DataTypes>
 void PenalityContactForceField<DataTypes>::grabPoint(
     const core::behavior::MechanicalState<defaulttype::Vec3Types> *tool,
     const type::vector< sofa::Index > &index,
-    type::vector< std::pair< core::objectmodel::BaseObject*, type::Vec3f> > &result,
+    type::vector< std::pair< core::objectmodel::BaseObject*, type::Vec3> > &result,
     type::vector< sofa::Index > &triangle,
     type::vector< sofa::Index > &index_point)
 {
