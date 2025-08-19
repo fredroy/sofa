@@ -99,7 +99,7 @@ void ExtrudeQuadsAndGenerateHexas<DataTypes>::doUpdate()
             quadCoord.push_back(surfaceVertices[surfaceQuads[q][i]]);
 
         //compute normal
-        Coord n =  cross(quadCoord[1]-quadCoord[0], quadCoord[2]-quadCoord[0]);
+        Coord n =  type::cross(quadCoord[1]-quadCoord[0], quadCoord[2]-quadCoord[0]);
         n.normalize();
         for (int i=0 ; i<4 ; i++)
         {

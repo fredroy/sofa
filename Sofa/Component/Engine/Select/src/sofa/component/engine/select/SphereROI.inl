@@ -82,8 +82,8 @@ bool SphereROI<DataTypes>::testEdgeAngle(const Edge& e) const
         const auto& dir = d_direction.getValue();
 
         auto n = DataTypes::getCPos(x0[e[1]]) - DataTypes::getCPos(x0[e[0]]);
-        n.normalize();
-        return (fabs(dot(n, dir)) < fabs(cos(eAngle * M_PI / 180.0)));
+        auto nn = n.normalized();
+        return (fabs(type::dot(nn, dir)) < fabs(cos(eAngle * M_PI / 180.0)));
     }
 
     return true;
@@ -121,13 +121,13 @@ bool SphereROI<DataTypes>::testTriangleAngle(const Triangle& t) const
         const auto& x0 = this->d_positions.getValue();
         const auto& normal = d_normal.getValue();
 
-        auto n = cross(
+        auto n = type::cross(
             DataTypes::getCPos(x0[t[2]]) - DataTypes::getCPos(x0[t[0]]),
             DataTypes::getCPos(x0[t[1]]) - DataTypes::getCPos(x0[t[0]])
         );
         n.normalize();
 
-        return (dot(n, normal) < std::cos(tAngle * M_PI / 180.0));
+        return (type::dot(n, normal) < std::cos(tAngle * M_PI / 180.0));
     }
 
     return true;

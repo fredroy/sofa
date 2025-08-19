@@ -195,24 +195,6 @@ auto toVec3(const Eigen::MatrixBase<Derived>& v)
 //    return out;
 //}
 
-// Define global operator< for Eigen matrices
-template<int N, class T>
-bool operator<(const sofa::type::Vec<N,T>& lhs, const  sofa::type::Vec<N,T>& rhs)
-{
-    if (lhs.size() != rhs.size())
-    {
-        return lhs.size() < rhs.size();
-    }
-
-    // Lexicographic comparison
-    for (int i = 0; i < lhs.size(); ++i)
-    {
-        if (lhs(i) < rhs(i)) return true;
-        if (lhs(i) > rhs(i)) return false;
-    }
-    return false; // Equal
-}
-
 } // namespace sofa::type
 
 // Specialization of the std comparison function, to use Vec as std::map key
@@ -238,3 +220,24 @@ struct less< sofa::type::Vec<N,T> >
 };
 
 } // namespace std
+
+// Define global operator< for Eigen matrices
+template<typename Derived1, typename Derived2>
+requires (Derived1::IsVectorAtCompileTime == 1 && Derived2::IsVectorAtCompileTime == 1)
+bool operator<(const Eigen::MatrixBase<Derived1>& lhs, const Eigen::MatrixBase<Derived2>& rhs)
+{
+    if constexpr (Derived1::static_size != Derived2::static_size)
+    {
+        return Derived1::static_size < Derived2::static_size;
+    }
+    else
+    {
+        // Lexicographic comparison
+        for (int i = 0; i < lhs.size(); ++i)
+        {
+            if (lhs(i) < rhs(i)) return true;
+            if (lhs(i) > rhs(i)) return false;
+        }
+        return false; // Equal
+    }
+}

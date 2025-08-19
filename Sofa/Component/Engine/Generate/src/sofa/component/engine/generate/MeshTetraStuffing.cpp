@@ -234,7 +234,7 @@ void MeshTetraStuffing::doUpdate()
                     int n = results.size();
                     for (int i=0; i<n; ++i)
                     {
-                        results[i].tid = dot(inTN[results[i].tid],direction) < 0 ? -1 : 1;
+                        results[i].tid = type::dot(inTN[results[i].tid],direction) < 0 ? -1 : 1;
                         intersections.push_back(origin + direction * results[i].t);
                     }
                     for (int i=0; i<n-1; i++)
@@ -558,7 +558,7 @@ void MeshTetraStuffing::doUpdate()
         Point a = outP[outT[t][1]] - outP[outT[t][0]];
         Point b = outP[outT[t][2]] - outP[outT[t][0]];
         Point c = outP[outT[t][3]] - outP[outT[t][0]];
-        Real vol6 = a*(b.cross(c));
+        Real vol6 = type::dot(a,(b.cross(c)));
         if (vol6 < 0)
         {
             msg_warning() << "tetra " << t << " is inverted.";
@@ -590,7 +590,7 @@ void MeshTetraStuffing::addFinalTetra(SeqTetrahedra& outT, SeqPoints& outP, int 
     const Point a = outP[p2] - outP[p1];
     const Point b = outP[p3] - outP[p1];
     const Point c = outP[p4] - outP[p1];
-    const Real vol6 = a*(b.cross(c));
+    const Real vol6 = type::dot(a,(b.cross(c)));
     if (vol6 < 0)
     {
         msg_info() << __FILE__ << "(" << line << "): WARNING: final tetra " << p1 << " " << p2 << " " << p3 << " " << p4 << " is inverted.";
@@ -633,7 +633,7 @@ void MeshTetraStuffing::addTetra(SeqTetrahedra& outT, SeqPoints& outP, int p1, i
         const Point a = outP[p2] - outP[p1];
         const Point b = outP[p3] - outP[p1];
         const Point c = outP[p4] - outP[p1];
-        const Real vol6 = a*(b.cross(c));
+        const Real vol6 = type::dot(a,(b.cross(c)));
         if (vol6 < 0)
         {
             msg_info() << "line("<<line<<"): grid tetra " << p1 << " " << p2 << " " << p3 << " " << p4 << " is inverted.";

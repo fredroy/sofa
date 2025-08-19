@@ -150,7 +150,7 @@ void MeshBarycentricMapperEngine<DataTypes>::doUpdate()
                     SReal lengthEdge = lengthEdges[e];
                     Vec3 V12 =unitaryVectors[e];
 
-                    coef = ( V12 ) *Vec3 ((out)[i]-(in)[edges[e][0]] ) /lengthEdge;
+                    coef = type::dot( V12 , Vec3 ((out)[i]-(in)[edges[e][0]] )) /lengthEdge;
                     if ( coef >= 0 && coef <= 1 )
                     {
                         addPointInLine ( e, &coef );
@@ -172,10 +172,10 @@ void MeshBarycentricMapperEngine<DataTypes>::doUpdate()
             for ( unsigned int t = 0; t < triangles.size(); t++ )
             {
                 Mat3x3 m,mt;
-                m[0] = (in)[triangles[t][1]]-(in)[triangles[t][0]];
-                m[1] = (in)[triangles[t][2]]-(in)[triangles[t][0]];
-                m[2] = cross ( m[0],m[1] );
-                mt.transpose ( m );
+                m.col(0) = (in)[triangles[t][1]]-(in)[triangles[t][0]];
+                m.col(1) = (in)[triangles[t][2]]-(in)[triangles[t][0]];
+                m.col(2) = type::cross ( m.col(0),m.col(1) );
+                mt = m.transpose ();
                 const bool canInvert = bases[t].invert ( mt );
                 assert(canInvert);
                 SOFA_UNUSED(canInvert);
@@ -184,10 +184,10 @@ void MeshBarycentricMapperEngine<DataTypes>::doUpdate()
             for ( unsigned int c = 0; c < quads.size(); c++ )
             {
                 Mat3x3 m,mt;
-                m[0] = (in)[quads[c][1]]-(in)[quads[c][0]];
-                m[1] = (in)[quads[c][3]]-(in)[quads[c][0]];
-                m[2] = cross ( m[0],m[1] );
-                mt.transpose ( m );
+                m.col(0) = (in)[quads[c][1]]-(in)[quads[c][0]];
+                m.col(1) = (in)[quads[c][3]]-(in)[quads[c][0]];
+                m.col(2) = type::cross ( m.col(0),m.col(1) );
+                mt = m.transpose ();
                 const bool canInvert = bases[c0+c].invert ( mt );
                 assert(canInvert);
                 SOFA_UNUSED(canInvert);
@@ -232,10 +232,10 @@ void MeshBarycentricMapperEngine<DataTypes>::doUpdate()
         for ( unsigned int t = 0; t < tetrahedra.size(); t++ )
         {
             Mat3x3 m,mt;
-            m[0] = (in)[tetrahedra[t][1]]-(in)[tetrahedra[t][0]];
-            m[1] = (in)[tetrahedra[t][2]]-(in)[tetrahedra[t][0]];
-            m[2] = (in)[tetrahedra[t][3]]-(in)[tetrahedra[t][0]];
-            mt.transpose ( m );
+            m.col(0) = (in)[tetrahedra[t][1]]-(in)[tetrahedra[t][0]];
+            m.col(1) = (in)[tetrahedra[t][2]]-(in)[tetrahedra[t][0]];
+            m.col(2) = (in)[tetrahedra[t][3]]-(in)[tetrahedra[t][0]];
+            mt = m.transpose ();
             const bool canInvert = bases[t].invert ( mt );
             assert(canInvert);
             SOFA_UNUSED(canInvert);
@@ -244,10 +244,10 @@ void MeshBarycentricMapperEngine<DataTypes>::doUpdate()
         for ( unsigned int c = 0; c < cubes.size(); c++ )
         {
             Mat3x3 m,mt;
-            m[0] = (in)[cubes[c][1]]-(in)[cubes[c][0]];
-            m[1] = (in)[cubes[c][3]]-(in)[cubes[c][0]];
-            m[2] = (in)[cubes[c][4]]-(in)[cubes[c][0]];
-            mt.transpose ( m );
+            m.col(0) = (in)[cubes[c][1]]-(in)[cubes[c][0]];
+            m.col(1) = (in)[cubes[c][3]]-(in)[cubes[c][0]];
+            m.col(2) = (in)[cubes[c][4]]-(in)[cubes[c][0]];
+            mt = m.transpose ();
             const bool canInvert = bases[c0+c].invert ( mt );
             assert(canInvert);
             SOFA_UNUSED(canInvert);

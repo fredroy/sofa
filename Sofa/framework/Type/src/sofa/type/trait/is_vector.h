@@ -36,10 +36,8 @@ concept EigenResizableVector = requires
 
 /// Detect if a type T has iterator/const iterator function, operator[](size_t) and is dynamically resizable (resize function)
 template<typename T>
-concept is_vector = EigenResizableVector<T> || requires(std::remove_cv_t<T> t, const std::remove_cv_t<T> ct)
+concept is_vector = requires(std::remove_cv_t<T> t, const std::remove_cv_t<T> ct)
 {
-    std::is_unsigned_v<typename T::size_type>; // to avoid eigen types (where the index_type is signed)
-
     {t.begin()} -> std::convertible_to<typename T::iterator>;
     {t.end()} -> std::convertible_to<typename T::iterator>;
 
@@ -48,6 +46,7 @@ concept is_vector = EigenResizableVector<T> || requires(std::remove_cv_t<T> t, c
 
     { t[0] } -> std::convertible_to<typename T::value_type>;
     t.resize(1);
+    t.at(0); // Eigen does not implement this
 };
 
 }

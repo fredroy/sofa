@@ -59,10 +59,9 @@ concept EigenArray = requires
 };
 
 template<class T>
-concept FixedArrayLike = EigenArray<T> || StdArray<T> || requires(std::remove_cv_t<T> t, const std::remove_cv_t<T> ct)
+concept FixedArrayLike = StdArray<T> || requires(std::remove_cv_t<T> t, const std::remove_cv_t<T> ct)
 {
-    std::is_unsigned_v<typename T::size_type>; // to avoid eigen types (where the index_type is signed)
-    T::static_size > 0;
+    T::static_size;
 
     {t.begin()} -> std::convertible_to<typename T::iterator>;
     {t.end()} -> std::convertible_to<typename T::iterator>;
@@ -71,6 +70,7 @@ concept FixedArrayLike = EigenArray<T> || StdArray<T> || requires(std::remove_cv
     {ct.end()} -> std::convertible_to<typename T::const_iterator>;
 
     { t[0] } -> std::convertible_to<typename T::value_type>;
+    t.at(0); // Eigen does not implement this
 };
 
 template<class T>

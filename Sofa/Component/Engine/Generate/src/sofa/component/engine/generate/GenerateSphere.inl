@@ -280,7 +280,7 @@ void GenerateSphere<DataTypes>::doUpdate()
             normal=type::cross(posTrian[edgeArray[i][0]],posTrian[edgeArray[i][1]]);
 			normal=type::cross(normal,posTrian[edgeArray[i][0]]);
 			normal/= normal.norm();
-			phi=acos(dot(posTrian[edgeArray[i][0]],posTrian[edgeArray[i][1]]));
+            phi=acos(type::dot(posTrian[edgeArray[i][0]],posTrian[edgeArray[i][1]]));
 			for (j=1;j<frequency;++j) {
 				// spherical interpolation rather than linear interpolation
 				w=(Real) j/(Real) frequency;
@@ -466,11 +466,11 @@ void GenerateSphere<DataTypes>::doUpdate()
 					edgeMap.insert(std::pair<Edge,size_t>(se,edgeArray.size()));
 					edgeArray.push_back(e);
 					// add Bezier points along the edge
-					phi=acos(dot(posTrian[se[0]],posTrian[se[1]]));
+                    phi=acos(type::dot(posTrian[se[0]],posTrian[se[1]]));
 					normal=type::cross(posTrian[(*itt)[2]]-posTrian[(*itt)[1]],
 						posTrian[(*itt)[2]]-posTrian[(*itt)[0]]);
 					normal/=normal.norm();
-					ctheta=dot(normal,posTrian[(*itt)[1]]);
+                    ctheta=type::dot(normal,posTrian[(*itt)[1]]);
 					// ctheta must be negative otherwise get negative weights
 					if (ctheta>0) {
 						normal*= -1.0f;
@@ -483,7 +483,7 @@ void GenerateSphere<DataTypes>::doUpdate()
 						posTrian.push_back(pos);
 						bezierTriangleWeight.push_back((Real)cos(phi/2));
 					} else if (degreeTriangle==3) {
-						posTmp=(posTrian[e[0]]+posTrian[e[1]])/(1+dot(posTrian[e[0]],posTrian[e[1]]));
+                        posTmp=(posTrian[e[0]]+posTrian[e[1]])/(1+type::dot(posTrian[e[0]],posTrian[e[1]]));
 						pos=(2*ctheta*posTmp+posTrian[e[0]])/(1+2*ctheta);
 						posTrian.push_back(pos);
 						pos=(2*ctheta*posTmp+posTrian[e[1]])/(1+2*ctheta);
@@ -491,16 +491,16 @@ void GenerateSphere<DataTypes>::doUpdate()
 						bezierTriangleWeight.push_back((Real)(1+2*ctheta)/3.0f);
 						bezierTriangleWeight.push_back((Real)(1+2*ctheta)/3.0f);
 					} else if (degreeTriangle==4) {
-						Coord P110=(posTrian[e[0]]+posTrian[e[1]])/(1+dot(posTrian[e[0]],posTrian[e[1]]));
+                        Coord P110=(posTrian[e[0]]+posTrian[e[1]])/(1+type::dot(posTrian[e[0]],posTrian[e[1]]));
 						Real w110=((posTrian[e[0]]+posTrian[e[1]])/2).norm();
-						Real w310=(2-ctheta-dot(normal,P110));
-						posTmp=(P110*(1-ctheta)+posTrian[e[0]]*(1-dot(normal,P110)))/w310;
-						Coord P130=((1-ctheta)*P110+(1-dot(normal,P110))*posTrian[e[1]])/w310;
+                        Real w310=(2-ctheta-type::dot(normal,P110));
+                        posTmp=(P110*(1-ctheta)+posTrian[e[0]]*(1-type::dot(normal,P110)))/w310;
+                        Coord P130=((1-ctheta)*P110+(1-type::dot(normal,P110))*posTrian[e[1]])/w310;
 						w310*=w110/(2*(1-ctheta));
 						posTrian.push_back(posTmp);
 						bezierTriangleWeight.push_back((Real)w310);
-						Real w220=4*(1-dot(normal,P110))*w110*w110+2*(1-ctheta);
-						Coord P220=P110*4*(1-dot(normal,P110))*w110*w110+
+                        Real w220=4*(1-type::dot(normal,P110))*w110*w110+2*(1-ctheta);
+                        Coord P220=P110*4*(1-type::dot(normal,P110))*w110*w110+
 							(posTrian[e[0]]+posTrian[e[1]])*(1-ctheta);
 						P220/=w220;
 						w220/=6*(1-ctheta);
@@ -528,7 +528,7 @@ void GenerateSphere<DataTypes>::doUpdate()
 					normal=type::cross(posTrian[(*itt)[2]]-posTrian[(*itt)[1]],
 						posTrian[(*itt)[2]]-posTrian[(*itt)[0]]);
 					normal/=normal.norm();
-					ctheta=dot(normal,posTrian[(*itt)[1]]);
+                    ctheta=type::dot(normal,posTrian[(*itt)[1]]);
 					// ctheta must be negative otherwise get negative weights
 					if (ctheta>0) {
 						normal*= -1.0f;
@@ -537,17 +537,17 @@ void GenerateSphere<DataTypes>::doUpdate()
 					Coord mid[3];
 					Real wmid[3];
 					for (i=0;i<3;++i) {
-						mid[i]=(posTrian[(*itt)[(i+1)%3]]+posTrian[(*itt)[(i+2)%3]])/(1+dot(posTrian[(*itt)[(i+1)%3]],posTrian[(*itt)[(i+2)%3]]));
+                        mid[i]=(posTrian[(*itt)[(i+1)%3]]+posTrian[(*itt)[(i+2)%3]])/(1+type::dot(posTrian[(*itt)[(i+1)%3]],posTrian[(*itt)[(i+2)%3]]));
 						wmid[i]=((posTrian[(*itt)[(i+1)%3]]+posTrian[(*itt)[(i+2)%3]])/2).norm();
 					}
 					Coord posTmp;
 					Real ww;
 					for (j=3;j>0;--j) {
 						i=(j+2)%3;
-						ww= 2*wmid[(i+1)%3]*wmid[(i+2)%3]*(1+dot(mid[(i+1)%3],mid[(i+2)%3])-dot(normal,mid[(i+1)%3])-dot(normal,mid[(i+2)%3]))+
-							wmid[i]*(1+dot(posTrian[(*itt)[i]],mid[i])-ctheta-dot(mid[i],normal));
-						posTmp=2*wmid[(i+1)%3]*wmid[(i+2)%3]*((1-dot(normal,mid[(i+1)%3]))*mid[(i+2)%3]+(1-dot(normal,mid[(i+2)%3]))*mid[(i+1)%3]+
-							(dot(mid[(i+1)%3],mid[(i+2)%3])-1)*normal)+wmid[i]*((1-ctheta)*mid[i]+(1-dot(normal,mid[i]))*posTrian[(*itt)[i]]+(dot(posTrian[(*itt)[i]],mid[i])-1)*normal);
+                        ww= 2*wmid[(i+1)%3]*wmid[(i+2)%3]*(1+type::dot(mid[(i+1)%3],mid[(i+2)%3])-type::dot(normal,mid[(i+1)%3])-type::dot(normal,mid[(i+2)%3]))+
+                            wmid[i]*(1+type::dot(posTrian[(*itt)[i]],mid[i])-ctheta-type::dot(mid[i],normal));
+                        posTmp=2*wmid[(i+1)%3]*wmid[(i+2)%3]*((1-type::dot(normal,mid[(i+1)%3]))*mid[(i+2)%3]+(1-type::dot(normal,mid[(i+2)%3]))*mid[(i+1)%3]+
+                            (type::dot(mid[(i+1)%3],mid[(i+2)%3])-1)*normal)+wmid[i]*((1-ctheta)*mid[i]+(1-type::dot(normal,mid[i]))*posTrian[(*itt)[i]]+(type::dot(posTrian[(*itt)[i]],mid[i])-1)*normal);
 						posTmp/=ww;
 						ww/=6*(1-ctheta);
 						posTrian.push_back(posTmp);
@@ -613,7 +613,7 @@ void GenerateSphere<DataTypes>::doUpdate()
 					}
 					if (onSphere) {
 						// add Bezier points along the edge
-						phi=acos(dot(posTetra[e[0]],posTetra[e[1]]));
+                        phi=acos(type::dot(posTetra[e[0]],posTetra[e[1]]));
 						// one of the 2 other vertices must be on the sphere
 						size_t nextVertexOnSphere=(*itt)[adjacentVerticesToEdges[i][0]];
 						if (fabs(posTetra[nextVertexOnSphere].norm2()-1)>1e-4){
@@ -624,7 +624,7 @@ void GenerateSphere<DataTypes>::doUpdate()
 						normal=type::cross(posTetra[nextVertexOnSphere]-posTetra[e[1]],
 							posTetra[nextVertexOnSphere]-posTetra[e[0]]);
 						normal/=normal.norm();
-						ctheta=dot(normal,posTetra[e[1]]);
+                        ctheta=type::dot(normal,posTetra[e[1]]);
 						// ctheta must be negative otherwise get negative weights
 						if (ctheta>0) {
 							normal*= -1.0f;
@@ -637,7 +637,7 @@ void GenerateSphere<DataTypes>::doUpdate()
 							posTetra.push_back(pos);
 							bezierTetrahedronWeight.push_back((Real)cos(phi/2));
 						} else if (degreeTetrahedron==3) {
-							posTmp=(posTetra[e[0]]+posTetra[e[1]])/(1+dot(posTetra[e[0]],posTetra[e[1]]));
+                            posTmp=(posTetra[e[0]]+posTetra[e[1]])/(1+type::dot(posTetra[e[0]],posTetra[e[1]]));
 							pos=(2*ctheta*posTmp+posTetra[se[0]])/(1+2*ctheta);
 							posTetra.push_back(pos);
 							pos=(2*ctheta*posTmp+posTetra[se[1]])/(1+2*ctheta);
@@ -645,16 +645,16 @@ void GenerateSphere<DataTypes>::doUpdate()
 							bezierTetrahedronWeight.push_back((Real)(1+2*ctheta)/3.0f);
 							bezierTetrahedronWeight.push_back((Real)(1+2*ctheta)/3.0f);
 						} else if (degreeTetrahedron==4) {
-							Coord P110=(posTetra[e[0]]+posTetra[e[1]])/(1+dot(posTetra[e[0]],posTetra[e[1]]));
+                            Coord P110=(posTetra[e[0]]+posTetra[e[1]])/(1+type::dot(posTetra[e[0]],posTetra[e[1]]));
 							Real w110=((posTetra[e[0]]+posTetra[e[1]])/2).norm();
-							Real w310=(2-ctheta-dot(normal,P110));
-							posTmp=(P110*(1-ctheta)+posTetra[se[0]]*(1-dot(normal,P110)))/w310;
-							Coord P130=((1-ctheta)*P110+(1-dot(normal,P110))*posTetra[se[1]])/w310;
+                            Real w310=(2-ctheta-type::dot(normal,P110));
+                            posTmp=(P110*(1-ctheta)+posTetra[se[0]]*(1-type::dot(normal,P110)))/w310;
+                            Coord P130=((1-ctheta)*P110+(1-type::dot(normal,P110))*posTetra[se[1]])/w310;
 							w310*=w110/(2*(1-ctheta));
 							posTetra.push_back(posTmp);
 							bezierTetrahedronWeight.push_back((Real)w310);
-							Real w220=4*(1-dot(normal,P110))*w110*w110+2*(1-ctheta);
-							Coord P220=P110*4*(1-dot(normal,P110))*w110*w110+
+                            Real w220=4*(1-type::dot(normal,P110))*w110*w110+2*(1-ctheta);
+                            Coord P220=P110*4*(1-type::dot(normal,P110))*w110*w110+
 								(posTetra[e[0]]+posTetra[e[1]])*(1-ctheta);
 							P220/=w220;
 							w220/=6*(1-ctheta);
@@ -725,7 +725,7 @@ void GenerateSphere<DataTypes>::doUpdate()
 								normal=type::cross(posTetra[tr[2]]-posTetra[tr[1]],
 									posTetra[tr[2]]-posTetra[tr[0]]);
 								normal/=normal.norm();
-								ctheta=dot(normal,posTetra[tr[1]]);
+                                ctheta=type::dot(normal,posTetra[tr[1]]);
 								// ctheta must be negative otherwise get negative weights
 								if (ctheta>0) {
 									normal*= -1.0f;
@@ -734,17 +734,17 @@ void GenerateSphere<DataTypes>::doUpdate()
 								Coord mid[3];
 								Real wmid[3];
 								for (i=0;i<3;++i) {
-									mid[i]=(posTetra[tr[(i+1)%3]]+posTetra[tr[(i+2)%3]])/(1+dot(posTetra[tr[(i+1)%3]],posTetra[tr[(i+2)%3]]));
+                                    mid[i]=(posTetra[tr[(i+1)%3]]+posTetra[tr[(i+2)%3]])/(1+type::dot(posTetra[tr[(i+1)%3]],posTetra[tr[(i+2)%3]]));
 									wmid[i]=((posTetra[tr[(i+1)%3]]+posTetra[tr[(i+2)%3]])/2).norm();
 								}
 								Coord posTmp;
 								Real ww;
 								for (j=3;j>0;--j) {
 									i=(j+2)%3;
-									ww= 2*wmid[(i+1)%3]*wmid[(i+2)%3]*(1+dot(mid[(i+1)%3],mid[(i+2)%3])-dot(normal,mid[(i+1)%3])-dot(normal,mid[(i+2)%3]))+
-										wmid[i]*(1+dot(posTetra[tr[i]],mid[i])-ctheta-dot(mid[i],normal));
-									posTmp=2*wmid[(i+1)%3]*wmid[(i+2)%3]*((1-dot(normal,mid[(i+1)%3]))*mid[(i+2)%3]+(1-dot(normal,mid[(i+2)%3]))*mid[(i+1)%3]+
-										(dot(mid[(i+1)%3],mid[(i+2)%3])-1)*normal)+wmid[i]*((1-ctheta)*mid[i]+(1-dot(normal,mid[i]))*posTetra[tr[i]]+(dot(posTetra[tr[i]],mid[i])-1)*normal);
+                                    ww= 2*wmid[(i+1)%3]*wmid[(i+2)%3]*(1+type::dot(mid[(i+1)%3],mid[(i+2)%3])-type::dot(normal,mid[(i+1)%3])-type::dot(normal,mid[(i+2)%3]))+
+                                        wmid[i]*(1+type::dot(posTetra[tr[i]],mid[i])-ctheta-type::dot(mid[i],normal));
+                                    posTmp=2*wmid[(i+1)%3]*wmid[(i+2)%3]*((1-type::dot(normal,mid[(i+1)%3]))*mid[(i+2)%3]+(1-type::dot(normal,mid[(i+2)%3]))*mid[(i+1)%3]+
+                                        (type::dot(mid[(i+1)%3],mid[(i+2)%3])-1)*normal)+wmid[i]*((1-ctheta)*mid[i]+(1-type::dot(normal,mid[i]))*posTetra[tr[i]]+(type::dot(posTetra[tr[i]],mid[i])-1)*normal);
 									posTmp/=ww;
 									ww/=6*(1-ctheta);
 									posTetra.push_back(posTmp);

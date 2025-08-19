@@ -52,7 +52,7 @@ PlaneROI<DataTypes>::PlaneROI()
     , p_drawTetrahedra( initData(&p_drawTetrahedra,false,"drawTetrahedra","Draw Tetrahedra") )
     , _drawSize( initData(&_drawSize, 1.0f,"drawSize","rendering size for box and topological elements") )
 {
-    planes.beginEdit()->push_back(Vec10(sofa::type::Vec<9,Real>(0,0,0,0,0,0,0,0,0),0));
+    planes.beginEdit()->push_back(Vec10(0,0,0,0,0,0,0,0,0,0));
     planes.endEdit();
 
     addAlias(&f_X0,"rest_position");
@@ -185,8 +185,8 @@ void PlaneROI<DataTypes>::computePlane(unsigned int planeIndex)
     plane3 = (p2-p1).cross(p6-p2);
     plane3.normalize();
 
-    width = fabs(dot((p2-p0),plane0));
-    length = fabs(dot((p2-p0),plane2));
+    width = fabs(type::dot((p2-p0),plane0));
+    length = fabs(type::dot((p2-p0),plane2));
 
 }
 
@@ -198,11 +198,11 @@ bool PlaneROI<DataTypes>::isPointInPlane(const typename DataTypes::CPos& p)
     Vec3 pv0 = (p-p0);
     Vec3 pv1 = (p-p2);
 
-    if( fabs(dot(pv0, plane0)) <= width && fabs(dot(pv1, plane1)) <= width )
+    if( fabs(type::dot(pv0, plane0)) <= width && fabs(type::dot(pv1, plane1)) <= width )
     {
-        if ( fabs(dot(pv0, plane2)) <= length && fabs(dot(pv1, plane3)) <= length )
+        if ( fabs(type::dot(pv0, plane2)) <= length && fabs(type::dot(pv1, plane3)) <= length )
         {
-            if ( !(fabs(dot(pv0, vdepth)) <= fabs(depth/2)) )
+            if ( !(fabs(type::dot(pv0, vdepth)) <= fabs(depth/2)) )
             {
                 return false;
             }

@@ -5,8 +5,9 @@ inline static constexpr NoInit NOINIT{};
 
 
 using Real = Matrix::Scalar;
-using value_type = Matrix::Scalar;
 using Size = int;
+using value_type = Matrix::Scalar;
+using size_type = int;
 
 
 inline static const sofa::Size total_size = Matrix::ColsAtCompileTime * Matrix::RowsAtCompileTime;
@@ -233,6 +234,38 @@ requires (NbLines == NbColumns)
 void symmetrize() noexcept
 {
     (*this) = (*this + this->transpose() ) / 2.0;
+}
+
+/// l-norm of the vector
+/// The type of norm is set by parameter l.
+/// Use l<0 for the infinite norm.
+auto lNorm( int l ) const
+requires (Matrix::IsVectorAtCompileTime == 1)
+{
+    using Scalar = Matrix::Scalar;
+
+    if( l==2 ) return this->norm(); // euclidean norm
+    else if( l<0 ) // infinite norm
+    {
+        return this->template lpNorm<Eigen::Infinity>();
+    }
+    else if( l==1 ) // Manhattan norm
+    {
+        return this->template lpNorm<1>();
+    }
+    else if( l==0 ) // counting not null
+    {
+        return static_cast<Scalar>(((*this).array() != 0.0).count());
+    }
+    else // generic implementation
+    {
+        //Eigen version l parameter must be known at compile time
+        //here, l is given as an argument
+        Scalar n = 0;
+        for( Size i=0; i<static_size; i++ )
+            n += static_cast<Scalar>((pow( std::fabs( (*this)[i] ), l )));
+        return static_cast<Scalar>(pow( n, static_cast<Scalar>(1.0)/ static_cast<Scalar>(l) ));
+    }
 }
 
 // unsafe !

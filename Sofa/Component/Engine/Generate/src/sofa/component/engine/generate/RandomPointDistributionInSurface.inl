@@ -162,9 +162,9 @@ bool RandomPointDistributionInSurface<DataTypes>::isInside(Coord p)
         {
             BaseMeshTopology::Triangle triangle = triangles[result.tid];
             //test if the point is inside or outside (using triangle's normal)
-            Coord n = cross(vertices[triangle[1]]-vertices[triangle[0]], vertices[triangle[2]]-vertices[triangle[0]]);
+            Coord n = type::cross(vertices[triangle[1]]-vertices[triangle[0]], vertices[triangle[2]]-vertices[triangle[0]]);
             n.normalize();
-            if (dot(directions[i],n) > 0.0)
+            if (type::dot(directions[i],n) > 0.0)
             {
                 numberOfInsideTest++;
             }

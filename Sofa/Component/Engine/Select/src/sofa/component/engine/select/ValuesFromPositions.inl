@@ -160,7 +160,7 @@ typename ValuesFromPositions<DataTypes>::Real ValuesFromPositions<DataTypes>::va
 
     if (nbv == 0) return 0;
     else if (nbv == 1) return data.inputValues[0];
-    Real coef = dot(p,data.dir);
+    Real coef = type::dot(p,data.dir);
     coef = (coef - data.bmin) / (data.bmax - data.bmin);
     coef *= (nbv-1);
     int v = (int)floor(coef);
@@ -279,8 +279,8 @@ void ValuesFromPositions<DataTypes>::doUpdate()
 
     // Compute min and max of BB    
     const auto& bbox = this->getContext()->getRootContext()->f_bbox.getValue();
-    data.bmin = (Real)*bbox.minBBoxPtr(); /// @todo: shouldn't this be dot(sceneMinBBox,data.dir) ?
-    data.bmax = (Real)*bbox.maxBBoxPtr(); /// @todo: shouldn't this be dot(sceneMaxBBox,data.dir) ?
+    data.bmin = (Real)*bbox.minBBoxPtr(); /// @todo: shouldn't this be type::dot(sceneMinBBox,data.dir) ?
+    data.bmax = (Real)*bbox.maxBBoxPtr(); /// @todo: shouldn't this be type::dot(sceneMaxBBox,data.dir) ?
 
     if (p_fieldType.getValue().getSelectedId() == 0)
         this->updateValues(data);

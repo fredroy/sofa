@@ -74,16 +74,16 @@ void NormalsFromPoints<DataTypes>::doUpdate()
         const Coord  v1 = raPositions[raTriangles[i][0]];
         const Coord  v2 = raPositions[raTriangles[i][1]];
         const Coord  v3 = raPositions[raTriangles[i][2]];
-        Coord n = cross(v2-v1, v3-v1);
+        Coord n = type::cross(v2-v1, v3-v1);
         if (useAngles)
         {
             Real nnorm = n.norm();
             Coord e12 = v2-v1; Real e12norm = e12.norm();
             Coord e23 = v3-v2; Real e23norm = e23.norm();
             Coord e31 = v1-v3; Real e31norm = e31.norm();
-            waNormals[raTriangles[i][0]] += n * (acos(-(e31*e12)/(e31norm*e12norm))/nnorm);
-            waNormals[raTriangles[i][1]] += n * (acos(-(e12*e23)/(e12norm*e23norm))/nnorm);
-            waNormals[raTriangles[i][2]] += n * (acos(-(e23*e31)/(e23norm*e31norm))/nnorm);
+            waNormals[raTriangles[i][0]] += n * (acos(-type::dot(e31,e12)/(e31norm*e12norm))/nnorm);
+            waNormals[raTriangles[i][1]] += n * (acos(-type::dot(e12,e23)/(e12norm*e23norm))/nnorm);
+            waNormals[raTriangles[i][2]] += n * (acos(-type::dot(e23,e31)/(e23norm*e31norm))/nnorm);
         }
         else
         {
@@ -99,20 +99,20 @@ void NormalsFromPoints<DataTypes>::doUpdate()
         const Coord & v2 = raPositions[raQuads[i][1]];
         const Coord & v3 = raPositions[raQuads[i][2]];
         const Coord & v4 = raPositions[raQuads[i][3]];
-        Coord n1 = cross(v2-v1, v4-v1); Real n1norm = n1.norm();
-        Coord n2 = cross(v3-v2, v1-v2); Real n2norm = n2.norm();
-        Coord n3 = cross(v4-v3, v2-v3); Real n3norm = n3.norm();
-        Coord n4 = cross(v1-v4, v3-v4); Real n4norm = n4.norm();
+        Coord n1 = type::cross(v2-v1, v4-v1); Real n1norm = n1.norm();
+        Coord n2 = type::cross(v3-v2, v1-v2); Real n2norm = n2.norm();
+        Coord n3 = type::cross(v4-v3, v2-v3); Real n3norm = n3.norm();
+        Coord n4 = type::cross(v1-v4, v3-v4); Real n4norm = n4.norm();
         if (useAngles)
         {
             Coord e12 = v2-v1; Real e12norm = e12.norm();
             Coord e23 = v3-v2; Real e23norm = e23.norm();
             Coord e34 = v4-v3; Real e34norm = e34.norm();
             Coord e41 = v1-v4; Real e41norm = e41.norm();
-            waNormals[raQuads[i][0]] += n1 * (acos(-(e41*e12)/(e41norm*e12norm))/n1norm);
-            waNormals[raQuads[i][1]] += n2 * (acos(-(e12*e23)/(e12norm*e23norm))/n2norm);
-            waNormals[raQuads[i][2]] += n3 * (acos(-(e23*e34)/(e23norm*e34norm))/n3norm);
-            waNormals[raQuads[i][3]] += n4 * (acos(-(e34*e41)/(e34norm*e41norm))/n3norm);
+            waNormals[raQuads[i][0]] += n1 * (acos(-type::dot(e41,e12)/(e41norm*e12norm))/n1norm);
+            waNormals[raQuads[i][1]] += n2 * (acos(-type::dot(e12,e23)/(e12norm*e23norm))/n2norm);
+            waNormals[raQuads[i][2]] += n3 * (acos(-type::dot(e23,e34)/(e23norm*e34norm))/n3norm);
+            waNormals[raQuads[i][3]] += n4 * (acos(-type::dot(e34,e41)/(e34norm*e41norm))/n3norm);
         }
         else
         {

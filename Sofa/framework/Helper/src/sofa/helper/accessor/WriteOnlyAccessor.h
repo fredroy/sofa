@@ -49,5 +49,15 @@ public:
     WriteOnlyAccessor(container_type& c) : Inherit(c) {}
 };
 
+template<type::trait::EigenResizableVector EigenResizableVectorType>
+class WriteOnlyAccessor<EigenResizableVectorType>
+    : public WriteAccessorVector< EigenResizableVectorType >
+{
+public:
+    typedef WriteAccessorVector< EigenResizableVectorType > Inherit;
+    typedef typename Inherit::container_type container_type;
+    WriteOnlyAccessor(container_type& c) : Inherit(c) {}
+};
+
 
 }

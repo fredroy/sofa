@@ -93,7 +93,7 @@ void ExtrudeSurface<DataTypes>::doUpdate()
             triangleCoord.push_back(surfaceVertices[triangle[i]]);
 
         //compute normal
-        Coord n =  cross(triangleCoord[1]-triangleCoord[0], triangleCoord[2]-triangleCoord[0]);
+        Coord n =  type::cross(triangleCoord[1]-triangleCoord[0], triangleCoord[2]-triangleCoord[0]);
         n.normalize();
         for (unsigned int i=0 ; i<3 ; i++)
         {

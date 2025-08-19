@@ -150,8 +150,8 @@ void BoxROI<DataTypes>::computeOrientedBoxes()
         m_orientedBoxes[i].plane1 = plane1;
         m_orientedBoxes[i].plane2 = plane2;
         m_orientedBoxes[i].plane3 = plane3;
-        m_orientedBoxes[i].width = fabs(dot((p2-p0),plane0));
-        m_orientedBoxes[i].length = fabs(dot((p2-p0),plane2));
+        m_orientedBoxes[i].width = fabs(type::dot((p2-p0),plane0));
+        m_orientedBoxes[i].length = fabs(type::dot((p2-p0),plane2));
         m_orientedBoxes[i].depth = depth;
     }
 }
@@ -169,11 +169,11 @@ bool BoxROI<DataTypes>::isPointInOrientedBox(const CPos& point, const OrientedBo
         const type::Vec3 pv0 = type::Vec3(point[0]-box.p0[0], point[1]-box.p0[1], point[2]-box.p0[2]);
         const type::Vec3 pv1 = type::Vec3(point[0]-box.p2[0], point[1]-box.p2[1], point[2]-box.p2[2]);
 
-        if( fabs(dot(pv0, box.plane0)) <= box.width && fabs(dot(pv1, box.plane1)) <= box.width )
+        if( fabs(type::dot(pv0, box.plane0)) <= box.width && fabs(type::dot(pv1, box.plane1)) <= box.width )
         {
-            if ( fabs(dot(pv0, box.plane2)) <= box.length && fabs(dot(pv1, box.plane3)) <= box.length )
+            if ( fabs(type::dot(pv0, box.plane2)) <= box.length && fabs(type::dot(pv1, box.plane3)) <= box.length )
             {
-                if ( !(fabs(dot(pv0, box.normal)) <= fabs(box.depth/2)) )
+                if ( !(fabs(type::dot(pv0, box.normal)) <= fabs(box.depth/2)) )
                     return false;
             }
             else

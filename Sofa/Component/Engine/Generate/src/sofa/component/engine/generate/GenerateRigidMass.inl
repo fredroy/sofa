@@ -137,7 +137,7 @@ void GenerateRigidMass<DataTypes, MassType>::integrateTriangle(type::Vec3 kV0,ty
     // get cross product of edges
     const type::Vec3 kV1mV0 = kV1 - kV0;
     const type::Vec3 kV2mV0 = kV2 - kV0;
-    type::Vec3 kN = cross(kV1mV0,kV2mV0);
+    type::Vec3 kN = type::cross(kV1mV0,kV2mV0);
 
     // compute integral terms
     SReal fTmp0, fTmp1, fTmp2;

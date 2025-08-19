@@ -93,12 +93,32 @@ public:
     WriteAccessor(container_type& c) : Inherit(c) {}
 };
 
+template<type::trait::EigenArray EigenArrayType>
+class WriteAccessor<EigenArrayType>
+    : public WriteAccessorFixedArray< EigenArrayType >
+{
+public:
+    typedef WriteAccessorFixedArray< EigenArrayType > Inherit;
+    typedef typename Inherit::container_type container_type;
+    WriteAccessor(container_type& c) : Inherit(c) {}
+};
+
 template<sofa::type::trait::is_vector VectorLikeType>
 class WriteAccessor<VectorLikeType>
     : public WriteAccessorVector< VectorLikeType >
 {
 public:
     typedef WriteAccessorVector< VectorLikeType > Inherit;
+    typedef typename Inherit::container_type container_type;
+    WriteAccessor(container_type& c) : Inherit(c) {}
+};
+
+template<type::trait::EigenResizableVector EigenResizableVectorType>
+class WriteAccessor<EigenResizableVectorType>
+    : public WriteAccessorVector< EigenResizableVectorType >
+{
+public:
+    typedef WriteAccessorVector< EigenResizableVectorType > Inherit;
     typedef typename Inherit::container_type container_type;
     WriteAccessor(container_type& c) : Inherit(c) {}
 };
