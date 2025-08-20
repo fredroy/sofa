@@ -187,14 +187,14 @@ void ParallelHexahedronFEMForceField<DataTypes>::computeTaskForceLarge(RDataRefV
     for(int w=0; w<8; ++w)
         OutF[w] += this->_rotations[elementId].multTranspose(Deriv(F[w * 3], F[w * 3 + 1], F[w * 3 + 2]  ) );
 
-    OutPotentialEnery += dot(Deriv( F[0], F[1], F[2] ) ,-Deriv( D[0], D[1], D[2]));
-    OutPotentialEnery += dot(Deriv( F[3], F[4], F[5] ) ,-Deriv( D[3], D[4], D[5] ));
-    OutPotentialEnery += dot(Deriv( F[6], F[7], F[8] ) ,-Deriv( D[6], D[7], D[8] ));
-    OutPotentialEnery += dot(Deriv( F[9], F[10], F[11]),-Deriv( D[9], D[10], D[11] ));
-    OutPotentialEnery += dot(Deriv( F[12], F[13], F[14]),-Deriv( D[12], D[13], D[14] ));
-    OutPotentialEnery += dot(Deriv( F[15], F[16], F[17]),-Deriv( D[15], D[16], D[17] ));
-    OutPotentialEnery += dot(Deriv( F[18], F[19], F[20]),-Deriv( D[18], D[19], D[20] ));
-    OutPotentialEnery += dot(Deriv( F[21], F[22], F[23]),-Deriv( D[21], D[22], D[23] ));
+    OutPotentialEnery += sofa::type::dot(Deriv( F[0], F[1], F[2] ) ,-Deriv( D[0], D[1], D[2]));
+    OutPotentialEnery += sofa::type::dot(Deriv( F[3], F[4], F[5] ) ,-Deriv( D[3], D[4], D[5] ));
+    OutPotentialEnery += sofa::type::dot(Deriv( F[6], F[7], F[8] ) ,-Deriv( D[6], D[7], D[8] ));
+    OutPotentialEnery += sofa::type::dot(Deriv( F[9], F[10], F[11]),-Deriv( D[9], D[10], D[11] ));
+    OutPotentialEnery += sofa::type::dot(Deriv( F[12], F[13], F[14]),-Deriv( D[12], D[13], D[14] ));
+    OutPotentialEnery += sofa::type::dot(Deriv( F[15], F[16], F[17]),-Deriv( D[15], D[16], D[17] ));
+    OutPotentialEnery += sofa::type::dot(Deriv( F[18], F[19], F[20]),-Deriv( D[18], D[19], D[20] ));
+    OutPotentialEnery += sofa::type::dot(Deriv( F[21], F[22], F[23]),-Deriv( D[21], D[22], D[23] ));
 }
 
 

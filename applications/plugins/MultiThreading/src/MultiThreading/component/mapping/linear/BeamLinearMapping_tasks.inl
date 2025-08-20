@@ -107,9 +107,9 @@ sofa::simulation::Task::MemoryAlloc BeamLinearMapping_mt< TIn, TOut>::applyJTask
         Coord& rotatedPoint1 = _mapping->rotatedPoints1[i];
 
         Deriv omega0 = getVOrientation( _in0 );
-        Deriv out0 = getVCenter( _in0 ) - cross( rotatedPoint0, omega0);
+        Deriv out0 = getVCenter( _in0 ) - sofa::type::cross( rotatedPoint0, omega0);
         Deriv omega1 = getVOrientation( _in1 );
-        Deriv out1 = getVCenter( _in1 ) - cross( rotatedPoint1, omega1);
+        Deriv out1 = getVCenter( _in1 ) - sofa::type::cross( rotatedPoint1, omega1);
         Real fact = (Real)inpos[0];
         fact = 3*(fact*fact)-2*(fact*fact*fact);
 
@@ -163,9 +163,9 @@ sofa::simulation::Task::MemoryAlloc BeamLinearMapping_mt< TIn, TOut>::applyJTmec
         fact = 3*(fact*fact)-2*(fact*fact*fact);
 
         getVCenter(_out0) += f * (1-fact);
-        getVOrientation(_out0) += cross( rotatedPoint0, f) * (1-fact);
+        getVOrientation(_out0) += sofa::type::cross( rotatedPoint0, f) * (1-fact);
         getVCenter(_out1) += f * (fact);
-        getVOrientation(_out1) += cross( rotatedPoint1, f) * (fact);
+        getVOrientation(_out1) += sofa::type::cross( rotatedPoint1, f) * (fact);
 
     }
     return MemoryAlloc::Stack;

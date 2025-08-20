@@ -70,8 +70,8 @@ namespace sofa::topology
 
             if (const auto v_normal = e2.cross(e1); v_normal.norm2() > static_cast<Real>(0.0))
             {
-                const auto v_01 = static_cast<Real>(direction * e1.cross(v_normal));
-                const auto v_02 = static_cast<Real>(direction * e2.cross(v_normal));
+                const auto v_01 = static_cast<Real>(type::dot(direction, e1.cross(v_normal)));
+                const auto v_02 = static_cast<Real>(type::dot(direction, e2.cross(v_normal)));
 
                 const bool is_inside = (v_01 >= static_cast<Real>(0.0)) && (v_02 < static_cast<Real>(0.0));
                 if (is_inside) return indexInTrianglesList;

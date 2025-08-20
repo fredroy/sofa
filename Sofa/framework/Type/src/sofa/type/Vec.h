@@ -28,9 +28,17 @@
 #include <functional>
 #include <limits>
 #include <type_traits>
-#include <sofa/type/fwd.h>
 #include <cmath>
 #include <array>
+
+namespace sofa::type
+{
+
+enum NoInit { NOINIT }; ///< use when calling Vec or Mat constructor to skip initialization of values to 0
+//struct NoInit {};
+//constexpr NoInit NOINIT;
+
+}
 
 #define EIGEN_MATRIXBASE_PLUGIN "sofa/type/EigenMatrixBaseAddons.h"
 #define EIGEN_MATRIX_PLUGIN "sofa/type/EigenMatrixAddons.h"
@@ -53,10 +61,6 @@ namespace // anonymous
     }
 
 } // anonymous namespace
-
-//enum NoInit { NOINIT }; ///< use when calling Vec or Mat constructor to skip initialization of values to 0
-//struct NoInit {};
-//constexpr NoInit NOINIT;
 
 template < int N, typename ValueType = SReal>
 using Vec = Eigen::Matrix<ValueType, N, 1, Eigen::ColMajor>;

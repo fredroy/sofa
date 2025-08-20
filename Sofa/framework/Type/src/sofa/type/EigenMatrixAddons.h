@@ -1,30 +1,6 @@
 #pragma once
 
-struct NoInit{};
-inline static constexpr NoInit NOINIT{};
 
-
-using Real = Matrix::Scalar;
-using Size = int;
-using value_type = Matrix::Scalar;
-using size_type = int;
-
-
-inline static const sofa::Size total_size = Matrix::ColsAtCompileTime * Matrix::RowsAtCompileTime;
-inline static const int static_size = (Matrix::RowsAtCompileTime == Eigen::Dynamic || Matrix::ColsAtCompileTime == Eigen::Dynamic) ? 0 : total_size;
-static constexpr auto nbLines = Matrix::RowsAtCompileTime;
-static constexpr auto nbCols = Matrix::ColsAtCompileTime;
-static constexpr sofa::Size spatial_dimensions = nbLines;
-static constexpr sofa::Size coord_total_size = nbLines;
-static constexpr sofa::Size deriv_total_size = nbLines*nbCols;
-
-static constexpr auto size()
-{
-    return static_size;
-}
-
-explicit Matrix(const NoInit& noInit)
-{}
 
 void identity()
 {
@@ -59,7 +35,7 @@ bool invert(const Matrix& mat)
 
 auto& x()
 {
-    if constexpr (IsVectorAtCompileTime && static_size >= 1)
+    if constexpr (IsVectorAtCompileTime && SizeAtCompileTime >= 1)
     {
         return (*this)[0];
     }
@@ -71,7 +47,7 @@ auto& x()
 
 const auto& x() const
 {
-    if constexpr (IsVectorAtCompileTime && static_size >= 1)
+    if constexpr (IsVectorAtCompileTime && SizeAtCompileTime >= 1)
     {
         return (*this)[0];
     }
@@ -83,7 +59,7 @@ const auto& x() const
 
 auto& y()
 {
-    if constexpr (IsVectorAtCompileTime && static_size >= 2)
+    if constexpr (IsVectorAtCompileTime && SizeAtCompileTime >= 2)
     {
         return (*this)[1];
     }
@@ -95,7 +71,7 @@ auto& y()
 
 const auto& y() const
 {
-    if constexpr (IsVectorAtCompileTime && static_size >= 2)
+    if constexpr (IsVectorAtCompileTime && SizeAtCompileTime >= 2)
     {
         return (*this)[1];
     }
@@ -107,7 +83,7 @@ const auto& y() const
 
 auto& z()
 {
-    if constexpr (IsVectorAtCompileTime && static_size >= 3)
+    if constexpr (IsVectorAtCompileTime && SizeAtCompileTime >= 3)
     {
         return (*this)[2];
     }
@@ -119,7 +95,7 @@ auto& z()
 
 const auto& z() const
 {
-    if constexpr (IsVectorAtCompileTime && static_size >= 3)
+    if constexpr (IsVectorAtCompileTime && SizeAtCompileTime >= 3)
     {
         return (*this)[2];
     }
@@ -221,7 +197,7 @@ auto multDiagonal(const Eigen::MatrixBase<Derived>& m) const noexcept
 /// for square matrices
 /// @warning in-place simple symmetrization
 /// this = ( this + this.transposed() ) / 2.0
-template<int NbLines = nbLines, int NbColumns = nbCols>
+template<int NbLines = Matrix::RowsAtCompileTime, int NbColumns = ColsAtCompileTime>
 requires (NbLines == NbColumns)
 void symmetrize() noexcept
 {
@@ -254,21 +230,10 @@ requires (Matrix::IsVectorAtCompileTime == 1)
         //Eigen version l parameter must be known at compile time
         //here, l is given as an argument
         Scalar n = 0;
-        for( Size i=0; i<static_size; i++ )
+        for( int i=0; i<SizeAtCompileTime; i++ )
             n += static_cast<Scalar>((pow( std::fabs( (*this)[i] ), l )));
         return static_cast<Scalar>(pow( n, static_cast<Scalar>(1.0)/ static_cast<Scalar>(l) ));
     }
-}
-
-// unsafe !
-static auto fromPtr(const Real* vptr)
-{
-    Matrix<Real, nbLines, nbCols> r;
-    for(int i=0 ; i < nbCols ; i++)
-    {
-        r << static_cast<Real>(vptr[i]);
-    }
-    return r;
 }
 
 template<typename Derived>

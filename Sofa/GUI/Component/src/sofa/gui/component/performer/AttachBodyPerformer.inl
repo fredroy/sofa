@@ -56,7 +56,7 @@ bool AttachBodyPerformer<DataTypes>::startPartial(const BodyPicked& picked)
         this->m_mapper->resize(1);
 
         const unsigned int idx=picked.indexCollisionElement;
-        typename DataTypes::CPos pointPicked=(typename DataTypes::CPos)picked.point;
+        typename DataTypes::CPos pointPicked = type::toVecN<DataTypes::spatial_dimensions>(picked.point);
         typename DataTypes::Real r=0.0;
         typename DataTypes::Coord dofPicked;
         DataTypes::setCPos(dofPicked, pointPicked);

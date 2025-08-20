@@ -405,7 +405,7 @@ BodyPicked PickHandler::findCollisionUsingPipeline()
                 if (!modelInCollision->isSimulated()) continue;
 
 
-                const double d = (output[i]->point[1]-origin)*direction;
+                const double d = type::dot((output[i]->point[1]-origin),direction);
                 if (d<0.0 || d>maxLength) continue;
                 if (result.body == nullptr || d < result.rayLength)
                 {
@@ -421,7 +421,7 @@ BodyPicked PickHandler::findCollisionUsingPipeline()
                 modelInCollision = output[i]->elem.first.getCollisionModel();
                 if (!modelInCollision->isSimulated()) continue;
 
-                const double d = (output[i]->point[0]-origin)*direction;
+                const double d = type::dot((output[i]->point[0]-origin),direction);
                 if (d<0.0 || d>maxLength) continue;
                 if (result.body == nullptr || d < result.rayLength)
                 {
