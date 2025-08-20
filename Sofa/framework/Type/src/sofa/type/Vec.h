@@ -175,30 +175,6 @@ auto toVec3(const Eigen::MatrixBase<Derived>& v)
     return toVecN<3>(v);
 }
 
-
-///// Read from an input stream
-//template<int N, typename Real>
-//std::istream& operator >> ( std::istream& in, Vec<N,Real>& v )
-//{
-//    for (sofa::Size i = 0; i < N; ++i)
-//    {
-//        in >> v(i);
-//    }
-//    return in;
-//}
-
-///// Write to an output stream
-//template<int N, typename Real>
-//std::ostream& operator << ( std::ostream& out, const Vec<N,Real>& v )
-//{
-//    for (sofa::Size i = 0; i < N - 1; ++i)
-//    {
-//        out << v(i) << " ";
-//    }
-//    out << v[N - 1];
-//    return out;
-//}
-
 } // namespace sofa::type
 
 // Specialization of the std comparison function, to use Vec as std::map key
@@ -223,4 +199,28 @@ struct less< sofa::type::Vec<N,T> >
     }
 };
 
+template<typename Derived>
+requires (Derived::IsVectorAtCompileTime == 1)
+std::istream& operator >> ( std::istream& in, Eigen::MatrixBase<Derived>& v )
+{
+    for(int i=0; i<Derived::SizeAtCompileTime; ++i )
+        in >> v[i];
+    return in;
+}
+
+template<typename Derived>
+requires (Derived::IsVectorAtCompileTime == 1)
+std::ostream& operator << ( std::ostream& out, const Eigen::MatrixBase<Derived>& v )
+{
+    for(int i=0; i<Derived::SizeAtCompileTime-1; ++i )
+    {
+        out<<v[i]<<" ";
+    }
+    out<<v[Derived::SizeAtCompileTime-1];
+
+    return out;
+}
+
 } // namespace std
+
+

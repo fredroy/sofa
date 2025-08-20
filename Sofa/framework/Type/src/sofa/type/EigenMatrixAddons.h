@@ -235,10 +235,3 @@ requires (Matrix::IsVectorAtCompileTime == 1)
         return static_cast<Scalar>(pow( n, static_cast<Scalar>(1.0)/ static_cast<Scalar>(l) ));
     }
 }
-
-template<typename Derived>
-friend std::istream& operator >> ( std::istream& in, Eigen::MatrixBase<Derived>& matrix);
-
-template<typename Derived>
-friend std::ostream& operator << ( std::ostream& out, const Eigen::MatrixBase<Derived>& matrix);
-

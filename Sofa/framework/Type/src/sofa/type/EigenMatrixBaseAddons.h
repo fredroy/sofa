@@ -120,3 +120,17 @@ bool operator<(const Eigen::MatrixBase<OtherDerived>& other) const
         return false; // Equal
     }
 }
+
+//template<typename OtherDerived>
+//friend std::istream& operator >> ( std::istream& in, Eigen::MatrixBase<OtherDerived>& matrix);
+//{
+//    return in;
+//}
+
+//template<typename OtherDerived>
+//friend std::ostream& operator << ( std::ostream& out, const Eigen::MatrixBase<OtherDerived>& matrix);
+//{
+//    return out;
+//}
+
+
