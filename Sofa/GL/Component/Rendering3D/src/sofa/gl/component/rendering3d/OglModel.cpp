@@ -333,17 +333,6 @@ GLuint glType<double>(){ return GL_DOUBLE; }
 template<>
 GLuint glType<float>(){ return GL_FLOAT; }
 
-template<class InType, class OutType>
-void copyVector(const InType& src, OutType& dst)
-{
-    unsigned int i=0;
-    for(auto& item : src)
-    {
-        dst[i].set(item);
-        ++i;
-    }
-}
-
 void OglModel::internalDraw(const core::visual::VisualParams* vparams, bool transparent)
 {
     if (!vparams->displayFlags().getShowVisualModels())
@@ -839,11 +828,17 @@ void OglModel::updateVertexBuffer()
     // use only temporary float buffers if vertices/normals are using double
     if constexpr(std::is_same_v<Coord, sofa::type::Vec3d>)
     {
-        verticesTmpBuffer.resize( vertices.size() );
-        normalsTmpBuffer.resize( vnormals.size() );
+        verticesTmpBuffer.reserve( vertices.size() );
+        normalsTmpBuffer.reserve( vnormals.size() );
 
-        copyVector(vertices, verticesTmpBuffer);
-        copyVector(vnormals, normalsTmpBuffer);
+        for(auto& v : vertices)
+        {
+            verticesTmpBuffer.push_back(v.cast<float>());
+        }
+        for(auto& n : vnormals)
+        {
+            normalsTmpBuffer.push_back(n.cast<float>());
+        }
 
         positionBuffer = verticesTmpBuffer.data();
         normalBuffer = normalsTmpBuffer.data();

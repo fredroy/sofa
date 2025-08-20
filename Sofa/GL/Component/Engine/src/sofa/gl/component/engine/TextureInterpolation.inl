@@ -101,13 +101,13 @@ void TextureInterpolation<DataTypes>::doUpdate()
             for (unsigned int j = 0; j<realInputs[0].size(); ++j)
                 tmp += realInputs[i][j];
 
-            inputs[i] = tmp/realInputs[0].size();
+            inputs[i][0] = tmp/realInputs[0].size();
         }
     }
     else
     {
         for (unsigned int i = 0; i<inputs.size(); ++i)
-            inputs[i] = realInputs[i][0];
+            inputs[i][0] = realInputs[i][0];
     }
 
     Real minVal = 0;
@@ -272,7 +272,7 @@ void TextureInterpolation<DataTypes>::draw(const core::visual::VisualParams* vpa
         else
         {
             for (unsigned int i = 0; i<potentiels.size(); ++i)
-                potentiels[i] = realPotentiels[i][0];
+                potentiels[i][0] = realPotentiels[i][0];
         }
 
         if(potentiels.size() != coords.size())

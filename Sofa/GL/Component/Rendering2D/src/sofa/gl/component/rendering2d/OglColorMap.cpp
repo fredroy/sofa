@@ -240,7 +240,7 @@ void OglColorMap::doDrawVisual(const core::visual::VisualParams* vparams)
 
     Color textcolor(1.0f, 1.0f, 1.0f, 1.0f);
     static const sofa::type::Vec3f luminanceMatrix(0.212f, 0.715f, 0.072f);
-    const float backgroundLuminance = sofa::type::Vec3f(bgcol[0], bgcol[1], bgcol[2]) * luminanceMatrix;
+    const float backgroundLuminance = type::dot(sofa::type::Vec3f(bgcol[0], bgcol[1], bgcol[2]) , luminanceMatrix);
     if(backgroundLuminance > 0.5f)
         textcolor = Color(0.0f, 0.0f, 0.0f, 1.0f);
 

@@ -24,6 +24,11 @@ explicit MatrixBase(const sofa::type::NoInit& noInit)
 : MatrixBase()
 {}
 
+void assign(const MatrixBase::Scalar v)
+{
+    return this->fill(v);
+}
+
 auto transposed() const
 {
     return this->transpose();

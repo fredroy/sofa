@@ -229,7 +229,7 @@ void SlicedVolumetricModel::findAndDrawTriangles()
         Coord p = GETCOORD( i );
 
 
-        Real actualLastPoint = _planeNormal * p;
+        Real actualLastPoint = type::dot(_planeNormal, p);
         if( actualLastPoint < maxLastPoint )
         {
             maxLastPoint = actualLastPoint;
@@ -251,7 +251,7 @@ void SlicedVolumetricModel::findAndDrawTriangles()
 
         // trouver le centre du plan de coupe
         Coord planeCenter = lastPoint + _planeNormal * (actualPlane * _planeSeparations);
-        Real planeConstant = _planeNormal * planeCenter;
+        Real planeConstant = type::dot(_planeNormal, planeCenter);
 
         EdgesMap _edgesMap;
 
@@ -264,7 +264,7 @@ void SlicedVolumetricModel::findAndDrawTriangles()
 
             Coord cubebarycenter = GETCOORD( cell[0] ) + (GETCOORD( cell[6] ) - GETCOORD( cell[0] ) ) / 2.0;
 
-            Real dist = (_planeNormal * cubebarycenter) - planeConstant; //distance du centre du cube au plan
+            Real dist = type::dot(_planeNormal, cubebarycenter) - planeConstant; //distance du centre du cube au plan
 
 
             if( fabs(dist) >= _radius)
@@ -355,8 +355,8 @@ void SlicedVolumetricModel::findAndDrawTriangles()
             {
                 Coord actualline = intersections[i].first-intersections[0].first;
 
-                Real angle1 = referenceLine * actualline;
-                Real angle2 = referenceLine2 * actualline ;
+                Real angle1 = type::dot(referenceLine, actualline);
+                Real angle2 = type::dot(referenceLine2, actualline);
 
                 if( angle2<0.0)
                     neg.push_back( std::pair<Real,int>(angle1, i) );
@@ -408,8 +408,8 @@ void SlicedVolumetricModel::findAndDrawTriangles()
 /// return 0->no intersection, 1->1 intersection, 2->line on plane
 int SlicedVolumetricModel::intersectionSegmentPlane( const Coord&s0,const Coord&s1,  const Coord &segmentDirection, const Coord& planeNormal, const Real&planeConstant,Real & m_fLineT /*where is the intersection on the segment*/)
 {
-    const Real fDdN = segmentDirection * planeNormal;
-    const Real fSDistance = (planeNormal * s0) - planeConstant;
+    const Real fDdN = type::dot(segmentDirection, planeNormal);
+    const Real fSDistance = type::dot(planeNormal , s0) - planeConstant;
 
     if (fabs(fDdN) > 1.0e-5)
     {

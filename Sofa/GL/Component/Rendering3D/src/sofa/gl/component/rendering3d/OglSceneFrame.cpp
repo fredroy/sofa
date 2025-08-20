@@ -72,14 +72,14 @@ void OglSceneFrame::drawCubeCones(const core::visual::VisualParams* vparams)
 {
     using sofa::type::Vec3;
     static constexpr SReal s = 0.25;
-    static constexpr Vec3 p0 {-s, -s, -s};
-    static constexpr Vec3 p1 {s, -s, -s};
-    static constexpr Vec3 p2 {s, s, -s};
-    static constexpr Vec3 p3 {-s, s, -s};
-    static constexpr Vec3 p4 {-s, -s, s};
-    static constexpr Vec3 p5 {s, -s, s};
-    static constexpr Vec3 p6 {s, s, s};
-    static constexpr Vec3 p7 {-s, s, s};
+    static const Vec3 p0 {-s, -s, -s};
+    static const Vec3 p1 {s, -s, -s};
+    static const Vec3 p2 {s, s, -s};
+    static const Vec3 p3 {-s, s, -s};
+    static const Vec3 p4 {-s, -s, s};
+    static const Vec3 p5 {s, -s, s};
+    static const Vec3 p6 {s, s, s};
+    static const Vec3 p7 {-s, s, s};
 
     vparams->drawTool()->drawHexahedron(p0, p1, p2, p3, p4, p5, p6, p7,
         sofa::core::visual::DrawTool::RGBAColor::darkgray());

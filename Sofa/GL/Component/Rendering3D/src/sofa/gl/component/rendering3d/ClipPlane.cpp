@@ -78,7 +78,7 @@ void ClipPlane::fwdDraw(core::visual::VisualParams*)
         glGetClipPlane(GL_CLIP_PLANE0+id.getValue(), saveEq);
         const sofa::type::Vec3 p = position.getValue();
         sofa::type::Vec3 n = normal.getValue();
-        const GLdouble c[4] = { (GLdouble) -n[0], (GLdouble)-n[1], (GLdouble)-n[2], (GLdouble)(p*n) };
+        const GLdouble c[4] = { (GLdouble) -n[0], (GLdouble)-n[1], (GLdouble)-n[2], (GLdouble)sofa::type::dot(p,n) };
         glClipPlane(GL_CLIP_PLANE0+id.getValue(), c);
         if (!wasActive)
             glEnable(GL_CLIP_PLANE0+id.getValue());

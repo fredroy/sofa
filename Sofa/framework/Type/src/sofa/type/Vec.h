@@ -245,3 +245,11 @@ bool operator<(const Eigen::MatrixBase<Derived1>& lhs, const Eigen::MatrixBase<D
         return false; // Equal
     }
 }
+
+//special case for Vec1
+template<typename Derived1, typename Derived2>
+requires (Derived1::SizeAtCompileTime == 1 && Derived1::SizeAtCompileTime == 1)
+bool operator<(const Eigen::MatrixBase<Derived1>& lhs, const Eigen::MatrixBase<Derived2>& rhs)
+{
+    return lhs(0,0) < rhs(0,0);
+}

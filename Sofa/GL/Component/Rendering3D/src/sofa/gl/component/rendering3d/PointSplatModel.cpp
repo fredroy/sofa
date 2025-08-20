@@ -186,7 +186,7 @@ void PointSplatModel::drawTransparent(const core::visual::VisualParams* vparams)
     {
         const Coord&	vertex = vertices[i];
 
-        Real dist(vertex * vView);
+        Real dist = sofa::type::dot(vertex , vView);
 
         mapPnt.insert(std::pair<Real, unsigned int>(dist, i));
     }

@@ -181,17 +181,19 @@ void LightManager::makeShadowMatrix(unsigned int i)
     SOFA_UNUSED(canInvert);
 
     glMultMatrixf(model2.ptr());
-    if (m_lightModelViewMatrix.size() > 0)
-    {
-        m_lightModelViewMatrix[i] = lmv;
-        m_lightProjectionMatrix[i] = lp;
-    }
-    else
+    if (m_lightModelViewMatrix.size() < m_lights.size())
     {
         m_lightModelViewMatrix.resize(m_lights.size());
         m_lightProjectionMatrix.resize(m_lights.size());
-        m_lightModelViewMatrix[i] = lmv;
-        m_lightProjectionMatrix[i] = lp;
+    }
+
+    for(int j=0 ; j<4 ; j++)
+    {
+        for(int k=0 ; k<4 ; k++)
+        {
+            m_lightModelViewMatrix[i](j,k) = lmv[j*4+k];
+            m_lightProjectionMatrix[i](j,k) = lp[j*4+k];
+        }
     }
 
     glMatrixMode(GL_MODELVIEW);
