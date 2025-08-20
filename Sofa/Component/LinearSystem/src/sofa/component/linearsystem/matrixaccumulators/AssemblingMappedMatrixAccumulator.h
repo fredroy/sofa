@@ -82,14 +82,14 @@ template <sofa::core::matrixaccumulator::Contribution c, class TBlockType>
 void AssemblingMappedMatrixAccumulator<c, TBlockType>::add(const core::matrixaccumulator::no_check_policy&, sofa::SignedIndex row, sofa::SignedIndex col,
     const sofa::type::Mat<3, 3, float>& value)
 {
-    m_mappedMatrix->add(row, col, (value * this->m_cachedFactor).eval());
+    m_mappedMatrix->add(row, col, (value * this->m_cachedFactor));
 }
 
 template <sofa::core::matrixaccumulator::Contribution c, class TBlockType>
 void AssemblingMappedMatrixAccumulator<c, TBlockType>::add(const core::matrixaccumulator::no_check_policy&, sofa::SignedIndex row, sofa::SignedIndex col,
     const sofa::type::Mat<3, 3, double>& value)
 {
-    m_mappedMatrix->add(row, col, (value * this->m_cachedFactor).eval());
+    m_mappedMatrix->add(row, col, (value * this->m_cachedFactor));
 }
 
 template <sofa::core::matrixaccumulator::Contribution c, class TBlockType>

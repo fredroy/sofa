@@ -22,87 +22,81 @@ auto ptr() const
     return this->data();
 }
 
-bool invert(const Matrix& mat)
-{
-    *this = mat.inverse();
-    return true;
-}
-
 //auto transposed() const
 //{
 //    return this->transpose();
 //}
 
 auto& x()
+requires (IsVectorAtCompileTime == 1 && SizeAtCompileTime >= 1)
 {
-    if constexpr (IsVectorAtCompileTime && SizeAtCompileTime >= 1)
-    {
-        return (*this)[0];
-    }
-    else
-    {
-        return this->col(0);
-    }
+    return (*this)[0];
+}
+
+//auto& x()
+//requires (IsVectorAtCompileTime == 0 && ColsAtCompileTime >= 1)
+//{
+//    return (*this).col(0);
+//}
+
+const auto& x() const
+requires (IsVectorAtCompileTime == 1 && SizeAtCompileTime >= 1)
+{
+    return (*this)[0];
 }
 
 const auto& x() const
+requires (IsVectorAtCompileTime == 0 && ColsAtCompileTime >= 1)
 {
-    if constexpr (IsVectorAtCompileTime && SizeAtCompileTime >= 1)
-    {
-        return (*this)[0];
-    }
-    else
-    {
-        return this->col(0);
-    }
+    return (*this).col(0);
 }
 
 auto& y()
+requires (IsVectorAtCompileTime == 1 && SizeAtCompileTime >= 2)
 {
-    if constexpr (IsVectorAtCompileTime && SizeAtCompileTime >= 2)
-    {
-        return (*this)[1];
-    }
-    else
-    {
-        return this->col(1);
-    }
+    return (*this)[1];
+}
+
+//auto& y()
+//requires (IsVectorAtCompileTime == 0 && ColsAtCompileTime >= 2)
+//{
+//    return (*this).col(1);
+//}
+
+const auto& y() const
+requires (IsVectorAtCompileTime == 1 && SizeAtCompileTime >= 2)
+{
+    return (*this)[1];
 }
 
 const auto& y() const
+requires (IsVectorAtCompileTime == 0 && ColsAtCompileTime >= 2)
 {
-    if constexpr (IsVectorAtCompileTime && SizeAtCompileTime >= 2)
-    {
-        return (*this)[1];
-    }
-    else
-    {
-        return this->col(1);
-    }
+    return (*this).col(1);
 }
 
 auto& z()
+requires (IsVectorAtCompileTime == 1 && SizeAtCompileTime >= 3)
 {
-    if constexpr (IsVectorAtCompileTime && SizeAtCompileTime >= 3)
-    {
-        return (*this)[2];
-    }
-    else
-    {
-        return this->col(2);
-    }
+    return (*this)[2];
+}
+
+//auto& z()
+//requires (IsVectorAtCompileTime == 0 && ColsAtCompileTime >= 3)
+//{
+//    return (*this).col(2);
+//}
+
+const auto& z() const
+requires (IsVectorAtCompileTime == 1 && SizeAtCompileTime >= 3)
+{
+    return (*this)[2];
 }
 
 const auto& z() const
+requires (IsVectorAtCompileTime == 0 && ColsAtCompileTime >= 3)
 {
-    if constexpr (IsVectorAtCompileTime && SizeAtCompileTime >= 3)
-    {
-        return (*this)[2];
-    }
-    else
-    {
-        return this->col(2);
-    }
+    return (*this).col(2);
 }
 
 //auto operator[](Index i)
@@ -134,13 +128,6 @@ void set(const ArgsT... r) noexcept
     (((*this) << r), ...);
 }
 
-//template<typename Derived1, typename Derived2>
-//auto dot(const Eigen::MatrixBase<Derived1>& a,
-//         const Eigen::MatrixBase<Derived2>& b)
-//{
-//    return a.dot(b);
-//}
-
 bool normalizeWithNorm(Matrix::Scalar norm, Matrix::Scalar threshold=std::numeric_limits<Matrix::Scalar>::epsilon())
 {
     if (norm>threshold)
@@ -153,6 +140,104 @@ bool normalizeWithNorm(Matrix::Scalar norm, Matrix::Scalar threshold=std::numeri
     }
     else
         return false;
+}
+
+template<typename OtherDerived, int NbLine = RowsAtCompileTime, int NbColumn = ColsAtCompileTime>
+requires (   (OtherDerived::IsVectorAtCompileTime == 1)
+          && (OtherDerived::SizeAtCompileTime >= NbColumn-1)
+)
+static auto transformTranslation(const MatrixBase<OtherDerived>& t) noexcept
+{
+    static constexpr auto L = RowsAtCompileTime;
+    static constexpr auto C = ColsAtCompileTime;
+
+    Matrix<Scalar, L, C> m;
+    m.identity();
+    for (int i=0; i<C-1; ++i)
+        m(i,C-1) = t[i];
+    return m;
+}
+
+static auto transformScale(Scalar s) noexcept
+requires (ColsAtCompileTime == RowsAtCompileTime)
+{
+    static constexpr auto L = RowsAtCompileTime;
+    static constexpr auto C = ColsAtCompileTime;
+
+    Matrix<Scalar, L, C> m;
+    m.identity();
+    for (int i=0; i<C-1; ++i)
+        m(i,i) = s;
+
+    return m;
+}
+
+template<typename OtherDerived, int NbColumn = OtherDerived::SizeAtCompileTime>
+requires (OtherDerived::IsVectorAtCompileTime == 1)
+static auto transformScale(const MatrixBase<OtherDerived>& s) noexcept
+{
+    using Scalar = typename OtherDerived::Scalar;
+    static constexpr auto L = OtherDerived::RowsAtCompileTime;
+    static constexpr auto C = OtherDerived::ColsAtCompileTime;
+
+    Matrix<Scalar, L, C> m;
+    m.identity();
+    for (int i=0; i<C-1; ++i)
+        m(i,i) = s[i];
+    return m;
+}
+
+template<class Quat>
+static auto transformRotation(const Quat& q) noexcept
+requires( (ColsAtCompileTime == RowsAtCompileTime)
+       && ( (ColsAtCompileTime == 3) || (ColsAtCompileTime == 4)) )
+{
+
+    static constexpr auto L = RowsAtCompileTime;
+    static constexpr auto C = ColsAtCompileTime;
+
+    Matrix<Scalar, L, C> m;
+    m.identity();
+
+    if constexpr(L == 4 && C == 4)
+    {
+        q.toHomogeneousMatrix(m);
+        return m;
+    }
+    else // if constexpr(L == 3 && C == 3)
+    {
+        q.toMatrix(m);
+        return m;
+    }
+}
+
+
+/// Inverse Matrix considering the matrix as a transformation.
+template<typename OtherDerived>
+requires ((Matrix::ColsAtCompileTime == OtherDerived::ColsAtCompileTime)
+          && (Matrix::RowsAtCompileTime == OtherDerived::RowsAtCompileTime)
+          && (Matrix::RowsAtCompileTime == OtherDerived::RowsAtCompileTime)
+          && (std::is_same_v<typename Matrix::Scalar, typename OtherDerived::Scalar>))
+bool transformInvert(const Eigen::MatrixBase<OtherDerived>& from)
+{
+    using Scalar = typename Matrix::Scalar;
+    constexpr int Dim = Matrix::RowsAtCompileTime;
+
+    Matrix<Scalar, Dim-1,Dim-1> R, R_inv;
+    from.getsub(0,0,R);
+    R_inv = R.inverse();
+
+    Matrix<Scalar, Dim-1,1> t, t_inv;
+    from.getsub(0,Dim-1,t);
+    t_inv = -1.*R_inv*t;
+
+    (*this).setsub(0,0,R_inv);
+    (*this).setsub(0,Dim-1,t_inv);
+    for (sofa::Size i=0; i<Dim-1; ++i)
+        (*this)(Dim-1,i)=0.0;
+    (*this)(Dim-1,Dim-1)=1.0;
+
+    return true; // check determinant
 }
 
 /// for square matrices

@@ -180,24 +180,16 @@ requires ((Derived1::ColsAtCompileTime == Derived2::ColsAtCompileTime)
           && (std::is_same_v<typename Derived1::Scalar, typename Derived2::Scalar>))
 bool transformInvertMatrix(Eigen::MatrixBase<Derived1>& dest, const Eigen::MatrixBase<Derived2>& from)
 {
-    using Scalar = typename Derived1::Scalar;
-    constexpr int Dim = Derived1::RowsAtCompileTime;
+    return dest.transformInvert(from);
+}
 
-    Mat<Dim-1,Dim-1,Scalar> R, R_inv;
-    from.getsub(0,0,R);
-    const bool b = invertMatrix(R_inv, R);
-
-    Mat<Dim-1,1,Scalar> t, t_inv;
-    from.getsub(0,Dim-1,t);
-    t_inv = -1.*R_inv*t;
-
-    dest.setsub(0,0,R_inv);
-    dest.setsub(0,Dim-1,t_inv);
-    for (sofa::Size i=0; i<Dim-1; ++i)
-        dest(Dim-1,i)=0.0;
-    dest(Dim-1,Dim-1)=1.0;
-
-    return b;
+/// return a * b^T
+template<typename Derived1, typename Derived2>
+requires ( (Derived1::IsVectorAtCompileTime == 1) && (Derived2::IsVectorAtCompileTime == 1)
+        && (Derived1::SizeAtCompileTime == Derived2::SizeAtCompileTime))
+auto tensorProduct(const Eigen::MatrixBase<Derived1>& a, const Eigen::MatrixBase<Derived2>& b ) noexcept
+{
+    return a * b.transpose();
 }
 
 } // namespace sofa::type

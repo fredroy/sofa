@@ -19,7 +19,6 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#include <Eigen/Dense>
 #include <sofa/type/MatSym.h>
 #include <gtest/gtest.h>
 #include <sofa/testing/LinearCongruentialRandomGenerator.h>

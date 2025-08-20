@@ -6,7 +6,6 @@ using Size = int;
 using value_type = MatrixBase::Scalar;
 using size_type = int;
 
-
 inline static const int total_size = MatrixBase::ColsAtCompileTime * MatrixBase::RowsAtCompileTime;
 inline static const int static_size = (MatrixBase::RowsAtCompileTime == Eigen::Dynamic || MatrixBase::ColsAtCompileTime == Eigen::Dynamic) ? 0 : total_size;
 static constexpr int nbLines = MatrixBase::RowsAtCompileTime;
@@ -28,6 +27,35 @@ void assign(const MatrixBase::Scalar v)
 {
     return this->fill(v);
 }
+
+
+auto inverted() const
+requires( (IsVectorAtCompileTime == 0) && (ColsAtCompileTime == RowsAtCompileTime))
+{
+    return this->inverse();
+}
+
+template <typename OtherDerived>
+requires ( (IsVectorAtCompileTime == 0 && OtherDerived::IsVectorAtCompileTime == 0)
+        && (ColsAtCompileTime == OtherDerived::ColsAtCompileTime)
+        && (RowsAtCompileTime == OtherDerived::RowsAtCompileTime)
+        && (ColsAtCompileTime == RowsAtCompileTime))
+auto invert(const MatrixBase<OtherDerived>& m)
+{
+    const bool b = true; //TODO: check determinant
+
+    if (&m == this)
+    {
+        auto mat = m;
+        (*this) = mat.inverse();
+        return b;
+    }
+
+    (*this) = m.inverse();
+
+    return b;
+}
+
 
 auto transposed() const
 {
@@ -139,6 +167,35 @@ bool operator<(const Eigen::MatrixBase<OtherDerived>& other) const
         return false; // Equal
     }
 }
+
+/// @return True if and only if the Matrix is a transformation matrix
+bool isTransform() const
+requires (IsVectorAtCompileTime == 0)
+{
+    constexpr Scalar EQUALITY_THRESHOLD = 1e-6;
+    static const auto L = RowsAtCompileTime;
+    static const auto C = ColsAtCompileTime;
+
+    for (int j=0;j<C-1;++j)
+        if (fabs((*this)(L-1,j)) > EQUALITY_THRESHOLD)
+            return false;
+    if (fabs((*this)(L-1,C-1) - 1.) > EQUALITY_THRESHOLD)
+        return false;
+    return true;
+}
+
+Scalar toReal() const
+requires(SizeAtCompileTime == 1) // Mat<1,1>
+{
+    return this->value();
+}
+
+Scalar real() const
+requires(SizeAtCompileTime == 1) // Mat<1,1>
+{
+    return this->value();
+}
+
 
 //template<typename OtherDerived>
 //friend std::istream& operator >> ( std::istream& in, Eigen::MatrixBase<OtherDerived>& matrix);

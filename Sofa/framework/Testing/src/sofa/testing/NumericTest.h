@@ -308,20 +308,20 @@ typename DataTypes::Coord createCoord(const sofa::type::Vec3& pos, const sofa::t
     return temp;
 }
 
-template <sofa::Size N, class real>
+template <int N, class real>
 void EXPECT_VEC_DOUBLE_EQ(sofa::type::Vec<N, real> const& expected, sofa::type::Vec<N, real> const& actual) {
     for (sofa::Size i=0; i<expected.total_size; ++i)
         EXPECT_DOUBLE_EQ(expected[i], actual[i]);
 }
 
-template <sofa::Size L, sofa::Size C, class real>
+template <int L, int C, class real>
 void EXPECT_MAT_DOUBLE_EQ(sofa::type::Mat<L,C,real> const& expected, sofa::type::Mat<L,C,real> const& actual) {
     for (sofa::Size i=0; i<expected.nbLines; ++i)
         for (sofa::Size j=0; j<expected.nbCols; ++j)
             EXPECT_DOUBLE_EQ(expected(i,j), actual(i,j));
 }
 
-template <sofa::Size L, sofa::Size C, class real>
+template <int L, int C, class real>
 void EXPECT_MAT_NEAR(sofa::type::Mat<L,C,real> const& expected, sofa::type::Mat<L,C,real> const& actual, real abs_error) {
     for (sofa::Size i=0; i<expected.nbLines; ++i)
         for (sofa::Size j=0; j<expected.nbCols; ++j)

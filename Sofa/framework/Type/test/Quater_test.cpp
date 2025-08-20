@@ -213,15 +213,15 @@ TEST(QuaterTest, QuaterdToMatrix)
     quat.toMatrix(mat);
 
     //matlab results
-    EXPECT_NEAR(0.433012701892219,  mat[0][0], errorThreshold);
-    EXPECT_NEAR(-0.216506350946110,  mat[0][1], errorThreshold);
-    EXPECT_NEAR(0.875000000000000, mat[0][2], errorThreshold);
-    EXPECT_NEAR(0.750000000000000,  mat[1][0], errorThreshold);
-    EXPECT_NEAR(0.625000000000000,  mat[1][1], errorThreshold);
-    EXPECT_NEAR(-0.216506350946110,  mat[1][2], errorThreshold);
-    EXPECT_NEAR(-0.500000000000000,  mat[2][0], errorThreshold);
-    EXPECT_NEAR(0.750000000000000, mat[2][1], errorThreshold);
-    EXPECT_NEAR(0.433012701892219, mat[2][2], errorThreshold);
+    EXPECT_NEAR(0.433012701892219,  mat(0,0), errorThreshold);
+    EXPECT_NEAR(-0.216506350946110,  mat(0,1), errorThreshold);
+    EXPECT_NEAR(0.875000000000000, mat(0,2), errorThreshold);
+    EXPECT_NEAR(0.750000000000000,  mat(1,0), errorThreshold);
+    EXPECT_NEAR(0.625000000000000,  mat(1,1), errorThreshold);
+    EXPECT_NEAR(-0.216506350946110,  mat(1,2), errorThreshold);
+    EXPECT_NEAR(-0.500000000000000,  mat(2,0), errorThreshold);
+    EXPECT_NEAR(0.750000000000000, mat(2,1), errorThreshold);
+    EXPECT_NEAR(0.433012701892219, mat(2,2), errorThreshold);
 }
 
 TEST(QuaterTest, QuaterdRotateVec)

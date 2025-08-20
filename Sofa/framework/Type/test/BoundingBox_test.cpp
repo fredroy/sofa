@@ -30,27 +30,27 @@ using sofa::type::Vec3;
 
 TEST(BoundingBoxTest, DefaultConstructor)
 {
-    static constexpr BoundingBox bbox;
+    static const BoundingBox bbox;
     EXPECT_TRUE(bbox.isNegligible()); // Default neutral box should be negligible
 }
 
 TEST(BoundingBoxTest, ConstructorWithEndpoints) {
-    static constexpr Vec3 minVec(0.0, 0.0, 0.0);
-    static constexpr Vec3 maxVec(1.0, 1.0, 1.0);
-    static constexpr BoundingBox bbox(minVec, maxVec);
+    static const Vec3 minVec(0.0, 0.0, 0.0);
+    static const Vec3 maxVec(1.0, 1.0, 1.0);
+    static const BoundingBox bbox(minVec, maxVec);
 
     EXPECT_EQ(bbox.minBBox(), minVec);
     EXPECT_EQ(bbox.maxBBox(), maxVec);
 }
 
 TEST(BoundingBoxTest, ConstructorWithLimits) {
-    static constexpr BoundingBox bbox(0.0, 1.0, 0.0, 1.0, 0.0, 1.0);
+    static const BoundingBox bbox(0.0, 1.0, 0.0, 1.0, 0.0, 1.0);
     EXPECT_EQ(bbox.minBBox(), Vec3(0.0, 0.0, 0.0));
     EXPECT_EQ(bbox.maxBBox(), Vec3(1.0, 1.0, 1.0));
 }
 
 TEST(BoundingBoxTest, NeutralBoundingBox) {
-    static constexpr auto neutral = BoundingBox::neutral_bbox();
+    static const auto neutral = BoundingBox::neutral_bbox();
     EXPECT_FALSE(neutral.isValid()); // Neutral bbox is invalid
 }
 
@@ -61,35 +61,35 @@ TEST(BoundingBoxTest, Invalidate) {
 }
 
 TEST(BoundingBoxTest, IsFlat) {
-    static constexpr BoundingBox flatBBox(Vec3(0.0, 0.0, 0.0), Vec3(1.0, 0.0, 0.0));
+    static const BoundingBox flatBBox(Vec3(0.0, 0.0, 0.0), Vec3(1.0, 0.0, 0.0));
     EXPECT_TRUE(flatBBox.isFlat());
 
-    static constexpr BoundingBox nonFlatBBox(Vec3(0.0, 0.0, 0.0), Vec3(1.0, 1.0, 1.0));
+    static const BoundingBox nonFlatBBox(Vec3(0.0, 0.0, 0.0), Vec3(1.0, 1.0, 1.0));
     EXPECT_FALSE(nonFlatBBox.isFlat());
 }
 
 TEST(BoundingBoxTest, ContainsPoint) {
-    static constexpr BoundingBox bbox(Vec3(0.0, 0.0, 0.0), Vec3(1.0, 1.0, 1.0));
-    static constexpr Vec3 pointInside(0.5, 0.5, 0.5);
-    static constexpr Vec3 pointOutside(1.5, 1.5, 1.5);
+    static const BoundingBox bbox(Vec3(0.0, 0.0, 0.0), Vec3(1.0, 1.0, 1.0));
+    static const Vec3 pointInside(0.5, 0.5, 0.5);
+    static const Vec3 pointOutside(1.5, 1.5, 1.5);
 
     EXPECT_TRUE(bbox.contains(pointInside));
     EXPECT_FALSE(bbox.contains(pointOutside));
 }
 
 TEST(BoundingBoxTest, ContainsBoundingBox) {
-    static constexpr BoundingBox bbox(Vec3(0.0, 0.0, 0.0), Vec3(2.0, 2.0, 2.0));
-    static constexpr BoundingBox containedBBox(Vec3(0.5, 0.5, 0.5), Vec3(1.5, 1.5, 1.5));
-    static constexpr BoundingBox outsideBBox(Vec3(2.5, 2.5, 2.5), Vec3(3.0, 3.0, 3.0));
+    static const BoundingBox bbox(Vec3(0.0, 0.0, 0.0), Vec3(2.0, 2.0, 2.0));
+    static const BoundingBox containedBBox(Vec3(0.5, 0.5, 0.5), Vec3(1.5, 1.5, 1.5));
+    static const BoundingBox outsideBBox(Vec3(2.5, 2.5, 2.5), Vec3(3.0, 3.0, 3.0));
 
     EXPECT_TRUE(bbox.contains(containedBBox));
     EXPECT_FALSE(bbox.contains(outsideBBox));
 }
 
 TEST(BoundingBoxTest, Intersection) {
-    static constexpr BoundingBox bbox1(Vec3(0.0, 0.0, 0.0), Vec3(2.0, 2.0, 2.0));
-    static constexpr BoundingBox bbox2(Vec3(1.0, 1.0, 1.0), Vec3(3.0, 3.0, 3.0));
-    static constexpr BoundingBox expectedIntersection(Vec3(1.0, 1.0, 1.0), Vec3(2.0, 2.0, 2.0));
+    static const BoundingBox bbox1(Vec3(0.0, 0.0, 0.0), Vec3(2.0, 2.0, 2.0));
+    static const BoundingBox bbox2(Vec3(1.0, 1.0, 1.0), Vec3(3.0, 3.0, 3.0));
+    static const BoundingBox expectedIntersection(Vec3(1.0, 1.0, 1.0), Vec3(2.0, 2.0, 2.0));
 
     EXPECT_TRUE(bbox1.intersect(bbox2));
     EXPECT_EQ(bbox1.getIntersection(bbox2), expectedIntersection);
@@ -105,7 +105,7 @@ TEST(BoundingBoxTest, Inflate) {
 
 TEST(BoundingBoxTest, IncludePoint) {
     BoundingBox bbox(Vec3(0.0, 0.0, 0.0), Vec3(1.0, 1.0, 1.0));
-    static constexpr Vec3 point(2.0, 2.0, 2.0);
+    static const Vec3 point(2.0, 2.0, 2.0);
     bbox.include(point);
 
     EXPECT_EQ(bbox.maxBBox(), point);
@@ -113,7 +113,7 @@ TEST(BoundingBoxTest, IncludePoint) {
 
 TEST(BoundingBoxTest, IncludeBoundingBox) {
     BoundingBox bbox(Vec3(0.0, 0.0, 0.0), Vec3(1.0, 1.0, 1.0));
-    static constexpr BoundingBox other(Vec3(-1.0, -1.0, -1.0), Vec3(2.0, 2.0, 2.0));
+    static const BoundingBox other(Vec3(-1.0, -1.0, -1.0), Vec3(2.0, 2.0, 2.0));
     bbox.include(other);
 
     EXPECT_EQ(bbox.minBBox(), other.minBBox());
