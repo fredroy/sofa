@@ -224,32 +224,3 @@ struct less< sofa::type::Vec<N,T> >
 };
 
 } // namespace std
-
-// Define global operator< for Eigen matrices
-template<typename Derived1, typename Derived2>
-requires (Derived1::IsVectorAtCompileTime == 1 && Derived2::IsVectorAtCompileTime == 1)
-bool operator<(const Eigen::MatrixBase<Derived1>& lhs, const Eigen::MatrixBase<Derived2>& rhs)
-{
-    if constexpr (Derived1::static_size != Derived2::static_size)
-    {
-        return Derived1::static_size < Derived2::static_size;
-    }
-    else
-    {
-        // Lexicographic comparison
-        for (int i = 0; i < lhs.size(); ++i)
-        {
-            if (lhs(i) < rhs(i)) return true;
-            if (lhs(i) > rhs(i)) return false;
-        }
-        return false; // Equal
-    }
-}
-
-//special case for Vec1
-template<typename Derived1, typename Derived2>
-requires (Derived1::SizeAtCompileTime == 1 && Derived1::SizeAtCompileTime == 1)
-bool operator<(const Eigen::MatrixBase<Derived1>& lhs, const Eigen::MatrixBase<Derived2>& rhs)
-{
-    return lhs(0,0) < rhs(0,0);
-}

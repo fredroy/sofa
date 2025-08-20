@@ -99,3 +99,24 @@ auto transform(const Eigen::MatrixBase<OtherDerived>& v) const noexcept
     }
     return r;
 }
+
+// Define global operator< for Eigen matrices
+template<typename OtherDerived>
+requires (MatrixBase::IsVectorAtCompileTime == 1 && OtherDerived::IsVectorAtCompileTime == 1)
+bool operator<(const Eigen::MatrixBase<OtherDerived>& other) const
+{
+    if constexpr (MatrixBase::static_size != OtherDerived::static_size)
+    {
+        return MatrixBase::static_size < OtherDerived::static_size;
+    }
+    else
+    {
+        // Lexicographic comparison
+        for (int i = 0; i < MatrixBase::static_size; ++i)
+        {
+            if ((*this)(i) < other(i)) return true;
+            if ((*this)(i) > other(i)) return false;
+        }
+        return false; // Equal
+    }
+}
