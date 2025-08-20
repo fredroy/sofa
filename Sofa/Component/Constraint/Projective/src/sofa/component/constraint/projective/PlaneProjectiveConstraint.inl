@@ -217,7 +217,7 @@ void PlaneProjectiveConstraint<DataTypes>::projectPosition(const core::Mechanica
 //        x[indices[i]] -= n * ((x[indices[i]]-o)*n);
         const CPos xi = DataTypes::getCPos( x[indices[i]] );
 
-        const auto xi_sub_o= (xi-o).eval();
+        const auto xi_sub_o= (xi-o);
         const auto dot_xi_sub_o_n = type::dot(xi_sub_o,n);
         DataTypes::setCPos( x[indices[i]], xi - n * dot_xi_sub_o_n );
 

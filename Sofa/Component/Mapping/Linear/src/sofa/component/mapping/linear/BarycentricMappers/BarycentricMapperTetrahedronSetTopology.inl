@@ -180,7 +180,7 @@ void BarycentricMapperTetrahedronSetTopology<In, Out>::processAddPoint(const sof
         sofa::type::Vec3d v = base * (pos - in[tetrahedra[t][0]]);
         double d = std::max(std::max(-v[0], -v[1]), std::max(-v[2], v[0] + v[1] + v[2] - 1));
 
-        if (d>0) d = (pos - center).eval().norm2();
+        if (d>0) d = (pos - center).norm2();
 
         if (d<distance)
         {

@@ -414,8 +414,8 @@ namespace sofa::helper
         static const auto vec111 = type::Vec3 ( 1_sreal, 1_sreal, 1_sreal);
         const float mu = ( isolevel - valp1 ) / ( valp2 - valp1 );
         p = p1 + ( p2 - p1 ) * mu;
-        auto tempP = ((p + vec111) * 0.5_sreal).eval();
-        auto tempvox = type::linearProduct(dataVoxelSize, dataResolution ).eval();
+        auto tempP = ((p + vec111) * 0.5_sreal);
+        auto tempvox = type::linearProduct(dataVoxelSize, dataResolution );
         p = type::linearProduct(tempP, tempvox) + dataVoxelSize/2_sreal;
         p += verticesTranslation;
         p[0] = ( int ) helper::round( p[0] * (SReal)PRECISION ) / (SReal)PRECISION;
@@ -829,7 +829,7 @@ namespace sofa::helper
 
         for ( vector<type::Vec3>::const_iterator it = realCoords.begin(); it != realCoords.end(); ++it )
         {
-            const type::Vec3 seed = ( ( *it ) - verticesTranslation - ( dataVoxelSize/ 2_sreal ) ).eval().linearProduct ( gridSize );
+            const type::Vec3 seed = ( ( *it ) - verticesTranslation - ( dataVoxelSize/ 2_sreal ) ).linearProduct ( gridSize );
             const type::Vec3i intSeed {static_cast<int>(seed.x()), static_cast<int>(seed.y()), static_cast<int>(seed.z())};
             mCubeCoords.push_back ( intSeed );
             assert ( intSeed[0] >= 0 );

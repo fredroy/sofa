@@ -220,7 +220,7 @@ void LineProjectiveConstraint<DataTypes>::projectPosition(const core::Mechanical
         // replace the point with its projection to the line
 
         const CPos xi = DataTypes::getCPos( x[indices[i]] );
-        const auto x_sub_io= (xi-o).eval();
+        const auto x_sub_io= (xi-o);
         DataTypes::setCPos( x[indices[i]], o + n * (type::dot(x_sub_io,n)) );
     }
 

@@ -289,8 +289,8 @@ void DistanceMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
             b *= force_i[0] * invlengths[i];  // (I - uu^T)*f/l
 
             dJdx(link[0] * Nin, link[0] * Nin) += b;
-            dJdx(link[0] * Nin, link[1] * Nin) += (-b).eval();
-            dJdx(link[1] * Nin, link[0] * Nin) += (-b).eval();
+            dJdx(link[0] * Nin, link[1] * Nin) += (-b);
+            dJdx(link[1] * Nin, link[0] * Nin) += (-b);
             dJdx(link[1] * Nin, link[1] * Nin) += b;
         }
     }

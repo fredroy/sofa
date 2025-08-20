@@ -186,7 +186,7 @@ void HermiteSplineProjectiveConstraint<DataTypes>::projectVelocity(const core::M
             const auto x1xdH01 = (x1 * dH01);
             const auto dx1xdH11 = (dx1 * dH11);
 
-            dx[*it] = (x0xdH00 + dx0xdH10 + x1xdH01 + dx1xdH11).eval();
+            dx[*it] = (x0xdH00 + dx0xdH10 + x1xdH01 + dx1xdH11);
         }
     }
 }

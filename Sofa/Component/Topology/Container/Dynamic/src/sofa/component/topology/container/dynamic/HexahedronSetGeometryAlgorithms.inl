@@ -560,7 +560,7 @@ sofa::type::Vec3 HexahedronSetGeometryAlgorithms<DataTypes>::computeHexahedronRe
     }
 
     sofa::type::Mat3x3		m, mt, base;
-    m << (p1-origin).eval() , (p3-origin).eval() , (p4-origin).eval();
+    m << (p1-origin) , (p3-origin) , (p4-origin);
     mt = m.transpose();
     const bool canInvert = base.invert(mt);
     assert(canInvert);
@@ -593,7 +593,7 @@ sofa::type::Vec3 HexahedronSetGeometryAlgorithms<DataTypes>::computeHexahedronBa
     }
 
     sofa::type::Mat3x3 m, mt, base;
-    m << (p1-origin).eval() , (p3-origin).eval() , (p4-origin).eval();
+    m << (p1-origin) , (p3-origin) , (p4-origin);
     mt = m.transpose();
     const bool canInvert = base.invert(mt);
     assert(canInvert);
@@ -612,7 +612,7 @@ typename DataTypes::Real HexahedronSetGeometryAlgorithms< DataTypes >::computeEl
     Real d = (Real) std::max(std::max(-v[0], -v[1]), std::max(std::max(-v[2], v[0]-1), std::max(v[1]-1, v[2]-1)));
 
     if(d>0)
-        d = (pos - computeHexahedronCenter(h)).eval().norm2();
+        d = (pos - computeHexahedronCenter(h)).norm2();
 
     return d;
 }
@@ -627,7 +627,7 @@ typename DataTypes::Real HexahedronSetGeometryAlgorithms< DataTypes >::computeEl
     Real d = (Real) std::max(std::max(-v[0], -v[1]), std::max(std::max(-v[2], v[0]-1), std::max(v[1]-1, v[2]-1)));
 
     if(d>0)
-        d = (pos - computeHexahedronRestCenter(h)).eval().norm2();
+        d = (pos - computeHexahedronRestCenter(h)).norm2();
 
     return d;
 }

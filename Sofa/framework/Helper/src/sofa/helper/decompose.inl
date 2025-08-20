@@ -677,7 +677,7 @@ Real Decompose<Real>::polarDecomposition( const type::Mat<3,3,Real>& M, type::Ma
   Real det, M_oneNorm, M_infNorm, E_oneNorm;
 
   // Mk = M^T
-  Mk = M.transpose().eval();
+  Mk = M.transpose();
 
   M_oneNorm = type::oneNorm(Mk);
   M_infNorm = type::infNorm(Mk);

@@ -72,7 +72,7 @@ struct AddMToMatrixFunctor< defaulttype::RigidDeriv<N,Real>, defaulttype::RigidM
         }
         else
         {
-            mat->add(pos + N, pos + N, (mass.inertiaMassMatrix * fact).eval());
+            mat->add(pos + N, pos + N, (mass.inertiaMassMatrix * fact).eval()); // ?
         }
     }
 };

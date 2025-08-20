@@ -323,9 +323,9 @@ void TriangleSetGeometryAlgorithms<DataTypes>::computeTriangleCircumcenterBaryCo
     const Triangle &t = this->m_topology->getTriangle(i);
     const typename DataTypes::VecCoord& p =(this->object->read(core::vec_id::read_access::position)->getValue());
     Real a2, b2, c2; // square lengths of the 3 edges
-    a2 = (p[t[1]]-p[t[0]]).eval().norm2();
-    b2 = (p[t[2]]-p[t[1]]).eval().norm2();
-    c2 = (p[t[0]]-p[t[2]]).eval().norm2();
+    a2 = (p[t[1]]-p[t[0]]).norm2();
+    b2 = (p[t[2]]-p[t[1]]).norm2();
+    c2 = (p[t[0]]-p[t[2]]).norm2();
 
     Real n = a2*(-a2+b2+c2) + b2*(a2-b2+c2) + c2*(a2+b2-c2);
 
@@ -1017,7 +1017,7 @@ bool TriangleSetGeometryAlgorithms< DataTypes >::isDiagonalsIntersectionInQuad (
         Real ABAX = type::dot((A - B),(A - X));
         Real CDCX = type::dot((C - D),(C - X));
 
-        if ( (ABAX < 0) || (CDCX < 0) || ((A - X).eval().norm2() > (A - B).eval().norm2()) || ((C - X).eval().norm2() > (C - D).eval().norm2()) )
+        if ( (ABAX < 0) || (CDCX < 0) || ((A - X).norm2() > (A - B).norm2()) || ((C - X).norm2() > (C - D).norm2()) )
             return false;
         else
             return true;

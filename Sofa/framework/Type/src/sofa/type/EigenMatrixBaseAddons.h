@@ -45,6 +45,25 @@ auto line(const int i) const
 }
 
 template <typename OtherDerived>
+auto multTranspose(const Eigen::MatrixBase<OtherDerived>& m) const noexcept
+{
+    return ((*this).transpose() * m);
+}
+
+template <typename OtherDerived>
+auto multTransposed(const Eigen::MatrixBase<OtherDerived>& m) const noexcept
+{
+    return ((*this) * m.transpose());
+}
+
+template <typename OtherDerived>
+requires (OtherDerived::IsVectorAtCompileTime == 1)
+auto multDiagonal(const Eigen::MatrixBase<OtherDerived>& m) const noexcept
+{
+    return ((*this) * m.asDiagonal());
+}
+
+template <typename OtherDerived>
 void getsub(int L0, int C0, MatrixBase<OtherDerived>& m) const noexcept
 {
     m = (*this)(seq(L0, OtherDerived::RowsAtCompileTime), seq(C0, OtherDerived::ColsAtCompileTime));

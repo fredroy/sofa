@@ -155,45 +155,6 @@ bool normalizeWithNorm(Matrix::Scalar norm, Matrix::Scalar threshold=std::numeri
         return false;
 }
 
-template <typename Derived>
-auto multTranspose(const Eigen::MatrixBase<Derived>& m) const noexcept
-{
-    return ((*this).transpose() * m).eval();
-}
-
-template <typename Derived>
-auto multTransposed(const Eigen::MatrixBase<Derived>& m) const noexcept
-{
-    return ((*this) * m.transpose()).eval();
-}
-
-template <typename Derived>
-auto multDiagonal(const Eigen::MatrixBase<Derived>& m) const noexcept
-{
-    static_assert(Derived::IsVectorAtCompileTime);
-
-    return ((*this) * m.asDiagonal()).eval();
-}
-
-//template <typename Derived>
-//void getsub(int L0, int C0, Eigen::MatrixBase<Derived>& m) const noexcept
-//{
-//    m = (*this)(seq(L0, Derived::RowsAtCompileTime), seq(C0, Derived::ColsAtCompileTime));
-//}
-
-//void getsub(int L0, int C0, Matrix::Scalar& m) const noexcept
-//{
-//    m = (*this)(L0,C0);
-//}
-
-//template <typename Derived>
-//void setsub(Size L0, Size C0, const Eigen::MatrixBase<Derived>& m) noexcept
-//{
-//    for (Size i=0; i<Derived::RowsAtCompileTime; i++)
-//        for (Size j=0; j<Derived::ColsAtCompileTime; j++)
-//            (*this)(i+L0,j+C0) = m(i,j);
-//}
-
 /// for square matrices
 /// @warning in-place simple symmetrization
 /// this = ( this + this.transposed() ) / 2.0

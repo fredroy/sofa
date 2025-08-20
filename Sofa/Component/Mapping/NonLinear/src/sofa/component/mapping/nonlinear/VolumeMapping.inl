@@ -40,7 +40,7 @@ sofa::type::Mat<4, 4, sofa::type::Mat<3, 3, Real> >
     using sofa::type::crossProductMatrix;
     const auto& v = tetrahedronVertices;
 
-    const auto H01 = crossProductMatrix( (v[2] - v[3]).eval()) / 6;
+    const auto H01 = crossProductMatrix( (v[2] - v[3])) / 6;
     const auto H02 = crossProductMatrix(v[3] - v[1]) / 6;
     const auto H03 = crossProductMatrix(v[1] - v[2]) / 6;
     const auto H12 = crossProductMatrix(v[0] - v[3]) / 6;
@@ -315,8 +315,8 @@ void VolumeMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
             {
                 for (unsigned int j = i+1; j < 4; ++j) //diagonal terms are omitted because they are null
                 {
-                    dJdx(tetra[i] * Nin, tetra[j] * Nin) += (d2Vol_d2x(i, j) * childForceTri[0]).eval();
-                    dJdx(tetra[j] * Nin, tetra[i] * Nin) += (d2Vol_d2x(j, i) * childForceTri[0]).eval();
+                    dJdx(tetra[i] * Nin, tetra[j] * Nin) += (d2Vol_d2x(i, j) * childForceTri[0]);
+                    dJdx(tetra[j] * Nin, tetra[i] * Nin) += (d2Vol_d2x(j, i) * childForceTri[0]);
                 }
             }
         }

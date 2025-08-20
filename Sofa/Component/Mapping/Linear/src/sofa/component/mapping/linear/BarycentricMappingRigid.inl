@@ -136,7 +136,7 @@ void BarycentricMapperTetrahedronSetTopologyRigid<In,Out>::init(const typename O
         {
             const auto v = bases[t] * ( pos - in[tetrahedra[t][0]] );
             SReal d = std::max(std::max(SReal(-v[0]), SReal(-v[1])), std::max(SReal(-v[2]), SReal(v[0] + v[1] + v[2] - 1)));
-            if ( d>0 ) d = ( pos-centers[t] ).eval().norm2();
+            if ( d>0 ) d = ( pos-centers[t] ).norm2();
             if ( d<distance )
             {
                 coefs = v; distance = d; index = t;

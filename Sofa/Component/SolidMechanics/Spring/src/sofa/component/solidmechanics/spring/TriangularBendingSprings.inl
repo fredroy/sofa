@@ -544,10 +544,10 @@ void TriangularBendingSprings<DataTypes>::buildStiffnessMatrix(
 
             const Mat& dfdxLocal = einfo.DfDx;
 
-            dfdx(a, a) += (-dfdxLocal).eval();
+            dfdx(a, a) += (-dfdxLocal);
             dfdx(a, b) +=  dfdxLocal;
             dfdx(b, a) +=  dfdxLocal;
-            dfdx(b, b) += (-dfdxLocal).eval();
+            dfdx(b, b) += (-dfdxLocal);
         }
     }
 }

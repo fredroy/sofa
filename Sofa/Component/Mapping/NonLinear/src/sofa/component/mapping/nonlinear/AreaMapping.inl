@@ -309,7 +309,7 @@ void AreaMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
             {
                 for (unsigned int j = 0; j < 3; ++j)
                 {
-                    dJdx(triangle[i] * Nin, triangle[j] * Nin) += (d2Area_d2x(i,j) * childForceTri[0]).eval();
+                    dJdx(triangle[i] * Nin, triangle[j] * Nin) += (d2Area_d2x(i,j) * childForceTri[0]);
                 }
             }
         }

@@ -466,10 +466,10 @@ void TetrahedralTensorMassForceField<DataTypes>::buildStiffnessMatrix(sofa::core
         const auto& localDfdx = edgeInf[i].DfDx;
         const auto localDfdx_T = edgeInf[i].DfDx.transpose();
 
-        dfdx(p0, p0) +=  localDfdx_T.eval();
-        dfdx(p0, p1) += (-localDfdx_T).eval();
-        dfdx(p1, p0) += (-localDfdx_T).eval();
-        dfdx(p1, p1) +=  localDfdx.eval();
+        dfdx(p0, p0) +=  localDfdx_T;
+        dfdx(p0, p1) += (-localDfdx_T);
+        dfdx(p1, p0) += (-localDfdx_T);
+        dfdx(p1, p1) +=  localDfdx;
     }
 }
 

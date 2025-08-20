@@ -94,10 +94,20 @@ public:
         vOrientation = c.getVOrientation();
     }
 
-    template<typename real2>
-    constexpr void operator=(const type::Vec<3, real2>& v)
+
+    template<typename Derived>
+    requires (Derived::IsVectorAtCompileTime == 1 && Derived::SizeAtCompileTime == 3)
+    void operator=(const Eigen::MatrixBase<Derived>& v)
     {
         vCenter = v;
+    }
+
+    template<typename Derived>
+    requires (Derived::IsVectorAtCompileTime == 1 && Derived::SizeAtCompileTime == 6)
+    void operator=(const Eigen::MatrixBase<Derived>& v)
+    {
+        vCenter = v.template head<3>();
+        vOrientation = v.template tail<3>();
     }
 
     template<typename real2>

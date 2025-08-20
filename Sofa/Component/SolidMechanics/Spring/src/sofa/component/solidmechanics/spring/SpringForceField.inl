@@ -772,10 +772,10 @@ void SpringForceField<DataTypes>::buildStiffnessMatrix(core::behavior::Stiffness
             const unsigned p1 = Deriv::total_size * s.m1;
             const unsigned p2 = Deriv::total_size * s.m2;
 
-            df1_dx1(p1, p1) += (-m).eval();
+            df1_dx1(p1, p1) += (-m);
             df1_dx2(p1, p2) +=  m;
             df2_dx1(p2, p1) +=  m;
-            df2_dx2(p2, p2) += (-m).eval();
+            df2_dx2(p2, p2) += (-m);
         }
     }
 }

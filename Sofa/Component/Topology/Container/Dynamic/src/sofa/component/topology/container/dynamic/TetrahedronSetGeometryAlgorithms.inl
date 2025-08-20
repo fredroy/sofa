@@ -925,7 +925,7 @@ bool TetrahedronSetGeometryAlgorithms< DataTypes >::isTetrahedronElongated(const
     {
         for (unsigned int j = i + 1; j < 4; j++)
         {
-            Real length = (points[j] - points[i]).eval().norm2();
+            Real length = (points[j] - points[i]).norm2();
             if (length < minLength) {
                 minLength = length;
             }

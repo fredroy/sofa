@@ -462,8 +462,8 @@ void DistanceMultiMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
             dJ1f_dX1.checkValidity(this);
 
             dJ0f_dX0(pair0[1], pair0[1]) += b;
-            dJ0f_dX1(pair0[1], pair1[1]) += (-b).eval();
-            dJ1f_dX0(pair1[1], pair0[1]) += (-b).eval();
+            dJ0f_dX1(pair0[1], pair1[1]) += (-b);
+            dJ1f_dX0(pair1[1], pair0[1]) += (-b);
             dJ1f_dX1(pair1[1], pair1[1]) += b;
         }
     }

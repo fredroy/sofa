@@ -65,8 +65,8 @@ BarycentricMapperTriangleSetTopology<In,Out>::createPointInTriangle ( const type
     typename In::Coord normal = type::cross ( pA, pB );
     Real norm2 = normal.norm2();
     pos -= normal* ( type::dot( pos,normal ) /norm2 );
-    baryCoords[0] = ( Real ) sqrt ( type::cross ( pB, pos ).eval().norm2() / norm2 );
-    baryCoords[1] = ( Real ) sqrt ( type::cross ( pA, pos ).eval().norm2() / norm2 );
+    baryCoords[0] = ( Real ) sqrt ( type::cross ( pB, pos ).norm2() / norm2 );
+    baryCoords[1] = ( Real ) sqrt ( type::cross ( pA, pos ).norm2() / norm2 );
     return this->addPointInTriangle ( triangleIndex, baryCoords );
 }
 

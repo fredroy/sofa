@@ -269,7 +269,7 @@ typename DataTypes::Real EdgeSetGeometryAlgorithms< DataTypes >::computeRestSqua
 {
     const Edge &e = this->m_topology->getEdge(i);
     const VecCoord& p = (this->object->read(core::vec_id::read_access::restPosition)->getValue());
-    const Real length = (DataTypes::getCPos(p[e[0]])-DataTypes::getCPos(p[e[1]])).eval().norm2();
+    const Real length = (DataTypes::getCPos(p[e[0]])-DataTypes::getCPos(p[e[1]])).norm2();
     return length;
 }
 

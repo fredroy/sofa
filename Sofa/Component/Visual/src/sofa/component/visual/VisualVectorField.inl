@@ -52,7 +52,7 @@ void VisualVectorField<DataTypes>::doDrawVisual(const core::visual::VisualParams
     for (std::size_t i = 0; i < minSize; ++i)
     {
         const auto& start = position[i];
-        const auto end = (start + vectorScale * vector[i]).eval();
+        const auto end = (start + vectorScale * vector[i]);
 
         if (drawMode == VectorFieldDrawMode("Line"))
         {
