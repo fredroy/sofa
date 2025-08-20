@@ -22,14 +22,6 @@
 #include <sofa/core/loader/MeshLoader.h>
 #include <sofa/helper/io/Mesh.h>
 
-
-///// Write to an output stream
-std::ostream& operator << ( std::ostream& o, const Eigen::Transform<SReal,3,Eigen::Affine>& m )
-{
-
-    return o;
-}
-
 namespace sofa::core::loader
 {
 

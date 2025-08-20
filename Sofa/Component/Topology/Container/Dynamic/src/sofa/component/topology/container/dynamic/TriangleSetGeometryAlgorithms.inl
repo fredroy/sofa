@@ -401,8 +401,6 @@ void TriangleSetGeometryAlgorithms<DataTypes>::computeTriangleArea( BasicArrayIn
     for (size_t i=0; i<ta.size(); ++i)
     {
         const Triangle &t=ta[i];
-        Coord vec1 = p[t[1]] - p[t[0]];
-        Coord vec2 = p[t[2]] - p[t[0]];
         ai[(int)i]=sofa::geometry::Triangle::area(p[t[0]],p[t[1]],p[t[2]]);
     }
 }
