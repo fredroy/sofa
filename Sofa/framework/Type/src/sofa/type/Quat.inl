@@ -156,7 +156,7 @@ template<class Real>
 void Quat<Real>::fromFrame(const Vec3& x, const Vec3&y, const Vec3&z)
 {
     Mat3x3 R;
-    R.row(0) << x,y,z;
+    R << x,y,z;
     R.transpose();
     this->fromMatrix(R);
 }

@@ -233,7 +233,7 @@ bool transformInvert(const Eigen::MatrixBase<OtherDerived>& from)
 
     (*this).setsub(0,0,R_inv);
     (*this).setsub(0,Dim-1,t_inv);
-    for (sofa::Size i=0; i<Dim-1; ++i)
+    for (int i=0; i<Dim-1; ++i)
         (*this)(Dim-1,i)=0.0;
     (*this)(Dim-1,Dim-1)=1.0;
 

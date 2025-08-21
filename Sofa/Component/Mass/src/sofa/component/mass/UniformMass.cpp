@@ -403,7 +403,7 @@ void UniformMass<VecTypes>::addMDxToVectorVecImpl(linearalgebra::BaseVector *res
                                                      SReal mFact,
                                                      unsigned int& offset)
 {
-    const unsigned int derivDim = (unsigned)Deriv::size();
+    const unsigned int derivDim = (unsigned)Deriv::static_size;
     const double m = d_vertexMass.getValue();
 
     const ReadAccessor<Data<SetIndexArray > > indices = d_indices;

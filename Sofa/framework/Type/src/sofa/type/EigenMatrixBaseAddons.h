@@ -14,14 +14,15 @@ static constexpr int spatial_dimensions = nbLines;
 static constexpr int coord_total_size = nbLines;
 static constexpr int deriv_total_size = nbLines*nbCols;
 
-static constexpr auto size()
-{
-    return static_size;
-}
+// DO NOT IMPLEMENT SIZE(), it messes with other types of Matrices (sparse/diag apparently) so inverse() is awkward
+//static constexpr auto size()
+//{
+//    return static_size;
+//}
 
-explicit MatrixBase(const sofa::type::NoInit& noInit)
-: MatrixBase()
-{}
+//explicit MatrixBase(const sofa::type::NoInit& noInit)
+//: MatrixBase()
+//{}
 
 void assign(const MatrixBase::Scalar v)
 {
@@ -46,7 +47,7 @@ auto invert(const MatrixBase<OtherDerived>& m)
 
     if (&m == this)
     {
-        auto mat = m;
+        auto mat = m.eval();
         (*this) = mat.inverse();
         return b;
     }
@@ -94,14 +95,14 @@ auto multDiagonal(const Eigen::MatrixBase<OtherDerived>& m) const noexcept
 template <typename OtherDerived>
 void getsub(int L0, int C0, MatrixBase<OtherDerived>& m) const noexcept
 {
-    m = (*this)(seq(L0, OtherDerived::RowsAtCompileTime), seq(C0, OtherDerived::ColsAtCompileTime));
+    m = ((*this)(seqN(L0, static_cast<int>(OtherDerived::RowsAtCompileTime)), seqN(C0, static_cast<int>(OtherDerived::ColsAtCompileTime))));
 }
 
 template <typename OtherDerived>
 void getsub(int L0, MatrixBase<OtherDerived>& m) const noexcept
 requires (MatrixBase::IsVectorAtCompileTime == 1 && OtherDerived::IsVectorAtCompileTime == 1 && OtherDerived::SizeAtCompileTime <= MatrixBase::SizeAtCompileTime)
 {
-    m = (*this)(seq(L0, OtherDerived::ColsAtCompileTime), 0);
+    m = (*this)(seqN(L0, static_cast<int>(OtherDerived::ColsAtCompileTime)), 0);
 }
 
 void getsub(int L0, int C0, MatrixBase::Scalar& m) const noexcept
@@ -190,23 +191,10 @@ requires(SizeAtCompileTime == 1) // Mat<1,1>
     return this->value();
 }
 
-Scalar real() const
-requires(SizeAtCompileTime == 1) // Mat<1,1>
-{
-    return this->value();
-}
-
-
-//template<typename OtherDerived>
-//friend std::istream& operator >> ( std::istream& in, Eigen::MatrixBase<OtherDerived>& matrix);
+// Eigen::Diagonal already implements it
+//Scalar real() const
+//requires(SizeAtCompileTime == 1) // Mat<1,1>
 //{
-//    return in;
+//    return this->value();
 //}
-
-//template<typename OtherDerived>
-//friend std::ostream& operator << ( std::ostream& out, const Eigen::MatrixBase<OtherDerived>& matrix);
-//{
-//    return out;
-//}
-
 

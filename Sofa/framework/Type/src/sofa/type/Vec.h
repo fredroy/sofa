@@ -40,6 +40,7 @@ enum NoInit { NOINIT }; ///< use when calling Vec or Mat constructor to skip ini
 
 }
 
+#define EIGEN_INITIALIZE_MATRICES_BY_ZERO
 #define EIGEN_MATRIXBASE_PLUGIN "sofa/type/EigenMatrixBaseAddons.h"
 #define EIGEN_MATRIX_PLUGIN "sofa/type/EigenMatrixAddons.h"
 #include <Eigen/Dense>

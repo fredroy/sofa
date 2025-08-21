@@ -173,7 +173,7 @@ void PartialFixedProjectiveConstraint<DataTypes>::applyConstraint(const core::Me
     if (o >= 0)
     {
         const unsigned int offset = (unsigned int)o;
-        const unsigned int N = Deriv::size();
+        const unsigned int N = Deriv::total_size;
 
         const VecBool& blockedDirection = d_fixedDirections.getValue();
 
@@ -213,7 +213,7 @@ void PartialFixedProjectiveConstraint<DataTypes>::applyConstraint(const core::Me
     SOFA_UNUSED(mparams);
     if(const core::behavior::MultiMatrixAccessor::MatrixRef r = matrix->getMatrix(this->mstate.get()))
     {
-        const unsigned int N = Deriv::size();
+        const unsigned int N = Deriv::total_size;
         const VecBool& blockedDirection = d_fixedDirections.getValue();
         const SetIndexArray & indices = this->d_indices.getValue();
 
@@ -306,7 +306,7 @@ template <class DataTypes>
 void PartialFixedProjectiveConstraint<DataTypes>::applyConstraint(
     sofa::core::behavior::ZeroDirichletCondition* matrix)
 {
-    static constexpr unsigned int N = Deriv::size();
+    static constexpr unsigned int N = Deriv::total_size;
     const VecBool& blockedDirection = d_fixedDirections.getValue();
 
     if( this->d_fixAll.getValue() )

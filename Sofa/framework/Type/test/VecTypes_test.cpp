@@ -29,7 +29,7 @@ void defaultConstructor()
     const sofa::type::Vec<N, ValueType> vec;
     for (const auto& value : vec)
     {
-        EXPECT_EQ(value, ValueType());
+        EXPECT_DOUBLE_EQ(value, ValueType());
     }
 }
 
@@ -61,9 +61,9 @@ TEST(VecTest, StructuredBindings)
 {
     const sofa::type::Vec3 vec { 1.0, 2.0, 3.0 };
     const auto& [a, b, c] = vec;
-    EXPECT_EQ(a, 1.);
-    EXPECT_EQ(b, 2.);
-    EXPECT_EQ(c, 3.);
+    EXPECT_DOUBLE_EQ(a, 1.);
+    EXPECT_DOUBLE_EQ(b, 2.);
+    EXPECT_DOUBLE_EQ(c, 3.);
 }
 
 //TEST(VecTest, DeductionGuide)

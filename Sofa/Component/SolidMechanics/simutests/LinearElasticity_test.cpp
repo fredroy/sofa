@@ -267,7 +267,7 @@ struct LinearElasticity_test : public sofa::testing::BaseSimulationTest, sofa::t
                     p0[2]=0;
                     p1[2]=0;
                     Real radius=p0.norm2();
-                    Real radialDeformation= dot(p0,p1)/radius-1 ;
+                    Real radialDeformation= type::dot(p0,p1)/radius-1 ;
                     // test the Poisson Ratio
                     if (fabs(radialDeformation+pressure*poissonRatio/youngModulus)>2e-4) {
                         ADD_FAILURE() << "Wrong radial deformation for Young Modulus = " << youngModulus << " Poisson Ratio = "<<

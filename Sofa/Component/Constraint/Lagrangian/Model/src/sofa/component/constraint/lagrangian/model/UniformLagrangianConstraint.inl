@@ -43,7 +43,7 @@ void UniformLagrangianConstraint<DataTypes>::buildConstraintMatrix(const sofa::c
 {
     SOFA_UNUSED(cParams);
 
-    const auto N = Deriv::size(); // MatrixDeriv is a container of Deriv types.
+    const auto N = Deriv::total_size; // MatrixDeriv is a container of Deriv types.
 
     auto jacobian = sofa::helper::getWriteAccessor(c);
     auto xVec     = sofa::helper::getReadAccessor(x);
@@ -87,21 +87,21 @@ void UniformLagrangianConstraint<DataTypes>::getConstraintViolation(const sofa::
     if (cParams->constOrder() == sofa::core::ConstraintOrder::VEL)
     {
         if (d_constraintRestPos.getValue()){
-            computeViolation(resV, this->d_constraintIndex.getValue(), vfree, Deriv::size(),[&invDt,&pos,&vfree,&restPos](int i, int j)
+            computeViolation(resV, this->d_constraintIndex.getValue(), vfree, Deriv::total_size,[&invDt,&pos,&vfree,&restPos](int i, int j)
             { return vfree[i][j] + invDt *(pos[i][j]-restPos[i][j]); });
         }
         else {
-            computeViolation(resV, this->d_constraintIndex.getValue(), vfree, Deriv::size(),[&invDt,&pos,&vfree](int i, int j)
+            computeViolation(resV, this->d_constraintIndex.getValue(), vfree, Deriv::total_size,[&invDt,&pos,&vfree](int i, int j)
             { return vfree[i][j] + invDt *pos[i][j]; });
         }
     }
     else
     {
         if( d_constraintRestPos.getValue() )
-            computeViolation(resV, this->d_constraintIndex.getValue(), xfree, Coord::size(),
+            computeViolation(resV, this->d_constraintIndex.getValue(), xfree, Coord::total_size,
                              [&xfree,&restPos](int i, int j){ return xfree[i][j] - restPos[i][j]; });
         else
-            computeViolation(resV, this->d_constraintIndex.getValue(), xfree, Coord::size(),[&xfree](int i, int j){ return xfree[i][j]; });
+            computeViolation(resV, this->d_constraintIndex.getValue(), xfree, Coord::total_size,[&xfree](int i, int j){ return xfree[i][j]; });
     }
 }
 
@@ -114,7 +114,7 @@ void UniformLagrangianConstraint<DataTypes>::getConstraintResolution(const sofa:
     {
         for (std::size_t i = 0; i < this->getMState()->getSize(); ++i)
         {
-            for (std::size_t j = 0; j < Deriv::size(); ++j)
+            for (std::size_t j = 0; j < Deriv::total_size; ++j)
             {
                 auto* cr = new sofa::component::constraint::lagrangian::model::BilateralConstraintResolution();
                 crVector[offset++] = cr;
@@ -123,7 +123,7 @@ void UniformLagrangianConstraint<DataTypes>::getConstraintResolution(const sofa:
     }
     else
     {
-        const std::size_t nbLines = this->getMState()->getSize() * Deriv::size();
+        const std::size_t nbLines = this->getMState()->getSize() * Deriv::total_size;
         auto* cr = new sofa::component::constraint::lagrangian::model::BilateralConstraintResolutionNDof(nbLines);
         crVector[offset] = cr;
         offset += nbLines;

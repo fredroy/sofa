@@ -29,6 +29,7 @@
 
 #include <iostream>
 
+#define EIGEN_INITIALIZE_MATRICES_BY_ZERO
 #define EIGEN_MATRIXBASE_PLUGIN "sofa/type/EigenMatrixBaseAddons.h"
 #define EIGEN_MATRIX_PLUGIN "sofa/type/EigenMatrixAddons.h"
 #include <Eigen/Dense>
@@ -180,7 +181,28 @@ requires ((Derived1::ColsAtCompileTime == Derived2::ColsAtCompileTime)
           && (std::is_same_v<typename Derived1::Scalar, typename Derived2::Scalar>))
 bool transformInvertMatrix(Eigen::MatrixBase<Derived1>& dest, const Eigen::MatrixBase<Derived2>& from)
 {
-    return dest.transformInvert(from);
+    // should be
+    // return dest.transformInvert(from);
+    // but dest is MatrixBase and transformInvert is implemented in Matrix
+    // TODO: possible to implement in MatrixBase ?
+    using Scalar = typename Derived1::Scalar;
+    constexpr int Dim = Derived1::RowsAtCompileTime;
+
+    Mat<Dim-1,Dim-1,Scalar> R, R_inv;
+    from.getsub(0,0,R);
+    const bool b = invertMatrix(R_inv, R);
+
+    Mat<Dim-1,1,Scalar> t, t_inv;
+    from.getsub(0,Dim-1,t);
+    t_inv = -1.*R_inv*t;
+
+    dest.setsub(0,0,R_inv);
+    dest.setsub(0,Dim-1,t_inv);
+    for (sofa::Size i=0; i<Dim-1; ++i)
+        dest(Dim-1,i)=0.0;
+    dest(Dim-1,Dim-1)=1.0;
+
+    return b;
 }
 
 /// return a * b^T
@@ -240,16 +262,16 @@ std::istream& operator >> ( std::istream& in, Eigen::MatrixBase<Derived>& m )
     return in;
 }
 
-template<typename Derived>
-requires (Derived::IsVectorAtCompileTime == 0)
-std::ostream& operator << ( std::ostream& out, const Eigen::MatrixBase<Derived>& m )
-{
-    out << '[' << m(0);
-    for (int i=1; i<Derived::ColsAtCompileTime; i++)
-      out << ',' << m.col(i);
-    out << ']';
-    return out;
-}
+//template<typename Derived>
+//requires (Derived::IsVectorAtCompileTime == 0)
+//std::ostream& operator << ( std::ostream& out, const Eigen::MatrixBase<Derived>& m )
+//{
+//    out << '[' << m.col(0);
+//    for (int i=1; i<Derived::ColsAtCompileTime; i++)
+//      out << ',' << m.col(i);
+//    out << ']';
+//    return out;
+//}
 
 } // namespace std
 

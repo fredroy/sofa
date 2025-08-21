@@ -271,7 +271,7 @@ void FixedProjectiveConstraint<DataTypes>::applyConstraint(const core::Mechanica
     SOFA_UNUSED(mparams);
     if(const core::behavior::MultiMatrixAccessor::MatrixRef r = matrix->getMatrix(this->mstate.get()))
     {
-        const unsigned int N = Deriv::size();
+        const unsigned int N = Deriv::total_size;
 
         if( d_fixAll.getValue() )
         {
@@ -311,7 +311,7 @@ void FixedProjectiveConstraint<DataTypes>::applyConstraint(const core::Mechanica
     if (o >= 0)
     {
         const unsigned int offset = (unsigned int)o;
-        const unsigned int N = Deriv::size();
+        const unsigned int N = Deriv::total_size;
 
         if( d_fixAll.getValue() )
         {
@@ -336,7 +336,7 @@ void FixedProjectiveConstraint<DataTypes>::applyConstraint(const core::Mechanica
 template <class DataTypes>
 void FixedProjectiveConstraint<DataTypes>::applyConstraint(sofa::core::behavior::ZeroDirichletCondition* matrix)
 {
-    static constexpr unsigned int N = Deriv::size();
+    static constexpr unsigned int N = Deriv::total_size;
 
     if( d_fixAll.getValue() )
     {

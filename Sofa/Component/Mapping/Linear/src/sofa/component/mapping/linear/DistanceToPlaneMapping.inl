@@ -54,7 +54,7 @@ void DistanceToPlaneMapping<TIn>::init()
     }
     d_planeNormal.setValue(d_planeNormal.getValue()/normalNorm);
 
-    constexpr Size inDerivSize = Deriv_t<TIn>::size();
+    constexpr Size inDerivSize = Deriv_t<TIn>::total_size;
     constexpr Size inSpatialDimension = Deriv_t<TIn>::spatial_dimensions;
     Size inSize = this->getFromModel()->getSize();
     this->getToModel()->resize( inSize );

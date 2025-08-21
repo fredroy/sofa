@@ -461,7 +461,7 @@ void PartialLinearMovementProjectiveConstraint<DataTypes>::applyConstraint(const
 template <class DataTypes>
 void PartialLinearMovementProjectiveConstraint<DataTypes>::applyConstraint(sofa::core::behavior::ZeroDirichletCondition* matrix)
 {
-    static constexpr unsigned int N = Deriv::size();
+    static constexpr unsigned int N = Deriv::total_size;
     const SetIndexArray& indices = d_indices.getValue();
     const VecBool& movedDirection = d_movedDirections.getValue();
 

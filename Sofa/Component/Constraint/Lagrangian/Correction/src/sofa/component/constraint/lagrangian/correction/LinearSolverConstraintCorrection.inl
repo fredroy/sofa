@@ -143,7 +143,7 @@ void LinearSolverConstraintCorrection<TDataTypes>::convertConstraintMatrix(const
     SCOPED_TIMER("convertConstraintMatrix");
 
     const unsigned int numDOFs = mstate->getSize();
-    static constexpr unsigned int N = Deriv::size();
+    static constexpr unsigned int N = Deriv::total_size;
     const unsigned int numDOFReals = numDOFs * N;
 
     m_constraintJacobian.resize(numberOfConstraints, numDOFReals);
@@ -225,7 +225,7 @@ void LinearSolverConstraintCorrection<DataTypes>::getComplianceMatrix(linearalge
     const SReal factor = l_ODESolver.get()->getPositionIntegrationFactor();
 
     const unsigned int numDOFs = mstate->getSize();
-    const unsigned int N = Deriv::size();
+    const unsigned int N = Deriv::total_size;
     const unsigned int numDOFReals = numDOFs*N;
     static linearalgebra::SparseMatrix<SReal> J; //local J
     if (J.rowSize() != (linearalgebra::BaseMatrix::Index)numDOFReals)
@@ -700,7 +700,7 @@ void LinearSolverConstraintCorrection<DataTypes>::getBlockDiagonalCompliance(lin
     const SReal factor = l_ODESolver.get()->getPositionIntegrationFactor(); //*m_ODESolver->getPositionIntegrationFactor(); // dt*dt
 
     const unsigned int numDOFs = mstate->getSize();
-    static constexpr unsigned int N = Deriv::size();
+    static constexpr unsigned int N = Deriv::total_size;
     const unsigned int numDOFReals = numDOFs * N;
 
     // Compute J

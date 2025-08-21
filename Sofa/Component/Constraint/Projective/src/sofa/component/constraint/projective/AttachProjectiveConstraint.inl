@@ -182,7 +182,7 @@ inline unsigned int AttachProjectiveConstraint<DataTypes>::DerivConstrainedSize(
     }
     else {
         SOFA_UNUSED(freeRotations);
-        return Deriv::size();
+        return Deriv::total_size;
     }
 }
 
@@ -466,7 +466,7 @@ void AttachProjectiveConstraint<DataTypes>::applyConstraint(const core::Mechanic
     const unsigned int offset = r.offset;
 
     const SetIndexArray & indices = f_indices2.getValue();
-    const unsigned int N = Deriv::size();
+    const unsigned int N = Deriv::total_size;
     const unsigned int NC = DerivConstrainedSize(f_freeRotations.getValue());
     const unsigned int NCLast = DerivConstrainedSize(f_lastFreeRotation.getValue());
     unsigned int i=0;
@@ -519,7 +519,7 @@ void AttachProjectiveConstraint<DataTypes>::applyConstraint(const core::Mechanic
     msg_info() << "applyConstraint in Vector with offset = " << offset ;
 
     const SetIndexArray & indices = f_indices2.getValue();
-    const unsigned int N = Deriv::size();
+    const unsigned int N = Deriv::total_size;
     const unsigned int NC = DerivConstrainedSize(f_freeRotations.getValue());
     const unsigned int NCLast = DerivConstrainedSize(f_lastFreeRotation.getValue());
     unsigned int i = 0;
@@ -553,7 +553,7 @@ void AttachProjectiveConstraint<DataTypes>::applyConstraint(sofa::core::behavior
 
     reinitIfChanged();
 
-    static constexpr unsigned int N = Deriv::size();
+    static constexpr unsigned int N = Deriv::total_size;
     const SetIndexArray& indices = f_indices2.getValue();
     const unsigned int NC = DerivConstrainedSize(f_freeRotations.getValue());
     const unsigned int NCLast = DerivConstrainedSize(f_lastFreeRotation.getValue());

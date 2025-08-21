@@ -141,7 +141,7 @@ void PrecomputedWarpPreconditioner<TDataTypes>::solve (TMatrix& /*M*/, TVector& 
 template<class TDataTypes>
 void PrecomputedWarpPreconditioner<TDataTypes>::loadMatrix(TMatrix& M)
 {
-    dof_on_node = Deriv::size();
+    dof_on_node = Deriv::static_size;
     systemSize = M.rowSize();
     nb_dofs = systemSize/dof_on_node;
     matrixSize = nb_dofs*dof_on_node;

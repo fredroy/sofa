@@ -47,7 +47,7 @@ sofa::type::Mat<4, 4, sofa::type::Mat<3, 3, Real> >
     const auto H13 = crossProductMatrix(v[2] - v[0]) / 6;
     const auto H23 = crossProductMatrix(v[0] - v[1]) / 6;
 
-    sofa::type::Mat<4, 4, sofa::type::Mat<3, 3, SReal> > hessian;
+    sofa::type::Mat<4, 4, sofa::type::Mat<3, 3, SReal> > hessian(type::NOINIT);
 
     hessian(0, 1) = H01;
     hessian(1, 0) = H01.transposed();

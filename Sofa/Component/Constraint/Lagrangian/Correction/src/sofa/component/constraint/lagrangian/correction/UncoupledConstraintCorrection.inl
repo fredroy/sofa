@@ -466,7 +466,7 @@ void UncoupledConstraintCorrection<DataTypes>::getComplianceMatrix(linearalgebra
     const VecReal& comp = d_compliance.getValue();
     const Real comp0 = d_defaultCompliance.getValue();
     const unsigned int s = this->mstate->getSize(); // comp.size();
-    const unsigned int dimension = Coord::size();
+    const unsigned int dimension = Coord::total_size;
 
     m->resize(s * dimension, s * dimension); //resize must set to zero the content of the matrix
 

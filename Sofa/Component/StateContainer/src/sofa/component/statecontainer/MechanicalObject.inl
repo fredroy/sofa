@@ -875,9 +875,9 @@ void MechanicalObject<DataTypes>::copyToBaseMatrix(linearalgebra::BaseMatrix* de
                     const unsigned int dof = colIt.index();
                     const Deriv n = colIt.val();
 
-                    for (unsigned int r = 0; r < Deriv::size(); ++r)
+                    for (unsigned int r = 0; r < Deriv::total_size; ++r)
                     {
-                        dest->add(cid, offset + dof * Deriv::size() + r, n[r]);
+                        dest->add(cid, offset + dof * Deriv::total_size + r, n[r]);
                     }
                 }
             }
@@ -2469,7 +2469,7 @@ template <class DataTypes>
 void MechanicalObject<DataTypes>::getConstraintJacobian(const core::ConstraintParams* cParams, sofa::linearalgebra::BaseMatrix* J,unsigned int & off)
 {
     // Compute J
-    const auto N = Deriv::size();
+    const auto N = Deriv::total_size;
     const MatrixDeriv& c = cParams->readJ(this)->getValue();
 
     MatrixDerivRowConstIterator rowItEnd = c.end();
@@ -2498,7 +2498,7 @@ void MechanicalObject<DataTypes>::getConstraintJacobian(const core::ConstraintPa
 template <class DataTypes>
 void MechanicalObject<DataTypes>::buildIdentityBlocksInJacobian(const sofa::type::vector<unsigned int>& list_n, core::MatrixDerivId &mID)
 {
-    static constexpr auto N = Deriv::size();
+    static constexpr auto N = Deriv::total_size;
     Data<MatrixDeriv>* cMatrix= this->write(mID);
 
     MatrixDeriv& jacobian = *cMatrix->beginEdit();

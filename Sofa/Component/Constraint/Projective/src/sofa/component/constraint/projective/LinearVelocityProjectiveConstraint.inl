@@ -345,7 +345,7 @@ void LinearVelocityProjectiveConstraint<DataTypes>::applyConstraint(const core::
         if (o >= 0)
         {
             unsigned int offset = (unsigned int)o;
-            constexpr unsigned int N = Deriv::size();
+            constexpr unsigned int N = Deriv::total_size;
 
             const SetIndexArray& indices = this->d_indices.getValue();
             for (const unsigned int index : indices)
@@ -368,7 +368,7 @@ void LinearVelocityProjectiveConstraint<DataTypes>::applyConstraint(const core::
         if (const core::behavior::MultiMatrixAccessor::MatrixRef r =
                 matrix->getMatrix(this->mstate.get()))
         {
-            constexpr unsigned int N = Deriv::size();
+            constexpr unsigned int N = Deriv::total_size;
             const SetIndexArray& indices = this->d_indices.getValue();
 
             for (SetIndexArray::const_iterator it = indices.begin(); it != indices.end(); ++it)
@@ -410,7 +410,7 @@ template <class DataTypes>
 void LinearVelocityProjectiveConstraint<DataTypes>::applyConstraint(
     sofa::core::behavior::ZeroDirichletCondition* matrix)
 {
-    static constexpr unsigned int N = Deriv::size();
+    static constexpr unsigned int N = Deriv::total_size;
     if(isConstraintActive())
     {
         const SetIndexArray& indices = this->d_indices.getValue();

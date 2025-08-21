@@ -351,7 +351,7 @@ void LinearMovementProjectiveConstraint<DataTypes>::applyConstraint(const core::
     SOFA_UNUSED(mparams);
     if(const core::behavior::MultiMatrixAccessor::MatrixRef r = matrix->getMatrix(this->mstate.get()))
     {
-        const unsigned int N = Deriv::size();
+        const unsigned int N = Deriv::total_size;
         const SetIndexArray & indices = d_indices.getValue();
 
         for (SetIndexArray::const_iterator it = indices.begin(); it != indices.end(); ++it)
@@ -374,7 +374,7 @@ void LinearMovementProjectiveConstraint<DataTypes>::applyConstraint(const core::
     if (o >= 0)
     {
         const unsigned int offset = (unsigned int)o;
-        const unsigned int N = Deriv::size();
+        const unsigned int N = Deriv::total_size;
 
         const SetIndexArray & indices = d_indices.getValue();
         for (SetIndexArray::const_iterator it = indices.begin(); it != indices.end(); ++it)
@@ -389,7 +389,7 @@ template <class TDataTypes>
 void LinearMovementProjectiveConstraint<TDataTypes>::applyConstraint(
     sofa::core::behavior::ZeroDirichletCondition* matrix)
 {
-    constexpr unsigned int N = Deriv::size();
+    constexpr unsigned int N = Deriv::total_size;
 
     for (const auto index : d_indices.getValue())
     {

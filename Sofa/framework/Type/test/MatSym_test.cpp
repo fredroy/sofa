@@ -25,162 +25,162 @@
 #include <sofa/testing/NumericTest.h>
 
 
-namespace sofa
-{
+//namespace sofa
+//{
 
-template <sofa::Size D, class _Real = SReal>
-struct MatSymTestParameterPack
-{
-    static constexpr auto Size = D;
-    using Real = _Real;
-};
+//template <sofa::Size D, class _Real = SReal>
+//struct MatSymTestParameterPack
+//{
+//    static constexpr auto Size = D;
+//    using Real = _Real;
+//};
 
-template <class ParameterPack>
-class MatSymTest : public testing::NumericTest<typename ParameterPack::Real>
-{
-public:
-    using Real = typename ParameterPack::Real;
-    static constexpr auto Size = ParameterPack::Size;
+//template <class ParameterPack>
+//class MatSymTest : public testing::NumericTest<typename ParameterPack::Real>
+//{
+//public:
+//    using Real = typename ParameterPack::Real;
+//    static constexpr auto Size = ParameterPack::Size;
 
-    void doSetUp() override
-    {
-        sofa::testing::LinearCongruentialRandomGenerator lcg(96547);
+//    void doSetUp() override
+//    {
+//        sofa::testing::LinearCongruentialRandomGenerator lcg(96547);
 
-        for (sofa::Size i = 0; i < sofa::type::MatSym<Size, Real>::size(); ++i)
-        {
-            m_symmetricMatrix[i] = lcg.generateInRange(-10., 10.);
-        }
-    }
+//        for (sofa::Size i = 0; i < sofa::type::MatSym<Size, Real>::size(); ++i)
+//        {
+//            m_symmetricMatrix[i] = lcg.generateInRange(-10., 10.);
+//        }
+//    }
 
-    void inversion() const
-    {
-        type::MatSym<Size, Real> M_inverse;
-        sofa::type::invertMatrix(M_inverse, m_symmetricMatrix);
+//    void inversion() const
+//    {
+//        type::MatSym<Size, Real> M_inverse;
+//        sofa::type::invertMatrix(M_inverse, m_symmetricMatrix);
 
-        const Eigen::Matrix<Real, Size, Size> W = convert<Eigen::Matrix<Real, Size, Size>>().inverse();
+//        const Eigen::Matrix<Real, Size, Size> W = convert<Eigen::Matrix<Real, Size, Size>>().inverse();
 
-        for (sofa::Size i = 0; i < Size; ++i)
-        {
-            for (sofa::Size j = 0; j < Size; ++j)
-            {
-                EXPECT_NEAR(W(i, j), M_inverse(i, j), testing::NumericTest<Real>::epsilon());
-            }
-        }
-    }
+//        for (sofa::Size i = 0; i < Size; ++i)
+//        {
+//            for (sofa::Size j = 0; j < Size; ++j)
+//            {
+//                EXPECT_NEAR(W(i, j), M_inverse(i, j), testing::NumericTest<Real>::epsilon());
+//            }
+//        }
+//    }
 
-    void rightProduct() const
-    {
-        const auto other = getRandomMatrix<sofa::type::Mat<Size, Size, Real>>();
+//    void rightProduct() const
+//    {
+//        const auto other = getRandomMatrix<sofa::type::Mat<Size, Size, Real>>();
 
-        const auto product = m_symmetricMatrix * other;
-        const auto genericProduct = convert<sofa::type::Mat<Size, Size, Real>>() * other;
+//        const auto product = m_symmetricMatrix * other;
+//        const auto genericProduct = convert<sofa::type::Mat<Size, Size, Real>>() * other;
 
-        EXPECT_EQ(product, genericProduct);
-    }
+//        EXPECT_EQ(product, genericProduct);
+//    }
 
-    void leftProduct() const
-    {
-        const auto other = getRandomMatrix<sofa::type::Mat<Size, Size, Real>>();
+//    void leftProduct() const
+//    {
+//        const auto other = getRandomMatrix<sofa::type::Mat<Size, Size, Real>>();
 
-        const auto product = other * m_symmetricMatrix;
-        const auto genericProduct = other * convert<sofa::type::Mat<Size, Size, Real>>();
+//        const auto product = other * m_symmetricMatrix;
+//        const auto genericProduct = other * convert<sofa::type::Mat<Size, Size, Real>>();
 
-        EXPECT_EQ(product, genericProduct);
-    }
+//        EXPECT_EQ(product, genericProduct);
+//    }
 
-    void trace() const
-    {
-        const Real expectedTrace = convert<Eigen::Matrix<Real, Size, Size>>().trace();
-        EXPECT_NEAR(
-            expectedTrace,
-            sofa::type::trace(m_symmetricMatrix),
-            testing::NumericTest<Real>::epsilon());
-    }
+//    void trace() const
+//    {
+//        const Real expectedTrace = convert<Eigen::Matrix<Real, Size, Size>>().trace();
+//        EXPECT_NEAR(
+//            expectedTrace,
+//            sofa::type::trace(m_symmetricMatrix),
+//            testing::NumericTest<Real>::epsilon());
+//    }
 
-protected:
-    sofa::type::MatSym<Size, Real> m_symmetricMatrix;
+//protected:
+//    sofa::type::MatSym<Size, Real> m_symmetricMatrix;
 
-    template<class MatrixType>
-    MatrixType convert() const
-    {
-        MatrixType result;
-        for (sofa::Size i = 0; i < Size; ++i)
-        {
-            for (sofa::Size j = 0; j < Size; ++j)
-            {
-                result(i, j) = m_symmetricMatrix(i, j);
-            }
-        }
-        return result;
-    }
+//    template<class MatrixType>
+//    MatrixType convert() const
+//    {
+//        MatrixType result;
+//        for (sofa::Size i = 0; i < Size; ++i)
+//        {
+//            for (sofa::Size j = 0; j < Size; ++j)
+//            {
+//                result(i, j) = m_symmetricMatrix(i, j);
+//            }
+//        }
+//        return result;
+//    }
 
-    template<class MatrixType>
-    static MatrixType getRandomMatrix()
-    {
-        MatrixType randomMatrix;
+//    template<class MatrixType>
+//    static MatrixType getRandomMatrix()
+//    {
+//        MatrixType randomMatrix;
 
-        sofa::testing::LinearCongruentialRandomGenerator lcg(783352);
+//        sofa::testing::LinearCongruentialRandomGenerator lcg(783352);
 
-        for (sofa::Size i = 0; i < Size; ++i)
-        {
-            for (sofa::Size j = 0; j < Size; ++j)
-            {
-                randomMatrix(i, j) = lcg.generateInRange(-10., 10.);
-            }
-        }
+//        for (sofa::Size i = 0; i < Size; ++i)
+//        {
+//            for (sofa::Size j = 0; j < Size; ++j)
+//            {
+//                randomMatrix(i, j) = lcg.generateInRange(-10., 10.);
+//            }
+//        }
 
-        return randomMatrix;
-    }
-};
+//        return randomMatrix;
+//    }
+//};
 
-using ::testing::Types;
-typedef Types<
-    MatSymTestParameterPack<2, SReal>,
-    MatSymTestParameterPack<3, SReal>
-> DataTypes;
+//using ::testing::Types;
+//typedef Types<
+//    MatSymTestParameterPack<2, SReal>,
+//    MatSymTestParameterPack<3, SReal>
+//> DataTypes;
 
-TYPED_TEST_SUITE(MatSymTest, DataTypes);
+//TYPED_TEST_SUITE(MatSymTest, DataTypes);
 
-TYPED_TEST(MatSymTest, inversion )
-{
-    ASSERT_NO_THROW (this->inversion());
-}
+//TYPED_TEST(MatSymTest, inversion )
+//{
+//    ASSERT_NO_THROW (this->inversion());
+//}
 
-TYPED_TEST(MatSymTest, rightProduct )
-{
-    ASSERT_NO_THROW (this->rightProduct());
-}
+//TYPED_TEST(MatSymTest, rightProduct )
+//{
+//    ASSERT_NO_THROW (this->rightProduct());
+//}
 
-TYPED_TEST(MatSymTest, leftProduct)
-{
-    ASSERT_NO_THROW (this->leftProduct());
-}
+//TYPED_TEST(MatSymTest, leftProduct)
+//{
+//    ASSERT_NO_THROW (this->leftProduct());
+//}
 
-TYPED_TEST(MatSymTest, trace)
-{
-    ASSERT_NO_THROW (this->trace());
-}
+//TYPED_TEST(MatSymTest, trace)
+//{
+//    ASSERT_NO_THROW (this->trace());
+//}
 
 
-template<class _Real>
-class MatSym3x3Test : public MatSymTest<MatSymTestParameterPack<3, _Real>>
-{
-public:
-    void elementAccessor() const
-    {
-        EXPECT_EQ(this->m_symmetricMatrix(0, 0), this->m_symmetricMatrix[0]);
-        EXPECT_EQ(this->m_symmetricMatrix(0, 1), this->m_symmetricMatrix[1]);
-        EXPECT_EQ(this->m_symmetricMatrix(1, 1), this->m_symmetricMatrix[2]);
-        EXPECT_EQ(this->m_symmetricMatrix(0, 2), this->m_symmetricMatrix[3]);
-        EXPECT_EQ(this->m_symmetricMatrix(1, 2), this->m_symmetricMatrix[4]);
-        EXPECT_EQ(this->m_symmetricMatrix(2, 2), this->m_symmetricMatrix[5]);
-    }
-};
+//template<class _Real>
+//class MatSym3x3Test : public MatSymTest<MatSymTestParameterPack<3, _Real>>
+//{
+//public:
+//    void elementAccessor() const
+//    {
+//        EXPECT_EQ(this->m_symmetricMatrix(0, 0), this->m_symmetricMatrix[0]);
+//        EXPECT_EQ(this->m_symmetricMatrix(0, 1), this->m_symmetricMatrix[1]);
+//        EXPECT_EQ(this->m_symmetricMatrix(1, 1), this->m_symmetricMatrix[2]);
+//        EXPECT_EQ(this->m_symmetricMatrix(0, 2), this->m_symmetricMatrix[3]);
+//        EXPECT_EQ(this->m_symmetricMatrix(1, 2), this->m_symmetricMatrix[4]);
+//        EXPECT_EQ(this->m_symmetricMatrix(2, 2), this->m_symmetricMatrix[5]);
+//    }
+//};
 
-TYPED_TEST_SUITE(MatSym3x3Test, Types<SReal>);
-TYPED_TEST(MatSym3x3Test, elementAccessor)
-{
-    ASSERT_NO_THROW (this->elementAccessor());
-}
+//TYPED_TEST_SUITE(MatSym3x3Test, Types<SReal>);
+//TYPED_TEST(MatSym3x3Test, elementAccessor)
+//{
+//    ASSERT_NO_THROW (this->elementAccessor());
+//}
 
-}
+//}

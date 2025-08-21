@@ -64,7 +64,7 @@ void FixedPlaneProjectiveConstraint<DataTypes>::applyConstraint(const Mechanical
         /// Implement plane constraint only when the direction is along the coordinates directions
         // TODO : generalize projection to any direction
 
-        const unsigned int N = Deriv::size();
+        const unsigned int N = Deriv::total_size;
         Coord dir=d_direction.getValue();
         for (auto& index : d_indices.getValue())
         {
@@ -94,7 +94,7 @@ void FixedPlaneProjectiveConstraint<DataTypes>::applyConstraint(const Mechanical
         // TODO : generalize projection to any direction
         Coord dir=d_direction.getValue();
 
-        const unsigned int N = Deriv::size();
+        const unsigned int N = Deriv::total_size;
 
         for (auto& index : d_indices.getValue())
         {
@@ -109,7 +109,7 @@ template <class DataTypes>
 void FixedPlaneProjectiveConstraint<DataTypes>::applyConstraint(
     sofa::core::behavior::ZeroDirichletCondition* matrix)
 {
-    static constexpr unsigned int N = Deriv::size();
+    static constexpr unsigned int N = Deriv::total_size;
     const Coord dir = d_direction.getValue();
     for (auto& index : d_indices.getValue())
     {

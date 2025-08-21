@@ -993,7 +993,7 @@ template<class Real>
 bool Decompose<Real>::polarDecomposition_stable_Gradient_dQOverdM( const type::Mat<3,3,Real> &U, const type::Vec<3,Real> &Sdiag, const type::Mat<3,3,Real> &V, type::Mat<9,9,Real>& dQOverdM )
 {
 
-    Mat< 3,3, Mat<3,3,Real> > omega;
+    Mat< 3,3, Mat<3,3,Real> > omega(type::NOINIT);
 
     for( int i=0 ; i<3 ; ++i ) // line of dM
         for( int j=0 ; j<3 ; ++j ) // col of dM
