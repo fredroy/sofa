@@ -193,10 +193,12 @@ TEST(QuaterTest, QuaterdFromMatrix)
 {
     Quat<double> quat;
     //30deg X, 30deg Y and 30deg Z
-    double mat[9]  = { 0.750000000000000, -0.216506350946110, 0.625000000000000,
-                       0.433012701892219, 0.875000000000000, -0.216506350946110,
-                      -0.500000000000000, 0.433012701892219, 0.750000000000000 };
-    quat.fromMatrix(sofa::type::Matrix3(mat));
+    sofa::type::Matrix3 mat;
+    mat << 0.750000000000000, -0.216506350946110, 0.625000000000000,
+    0.433012701892219, 0.875000000000000, -0.216506350946110,
+    -0.500000000000000, 0.433012701892219, 0.750000000000000;
+
+    quat.fromMatrix(mat);
 
     EXPECT_NEAR(0.176776695296637, quat[0], errorThreshold);
     EXPECT_NEAR(0.306186217847897, quat[1], errorThreshold);
@@ -230,7 +232,7 @@ TEST(QuaterTest, QuaterdRotateVec)
     //30deg X, 15deg Y and 30deg Z
     quat.set(0.215229667288440, 0.188196807757208, 0.215229667288440, 0.933774245836654);
     const sofa::type::Vec3d p(3, 6, 9);
-    sofa::type::Vec3d rp = quat.rotate(p); //equiv if inverseQuat.rotate() in matlab
+    const sofa::type::Vec3d rp = quat.rotate(p); //equiv if inverseQuat.rotate() in matlab
 
     EXPECT_NEAR(4.580932858428164, rp[0], errorThreshold);
     EXPECT_NEAR(3.448650396246470, rp[1], errorThreshold);

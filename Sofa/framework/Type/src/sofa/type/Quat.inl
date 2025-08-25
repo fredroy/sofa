@@ -171,8 +171,8 @@ void Quat<Real>::fromMatrix(const Mat3x3 &m)
     if (tr > 0)
     {
         s = sqrt (tr + 1);
-        _q[3] = s * 0.5f; // w OK
-        s = 0.5f / s;
+        _q[3] = s * static_cast<Real>(0.5); // w OK
+        s = static_cast<Real>(0.5) / s;
         _q[0] = (m(2,1) - m(1,2)) * s; // x OK
         _q[1] = (m(0,2) - m(2,0)) * s; // y OK
         _q[2] = (m(1,0) - m(0,1)) * s; // z OK
@@ -181,12 +181,12 @@ void Quat<Real>::fromMatrix(const Mat3x3 &m)
     {
         if (m(1,1) > m(0,0) && m(2,2) <= m(1,1))
         {
-            s = sqrt ((m(1,1) - (m(2,2) + m(0,0))) + 1.0f);
+            s = sqrt ((m(1,1) - (m(2,2) + m(0,0))) + static_cast<Real>(1.0));
 
-            _q[1] = s * 0.5f; // y OK
+            _q[1] = s * static_cast<Real>(0.5); // y OK
 
-            if (s != 0.0f)
-                s = 0.5f / s;
+            if (s != static_cast<Real>(0))
+                s = static_cast<Real>(0.5) / s;
 
             _q[2] = (m(1,2) + m(2,1)) * s; // z OK
             _q[0] = (m(0,1) + m(1,0)) * s; // x OK
@@ -194,12 +194,12 @@ void Quat<Real>::fromMatrix(const Mat3x3 &m)
         }
         else if ((m(1,1) <= m(0,0)  &&  m(2,2) > m(0,0))  ||  (m(2,2) > m(1,1)))
         {
-            s = sqrt ((m(2,2) - (m(0,0) + m(1,1))) + 1.0f);
+            s = sqrt ((m(2,2) - (m(0,0) + m(1,1))) + static_cast<Real>(1.0));
 
-            _q[2] = s * 0.5f; // z OK
+            _q[2] = s * static_cast<Real>(0.5); // z OK
 
-            if (s != 0.0f)
-                s = 0.5f / s;
+            if (s != static_cast<Real>(0))
+                s = static_cast<Real>(0.5) / s;
 
             _q[0] = (m(2,0) + m(0,2)) * s; // x OK
             _q[1] = (m(1,2) + m(2,1)) * s; // y OK
@@ -207,12 +207,12 @@ void Quat<Real>::fromMatrix(const Mat3x3 &m)
         }
         else
         {
-            s = sqrt ((m(0,0) - (m(1,1) + m(2,2))) + 1.0f);
+            s = sqrt ((m(0,0) - (m(1,1) + m(2,2))) + static_cast<Real>(1.0));
 
-            _q[0] = s * 0.5f; // x OK
+            _q[0] = s * static_cast<Real>(0.5); // x OK
 
-            if (s != 0.0f)
-                s = 0.5f / s;
+            if (s != static_cast<Real>(0))
+                s = static_cast<Real>(0.5) / s;
 
             _q[1] = (m(0,1) + m(1,0)) * s; // y OK
             _q[2] = (m(2,0) + m(0,2)) * s; // z OK
