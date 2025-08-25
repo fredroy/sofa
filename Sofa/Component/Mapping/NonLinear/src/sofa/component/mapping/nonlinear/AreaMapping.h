@@ -46,7 +46,8 @@ public:
 
     SingleLink<AreaMapping<TIn, TOut>, sofa::core::topology::BaseMeshTopology, BaseLink::FLAG_STOREPATH | BaseLink::FLAG_STRONGLINK> l_topology;
 
-    static sofa::type::Mat<3,3,sofa::type::Mat<3,3,Real>> computeSecondDerivativeArea(const sofa::type::fixed_array<sofa::type::Vec3, 3>& triangleVertices);
+    using Matrix33Matrix33 = std::array<std::array<type::Mat<3,3, Real>, 3>, 3>;
+    static Matrix33Matrix33 computeSecondDerivativeArea(const sofa::type::fixed_array<sofa::type::Vec3, 3>& triangleVertices);
 
     void init() override;
 

@@ -46,7 +46,9 @@ public:
 
     SingleLink<VolumeMapping<TIn, TOut>, sofa::core::topology::BaseMeshTopology, BaseLink::FLAG_STOREPATH | BaseLink::FLAG_STRONGLINK> l_topology;
 
-    static sofa::type::Mat<4,4,sofa::type::Mat<3,3,Real>> computeSecondDerivativeVolume(const sofa::type::fixed_array<sofa::type::Vec3, 4>& tetrahedronVertices);
+    using HessianMatrix = std::array<std::array<type::Matrix3, 4>, 4>;
+
+    static HessianMatrix computeSecondDerivativeVolume(const sofa::type::fixed_array<sofa::type::Vec3, 4>& tetrahedronVertices);
 
     void init() override;
 

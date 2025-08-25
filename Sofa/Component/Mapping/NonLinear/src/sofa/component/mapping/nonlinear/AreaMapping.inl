@@ -37,15 +37,16 @@ AreaMapping<TIn, TOut>::AreaMapping()
 
 template <class TIn, class TOut>
 auto AreaMapping<TIn, TOut>::computeSecondDerivativeArea(
-    const sofa::type::fixed_array<sofa::type::Vec3, 3>& triangleVertices) ->
-    sofa::type::Mat<3, 3, sofa::type::Mat<3, 3, Real> >
+    const sofa::type::fixed_array<sofa::type::Vec3, 3>& triangleVertices) -> Matrix33Matrix33
 {
     const auto& v = triangleVertices;
 
     const auto N = sofa::type::cross(v[1] - v[0], v[2] - v[0]);
     const auto n2 = dot(N, N);
 
-    sofa::type::MatNoInit<3, 3, sofa::type::MatNoInit<3, 3, Real>> d2A;
+
+    using Matrix33Matrix33 = std::array<std::array<type::Mat<3,3, Real>, 3>, 3>;
+    Matrix33Matrix33 d2A;
 
     const auto ka = 1 / (2 * std::sqrt(std::pow(n2, 3)));
 
@@ -55,7 +56,7 @@ auto AreaMapping<TIn, TOut>::computeSecondDerivativeArea(
     {
         for (unsigned int j = 0; j < 3; ++j)
         {
-            auto& entry = d2A(i,j);
+            auto& entry = d2A[i][j];
 
             const auto i1 = (i + 1) % 3;
             const auto j1 = (j + 1) % 3;
@@ -227,7 +228,7 @@ void AreaMapping<TIn, TOut>::matrixFreeApplyDJT(
                 {
                     parentForceAccessor[triangle[i]] +=
                         kFactor
-                        * d2Area_d2x(i,j)
+                        * d2Area_d2x[i][j]
                         * parentDisplacementAccessor[triangle[j]]
                         * childForceTri[0];
                 }
@@ -267,7 +268,7 @@ void AreaMapping<TIn, TOut>::doUpdateK(const core::MechanicalParams* mparams,
             {
                 for (unsigned int j = 0; j < 3; ++j)
                 {
-                    matrix.addBlock(triangle[i], triangle[j], d2Area_d2x(i,j) * childForceTri[0]);
+                    matrix.addBlock(triangle[i], triangle[j], d2Area_d2x[i][j] * childForceTri[0]);
                 }
             }
         }
@@ -309,7 +310,7 @@ void AreaMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
             {
                 for (unsigned int j = 0; j < 3; ++j)
                 {
-                    dJdx(triangle[i] * Nin, triangle[j] * Nin) += (d2Area_d2x(i,j) * childForceTri[0]);
+                    dJdx(triangle[i] * Nin, triangle[j] * Nin) += (d2Area_d2x[i][j] * childForceTri[0]);
                 }
             }
         }

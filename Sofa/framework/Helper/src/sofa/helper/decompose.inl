@@ -993,7 +993,10 @@ template<class Real>
 bool Decompose<Real>::polarDecomposition_stable_Gradient_dQOverdM( const type::Mat<3,3,Real> &U, const type::Vec<3,Real> &Sdiag, const type::Mat<3,3,Real> &V, type::Mat<9,9,Real>& dQOverdM )
 {
 
-    Mat< 3,3, Mat<3,3,Real> > omega(type::NOINIT);
+    //Mat< 3,3, Mat<3,3,Real> > omega(type::NOINIT);
+    using Mat = type::Mat<3,3,Real>;
+    using ArrayArrayMat = std::array<std::array<Mat, 3>, 3>;
+    ArrayArrayMat omega;
 
     for( int i=0 ; i<3 ; ++i ) // line of dM
         for( int j=0 ; j<3 ; ++j ) // col of dM
@@ -1010,12 +1013,12 @@ bool Decompose<Real>::polarDecomposition_stable_Gradient_dQOverdM( const type::M
                 }
                 else
                 {
-                    omega(i,j)(k,l) = ( U(i,k)*V(l,j) - U(i,l)*V(k,j) ) / A;
+                    omega[i][j](k,l) = ( U(i,k)*V(l,j) - U(i,l)*V(k,j) ) / A;
                 }
 
-                omega(i,j)(l,k) = -omega(i,j)(k,l); // skew-symmetric (antisymmetric)
+                omega[i][j](l,k) = -omega[i][j](k,l); // skew-symmetric (antisymmetric)
             }
-            omega(i,j) = U * omega(i,j) * V;
+            omega[i][j] = U * omega[i][j] * V;
         }
 
 
@@ -1025,7 +1028,7 @@ bool Decompose<Real>::polarDecomposition_stable_Gradient_dQOverdM( const type::M
             for( int k=0 ; k<3 ; ++k )
                 for( int l=0 ; l<3 ; ++l )
                 {
-                    dQOverdM(i*3+j,k*3+l) = omega(k,l)(i,j);
+                    dQOverdM(i*3+j,k*3+l) = omega[k][l](i,j);
                 }
 
     return true;
@@ -1035,7 +1038,10 @@ bool Decompose<Real>::polarDecomposition_stable_Gradient_dQOverdM( const type::M
 template<class Real>
 bool Decompose<Real>::polarDecompositionGradient_dQOverdM( const type::Mat<3,2,Real>& U, const type::Vec<2,Real>& Sdiag, const type::Mat<2,2,Real>& V, type::Mat<6,6,Real>& dQOverdM )
 {
-    Mat< 3,2, Mat<3,2,Real> > dQdMij;
+    //Mat< 3,2, Mat<3,2,Real> > dQdMij;
+    using Mat = type::Mat<3,2,Real>;
+    using ArrayArrayMat = std::array<std::array<Mat, 2>, 3>;
+    ArrayArrayMat dQdMij;
 
     for( int i=0 ; i<3 ; ++i ) // line of dM
         for( int j=0 ; j<2 ; ++j ) // col of dM
@@ -1044,20 +1050,20 @@ bool Decompose<Real>::polarDecompositionGradient_dQOverdM( const type::Mat<3,2,R
 
             if( /*helper::rabs*/( A ) < zeroTolerance() ) return false;
 
-            Mat<2,2,Real> omega;
+            type::Mat<2,2,Real> omega;
 
             omega(0,1) = ( U(i,0)*V(1,j) - U(i,1)*V(0,j) ) / A;
             omega(1,0) = -omega(0,1); // skew-symmetric (antisymmetric)
 
-            dQdMij(i,j) = U * omega * V;
+            dQdMij[i][j] =  U * omega * V;
         }
 
-    // transposed and reformatted in plain matrice
+    // transposed and reformatted in plain matrix
     for( int k=0 ; k<3 ; ++k )
         for( int l=0 ; l<2 ; ++l )
             for( int j=0 ; j<2 ; ++j )
                 for( int i=0 ; i<3 ; ++i )
-                    dQOverdM(i*2+j,k*2+l) = dQdMij(k,l)(i,j);
+                    dQOverdM(i*2+j,k*2+l) = dQdMij[k][l](i,j);
 
     return true;
 }
@@ -2074,7 +2080,11 @@ bool Decompose<Real>::SVD_stable( const type::Mat<3,2,Real> &F, type::Mat<3,2,Re
 template<class Real>
 bool Decompose<Real>::SVDGradient_dUdVOverdM( const type::Mat<3,3,Real> &U, const type::Vec<3,Real> &S, const type::Mat<3,3,Real> &V, type::Mat<9,9,Real>& dUOverdM, type::Mat<9,9,Real>& dVOverdM )
 {
-    Mat< 3,3, Mat<3,3,Real> > omegaU, omegaV;
+    using Mat = type::Mat<3,3,Real>;
+    using ArrayArrayMat = std::array<std::array<Mat, 2>, 3>;
+
+//    Mat< 3,3, Mat<3,3,Real> > omegaU, omegaV;
+    ArrayArrayMat omegaU, omegaV;
 
     for( int i=0 ; i<3 ; ++i ) // line of dM
         for( int j=0 ; j<3 ; ++j ) // col of dM
@@ -2113,11 +2123,11 @@ bool Decompose<Real>::SVDGradient_dUdVOverdM( const type::Mat<3,3,Real> &U, cons
                 //dU(k*3+l,i*3+j) = w[0]; dU(l*3+k,i*3+j) = -w[0];
                 //dV(k*3+l,i*3+j) = w[1]; dV(l*3+k,i*3+j) = -w[1];
 
-                omegaU(i,j)(k,l) = w[0]; omegaU(i,j)(l,k) = -w[0];
-                omegaV(i,j)(k,l) = w[1]; omegaV(i,j)(l,k) = -w[1];
+                omegaU[i][j](k,l) = w[0]; omegaU[i][j](l,k) = -w[0];
+                omegaV[i][j](k,l) = w[1]; omegaV[i][j](l,k) = -w[1];
             }
-            omegaU(i,j) = U * omegaU(i,j);
-            omegaV(i,j) = omegaV(i,j) * V;
+            omegaU[i][j] = U * omegaU[i][j];
+            omegaV[i][j] = omegaV[i][j] * V;
         }
 
 
@@ -2141,8 +2151,8 @@ bool Decompose<Real>::SVDGradient_dUdVOverdM( const type::Mat<3,3,Real> &U, cons
 
                     //dUOverdM(i,j,k,l) = omegaU(k,l,i,j);
 
-                    dUOverdM(i*3+j,k*3+l) = omegaU(k,l)(i,j);
-                    dVOverdM(i*3+j,k*3+l) = omegaV(k,l)(i,j);
+                    dUOverdM(i*3+j,k*3+l) = omegaU[k][l](i,j);
+                    dVOverdM(i*3+j,k*3+l) = omegaV[k][l](i,j);
                 }
 
 //            for( int i=0 ; i<3 ; ++i )
@@ -2163,13 +2173,20 @@ bool Decompose<Real>::SVDGradient_dUdVOverdM( const type::Mat<3,3,Real> &U, cons
 template<class Real>
 bool Decompose<Real>::SVDGradient_dUdVOverdM( const type::Mat<3,2,Real> &U, const type::Vec<2,Real> &S, const type::Mat<2,2,Real> &V, type::Mat<6,6,Real>& dUOverdM, type::Mat<4,6,Real>& dVOverdM )
 {
-    Mat< 3,2, Mat<3,2,Real> > dUdMij;
-    Mat< 3,2, Mat<2,2,Real> > dVdMij;
+    using Mat32 = type::Mat<3,2,Real>;
+    using Mat22 = type::Mat<2,2,Real>;
+    using ArrayArrayMat32 = std::array<std::array<Mat32, 2>, 3>;
+    using ArrayArrayMat22 = std::array<std::array<Mat22, 2>, 3>;
+    ArrayArrayMat32 dUdMij;
+    ArrayArrayMat22 dVdMij;
+
+//    Mat< 3,2, Mat<3,2,Real> > dUdMij;
+//    Mat< 3,2, Mat<2,2,Real> > dVdMij;
 
     for( int i=0 ; i<3 ; ++i ) // line of dM
         for( int j=0 ; j<2 ; ++j ) // col of dM
         {
-            Mat<2,2,Real> omegaU, omegaV;
+            type::Mat<2,2,Real> omegaU, omegaV;
             type::Mat<2,2,Real> A, invA;
             A(0,0) = A(1,1) = S[1];
             A(0,1) = A(1,0) = S[0];
@@ -2201,8 +2218,8 @@ bool Decompose<Real>::SVDGradient_dUdVOverdM( const type::Mat<3,2,Real> &U, cons
             omegaU(0,1) = w[0]; omegaU(1,0) = -w[0];
             omegaV(0,1) = w[1]; omegaV(1,0) = -w[1];
 
-            dUdMij(i,j) = U * omegaU;
-            dVdMij(i,j) = omegaV * V;
+            dUdMij[i][j] = U * omegaU;
+            dVdMij[i][j] = omegaV * V;
         }
 
     // transposed and reformatted in plain matrices
@@ -2211,10 +2228,10 @@ bool Decompose<Real>::SVDGradient_dUdVOverdM( const type::Mat<3,2,Real> &U, cons
             for( int j=0 ; j<2 ; ++j )
             {
                 for( int i=0 ; i<3 ; ++i )
-                    dUOverdM(i*2+j,k*2+l) = dUdMij(k,l)(i,j);
+                    dUOverdM(i*2+j,k*2+l) = dUdMij[k][l](i,j);
 
                 for( int i=0 ; i<2 ; ++i )
-                    dVOverdM(i*2+j,k*2+l) = dVdMij(k,l)(i,j);
+                    dVOverdM(i*2+j,k*2+l) = dVdMij[k][l](i,j);
             }
 
     return true;

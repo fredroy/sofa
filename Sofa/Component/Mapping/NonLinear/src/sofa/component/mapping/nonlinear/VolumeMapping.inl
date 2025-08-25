@@ -34,8 +34,7 @@ VolumeMapping<TIn, TOut>::VolumeMapping()
 
 template <class TIn, class TOut>
 auto VolumeMapping<TIn, TOut>::computeSecondDerivativeVolume(
-    const sofa::type::fixed_array<sofa::type::Vec3, 4>& tetrahedronVertices) ->
-sofa::type::Mat<4, 4, sofa::type::Mat<3, 3, Real> >
+    const sofa::type::fixed_array<sofa::type::Vec3, 4>& tetrahedronVertices) -> HessianMatrix
 {
     using sofa::type::crossProductMatrix;
     const auto& v = tetrahedronVertices;
@@ -47,20 +46,20 @@ sofa::type::Mat<4, 4, sofa::type::Mat<3, 3, Real> >
     const auto H13 = crossProductMatrix(v[2] - v[0]) / 6;
     const auto H23 = crossProductMatrix(v[0] - v[1]) / 6;
 
-    sofa::type::Mat<4, 4, sofa::type::Mat<3, 3, SReal> > hessian(type::NOINIT);
+    HessianMatrix hessian;
 
-    hessian(0, 1) = H01;
-    hessian(1, 0) = H01.transposed();
-    hessian(0, 2) = H02;
-    hessian(2, 0) = H02.transposed();
-    hessian(0, 3) = H03;
-    hessian(3, 0) = H03.transposed();
-    hessian(1, 2) = H12;
-    hessian(2, 1) = H12.transposed();
-    hessian(1, 3) = H13;
-    hessian(3, 1) = H13.transposed();
-    hessian(2, 3) = H23;
-    hessian(3, 2) = H23.transposed();
+    hessian[0][1] = H01;
+    hessian[1][0] = H01.transposed();
+    hessian[0][2] = H02;
+    hessian[2][0] = H02.transposed();
+    hessian[0][3] = H03;
+    hessian[3][0] = H03.transposed();
+    hessian[1][2] = H12;
+    hessian[2][1] = H12.transposed();
+    hessian[1][3] = H13;
+    hessian[3][1] = H13.transposed();
+    hessian[2][3] = H23;
+    hessian[3][2] = H23.transposed();
 
     return hessian;
 }
@@ -223,14 +222,14 @@ void VolumeMapping<TIn, TOut>::matrixFreeApplyDJT(
                 {
                     parentForceAccessor[tetra[i]] +=
                             kFactor
-                            * d2Vol_d2x(i, j)
+                            * d2Vol_d2x[i][j]
                             * parentDisplacementAccessor[tetra[j]]
                             * childForceTetra[0];
 
                     //transpose
                     parentForceAccessor[tetra[j]] +=
                             kFactor
-                            * d2Vol_d2x(j, i)
+                            * d2Vol_d2x[j][i]
                             * parentDisplacementAccessor[tetra[i]]
                             * childForceTetra[0];
                 }
@@ -271,8 +270,8 @@ void VolumeMapping<TIn, TOut>::doUpdateK(const core::MechanicalParams* mparams,
             {
                 for (unsigned int j = i+1; j < 4; ++j) //diagonal terms are omitted because they are null
                 {
-                    matrix.addBlock(tetra[i], tetra[j], d2Volume_d2x(i, j) * childForceTetra[0]);
-                    matrix.addBlock(tetra[j], tetra[i], d2Volume_d2x(j, i) * childForceTetra[0]);
+                    matrix.addBlock(tetra[i], tetra[j], d2Volume_d2x[i][j] * childForceTetra[0]);
+                    matrix.addBlock(tetra[j], tetra[i], d2Volume_d2x[j][i] * childForceTetra[0]);
                 }
             }
         }
@@ -315,8 +314,8 @@ void VolumeMapping<TIn, TOut>::buildGeometricStiffnessMatrix(
             {
                 for (unsigned int j = i+1; j < 4; ++j) //diagonal terms are omitted because they are null
                 {
-                    dJdx(tetra[i] * Nin, tetra[j] * Nin) += (d2Vol_d2x(i, j) * childForceTri[0]);
-                    dJdx(tetra[j] * Nin, tetra[i] * Nin) += (d2Vol_d2x(j, i) * childForceTri[0]);
+                    dJdx(tetra[i] * Nin, tetra[j] * Nin) += (d2Vol_d2x[i][j] * childForceTri[0]);
+                    dJdx(tetra[j] * Nin, tetra[i] * Nin) += (d2Vol_d2x[j][i] * childForceTri[0]);
                 }
             }
         }
