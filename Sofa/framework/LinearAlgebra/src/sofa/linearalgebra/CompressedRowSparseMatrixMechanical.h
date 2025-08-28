@@ -328,6 +328,26 @@ public:
         BaseMatrix::add(i, j, _M);
     }
 
+    void add(Index i, Index j, const type::Mat2x2d& _M) override
+    {
+        BaseMatrix::add(i, j, _M);
+    }
+
+    void add(Index i, Index j, const type::Mat2x2f& _M) override
+    {
+        BaseMatrix::add(i, j, _M);
+    }
+
+    void add(Index i, Index j, const type::Mat6x6d& _M) override
+    {
+        BaseMatrix::add(i, j, _M);
+    }
+
+    void add(Index i, Index j, const type::Mat6x6f& _M) override
+    {
+        BaseMatrix::add(i, j, _M);
+    }
+
     /**
     * \brief Clear row scalar method. Clear all col of this line.
     * @param i : Line index considering size of matrix in scalar.
