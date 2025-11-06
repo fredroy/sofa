@@ -192,17 +192,48 @@ public:
 
     static bool sortedFind(const VecIndex& v, Range in, Index val, Index& result)
     {
-        if (in.empty()) return false;
-        Index candidate = (result >= in.begin() && result < in.end()) ? result : ((in.begin() + in.end()) >> 1);
-        for(;;)
+        // Early exit for empty range
+        if (in.empty()) [[unlikely]] return false;
+        
+        // Use the hint if it's valid and correct
+        if (result >= in.begin() && result < in.end()) [[likely]]
         {
-            Index i = v[candidate];
-            if (i == val) { result = candidate; return true; }
-            if (i < val)  in.setBegin(candidate+1);
-            else          in.setEnd(candidate);
-            if (in.empty()) break;
-            candidate = (in.begin() + in.end()) >> 1;
+            if (v[result] == val) return true;
+            
+            // Check neighbors (locality optimization)
+            if (result + 1 < in.end() && v[result + 1] == val)
+            {
+                result++;
+                return true;
+            }
+            if (result > in.begin() && v[result - 1] == val)
+            {
+                result--;
+                return true;
+            }
         }
+        
+        // Standard binary search
+        Index left = in.begin();
+        Index right = in.end();
+        
+        while (left < right)
+        {
+            Index mid = left + ((right - left) >> 1);
+            Index midVal = v[mid];
+            
+            if (midVal == val)
+            {
+                result = mid;
+                return true;
+            }
+            
+            if (midVal < val)
+                left = mid + 1;
+            else
+                right = mid;
+        }
+        
         return false;
     }
 
