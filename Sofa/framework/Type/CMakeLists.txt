@@ -96,6 +96,8 @@ find_package(fmt QUIET)
 if(NOT fmt_FOUND AND SOFA_ALLOW_FETCH_DEPENDENCIES)
     message("${PROJECT_NAME}: DEPENDENCY fmt NOT FOUND. SOFA_ALLOW_FETCH_DEPENDENCIES is ON, fetching fmt...")
 
+    set(FMT_INSTALL ON CACHE INTERNAL "")
+
     sofa_fetch_dependency(fmt
             GIT_REPOSITORY https://github.com/fmtlib/fmt
             GIT_TAG        12.1.0
