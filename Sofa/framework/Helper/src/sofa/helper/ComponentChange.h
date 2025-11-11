@@ -27,6 +27,8 @@
 #include <sstream>
 #include <sofa/helper/config.h>
 
+#include <fmt/format.h>
+
 namespace sofa::helper::lifecycle
 {
 
@@ -56,15 +58,12 @@ class SOFA_HELPER_API Deprecated : public ComponentChange
 public:
     explicit Deprecated(const std::string& sinceVersion, const std::string& untilVersion, const std::string& instruction="\b")
     {
-        std::stringstream output;
-        output << "This component has been DEPRECATED since SOFA " << sinceVersion << " "
-                  "and will be removed in SOFA " << untilVersion << ". "
-               << instruction <<
-                  "\nPlease consider updating your scene as using "
-                  "deprecated component may result in poor performance and undefined behavior. "
-                  "If this component is crucial to you please report in a GitHub issue "
-                  "in order to reconsider this component for future re-integration.";
-        m_message = output.str();
+        m_message = fmt::format(R"(
+"This component has been DEPRECATED since SOFA {0} and will be removed in SOFA {1}.
+{2}
+Please consider updating your scene as using deprecated component may result in poor performance and undefined behavior.
+If this component is crucial to you please report in a GitHub issue in order to reconsider this component for future re-integration.;
+)", sinceVersion, untilVersion, instruction);
         m_changeVersion = untilVersion;
     }
 };
@@ -74,11 +73,10 @@ class SOFA_HELPER_API Pluginized : public ComponentChange
 public:
     explicit Pluginized(const std::string& sinceVersion, const std::string& plugin)
     {
-        std::stringstream output;
-        output << "This component has been PLUGINIZED since SOFA " << sinceVersion << ". "
-                  "To continue using this component you need to update you scene "
-                  "and add <RequiredPlugin name='" <<  plugin << "'/>";
-        m_message = output.str();
+        m_message = fmt::format(R"(
+"This component has been PLUGINIZED since SOFA {0}.
+To continue using this component you need to update your scene and add <RequiredPlugin name='{1}'/>
+)", sinceVersion, plugin);
         m_changeVersion = sinceVersion;
     }
 };
@@ -92,13 +90,10 @@ private:
     {
         AfterDeprecationIn(const std::string& removalVersion, const std::string& deprecationVersion)
         {
-            std::stringstream output;
-            output << "This component has been REMOVED since SOFA " << removalVersion << " "
-                      "(deprecated since " << deprecationVersion << "). "
-                      "\nPlease consider updating your scene. "
-                      "If this component is crucial to you please report in a GitHub issue "
-                      "in order to reconsider this component for future re-integration.";
-            m_message = output.str();
+            m_message = fmt::format(R"(
+"This component has been REMOVED since SOFA {0} (deprecated since {1}).
+Please consider updating your scene. If this component is crucial to you please report in a GitHub issue in order to reconsider this component for future re-integration.
+)", removalVersion, deprecationVersion);
             m_changeVersion = removalVersion;
         }
     };
@@ -107,12 +102,10 @@ private:
     {
         explicit WithoutAnyDeprecation(const std::string& removalVersion)
         {
-            std::stringstream output;
-            output << "This component has been REMOVED since SOFA " << removalVersion <<
-                      "\nPlease consider updating your scene. "
-                      "If this component is crucial to you please report in a GitHub issue "
-                      "in order to reconsider this component for future re-integration.";
-            m_message = output.str();
+            m_message = fmt::format(R"(
+"This component has been REMOVED since SOFA {0}.
+Please consider updating your scene. If this component is crucial to you please report in a GitHub issue in order to reconsider this component for future re-integration.
+)", removalVersion);
             m_changeVersion = removalVersion;
         }
     };
@@ -137,11 +130,10 @@ class SOFA_HELPER_API Moved : public ComponentChange
 public:
     Moved(const std::string& sinceVersion, const std::string& fromPlugin, const std::string& toPlugin)
     {
-        std::stringstream output;
-        output << "This component has been MOVED from " << fromPlugin << " to " << toPlugin << " since SOFA " << sinceVersion << ".\n"
-            << "To continue using this component you may need to update your scene "
-            << "by adding\n<RequiredPlugin name='" << toPlugin << "'/>";
-        m_message = output.str();
+        m_message = fmt::format(R"(
+"This component has been MOVED from {0} to {1} since SOFA {2}.
+To continue using this component you may need to update your scene. by adding\n<RequiredPlugin name='{1}'/>
+)", fromPlugin, toPlugin, sinceVersion);
         m_changeVersion = sinceVersion;
     }
 };
@@ -151,11 +143,10 @@ class SOFA_HELPER_API Renamed : public ComponentChange
 public:
     Renamed(const std::string& sinceVersion, const std::string& untilVersion,  const std::string& newName)
     {
-        std::stringstream output;
-        output << "This component has been RENAMED to " << newName  << " since SOFA " << sinceVersion
-            << ", and this alias will be removed in SOFA " << untilVersion << "."
-            << " To continue using this component after SOFA "<< untilVersion <<" you will need to update your scene ";
-        m_message = output.str();
+        m_message = fmt::format(R"(
+"This component has been RENAMED to {0} since SOFA {1}, and this alias will be removed in SOFA {2}.
+To continue using this component after SOFA {2} you will need to update your scene."
+)", newName, sinceVersion, untilVersion);
         m_changeVersion = untilVersion;
         m_newName = newName;
     }
@@ -174,10 +165,9 @@ class SOFA_HELPER_API Dealiased : public ComponentChange
 public:
     Dealiased(const std::string& sinceVersion, const std::string& originalName)
     {
-        std::stringstream output;
-        output << "This alias for the component " << originalName
-            << " was removed in SOFA " << sinceVersion << ".";
-        m_message = output.str();
+        m_message = fmt::format(R"(
+"This alias for the component {0} was removed in SOFA {1}."
+)", originalName, sinceVersion);
         m_changeVersion = sinceVersion;
         m_originalName = originalName;
     }
