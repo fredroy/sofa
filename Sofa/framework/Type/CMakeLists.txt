@@ -91,10 +91,25 @@ if(NOT Boost_FOUND)
 endif()
 sofa_find_package(Boost QUIET REQUIRED)
 
+## fmt
+find_package(fmt QUIET)
+if(NOT fmt_FOUND AND SOFA_ALLOW_FETCH_DEPENDENCIES)
+    message("${PROJECT_NAME}: DEPENDENCY fmt NOT FOUND. SOFA_ALLOW_FETCH_DEPENDENCIES is ON, fetching fmt...")
+
+    sofa_fetch_dependency(fmt
+            GIT_REPOSITORY https://github.com/fmtlib/fmt
+            GIT_TAG        12.1.0
+    )
+elseif (NOT fmt_FOUND)
+    message(FATAL_ERROR "${PROJECT_NAME}: DEPENDENCY fmt NOT FOUND. SOFA_ALLOW_FETCH_DEPENDENCIES is OFF and thus cannot be fetched. Install fmt, or enable SOFA_ALLOW_FETCH_DEPENDENCIES to fix this issue.")
+endif()
+
+
 add_library(${PROJECT_NAME} SHARED ${HEADER_FILES} ${SOURCE_FILES})
 
 target_link_libraries(${PROJECT_NAME} PUBLIC Sofa.Config)
 target_link_libraries(${PROJECT_NAME} PUBLIC Boost::boost)
+target_link_libraries(${PROJECT_NAME} PUBLIC fmt::fmt)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES FOLDER Sofa.Framework) # IDE folder
 
