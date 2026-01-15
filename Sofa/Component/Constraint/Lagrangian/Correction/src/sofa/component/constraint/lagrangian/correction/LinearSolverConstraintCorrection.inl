@@ -449,7 +449,9 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SRea
 {
     verify_constraints();
 
-    const MatrixDeriv& constraints = mstate->read(core::vec_id::read_access::constraintJacobian)->getValue();
+    // Cache constraint jacobian pointer for use in addConstraintDisplacement and setConstraintDForce
+    m_cachedConstraintJacobian = &mstate->read(core::vec_id::read_access::constraintJacobian)->getValue();
+    const MatrixDeriv& constraints = *m_cachedConstraintJacobian;
 
     constraint_force.clear();
     constraint_force.resize(mstate->getSize());
@@ -558,16 +560,29 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SRea
     systemRHVector_buf = l_linearSolver->getLinearSystem()->getSystemRHSBaseVector();
     systemLHVector_buf = l_linearSolver->getLinearSystem()->getSystemSolutionBaseVector();
     systemLHVector_buf_fullvector = dynamic_cast<linearalgebra::FullVector<Real>*>(systemLHVector_buf); // Cast checking whether the LH vector is a FullVector to improve performances
+    systemRHVector_buf_fullvector = dynamic_cast<linearalgebra::FullVector<Real>*>(systemRHVector_buf); // Cast checking whether the RH vector is a FullVector to improve performances
 
     constexpr const auto derivDim = Deriv::total_size;
     const unsigned int systemSize = mstate->getSize() * derivDim;
     systemRHVector_buf->resize(systemSize) ;
     systemLHVector_buf->resize(systemSize) ;
 
-    for ( size_t i=0; i<mstate->getSize(); i++)
+    // Use direct access if FullVector, otherwise use virtual set()
+    if (systemRHVector_buf_fullvector)
     {
-        for  (unsigned int j=0; j<derivDim; j++)
-            systemRHVector_buf->set(i*derivDim+j, constraint_force[i][j]);
+        for ( size_t i=0; i<mstate->getSize(); i++)
+        {
+            for  (unsigned int j=0; j<derivDim; j++)
+                (*systemRHVector_buf_fullvector)[i*derivDim+j] = constraint_force[i][j];
+        }
+    }
+    else
+    {
+        for ( size_t i=0; i<mstate->getSize(); i++)
+        {
+            for  (unsigned int j=0; j<derivDim; j++)
+                systemRHVector_buf->set(i*derivDim+j, constraint_force[i][j]);
+        }
     }
 
     // Init the internal data of the solver for partial solving
@@ -596,12 +611,13 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SRea
 template<class DataTypes>
 void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(SReal*d, int begin, int end)
 {
-    const MatrixDeriv& constraints = mstate->read(core::vec_id::read_access::constraintJacobian)->getValue();
+    // Use cached constraint jacobian (set in resetForUnbuiltResolution)
+    const MatrixDeriv& constraints = *m_cachedConstraintJacobian;
 
     last_disp = begin;
 
+    // Call partial_solve with _new_force flag to indicate if backward accumulation is needed
     l_linearSolver->partial_solve(Vec_I_list_dof[last_disp], Vec_I_list_dof[last_force], _new_force);
-
     _new_force = false;
 
     // Lambda function adding the constraint displacement using [] if a FullVector is detected or element() else
@@ -665,9 +681,9 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(SReal* df,
     _new_force = true;
 
     constexpr const auto derivDim = Deriv::total_size;
-    const MatrixDeriv& constraints = mstate->read(core::vec_id::read_access::constraintJacobian)->getValue();
+    // Use cached constraint jacobian (set in resetForUnbuiltResolution)
+    const MatrixDeriv& constraints = *m_cachedConstraintJacobian;
 
-    // TODO => optimisation !!!
     for (int i = begin; i <= end; i++)
     {
          MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
@@ -682,20 +698,28 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(SReal* df,
                 const unsigned int dof = colIt.index();
 
                 constraint_force[dof] += n * df[i]; // sum of the constraint force in the DOF space
-
             }
         }
     }
 
-    // course on indices of the dofs involved invoved in the block //
-    auto it_dof(Vec_I_list_dof[last_force].cbegin()), it_end(Vec_I_list_dof[last_force].cend());
-    for(; it_dof!=it_end; ++it_dof)
+    // Update RH vector for involved DOFs - use direct access if FullVector
+    const auto& list_dof = Vec_I_list_dof[last_force];
+    if (systemRHVector_buf_fullvector)
     {
-        auto dof =(*it_dof) ;
-        for (Size j=0; j<derivDim; j++)
-            systemRHVector_buf->set(dof * derivDim + j, constraint_force[dof][j]);
+        for (auto dof : list_dof)
+        {
+            for (Size j=0; j<derivDim; j++)
+                (*systemRHVector_buf_fullvector)[dof * derivDim + j] = constraint_force[dof][j];
+        }
     }
-
+    else
+    {
+        for (auto dof : list_dof)
+        {
+            for (Size j=0; j<derivDim; j++)
+                systemRHVector_buf->set(dof * derivDim + j, constraint_force[dof][j]);
+        }
+    }
 }
 
 template<class DataTypes>
@@ -711,8 +735,10 @@ void LinearSolverConstraintCorrection<DataTypes>::getBlockDiagonalCompliance(lin
     static constexpr unsigned int N = Deriv::size();
     const unsigned int numDOFReals = numDOFs * N;
 
-    // Compute J
-    const MatrixDeriv& constraints = mstate->read(core::vec_id::read_access::constraintJacobian)->getValue();
+    // Use cached constraint jacobian if available (set in resetForUnbuiltResolution), otherwise read from state
+    const MatrixDeriv& constraints = m_cachedConstraintJacobian
+        ? *m_cachedConstraintJacobian
+        : mstate->read(core::vec_id::read_access::constraintJacobian)->getValue();
     const sofa::SignedIndex totalNumConstraints = W->rowSize();
 
     m_constraintJacobian.resize(totalNumConstraints, numDOFReals);

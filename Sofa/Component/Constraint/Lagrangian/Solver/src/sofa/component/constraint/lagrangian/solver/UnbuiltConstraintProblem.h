@@ -53,6 +53,8 @@ public:
     std::vector<SReal> dForce;       ///< Buffer for force delta (dForce = force - errF)
     std::vector<SReal> tabErrors;    ///< Buffer for per-constraint errors
 
-
+    // Per-constraint convergence tracking for optimization
+    std::vector<unsigned int> stableIterCount;  ///< Count of consecutive iterations without force change per constraint block
+    static constexpr unsigned int STABLE_SKIP_THRESHOLD = 3; ///< Skip constraint after this many stable iterations
 };
 }
