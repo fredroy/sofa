@@ -181,7 +181,7 @@ public:
 
     typedef BaseMatrixLinearSolver<Matrix, Vector> Inherit;
     typedef NoThreadManager ThreadManager;
-    typedef std::list<Index> ListIndex;
+    typedef std::vector<Index> ListIndex;
     typedef typename Vector::Real Real;
     typedef typename MatrixLinearSolverInternalData<Vector>::JMatrixType JMatrixType;
     typedef typename MatrixLinearSolverInternalData<Vector>::ResMatrixType ResMatrixType;

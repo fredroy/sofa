@@ -395,37 +395,56 @@ void BTDLinearSolver<Matrix,Vector>::init_partial_solve()
 
     constexpr Index bsize = Matrix::getSubMatrixDim();
     const Index nb = this->l_linearSystem->getRHSVector()->size() / bsize;
+    const Index totalSize = nb * bsize;
 
-    //TODO => optimisation ??
+    // Only resize if size changed, otherwise just zero out
+    if (bwdContributionOnLH.size() != totalSize)
+    {
+        bwdContributionOnLH.resize(totalSize);
+    }
     bwdContributionOnLH.clear();
-    bwdContributionOnLH.resize(nb*bsize);
+
+    if (fwdContributionOnRH.size() != totalSize)
+    {
+        fwdContributionOnRH.resize(totalSize);
+    }
     fwdContributionOnRH.clear();
-    fwdContributionOnRH.resize(nb*bsize);
 
+    if (_rh_buf.size() != totalSize)
+    {
+        _rh_buf.resize(totalSize);
+    }
 
-    _rh_buf.resize(nb*bsize);
-    _acc_rh_bloc=0;
-    _acc_rh_bloc.resize(bsize);
-    _acc_lh_bloc=0;
-    _acc_lh_bloc.resize(bsize);
+    if (_acc_rh_bloc.size() != bsize)
+    {
+        _acc_rh_bloc.resize(bsize);
+    }
+    _acc_rh_bloc = 0;
+
+    if (_acc_lh_bloc.size() != bsize)
+    {
+        _acc_lh_bloc.resize(bsize);
+    }
+    _acc_lh_bloc = 0;
 
     // Block that is currently being proceed => start from the end (so that we use step2 bwdAccumulateLHGlobal and accumulate potential initial forces)
     current_bloc = nb-1;
 
 
     // DF represents the variation of the right hand side of the equation (Force in mechanics)
-    Vec_dRH.resize(nb);
+    if (Vec_dRH.size() != nb)
+    {
+        Vec_dRH.resize(nb);
+        for (Index i=0; i<nb; i++)
+        {
+            Vec_dRH[i].resize(bsize);
+        }
+    }
     for (Index i=0; i<nb; i++)
     {
-        Vec_dRH[i]=0;
-        Vec_dRH[i].resize(bsize);
-        _rh_buf.asub(i,bsize) = this->l_linearSystem->getRHSVector()->asub(i,bsize) ;
-
+        Vec_dRH[i] = 0;
+        _rh_buf.asub(i,bsize) = this->l_linearSystem->getRHSVector()->asub(i,bsize);
     }
-
-
-
-
 }
 
 

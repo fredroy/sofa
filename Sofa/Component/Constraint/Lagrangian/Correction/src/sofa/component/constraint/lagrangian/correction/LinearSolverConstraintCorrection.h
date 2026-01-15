@@ -57,7 +57,7 @@ public:
     typedef typename DataTypes::Coord Coord;
     typedef typename DataTypes::Deriv Deriv;
 
-    typedef std::list<linearalgebra::BaseMatrix::Index> ListIndex;
+    typedef std::vector<linearalgebra::BaseMatrix::Index> ListIndex;
     typedef sofa::core::behavior::ConstraintCorrection< TDataTypes > Inherit;
 protected:
     LinearSolverConstraintCorrection(sofa::core::behavior::MechanicalState<DataTypes> *mm = nullptr);
