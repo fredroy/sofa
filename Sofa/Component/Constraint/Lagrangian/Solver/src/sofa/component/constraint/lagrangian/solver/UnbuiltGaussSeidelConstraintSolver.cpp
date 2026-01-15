@@ -83,6 +83,8 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
     // Pre-compute squared tolerance for deferred sqrt optimization
     const SReal tolSquared = tol * tol;
 
+    // Count constraint blocks and initialize stability tracking
+    int numConstraintBlocks = 0;
     for(int i=0; i<dimension; )
     {
         if(!c_current_cp->constraintsResolutions[i])
@@ -92,10 +94,15 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
             break;
         }
         c_current_cp->constraintsResolutions[i]->init(i, w, force);
+        numConstraintBlocks++;
         i += c_current_cp->constraintsResolutions[i]->getNbLines();
     }
     // Note: force array is now initialized by GenericConstraintSolver::computeInitialGuess()
     // for hot-start support. Do not zero forces here.
+
+    // Initialize per-constraint stability tracking
+    c_current_cp->stableIterCount.resize(dimension);
+    std::fill(c_current_cp->stableIterCount.begin(), c_current_cp->stableIterCount.end(), 0);
 
     bool showGraphs = false;
     sofa::type::vector<SReal>* graph_residuals = nullptr;
@@ -129,11 +136,27 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
 
         // Iterate using index for better cache performance with vector
         const auto& constraints_seq = c_current_cp->constraints_sequence;
+        auto& stableCount = c_current_cp->stableIterCount;
+
         for (size_t seq_idx = 0; seq_idx < constraints_seq.size(); )
         {
             const unsigned int j = constraints_seq[seq_idx];
             //1. nbLines provide the dimension of the constraint
             nb = c_current_cp->constraintsResolutions[j]->getNbLines();
+
+            // Skip stable constraints that have converged (no force change for several iterations)
+            // Only skip if: after first iteration, stable for threshold iterations, AND error is below tolerance
+            const SReal constraintTol = c_current_cp->constraintsResolutions[j]->getTolerance()
+                                        ? c_current_cp->constraintsResolutions[j]->getTolerance()
+                                        : tol;
+            if (iter > 0 && stableCount[j] >= UnbuiltConstraintProblem::STABLE_SKIP_THRESHOLD
+                && tabErrors[j] < constraintTol)
+            {
+                // Still accumulate the last known error
+                error += tabErrors[j];
+                seq_idx += nb;
+                continue;
+            }
 
             //2. for each line we compute the actual value of d
             //   (a)d is set to dfree
@@ -219,6 +242,14 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
                 // Restore force: new_force = errF + dForce
                 for(unsigned int l=0; l<nb; l++)
                     force[j+l] = errF[l] + dForce[l];
+
+                // Reset stability counter when force changes
+                stableCount[j] = 0;
+            }
+            else
+            {
+                // Increment stability counter when force doesn't change
+                stableCount[j]++;
             }
             seq_idx += nb;
         }

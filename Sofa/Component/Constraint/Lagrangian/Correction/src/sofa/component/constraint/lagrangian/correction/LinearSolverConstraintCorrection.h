@@ -146,6 +146,10 @@ private:
     linearalgebra::BaseVector* systemRHVector_buf;
     linearalgebra::BaseVector* systemLHVector_buf;
     linearalgebra::FullVector<Real>* systemLHVector_buf_fullvector { nullptr };
+    linearalgebra::FullVector<Real>* systemRHVector_buf_fullvector { nullptr };
+
+    /// Cached pointer to constraint jacobian for unbuilt resolution (avoids repeated mstate->read() calls)
+    const MatrixDeriv* m_cachedConstraintJacobian { nullptr };
 
     // par un vecteur de listes precaclues pour chaque contrainte
     std::vector< ListIndex > Vec_I_list_dof;   // vecteur donnant la liste des indices des dofs par block de contrainte
