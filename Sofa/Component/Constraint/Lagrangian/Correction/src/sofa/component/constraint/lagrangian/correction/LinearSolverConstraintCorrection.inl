@@ -29,7 +29,8 @@
 #include <sofa/core/ConstraintParams.h>
 
 #include <sstream>
-#include <list>
+#include <set>
+#include <algorithm>
 
 #include <sofa/component/linearsolver/iterative/GraphScatteredTypes.h>
 #include <sofa/helper/ScopedAdvancedTimer.h>
@@ -444,7 +445,7 @@ void LinearSolverConstraintCorrection<DataTypes>::verify_constraints()
 }
 
 template<class DataTypes>
-void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SReal* f, std::list<unsigned int>& renumbering)
+void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SReal* f, std::vector<unsigned int>& renumbering)
 {
     verify_constraints();
 
@@ -506,35 +507,41 @@ void LinearSolverConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SRea
     constraint_dofs.unique();
 
 
-    // in the following the list "renumbering" is modified so that the constraint, in the list appears from the smallest dof to the greatest
+    // in the following the vector "renumbering" is modified so that the constraint appears from the smallest dof to the greatest
     // However some constraints are not concerned by the structure... in such case, their order should not be changed
-    // (in practice they will be put at the beginning of the list)
+    // (in practice they will be put at the beginning of the vector)
     if (wire_optimization.getValue())
     {
         std::vector< std::vector<unsigned int> > ordering_per_dof;
         ordering_per_dof.resize(mstate->getSize());   // for each dof, provide the list of constraint for which this dof is the smallest involved
 
+        // Collect all constraint indices that will be reordered into a set for O(1) lookup
+        std::set<unsigned int> constraintsToRemove;
         rowItEnd = constraints.end();
         {
             unsigned int constraintId = 0;
 
             // we process each constraint of the Mechanical State to know the smallest dofs
-            // the constraints that are concerns the object are removed
             for (MatrixDerivRowConstIterator rowIt = constraints.begin(); rowIt != rowItEnd; ++rowIt)
             {
                 ordering_per_dof[VecMinDof[constraintId]].push_back(rowIt.index());
+                constraintsToRemove.insert(rowIt.index());
                 constraintId++;
-                renumbering.remove( rowIt.index() );
             }
         }
 
+        // Remove all constraints that will be reordered (using erase-remove idiom)
+        renumbering.erase(
+            std::remove_if(renumbering.begin(), renumbering.end(),
+                [&constraintsToRemove](unsigned int val) { return constraintsToRemove.count(val) > 0; }),
+            renumbering.end());
 
-        // fill the end renumbering list with the new order
+        // fill the end of renumbering vector with the new order
         for (size_t dof = 0; dof < mstate->getSize(); dof++)
         {
             for (size_t constraintId = 0; constraintId < ordering_per_dof[dof].size(); constraintId++)
             {
-                renumbering.push_back(ordering_per_dof[dof][constraintId]); // push_back the list of constraint by starting from the smallest dof
+                renumbering.push_back(ordering_per_dof[dof][constraintId]); // push_back the constraint by starting from the smallest dof
             }
         }
     }
