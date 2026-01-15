@@ -43,8 +43,10 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
 
     SCOPED_TIMER_VARNAME(unbuiltGaussSeidelTimer, "ConstraintsUnbuiltGaussSeidel");
 
+    // Cache dimension to avoid repeated virtual calls
+    const int dimension = c_current_cp->getDimension();
 
-    if(!c_current_cp->getDimension())
+    if(!dimension)
     {
         c_current_cp->currentError = 0.0;
         c_current_cp->currentIterations = 0;
@@ -66,14 +68,22 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
     SReal error=0.0;
 
     bool convergence = false;
-    sofa::type::vector<SReal> tempForces;
-    if(c_current_cp->sor != 1.0) tempForces.resize(c_current_cp->getDimension());
+
+    // Use pre-allocated buffers from problem
+    std::vector<SReal>& tempForces = c_current_cp->tempForces;
+    std::vector<SReal>& errF = c_current_cp->errF;
+    std::vector<SReal>& dForce = c_current_cp->dForce;
+    std::vector<SReal>& tabErrors = c_current_cp->tabErrors;
+
+    if(c_current_cp->sor != 1.0) tempForces.resize(dimension);
 
     if(c_current_cp->scaleTolerance && !c_current_cp->allVerified)
-        tol *= c_current_cp->getDimension();
+        tol *= dimension;
 
+    // Pre-compute squared tolerance for deferred sqrt optimization
+    const SReal tolSquared = tol * tol;
 
-    for(int i=0; i<c_current_cp->getDimension(); )
+    for(int i=0; i<dimension; )
     {
         if(!c_current_cp->constraintsResolutions[i])
         {
@@ -90,8 +100,6 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
     bool showGraphs = false;
     sofa::type::vector<SReal>* graph_residuals = nullptr;
     std::map < std::string, sofa::type::vector<SReal> > *graph_forces = nullptr, *graph_violations = nullptr;
-    sofa::type::vector<SReal> tabErrors;
-
 
     showGraphs = d_computeGraphs.getValue();
 
@@ -107,24 +115,23 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
         graph_residuals->clear();
     }
 
-    tabErrors.resize(c_current_cp->getDimension());
-
-    // temporary buffers
-    std::vector<SReal> errF;
-    std::vector<SReal> tempF;
+    tabErrors.resize(dimension);
 
     for(iter=0; iter < static_cast<unsigned int>(c_current_cp->maxIterations); iter++)
     {
         bool constraintsAreVerified = true;
         if(c_current_cp->sor != 1.0)
         {
-            std::copy_n(force, c_current_cp->getDimension(), tempForces.begin());
+            std::copy_n(force, dimension, tempForces.begin());
         }
 
         error=0.0;
-        for (auto it_c = c_current_cp->constraints_sequence.begin(); it_c != c_current_cp->constraints_sequence.end(); )  // increment of it_c realized at the end of the loop
+
+        // Iterate using index for better cache performance with vector
+        const auto& constraints_seq = c_current_cp->constraints_sequence;
+        for (size_t seq_idx = 0; seq_idx < constraints_seq.size(); )
         {
-            const auto j = *it_c;
+            const unsigned int j = constraints_seq[seq_idx];
             //1. nbLines provide the dimension of the constraint
             nb = c_current_cp->constraintsResolutions[j]->getNbLines();
 
@@ -133,6 +140,7 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
             if(nb > errF.size())
             {
                 errF.resize(nb);
+                dForce.resize(nb);
             }
             std::copy_n(&force[j], nb, errF.begin());
             std::copy_n(&dfree[j], nb, &d[j]);
@@ -148,27 +156,33 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
             c_current_cp->constraintsResolutions[j]->resolution(j, w, d, force, dfree);
 
             //4. the error is measured (displacement due to the new resolution (i.e. due to the new force))
+            //   Compute dForce = force - errF (will be reused in step 5)
+            for(unsigned int l=0; l<nb; l++)
+            {
+                dForce[l] = force[j+l] - errF[l];
+            }
+
             SReal contraintError = 0.0;
             if(nb > 1)
             {
+                // Defer sqrt: accumulate squared errors, compare with squared tolerance
                 for(unsigned int l=0; l<nb; l++)
                 {
-                    SReal lineError = 0.0;
+                    SReal lineErrorSquared = 0.0;
                     for (unsigned int m=0; m<nb; m++)
                     {
-                        SReal dofError = w[j+l][j+m] * (force[j+m] - errF[m]);
-                        lineError += dofError * dofError;
+                        SReal dofError = w[j+l][j+m] * dForce[m];
+                        lineErrorSquared += dofError * dofError;
                     }
-                    lineError = sqrt(lineError);
-                    if(lineError > tol)
+                    if(lineErrorSquared > tolSquared)
                         constraintsAreVerified = false;
 
-                    contraintError += lineError;
+                    contraintError += sqrt(lineErrorSquared);
                 }
             }
             else
             {
-                contraintError = fabs(w[j][j] * (force[j] - errF[0]));
+                contraintError = fabs(w[j][j] * dForce[0]);
                 if(contraintError > tol)
                     constraintsAreVerified = false;
             }
@@ -184,21 +198,17 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
             tabErrors[j] = contraintError;
 
             //5. the force is updated for the constraint corrections
+            //   setConstraintDForce expects df[begin..end], so we must use the full force array
+            //   Use pre-computed dForce to avoid recomputing delta
             bool update = false;
             for(unsigned int l=0; l<nb; l++)
-                update |= (force[j+l] || errF[l]);
+                update |= (dForce[l] != 0.0);
 
             if(update)
             {
-                if (nb > tempF.size())
-                {
-                    tempF.resize(nb);
-                }
-                std::copy_n(&force[j], nb, tempF.begin());
+                // Temporarily put dForce into force array (setConstraintDForce expects df[j..j+nb-1])
                 for(unsigned int l=0; l<nb; l++)
-                {
-                    force[j+l] -= errF[l]; // DForce
-                }
+                    force[j+l] = dForce[l];
 
                 for (auto* el : c_current_cp->cclist_elems[j])
                 {
@@ -206,14 +216,16 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
                         el->setConstraintDForce(force, j, j+nb-1, update);
                 }
 
-                std::copy_n(tempF.begin(), nb, &force[j]);
+                // Restore force: new_force = errF + dForce
+                for(unsigned int l=0; l<nb; l++)
+                    force[j+l] = errF[l] + dForce[l];
             }
-            std::advance(it_c, nb);
+            seq_idx += nb;
         }
 
         if(showGraphs)
         {
-            for(int j=0; j<c_current_cp->getDimension(); j++)
+            for(int j=0; j<dimension; j++)
             {
                 std::ostringstream oss;
                 oss << "f" << j;
@@ -230,7 +242,7 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
 
         if(c_current_cp->sor != 1.0)
         {
-            for(int j=0; j<c_current_cp->getDimension(); j++)
+            for(int j=0; j<dimension; j++)
                 force[j] = c_current_cp->sor * force[j] + (1-c_current_cp->sor) * tempForces[j];
         }
         if(timeout)
@@ -273,7 +285,7 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
         sofa::type::vector<SReal>& graph_constraints = (*d_graphConstraints.beginEdit())["Constraints"];
         graph_constraints.clear();
 
-        for(int j=0; j<c_current_cp->getDimension(); )
+        for(int j=0; j<dimension; )
         {
             nb = c_current_cp->constraintsResolutions[j]->getNbLines();
 

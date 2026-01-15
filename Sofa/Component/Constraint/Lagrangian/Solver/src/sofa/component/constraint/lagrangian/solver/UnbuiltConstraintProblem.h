@@ -44,8 +44,14 @@ public:
     {}
 
     linearalgebra::SparseMatrix<SReal> Wdiag; /** UNBUILT **/
-    std::list<unsigned int> constraints_sequence; /** UNBUILT **/
+    std::vector<unsigned int> constraints_sequence; /** UNBUILT **/
     std::vector< ConstraintCorrections > cclist_elems; /** UNBUILT **/
+
+    // Pre-allocated temporary buffers for solver iterations
+    std::vector<SReal> tempForces;   ///< Buffer for SOR relaxation
+    std::vector<SReal> errF;         ///< Buffer for previous force values
+    std::vector<SReal> dForce;       ///< Buffer for force delta (dForce = force - errF)
+    std::vector<SReal> tabErrors;    ///< Buffer for per-constraint errors
 
 
 };

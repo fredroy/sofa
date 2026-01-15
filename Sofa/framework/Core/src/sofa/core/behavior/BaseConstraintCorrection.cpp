@@ -47,7 +47,7 @@ void BaseConstraintCorrection::getBlockDiagonalCompliance(linearalgebra::BaseMat
 }
 
 bool BaseConstraintCorrection::hasConstraintNumber(int /*index*/) {return true;}
-void BaseConstraintCorrection::resetForUnbuiltResolution(SReal* /*f*/, std::list<unsigned int>& /*renumbering*/) {}
+void BaseConstraintCorrection::resetForUnbuiltResolution(SReal* /*f*/, std::vector<unsigned int>& /*renumbering*/) {}
 void BaseConstraintCorrection::addConstraintDisplacement(SReal* /*d*/, int /*begin*/, int /*end*/) {}
 void BaseConstraintCorrection::setConstraintDForce(SReal* /*df*/, int /*begin*/, int /*end*/, bool /*update*/) {}	  // f += df
 

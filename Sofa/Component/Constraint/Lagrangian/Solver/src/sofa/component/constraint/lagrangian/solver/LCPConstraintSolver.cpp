@@ -30,6 +30,7 @@
 
 #include <sofa/core/ObjectFactory.h>
 #include <sofa/helper/fwd.h>
+#include <numeric>
 
 #include <sofa/simulation/mechanicalvisitor/MechanicalGetConstraintInfoVisitor.h>
 using sofa::simulation::mechanicalvisitor::MechanicalGetConstraintInfoVisitor;
@@ -419,13 +420,9 @@ int LCPConstraintSolver::nlcp_gaussseidel_unbuilt(SReal *dfree, SReal *f, std::v
     /// each constraintCorrection has an internal force vector that is set to "0"
 
     // indirection of the sequence of contact
-    std::list<unsigned int> contact_sequence;
-
-    for (unsigned int c=0; c< _numConstraints; c++)
-    {
-        contact_sequence.push_back(c);
-    }
-
+    std::vector<unsigned int> contact_sequence;
+    contact_sequence.resize(_numConstraints);
+    std::iota(contact_sequence.begin(), contact_sequence.end(), 0);
 
     for (const auto& cc : l_constraintCorrections)
     {
@@ -555,13 +552,12 @@ int LCPConstraintSolver::nlcp_gaussseidel_unbuilt(SReal *dfree, SReal *f, std::v
 
     for (it=0; it<_maxIt; it++)
     {
-        std::list<unsigned int>::iterator it_c ;
         error =0;
 
         //constraints are treated 3x3 (friction contact)
-        for (it_c = contact_sequence.begin(); it_c != contact_sequence.end() ; std::advance(it_c, 3) )
+        for (size_t seq_idx = 0; seq_idx < contact_sequence.size(); seq_idx += 3)
         {
-            int constraint = *it_c;
+            int constraint = contact_sequence[seq_idx];
             c1 = constraint/3;
 
             // compute the current violation :
@@ -677,13 +673,9 @@ int LCPConstraintSolver::lcp_gaussseidel_unbuilt(SReal *dfree, SReal *f, std::ve
     const int _maxIt = d_maxIt.getValue();
 
     // indirection of the sequence of contact
-    std::list<unsigned int> contact_sequence;
-
-    for (unsigned int c=0; c< _numConstraints; c++)
-    {
-        contact_sequence.push_back(c);
-    }
-
+    std::vector<unsigned int> contact_sequence;
+    contact_sequence.resize(_numConstraints);
+    std::iota(contact_sequence.begin(), contact_sequence.end(), 0);
 
     for (const auto& cc : l_constraintCorrections)
     {
@@ -786,13 +778,11 @@ int LCPConstraintSolver::lcp_gaussseidel_unbuilt(SReal *dfree, SReal *f, std::ve
 
     for (it=0; it<_maxIt; it++)
     {
-        std::list<unsigned int>::iterator it_c;
         error =0;
 
-        for (it_c = contact_sequence.begin(); it_c != contact_sequence.end(); ++it_c)
+        for (size_t seq_idx = 0; seq_idx < contact_sequence.size(); ++seq_idx)
         {
-
-            c1 = *it_c;
+            c1 = contact_sequence[seq_idx];
 
             // compute the current violation :
             // violation when no contact force

@@ -686,7 +686,7 @@ bool UncoupledConstraintCorrection<DataTypes>::hasConstraintNumber(int index)
 
 
 template<class DataTypes>
-void UncoupledConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SReal * f, std::list<unsigned int>& /*renumbering*/)
+void UncoupledConstraintCorrection<DataTypes>::resetForUnbuiltResolution(SReal * f, std::vector<unsigned int>& /*renumbering*/)
 {
     const MatrixDeriv& constraints = this->mstate->read(core::vec_id::read_access::constraintJacobian)->getValue();
 
