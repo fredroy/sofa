@@ -62,14 +62,12 @@ void ImprovedJacobiConstraintSolver::doSolve(GenericConstraintProblem * problem 
     SReal *d = problem->_d.ptr();
 
     std::copy_n(dfree, dimension, d);
-
-    for(unsigned i=0; i< dimension; ++i)
-    {
-        force[i] = 0;
-    }
+    // Note: force array is now initialized by GenericConstraintSolver::computeInitialGuess()
+    // for hot-start support. Do not zero forces here.
 
     std::vector<SReal> lastF;
-    lastF.resize(problem->getDimension(), 0.0);
+    lastF.resize(problem->getDimension());
+    std::copy_n(force, dimension, lastF.begin()); // Initialize from hot-start forces
 
     std::vector<SReal> deltaF;
     deltaF.resize(problem->getDimension(), 0.0);
