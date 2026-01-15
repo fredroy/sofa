@@ -1351,6 +1351,44 @@ constexpr Mat<3,3,real> operator*(const Mat<3,3,real>& m1, const Mat<3,3,real>& 
     return r;
 }
 
+template<class real>
+constexpr Mat<4,4,real> operator*(const Mat<4,4,real>& m1, const Mat<4,4,real>& m2) noexcept
+{
+    Mat<4,4,real> r(NOINIT);
+
+    const auto A00 = m1(0,0); const auto A01 = m1(0,1); const auto A02 = m1(0,2); const auto A03 = m1(0,3);
+    const auto A10 = m1(1,0); const auto A11 = m1(1,1); const auto A12 = m1(1,2); const auto A13 = m1(1,3);
+    const auto A20 = m1(2,0); const auto A21 = m1(2,1); const auto A22 = m1(2,2); const auto A23 = m1(2,3);
+    const auto A30 = m1(3,0); const auto A31 = m1(3,1); const auto A32 = m1(3,2); const auto A33 = m1(3,3);
+
+    const auto B00 = m2(0,0); const auto B01 = m2(0,1); const auto B02 = m2(0,2); const auto B03 = m2(0,3);
+    const auto B10 = m2(1,0); const auto B11 = m2(1,1); const auto B12 = m2(1,2); const auto B13 = m2(1,3);
+    const auto B20 = m2(2,0); const auto B21 = m2(2,1); const auto B22 = m2(2,2); const auto B23 = m2(2,3);
+    const auto B30 = m2(3,0); const auto B31 = m2(3,1); const auto B32 = m2(3,2); const auto B33 = m2(3,3);
+
+    r(0,0) = A00 * B00 + A01 * B10 + A02 * B20 + A03 * B30;
+    r(0,1) = A00 * B01 + A01 * B11 + A02 * B21 + A03 * B31;
+    r(0,2) = A00 * B02 + A01 * B12 + A02 * B22 + A03 * B32;
+    r(0,3) = A00 * B03 + A01 * B13 + A02 * B23 + A03 * B33;
+
+    r(1,0) = A10 * B00 + A11 * B10 + A12 * B20 + A13 * B30;
+    r(1,1) = A10 * B01 + A11 * B11 + A12 * B21 + A13 * B31;
+    r(1,2) = A10 * B02 + A11 * B12 + A12 * B22 + A13 * B32;
+    r(1,3) = A10 * B03 + A11 * B13 + A12 * B23 + A13 * B33;
+
+    r(2,0) = A20 * B00 + A21 * B10 + A22 * B20 + A23 * B30;
+    r(2,1) = A20 * B01 + A21 * B11 + A22 * B21 + A23 * B31;
+    r(2,2) = A20 * B02 + A21 * B12 + A22 * B22 + A23 * B32;
+    r(2,3) = A20 * B03 + A21 * B13 + A22 * B23 + A23 * B33;
+
+    r(3,0) = A30 * B00 + A31 * B10 + A32 * B20 + A33 * B30;
+    r(3,1) = A30 * B01 + A31 * B11 + A32 * B21 + A33 * B31;
+    r(3,2) = A30 * B02 + A31 * B12 + A32 * B22 + A33 * B32;
+    r(3,3) = A30 * B03 + A31 * B13 + A32 * B23 + A33 * B33;
+
+    return r;
+}
+
 template <sofa::Size L, sofa::Size C, sofa::Size P, class real>
 constexpr Mat<C,P,real> multTranspose(const Mat<L,C,real>& m1, const Mat<L,P,real>& m2) noexcept
 {
@@ -1405,6 +1443,45 @@ constexpr Mat<3,3,real> multTranspose(const Mat<3,3,real>& m1, const Mat<3,3,rea
     r(2,0) = A02 * B00 + A12 * B10 + A22 * B20;
     r(2,1) = A02 * B01 + A12 * B11 + A22 * B21;
     r(2,2) = A02 * B02 + A12 * B12 + A22 * B22;
+
+    return r;
+}
+
+template<class real>
+constexpr Mat<4,4,real> multTranspose(const Mat<4,4,real>& m1, const Mat<4,4,real>& m2) noexcept
+{
+    Mat<4,4,real> r(NOINIT);
+
+    const auto A00 = m1(0,0); const auto A01 = m1(0,1); const auto A02 = m1(0,2); const auto A03 = m1(0,3);
+    const auto A10 = m1(1,0); const auto A11 = m1(1,1); const auto A12 = m1(1,2); const auto A13 = m1(1,3);
+    const auto A20 = m1(2,0); const auto A21 = m1(2,1); const auto A22 = m1(2,2); const auto A23 = m1(2,3);
+    const auto A30 = m1(3,0); const auto A31 = m1(3,1); const auto A32 = m1(3,2); const auto A33 = m1(3,3);
+
+    const auto B00 = m2(0,0); const auto B01 = m2(0,1); const auto B02 = m2(0,2); const auto B03 = m2(0,3);
+    const auto B10 = m2(1,0); const auto B11 = m2(1,1); const auto B12 = m2(1,2); const auto B13 = m2(1,3);
+    const auto B20 = m2(2,0); const auto B21 = m2(2,1); const auto B22 = m2(2,2); const auto B23 = m2(2,3);
+    const auto B30 = m2(3,0); const auto B31 = m2(3,1); const auto B32 = m2(3,2); const auto B33 = m2(3,3);
+
+    // Result = m1^T * m2
+    r(0,0) = A00 * B00 + A10 * B10 + A20 * B20 + A30 * B30;
+    r(0,1) = A00 * B01 + A10 * B11 + A20 * B21 + A30 * B31;
+    r(0,2) = A00 * B02 + A10 * B12 + A20 * B22 + A30 * B32;
+    r(0,3) = A00 * B03 + A10 * B13 + A20 * B23 + A30 * B33;
+
+    r(1,0) = A01 * B00 + A11 * B10 + A21 * B20 + A31 * B30;
+    r(1,1) = A01 * B01 + A11 * B11 + A21 * B21 + A31 * B31;
+    r(1,2) = A01 * B02 + A11 * B12 + A21 * B22 + A31 * B32;
+    r(1,3) = A01 * B03 + A11 * B13 + A21 * B23 + A31 * B33;
+
+    r(2,0) = A02 * B00 + A12 * B10 + A22 * B20 + A32 * B30;
+    r(2,1) = A02 * B01 + A12 * B11 + A22 * B21 + A32 * B31;
+    r(2,2) = A02 * B02 + A12 * B12 + A22 * B22 + A32 * B32;
+    r(2,3) = A02 * B03 + A12 * B13 + A22 * B23 + A32 * B33;
+
+    r(3,0) = A03 * B00 + A13 * B10 + A23 * B20 + A33 * B30;
+    r(3,1) = A03 * B01 + A13 * B11 + A23 * B21 + A33 * B31;
+    r(3,2) = A03 * B02 + A13 * B12 + A23 * B22 + A33 * B32;
+    r(3,3) = A03 * B03 + A13 * B13 + A23 * B23 + A33 * B33;
 
     return r;
 }

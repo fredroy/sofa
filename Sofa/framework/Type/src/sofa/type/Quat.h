@@ -35,19 +35,32 @@ namespace // anonymous
 template<typename QuatReal, typename OtherReal>
 constexpr void getOpenGlMatrix(const QuatReal& q, OtherReal* m)
 {
-    m[0 * 4 + 0] = static_cast<OtherReal>(1.0 - 2.0 * (q[1] * q[1] + q[2] * q[2]));
-    m[1 * 4 + 0] = static_cast<OtherReal>(2.0 * (q[0] * q[1] - q[2] * q[3]));
-    m[2 * 4 + 0] = static_cast<OtherReal>(2.0 * (q[2] * q[0] + q[1] * q[3]));
+    // Cache squared terms (used twice each)
+    const auto q0q0 = q[0] * q[0];
+    const auto q1q1 = q[1] * q[1];
+    const auto q2q2 = q[2] * q[2];
+
+    // Cache cross products (used twice each, with +/- combinations)
+    const auto q0q1 = q[0] * q[1];
+    const auto q0q2 = q[0] * q[2];
+    const auto q0q3 = q[0] * q[3];
+    const auto q1q2 = q[1] * q[2];
+    const auto q1q3 = q[1] * q[3];
+    const auto q2q3 = q[2] * q[3];
+
+    m[0 * 4 + 0] = static_cast<OtherReal>(1.0 - 2.0 * (q1q1 + q2q2));
+    m[1 * 4 + 0] = static_cast<OtherReal>(2.0 * (q0q1 - q2q3));
+    m[2 * 4 + 0] = static_cast<OtherReal>(2.0 * (q0q2 + q1q3));
     m[3 * 4 + 0] = static_cast<OtherReal>(0.0);
 
-    m[0 * 4 + 1] = static_cast<OtherReal>(2.0 * (q[0] * q[1] + q[2] * q[3]));
-    m[1 * 4 + 1] = static_cast<OtherReal>(1.0 - 2.0 * (q[2] * q[2] + q[0] * q[0]));
-    m[2 * 4 + 1] = static_cast<OtherReal>(2.0 * (q[1] * q[2] - q[0] * q[3]));
+    m[0 * 4 + 1] = static_cast<OtherReal>(2.0 * (q0q1 + q2q3));
+    m[1 * 4 + 1] = static_cast<OtherReal>(1.0 - 2.0 * (q2q2 + q0q0));
+    m[2 * 4 + 1] = static_cast<OtherReal>(2.0 * (q1q2 - q0q3));
     m[3 * 4 + 1] = static_cast<OtherReal>(0.0);
 
-    m[0 * 4 + 2] = static_cast<OtherReal>(2.0 * (q[2] * q[0] - q[1] * q[3]));
-    m[1 * 4 + 2] = static_cast<OtherReal>(2.0 * (q[1] * q[2] + q[0] * q[3]));
-    m[2 * 4 + 2] = static_cast<OtherReal>(1.0 - 2.0 * (q[1] * q[1] + q[0] * q[0]));
+    m[0 * 4 + 2] = static_cast<OtherReal>(2.0 * (q0q2 - q1q3));
+    m[1 * 4 + 2] = static_cast<OtherReal>(2.0 * (q1q2 + q0q3));
+    m[2 * 4 + 2] = static_cast<OtherReal>(1.0 - 2.0 * (q1q1 + q0q0));
     m[3 * 4 + 2] = static_cast<OtherReal>(0.0);
 
     m[0 * 4 + 3] = static_cast<OtherReal>(0.0);
@@ -159,42 +172,68 @@ public:
     /// Convert the quaternion into an orientation matrix
     void toMatrix(Mat3x3 &m) const
     {
-        m(0,0) = (1 - 2 * (_q[1] * _q[1] + _q[2] * _q[2]));
-        m(0,1) = (2 * (_q[0] * _q[1] - _q[2] * _q[3]));
-        m(0,2) = (2 * (_q[2] * _q[0] + _q[1] * _q[3]));
+        // Cache squared terms (used twice each)
+        const Real q0q0 = _q[0] * _q[0];
+        const Real q1q1 = _q[1] * _q[1];
+        const Real q2q2 = _q[2] * _q[2];
 
-        m(1,0) = (2 * (_q[0] * _q[1] + _q[2] * _q[3]));
-        m(1,1) = (1 - 2 * (_q[2] * _q[2] + _q[0] * _q[0]));
-        m(1,2) = (2 * (_q[1] * _q[2] - _q[0] * _q[3]));
+        // Cache cross products (used twice each, with +/- combinations)
+        const Real q0q1 = _q[0] * _q[1];
+        const Real q0q2 = _q[0] * _q[2];
+        const Real q0q3 = _q[0] * _q[3];
+        const Real q1q2 = _q[1] * _q[2];
+        const Real q1q3 = _q[1] * _q[3];
+        const Real q2q3 = _q[2] * _q[3];
 
-        m(2,0) = (2 * (_q[2] * _q[0] - _q[1] * _q[3]));
-        m(2,1) = (2 * (_q[1] * _q[2] + _q[0] * _q[3]));
-        m(2,2) = (1 - 2 * (_q[1] * _q[1] + _q[0] * _q[0]));
+        m(0,0) = 1 - 2 * (q1q1 + q2q2);
+        m(0,1) = 2 * (q0q1 - q2q3);
+        m(0,2) = 2 * (q0q2 + q1q3);
+
+        m(1,0) = 2 * (q0q1 + q2q3);
+        m(1,1) = 1 - 2 * (q2q2 + q0q0);
+        m(1,2) = 2 * (q1q2 - q0q3);
+
+        m(2,0) = 2 * (q0q2 - q1q3);
+        m(2,1) = 2 * (q1q2 + q0q3);
+        m(2,2) = 1 - 2 * (q1q1 + q0q0);
     }
 
     /// Convert the quaternion into an orientation homogeneous matrix
     /// The homogeneous part is set to 0,0,0,1
     constexpr void toHomogeneousMatrix(Mat4x4 &m) const
     {
-        m(0,0) = (1 - 2 * (_q[1] * _q[1] + _q[2] * _q[2]));
-        m(0,1) = (2 * (_q[0] * _q[1] - _q[2] * _q[3]));
-        m(0,2) = (2 * (_q[2] * _q[0] + _q[1] * _q[3]));
-        m(0,3) = 0.0;
+        // Cache squared terms (used twice each)
+        const Real q0q0 = _q[0] * _q[0];
+        const Real q1q1 = _q[1] * _q[1];
+        const Real q2q2 = _q[2] * _q[2];
 
-        m(1,0) = (2 * (_q[0] * _q[1] + _q[2] * _q[3]));
-        m(1,1) = (1 - 2 * (_q[2] * _q[2] + _q[0] * _q[0]));
-        m(1,2) = (2 * (_q[1] * _q[2] - _q[0] * _q[3]));
-        m(1,3) = 0.0;
+        // Cache cross products (used twice each, with +/- combinations)
+        const Real q0q1 = _q[0] * _q[1];
+        const Real q0q2 = _q[0] * _q[2];
+        const Real q0q3 = _q[0] * _q[3];
+        const Real q1q2 = _q[1] * _q[2];
+        const Real q1q3 = _q[1] * _q[3];
+        const Real q2q3 = _q[2] * _q[3];
 
-        m(2,0) = (2 * (_q[2] * _q[0] - _q[1] * _q[3]));
-        m(2,1) = (2 * (_q[1] * _q[2] + _q[0] * _q[3]));
-        m(2,2) = (1 - 2 * (_q[1] * _q[1] + _q[0] * _q[0]));
-        m(2,3) = 0.0;
+        m(0,0) = 1 - 2 * (q1q1 + q2q2);
+        m(0,1) = 2 * (q0q1 - q2q3);
+        m(0,2) = 2 * (q0q2 + q1q3);
+        m(0,3) = 0;
 
-        m(3,0) = 0.0f;
-        m(3,1) = 0.0f;
-        m(3,2) = 0.0f;
-        m(3,3) = 1.0f;
+        m(1,0) = 2 * (q0q1 + q2q3);
+        m(1,1) = 1 - 2 * (q2q2 + q0q0);
+        m(1,2) = 2 * (q1q2 - q0q3);
+        m(1,3) = 0;
+
+        m(2,0) = 2 * (q0q2 - q1q3);
+        m(2,1) = 2 * (q1q2 + q0q3);
+        m(2,2) = 1 - 2 * (q1q1 + q0q0);
+        m(2,3) = 0;
+
+        m(3,0) = 0;
+        m(3,1) = 0;
+        m(3,2) = 0;
+        m(3,3) = 1;
     }
 
     /// Apply the rotation to a given vector
@@ -351,19 +390,32 @@ public:
     /// given quaternion.
     constexpr void buildRotationMatrix(Real m[4][4]) const
     {
-        m[0][0] = (1 - 2 * (_q[1] * _q[1] + _q[2] * _q[2]));
-        m[0][1] = (2 * (_q[0] * _q[1] - _q[2] * _q[3]));
-        m[0][2] = (2 * (_q[2] * _q[0] + _q[1] * _q[3]));
+        // Cache squared terms (used twice each)
+        const Real q0q0 = _q[0] * _q[0];
+        const Real q1q1 = _q[1] * _q[1];
+        const Real q2q2 = _q[2] * _q[2];
+
+        // Cache cross products (used twice each, with +/- combinations)
+        const Real q0q1 = _q[0] * _q[1];
+        const Real q0q2 = _q[0] * _q[2];
+        const Real q0q3 = _q[0] * _q[3];
+        const Real q1q2 = _q[1] * _q[2];
+        const Real q1q3 = _q[1] * _q[3];
+        const Real q2q3 = _q[2] * _q[3];
+
+        m[0][0] = 1 - 2 * (q1q1 + q2q2);
+        m[0][1] = 2 * (q0q1 - q2q3);
+        m[0][2] = 2 * (q0q2 + q1q3);
         m[0][3] = 0;
 
-        m[1][0] = (2 * (_q[0] * _q[1] + _q[2] * _q[3]));
-        m[1][1] = (1 - 2 * (_q[2] * _q[2] + _q[0] * _q[0]));
-        m[1][2] = (2 * (_q[1] * _q[2] - _q[0] * _q[3]));
+        m[1][0] = 2 * (q0q1 + q2q3);
+        m[1][1] = 1 - 2 * (q2q2 + q0q0);
+        m[1][2] = 2 * (q1q2 - q0q3);
         m[1][3] = 0;
 
-        m[2][0] = (2 * (_q[2] * _q[0] - _q[1] * _q[3]));
-        m[2][1] = (2.0f * (_q[1] * _q[2] + _q[0] * _q[3]));
-        m[2][2] = (1.0f - 2.0f * (_q[1] * _q[1] + _q[0] * _q[0]));
+        m[2][0] = 2 * (q0q2 - q1q3);
+        m[2][1] = 2 * (q1q2 + q0q3);
+        m[2][2] = 1 - 2 * (q1q1 + q0q0);
         m[2][3] = 0;
 
         m[3][0] = 0;

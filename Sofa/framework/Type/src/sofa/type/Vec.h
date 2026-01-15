@@ -396,10 +396,27 @@ public:
     template<class real2, std::enable_if_t<std::is_convertible_v<real2, ValueType>, bool> = true>
     constexpr ValueType operator*(const Vec<N,real2>& v) const noexcept
     {
-        ValueType r = static_cast<ValueType>(this->elems[0]*v[0]);
-        for (Size i=1; i<N; i++)
-            r += static_cast<ValueType>(this->elems[i]*v[i]);
-        return r;
+        // Specialized unrolled versions for common sizes
+        if constexpr (N == 3)
+        {
+            return static_cast<ValueType>(this->elems[0]*v[0])
+                 + static_cast<ValueType>(this->elems[1]*v[1])
+                 + static_cast<ValueType>(this->elems[2]*v[2]);
+        }
+        else if constexpr (N == 4)
+        {
+            return static_cast<ValueType>(this->elems[0]*v[0])
+                 + static_cast<ValueType>(this->elems[1]*v[1])
+                 + static_cast<ValueType>(this->elems[2]*v[2])
+                 + static_cast<ValueType>(this->elems[3]*v[3]);
+        }
+        else
+        {
+            ValueType r = static_cast<ValueType>(this->elems[0]*v[0]);
+            for (Size i=1; i<N; i++)
+                r += static_cast<ValueType>(this->elems[i]*v[i]);
+            return r;
+        }
     }
 
     /// linear product.
@@ -472,10 +489,27 @@ public:
     /// Squared norm.
     constexpr ValueType norm2() const noexcept
     {
-        ValueType r = this->elems[0]*this->elems[0];
-        for (Size i=1; i<N; i++)
-            r += this->elems[i]*this->elems[i];
-        return r;
+        // Specialized unrolled versions for common sizes
+        if constexpr (N == 3)
+        {
+            return this->elems[0]*this->elems[0]
+                 + this->elems[1]*this->elems[1]
+                 + this->elems[2]*this->elems[2];
+        }
+        else if constexpr (N == 4)
+        {
+            return this->elems[0]*this->elems[0]
+                 + this->elems[1]*this->elems[1]
+                 + this->elems[2]*this->elems[2]
+                 + this->elems[3]*this->elems[3];
+        }
+        else
+        {
+            ValueType r = this->elems[0]*this->elems[0];
+            for (Size i=1; i<N; i++)
+                r += this->elems[i]*this->elems[i];
+            return r;
+        }
     }
 
     /// Euclidean norm.
