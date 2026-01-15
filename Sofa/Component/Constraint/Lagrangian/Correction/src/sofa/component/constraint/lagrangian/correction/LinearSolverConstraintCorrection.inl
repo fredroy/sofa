@@ -759,8 +759,6 @@ void LinearSolverConstraintCorrection<DataTypes>::getBlockDiagonalCompliance(lin
 
     for (int i = begin; i <= end; i++)
     {
-
-
         MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
 
         if (rowIt != constraints.end())
@@ -774,8 +772,8 @@ void LinearSolverConstraintCorrection<DataTypes>::getBlockDiagonalCompliance(lin
         }
     }
 
-    list_dof.sort();
-    list_dof.unique();
+    std::sort(list_dof.begin(), list_dof.end());
+    list_dof.erase(std::unique(list_dof.begin(), list_dof.end()), list_dof.end());
 
     for (int i = begin; i <= end; i++)
     {

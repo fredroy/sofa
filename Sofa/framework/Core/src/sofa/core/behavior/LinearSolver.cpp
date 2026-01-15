@@ -29,8 +29,8 @@ void LinearSolver::init_partial_solve()
     msg_warning() << "partial_solve is not implemented yet.";
 }
 
-void LinearSolver::partial_solve(std::list<linearalgebra::BaseMatrix::Index>&,
-                                 std::list<linearalgebra::BaseMatrix::Index>&, bool)
+void LinearSolver::partial_solve(std::vector<linearalgebra::BaseMatrix::Index>&,
+                                 std::vector<linearalgebra::BaseMatrix::Index>&, bool)
 {
     msg_warning() << "partial_solve is not implemented yet";
 }

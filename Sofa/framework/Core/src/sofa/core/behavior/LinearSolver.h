@@ -87,8 +87,8 @@ public:
     virtual void init_partial_solve();
 
     ///
-    virtual void partial_solve(std::list<linearalgebra::BaseMatrix::Index>& /*I_last_Disp*/,
-                               std::list<linearalgebra::BaseMatrix::Index>& /*I_last_Dforce*/,
+    virtual void partial_solve(std::vector<linearalgebra::BaseMatrix::Index>& /*I_last_Disp*/,
+                               std::vector<linearalgebra::BaseMatrix::Index>& /*I_last_Dforce*/,
                                bool /*NewIn*/);
 
     /// Invert the system, this method is optional because it's called when solveSystem() is called

@@ -33,9 +33,23 @@
 #include <sofa/type/Mat.h>
 #include <sofa/component/linearsolver/direct/MatrixLinearSystem[BTDMatrix].h>
 #include <sofa/component/linearsolver/direct/TypedMatrixLinearSystem[BTDMatrix].h>
+#include <unordered_map>
 
 namespace sofa::component::linearsolver::direct
 {
+
+/// Hash function for IndexPair to use with unordered_map
+struct IndexPairHash
+{
+    std::size_t operator()(const std::pair<sofa::SignedIndex, sofa::SignedIndex>& p) const noexcept
+    {
+        // Combine hashes using a common technique
+        std::size_t h1 = std::hash<sofa::SignedIndex>{}(p.first);
+        std::size_t h2 = std::hash<sofa::SignedIndex>{}(p.second);
+        return h1 ^ (h2 << 1);
+    }
+};
+
 /// Linear system solver using Thomas Algorithm for Block Tridiagonal matrices
 ///
 /// References:
@@ -59,10 +73,10 @@ public:
     typedef typename Vector::Real Real;
     typedef typename Matrix::BlockType BlocType;
     typedef typename sofa::SignedIndex Index;
-    typedef std::list<Index> ListIndex;
+    typedef std::vector<Index> ListIndex;
     typedef std::pair<Index,Index> IndexPair;
-    typedef std::map<IndexPair, SubMatrix> MysparseM;
-    typedef typename std::map<IndexPair, SubMatrix>::iterator MysparseMit;
+    typedef std::unordered_map<IndexPair, SubMatrix, IndexPairHash> MysparseM;
+    typedef typename std::unordered_map<IndexPair, SubMatrix, IndexPairHash>::iterator MysparseMit;
 
     //type::vector<SubMatrix> alpha;
     type::vector<SubMatrix> alpha_inv;
