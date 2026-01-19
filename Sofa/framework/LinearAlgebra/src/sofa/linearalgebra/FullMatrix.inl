@@ -230,12 +230,17 @@ void FullMatrix<Real>::mul( FullVector<Real>& res,const FullVector<Real>& b ) co
 template<class Real>
 void FullMatrix<Real>::mulT( FullVector<Real>& res, const FullVector<Real>& b ) const
 {
-    for( Index i=0 ; i<nCol ; ++i )
+    // Zero out result first
+    for( Index i = 0; i < nCol; ++i )
+        res[i] = (Real)0;
+
+    // Use j-i loop order for cache-friendly row access to this matrix
+    for( Index j = 0; j < nRow; ++j )
     {
-        Real r = 0;
-        for( Index j=0 ; j<nRow ; ++j )
-            r += data[j*pitch+i] * b[j];
-        res[i] = r;
+        const Real bj = b[j];
+        const Real* thisRow = data + j * pitch;
+        for( Index i = 0; i < nCol; ++i )
+            res[i] += thisRow[i] * bj;
     }
 }
 
@@ -256,14 +261,26 @@ void FullMatrix<Real>::mul( FullMatrix<Real>& res, const FullMatrix<Real>& m ) c
 {
     assert( m.rowSize() == nCol );
 
-    res.resize( nRow, m.colSize() );
-    for( Index i=0 ; i<nRow ; ++i )
+    const Index mCols = m.colSize();
+    const Index mPitch = m.pitch;
+    const Real* mData = m.data;
+
+    res.resize( nRow, mCols );
+    Real* resData = res.data;
+    const Index resPitch = res.pitch;
+
+    // Use i-k-j loop order for cache-friendly access to m
+    // res is already zeroed by resize(), so we just accumulate
+    for( Index i = 0; i < nRow; ++i )
     {
-        for( unsigned j=0 ; j<(unsigned)m.colSize() ; ++j )
+        Real* resRow = resData + i * resPitch;
+        const Real* thisRow = data + i * pitch;
+        for( Index k = 0; k < nCol; ++k )
         {
-            res.set( i, j, element(i,0)*m.element(0,j) );
-            for( Index k=1 ; k<nCol; ++k )
-                res.add( i, j, element(i,k)*m.element(k,j) );
+            const Real aik = thisRow[k];
+            const Real* mRow = mData + k * mPitch;
+            for( Index j = 0; j < mCols; ++j )
+                resRow[j] += aik * mRow[j];
         }
     }
 }
@@ -275,14 +292,27 @@ void FullMatrix<Real>::mulT( FullMatrix<Real>& res, const FullMatrix<Real>& m ) 
 {
     assert( m.rowSize() == nRow );
 
-    res.resize( nCol, m.colSize() );
-    for( Index i=0 ; i<nCol ; ++i )
+    const Index mCols = m.colSize();
+    const Index mPitch = m.pitch;
+    const Real* mData = m.data;
+
+    res.resize( nCol, mCols );
+    Real* resData = res.data;
+    const Index resPitch = res.pitch;
+
+    // Use k-i-j loop order for better cache utilization
+    // k iterates over rows of this and m (both accessed sequentially)
+    // res is already zeroed by resize(), so we just accumulate
+    for( Index k = 0; k < nRow; ++k )
     {
-        for( unsigned j=0 ; j<(unsigned)m.colSize() ; ++j )
+        const Real* thisRow = data + k * pitch;
+        const Real* mRow = mData + k * mPitch;
+        for( Index i = 0; i < nCol; ++i )
         {
-            res.set( i, j, element(0,i)*m.element(0,j) );
-            for( Index k=1 ; k<nRow ; ++k )
-                res.add( i, j, element(k,i)*m.element(k,j) );
+            const Real aki = thisRow[i];  // this[k][i] = this^T[i][k]
+            Real* resRow = resData + i * resPitch;
+            for( Index j = 0; j < mCols; ++j )
+                resRow[j] += aki * mRow[j];
         }
     }
 }
