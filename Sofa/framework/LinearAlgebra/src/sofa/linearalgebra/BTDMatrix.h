@@ -46,7 +46,43 @@ public:
         TransposedBlock(const type::Mat<BSIZE,BSIZE,Real>& m) : m(m) {}
         type::Vec<BSIZE,Real> operator*(const type::Vec<BSIZE,Real>& v)
         {
-            return m.multTranspose(v);
+            if constexpr (BSIZE == 6)
+            {
+                // Optimized 6x6 transposed matrix-vector multiplication (m^T * v)
+                type::Vec<6,Real> r(type::NOINIT);
+                r[0] = m(0,0)*v[0] + m(1,0)*v[1] + m(2,0)*v[2] + m(3,0)*v[3] + m(4,0)*v[4] + m(5,0)*v[5];
+                r[1] = m(0,1)*v[0] + m(1,1)*v[1] + m(2,1)*v[2] + m(3,1)*v[3] + m(4,1)*v[4] + m(5,1)*v[5];
+                r[2] = m(0,2)*v[0] + m(1,2)*v[1] + m(2,2)*v[2] + m(3,2)*v[3] + m(4,2)*v[4] + m(5,2)*v[5];
+                r[3] = m(0,3)*v[0] + m(1,3)*v[1] + m(2,3)*v[2] + m(3,3)*v[3] + m(4,3)*v[4] + m(5,3)*v[5];
+                r[4] = m(0,4)*v[0] + m(1,4)*v[1] + m(2,4)*v[2] + m(3,4)*v[3] + m(4,4)*v[4] + m(5,4)*v[5];
+                r[5] = m(0,5)*v[0] + m(1,5)*v[1] + m(2,5)*v[2] + m(3,5)*v[3] + m(4,5)*v[4] + m(5,5)*v[5];
+                return r;
+            }
+            else
+            {
+                return m.multTranspose(v);
+            }
+        }
+        /// Fused operation: M^T * (v1 + v2) - avoids temporary vector creation
+        type::Vec<BSIZE,Real> multAdd(const type::Vec<BSIZE,Real>& v1, const type::Vec<BSIZE,Real>& v2) const
+        {
+            if constexpr (BSIZE == 6)
+            {
+                type::Vec<6,Real> r(type::NOINIT);
+                const Real s0 = v1[0] + v2[0], s1 = v1[1] + v2[1], s2 = v1[2] + v2[2];
+                const Real s3 = v1[3] + v2[3], s4 = v1[4] + v2[4], s5 = v1[5] + v2[5];
+                r[0] = m(0,0)*s0 + m(1,0)*s1 + m(2,0)*s2 + m(3,0)*s3 + m(4,0)*s4 + m(5,0)*s5;
+                r[1] = m(0,1)*s0 + m(1,1)*s1 + m(2,1)*s2 + m(3,1)*s3 + m(4,1)*s4 + m(5,1)*s5;
+                r[2] = m(0,2)*s0 + m(1,2)*s1 + m(2,2)*s2 + m(3,2)*s3 + m(4,2)*s4 + m(5,2)*s5;
+                r[3] = m(0,3)*s0 + m(1,3)*s1 + m(2,3)*s2 + m(3,3)*s3 + m(4,3)*s4 + m(5,3)*s5;
+                r[4] = m(0,4)*s0 + m(1,4)*s1 + m(2,4)*s2 + m(3,4)*s3 + m(4,4)*s4 + m(5,4)*s5;
+                r[5] = m(0,5)*s0 + m(1,5)*s1 + m(2,5)*s2 + m(3,5)*s3 + m(4,5)*s4 + m(5,5)*s5;
+                return r;
+            }
+            else
+            {
+                return m.multTranspose(v1 + v2);
+            }
         }
         type::Mat<BSIZE,BSIZE,Real> operator-() const
         {
@@ -88,7 +124,67 @@ public:
         }
         type::Vec<BSIZE,Real> operator*(const type::Vec<BSIZE,Real>& v)
         {
-            return type::Mat<BSIZE,BSIZE,Real>::operator*(v);
+            if constexpr (BSIZE == 6)
+            {
+                // Optimized 6x6 matrix-vector multiplication with full unrolling
+                type::Vec<6,Real> r(type::NOINIT);
+                const auto& m = *this;
+                r[0] = m(0,0)*v[0] + m(0,1)*v[1] + m(0,2)*v[2] + m(0,3)*v[3] + m(0,4)*v[4] + m(0,5)*v[5];
+                r[1] = m(1,0)*v[0] + m(1,1)*v[1] + m(1,2)*v[2] + m(1,3)*v[3] + m(1,4)*v[4] + m(1,5)*v[5];
+                r[2] = m(2,0)*v[0] + m(2,1)*v[1] + m(2,2)*v[2] + m(2,3)*v[3] + m(2,4)*v[4] + m(2,5)*v[5];
+                r[3] = m(3,0)*v[0] + m(3,1)*v[1] + m(3,2)*v[2] + m(3,3)*v[3] + m(3,4)*v[4] + m(3,5)*v[5];
+                r[4] = m(4,0)*v[0] + m(4,1)*v[1] + m(4,2)*v[2] + m(4,3)*v[3] + m(4,4)*v[4] + m(4,5)*v[5];
+                r[5] = m(5,0)*v[0] + m(5,1)*v[1] + m(5,2)*v[2] + m(5,3)*v[3] + m(5,4)*v[4] + m(5,5)*v[5];
+                return r;
+            }
+            else
+            {
+                return type::Mat<BSIZE,BSIZE,Real>::operator*(v);
+            }
+        }
+        /// Fused operation: M * (v1 + v2) - avoids temporary vector creation
+        type::Vec<BSIZE,Real> multAdd(const type::Vec<BSIZE,Real>& v1, const type::Vec<BSIZE,Real>& v2) const
+        {
+            if constexpr (BSIZE == 6)
+            {
+                type::Vec<6,Real> r(type::NOINIT);
+                const auto& m = *this;
+                const Real s0 = v1[0] + v2[0], s1 = v1[1] + v2[1], s2 = v1[2] + v2[2];
+                const Real s3 = v1[3] + v2[3], s4 = v1[4] + v2[4], s5 = v1[5] + v2[5];
+                r[0] = m(0,0)*s0 + m(0,1)*s1 + m(0,2)*s2 + m(0,3)*s3 + m(0,4)*s4 + m(0,5)*s5;
+                r[1] = m(1,0)*s0 + m(1,1)*s1 + m(1,2)*s2 + m(1,3)*s3 + m(1,4)*s4 + m(1,5)*s5;
+                r[2] = m(2,0)*s0 + m(2,1)*s1 + m(2,2)*s2 + m(2,3)*s3 + m(2,4)*s4 + m(2,5)*s5;
+                r[3] = m(3,0)*s0 + m(3,1)*s1 + m(3,2)*s2 + m(3,3)*s3 + m(3,4)*s4 + m(3,5)*s5;
+                r[4] = m(4,0)*s0 + m(4,1)*s1 + m(4,2)*s2 + m(4,3)*s3 + m(4,4)*s4 + m(4,5)*s5;
+                r[5] = m(5,0)*s0 + m(5,1)*s1 + m(5,2)*s2 + m(5,3)*s3 + m(5,4)*s4 + m(5,5)*s5;
+                return r;
+            }
+            else
+            {
+                return type::Mat<BSIZE,BSIZE,Real>::operator*(v1 + v2);
+            }
+        }
+        /// Fused operation: M * (v1 + v2) + v3 - avoids temporary vector creation
+        type::Vec<BSIZE,Real> multAddAdd(const type::Vec<BSIZE,Real>& v1, const type::Vec<BSIZE,Real>& v2, const type::Vec<BSIZE,Real>& v3) const
+        {
+            if constexpr (BSIZE == 6)
+            {
+                type::Vec<6,Real> r(type::NOINIT);
+                const auto& m = *this;
+                const Real s0 = v1[0] + v2[0], s1 = v1[1] + v2[1], s2 = v1[2] + v2[2];
+                const Real s3 = v1[3] + v2[3], s4 = v1[4] + v2[4], s5 = v1[5] + v2[5];
+                r[0] = m(0,0)*s0 + m(0,1)*s1 + m(0,2)*s2 + m(0,3)*s3 + m(0,4)*s4 + m(0,5)*s5 + v3[0];
+                r[1] = m(1,0)*s0 + m(1,1)*s1 + m(1,2)*s2 + m(1,3)*s3 + m(1,4)*s4 + m(1,5)*s5 + v3[1];
+                r[2] = m(2,0)*s0 + m(2,1)*s1 + m(2,2)*s2 + m(2,3)*s3 + m(2,4)*s4 + m(2,5)*s5 + v3[2];
+                r[3] = m(3,0)*s0 + m(3,1)*s1 + m(3,2)*s2 + m(3,3)*s3 + m(3,4)*s4 + m(3,5)*s5 + v3[3];
+                r[4] = m(4,0)*s0 + m(4,1)*s1 + m(4,2)*s2 + m(4,3)*s3 + m(4,4)*s4 + m(4,5)*s5 + v3[4];
+                r[5] = m(5,0)*s0 + m(5,1)*s1 + m(5,2)*s2 + m(5,3)*s3 + m(5,4)*s4 + m(5,5)*s5 + v3[5];
+                return r;
+            }
+            else
+            {
+                return type::Mat<BSIZE,BSIZE,Real>::operator*(v1 + v2) + v3;
+            }
         }
         type::Mat<BSIZE,BSIZE,Real> operator*(const type::Mat<BSIZE,BSIZE,Real>& m)
         {
@@ -96,7 +192,7 @@ public:
         }
         type::Mat<BSIZE,BSIZE,Real> operator*(const TransposedBlock& mt)
         {
-            return operator*(mt.m.transposed());
+            return this->multTransposed(mt.m);
         }
         TransposedBlock t() const
         {

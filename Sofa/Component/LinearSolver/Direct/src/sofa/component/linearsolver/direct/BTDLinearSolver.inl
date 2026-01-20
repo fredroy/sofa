@@ -215,7 +215,7 @@ void BTDLinearSolver<Matrix,Vector>::computeMinvBlock(Index i, Index j)
         {
             // compute block (i0,i0-1)
             //Minv[i0][i0-1] = Minv[i0][i0]*-L[i0-1].t()
-            Minv.asub((i0  ),(i0-1),bsize,bsize) = Minv.asub((i0  ),(i0  ),bsize,bsize)*(-(lambda[i0-1].t()));
+            Minv.asub((i0  ),(i0-1),bsize,bsize) = -Minv.asub((i0  ),(i0  ),bsize,bsize).multTransposed(lambda[i0-1]);
             ++nBlockComputedMinv[i0];
 
             if(d_subpartSolve.getValue() )
@@ -225,7 +225,7 @@ void BTDLinearSolver<Matrix,Vector>::computeMinvBlock(Index i, Index j)
                 iHi_1 = - lambda[i0-1].t();
                 H.insert( make_pair(  IndexPair(i0, i0-1), iHi_1  ) );
                 // compute block (i0,i0-1) :  the upper diagonal blocks Minv[i0-1][i0]
-                Minv.asub((i0-1),(i0),bsize,bsize) = -lambda[i0-1] * Minv.asub((i0  ),(i0  ),bsize,bsize);
+                Minv.asub((i0-1),(i0),bsize,bsize) = -(lambda[i0-1] * Minv.asub((i0  ),(i0  ),bsize,bsize));
             }
 
         }
@@ -279,15 +279,15 @@ void BTDLinearSolver<Matrix,Vector>::computeMinvBlock(Index i, Index j)
     {
         // compute block (i0,j0)
         // Minv[i][j0] = Minv[i][j0+1] * (-L[j0].t)
-        Minv.asub((i0  ),(j0  ),bsize,bsize) = Minv.asub((i0  ),(j0+1),bsize,bsize)*(-lambda[j0].t());
+        Minv.asub((i0  ),(j0  ),bsize,bsize) = -Minv.asub((i0  ),(j0+1),bsize,bsize).multTransposed(lambda[j0]);
         if(d_subpartSolve.getValue() )
         {
             // iHj0 = iHj0+1 * (-L[j0].t)
-            iHj = iHj * -lambda[j0].t();
+            iHj = -(iHj * lambda[j0].t());
             H.insert(make_pair(IndexPair(i0,j0),iHj));
 
             // compute block (j0,i0)  the upper diagonal blocks Minv[j0][i0]
-            Minv.asub((j0  ),(i0  ),bsize,bsize) = -lambda[j0]*Minv.asub((j0+1),(i0),bsize,bsize);
+            Minv.asub((j0  ),(i0  ),bsize,bsize) = -(lambda[j0] * Minv.asub((j0+1),(i0),bsize,bsize));
         }
         ++nBlockComputedMinv[i0];
         --j0;
@@ -474,7 +474,8 @@ void BTDLinearSolver<Matrix,Vector>::bwdAccumulateRHinBloc(Index indMaxBloc)
 
     b = current_bloc;
     // compute the block which indice is current_bloc
-    this->l_linearSystem->getSolutionVector()->asub(b,bsize) = Minv.asub( b, b ,bsize,bsize) * ( fwdContributionOnRH.asub(b, bsize) + this->l_linearSystem->getRHSVector()->asub(b,bsize) ) +
+    this->l_linearSystem->getSolutionVector()->asub(b,bsize) = Minv.asub( b, b ,bsize,bsize)*(
+            fwdContributionOnRH.asub(b, bsize)+ this->l_linearSystem->getRHSVector()->asub(b,bsize))+
             bwdContributionOnLH.asub(b, bsize);
 
     dmsg_info_when(showProblem) << "LH[" << b << "] = Minv[" << b << "][" << b << "] * (fwdRH(" << b << ") + RH(" << b << ")) + bwdLH(" << b << ")";
@@ -556,7 +557,8 @@ void BTDLinearSolver<Matrix,Vector>::fwdAccumulateRHGlobal(Index indMinBloc)
 
     Index b = current_bloc;
     // compute the block which indice is _indMaxFwdLHComputed
-    this->l_linearSystem->getSolutionVector()->asub(b,bsize) = Minv.asub( b, b ,bsize,bsize) * ( fwdContributionOnRH.asub(b, bsize) + this->l_linearSystem->getRHSVector()->asub(b,bsize) ) +
+    this->l_linearSystem->getSolutionVector()->asub(b,bsize) = Minv.asub( b, b ,bsize,bsize)*(
+            fwdContributionOnRH.asub(b, bsize)+ this->l_linearSystem->getRHSVector()->asub(b,bsize))+
             bwdContributionOnLH.asub(b, bsize);
 
     dmsg_info_when(showProblem) << "LH[" << b << "] = Minv[" << b << "][" << b << "] * (fwdRH(" << b << ") + RH(" << b << ")) + bwdLH(" << b << ")";
@@ -584,13 +586,15 @@ void BTDLinearSolver<Matrix,Vector>::fwdComputeLHinBloc(Index indMaxBloc)
         {
             dmsg_info_when(showProblem) << " fwdRH[" << b + 1 << "] = H[" << b + 1 << "][" << b << "] * (fwdRH(" << b << ") + RH(" << b << "))";
             // fwdRH(n+1) = H(n+1)(n) * (fwdRH(n) + RH(n))
-            fwdContributionOnRH.asub(b+1, bsize) = (-lambda[b].t())* ( fwdContributionOnRH.asub(b, bsize) + this->l_linearSystem->getRHSVector()->asub(b,bsize) ) ;
+            fwdContributionOnRH.asub(b+1, bsize) = -(lambda[b].t().multAdd(
+                    fwdContributionOnRH.asub(b, bsize), this->l_linearSystem->getRHSVector()->asub(b,bsize)));
         }
 
         _indMaxFwdLHComputed++; b++;
 
         // compute the block which indice is _indMaxFwdLHComputed
-        this->l_linearSystem->getSolutionVector()->asub(b,bsize) = Minv.asub( b, b ,bsize,bsize) * ( fwdContributionOnRH.asub(b, bsize) + this->l_linearSystem->getRHSVector()->asub(b,bsize) ) +
+        this->l_linearSystem->getSolutionVector()->asub(b,bsize) = Minv.asub( b, b ,bsize,bsize)*(
+                fwdContributionOnRH.asub(b, bsize)+ this->l_linearSystem->getRHSVector()->asub(b,bsize))+
                 bwdContributionOnLH.asub(b, bsize);
 
         dmsg_info_when(showProblem) << "LH["<<b<<"] = Minv["<<b<<"]["<<b<<"] * (fwdRH("<<b<< ") + RH("<<b<<")) + bwdLH("<<b<<")";
