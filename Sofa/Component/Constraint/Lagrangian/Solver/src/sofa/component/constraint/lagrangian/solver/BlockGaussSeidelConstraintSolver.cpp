@@ -99,6 +99,7 @@ void BlockGaussSeidelConstraintSolver::doSolve( GenericConstraintProblem * probl
     }
 
     sofa::type::vector<SReal> tabErrors(dimension);
+    std::vector<SReal> errF; // reusable buffer for force error computation
 
     int iterCount = 0;
 
@@ -116,7 +117,7 @@ void BlockGaussSeidelConstraintSolver::doSolve( GenericConstraintProblem * probl
 
         error=0.0;
 
-        gaussSeidel_increment(true, dfree, force, w, tol, d, dimension, constraintsAreVerified, error, problem->constraintsResolutions, tabErrors);
+        gaussSeidel_increment(true, dfree, force, w, tol, d, dimension, constraintsAreVerified, error, problem->constraintsResolutions, tabErrors, errF);
 
         if(showGraphs)
         {
@@ -200,7 +201,7 @@ void BlockGaussSeidelConstraintSolver::doSolve( GenericConstraintProblem * probl
     }
 }
 
-void BlockGaussSeidelConstraintSolver::gaussSeidel_increment(bool measureError, SReal *dfree, SReal *force, SReal **w, SReal tol, SReal *d, int dim, bool& constraintsAreVerified, SReal& error, std::vector<core::behavior::ConstraintResolution*>& constraintCorrections, sofa::type::vector<SReal>& tabErrors) const
+void BlockGaussSeidelConstraintSolver::gaussSeidel_increment(bool measureError, SReal *dfree, SReal *force, SReal **w, SReal tol, SReal *d, int dim, bool& constraintsAreVerified, SReal& error, std::vector<core::behavior::ConstraintResolution*>& constraintCorrections, sofa::type::vector<SReal>& tabErrors, std::vector<SReal>& errF) const
 {
     for(int j=0; j<dim; ) // increment of j realized at the end of the loop
     {
@@ -213,7 +214,8 @@ void BlockGaussSeidelConstraintSolver::gaussSeidel_increment(bool measureError, 
         //2. for each line we compute the actual value of d
         //   (a)d is set to dfree
 
-        std::vector<SReal> errF(&force[j], &force[j+nb]);
+        if(errF.size() < nb) errF.resize(nb);
+        std::copy_n(&force[j], nb, errF.begin());
         std::copy_n(&dfree[j], nb, &d[j]);
 
         //   (b) contribution of forces are added to d     => TODO => optimization (no computation when force= 0 !!)

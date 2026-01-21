@@ -89,6 +89,7 @@ void NNCGConstraintSolver::doSolve(GenericConstraintProblem * problem , SReal ti
     }
 
     sofa::type::vector<SReal> tabErrors(dimension);
+    std::vector<SReal> errF; // reusable buffer for force error computation
 
     {
         // perform one iteration of BlockGaussSeidel
@@ -96,7 +97,7 @@ void NNCGConstraintSolver::doSolve(GenericConstraintProblem * problem , SReal ti
 
         std::copy_n(force, dimension, std::begin(problem->m_lam));
 
-        gaussSeidel_increment(false, dfree, force, w, tol, d, dimension, constraintsAreVerified, error, problem->constraintsResolutions,  tabErrors);
+        gaussSeidel_increment(false, dfree, force, w, tol, d, dimension, constraintsAreVerified, error, problem->constraintsResolutions,  tabErrors, errF);
 
         for(int j=0; j<dimension; j++)
         {
@@ -122,7 +123,7 @@ void NNCGConstraintSolver::doSolve(GenericConstraintProblem * problem , SReal ti
 
         error=0.0;
 
-        gaussSeidel_increment(true, dfree, force, w, tol, d, dimension, constraintsAreVerified, error, problem->constraintsResolutions, tabErrors);
+        gaussSeidel_increment(true, dfree, force, w, tol, d, dimension, constraintsAreVerified, error, problem->constraintsResolutions, tabErrors, errF);
 
 
         if(problem->allVerified)
