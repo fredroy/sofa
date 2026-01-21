@@ -240,24 +240,24 @@ void BlockGaussSeidelConstraintSolver::gaussSeidel_increment(bool measureError, 
         //4. the error is measured (displacement due to the new resolution (i.e. due to the new force))
         if(measureError)
         {
+            const SReal tolSquared = tol * tol;
             SReal contraintError = 0.0;
             if(nb > 1)
             {
                 for(unsigned int l=0; l<nb; l++)
                 {
-                    SReal lineError = 0.0;
+                    SReal lineErrorSquared = 0.0;
                     for (unsigned int m=0; m<nb; m++)
                     {
                         const SReal dofError = w[j+l][j+m] * (force[j+m] - errF[m]);
-                        lineError += dofError * dofError;
+                        lineErrorSquared += dofError * dofError;
                     }
-                    lineError = sqrt(lineError);
-                    if(lineError > tol)
+                    if(lineErrorSquared > tolSquared)
                     {
                         constraintsAreVerified = false;
                     }
 
-                    contraintError += lineError;
+                    contraintError += sqrt(lineErrorSquared);
                 }
             }
             else
