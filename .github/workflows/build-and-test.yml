@@ -306,11 +306,29 @@ jobs:
               docker run --rm --env XDG_CACHE_HOME -v $BUILDER_CACHE_DIR:/cache\
                   --user $(id -u):$(id -g) --network=host -v $WORKSPACE:/workspace \
                   ${DOCKER_IMAGE} \
-                  /bin/bash -c "env; cd /workspace; ccache -M 5; /bin/bash $DOCKER_CI_DIR/scripts/configure-and-build.sh $DOCKER_BUILD_DIR $DOCKER_SRC_DIR $DOCKER_CI_DIR/scripts/ $DOCKER_LOG_DIR \"${NODE_NAME}\" \"${BUILD_TYPE}\" \"${CONFIG}\" \"${{ inputs.python-version }}\" \"${{ inputs.preset }}\" \"${{ inputs.generate-binaries }}\" \"${CMAKE_OPTIONS}\""             
+                  /bin/bash -c "env; cd /workspace; ccache -M 5; /bin/bash $DOCKER_CI_DIR/scripts/configure-and-build.sh $DOCKER_BUILD_DIR $DOCKER_SRC_DIR $DOCKER_CI_DIR/scripts/ $DOCKER_LOG_DIR \"${NODE_NAME}\" \"${BUILD_TYPE}\" \"${CONFIG}\" \"${{ inputs.python-version }}\" \"${{ inputs.preset }}\" \"${{ inputs.generate-binaries }}\" \"${CMAKE_OPTIONS}\"" > /dev/null 2>&1
+                  
+                  echo "::group::Compilation Warnings (docker)"
+                  cat "$DOCKER_LOG_DIR/make-output.txt"
+                  echo "::endgroup::"
+                  if [ -e "$LOG_DIR/make-failed" ]; then
+                    echo "::group::Compilation Errors (docker)"
+                    cat "$DOCKER_LOG_DIR/make-failed.txt"
+                    echo "::endgroup::"
+                  fi
           else
               echo "Launching configuration and build"
 
-              bash ${CI_DIR}/scripts/configure-and-build.sh "${BUILD_DIR}" "${SRC_DIR}" "${CI_DIR}/scripts/" "${{ env.LOG_DIR }}" "${NODE_NAME}" "${BUILD_TYPE}" "${CONFIG}" "${{ inputs.python-version }}" "${{ inputs.preset }}" "${{ inputs.generate-binaries }}" "${CMAKE_OPTIONS}"
+              bash ${CI_DIR}/scripts/configure-and-build.sh "${BUILD_DIR}" "${SRC_DIR}" "${CI_DIR}/scripts/" "${{ env.LOG_DIR }}" "${NODE_NAME}" "${BUILD_TYPE}" "${CONFIG}" "${{ inputs.python-version }}" "${{ inputs.preset }}" "${{ inputs.generate-binaries }}" "${CMAKE_OPTIONS}" > /dev/null 2>&1
+              
+              echo "::group::Compilation Warnings"
+              cat "${{ env.LOG_DIR }}/make-output.txt"
+              echo "::endgroup::"
+              if [ -e "${{ env.LOG_DIR }}/make-failed" ]; then
+                echo "::group::Compilation Errors"
+                cat "${{ env.LOG_DIR }}/make-failed.txt"
+                echo "::endgroup::"
+              fi
           fi
         
 
