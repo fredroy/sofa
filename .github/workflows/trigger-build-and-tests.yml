@@ -63,7 +63,7 @@ jobs:
   # Filter build handling : push in master, commits in PR, comments in PR and dispatch
   filter_build:
     runs-on: ubuntu-latest
-    if: ${{ github.repository_owner == 'sofa-framework' }}
+    # if: ${{ github.repository_owner == 'sofa-framework' }}
     outputs:
       SOFA_BRANCH_NAME: ${{ steps.export-vars.outputs.SOFA_BRANCH_NAME }}
       SOFA_COMMIT_SHA: ${{ steps.export-vars.outputs.SOFA_COMMIT_SHA }}
@@ -161,19 +161,19 @@ jobs:
           echo "FORCE_FULL_BUILD=true" >> $GITHUB_ENV
           echo 'BUILDER_OS=["sh-ubuntu_gcc_release","sh-ubuntu_clang_release","sh-ubuntu_clang_debug","sh-fedora_clang_release","sh-macos_clang_release"]' >> $GITHUB_ENV
 
-      - name: Run when PR is opened or a commit is pushed in a PR
-        if: ${{ github.event_name == 'pull_request' }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          OWNER_NAME: ${{ github.event.pull_request.head.repo.owner.login }}
-          PR_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
-        run: |
-          echo "This step runs only when a PR is opened or synchronized."
+      # - name: Run when PR is opened or a commit is pushed in a PR
+      #   if: ${{ github.event_name == 'pull_request' }}
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     PR_NUMBER: ${{ github.event.pull_request.number }}
+      #     OWNER_NAME: ${{ github.event.pull_request.head.repo.owner.login }}
+      #     PR_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+      #   run: |
+      #     echo "This step runs only when a PR is opened or synchronized."
           
-          # Trigger the Build action
-          # Warning ! This script also changes ENV variables
-          python ci/scripts/checkPRInfoBeforeBuild.py
+      #     # Trigger the Build action
+      #     # Warning ! This script also changes ENV variables
+      #     python ci/scripts/checkPRInfoBeforeBuild.py
   
       - name: Export environment variables as outputs
         id: export-vars
@@ -207,7 +207,7 @@ jobs:
   # Trigger the build and sharing all parameters from filter_build > outputs
   build-on:
     needs: filter_build
-    if: ${{ github.repository_owner == 'sofa-framework' }}
+    # if: ${{ github.repository_owner == 'sofa-framework' }}
     uses: sofa-framework/sofa/.github/workflows/build-and-test.yml@master
     with:
       sofa-branch-name: ${{ needs.filter_build.outputs.SOFA_BRANCH_NAME }}
