@@ -218,13 +218,20 @@ void BlockGaussSeidelConstraintSolver::gaussSeidel_increment(bool measureError, 
         std::copy_n(&force[j], nb, errF.begin());
         std::copy_n(&dfree[j], nb, &d[j]);
 
-        //   (b) contribution of forces are added to d     => TODO => optimization (no computation when force= 0 !!)
-        for(int k=0; k<dim; k++)
+        //   (b) contribution of forces are added to d (skip when force[k] == 0)
+        for(unsigned int l=0; l<nb; l++)
         {
-            for(unsigned int l=0; l<nb; l++)
+            SReal* w_row = w[j+l];
+            SReal d_jl = d[j+l];
+            for(int k=0; k<dim; k++)
             {
-                d[j+l] += w[j+l][k] * force[k];
+                const SReal f_k = force[k];
+                if(f_k != 0.0)
+                {
+                    d_jl += w_row[k] * f_k;
+                }
             }
+            d[j+l] = d_jl;
         }
 
         //3. the specific resolution of the constraint(s) is called
