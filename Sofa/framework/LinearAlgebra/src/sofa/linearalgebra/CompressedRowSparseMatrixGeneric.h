@@ -194,12 +194,12 @@ public:
     {
         // Early exit for empty range
         if (in.empty()) [[unlikely]] return false;
-        
+
         // Use the hint if it's valid and correct
         if (result >= in.begin() && result < in.end()) [[likely]]
         {
             if (v[result] == val) return true;
-            
+
             // Check neighbors (locality optimization)
             if (result + 1 < in.end() && v[result + 1] == val)
             {
@@ -212,28 +212,47 @@ public:
                 return true;
             }
         }
-        
-        // Standard binary search
+
+        const Index rangeSize = in.end() - in.begin();
+
+        // For small ranges, linear scan is faster than binary search
+        // due to better branch prediction and sequential memory access
+        if (rangeSize <= 8)
+        {
+            for (Index i = in.begin(); i < in.end(); ++i)
+            {
+                const Index vi = v[i];
+                if (vi == val)
+                {
+                    result = i;
+                    return true;
+                }
+                if (vi > val) return false; // Early exit since sorted
+            }
+            return false;
+        }
+
+        // Standard binary search for larger ranges
         Index left = in.begin();
         Index right = in.end();
-        
+
         while (left < right)
         {
             Index mid = left + ((right - left) >> 1);
             Index midVal = v[mid];
-            
+
             if (midVal == val)
             {
                 result = mid;
                 return true;
             }
-            
+
             if (midVal < val)
                 left = mid + 1;
             else
                 right = mid;
         }
-        
+
         return false;
     }
 

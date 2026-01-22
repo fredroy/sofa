@@ -26,6 +26,7 @@
 #include <sofa/helper/AdvancedTimer.h>
 #include <sofa/helper/ScopedAdvancedTimer.h>
 #include <sofa/core/ObjectFactory.h>
+#include <limits>
 
 
 namespace sofa::component::constraint::lagrangian::solver
@@ -124,6 +125,12 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
 
     tabErrors.resize(dimension);
 
+    // Stagnation detection: stop early if error stops improving
+    SReal prevError = std::numeric_limits<SReal>::max();
+    unsigned int stagnationCount = 0;
+    constexpr unsigned int STAGNATION_THRESHOLD = 10;  // Stop after 10 iterations without significant improvement
+    constexpr SReal IMPROVEMENT_THRESHOLD = 0.99;      // Consider stagnant if error >= 99% of previous
+
     for(iter=0; iter < static_cast<unsigned int>(c_current_cp->maxIterations); iter++)
     {
         bool constraintsAreVerified = true;
@@ -149,6 +156,16 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
             const SReal constraintTol = c_current_cp->constraintsResolutions[j]->getTolerance()
                                         ? c_current_cp->constraintsResolutions[j]->getTolerance()
                                         : tol;
+
+            // Aggressively skip constraints with very low error (essentially converged)
+            // Skip if error is below 1% of tolerance, regardless of stability
+            if (iter > 0 && tabErrors[j] < constraintTol * 0.01)
+            {
+                error += tabErrors[j];
+                seq_idx += nb;
+                continue;
+            }
+
             if (iter > 0 && stableCount[j] >= UnbuiltConstraintProblem::STABLE_SKIP_THRESHOLD
                 && tabErrors[j] < constraintTol)
             {
@@ -276,6 +293,23 @@ void UnbuiltGaussSeidelConstraintSolver::doSolve(GenericConstraintProblem * prob
             for(int j=0; j<dimension; j++)
                 force[j] = c_current_cp->sor * force[j] + (1-c_current_cp->sor) * tempForces[j];
         }
+
+        // Stagnation detection: check if error is improving
+        if (error >= prevError * IMPROVEMENT_THRESHOLD)
+        {
+            stagnationCount++;
+            if (stagnationCount >= STAGNATION_THRESHOLD)
+            {
+                // Error stopped improving, exit early
+                break;
+            }
+        }
+        else
+        {
+            stagnationCount = 0;  // Reset on improvement
+        }
+        prevError = error;
+
         if(timeout)
         {
             SReal t1 = (SReal)sofa::helper::system::thread::CTime::getTime();

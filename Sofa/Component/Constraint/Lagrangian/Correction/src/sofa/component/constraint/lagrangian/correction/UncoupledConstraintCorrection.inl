@@ -737,9 +737,10 @@ void UncoupledConstraintCorrection<DataTypes>::addConstraintDisplacement(SReal *
 
     const MatrixDeriv& constraints = this->mstate->read(core::vec_id::read_access::constraintJacobian)->getValue();
 
+    typename MatrixDeriv::Index rowIdHint = 0;
     for (int id = begin; id <= end; id++)
     {
-        MatrixDerivRowConstIterator curConstraint = constraints.readLine(id);
+        MatrixDerivRowConstIterator curConstraint = constraints.readLine(id, rowIdHint);
 
         if (curConstraint != constraints.end())
         {
@@ -772,10 +773,10 @@ void UncoupledConstraintCorrection<DataTypes>::setConstraintDForce(SReal * df, i
     if (!update)
         return;
 
+    typename MatrixDeriv::Index rowIdHint = 0;
     for (int id = begin; id <= end; id++)
     {
-
-        MatrixDerivRowConstIterator curConstraint = constraints.readLine(id);
+        MatrixDerivRowConstIterator curConstraint = constraints.readLine(id, rowIdHint);
 
         if (curConstraint != constraints.end())
         {
@@ -806,10 +807,10 @@ void UncoupledConstraintCorrection<DataTypes>::getBlockDiagonalCompliance(linear
     const VecReal& comp = d_compliance.getValue();
     const Real comp0 = d_defaultCompliance.getValue();
 
+    typename MatrixDeriv::Index rowIdHint1 = 0;
     for (int id1 = begin; id1 <= end; id1++)
     {
-
-        MatrixDerivRowConstIterator curConstraint = constraints.readLine(id1);
+        MatrixDerivRowConstIterator curConstraint = constraints.readLine(id1, rowIdHint1);
 
         if (curConstraint == constraints.end()) continue;
 
@@ -819,21 +820,22 @@ void UncoupledConstraintCorrection<DataTypes>::getBlockDiagonalCompliance(linear
         // First the compliance of the constraint with itself
         {
             SReal w = 0.0;
-            
+
             for (MatrixDerivColConstIterator colIt = colItBegin; colIt != colItEnd; ++colIt)
             {
                 unsigned int dof = colIt.index();
                 Deriv n = colIt.val();
                 w += UncoupledConstraintCorrection_computeCompliance(dof, n, n, comp0, comp);
             }
-            
+
             W->add(id1, id1, w);
         }
 
         // Then the compliance with the remaining constraints
+        typename MatrixDeriv::Index rowIdHint2 = rowIdHint1;
         for (int id2 = id1+1; id2 <= end; id2++)
         {
-            MatrixDerivRowConstIterator curConstraint2 = constraints.readLine(id2);
+            MatrixDerivRowConstIterator curConstraint2 = constraints.readLine(id2, rowIdHint2);
 
             if (curConstraint2 == constraints.end()) continue;
 

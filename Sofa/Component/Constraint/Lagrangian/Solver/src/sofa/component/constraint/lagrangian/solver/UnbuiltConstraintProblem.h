@@ -55,6 +55,6 @@ public:
 
     // Per-constraint convergence tracking for optimization
     std::vector<unsigned int> stableIterCount;  ///< Count of consecutive iterations without force change per constraint block
-    static constexpr unsigned int STABLE_SKIP_THRESHOLD = 3; ///< Skip constraint after this many stable iterations
+    static constexpr unsigned int STABLE_SKIP_THRESHOLD = 2; ///< Skip constraint after this many stable iterations
 };
 }

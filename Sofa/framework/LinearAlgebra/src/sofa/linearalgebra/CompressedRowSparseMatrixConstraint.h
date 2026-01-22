@@ -524,7 +524,12 @@ public:
         {
             const CompressedRowSparseMatrixConstraint* matrix = this->first.m_matrix;
             Range r(this->first.m_internal, this->second.m_internal);
-            Index index = 0;
+            // Use interpolation-based hint for better search performance
+            const Index rangeSize = r.size();
+            Index index = (matrix->nBlockCol == 0 || rangeSize == 0) ? r.begin()
+                        : r.begin() + col * rangeSize / matrix->nBlockCol;
+            // Clamp to valid range
+            if (index >= r.end()) index = r.end() > 0 ? r.end() - 1 : r.begin();
             if (!matrix->sortedFind(matrix->colsIndex, r, col, index))
             {
                 index = r.end(); // not found -> return end
@@ -551,6 +556,24 @@ public:
         if (this->sortedFind(this->rowIndex, lIndex, rowId))
         {
             return RowConstIterator(this, rowId);
+        }
+        else
+        {
+            return this->end();
+        }
+    }
+
+    /// @return Constant Iterator on specified row, using hint for faster lookup
+    /// @param lIndex row index
+    /// @param rowIdHint hint for the internal row position (updated on success for sequential access)
+    /// If lIndex row doesn't exist, returns end iterator
+    /// Use this overload when accessing rows sequentially (e.g., in a loop from begin to end)
+    RowConstIterator readLine(Index lIndex, Index& rowIdHint) const
+    {
+        if constexpr (Policy::AutoCompress) const_cast<Matrix*>(this)->compress();  /// \warning this violates the const-ness of the method !
+        if (this->sortedFind(this->rowIndex, lIndex, rowIdHint))
+        {
+            return RowConstIterator(this, rowIdHint);
         }
         else
         {

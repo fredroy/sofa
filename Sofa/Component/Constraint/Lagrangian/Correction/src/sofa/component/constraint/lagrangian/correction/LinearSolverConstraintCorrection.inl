@@ -644,9 +644,10 @@ void LinearSolverConstraintCorrection<DataTypes>::addConstraintDisplacement(SRea
     const auto positionIntegrationFactor = l_ODESolver->getPositionIntegrationFactor();
 
     // TODO => optimisation => for each block store J[block,dof]
+    typename MatrixDeriv::Index rowIdHint = 0;
     for (int i = begin; i <= end; i++)
     {
-        MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
+        MatrixDerivRowConstIterator rowIt = constraints.readLine(i, rowIdHint);
 
         if (rowIt != constraints.end()) // useful ??
         {
@@ -684,9 +685,10 @@ void LinearSolverConstraintCorrection<DataTypes>::setConstraintDForce(SReal* df,
     // Use cached constraint jacobian (set in resetForUnbuiltResolution)
     const MatrixDeriv& constraints = *m_cachedConstraintJacobian;
 
+    typename MatrixDeriv::Index rowIdHint = 0;
     for (int i = begin; i <= end; i++)
     {
-         MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
+        MatrixDerivRowConstIterator rowIt = constraints.readLine(i, rowIdHint);
 
         if (rowIt != constraints.end())
         {
@@ -743,11 +745,10 @@ void LinearSolverConstraintCorrection<DataTypes>::getBlockDiagonalCompliance(lin
 
     m_constraintJacobian.resize(totalNumConstraints, numDOFReals);
 
+    typename MatrixDeriv::Index rowIdHint = 0;
     for (int i = begin; i <= end; i++)
     {
-
-
-        MatrixDerivRowConstIterator rowIt = constraints.readLine(i);
+        MatrixDerivRowConstIterator rowIt = constraints.readLine(i, rowIdHint);
 
         if (rowIt != constraints.end())
         {
