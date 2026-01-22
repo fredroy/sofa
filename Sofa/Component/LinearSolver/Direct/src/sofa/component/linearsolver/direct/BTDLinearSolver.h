@@ -81,6 +81,8 @@ public:
     //type::vector<SubMatrix> alpha;
     type::vector<SubMatrix> alpha_inv;
     type::vector<SubMatrix> lambda;
+    type::vector<SubMatrix> neg_lambda;    ///< Pre-computed -lambda for partial_solve optimization
+    type::vector<SubMatrix> neg_lambda_t;  ///< Pre-computed (-lambda).transposed() for partial_solve optimization
     type::vector<SubMatrix> B;
     typename Matrix::InvMatrixType Minv;  //inverse matrix
 
