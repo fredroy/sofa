@@ -157,6 +157,7 @@ protected:
     SReal m_potentialEnergy;
 
     const VecElement *_indexedElements;
+    bool _indexedElementsAreAllocated; ///< true if _indexedElements is allocated by this class and must be freed in destructor
     bool needUpdateTopology;
 
     TetrahedronFEMForceFieldInternalData<DataTypes> data;

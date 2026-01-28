@@ -41,6 +41,7 @@ using sofa::core::objectmodel::ComponentState ;
 template<class DataTypes>
 TetrahedronFEMForceField<DataTypes>::TetrahedronFEMForceField()
     : _indexedElements(nullptr)
+    , _indexedElementsAreAllocated(false)
     , needUpdateTopology(false)
     , m_VonMisesColorMap(nullptr)
     , d_initialPoints(initData(&d_initialPoints, "initialPoints", "Initial Position"))
@@ -1244,8 +1245,7 @@ inline void TetrahedronFEMForceField<DataTypes>::applyStiffnessCorotational( Vec
 template <class DataTypes>
 TetrahedronFEMForceField<DataTypes>::~TetrahedronFEMForceField()
 {
-    // Need to unaffect a vector to the pointer
-    if (this->l_topology == nullptr && _indexedElements != nullptr)
+    if (_indexedElementsAreAllocated && _indexedElements != nullptr)
         delete _indexedElements;
 
     if (m_VonMisesColorMap != nullptr)
@@ -1290,7 +1290,10 @@ void TetrahedronFEMForceField<DataTypes>::init()
     {
         // Need to affect a vector to the pointer even if it is empty.
         if (_indexedElements == nullptr)
+        {
             _indexedElements = new VecElement();
+            _indexedElementsAreAllocated = true;
+        }
 
         return;
     }
@@ -1303,7 +1306,10 @@ void TetrahedronFEMForceField<DataTypes>::init()
 
         // Need to affect a vector to the pointer even if it is empty.
         if (_indexedElements == nullptr)
+        {
             _indexedElements = new VecElement();
+            _indexedElementsAreAllocated = true;
+        }
 
         this->d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
 
@@ -1313,6 +1319,7 @@ void TetrahedronFEMForceField<DataTypes>::init()
     if (!this->l_topology->getTetrahedra().empty())
     {
         _indexedElements = & (this->l_topology->getTetrahedra());
+        _indexedElementsAreAllocated = false;
     }
     else
     {
@@ -1368,7 +1375,8 @@ void TetrahedronFEMForceField<DataTypes>::init()
             tetrahedra->push_back(Tetra(c[6],c[7],c[0],c[5]));
             tetrahedra->push_back(Tetra(c[7],c[5],c[4],c[0]));
         }
-       _indexedElements = tetrahedra;
+        _indexedElements = tetrahedra;
+        _indexedElementsAreAllocated = true;
     }
 
     this->d_componentState.setValue(ComponentState::Valid) ;
@@ -1398,7 +1406,10 @@ inline void TetrahedronFEMForceField<DataTypes>::reinit()
     if (!this->mstate || !this->l_topology){
         // Need to affect a vector to the pointer even if it is empty.
         if (_indexedElements == nullptr)
+        {
             _indexedElements = new VecElement();
+            _indexedElementsAreAllocated = true;
+        }
 
         return;
     }
@@ -1406,6 +1417,7 @@ inline void TetrahedronFEMForceField<DataTypes>::reinit()
     if (!this->l_topology->getTetrahedra().empty())
     {
         _indexedElements = & (this->l_topology->getTetrahedra());
+        _indexedElementsAreAllocated = false;
     }
 
     setMethod(d_method.getValue() );
