@@ -79,17 +79,15 @@ public:
             for (sofa::Index j = 0; j < 3; ++j) 
                 CEigen(i, j) = C[MatrixSym::voigtID(i, j)];
 
-        // 17/11/2025: Disable /*Eigen::SelfAdjointEigenSolver<EigenMatrix>*/
-        // due to incorrect eigenvector computation for 3x3 matrices.
-        Eigen::EigenSolver<Eigen::Matrix<Real, 3, 3> > EigenProblemSolver(CEigen, true);
+        Eigen::SelfAdjointEigenSolver<Eigen::Matrix<Real, 3, 3>> EigenProblemSolver(CEigen);
         if (EigenProblemSolver.info() != Eigen::Success)
         {
             dmsg_warning("Ogden") << "EigenSolver iterations failed to converge";
             return;
         }
 
-        sinfo->Evalue = EigenProblemSolver.eigenvalues().real().eval();
-        sinfo->Evect = EigenProblemSolver.eigenvectors().real().eval();
+        sinfo->Evalue = EigenProblemSolver.eigenvalues();
+        sinfo->Evect = EigenProblemSolver.eigenvectors();
 
         const Real aBy2{alpha1/static_cast<Real>(2)};
         m_trCaBy2 = static_cast<Real>(0);
@@ -194,8 +192,9 @@ public:
                     {
                         if (eJ == eI) continue;
 
-                        const bool isDegenerate = std::fabs(Evalue[eI] - Evalue[eJ]) <
-                                                   std::numeric_limits<Real>::epsilon();
+                        const Real maxEval = std::max(std::fabs(Evalue[eI]), std::fabs(Evalue[eJ]));
+                        const Real tol = std::max(maxEval, static_cast<Real>(1)) * static_cast<Real>(1e-10);
+                        const bool isDegenerate = std::fabs(Evalue[eI] - Evalue[eJ]) < tol;
                         const Real coefRot = isDegenerate 
                             ? aBy2Minus1 * evalPowI2
                             : (evalPowI - pow(Evalue[eJ], aBy2Minus1))/(Evalue[eI] - Evalue[eJ]);
