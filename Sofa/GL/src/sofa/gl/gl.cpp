@@ -20,6 +20,20 @@
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
 #include <sofa/gl/gl.h>
+#include <cstdio>
+
+/// Returns the GL major version (cached after first call)
+static int getGLMajorVersion()
+{
+    static int major = -1;
+    if (major < 0)
+    {
+        major = 0;
+        const char* v = reinterpret_cast<const char*>(glGetString(GL_VERSION));
+        if (v) std::sscanf(v, "%d", &major);
+    }
+    return major;
+}
 
 SOFA_GL_API const char* GetGlExtensionsList()
 {
@@ -29,8 +43,34 @@ SOFA_GL_API const char* GetGlExtensionsList()
 
 SOFA_GL_API bool CanUseGlExtension(const std::string& ext)
 {
+    // In core profile, ARB extensions that were promoted to core are no longer
+    // listed in the extension string. Check GL version for known promotions.
+    const int glMajor = getGLMajorVersion();
+    if (glMajor >= 2)
+    {
+        // These extensions became core in GL 1.5 - 2.0
+        if (ext == "GL_ARB_vertex_buffer_object" ||
+            ext == "GL_ARB_shader_objects" ||
+            ext == "GL_ARB_shading_language_100" ||
+            ext == "GL_ARB_vertex_shader" ||
+            ext == "GL_ARB_fragment_shader" ||
+            ext == "GL_ARB_multitexture")
+            return true;
+    }
+
+    // Try legacy glGetString(GL_EXTENSIONS) first (works in compatibility profile)
     const char * extensions = GetGlExtensionsList();
     if( extensions && std::string(extensions).find( ext ) != std::string::npos )
         return true;
+
+    // Core profile: use indexed extension query (glGetString(GL_EXTENSIONS) is invalid)
+    GLint numExtensions = 0;
+    glGetIntegerv(GL_NUM_EXTENSIONS, &numExtensions);
+    for (GLint i = 0; i < numExtensions; ++i)
+    {
+        const char* e = reinterpret_cast<const char*>(glGetStringi(GL_EXTENSIONS, i));
+        if (e && ext == e)
+            return true;
+    }
     return false;
 }

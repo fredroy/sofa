@@ -1,0 +1,87 @@
+namespace sofa::gl
+{
+
+const std::string drawToolGL_VertexShader = R"SHADER_DELIM(
+#version 410 core
+
+layout(location = 0) in vec3 a_position;
+layout(location = 1) in vec3 a_normal;
+layout(location = 2) in vec4 a_color;
+
+uniform mat4 u_modelViewMatrix;
+uniform mat4 u_projectionMatrix;
+uniform mat3 u_normalMatrix;
+
+out vec3 v_viewPos;
+out vec3 v_viewNormal;
+out vec4 v_color;
+
+void main()
+{
+    vec4 viewPos4 = u_modelViewMatrix * vec4(a_position, 1.0);
+    v_viewPos = viewPos4.xyz;
+    v_viewNormal = normalize(u_normalMatrix * a_normal);
+    v_color = a_color;
+    gl_Position = u_projectionMatrix * viewPos4;
+}
+)SHADER_DELIM";
+
+const std::string drawToolGL_FragmentShader = R"SHADER_DELIM(
+#version 410 core
+
+in vec3 v_viewPos;
+in vec3 v_viewNormal;
+in vec4 v_color;
+
+uniform bool u_lightingEnabled;
+uniform vec4 u_lightPosition;
+uniform vec4 u_lightAmbient;
+uniform vec4 u_lightDiffuse;
+uniform vec4 u_lightSpecular;
+uniform float u_shininess;
+
+out vec4 fragColor;
+
+void main()
+{
+    if (!u_lightingEnabled)
+    {
+        fragColor = v_color;
+        return;
+    }
+
+    vec3 normal = v_viewNormal;
+    if (!gl_FrontFacing)
+        normal = -normal;
+
+    // Normalize after interpolation
+    normal = normalize(normal);
+
+    // Light direction (positional or directional)
+    vec3 lightDir;
+    if (u_lightPosition.w == 0.0)
+        lightDir = normalize(u_lightPosition.xyz);
+    else
+        lightDir = normalize(u_lightPosition.xyz - v_viewPos);
+
+    // Ambient
+    vec4 ambient = u_lightAmbient * v_color;
+
+    // Diffuse (Lambertian)
+    float NdotL = max(dot(normal, lightDir), 0.0);
+    vec4 diffuse = u_lightDiffuse * v_color * NdotL;
+
+    // Specular (Blinn-Phong)
+    vec3 viewDir = normalize(-v_viewPos);
+    vec3 halfDir = normalize(lightDir + viewDir);
+    float NdotH = max(dot(normal, halfDir), 0.0);
+    float spec = (NdotL > 0.0) ? pow(NdotH, u_shininess) : 0.0;
+    vec4 specular = u_lightSpecular * spec;
+    specular.a = 0.0;
+
+    fragColor = ambient + diffuse + specular;
+    fragColor.a = v_color.a;
+}
+)SHADER_DELIM";
+
+} // namespace sofa::gl

@@ -22,6 +22,7 @@
 #include <sofa/gl/GLSLShader.h>
 
 #include <cstdlib>
+#include <cstdio>
 #include <cmath>
 #include <fstream>
 #include <sstream>
@@ -58,17 +59,23 @@ bool GLSLIsSupported = false;
 
 bool GLSLShader::InitGLSL()
 {
-    // Make sure find the GL_ARB_shader_objects extension so we can use shaders.
+    // Shaders are core functionality since OpenGL 2.0.
+    // Check GL version first (works in both compat and core profiles).
+    const char* version = reinterpret_cast<const char*>(glGetString(GL_VERSION));
+    if (version)
+    {
+        int major = 0, minor = 0;
+        if (std::sscanf(version, "%d.%d", &major, &minor) == 2 && major >= 2)
+        {
+            GLSLIsSupported = true;
+            return true;
+        }
+    }
+
+    // Fallback: check for ARB extensions (old compatibility path)
     if( !CanUseGlExtension("GL_ARB_shading_language_100") )
     {
         msg_error("GLSLShader") << "GL_ARB_shader_objects extension not supported !" ;
-        return false;
-    }
-
-    // Make sure we support the GLSL shading language 1.0
-    if( !CanUseGlExtension("GL_ARB_shading_language_100") )
-    {
-        msg_error("GLSLShader") << "GL_ARB_shading_language_100 extension not supported! ";
         return false;
     }
     GLSLIsSupported = true;

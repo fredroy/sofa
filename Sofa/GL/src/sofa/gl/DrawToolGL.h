@@ -24,7 +24,11 @@
 #include <sofa/helper/visual/DrawTool.h>
 
 #include <sofa/type/RGBAColor.h>
-#include <sofa/gl/BasicShapesGL.h>
+#include <sofa/gl/gl.h>
+
+#include <vector>
+#include <stack>
+#include <array>
 
 namespace sofa::gl
 {
@@ -35,10 +39,25 @@ class SOFA_GL_API DrawToolGL : public helper::visual::DrawTool
 public:
     typedef sofa::type::Quat<SReal> Quaternion;
 
+    struct DrawVertex
+    {
+        float position[3];  // offset 0,  12 bytes
+        float normal[3];    // offset 12, 12 bytes
+        float color[4];     // offset 24, 16 bytes
+    }; // total: 40 bytes
+
     DrawToolGL();
     virtual ~DrawToolGL() override;
 
     void init() override;
+
+    // Matrix setup (called by the viewer to provide camera matrices)
+    void setProjectionMatrix(const double* mat16);
+    void setModelViewMatrix(const double* mat16);
+    void setLightPosition(float x, float y, float z, float w);
+    void setLightAmbient(float r, float g, float b, float a);
+    void setLightDiffuse(float r, float g, float b, float a);
+    void setLightSpecular(float r, float g, float b, float a);
 
     void drawPoint(const type::Vec3 &p, const type::RGBAColor &c) override;
     //normal on a point is useless
@@ -167,10 +186,6 @@ public:
 
     void writeOverlayText( int x, int y, unsigned fontSize, const type::RGBAColor &color, const char* text ) override;
 
-    /** Set the scale and units used to add depth values
-    * @param factor : Specifies a scale factor that is used to create a variable depth offset for each polygon. The initial value is 0.
-    * @param units : Is multiplied by an implementation-specific value to create a constant depth offset. The initial value is 0.
-    */
     void enablePolygonOffset(float factor, float units) override;
     void disablePolygonOffset() override;
 
@@ -188,51 +203,94 @@ public:
 
     void readPixels(int x, int y, int w, int h, float* rgb, float* z = nullptr) override;
 
-    void internalDrawSpheres(const type::vector<type::Vec3>& centers, const float& radius, const unsigned int rings, const unsigned int sectors);
-    void internalDrawSphere(const type::Vec3& center, const float& radius, const unsigned int rings, const unsigned int sectors);
-
 protected:
 
     bool mLightEnabled;
     int  mPolygonMode;      //0: no cull, 1 front (CULL_CLOCKWISE), 2 back (CULL_ANTICLOCKWISE)
     bool mWireFrameEnabled;
 
-    gl::BasicShapesGL_Sphere<type::Vec3> m_sphereUtil;
-    gl::BasicShapesGL_FakeSphere<type::Vec3> m_fakeSphereUtil;
+    // Modern GL infrastructure
+    GLuint m_vao = 0;
+    GLuint m_vbo = 0;
+    GLsizeiptr m_vboCapacity = 0;
+    std::vector<DrawVertex> m_vertexBuffer;
 
-    // utility functions, defining primitives
-    virtual void internalDrawPoint(const type::Vec3 &p, const type::RGBAColor &c);
-    virtual void internalDrawPoint(const type::Vec3 &p, const type::Vec3 &n, const type::RGBAColor &c);
+    GLuint m_shaderProgram = 0;
+    bool m_shaderReady = false;
 
-    virtual void internalDrawLine(const type::Vec3 &p1, const type::Vec3 &p2, const type::RGBAColor& color);
+    // Cached uniform locations
+    GLint m_locModelViewMatrix = -1;
+    GLint m_locProjectionMatrix = -1;
+    GLint m_locNormalMatrix = -1;
+    GLint m_locLightingEnabled = -1;
+    GLint m_locLightPosition = -1;
+    GLint m_locLightAmbient = -1;
+    GLint m_locLightDiffuse = -1;
+    GLint m_locLightSpecular = -1;
+    GLint m_locShininess = -1;
 
-    virtual void internalDrawTriangle(const type::Vec3 &p1,const type::Vec3 &p2,const type::Vec3 &p3,
-            const type::Vec3 &normal);
-    virtual void internalDrawTriangle(const type::Vec3 &p1,const type::Vec3 &p2,const type::Vec3 &p3,
-            const type::Vec3 &normal, const type::RGBAColor &c);
-    virtual void internalDrawTriangle(const type::Vec3 &p1,const type::Vec3 &p2,const type::Vec3 &p3,
-            const type::Vec3 &normal,
-            const type::RGBAColor &c1, const type::RGBAColor &c2, const type::RGBAColor &c3);
-    virtual void internalDrawTriangle(const type::Vec3 &p1,const type::Vec3 &p2,const type::Vec3 &p3,
-            const type::Vec3 &normal1, const type::Vec3 &normal2, const type::Vec3 &normal3,
-            const type::RGBAColor &c1, const type::RGBAColor &c2, const type::RGBAColor &c3);
+    // Internal matrix stack (replaces legacy GL matrix stack)
+    using Mat16f = std::array<float, 16>;
+    Mat16f m_projectionMatrix;
+    std::stack<Mat16f> m_modelViewStack;
 
-    virtual void internalDrawQuad(const type::Vec3 &p1,const type::Vec3 &p2,const type::Vec3 &p3,const type::Vec3 &p4,
-            const type::Vec3 &normal);
-    virtual void internalDrawQuad(const type::Vec3 &p1,const type::Vec3 &p2,const type::Vec3 &p3,const type::Vec3 &p4,
-            const type::Vec3 &normal, const type::RGBAColor &c);
-    virtual void internalDrawQuad(const type::Vec3 &p1,const type::Vec3 &p2,const type::Vec3 &p3,const type::Vec3 &p4,
-            const type::Vec3 &normal,
-            const type::RGBAColor &c1, const type::RGBAColor &c2, const type::RGBAColor &c3, const type::RGBAColor &c4);
-    virtual void internalDrawQuad(const type::Vec3 &p1,const type::Vec3 &p2,const type::Vec3 &p3,const type::Vec3 &p4,
-            const type::Vec3 &normal1, const type::Vec3 &normal2, const type::Vec3 &normal3, const type::Vec3 &normal4,
-            const type::RGBAColor &c1, const type::RGBAColor &c2, const type::RGBAColor &c3, const type::RGBAColor &c4);
+    // Internal light state (replaces glGetLightfv)
+    float m_lightPos[4]  = {0.0f, 0.0f, 1.0f, 0.0f};
+    float m_lightAmb[4]  = {0.2f, 0.2f, 0.2f, 1.0f};
+    float m_lightDif[4]  = {0.8f, 0.8f, 0.8f, 1.0f};
+    float m_lightSpec[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+
+    // Saved state for saveLastState/restoreLastState
+    struct SavedGLState {
+        GLboolean blend;
+        GLboolean depthTest;
+        GLboolean depthMask;
+        GLboolean polygonOffsetLine;
+        GLint polygonMode[2];
+        GLfloat pointSize;
+        GLfloat lineWidth;
+        bool lightEnabled;
+    };
+    SavedGLState m_savedState {};
+
+    void initModernGL();
+    void flushVertexBuffer(GLenum mode, bool enableLighting = true);
+    void uploadMatrices();
+    void uploadLightState();
+    static void computeNormalMatrix(const float* modelview, float* normalMatrix3x3);
+
+    void pushVertex(const type::Vec3& pos, const type::Vec3& normal, const type::RGBAColor& color);
+    void pushVertex(float px, float py, float pz, float nx, float ny, float nz, const type::RGBAColor& color);
+    void pushQuadAsTriangles(const type::Vec3& p1, const type::Vec3& p2, const type::Vec3& p3, const type::Vec3& p4,
+            const type::Vec3& normal, const type::RGBAColor& color);
+    void pushQuadAsTriangles(const type::Vec3& p1, const type::Vec3& p2, const type::Vec3& p3, const type::Vec3& p4,
+            const type::Vec3& normal,
+            const type::RGBAColor& c1, const type::RGBAColor& c2, const type::RGBAColor& c3, const type::RGBAColor& c4);
+    void pushQuadAsTriangles(const type::Vec3& p1, const type::Vec3& p2, const type::Vec3& p3, const type::Vec3& p4,
+            const type::Vec3& n1, const type::Vec3& n2, const type::Vec3& n3, const type::Vec3& n4,
+            const type::RGBAColor& c1, const type::RGBAColor& c2, const type::RGBAColor& c3, const type::RGBAColor& c4);
+
+    // Matrix math helpers
+    static void mat4Identity(float* m);
+    static void mat4Multiply(float* result, const float* a, const float* b);
+    static void mat4Translation(float* m, float x, float y, float z);
+    static void mat4Scale(float* m, float sx, float sy, float sz);
+    const Mat16f& currentModelView() const;
+
+    // Sphere generation
+    void generateSphereTriangles(const type::Vec3& center, float rx, float ry, float rz,
+                                  const type::RGBAColor& color, unsigned int rings, unsigned int sectors);
 
 public:
     // getter & setter
     void setLightingEnabled(bool _isAnabled) override;
 
     bool getLightEnabled() {return mLightEnabled;}
+
+    const float* getLightPosition() const { return m_lightPos; }
+    const float* getLightAmbient() const { return m_lightAmb; }
+    const float* getLightDiffuse() const { return m_lightDif; }
+    const float* getLightSpecular() const { return m_lightSpec; }
 
     void setPolygonMode(int _mode, bool _wireframe) override;
 

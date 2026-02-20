@@ -61,6 +61,7 @@ if(GLEW_FOUND)
     )
     list(APPEND SHADER_FILES
         ${SOFAGLSRC_ROOT}/shaders/generateSphere.cppglsl
+        ${SOFAGLSRC_ROOT}/shaders/drawToolGL.cppglsl
     )
 endif()
 

@@ -30,6 +30,7 @@
 #include <sofa/core/topology/BaseMeshTopology.h>
 #include <cstring>
 #include <sofa/type/RGBAColor.h>
+#include <sofa/gl/DrawToolGL.h>
 
 namespace sofa::gl::component::rendering3d
 {
@@ -37,6 +38,96 @@ namespace sofa::gl::component::rendering3d
 using sofa::type::RGBAColor;
 using sofa::type::Material;
 using namespace sofa::type;
+
+// ---------------------------------------------------------------------------
+// GLSL 410 core shaders for OglModel Blinn-Phong rendering
+// ---------------------------------------------------------------------------
+static const char* s_oglVertexShader = R"GLSL(
+#version 410 core
+
+layout(location = 0) in vec3 a_position;
+layout(location = 1) in vec3 a_normal;
+layout(location = 2) in vec2 a_texCoord;
+
+uniform mat4 u_modelViewMatrix;
+uniform mat4 u_projectionMatrix;
+uniform mat3 u_normalMatrix;
+
+out vec3 v_viewPos;
+out vec3 v_normal;
+out vec2 v_texCoord;
+
+void main()
+{
+    vec4 viewPos4 = u_modelViewMatrix * vec4(a_position, 1.0);
+    v_viewPos  = viewPos4.xyz;
+    v_normal   = u_normalMatrix * a_normal;
+    v_texCoord = a_texCoord;
+    gl_Position = u_projectionMatrix * viewPos4;
+    gl_PointSize = 1.0;
+}
+)GLSL";
+
+static const char* s_oglFragmentShader = R"GLSL(
+#version 410 core
+
+in vec3 v_viewPos;
+in vec3 v_normal;
+in vec2 v_texCoord;
+
+uniform vec4  u_matAmbient;
+uniform vec4  u_matDiffuse;
+uniform vec4  u_matSpecular;
+uniform vec4  u_matEmissive;
+uniform float u_matShininess;
+
+uniform vec4 u_lightPosition;
+uniform vec4 u_lightAmbient;
+uniform vec4 u_lightDiffuse;
+uniform vec4 u_lightSpecular;
+
+uniform bool      u_hasTexture;
+uniform sampler2D u_texture;
+
+out vec4 fragColor;
+
+void main()
+{
+    vec3 N = normalize(v_normal);
+    if (!gl_FrontFacing)
+        N = -N;
+
+    // Light direction (view space). w==0 means directional.
+    vec3 L;
+    if (u_lightPosition.w == 0.0)
+        L = normalize(u_lightPosition.xyz);
+    else
+        L = normalize(u_lightPosition.xyz - v_viewPos);
+
+    float NdotL = max(dot(N, L), 0.0);
+
+    // View direction (camera is at origin in view space)
+    vec3 V = normalize(-v_viewPos);
+    // Blinn half-vector
+    vec3 H = normalize(L + V);
+    float NdotH = max(dot(N, H), 0.0);
+    float spec = (NdotL > 0.0) ? pow(NdotH, u_matShininess) : 0.0;
+
+    vec4 ambient  = u_lightAmbient  * u_matAmbient;
+    vec4 diffuse  = u_lightDiffuse  * u_matDiffuse  * NdotL;
+    vec4 specular = u_lightSpecular * u_matSpecular * spec;
+    vec4 color    = u_matEmissive + ambient + diffuse + specular;
+
+    if (u_hasTexture)
+    {
+        vec4 texColor = texture(u_texture, v_texCoord);
+        color *= texColor;
+    }
+
+    color.a = u_matDiffuse.a;
+    fragColor = clamp(color, 0.0, 1.0);
+}
+)GLSL";
 
 void registerOglModel(sofa::core::ObjectFactory* factory)
 {
@@ -127,20 +218,176 @@ void OglModel::deleteBuffers()
 
 OglModel::~OglModel()
 {
+    if (m_oglVao) glDeleteVertexArrays(1, &m_oglVao);
+    if (m_oglProgram) glDeleteProgram(m_oglProgram);
+    if (m_dummyTexture) glDeleteTextures(1, &m_dummyTexture);
     deleteTextures();
     deleteBuffers();
 }
 
+// ---------------------------------------------------------------------------
+// Modern GL shader infrastructure
+// ---------------------------------------------------------------------------
+
+void OglModel::initOglShader()
+{
+    if (m_oglShaderReady)
+        return;
+
+    auto compileShader = [this](GLenum type, const char* src) -> GLuint
+    {
+        GLuint s = glCreateShader(type);
+        glShaderSource(s, 1, &src, nullptr);
+        glCompileShader(s);
+        GLint ok = 0;
+        glGetShaderiv(s, GL_COMPILE_STATUS, &ok);
+        if (!ok)
+        {
+            char log[1024];
+            glGetShaderInfoLog(s, sizeof(log), nullptr, log);
+            msg_error() << "OglModel shader compile error ("
+                        << (type == GL_VERTEX_SHADER ? "vertex" : "fragment")
+                        << "):\n" << log;
+            glDeleteShader(s);
+            return 0;
+        }
+        return s;
+    };
+
+    GLuint vs = compileShader(GL_VERTEX_SHADER, s_oglVertexShader);
+    if (!vs) return;
+
+    GLuint fs = compileShader(GL_FRAGMENT_SHADER, s_oglFragmentShader);
+    if (!fs) { glDeleteShader(vs); return; }
+
+    m_oglProgram = glCreateProgram();
+    glAttachShader(m_oglProgram, vs);
+    glAttachShader(m_oglProgram, fs);
+    glLinkProgram(m_oglProgram);
+
+    glDeleteShader(vs);
+    glDeleteShader(fs);
+
+    GLint linked = 0;
+    glGetProgramiv(m_oglProgram, GL_LINK_STATUS, &linked);
+    if (!linked)
+    {
+        char log[1024];
+        glGetProgramInfoLog(m_oglProgram, sizeof(log), nullptr, log);
+        msg_error() << "OglModel shader link error:\n" << log;
+        glDeleteProgram(m_oglProgram);
+        m_oglProgram = 0;
+        return;
+    }
+
+    // Cache uniform locations
+    m_uMVMatrix    = glGetUniformLocation(m_oglProgram, "u_modelViewMatrix");
+    m_uProjMatrix  = glGetUniformLocation(m_oglProgram, "u_projectionMatrix");
+    m_uNormalMatrix= glGetUniformLocation(m_oglProgram, "u_normalMatrix");
+    m_uMatAmbient  = glGetUniformLocation(m_oglProgram, "u_matAmbient");
+    m_uMatDiffuse  = glGetUniformLocation(m_oglProgram, "u_matDiffuse");
+    m_uMatSpecular = glGetUniformLocation(m_oglProgram, "u_matSpecular");
+    m_uMatEmissive = glGetUniformLocation(m_oglProgram, "u_matEmissive");
+    m_uMatShininess= glGetUniformLocation(m_oglProgram, "u_matShininess");
+    m_uLightPos    = glGetUniformLocation(m_oglProgram, "u_lightPosition");
+    m_uLightAmb    = glGetUniformLocation(m_oglProgram, "u_lightAmbient");
+    m_uLightDif    = glGetUniformLocation(m_oglProgram, "u_lightDiffuse");
+    m_uLightSpec   = glGetUniformLocation(m_oglProgram, "u_lightSpecular");
+    m_uHasTexture  = glGetUniformLocation(m_oglProgram, "u_hasTexture");
+    m_uTexSampler  = glGetUniformLocation(m_oglProgram, "u_texture");
+
+    // Create VAO
+    glGenVertexArrays(1, &m_oglVao);
+
+    // Create a 1x1 white dummy texture so the sampler always has a valid texture bound
+    glGenTextures(1, &m_dummyTexture);
+    glBindTexture(GL_TEXTURE_2D, m_dummyTexture);
+    const GLubyte white[] = { 255, 255, 255, 255 };
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, white);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    m_oglShaderReady = true;
+}
+
+void OglModel::computeNormalMatrix3x3(const float* mv, float* nm)
+{
+    // Transpose of inverse of upper-left 3x3 of the modelview matrix
+    const float a00 = mv[0], a01 = mv[4], a02 = mv[8];
+    const float a10 = mv[1], a11 = mv[5], a12 = mv[9];
+    const float a20 = mv[2], a21 = mv[6], a22 = mv[10];
+
+    const float det = a00 * (a11 * a22 - a12 * a21)
+                    - a01 * (a10 * a22 - a12 * a20)
+                    + a02 * (a10 * a21 - a11 * a20);
+
+    if (std::fabs(det) < 1e-12f)
+    {
+        // Degenerate matrix - use identity
+        nm[0] = 1; nm[1] = 0; nm[2] = 0;
+        nm[3] = 0; nm[4] = 1; nm[5] = 0;
+        nm[6] = 0; nm[7] = 0; nm[8] = 1;
+        return;
+    }
+
+    const float invDet = 1.0f / det;
+    // Cofactor matrix transposed (= adjugate), then divided by det
+    // Result is transpose(inverse(M3x3))
+    nm[0] = (a11 * a22 - a12 * a21) * invDet;
+    nm[1] = (a12 * a20 - a10 * a22) * invDet;
+    nm[2] = (a10 * a21 - a11 * a20) * invDet;
+    nm[3] = (a02 * a21 - a01 * a22) * invDet;
+    nm[4] = (a00 * a22 - a02 * a20) * invDet;
+    nm[5] = (a20 * a01 - a00 * a21) * invDet;
+    nm[6] = (a01 * a12 - a02 * a11) * invDet;
+    nm[7] = (a02 * a10 - a00 * a12) * invDet;
+    nm[8] = (a00 * a11 - a01 * a10) * invDet;
+}
+
+void OglModel::mat4Mult(float* result, const float* a, const float* b)
+{
+    float tmp[16];
+    for (int col = 0; col < 4; ++col)
+        for (int row = 0; row < 4; ++row)
+        {
+            tmp[col * 4 + row] = 0.0f;
+            for (int k = 0; k < 4; ++k)
+                tmp[col * 4 + row] += a[k * 4 + row] * b[col * 4 + k];
+        }
+    std::copy(tmp, tmp + 16, result);
+}
+
+void OglModel::uploadModelViewToShader()
+{
+    glUniformMatrix4fv(m_uMVMatrix, 1, GL_FALSE, m_currentMV);
+
+    float normalMatrix[9];
+    computeNormalMatrix3x3(m_currentMV, normalMatrix);
+    glUniformMatrix3fv(m_uNormalMatrix, 1, GL_TRUE, normalMatrix);
+}
+
+void OglModel::pushTransformMatrix(float* matrix)
+{
+    mat4Mult(m_currentMV, m_baseMV, matrix);
+    uploadModelViewToShader();
+}
+
+void OglModel::popTransformMatrix()
+{
+    std::copy(m_baseMV, m_baseMV + 16, m_currentMV);
+    uploadModelViewToShader();
+}
+
+// ---------------------------------------------------------------------------
+
 void OglModel::drawGroup(int ig, bool transparent)
 {
-    glEnable(GL_NORMALIZE);
-
     const Inherit::VecVisualEdge& edges = this->getEdges();
     const Inherit::VecVisualTriangle& triangles = this->getTriangles();
     const Inherit::VecVisualQuad& quads = this->getQuads();
 
     const VecCoord& vertices = this->getVertices();
-    const VecDeriv& vnormals = this->getVnormals();
 
     FaceGroup g;
     if (ig < 0)
@@ -166,24 +413,17 @@ void OglModel::drawGroup(int ig, bool transparent)
     bool isTransparent = (m.useDiffuse && m.diffuse[3] < 1.0f) || hasTransparent();
     if (transparent ^ isTransparent) return;
 
-
+    // Per-group texture binding (texture coordinates are already set up in VAO)
     if (!m_tex && m.useTexture && m.activated)
     {
         //get the texture id corresponding to the current material
         size_t indexInTextureArray = size_t(materialTextureIdMap[g.materialId]);
         if (indexInTextureArray < textures.size() && textures[indexInTextureArray])
         {
+            glActiveTexture(GL_TEXTURE0);
             textures[indexInTextureArray]->bind();
         }
-
-        glEnable(GL_TEXTURE_2D);
-
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	    uintptr_t pt = (vertices.size()*sizeof(vertices[0]))
-                    + (vnormals.size()*sizeof(vnormals[0]));
-        glTexCoordPointer(2, GL_FLOAT, 0, reinterpret_cast<void*>(pt));
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
-        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+        glUniform1i(m_uHasTexture, 1);
     }
 
     RGBAColor ambient = m.useAmbient?m.ambient:RGBAColor::black();
@@ -201,26 +441,36 @@ void OglModel::drawGroup(int ig, bool transparent)
 
     if (isTransparent)
     {
-        emissive[3] = 0; //diffuse[3];
-        ambient[3] = 0; //diffuse[3];
-        //diffuse[3] = 0;
+        emissive[3] = 0;
+        ambient[3] = 0;
         specular[3] = 0;
     }
-    glMaterialfv (GL_FRONT_AND_BACK, GL_AMBIENT, ambient.data());
-    glMaterialfv (GL_FRONT_AND_BACK, GL_DIFFUSE, diffuse.data());
-    glMaterialfv (GL_FRONT_AND_BACK, GL_SPECULAR, specular.data());
-    glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, emissive.data());
-    glMaterialf (GL_FRONT_AND_BACK, GL_SHININESS, shininess);
+
     const bool drawPoints = (primitiveType.getValue().getSelectedId() == 3);
     if (drawPoints)
     {
-        //Disable lighting if we draw points
-        glDisable(GL_LIGHTING);
-        glColor4fv(diffuse.data());
+        // Simulate unlit rendering: put diffuse color into emissive, zero the rest
+        glUniform4fv(m_uMatAmbient, 1, RGBAColor::black().data());
+        glUniform4fv(m_uMatDiffuse, 1, RGBAColor::black().data());
+        glUniform4fv(m_uMatSpecular, 1, RGBAColor::black().data());
+        glUniform4fv(m_uMatEmissive, 1, diffuse.data());
+        glUniform1f(m_uMatShininess, 1.0f);
+
         glDrawArrays(GL_POINTS, 0, GLsizei(vertices.size()));
-        glEnable(GL_LIGHTING);
-        glColor4f(1.0,1.0,1.0,1.0);
+
+        // Restore actual material for subsequent geometry if any
+        glUniform4fv(m_uMatEmissive, 1, emissive.data());
     }
+    else
+    {
+        // Upload material uniforms
+        glUniform4fv(m_uMatAmbient, 1, ambient.data());
+        glUniform4fv(m_uMatDiffuse, 1, diffuse.data());
+        glUniform4fv(m_uMatSpecular, 1, specular.data());
+        glUniform4fv(m_uMatEmissive, 1, emissive.data());
+        glUniform1f(m_uMatShininess, shininess);
+    }
+
     if (g.nbe > 0 && !drawPoints)
     {
         const VisualEdge* indices = nullptr;
@@ -300,8 +550,8 @@ void OglModel::drawGroup(int ig, bool transparent)
         {
             textures[size_t(indexInTextureArray)]->unbind();
         }
-        glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-        glDisable(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, m_dummyTexture);
+        glUniform1i(m_uHasTexture, 0);
     }
 }
 
@@ -320,18 +570,6 @@ void OglModel::drawGroups(bool transparent)
     }
 }
 
-
-void glVertex3v(const float* d){ glVertex3fv(d); }
-void glVertex3v(const double* d){ glVertex3dv(d); }
-
-template<class T>
-GLuint glType(){ return GL_FLOAT; }
-
-template<>
-GLuint glType<double>(){ return GL_DOUBLE; }
-
-template<>
-GLuint glType<float>(){ return GL_FLOAT; }
 
 template<class InType, class OutType>
 void copyVector(const InType& src, OutType& dst)
@@ -353,77 +591,111 @@ void OglModel::internalDraw(const core::visual::VisualParams* vparams, bool tran
     if(!VBOGenDone)
         return;
 
+    // Lazy-init the modern GL shader and VAO
+    initOglShader();
+    if (!m_oglShaderReady)
+        return;
+
     const VecCoord& vertices = this->getVertices();
     const VecDeriv& vnormals = this->getVnormals();
     const VecTexCoord& vtexcoords= this->getVtexcoords();
-    const VecCoord& vtangents= this->getVtangents();
-    const VecCoord& vbitangents= this->getVbitangents();
-    const bool hasTangents = vtangents.size() && vbitangents.size();
-
-
-    glEnable(GL_LIGHTING);
-
-    glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
-    glColor3f(1.0 , 1.0, 1.0);
 
     /// Force the data to be of float type before sending to opengl...
-    const GLuint datatype = GL_FLOAT;
-    const GLuint vertexdatasize = sizeof(verticesTmpBuffer[0]);
-    const GLuint normaldatasize = sizeof(normalsTmpBuffer[0]);
+    const GLuint vertexdatasize = sizeof(Vec3f);
+    const GLuint normaldatasize = sizeof(Vec3f);
 
     const GLulong vertexArrayByteSize = vertices.size() * vertexdatasize;
     const GLulong normalArrayByteSize = vnormals.size() * normaldatasize;
 
-    //// Update the vertex buffers.
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glVertexPointer(3, datatype, 0, nullptr);
-    glNormalPointer(datatype, 0, reinterpret_cast<void*>(vertexArrayByteSize));
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-
-    glEnableClientState(GL_NORMAL_ARRAY);
-    glEnableClientState(GL_VERTEX_ARRAY);
-
-    if ((m_tex || d_putOnlyTexCoords.getValue()) )
+    // --- Read matrices from vparams (double -> float) ---
     {
-        if(m_tex)
+        double dMV[16];
+        vparams->getModelViewMatrix(dMV);
+        for (int i = 0; i < 16; ++i)
         {
-            glEnable(GL_TEXTURE_2D);
-            m_tex->bind();
-        }
-
-        const size_t textureArrayByteSize = vtexcoords.size()*sizeof(vtexcoords[0]);
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glTexCoordPointer(2, GL_FLOAT, 0, reinterpret_cast<void*>(vertexArrayByteSize + normalArrayByteSize ));
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-
-        if (hasTangents)
-        {
-            const size_t tangentArrayByteSize = vtangents.size()*sizeof(vtangents[0]);
-
-            glClientActiveTexture(GL_TEXTURE1);
-            glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-
-            glBindBuffer(GL_ARRAY_BUFFER, vbo);
-            glTexCoordPointer(3, GL_DOUBLE, 0,
-                              reinterpret_cast<void*>(vertexArrayByteSize + normalArrayByteSize + textureArrayByteSize));
-            glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-            glClientActiveTexture(GL_TEXTURE2);
-            glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-
-            glBindBuffer(GL_ARRAY_BUFFER, vbo);
-            glTexCoordPointer(3, GL_DOUBLE, 0,
-                              reinterpret_cast<void*>(vertexArrayByteSize + normalArrayByteSize
-                              + textureArrayByteSize + tangentArrayByteSize));
-            glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-            glClientActiveTexture(GL_TEXTURE0);
+            m_baseMV[i]    = static_cast<float>(dMV[i]);
+            m_currentMV[i] = m_baseMV[i];
         }
     }
 
+    float projMatrix[16];
+    {
+        double dProj[16];
+        vparams->getProjectionMatrix(dProj);
+        for (int i = 0; i < 16; ++i)
+            projMatrix[i] = static_cast<float>(dProj[i]);
+    }
+
+    // --- Read light state from DrawToolGL if available, else use defaults ---
+    float lightPos[4]  = {0.0f, 0.5f, 1.0f, 0.0f};
+    float lightAmb[4]  = {0.2f, 0.2f, 0.2f, 1.0f};
+    float lightDif[4]  = {0.8f, 0.8f, 0.8f, 1.0f};
+    float lightSpec[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+
+    if (const auto* drawToolGL = dynamic_cast<const sofa::gl::DrawToolGL*>(vparams->drawTool()))
+    {
+        std::copy(drawToolGL->getLightPosition(), drawToolGL->getLightPosition() + 4, lightPos);
+        std::copy(drawToolGL->getLightAmbient(),  drawToolGL->getLightAmbient()  + 4, lightAmb);
+        std::copy(drawToolGL->getLightDiffuse(),  drawToolGL->getLightDiffuse()  + 4, lightDif);
+        std::copy(drawToolGL->getLightSpecular(), drawToolGL->getLightSpecular() + 4, lightSpec);
+    }
+
+    // --- Bind VAO and set up vertex attribute pointers ---
+    glBindVertexArray(m_oglVao);
+
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+
+    // Attrib 0: position
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
+    glEnableVertexAttribArray(0);
+
+    // Attrib 1: normal
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, reinterpret_cast<void*>(vertexArrayByteSize));
+    glEnableVertexAttribArray(1);
+
+    // Attrib 2: texcoord (optional)
+    const bool hasTexCoords = (m_tex || d_putOnlyTexCoords.getValue() || !textures.empty());
+    if (hasTexCoords && !vtexcoords.empty())
+    {
+        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0,
+                              reinterpret_cast<void*>(vertexArrayByteSize + normalArrayByteSize));
+        glEnableVertexAttribArray(2);
+    }
+
+    // Note: do NOT unbind VBO here - VAO records the bound VBO for each attribute
+
+    // --- Activate shader ---
+    glUseProgram(m_oglProgram);
+
+    // Upload projection matrix
+    glUniformMatrix4fv(m_uProjMatrix, 1, GL_FALSE, projMatrix);
+
+    // Upload modelview + normal matrix
+    uploadModelViewToShader();
+
+    // Upload light uniforms
+    glUniform4fv(m_uLightPos,  1, lightPos);
+    glUniform4fv(m_uLightAmb,  1, lightAmb);
+    glUniform4fv(m_uLightDif,  1, lightDif);
+    glUniform4fv(m_uLightSpec, 1, lightSpec);
+
+    // Texture sampler is always unit 0
+    glUniform1i(m_uTexSampler, 0);
+
+    // Always bind a valid texture to unit 0 to avoid driver warnings
+    glActiveTexture(GL_TEXTURE0);
+    if (m_tex)
+    {
+        m_tex->bind();
+        glUniform1i(m_uHasTexture, 1);
+    }
+    else
+    {
+        glBindTexture(GL_TEXTURE_2D, m_dummyTexture);
+        glUniform1i(m_uHasTexture, 0);
+    }
+
+    // --- Blending for transparency (first pass: subtractive) ---
     if (transparent && blendTransparency.getValue())
     {
         glEnable(GL_BLEND);
@@ -474,28 +746,7 @@ void OglModel::internalDraw(const core::visual::VisualParams* vparams, bool tran
         glPointSize(pointSize.getValue());
     }
 
-    if (pointSmooth.getValue())
-    {
-        glEnable(GL_POINT_SMOOTH);
-    }
-
-    if (lineSmooth.getValue())
-    {
-        glEnable(GL_LINE_SMOOTH);
-        glHint( GL_LINE_SMOOTH_HINT, GL_NICEST );
-    }
-
     drawGroups(transparent);
-
-    if (lineSmooth.getValue())
-    {
-        glDisable(GL_LINE_SMOOTH);
-    }
-
-    if (pointSmooth.getValue())
-    {
-        glDisable(GL_POINT_SMOOTH);
-    }
 
     if (lineWidth.isSet())
     {
@@ -527,25 +778,11 @@ void OglModel::internalDraw(const core::visual::VisualParams* vparams, bool tran
         glDepthMask(GL_TRUE);
     }
 
-    if ( (m_tex || d_putOnlyTexCoords.getValue()) )
+    // Unbind global texture if set
+    if (m_tex)
     {
-        if (m_tex)
-        {
-            m_tex->unbind();
-            glDisable(GL_TEXTURE_2D);
-        }
-        glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-        if (hasTangents)
-        {
-            glClientActiveTexture(GL_TEXTURE1);
-            glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-            glClientActiveTexture(GL_TEXTURE2);
-            glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-            glClientActiveTexture(GL_TEXTURE0);
-        }
+        m_tex->unbind();
     }
-    glDisableClientState(GL_NORMAL_ARRAY);
-    glDisable(GL_LIGHTING);
 
     if (transparent && blendTransparency.getValue())
     {
@@ -554,28 +791,21 @@ void OglModel::internalDraw(const core::visual::VisualParams* vparams, bool tran
         glDepthMask(GL_TRUE);
     }
 
-    if (vparams->displayFlags().getShowNormals())
-    {
-        glColor3f (1.0, 1.0, 1.0);
-        for (unsigned int i=0; i<xforms.size(); i++)
-        {
-            float matrix[16];
-            xforms[i].writeOpenGlMatrix(matrix);
-            glPushMatrix();
-            glMultMatrixf(matrix);
+    // --- Deactivate shader and unbind VAO ---
+    glUseProgram(0);
 
-            glBegin(GL_LINES);
-            for (unsigned int i = 0; i < vertices.size(); i++)
-            {
-                glVertex3v(vertices[i].ptr());
-                Coord p = vertices[i] + vnormals[i];
-                glVertex3v(p.ptr());
-            }
-            glEnd();
+    // Disable vertex attribs
+    glDisableVertexAttribArray(0);
+    glDisableVertexAttribArray(1);
+    if (hasTexCoords && !vtexcoords.empty())
+        glDisableVertexAttribArray(2);
 
-            glPopMatrix();
-        }
-    }
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+    // Normal visualization is currently a no-op in core profile.
+    // TODO: Implement normal visualization with a separate line-drawing shader.
+    // if (vparams->displayFlags().getShowNormals()) { ... }
 }
 
 bool OglModel::hasTransparent()
@@ -653,19 +883,6 @@ void OglModel::doInitVisual(const core::visual::VisualParams*)
     initTextures();
 
     initDone = true;
-    static bool vboAvailable = false; // check the vbo availability
-
-    static bool init = false;
-    if(!init)
-    {
-        vboAvailable = CanUseGlExtension( "GL_ARB_vertex_buffer_object" );
-        init = true;
-    }
-
-    if (!vboAvailable)
-    {
-        msg_warning() << "OglModel : VBO is not supported by your GPU" ;
-    }
 
     if (primitiveType.getValue().getSelectedId() == 1 && !GLEW_EXT_geometry_shader4)
     {

@@ -456,12 +456,7 @@ void Texture::init()
     glGenTextures(1, &id); // Create the texture.
     glBindTexture(target, id);
 
-#if defined(GLEW_VERSION_1_4)
-    if (generateMipmaps)
-        glTexParameteri(target, GL_GENERATE_MIPMAP, GL_TRUE);
-    else
-#endif
-        generateMipmaps = false;
+    // generateMipmaps will be handled after texture data upload via glGenerateMipmap
 
     if (linearInterpolation)
     {
@@ -519,6 +514,9 @@ void Texture::init()
 #endif
 
     update();
+
+    if (generateMipmaps)
+        glGenerateMipmap(target);
 }
 
 void Texture::bind(void)

@@ -21,11 +21,12 @@
 ******************************************************************************/
 #include <cassert>
 #include <sofa/gl/FrameBufferObject.h>
+#include <sofa/helper/logging/Messaging.h>
 
 
 namespace sofa::gl
 {
-    
+
 FrameBufferObject::FrameBufferObject(bool depthTexture, bool enableDepth, bool enableColor, bool enableMipMap, GLint defaultWindowFramebuffer)
     :m_defaultWindowFramebufferID(defaultWindowFramebuffer)
     ,width(0)
@@ -78,7 +79,7 @@ void FrameBufferObject::destroy()
             if(depthTexture)
                 glDeleteTextures( 1, &depthTextureID );
             else
-                glDeleteRenderbuffersEXT(1, &depthTextureID);
+                glDeleteRenderbuffers(1, &depthTextureID);
         }
 
         if(enableColor)
@@ -86,65 +87,47 @@ void FrameBufferObject::destroy()
             glDeleteTextures( 1, &colorTextureID );
         }
 
-        glDeleteFramebuffersEXT( 1, &id );
+        glDeleteFramebuffers( 1, &id );
         initialized = false;
     }
 }
 
 bool FrameBufferObject::checkFBO()
 {
-
-    GLenum status;
-    status = glCheckFramebufferStatusEXT(GL_FRAMEBUFFER_EXT);
+    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     switch(status)
     {
-    case GL_FRAMEBUFFER_COMPLETE_EXT:
+    case GL_FRAMEBUFFER_COMPLETE:
         return true;
-        break;
-    case GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT_EXT:
-        assert(false && "GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT_EXT");
+    case GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT:
+        msg_error("FrameBufferObject") << "GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT";
         return false;
-        break;
-    case GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_EXT:
-        assert(false && "GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_EXT");
+    case GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT:
+        msg_error("FrameBufferObject") << "GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT";
         return false;
-        break;
-    case GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS_EXT:
-        assert(false && "GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS_EXT");
+    case GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER:
+        msg_error("FrameBufferObject") << "GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER";
         return false;
-        break;
-    case GL_FRAMEBUFFER_INCOMPLETE_FORMATS_EXT:
-        assert(false && "GL_FRAMEBUFFER_INCOMPLETE_FORMATS_EXT");
+    case GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER:
+        msg_error("FrameBufferObject") << "GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER";
         return false;
-        break;
-    case GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER_EXT:
-        assert(false && "GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER_EXT");
+    case GL_FRAMEBUFFER_UNSUPPORTED:
+        msg_error("FrameBufferObject") << "GL_FRAMEBUFFER_UNSUPPORTED";
         return false;
-        break;
-    case GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER_EXT:
-        assert(false && "GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER_EXT");
-        return false;
-        break;
-    case GL_FRAMEBUFFER_UNSUPPORTED_EXT:
-        assert(false && "GL_FRAMEBUFFER_UNSUPPORTED_EXT");
-        return false;
-        break;
     default:
-        assert(false && "Unknown ERROR");
+        msg_error("FrameBufferObject") << "Unknown framebuffer error: " << status;
         return false;
     }
-
-
 }
 
 void FrameBufferObject::init(unsigned int width, unsigned height)
 {
     if (!initialized)
-    {        
+    {
         this->width = width;
         this->height = height;
-        glGenFramebuffersEXT(1, &id);
-        glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, id);
+        glGenFramebuffers(1, &id);
+        glBindFramebuffer(GL_FRAMEBUFFER, id);
 
         if(enableDepth)
         {
@@ -153,19 +136,26 @@ void FrameBufferObject::init(unsigned int width, unsigned height)
 
             //choice between rendering depth into a texture or a renderbuffer
             if(depthTexture)
-                glFramebufferTexture2DEXT(GL_FRAMEBUFFER_EXT, GL_DEPTH_ATTACHMENT_EXT, GL_TEXTURE_2D, depthTextureID, 0);
+                glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthTextureID, 0);
             else
-                glFramebufferRenderbufferEXT(GL_FRAMEBUFFER_EXT, GL_DEPTH_ATTACHMENT_EXT, GL_RENDERBUFFER_EXT, depthTextureID);
+                glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthTextureID);
         }
 
         if(enableColor)
         {
             createColorBuffer();
             initColorBuffer();
-            glFramebufferTexture2DEXT(GL_FRAMEBUFFER_EXT, GL_COLOR_ATTACHMENT0_EXT, GL_TEXTURE_2D, colorTextureID, 0);
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, colorTextureID, 0);
         }
 
-        glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, m_defaultWindowFramebufferID);
+        if (!checkFBO())
+        {
+            msg_error("FrameBufferObject") << "FBO is not complete after init ("
+                << width << "x" << height << "), id=" << id
+                << ", colorTex=" << colorTextureID << ", depthRB=" << depthTextureID;
+        }
+
+        glBindFramebuffer(GL_FRAMEBUFFER, m_defaultWindowFramebufferID);
 
         if(enableColor)
         {
@@ -173,11 +163,7 @@ void FrameBufferObject::init(unsigned int width, unsigned height)
             glReadBuffer(GL_BACK);
         }
 
-#ifdef _DEBUG
-        checkFBO();
-#endif
         initialized=true;
-        glDisable(GL_TEXTURE_2D);
     }
     else
         setSize(width, height);
@@ -201,12 +187,12 @@ void FrameBufferObject::start()
 {
     if (initialized)
     {
-        glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, id);
+        glBindFramebuffer(GL_FRAMEBUFFER, id);
 
         if(enableColor)
         {
-            glReadBuffer(GL_COLOR_ATTACHMENT0_EXT);
-            glDrawBuffer(GL_COLOR_ATTACHMENT0_EXT);
+            glReadBuffer(GL_COLOR_ATTACHMENT0);
+            glDrawBuffer(GL_COLOR_ATTACHMENT0);
         }
     }
 }
@@ -215,7 +201,7 @@ void FrameBufferObject::stop()
 {
     if (initialized)
     {
-        glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, m_defaultWindowFramebufferID);
+        glBindFramebuffer(GL_FRAMEBUFFER, m_defaultWindowFramebufferID);
 
         if(enableColor)
         {
@@ -242,7 +228,7 @@ GLuint FrameBufferObject::getColorTexture()
 
 void FrameBufferObject::setSize(unsigned int width, unsigned height)
 {
-    if (initialized)
+    if (initialized && width > 0 && height > 0)
     {
         this->width = width;
         this->height = height;
@@ -256,19 +242,14 @@ void FrameBufferObject::setSize(unsigned int width, unsigned height)
 
 void FrameBufferObject::createDepthBuffer()
 {
-    //Depth Texture
-    glEnable(GL_TEXTURE_2D);
     if(depthTexture)
         glGenTextures(1, &depthTextureID);
     else
-        glGenRenderbuffersEXT(1, &depthTextureID);
-
+        glGenRenderbuffers(1, &depthTextureID);
 }
 
 void FrameBufferObject::createColorBuffer()
 {
-    //Color Texture
-    glEnable(GL_TEXTURE_2D);
     glGenTextures(1, &colorTextureID);
 }
 
@@ -277,7 +258,6 @@ void FrameBufferObject::initDepthBuffer()
     if(depthTexture)
     {
         glBindTexture(GL_TEXTURE_2D, depthTextureID);
-        glTexParameteri(GL_TEXTURE_2D, GL_DEPTH_TEXTURE_MODE, GL_INTENSITY);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
@@ -288,9 +268,9 @@ void FrameBufferObject::initDepthBuffer()
     }
     else
     {
-        glBindRenderbufferEXT(GL_RENDERBUFFER_EXT, depthTextureID);
-        glRenderbufferStorageEXT(GL_RENDERBUFFER_EXT, GL_DEPTH_COMPONENT, width, height);
-        glBindRenderbufferEXT(GL_RENDERBUFFER_EXT, 0);
+        glBindRenderbuffer(GL_RENDERBUFFER, depthTextureID);
+        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, width, height);
+        glBindRenderbuffer(GL_RENDERBUFFER, 0);
 
     }
 }

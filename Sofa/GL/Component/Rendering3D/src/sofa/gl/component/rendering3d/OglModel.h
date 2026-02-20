@@ -87,8 +87,28 @@ protected:
     void drawGroup(int ig, bool transparent);
     void drawGroups(bool transparent);
 
-    virtual void pushTransformMatrix(float* matrix) { glPushMatrix(); glMultMatrixf(matrix); }
-    virtual void popTransformMatrix() { glPopMatrix(); }
+    virtual void pushTransformMatrix(float* matrix);
+    virtual void popTransformMatrix();
+
+    // Modern GL shader infrastructure
+    GLuint m_oglVao = 0;
+    GLuint m_oglProgram = 0;
+    bool m_oglShaderReady = false;
+
+    GLint m_uMVMatrix = -1, m_uProjMatrix = -1, m_uNormalMatrix = -1;
+    GLint m_uMatAmbient = -1, m_uMatDiffuse = -1, m_uMatSpecular = -1;
+    GLint m_uMatEmissive = -1, m_uMatShininess = -1;
+    GLint m_uLightPos = -1, m_uLightAmb = -1, m_uLightDif = -1, m_uLightSpec = -1;
+    GLint m_uHasTexture = -1, m_uTexSampler = -1;
+    GLuint m_dummyTexture = 0;
+
+    float m_baseMV[16] {};
+    float m_currentMV[16] {};
+
+    void initOglShader();
+    void uploadModelViewToShader();
+    static void computeNormalMatrix3x3(const float* mv, float* nm);
+    static void mat4Mult(float* result, const float* a, const float* b);
 
     std::vector<sofa::gl::Texture*> textures;
 

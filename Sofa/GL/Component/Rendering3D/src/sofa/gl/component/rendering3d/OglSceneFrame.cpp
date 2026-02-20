@@ -22,6 +22,8 @@
 #include <sofa/gl/component/rendering3d/OglSceneFrame.h>
 #include <sofa/core/ObjectFactory.h>
 #include <sofa/gl/gl.h>
+#include <sofa/gl/DrawToolGL.h>
+#include <cmath>
 
 namespace sofa::gl::component::rendering3d
 {
@@ -129,27 +131,38 @@ void OglSceneFrame::doDrawVisual(const core::visual::VisualParams* vparams)
             glScissor(0,viewport[3]-viewportSize,viewportSize,viewportSize);
             break;
     }
-        
+
     glEnable(GL_SCISSOR_TEST);
-    // only reset depth to appear on front
-    glClear(GL_DEPTH_BUFFER_BIT );
-    
-    glMatrixMode(GL_PROJECTION);
-    vparams->drawTool()->pushMatrix();
-    glLoadIdentity();
-    gluPerspective(60.0, 1.0, 0.5, 10.0);
+    glClear(GL_DEPTH_BUFFER_BIT);
 
-    GLdouble matrix[16];
-    vparams->getModelViewMatrix(matrix);
+    // Build perspective projection matrix (replaces gluPerspective)
+    constexpr double fov = 60.0;
+    constexpr double aspect = 1.0;
+    constexpr double zNear = 0.5;
+    constexpr double zFar = 10.0;
+    constexpr double pi = 3.14159265358979323846;
+    const double f = 1.0 / std::tan(fov * pi / 360.0);
+    double projMatrix[16] = {};
+    projMatrix[0]  = f / aspect;
+    projMatrix[5]  = f;
+    projMatrix[10] = (zFar + zNear) / (zNear - zFar);
+    projMatrix[11] = -1.0;
+    projMatrix[14] = (2.0 * zFar * zNear) / (zNear - zFar);
 
-    matrix[12] = 0;
-    matrix[13] = 0;
-    matrix[14] = -3;
-    matrix[15] = 1;
+    // Build modelview matrix: camera rotation only, positioned at z=-3
+    double mvMatrix[16];
+    vparams->getModelViewMatrix(mvMatrix);
+    mvMatrix[12] = 0;
+    mvMatrix[13] = 0;
+    mvMatrix[14] = -3;
+    mvMatrix[15] = 1;
 
-    glMatrixMode(GL_MODELVIEW);
-    vparams->drawTool()->pushMatrix();
-    glLoadMatrixd(matrix);
+    auto* drawToolGL = dynamic_cast<sofa::gl::DrawToolGL*>(vparams->drawTool());
+    if (drawToolGL)
+    {
+        drawToolGL->setProjectionMatrix(projMatrix);
+        drawToolGL->setModelViewMatrix(mvMatrix);
+    }
 
     vparams->drawTool()->disableLighting();
 
@@ -169,12 +182,17 @@ void OglSceneFrame::doDrawVisual(const core::visual::VisualParams* vparams)
         break;
     }
 
-    glMatrixMode(GL_PROJECTION);
-    vparams->drawTool()->popMatrix();
-    glMatrixMode(GL_MODELVIEW);
-    vparams->drawTool()->popMatrix();
+    // Restore original camera matrices
+    if (drawToolGL)
+    {
+        double origProj[16], origMV[16];
+        vparams->getProjectionMatrix(origProj);
+        vparams->getModelViewMatrix(origMV);
+        drawToolGL->setProjectionMatrix(origProj);
+        drawToolGL->setModelViewMatrix(origMV);
+    }
 
-
+    glDisable(GL_SCISSOR_TEST);
     glViewport(viewport[0],viewport[1],viewport[2],viewport[3]);
 
 }
