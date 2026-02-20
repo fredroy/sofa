@@ -21,9 +21,14 @@
 ******************************************************************************/
 #include <sofa/gl/Cylinder.h>
 
+#if SOFA_GL_NO_FIXED_PIPELINE
+#include <sofa/gl/CoreProfileRenderer.h>
+#endif
+
 #include <cassert>
 #include <algorithm>
 #include <iostream>
+#include <cmath>
 
 
 namespace sofa::gl
@@ -105,9 +110,58 @@ void Cylinder::draw()
 
 #else // SOFA_GL_NO_FIXED_PIPELINE
 
-void Cylinder::initDraw() {}
+void Cylinder::initDraw()
+{
+    if (m_geometryReady) return;
 
-void Cylinder::draw() {}
+    const float yellow[4] = {1.0f, 1.0f, 0.0f, 1.0f};
+
+    // X axis cylinder
+    if (length[0] > 0.0)
+    {
+        float rad = (float)(length[0] / 15.0);
+        float p1[3] = {(float)(-length[0] / 2.0), 0, 0};
+        float p2[3] = {(float)(length[0] / 2.0), 0, 0};
+        CoreProfileRenderer::generateSphereTriangles(m_cachedVerts, p1[0], 0, 0, rad, rad, rad, yellow, quadricDiscretisation, quadricDiscretisation / 2);
+        CoreProfileRenderer::generateCylinderTriangles(m_cachedVerts, p1, p2, rad, yellow, quadricDiscretisation);
+        CoreProfileRenderer::generateSphereTriangles(m_cachedVerts, p2[0], 0, 0, rad, rad, rad, yellow, quadricDiscretisation, quadricDiscretisation / 2);
+    }
+
+    // Y axis cylinder
+    if (length[1] > 0.0)
+    {
+        float rad = (float)(length[1] / 15.0);
+        float p1[3] = {0, (float)(-length[1] / 2.0), 0};
+        float p2[3] = {0, (float)(length[1] / 2.0), 0};
+        CoreProfileRenderer::generateSphereTriangles(m_cachedVerts, 0, p1[1], 0, rad, rad, rad, yellow, quadricDiscretisation, quadricDiscretisation / 2);
+        CoreProfileRenderer::generateCylinderTriangles(m_cachedVerts, p1, p2, rad, yellow, quadricDiscretisation);
+        CoreProfileRenderer::generateSphereTriangles(m_cachedVerts, 0, p2[1], 0, rad, rad, rad, yellow, quadricDiscretisation, quadricDiscretisation / 2);
+    }
+
+    // Z axis cylinder
+    if (length[2] > 0.0)
+    {
+        float rad = (float)(length[2] / 15.0);
+        float p1[3] = {0, 0, (float)(-length[2] / 2.0)};
+        float p2[3] = {0, 0, (float)(length[2] / 2.0)};
+        CoreProfileRenderer::generateSphereTriangles(m_cachedVerts, 0, 0, p1[2], rad, rad, rad, yellow, quadricDiscretisation, quadricDiscretisation / 2);
+        CoreProfileRenderer::generateCylinderTriangles(m_cachedVerts, p1, p2, rad, yellow, quadricDiscretisation);
+        CoreProfileRenderer::generateSphereTriangles(m_cachedVerts, 0, 0, p2[2], rad, rad, rad, yellow, quadricDiscretisation, quadricDiscretisation / 2);
+    }
+
+    m_geometryReady = true;
+}
+
+void Cylinder::draw()
+{
+    initDraw();
+
+    float modelMat[16];
+    for (int i = 0; i < 16; ++i)
+        modelMat[i] = static_cast<float>(matTransOpenGL[i]);
+
+    CoreProfileRenderer::renderTriangles(m_cachedVerts, true, modelMat);
+}
 
 #endif // SOFA_GL_NO_FIXED_PIPELINE
 
@@ -149,55 +203,71 @@ void Cylinder::update(const Vec3& center, const Quaternion& orient)
 
 Cylinder::Cylinder(SReal len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = Vec3(len,len,len);
     update(Vec3(0_sreal,0_sreal,0_sreal),  Quaternion(1_sreal,0_sreal,0_sreal,0_sreal));
 }
 
 Cylinder::Cylinder(const Vec3& len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = len;
     update(Vec3(0_sreal,0_sreal,0_sreal),  Quaternion(1_sreal,0_sreal,0_sreal,0_sreal));
 }
 
 Cylinder::Cylinder(const Vec3& center, const Quaternion& orient, const Vec3& len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = len;
     update(center, orient);
 }
 
 Cylinder::Cylinder(const Vec3& center, const double orient[4][4], const Vec3& len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = len;
     update(center, orient);
 }
 
 Cylinder::Cylinder(const double *mat, const Vec3& len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = len;
     update(mat);
 }
 
 Cylinder::Cylinder(const Vec3& center, const Quaternion& orient, SReal len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = Vec3(len,len,len);
     update(center, orient);
 }
 Cylinder::Cylinder(const Vec3& center, const double orient[4][4], SReal len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = Vec3(len,len,len);
     update(center, orient);
 }
 
 Cylinder::Cylinder(const double *mat, SReal len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = Vec3(len,len,len);
     update(mat);
 }
@@ -264,12 +334,47 @@ void Cylinder::draw(const double *mat, SReal len)
 
 #else // SOFA_GL_NO_FIXED_PIPELINE
 
-void Cylinder::draw(const Vec3&, const Quaternion&, const Vec3&) {}
-void Cylinder::draw(const Vec3&, const double[4][4], const Vec3&) {}
-void Cylinder::draw(const double*, const Vec3&) {}
-void Cylinder::draw(const Vec3&, const Quaternion&, SReal) {}
-void Cylinder::draw(const Vec3&, const double[4][4], SReal) {}
-void Cylinder::draw(const double*, SReal) {}
+void Cylinder::draw(const Vec3& center, const Quaternion& orient, const Vec3& len)
+{
+    Cylinder* a = get(len);
+    a->update(center, orient);
+    a->draw();
+}
+
+void Cylinder::draw(const Vec3& center, const double orient[4][4], const Vec3& len)
+{
+    Cylinder* a = get(len);
+    a->update(center, orient);
+    a->draw();
+}
+
+void Cylinder::draw(const double* mat, const Vec3& len)
+{
+    Cylinder* a = get(len);
+    a->update(mat);
+    a->draw();
+}
+
+void Cylinder::draw(const Vec3& center, const Quaternion& orient, SReal len)
+{
+    Cylinder* a = get(Vec3(len, len, len));
+    a->update(center, orient);
+    a->draw();
+}
+
+void Cylinder::draw(const Vec3& center, const double orient[4][4], SReal len)
+{
+    Cylinder* a = get(Vec3(len, len, len));
+    a->update(center, orient);
+    a->draw();
+}
+
+void Cylinder::draw(const double* mat, SReal len)
+{
+    Cylinder* a = get(Vec3(len, len, len));
+    a->update(mat);
+    a->draw();
+}
 
 #endif // SOFA_GL_NO_FIXED_PIPELINE
 

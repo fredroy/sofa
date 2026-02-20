@@ -26,11 +26,14 @@
 #include <sofa/gl/gl.h>
 #if !SOFA_GL_NO_FIXED_PIPELINE
 #include <sofa/gl/glu.h>
+#else
+#include <sofa/gl/CoreProfileRenderer.h>
 #endif // SOFA_GL_NO_FIXED_PIPELINE
 
 #include <sofa/gl/config.h>
 
 #include <map>
+#include <vector>
 
 namespace sofa::gl
 {
@@ -78,7 +81,8 @@ private:
     GLUquadricObj *quadratic;
     GLuint displayList;
 #else
-    void* quadratic = nullptr;
+    std::vector<CoreProfileRenderer::Vertex> m_cachedVerts;
+    bool m_geometryReady = false;
 #endif // SOFA_GL_NO_FIXED_PIPELINE
 
     void initDraw();

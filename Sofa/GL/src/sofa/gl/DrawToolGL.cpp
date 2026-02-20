@@ -22,6 +22,7 @@
 #define SOFA_HELPER_GL_DRAWTOOLGL_CPP
 
 #include <sofa/gl/DrawToolGL.h>
+#include <sofa/gl/CoreProfileRenderer.h>
 
 #include <sofa/gl/gl.h>
 #if !SOFA_GL_NO_FIXED_PIPELINE
@@ -114,6 +115,7 @@ void DrawToolGL::setProjectionMatrix(const double* mat16)
 {
     for (int i = 0; i < 16; ++i)
         m_projectionMatrix[i] = static_cast<float>(mat16[i]);
+    CoreProfileRenderer::setProjectionMatrix(m_projectionMatrix.data());
 }
 
 void DrawToolGL::setModelViewMatrix(const double* mat16)
@@ -127,26 +129,31 @@ void DrawToolGL::setModelViewMatrix(const double* mat16)
     while (m_modelViewStack.size() > 1)
         m_modelViewStack.pop();
     m_modelViewStack.top() = mv;
+    CoreProfileRenderer::setViewMatrix(mv.data());
 }
 
 void DrawToolGL::setLightPosition(float x, float y, float z, float w)
 {
     m_lightPos[0] = x; m_lightPos[1] = y; m_lightPos[2] = z; m_lightPos[3] = w;
+    CoreProfileRenderer::setLightPosition(x, y, z, w);
 }
 
 void DrawToolGL::setLightAmbient(float r, float g, float b, float a)
 {
     m_lightAmb[0] = r; m_lightAmb[1] = g; m_lightAmb[2] = b; m_lightAmb[3] = a;
+    CoreProfileRenderer::setLightAmbient(r, g, b, a);
 }
 
 void DrawToolGL::setLightDiffuse(float r, float g, float b, float a)
 {
     m_lightDif[0] = r; m_lightDif[1] = g; m_lightDif[2] = b; m_lightDif[3] = a;
+    CoreProfileRenderer::setLightDiffuse(r, g, b, a);
 }
 
 void DrawToolGL::setLightSpecular(float r, float g, float b, float a)
 {
     m_lightSpec[0] = r; m_lightSpec[1] = g; m_lightSpec[2] = b; m_lightSpec[3] = a;
+    CoreProfileRenderer::setLightSpecular(r, g, b, a);
 }
 
 static GLuint compileShaderStage(GLenum type, const std::string& source)

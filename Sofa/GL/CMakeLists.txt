@@ -42,6 +42,7 @@ set(HEADER_FILES
     ${SOFAGLSRC_ROOT}/glText.inl
     ${SOFAGLSRC_ROOT}/TransformationGL.h
     ${SOFAGLSRC_ROOT}/DrawToolGL.h
+    ${SOFAGLSRC_ROOT}/CoreProfileRenderer.h
 )
 
 set(SOURCE_FILES
@@ -57,6 +58,7 @@ set(SOURCE_FILES
     ${SOFAGLSRC_ROOT}/gl.cpp
     ${SOFAGLSRC_ROOT}/TransformationGL.cpp
     ${SOFAGLSRC_ROOT}/DrawToolGL.cpp
+    ${SOFAGLSRC_ROOT}/CoreProfileRenderer.cpp
 )
 
 if(GLEW_FOUND)

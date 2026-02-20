@@ -22,10 +22,14 @@
 #include <sofa/gl/Axis.h>
 
 #include <sofa/gl/gl.h>
+#if SOFA_GL_NO_FIXED_PIPELINE
+#include <sofa/gl/CoreProfileRenderer.h>
+#endif
 
 #include <cassert>
 #include <algorithm>
 #include <iostream>
+#include <cmath>
 
 
 namespace sofa::gl
@@ -162,9 +166,92 @@ void Axis::draw( const type::RGBAColor& colorX, const type::RGBAColor& colorY, c
 
 #else // SOFA_GL_NO_FIXED_PIPELINE
 
-void Axis::initDraw() {}
+void Axis::initDraw()
+{
+    if (m_geometryReady) return;
 
-void Axis::draw( const type::RGBAColor&, const type::RGBAColor&, const type::RGBAColor& ) {}
+    type::Vec3 L = length;
+    SReal Lmin = L[0];
+    if (L[1] < Lmin) Lmin = L[1];
+    if (L[2] < Lmin) Lmin = L[2];
+    SReal Lmax = L[0];
+    if (L[1] > Lmax) Lmax = L[1];
+    if (L[2] > Lmax) Lmax = L[2];
+    if (Lmax > Lmin * 2 && Lmin > 0.0)
+        Lmax = Lmin * 2;
+    if (Lmax > Lmin * 2)
+        Lmin = Lmax / 1.414_sreal;
+
+    type::Vec3 l(Lmin / 10_sreal, Lmin / 10_sreal, Lmin / 10_sreal);
+    type::Vec3 lc(Lmax / 5_sreal, Lmax / 5_sreal, Lmax / 5_sreal);
+    type::Vec3 Lc = lc;
+
+    // White placeholder color - will be overwritten at draw time
+    const float white[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+
+    // X axis: center sphere + cylinder along X + cone arrowhead
+    CoreProfileRenderer::generateSphereTriangles(m_xAxisVerts,
+        0, 0, 0, (float)l[0], (float)l[0], (float)l[0], white, quadricDiscretisation, quadricDiscretisation / 2);
+
+    if (L[0] > 0.0)
+    {
+        float p1[3] = {0, 0, 0};
+        float p2[3] = {(float)L[0], 0, 0};
+        CoreProfileRenderer::generateCylinderTriangles(m_xAxisVerts, p1, p2, (float)l[0], white, quadricDiscretisation);
+        float p3[3] = {(float)L[0], 0, 0};
+        float p4[3] = {(float)(L[0] + Lc[0]), 0, 0};
+        CoreProfileRenderer::generateConeTriangles(m_xAxisVerts, p3, p4, (float)lc[0], 0.0f, white, quadricDiscretisation);
+    }
+
+    // Y axis: cylinder along Y + cone arrowhead
+    if (L[1] > 0.0)
+    {
+        float p1[3] = {0, 0, 0};
+        float p2[3] = {0, (float)L[1], 0};
+        CoreProfileRenderer::generateCylinderTriangles(m_yAxisVerts, p1, p2, (float)l[1], white, quadricDiscretisation);
+        float p3[3] = {0, (float)L[1], 0};
+        float p4[3] = {0, (float)(L[1] + Lc[1]), 0};
+        CoreProfileRenderer::generateConeTriangles(m_yAxisVerts, p3, p4, (float)lc[1], 0.0f, white, quadricDiscretisation);
+    }
+
+    // Z axis: cylinder along Z + cone arrowhead
+    if (L[2] > 0.0)
+    {
+        float p1[3] = {0, 0, 0};
+        float p2[3] = {0, 0, (float)L[2]};
+        CoreProfileRenderer::generateCylinderTriangles(m_zAxisVerts, p1, p2, (float)l[2], white, quadricDiscretisation);
+        float p3[3] = {0, 0, (float)L[2]};
+        float p4[3] = {0, 0, (float)(L[2] + Lc[2])};
+        CoreProfileRenderer::generateConeTriangles(m_zAxisVerts, p3, p4, (float)lc[2], 0.0f, white, quadricDiscretisation);
+    }
+
+    m_geometryReady = true;
+}
+
+void Axis::draw(const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ)
+{
+    initDraw();
+
+    // Convert double model matrix to float
+    float modelMat[16];
+    for (int i = 0; i < 16; ++i)
+        modelMat[i] = static_cast<float>(matTransOpenGL[i]);
+
+    auto renderAxisWithColor = [&](const std::vector<CoreProfileRenderer::Vertex>& cached, const type::RGBAColor& col)
+    {
+        if (cached.empty()) return;
+        std::vector<CoreProfileRenderer::Vertex> colored = cached;
+        for (auto& v : colored)
+        {
+            v.color[0] = col[0]; v.color[1] = col[1]; v.color[2] = col[2]; v.color[3] = col[3];
+        }
+        CoreProfileRenderer::renderTriangles(colored, true, modelMat);
+    };
+
+    renderAxisWithColor(m_xAxisVerts, colorX);
+    renderAxisWithColor(m_yAxisVerts, colorY);
+    renderAxisWithColor(m_zAxisVerts, colorZ);
+}
 
 #endif // SOFA_GL_NO_FIXED_PIPELINE
 
@@ -206,55 +293,71 @@ void Axis::update(const type::Vec3& center, const Quaternion& orient)
 
 Axis::Axis(SReal len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = type::Vec3(len,len,len);
     update(type::Vec3(0_sreal,0_sreal,0_sreal),  Quaternion(1_sreal,0_sreal,0_sreal,0_sreal));
 }
 
 Axis::Axis(const type::Vec3& len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = len;
     update(type::Vec3(0_sreal,0_sreal,0_sreal),  Quaternion(1_sreal,0_sreal,0_sreal,0_sreal));
 }
 
 Axis::Axis(const type::Vec3& center, const Quaternion& orient, const type::Vec3& len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = len;
     update(center, orient);
 }
 
 Axis::Axis(const type::Vec3& center, const double orient[4][4], const type::Vec3& len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = len;
     update(center, orient);
 }
 
 Axis::Axis(const double *mat, const type::Vec3& len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = len;
     update(mat);
 }
 
 Axis::Axis(const type::Vec3& center, const Quaternion& orient, SReal len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = type::Vec3(len,len,len);
     update(center, orient);
 }
 Axis::Axis(const type::Vec3& center, const double orient[4][4], SReal len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = type::Vec3(len,len,len);
     update(center, orient);
 }
 
 Axis::Axis(const double *mat, SReal len)
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     quadratic = nullptr;
+#endif
     length = type::Vec3(len,len,len);
     update(mat);
 }
@@ -405,14 +508,67 @@ void Axis::draw(const type::Vec3& p1, const type::Vec3& p2, const double& r1, co
 
 #else // SOFA_GL_NO_FIXED_PIPELINE
 
-void Axis::draw(const type::Vec3&, const Quaternion&, const type::Vec3&, const type::RGBAColor&, const type::RGBAColor&, const type::RGBAColor&) {}
-void Axis::draw(const type::Vec3&, const double[4][4], const type::Vec3&, const type::RGBAColor&, const type::RGBAColor&, const type::RGBAColor&) {}
-void Axis::draw(const double*, const type::Vec3&, const type::RGBAColor&, const type::RGBAColor&, const type::RGBAColor&) {}
-void Axis::draw(const type::Vec3&, const Quaternion&, SReal, const type::RGBAColor&, const type::RGBAColor&, const type::RGBAColor&) {}
-void Axis::draw(const type::Vec3&, const double[4][4], SReal, const type::RGBAColor&, const type::RGBAColor&, const type::RGBAColor&) {}
-void Axis::draw(const double*, SReal, const type::RGBAColor&, const type::RGBAColor&, const type::RGBAColor&) {}
-void Axis::draw(const type::Vec3&, const type::Vec3&, const double&) {}
-void Axis::draw(const type::Vec3&, const type::Vec3&, const double&, const double&) {}
+void Axis::draw(const type::Vec3& center, const Quaternion& orient, const type::Vec3& len, const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ)
+{
+    const auto a = get(len);
+    a->update(center, orient);
+    a->draw(colorX, colorY, colorZ);
+}
+
+void Axis::draw(const type::Vec3& center, const double orient[4][4], const type::Vec3& len, const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ)
+{
+    const auto a = get(len);
+    a->update(center, orient);
+    a->draw(colorX, colorY, colorZ);
+}
+
+void Axis::draw(const double* mat, const type::Vec3& len, const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ)
+{
+    const auto a = get(len);
+    a->update(mat);
+    a->draw(colorX, colorY, colorZ);
+}
+
+void Axis::draw(const type::Vec3& center, const Quaternion& orient, SReal len, const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ)
+{
+    const auto a = get(type::Vec3(len, len, len));
+    a->update(center, orient);
+    a->draw(colorX, colorY, colorZ);
+}
+
+void Axis::draw(const type::Vec3& center, const double orient[4][4], SReal len, const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ)
+{
+    const auto a = get(type::Vec3(len, len, len));
+    a->update(center, orient);
+    a->draw(colorX, colorY, colorZ);
+}
+
+void Axis::draw(const double* mat, SReal len, const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ)
+{
+    const auto a = get(type::Vec3(len, len, len));
+    a->update(mat);
+    a->draw(colorX, colorY, colorZ);
+}
+
+void Axis::draw(const type::Vec3& p1, const type::Vec3& p2, const double& r)
+{
+    const float fp1[3] = {(float)p1[0], (float)p1[1], (float)p1[2]};
+    const float fp2[3] = {(float)p2[0], (float)p2[1], (float)p2[2]};
+    const float white[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+    std::vector<CoreProfileRenderer::Vertex> verts;
+    CoreProfileRenderer::generateArrowTriangles(verts, fp1, fp2, (float)r, white, 16);
+    CoreProfileRenderer::renderTriangles(verts, true);
+}
+
+void Axis::draw(const type::Vec3& p1, const type::Vec3& p2, const double& r1, const double& r2)
+{
+    const float fp1[3] = {(float)p1[0], (float)p1[1], (float)p1[2]};
+    const float fp2[3] = {(float)p2[0], (float)p2[1], (float)p2[2]};
+    const float white[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+    std::vector<CoreProfileRenderer::Vertex> verts;
+    CoreProfileRenderer::generateConeTriangles(verts, fp1, fp2, (float)r1, (float)r2, white, 16);
+    CoreProfileRenderer::renderTriangles(verts, true);
+}
 
 #endif // SOFA_GL_NO_FIXED_PIPELINE
 

@@ -22,6 +22,9 @@
 #include <sofa/gl/Frame.h>
 
 #include <sofa/gl/gl.h>
+#if SOFA_GL_NO_FIXED_PIPELINE
+#include <sofa/gl/CoreProfileRenderer.h>
+#endif
 
 #include <sofa/type/Vec.h>
 #include <sofa/type/Mat.h>
@@ -392,6 +395,72 @@ void render_coordinate_frame(const CoordinateFrame& frame, const type::Vec3& cen
     glPopAttrib();
 }
 
+#else // SOFA_GL_NO_FIXED_PIPELINE
+
+void render_coordinate_frame(const CoordinateFrame& frame, const type::Vec3& center, const type::Quat<SReal>& orient, const type::Vec3&, const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ)
+{
+    const auto& mesh_components = frame.get_mesh_components();
+
+    const sofa::type::RGBAColor colors[6] = {
+        colorX, colorX,
+        colorY, colorY,
+        colorZ, colorZ
+    };
+
+    // Build model matrix from center + quaternion
+    sofa::type::Vec3 rotAxis;
+    double phi{};
+    orient.quatToAxis(rotAxis, phi);
+
+    // Build rotation matrix from axis-angle
+    float modelMat[16];
+    CoreProfileRenderer::mat4Identity(modelMat);
+
+    const float c = std::cos(static_cast<float>(phi));
+    const float s = std::sin(static_cast<float>(phi));
+    const float t = 1.0f - c;
+    const float x = static_cast<float>(rotAxis[0]);
+    const float y = static_cast<float>(rotAxis[1]);
+    const float z = static_cast<float>(rotAxis[2]);
+
+    modelMat[0]  = t*x*x + c;     modelMat[4]  = t*x*y - s*z;   modelMat[8]  = t*x*z + s*y;
+    modelMat[1]  = t*x*y + s*z;   modelMat[5]  = t*y*y + c;     modelMat[9]  = t*y*z - s*x;
+    modelMat[2]  = t*x*z - s*y;   modelMat[6]  = t*y*z + s*x;   modelMat[10] = t*z*z + c;
+
+    modelMat[12] = static_cast<float>(center[0]);
+    modelMat[13] = static_cast<float>(center[1]);
+    modelMat[14] = static_cast<float>(center[2]);
+
+    for (int i = 0; i < 6; ++i)
+    {
+        const auto& comp = mesh_components[i];
+        std::vector<CoreProfileRenderer::Vertex> verts;
+        verts.reserve(comp.triangle_count * 3);
+
+        for (int t = 0; t < comp.triangle_count; ++t)
+        {
+            const auto& tri = comp.triangles[t];
+            unsigned int indices[3] = { tri.v0, tri.v1, tri.v2 };
+            for (int j = 0; j < 3; ++j)
+            {
+                CoreProfileRenderer::Vertex v;
+                const auto& pos = comp.vertices[indices[j]];
+                const auto& norm = comp.normals[indices[j]];
+                v.position[0] = static_cast<float>(pos[0]);
+                v.position[1] = static_cast<float>(pos[1]);
+                v.position[2] = static_cast<float>(pos[2]);
+                v.normal[0] = static_cast<float>(norm[0]);
+                v.normal[1] = static_cast<float>(norm[1]);
+                v.normal[2] = static_cast<float>(norm[2]);
+                v.color[0] = colors[i][0]; v.color[1] = colors[i][1];
+                v.color[2] = colors[i][2]; v.color[3] = colors[i][3];
+                verts.push_back(v);
+            }
+        }
+        CoreProfileRenderer::renderTriangles(verts, true, modelMat);
+    }
+}
+
 #endif // SOFA_GL_NO_FIXED_PIPELINE
 
 std::unordered_map < type::Vec3, CoordinateFrame > cacheFrame;
@@ -426,12 +495,7 @@ void Frame::draw(const type::Vec3& center, const Quaternion& orient, const type:
 #if !SOFA_GL_NO_FIXED_PIPELINE
     render_coordinate_frame(frame, center, orient, len, colorX, colorY, colorZ);
 #else // SOFA_GL_NO_FIXED_PIPELINE
-    (void)frame;
-    (void)center;
-    (void)orient;
-    (void)colorX;
-    (void)colorY;
-    (void)colorZ;
+    render_coordinate_frame(frame, center, orient, len, colorX, colorY, colorZ);
 #endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
