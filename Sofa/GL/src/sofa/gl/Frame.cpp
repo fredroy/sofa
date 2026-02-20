@@ -334,6 +334,8 @@ struct CoordinateFrame
     }
 };
 
+#if !SOFA_GL_NO_FIXED_PIPELINE
+
 // Render the complete coordinate frame
 void render_coordinate_frame(const CoordinateFrame& frame, const type::Vec3& center, const type::Quat<SReal>& orient, const type::Vec3&, const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ)
 {
@@ -390,6 +392,8 @@ void render_coordinate_frame(const CoordinateFrame& frame, const type::Vec3& cen
     glPopAttrib();
 }
 
+#endif // SOFA_GL_NO_FIXED_PIPELINE
+
 std::unordered_map < type::Vec3, CoordinateFrame > cacheFrame;
 void Frame::draw(const type::Vec3& center, const Quaternion& orient, const type::Vec3& len, const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ )
 {
@@ -419,7 +423,16 @@ void Frame::draw(const type::Vec3& center, const Quaternion& orient, const type:
     }
 
     const auto& frame = cacheFrame.at(len);
+#if !SOFA_GL_NO_FIXED_PIPELINE
     render_coordinate_frame(frame, center, orient, len, colorX, colorY, colorZ);
+#else // SOFA_GL_NO_FIXED_PIPELINE
+    (void)frame;
+    (void)center;
+    (void)orient;
+    (void)colorX;
+    (void)colorY;
+    (void)colorZ;
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 void Frame::draw(const type::Vec3& center, const double orient[4][4], const type::Vec3& len, const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ)

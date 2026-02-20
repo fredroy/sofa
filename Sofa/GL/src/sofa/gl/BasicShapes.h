@@ -22,11 +22,15 @@
 #pragma once
 #include <sofa/gl/template.h>
 #include <sofa/type/fixed_array.h>
+#if !SOFA_GL_NO_FIXED_PIPELINE
 #include <sofa/gl/glu.h>
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 #include <cmath>
 
 namespace sofa::gl
 {
+
+#if !SOFA_GL_NO_FIXED_PIPELINE
 
 static GLUquadricObj* quadric = gluNewQuadric();
 
@@ -200,13 +204,13 @@ void drawEmptyParallelepiped(const V& vert1, const V& vert2, const V& vert3, con
 	drawCylinder(vert2,vert3,rad,precision);
 	drawCylinder(vert3,vert4,rad,precision);
 	drawCylinder(vert4,vert1,rad,precision);
-	
+
 	//The opposite face
 	drawCylinder(vert1 + vecFromFaceToOppositeFace,vert2 + vecFromFaceToOppositeFace,rad,precision);
 	drawCylinder(vert2 + vecFromFaceToOppositeFace,vert3 + vecFromFaceToOppositeFace,rad,precision);
 	drawCylinder(vert3 + vecFromFaceToOppositeFace,vert4 + vecFromFaceToOppositeFace,rad,precision);
 	drawCylinder(vert4 + vecFromFaceToOppositeFace,vert1 + vecFromFaceToOppositeFace,rad,precision);
-	
+
 	//Connect the two faces
 	drawCylinder(vert1,vert1 + vecFromFaceToOppositeFace,rad,precision);
 	drawCylinder(vert2,vert2 + vecFromFaceToOppositeFace,rad,precision);
@@ -215,5 +219,18 @@ void drawEmptyParallelepiped(const V& vert1, const V& vert2, const V& vert3, con
 
 	glPopMatrix();
 }
+
+#else // SOFA_GL_NO_FIXED_PIPELINE — no-op stubs for core profile
+
+template <typename V> void drawCone(const V&, const V&, const float&, const float&, const int =8) {}
+template <typename V> void drawCylinder(const V&, const V&, const float&, const int =8) {}
+template <typename V> void drawArrow(const V&, const V&, const float&, const int =8) {}
+template <typename V> void drawSphere(const V&, const float&, const int =8, const int =8) {}
+template <typename V> void drawEllipsoid(const V&, const float&, const float&, const float&, const int =8, const int =8) {}
+template <typename V> void drawWireSphere(const V&, const float&, const int =8, const int =8) {}
+template <typename V> void drawTorus(const float*, const float& =0.0, const float& =1.0, const int =20, const V& =V()) {}
+template <typename V> void drawEmptyParallelepiped(const V&, const V&, const V&, const V&, const V&, const float& =1.0, const int =8, const V& =V()) {}
+
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 
 } // namespace sofa::gl

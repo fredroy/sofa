@@ -35,6 +35,8 @@ const int Cylinder::quadricDiscretisation = 16;
 //GLUquadricObj *Cylinder::quadratic = nullptr;
 std::map < std::pair<std::pair<float,float>,float>, Cylinder* > Cylinder::CylinderMap;
 
+#if !SOFA_GL_NO_FIXED_PIPELINE
+
 void Cylinder::initDraw()
 {
     if (quadratic!=nullptr) return;
@@ -100,6 +102,14 @@ void Cylinder::draw()
     glPopAttrib();
     glPopMatrix();
 }
+
+#else // SOFA_GL_NO_FIXED_PIPELINE
+
+void Cylinder::initDraw() {}
+
+void Cylinder::draw() {}
+
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 
 void Cylinder::update(const double *mat)
 {
@@ -194,8 +204,10 @@ Cylinder::Cylinder(const double *mat, SReal len)
 
 Cylinder::~Cylinder()
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     if (quadratic != nullptr)
         gluDeleteQuadric(quadratic);
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 Cylinder* Cylinder::get(const Vec3& len)
@@ -205,6 +217,8 @@ Cylinder* Cylinder::get(const Vec3& len)
         a = new Cylinder(len);
     return a;
 }
+
+#if !SOFA_GL_NO_FIXED_PIPELINE
 
 void Cylinder::draw(const Vec3& center, const Quaternion& orient, const Vec3& len)
 {
@@ -247,5 +261,16 @@ void Cylinder::draw(const double *mat, SReal len)
     a->update(mat);
     a->draw();
 }
+
+#else // SOFA_GL_NO_FIXED_PIPELINE
+
+void Cylinder::draw(const Vec3&, const Quaternion&, const Vec3&) {}
+void Cylinder::draw(const Vec3&, const double[4][4], const Vec3&) {}
+void Cylinder::draw(const double*, const Vec3&) {}
+void Cylinder::draw(const Vec3&, const Quaternion&, SReal) {}
+void Cylinder::draw(const Vec3&, const double[4][4], SReal) {}
+void Cylinder::draw(const double*, SReal) {}
+
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 
 } // namespace sofa::gl

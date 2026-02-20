@@ -24,7 +24,9 @@
 #include <sofa/type/Quat.h>
 
 #include <sofa/gl/gl.h>
+#if !SOFA_GL_NO_FIXED_PIPELINE
 #include <sofa/gl/glu.h>
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 
 #include <sofa/gl/config.h>
 
@@ -72,8 +74,12 @@ private:
     Vec3 length;
     double matTransOpenGL[16];
 
+#if !SOFA_GL_NO_FIXED_PIPELINE
     GLUquadricObj *quadratic;
     GLuint displayList;
+#else
+    void* quadratic = nullptr;
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 
     void initDraw();
 

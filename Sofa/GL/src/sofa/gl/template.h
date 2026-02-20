@@ -26,6 +26,8 @@
 namespace sofa::gl
 {
 
+#if !SOFA_GL_NO_FIXED_PIPELINE
+
 template<int N>
 inline void glVertexNv(const float* /*p*/)
 {
@@ -307,5 +309,42 @@ inline void glMultMatrix(const double* p)
 {
     glMultMatrixd(p);
 }
+
+#else // SOFA_GL_NO_FIXED_PIPELINE — no-op stubs for core profile
+
+template<int N> inline void glVertexNv(const float*) {}
+template<int N> inline void glVertexNv(const double*) {}
+template<class Coord> inline void glVertexT(const Coord&) {}
+template<> inline void glVertexT<double>(const double&) {}
+template<> inline void glVertexT<float>(const float&) {}
+
+template<int N> inline void glTexCoordNv(const float*) {}
+template<int N> inline void glTexCoordNv(const double*) {}
+template<class Coord> inline void glTexCoordT(const Coord&) {}
+template<> inline void glTexCoordT<double>(const double&) {}
+template<> inline void glTexCoordT<float>(const float&) {}
+
+template<int N> inline void glNormalNv(const float*) {}
+template<int N> inline void glNormalNv(const double*) {}
+template<class Coord> inline void glNormalT(const Coord&) {}
+template<> inline void glNormalT<double>(const double&) {}
+template<> inline void glNormalT<float>(const float&) {}
+
+inline void glTranslate(const float&, const float&, const float&) {}
+inline void glTranslate(const double&, const double&, const double&) {}
+template<int N> inline void glTranslateNv(const float*) {}
+template<int N> inline void glTranslateNv(const double*) {}
+template<class Coord> inline void glTranslateT(const Coord&) {}
+template<> inline void glTranslateT<double>(const double&) {}
+template<> inline void glTranslateT<float>(const float&) {}
+
+inline void glScale(const float&, const float&, const float&) {}
+inline void glScale(const double&, const double&, const double&) {}
+inline void glRotate(const float&, const float&, const float&, const float&) {}
+inline void glRotate(const double&, const double&, const double&, const double&) {}
+inline void glMultMatrix(const float*) {}
+inline void glMultMatrix(const double*) {}
+
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 
 } // namespace sofa::gl

@@ -8,6 +8,15 @@ endif()
 
 set(SOFAGLSRC_ROOT "src/sofa/gl")
 
+# When enabled, all legacy fixed-function pipeline calls (display lists, immediate mode,
+# glPushAttrib, GLU quadrics, etc.) are compiled out and replaced with no-ops.
+# Required for OpenGL core profile contexts (mandatory on macOS, optional elsewhere).
+if(APPLE)
+    option(SOFA_GL_NO_FIXED_PIPELINE "Disable legacy fixed-function GL calls (required for core profile)" ON)
+else()
+    option(SOFA_GL_NO_FIXED_PIPELINE "Disable legacy fixed-function GL calls (required for core profile)" OFF)
+endif()
+
 sofa_find_package(OpenGL REQUIRED BOTH_SCOPES)
 sofa_find_package(GLEW BOTH_SCOPES REQUIRED)
 sofa_find_package(Sofa.Helper REQUIRED)

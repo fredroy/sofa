@@ -37,6 +37,8 @@ const int Axis::quadricDiscretisation = 16;
 //GLUquadricObj *Axis::quadratic = nullptr;
 std::map < type::Vec3f, Axis::AxisSPtr > Axis::axisMap; // great idea but no more valid when creating a new opengl context when switching sofa viewer
 
+#if !SOFA_GL_NO_FIXED_PIPELINE
+
 void Axis::initDraw()
 {
     if (quadratic) return;
@@ -158,6 +160,14 @@ void Axis::draw( const type::RGBAColor& colorX, const type::RGBAColor& colorY, c
     glPopAttrib();
 }
 
+#else // SOFA_GL_NO_FIXED_PIPELINE
+
+void Axis::initDraw() {}
+
+void Axis::draw( const type::RGBAColor&, const type::RGBAColor&, const type::RGBAColor& ) {}
+
+#endif // SOFA_GL_NO_FIXED_PIPELINE
+
 void Axis::update(const double *mat)
 {
     std::copy(mat,mat+16, matTransOpenGL);
@@ -251,8 +261,10 @@ Axis::Axis(const double *mat, SReal len)
 
 Axis::~Axis()
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     if (quadratic != nullptr)
         gluDeleteQuadric(quadratic);
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 Axis::AxisSPtr Axis::get(const type::Vec3& len)
@@ -262,6 +274,8 @@ Axis::AxisSPtr Axis::get(const type::Vec3& len)
         a = std::make_shared<Axis>(len);
     return a;
 }
+
+#if !SOFA_GL_NO_FIXED_PIPELINE
 
 void Axis::draw(const type::Vec3& center, const Quaternion& orient, const type::Vec3& len, const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ )
 {
@@ -388,5 +402,18 @@ void Axis::draw(const type::Vec3& p1, const type::Vec3& p2, const double& r1, co
     glEnd();
 
 }
+
+#else // SOFA_GL_NO_FIXED_PIPELINE
+
+void Axis::draw(const type::Vec3&, const Quaternion&, const type::Vec3&, const type::RGBAColor&, const type::RGBAColor&, const type::RGBAColor&) {}
+void Axis::draw(const type::Vec3&, const double[4][4], const type::Vec3&, const type::RGBAColor&, const type::RGBAColor&, const type::RGBAColor&) {}
+void Axis::draw(const double*, const type::Vec3&, const type::RGBAColor&, const type::RGBAColor&, const type::RGBAColor&) {}
+void Axis::draw(const type::Vec3&, const Quaternion&, SReal, const type::RGBAColor&, const type::RGBAColor&, const type::RGBAColor&) {}
+void Axis::draw(const type::Vec3&, const double[4][4], SReal, const type::RGBAColor&, const type::RGBAColor&, const type::RGBAColor&) {}
+void Axis::draw(const double*, SReal, const type::RGBAColor&, const type::RGBAColor&, const type::RGBAColor&) {}
+void Axis::draw(const type::Vec3&, const type::Vec3&, const double&) {}
+void Axis::draw(const type::Vec3&, const type::Vec3&, const double&, const double&) {}
+
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 
 } // namespace sofa::gl

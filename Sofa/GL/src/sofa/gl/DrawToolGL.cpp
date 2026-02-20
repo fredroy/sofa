@@ -24,11 +24,14 @@
 #include <sofa/gl/DrawToolGL.h>
 
 #include <sofa/gl/gl.h>
+#if !SOFA_GL_NO_FIXED_PIPELINE
 #include <sofa/gl/Axis.h>
-#include <sofa/helper/logging/Messaging.h>
 #include <sofa/gl/Cylinder.h>
+#endif // SOFA_GL_NO_FIXED_PIPELINE
+#include <sofa/helper/logging/Messaging.h>
 #include <sofa/type/Mat.h>
 #include <cmath>
+#include <map>
 
 #include <sofa/gl/shaders/drawToolGL.cppglsl>
 
@@ -1322,8 +1325,10 @@ void DrawToolGL::resetMaterial()
 
 void DrawToolGL::clear()
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     gl::Axis::clear();
     gl::Cylinder::clear();
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

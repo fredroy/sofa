@@ -85,6 +85,8 @@ void GlText::update ( const double& scale )
 }
 
 
+#if !SOFA_GL_NO_FIXED_PIPELINE
+
 void GlText::draw()
 {
     glDisable ( GL_LIGHTING );
@@ -93,6 +95,14 @@ void GlText::draw()
 
     GlText::draw(s, position, scale);
 }
+
+#else // SOFA_GL_NO_FIXED_PIPELINE
+
+void GlText::draw() {}
+
+#endif // SOFA_GL_NO_FIXED_PIPELINE
+
+#if !SOFA_GL_NO_FIXED_PIPELINE
 
 void GlText::textureDraw_Overlay(const char* text, const double scale)
 {
@@ -169,6 +179,14 @@ void GlText::textureDraw_Overlay(const char* text, const double scale)
     glPopAttrib();
 
 }
+
+#else // SOFA_GL_NO_FIXED_PIPELINE
+
+void GlText::textureDraw_Overlay(const char*, const double) {}
+
+#endif // SOFA_GL_NO_FIXED_PIPELINE
+
+#if !SOFA_GL_NO_FIXED_PIPELINE
 
 void GlText::textureDraw_Indices(const type::vector<type::Vec3>& positions, const float& scale)
 {
@@ -268,6 +286,10 @@ void GlText::textureDraw_Indices(const type::vector<type::Vec3>& positions, cons
     glEnable(GL_LIGHTING);
 }
 
+#else // SOFA_GL_NO_FIXED_PIPELINE
 
+void GlText::textureDraw_Indices(const type::vector<type::Vec3>&, const float&) {}
+
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 
 } // namespace sofa::gl

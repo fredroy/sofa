@@ -49,9 +49,11 @@ TransformationGL::~TransformationGL()
 // --------------------------------------------------------------------------------------
 void TransformationGL::Apply()
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     gl::glTranslate(translation[0], translation[1], translation[2]);
     gl::glMultMatrix((SReal *)rotation);
     gl::glScale(scale[0], scale[1], scale[2]);
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 
@@ -60,9 +62,11 @@ void TransformationGL::Apply()
 // --------------------------------------------------------------------------------------
 void TransformationGL::ApplyWithCentring()
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     Apply();
 
     gl::glTranslate(-objectCenter[0], -objectCenter[1], -objectCenter[2]);
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 
@@ -71,6 +75,7 @@ void TransformationGL::ApplyWithCentring()
 // --------------------------------------------------------------------------------------
 void TransformationGL::ApplyInverse()
 {
+#if !SOFA_GL_NO_FIXED_PIPELINE
     SReal	iRotation[4][4];
 
     InvertTransRotMatrix(rotation, iRotation);
@@ -78,6 +83,7 @@ void TransformationGL::ApplyInverse()
     gl::glScale(1_sreal / scale[0], 1_sreal / scale[1], 1_sreal / scale[2]);
     gl::glMultMatrix((SReal *)rotation);
     gl::glTranslate(-translation[0], -translation[1], -translation[2]);
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 } // namespace sofa::gl

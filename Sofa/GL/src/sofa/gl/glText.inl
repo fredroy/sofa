@@ -44,6 +44,8 @@ void GlText::setText ( const T& text )
     this->text = oss.str();
 }
 
+#if !SOFA_GL_NO_FIXED_PIPELINE
+
 template <typename T>
 void GlText::draw(const T& text, const type::Vec3& position, const double& scale)
 {
@@ -146,5 +148,12 @@ void GlText::draw(const T& text, const type::Vec3& position, const double& scale
 
     glEnable(GL_LIGHTING);
 }
+
+#else // SOFA_GL_NO_FIXED_PIPELINE
+
+template <typename T>
+void GlText::draw(const T&, const type::Vec3&, const double&) {}
+
+#endif // SOFA_GL_NO_FIXED_PIPELINE
 
 } // namespace sofa::gl
