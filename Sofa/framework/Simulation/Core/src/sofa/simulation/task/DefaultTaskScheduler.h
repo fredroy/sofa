@@ -30,7 +30,8 @@
 #include <condition_variable>
 #include <memory>
 #include <map>
-#include <string> 
+#include <vector>
+#include <string>
 #include <mutex>
 #include <atomic>
 
@@ -97,6 +98,10 @@ private:
 
     std::map< std::thread::id, WorkerThread*> _threads;
 
+    /// Flat array of all worker threads for cache-friendly indexed access
+    /// during work stealing.  Populated in start(), cleared in stop().
+    std::vector<WorkerThread*> m_allThreads;
+
     std::atomic<const Task::Status*> m_mainTaskStatus;
     void setMainTaskStatus(const Task::Status* mainTaskStatus);
     bool testMainTaskStatus(const Task::Status*);
@@ -126,7 +131,7 @@ private:
             
     std::atomic<bool> m_workerThreadsIdle;
             
-    bool m_isClosing;
+    std::atomic<bool> m_isClosing;
             
     unsigned m_threadCount;
             

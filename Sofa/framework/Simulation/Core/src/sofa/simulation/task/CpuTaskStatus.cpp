@@ -28,18 +28,29 @@ CpuTaskStatus::CpuTaskStatus(): m_busy(0)
 
 bool CpuTaskStatus::isBusy() const
 {
-    return (m_busy.load(std::memory_order_relaxed) > 0);
+    // acquire: synchronizes with the release in setBusy(false),
+    // ensuring that all writes performed by the task (before it
+    // signalled completion) are visible to the thread that
+    // observes isBusy() == false.
+    return (m_busy.load(std::memory_order_acquire) > 0);
 }
 
 int CpuTaskStatus::setBusy(bool busy)
 {
     if (busy)
     {
+        // relaxed is sufficient here: the task data is published
+        // to the worker thread through the spinlock-protected
+        // work queue, which already provides acquire/release
+        // ordering.
         return m_busy.fetch_add(1, std::memory_order_relaxed);
     }
     else
     {
-        return m_busy.fetch_sub(1, std::memory_order_relaxed);
+        // release: ensures that all memory writes performed by
+        // the task are visible to any thread that subsequently
+        // observes isBusy() == false (via acquire load above).
+        return m_busy.fetch_sub(1, std::memory_order_release);
     }
 }
 }

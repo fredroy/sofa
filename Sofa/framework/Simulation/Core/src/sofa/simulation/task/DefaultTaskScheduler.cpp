@@ -120,6 +120,11 @@ void DefaultTaskScheduler::start(const unsigned int NbThread )
         m_threadCount = NbThread;
     }
 
+    // Build the flat vector: main thread at index 0
+    m_allThreads.clear();
+    m_allThreads.reserve(m_threadCount);
+    m_allThreads.push_back(_threads[std::this_thread::get_id()]);
+
     /* start worker threads */
     for( unsigned int i=1; i<m_threadCount; ++i)
     {
@@ -127,6 +132,7 @@ void DefaultTaskScheduler::start(const unsigned int NbThread )
         thread->create_and_attach(this);
         _threads[thread->getId()] = thread;
         thread->start(this);
+        m_allThreads.push_back(thread);
     }
 
     m_workerThreadCount = m_threadCount;
@@ -174,6 +180,9 @@ void DefaultTaskScheduler::stop()
         WorkerThread* mainThread = mainThreadIt->second;
         _threads.clear();
         _threads[std::this_thread::get_id()] = mainThread;
+
+        m_allThreads.clear();
+        m_allThreads.push_back(mainThread);
     }
 
     return;

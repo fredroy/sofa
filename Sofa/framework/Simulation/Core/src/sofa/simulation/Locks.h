@@ -25,49 +25,76 @@
 #include <mutex>
 #include <atomic>
 
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
+
 namespace sofa::simulation
 {
 
+/// Emit a CPU-level hint that this thread is in a spin-wait loop.
+/// Reduces power consumption and avoids starving the other hyperthread
+/// on the same physical core.
+inline void spinLoopPause()
+{
+#if defined(_MSC_VER)
+    _mm_pause();
+#elif defined(__x86_64__) || defined(__i386__)
+    __builtin_ia32_pause();
+#elif defined(__aarch64__)
+    __asm__ __volatile__("yield");
+#endif
+}
+
 class SpinLock
 {
-    enum
-    {
-        CACHE_LINE = 64
-    };
-            
 public:
-            
+
     SpinLock()
-    :m_flag()
+    : m_locked(false)
     {}
-            
+
     ~SpinLock()
     {
         unlock();
     }
-            
+
     bool try_lock()
     {
-        return !m_flag.test_and_set( std::memory_order_acquire );
+        // TTAS: read first to avoid unnecessary cache-line invalidation
+        return !m_locked.load(std::memory_order_relaxed) &&
+               !m_locked.exchange(true, std::memory_order_acquire);
     }
-            
+
     void lock()
     {
-        while( m_flag.test_and_set(std::memory_order_acquire) )
+        // Fast path: try to acquire immediately
+        if (!m_locked.exchange(true, std::memory_order_acquire))
+            return;
+
+        // Slow path: TTAS (Test-and-Test-And-Set).
+        // Spin on a relaxed load (read-only) to avoid bouncing the
+        // cache line between cores on every iteration.  Only attempt
+        // the expensive exchange when the lock appears free.
+        for (;;)
         {
-            // cpu busy wait
-            //std::this_thread::yield();
+            while (m_locked.load(std::memory_order_relaxed))
+            {
+                spinLoopPause();
+            }
+            if (!m_locked.exchange(true, std::memory_order_acquire))
+                return;
         }
     }
-            
+
     void unlock()
     {
-        m_flag.clear( std::memory_order_release );
+        m_locked.store(false, std::memory_order_release);
     }
-            
+
 private:
-            
-    std::atomic_flag m_flag;
+
+    std::atomic<bool> m_locked;
 };
         
         

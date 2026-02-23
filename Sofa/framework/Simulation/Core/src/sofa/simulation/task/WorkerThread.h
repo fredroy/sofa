@@ -24,10 +24,9 @@
 #include <sofa/simulation/config.h>
 
 #include <sofa/simulation/task/Task.h>
-#include <sofa/simulation/Locks.h>
+#include <sofa/simulation/task/WorkStealingDeque.h>
 
 #include <thread>
-#include <deque>
 #include <string>
 
 namespace sofa::simulation
@@ -57,9 +56,9 @@ public:
 
     const std::thread::id getId() const;
 
-    const std::deque<Task*>* getTasksQueue() { return &m_tasks; }
-
     std::uint64_t getTaskCount() { return m_tasks.size(); }
+
+    unsigned getIndex() const { return m_index; }
 
 private:
 
@@ -88,18 +87,13 @@ private:
 
     bool isFinished() const;
 
-    enum
-    {
-        Max_TasksPerThread = 256
-    };
-
     const std::string m_name;
 
     const int m_type;
 
-    simulation::SpinLock m_taskMutex;
+    const unsigned m_index;
 
-    std::deque<Task*> m_tasks;
+    WorkStealingDeque m_tasks;
 
     std::thread  m_stdThread;
 

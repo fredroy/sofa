@@ -23,7 +23,6 @@
 #include <sofa/simulation/task/DefaultTaskScheduler.h>
 
 #include <cassert>
-#include <mutex>
 
 #ifdef WIN32
 #include <processthreadsapi.h>
@@ -33,7 +32,7 @@ namespace sofa::simulation
 {
 
 WorkerThread::WorkerThread(DefaultTaskScheduler *const &taskScheduler, const int index, const std::string &name)
-        : m_name(name + std::to_string(index)), m_type(0), m_tasks(), m_taskScheduler(taskScheduler)
+        : m_name(name + std::to_string(index)), m_type(0), m_index(static_cast<unsigned>(index)), m_tasks(), m_taskScheduler(taskScheduler)
 {
     assert(taskScheduler);
     m_finished.store(false, std::memory_order_relaxed);
@@ -183,15 +182,8 @@ void WorkerThread::workUntilDone(Task::Status *status)
 
 bool WorkerThread::popTask(Task **task)
 {
-    simulation::ScopedLock lock(m_taskMutex);
-    if (!m_tasks.empty())
-    {
-        *task = m_tasks.back();
-        m_tasks.pop_back();
-        return true;
-    }
-    *task = nullptr;
-    return false;
+    *task = m_tasks.pop();
+    return *task != nullptr;
 }
 
 
@@ -203,13 +195,9 @@ bool WorkerThread::pushTask(Task *task)
         return false;
     }
 
-    {
-        simulation::ScopedLock lock(m_taskMutex);
-        const int taskId = task->getStatus()->setBusy(true);
-        task->m_id = taskId;
-        m_tasks.push_back(task);
-    }
-
+    const int taskId = task->getStatus()->setBusy(true);
+    task->m_id = taskId;
+    m_tasks.push(task);
 
     if (m_taskScheduler->testMainTaskStatus(nullptr))
     {
@@ -235,25 +223,21 @@ bool WorkerThread::addTask(Task *task)
 
 bool WorkerThread::stealTask(Task **task)
 {
-    for (const auto it : m_taskScheduler->_threads)
+    const auto& allThreads = m_taskScheduler->m_allThreads;
+    const unsigned count = static_cast<unsigned>(allThreads.size());
+    if (count <= 1)
+        return false;
+
+    // Each worker starts stealing from a different offset based on its
+    // own index.  This distributes steal attempts across victims and
+    // avoids the thundering-herd effect where all idle workers hammer
+    // the same victim's queue.
+    for (unsigned i = 1; i < count; ++i)
     {
-        // if this is the main thread continue
-        if (std::this_thread::get_id() == it.first)
-        {
-            continue;
-        }
-
-        WorkerThread *otherThread = it.second;
-        {
-            simulation::ScopedLock lock(otherThread->m_taskMutex);
-            if (!otherThread->m_tasks.empty())
-            {
-                *task = otherThread->m_tasks.front();
-                otherThread->m_tasks.pop_front();
-                return true;
-            }
-        }
-
+        WorkerThread *otherThread = allThreads[(m_index + i) % count];
+        *task = otherThread->m_tasks.steal();
+        if (*task != nullptr)
+            return true;
     }
 
     return false;
