@@ -244,25 +244,9 @@ set(CUDA_SOURCES
     
 )
 
-sofa_find_package(Sofa.GL QUIET)
-if(NOT Sofa.GL_FOUND)
-    message(WARNING "Sofa.GL is not active.")
-    message("OpenGL-related code won't be enabled (Sharing OpenGL buffers with CUDA)")
-else()
-    list(APPEND HEADER_FILES
-        ${SOFACUDACORE_SOURCE_DIR}/sofa/gpu/cuda/CudaVisualModel.h
-        ${SOFACUDACORE_SOURCE_DIR}/sofa/gpu/cuda/CudaVisualModel.inl
-    )
-    list(APPEND SOURCE_FILES
-       ${SOFACUDACORE_SOURCE_DIR}/sofa/gpu/cuda/CudaVisualModel.cpp
-    )
-    list(APPEND CUDA_SOURCES
-        ${SOFACUDACORE_SOURCE_DIR}/sofa/gpu/cuda/CudaVisualModel.cu
-    )
-endif()
-
 set(README_FILES README.md)
 
+sofa_find_package(Sofa.GL REQUIRED) # mandatory for gl_interop
 sofa_find_package(Sofa.Component.Mass REQUIRED)
 sofa_find_package(Sofa.Component.SolidMechanics.FEM.Elastic REQUIRED)
 sofa_find_package(Sofa.Component.SolidMechanics.FEM.HyperElastic REQUIRED)
@@ -362,17 +346,14 @@ target_link_libraries(${PROJECT_NAME}
     Sofa.Component.MechanicalLoad
 )
 
-target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17 cuda_std_17)
+target_link_libraries(${PROJECT_NAME} Sofa.GL)
 target_link_libraries(${PROJECT_NAME} CUDA::cudart)
 
-if(Sofa.GL_FOUND)
-    target_link_libraries(${PROJECT_NAME} Sofa.GL)
-endif()
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17 cuda_std_17)
 
 if(Sofa.GUI_FOUND)
     target_link_libraries(${PROJECT_NAME} Sofa.GUI)
 endif()
-
 
 if(Sofa.Qt_FOUND)
     target_link_libraries(${PROJECT_NAME} Sofa.Qt)
@@ -380,7 +361,6 @@ endif()
 
 if(SOFACUDA_CUBLAS)
     target_link_libraries(${PROJECT_NAME} ${CUDA_cusparse_LIBRARY} CUDA::cublas)
-
 endif()
 
 ## Install rules for the library and headers; CMake package configurations files
@@ -392,3 +372,5 @@ sofa_create_package_with_targets(
     INCLUDE_SOURCE_DIR "src"
     RELOCATABLE "plugins"
 )
+
+add_subdirectory(extensions)

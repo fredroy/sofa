@@ -19,8 +19,7 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#ifndef SOFA_GPU_CUDA_CUDAVISUALMODEL_H
-#define SOFA_GPU_CUDA_CUDAVISUALMODEL_H
+#pragma once
 
 #include <sofa/core/visual/VisualModel.h>
 #include <sofa/core/topology/BaseMeshTopology.h>
@@ -28,21 +27,11 @@
 #include <sofa/core/topology/TopologyChange.h>
 #include <sofa/gpu/cuda/CudaTypes.h>
 
-namespace sofa
-{
-
-
-namespace gpu::cuda
+namespace sofa::gpu::cuda::gl
 {
 
 template<class DataTypes>
 class CudaKernelsCudaVisualModel;
-
-} // namespace gpu::cuda
-
-
-namespace component::visualmodel
-{
 
 template <class TDataTypes>
 class CudaVisualModel : public core::visual::VisualModel
@@ -65,7 +54,7 @@ public:
 
     typedef core::State<DataTypes> TState;
 
-    typedef gpu::cuda::CudaKernelsCudaVisualModel<DataTypes> Kernels;
+    typedef CudaKernelsCudaVisualModel<DataTypes> Kernels;
 
     bool needUpdateTopology;
     gpu::cuda::CudaVector<Triangle> triangles;
@@ -145,9 +134,4 @@ protected:
     SingleLink<CudaVisualModel<DataTypes>, core::topology::BaseMeshTopology, BaseLink::FLAG_STRONGLINK> topology;
 };
 
-} // namespace component::visualmodel
-
-
-} // namespace sofa
-
-#endif
+} // namespace sofa::gpu::cuda::gl

@@ -19,20 +19,14 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#ifndef SOFA_GPU_CUDA_CUDAVISUALMODEL_INL
-#define SOFA_GPU_CUDA_CUDAVISUALMODEL_INL
+#pragma once
 
 #include "CudaVisualModel.h"
 #include <sofa/core/visual/VisualParams.h>
 #include <sofa/gl/template.h>
 
-namespace sofa
+namespace sofa::gpu::cuda::gl
 {
-
-
-namespace gpu::cuda
-{
-
 extern "C"
 {
     void CudaVisualModelCuda3f_calcTNormals(unsigned int nbElem, unsigned int nbVertex, const void* elems, void* fnormals, const void* x);
@@ -109,11 +103,6 @@ public:
 
 #endif // SOFA_GPU_CUDA_DOUBLE
 
-} // namespace gpu::cuda
-
-
-namespace component::visualmodel
-{
 
 using namespace gpu::cuda;
 
@@ -321,7 +310,6 @@ void CudaVisualModel< TDataTypes >::drawShadow(const core::visual::VisualParams*
 template<class TDataTypes>
 void CudaVisualModel< TDataTypes >::internalDraw(const core::visual::VisualParams* vparams)
 {
-#if SOFACUDA_HAVE_SOFA_GL == 1
     if (!vparams->displayFlags().getShowVisualModels()) return;
 
     if (!topology || !state || !state->getSize()) return;
@@ -454,7 +442,6 @@ void CudaVisualModel< TDataTypes >::internalDraw(const core::visual::VisualParam
     }
 
     d_x->endEdit();
-#endif // SOFACUDA_HAVE_SOFA_GL == 1
 }
 
 template<class TDataTypes>
@@ -482,9 +469,4 @@ void CudaVisualModel< TDataTypes >::computeBBox(const core::ExecParams* params, 
 }
 
 
-} // namespace component::visualmodel
-
-
-} // namespace sofa
-
-#endif
+} // namespace sofa::gpu::cuda::l
