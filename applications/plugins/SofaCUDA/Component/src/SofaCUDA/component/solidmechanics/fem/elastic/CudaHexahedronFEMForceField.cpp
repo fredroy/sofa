@@ -29,10 +29,8 @@
 namespace sofa::component::solidmechanics::fem::elastic
 {
 template class SOFACUDA_COMPONENT_API HexahedronFEMForceField<sofa::gpu::cuda::CudaVec3fTypes>;
-template class SOFACUDA_COMPONENT_API HexahedronFEMForceField<sofa::gpu::cuda::CudaVec3f1Types>;
 #ifdef SOFA_GPU_CUDA_DOUBLE
 template class SOFACUDA_COMPONENT_API HexahedronFEMForceField<sofa::gpu::cuda::CudaVec3dTypes>;
-template class SOFACUDA_COMPONENT_API HexahedronFEMForceField<sofa::gpu::cuda::CudaVec3d1Types>; 
 #endif // SOFA_GPU_CUDA_DOUBLE
 
 } // namespace sofa::component::solidmechanics::fem::elastic
@@ -44,10 +42,8 @@ namespace sofa::gpu::cuda
     {
         factory->registerObjects(sofa::core::ObjectRegistrationData("Supports GPU-side computations using CUDA for the HexahedronFEMForceField")
         .add< sofa::component::solidmechanics::fem::elastic::HexahedronFEMForceField<CudaVec3fTypes> >()
-        .add< sofa::component::solidmechanics::fem::elastic::HexahedronFEMForceField<CudaVec3f1Types> >()
 #ifdef SOFA_GPU_CUDA_DOUBLE
         .add< component::solidmechanics::fem::elastic::HexahedronFEMForceField<CudaVec3dTypes> >()
-        .add< component::solidmechanics::fem::elastic::HexahedronFEMForceField<CudaVec3d1Types> >()
 #endif // SOFA_GPU_CUDA_DOUBLE
         );
     }

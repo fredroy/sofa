@@ -139,26 +139,22 @@ public:
     {
         /// @name index of the 4 connected vertices
         /// @{
-        //Vec<4,int> tetra;
         int ia[BSIZE],ib[BSIZE],ic[BSIZE],id[BSIZE];
         /// @}
 
         /// @name material stiffness matrix
         /// @{
-        //Mat<6,6,Real> K;
-        Real gamma_bx2[BSIZE], mu2_bx2[BSIZE];
+        Real gamma_bx2[BSIZE], half_mu2_bx2[BSIZE];
         /// @}
 
         /// @name initial position of the vertices in the local (rotated) coordinate system
         /// @{
-        //Vec3f initpos[4];
         Real bx[BSIZE],cx[BSIZE];
         Real cy[BSIZE],dx[BSIZE],dy[BSIZE],dz[BSIZE];
         /// @}
 
         /// strain-displacement matrix
         /// @{
-        //Mat<12,6,Real> J;
         Real Jbx_bx[BSIZE],Jby_bx[BSIZE],Jbz_bx[BSIZE];
         /// @}
     };
@@ -170,63 +166,33 @@ public:
     {
         /// transposed rotation matrix
         Real Rt[3][3][BSIZE];
-        /// current internal stress
-        //Vec<6,Real> S;
-        /// unused value to align to 64 bytes
-        //Real dummy;
-    };
-
-    /// Varying data associated with each element
-    struct GPUElementForce
-    {
-        type::Vec<4, Real> fA, fB, fC, fD;
     };
 
     gpu::cuda::CudaVector<GPUElementState> initState;
     gpu::cuda::CudaVector<int> rotationIdx;
     gpu::cuda::CudaVector<GPUElementState> state;
-    gpu::cuda::CudaVector<GPUElementForce> eforce;
+    std::vector<int> elemReorder; ///< GPU element index -> mesh element index (Morton-order)
     int nbElement; ///< number of elements
     int vertex0; ///< index of the first vertex connected to an element
     int nbVertex; ///< number of vertices to process to compute all elements
-    int nbElementPerVertex; ///< max number of elements connected to a vertex
-    /// Index of elements attached to each points (layout per block of NBLOC vertices, with first element of each vertex, then second element, etc)
-    /// Note that each integer is actually equat the the index of the element * 4 + the index of this vertex inside the tetrahedron.
-    int GATHER_PT;
-    int GATHER_BSIZE;
-    gpu::cuda::CudaVector<int> velems;
-    TetrahedronFEMForceFieldInternalData() : nbElement(0), vertex0(0), nbVertex(0), nbElementPerVertex(0) {}
-    void init(int nbe, int v0, int nbv, int nbelemperv)
+
+    TetrahedronFEMForceFieldInternalData() : nbElement(0), vertex0(0), nbVertex(0) {}
+
+    void init(int nbe, int v0, int nbv)
     {
         elems.clear();
         state.clear();
         initState.clear();
         rotationIdx.clear();
-        eforce.clear();
-        velems.clear();
+        elemReorder.clear();
         nbElement = nbe;
         elems.resize((nbe+BSIZE-1)/BSIZE);
         state.resize((nbe+BSIZE-1)/BSIZE);
-        eforce.resize(nbe);
         vertex0 = v0;
         nbVertex = nbv;
-        nbElementPerVertex = nbelemperv;
-        const int nbloc = (nbVertex+BSIZE-1)/BSIZE;
-        velems.resize(nbloc*nbElementPerVertex*BSIZE);
-        for (unsigned int i=0; i<velems.size(); i++)
-            velems[i] = 0;
     }
+
     int size() const { return nbElement; }
-    void setV(int vertex, int num, int index)
-    {
-        vertex -= vertex0;
-        const int block = vertex/BSIZE;
-        const int b_x  = vertex%BSIZE;
-        velems[ block*BSIZE*nbElementPerVertex // start of the block
-                + num*BSIZE                     // offset to the element
-                + b_x                           // offset to the vertex
-              ] = index+1;
-    }
 
     void setE(int i, const Element& indices, const Coord& /*a*/, const Coord& b, const Coord& c, const Coord& d, const MaterialStiffness& K, const StrainDisplacement& /*J*/)
     {
@@ -240,7 +206,7 @@ public:
         e.dx[i] = d[0]; e.dy[i] = d[1]; e.dz[i] = d[2];
         Real bx2 = e.bx[i] * e.bx[i];
         e.gamma_bx2[i] = K[0][1] * bx2;
-        e.mu2_bx2[i] = 2*K[3][3] * bx2;
+        e.half_mu2_bx2[i] = K[3][3] * bx2;
         e.Jbx_bx[i] = (e.cy[i] * e.dz[i]) / e.bx[i];
         e.Jby_bx[i] = (-e.cx[i] * e.dz[i]) / e.bx[i];
         e.Jbz_bx[i] = (e.cx[i]*e.dy[i] - e.cy[i]*e.dx[i]) / e.bx[i];
@@ -253,17 +219,8 @@ public:
     static void getRotations(Main* m, VecReal& rotations);
     static void getRotations(Main* m, linearalgebra::BaseMatrix * rotations,int offset);
 
-    VecReal vecTmpRotation;
-
-    void initPtrData(Main* m)
+    void initPtrData(Main* /*m*/)
     {
-        m->d_gatherPt.beginEdit()->setNames({"1","4","8"});
-        m->d_gatherPt.beginEdit()->setSelectedItem("8");
-        m->d_gatherPt.endEdit();
-
-        m->d_gatherBsize.beginEdit()->setNames({"32","64","128","256"});
-        m->d_gatherBsize.beginEdit()->setSelectedItem("256");
-        m->d_gatherBsize.endEdit();
     }
 };
 
@@ -282,12 +239,10 @@ public:
 
 
 CudaTetrahedronFEMForceField_DeclMethods(gpu::cuda::CudaVec3fTypes);
-CudaTetrahedronFEMForceField_DeclMethods(gpu::cuda::CudaVec3f1Types);
 
 #ifdef SOFA_GPU_CUDA_DOUBLE
 
 CudaTetrahedronFEMForceField_DeclMethods(gpu::cuda::CudaVec3dTypes);
-CudaTetrahedronFEMForceField_DeclMethods(gpu::cuda::CudaVec3d1Types);
 
 #endif // SOFA_GPU_CUDA_DOUBLE
 
