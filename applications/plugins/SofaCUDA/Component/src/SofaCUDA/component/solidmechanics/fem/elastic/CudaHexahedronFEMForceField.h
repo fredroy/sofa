@@ -36,7 +36,7 @@ namespace sofa::component::solidmechanics::fem::elastic
 {
 
 template <class TCoord, class TDeriv, class TReal>
-class HexahedronFEMForceFieldInternalData< gpu::cuda::CudaVectorTypes<TCoord, TDeriv, TReal> > 
+class HexahedronFEMForceFieldInternalData< gpu::cuda::CudaVectorTypes<TCoord, TDeriv, TReal> >
 {
 public:
     typedef gpu::cuda::CudaVectorTypes<TCoord,TDeriv,TReal> DataTypes;
@@ -58,172 +58,73 @@ public:
 
     typedef type::Mat<3, 3, Real> Transformation;
 
-  	typedef gpu::cuda::CudaKernelsHexahedronFEMForceField<DataTypes> Kernels;	
-  
-  	struct GPUElement
-  	{
-          /// @name index of the 8 connected vertices
-  		int ia[BSIZE],ib[BSIZE],ic[BSIZE],id[BSIZE],ig[BSIZE],ih[BSIZE],ii[BSIZE],ij[BSIZE];
-  
-      /// @name initial position of the vertices in the local (rotated) coordinate system
-      Real ax[BSIZE],ay[BSIZE],az[BSIZE];
-      Real bx[BSIZE],by[BSIZE],bz[BSIZE];
-      Real cx[BSIZE],cy[BSIZE],cz[BSIZE];
-      Real dx[BSIZE],dy[BSIZE],dz[BSIZE];
-      Real gx[BSIZE],gy[BSIZE],gz[BSIZE];
-      Real hx[BSIZE],hy[BSIZE],hz[BSIZE];
-      Real ix[BSIZE],iy[BSIZE],iz[BSIZE];
-      Real jx[BSIZE],jy[BSIZE],jz[BSIZE];
+    typedef gpu::cuda::CudaKernelsHexahedronFEMForceField<DataTypes> Kernels;
 
-  	};
+    struct GPUElement
+    {
+        /// @name index of the 8 connected vertices
+        int ia[BSIZE],ib[BSIZE],ic[BSIZE],id[BSIZE],ig[BSIZE],ih[BSIZE],ii[BSIZE],ij[BSIZE];
+
+        /// @name initial position of the vertices in the local (rotated) coordinate system
+        Real ax[BSIZE],ay[BSIZE],az[BSIZE];
+        Real bx[BSIZE],by[BSIZE],bz[BSIZE];
+        Real cx[BSIZE],cy[BSIZE],cz[BSIZE];
+        Real dx[BSIZE],dy[BSIZE],dz[BSIZE];
+        Real gx[BSIZE],gy[BSIZE],gz[BSIZE];
+        Real hx[BSIZE],hy[BSIZE],hz[BSIZE];
+        Real ix[BSIZE],iy[BSIZE],iz[BSIZE];
+        Real jx[BSIZE],jy[BSIZE],jz[BSIZE];
+
+    };
 
     gpu::cuda::CudaVector<GPUElement> elems;
 
-     /// Varying data associated with each element
-     struct GPURotation
-     { 
-       /// rotation matrix
-       type::Mat<3, 3,Real> Rt;
-     };
+     /// Symmetric element stiffness matrix: upper triangle + diagonal (36 blocks).
+     /// BSIZE-interleaved: one group of KMATRIX_GROUP_SIZE Reals per BSIZE elements.
+     /// Layout: [value_index * BSIZE + lane] where value_index = blockIdx*9 + mat_value
+     /// (0..323), lane = elem % BSIZE.
+     /// Stored as a flat CudaVector<Real> to avoid CudaVector over-reserving memory
+     /// for large struct elements (SOFA_VECTOR_HOST_STEP_SIZE adds 32768 elements).
+     static constexpr int KMATRIX_NBLOCKS = 36;
+     static constexpr int KMATRIX_GROUP_SIZE = KMATRIX_NBLOCKS * 9 * BSIZE;
 
-     struct GPUKMatrix
-     {
-       /// @name element stifness matrix
-       type::Mat<3, 3,Real> K0_0;
-       type::Mat<3, 3,Real> K0_1;
-       type::Mat<3, 3,Real> K0_2;
-       type::Mat<3, 3,Real> K0_3;
-       type::Mat<3, 3,Real> K0_4;
-       type::Mat<3, 3,Real> K0_5;
-       type::Mat<3, 3,Real> K0_6;
-       type::Mat<3, 3,Real> K0_7;
-
-       type::Mat<3, 3,Real> K1_0;
-       type::Mat<3, 3,Real> K1_1;
-       type::Mat<3, 3,Real> K1_2;
-       type::Mat<3, 3,Real> K1_3;
-       type::Mat<3, 3,Real> K1_4;
-       type::Mat<3, 3,Real> K1_5;
-       type::Mat<3, 3,Real> K1_6;
-       type::Mat<3, 3,Real> K1_7;
-
-       type::Mat<3, 3,Real> K2_0;
-       type::Mat<3, 3,Real> K2_1;
-       type::Mat<3, 3,Real> K2_2;
-       type::Mat<3, 3,Real> K2_3;
-       type::Mat<3, 3,Real> K2_4;
-       type::Mat<3, 3,Real> K2_5;
-       type::Mat<3, 3,Real> K2_6;
-       type::Mat<3, 3,Real> K2_7;
-
-       type::Mat<3, 3,Real> K3_0;
-       type::Mat<3, 3,Real> K3_1;
-       type::Mat<3, 3,Real> K3_2;
-       type::Mat<3, 3,Real> K3_3;
-       type::Mat<3, 3,Real> K3_4;
-       type::Mat<3, 3,Real> K3_5;
-       type::Mat<3, 3,Real> K3_6;
-       type::Mat<3, 3,Real> K3_7;
-
-       type::Mat<3, 3,Real> K4_0;
-       type::Mat<3, 3,Real> K4_1;
-       type::Mat<3, 3,Real> K4_2;
-       type::Mat<3, 3,Real> K4_3;
-       type::Mat<3, 3,Real> K4_4;
-       type::Mat<3, 3,Real> K4_5;
-       type::Mat<3, 3,Real> K4_6;
-       type::Mat<3, 3,Real> K4_7;
-
-       type::Mat<3, 3,Real> K5_0;
-       type::Mat<3, 3,Real> K5_1;
-       type::Mat<3, 3,Real> K5_2;
-       type::Mat<3, 3,Real> K5_3;
-       type::Mat<3, 3,Real> K5_4;
-       type::Mat<3, 3,Real> K5_5;
-       type::Mat<3, 3,Real> K5_6;
-       type::Mat<3, 3,Real> K5_7;
-
-       type::Mat<3, 3,Real> K6_0;
-       type::Mat<3, 3,Real> K6_1;
-       type::Mat<3, 3,Real> K6_2;
-       type::Mat<3, 3,Real> K6_3;
-       type::Mat<3, 3,Real> K6_4;
-       type::Mat<3, 3,Real> K6_5;
-       type::Mat<3, 3,Real> K6_6;
-       type::Mat<3, 3,Real> K6_7;
-
-       type::Mat<3, 3,Real> K7_0;
-       type::Mat<3, 3,Real> K7_1;
-       type::Mat<3, 3,Real> K7_2;
-       type::Mat<3, 3,Real> K7_3;
-       type::Mat<3, 3,Real> K7_4;
-       type::Mat<3, 3,Real> K7_5;
-       type::Mat<3, 3,Real> K7_6;
-       type::Mat<3, 3,Real> K7_7;
-
-     };
-
-    /// Varying data associated with each element
-    struct GPUElementForce
+    /// Varying data associated with each element (BSIZE-interleaved rotation)
+    struct GPUElementState
     {
-        type::Vec<4,Real> fA, fB, fC, fD, fG, fH, fI, fJ;
+        /// transposed rotation matrix
+        Real Rt[3][3][BSIZE];
     };
 
-    gpu::cuda::CudaVector<GPURotation> erotation;
-    gpu::cuda::CudaVector<GPURotation> irotation;
-    gpu::cuda::CudaVector<GPUKMatrix> ekmatrix;
-    gpu::cuda::CudaVector<GPUElementForce> eforce;
+    gpu::cuda::CudaVector<Real> ekmatrixData;
+    gpu::cuda::CudaVector<GPUElementState> state;
+    gpu::cuda::CudaVector<GPUElementState> initState;
+    gpu::cuda::CudaVector<int> rotationIdx;
 
     int nbElement; ///< number of elements
     int vertex0; ///< index of the first vertex connected to an element
     int nbVertex; ///< number of vertices to process to compute all elements
-    int nbElementPerVertex; ///< max number of elements connected to a vertex
-    int GATHER_PT;
-    int GATHER_BSIZE;
 
-    /// Index of elements attached to each points (layout per block of NBLOC vertices, with first element of each vertex, then second element, etc)
-    /// Note that each integer is actually equal to the index of the element * 8 + the index of this vertex inside the hexahedron.
-    gpu::cuda::CudaVector<int> velems;
+    HexahedronFEMForceFieldInternalData() : nbElement(0), vertex0(0), nbVertex(0) {}
 
-    HexahedronFEMForceFieldInternalData() : nbElement(0), vertex0(0), nbVertex(0), nbElementPerVertex(0) {}
+    void init(int nbe, int v0, int nbv)
+    {
+        elems.clear();
+        ekmatrixData.clear();
+        state.clear();
+        initState.clear();
+        rotationIdx.clear();
 
-	void init(int nbe, int v0, int nbv, int nbelemperv)
-	{
-    elems.clear();
-    erotation.clear();
-    irotation.clear();
-    ekmatrix.clear();
-    eforce.clear();
-    velems.clear();
+        nbElement = nbe;
+        vertex0 = v0;
+        nbVertex = nbv;
 
-    nbElement = nbe;
-    nbVertex = nbv;
-    vertex0 = v0;
-    nbElementPerVertex = nbelemperv;
-    const int nbloc = (nbVertex+BSIZE-1)/BSIZE;
-
-    elems.resize((nbe+BSIZE-1)/BSIZE);
-    erotation.resize(nbe);
-    irotation.resize(nbe);
-    ekmatrix.resize(nbe);
-    eforce.resize(nbe);
-    velems.resize(nbloc*nbElementPerVertex*BSIZE);
-    for (unsigned int i=0; i<velems.size(); i++)
-      velems[i] = 0;
-
-	}
+        const int numGroups = (nbe+BSIZE-1)/BSIZE;
+        elems.resize(numGroups);
+        ekmatrixData.resize(numGroups * KMATRIX_GROUP_SIZE);
+        state.resize(numGroups);
+    }
 
     int size() const { return nbElement; }
-    void setV(int vertex, int num, int index)
-    {
-        vertex -= vertex0;
-        const int block = vertex/BSIZE;
-        const int b_x = vertex%BSIZE;
-        velems[ block*BSIZE*nbElementPerVertex // start of the block
-              + num*BSIZE                     // offset to the element
-              + b_x                           // offset to the vertex
-              ] = index+1;
-    }
 
     void setE(int i, const Element& indices, type::fixed_array<Coord,8> *rotateds)
     {
@@ -248,100 +149,25 @@ public:
 
     }
 
-    void setS(int i, const Transformation &rotations, const ElementStiffness& K)
+    void setS(int i, const ElementStiffness& K)
     {
-      for(unsigned j=0; j<3; j++)
-      {
-        for(unsigned k=0; k<3; k++)
+      const int g = i / BSIZE;
+      const int li = i % BSIZE;
+      Real* groupBase = &ekmatrixData[g * KMATRIX_GROUP_SIZE];
+      for (int r = 0; r < 8; r++)
+        for (int c = r; c < 8; c++)
         {
-          erotation[i].Rt[j][k] = rotations[j][k];
-          irotation[i].Rt[j][k] = rotations[j][k];
+          type::Mat<3,3,Real> block;
+          K.getsub(r*3, c*3, block);
+          const int bi = 8*r - r*(r-1)/2 + (c - r);
+          for (int j = 0; j < 3; j++)
+            for (int k = 0; k < 3; k++)
+              groupBase[(bi*9 + j*3 + k) * BSIZE + li] = block[j][k];
         }
-      }
-
-      K.getsub(0, 0, ekmatrix[i].K0_0);
-      K.getsub(0, 1*3, ekmatrix[i].K0_1);
-      K.getsub(0, 2*3, ekmatrix[i].K0_2);
-      K.getsub(0, 3*3, ekmatrix[i].K0_3);
-      K.getsub(0, 4*3, ekmatrix[i].K0_4);
-      K.getsub(0, 5*3, ekmatrix[i].K0_5);
-      K.getsub(0, 6*3, ekmatrix[i].K0_6);
-      K.getsub(0, 7*3, ekmatrix[i].K0_7);
-
-      K.getsub(1*3, 0*3, ekmatrix[i].K1_0);
-      K.getsub(1*3, 1*3, ekmatrix[i].K1_1);
-      K.getsub(1*3, 2*3, ekmatrix[i].K1_2);
-      K.getsub(1*3, 3*3, ekmatrix[i].K1_3);
-      K.getsub(1*3, 4*3, ekmatrix[i].K1_4);
-      K.getsub(1*3, 5*3, ekmatrix[i].K1_5);
-      K.getsub(1*3, 6*3, ekmatrix[i].K1_6);
-      K.getsub(1*3, 7*3, ekmatrix[i].K1_7);
-
-      K.getsub(2*3, 0*3, ekmatrix[i].K2_0);
-      K.getsub(2*3, 1*3, ekmatrix[i].K2_1);
-      K.getsub(2*3, 2*3, ekmatrix[i].K2_2);
-      K.getsub(2*3, 3*3, ekmatrix[i].K2_3);
-      K.getsub(2*3, 4*3, ekmatrix[i].K2_4);
-      K.getsub(2*3, 5*3, ekmatrix[i].K2_5);
-      K.getsub(2*3, 6*3, ekmatrix[i].K2_6);
-      K.getsub(2*3, 7*3, ekmatrix[i].K2_7);
-
-      K.getsub(3*3, 0*3, ekmatrix[i].K3_0);
-      K.getsub(3*3, 1*3, ekmatrix[i].K3_1);
-      K.getsub(3*3, 2*3, ekmatrix[i].K3_2);
-      K.getsub(3*3, 3*3, ekmatrix[i].K3_3);
-      K.getsub(3*3, 4*3, ekmatrix[i].K3_4);
-      K.getsub(3*3, 5*3, ekmatrix[i].K3_5);
-      K.getsub(3*3, 6*3, ekmatrix[i].K3_6);
-      K.getsub(3*3, 7*3, ekmatrix[i].K3_7);
-
-      K.getsub(4*3, 0*3, ekmatrix[i].K4_0);
-      K.getsub(4*3, 1*3, ekmatrix[i].K4_1);
-      K.getsub(4*3, 2*3, ekmatrix[i].K4_2);
-      K.getsub(4*3, 3*3, ekmatrix[i].K4_3);
-      K.getsub(4*3, 4*3, ekmatrix[i].K4_4);
-      K.getsub(4*3, 5*3, ekmatrix[i].K4_5);
-      K.getsub(4*3, 6*3, ekmatrix[i].K4_6);
-      K.getsub(4*3, 7*3, ekmatrix[i].K4_7);
-
-      K.getsub(5*3, 0*3, ekmatrix[i].K5_0);
-      K.getsub(5*3, 1*3, ekmatrix[i].K5_1);
-      K.getsub(5*3, 2*3, ekmatrix[i].K5_2);
-      K.getsub(5*3, 3*3, ekmatrix[i].K5_3);
-      K.getsub(5*3, 4*3, ekmatrix[i].K5_4);
-      K.getsub(5*3, 5*3, ekmatrix[i].K5_5);
-      K.getsub(5*3, 6*3, ekmatrix[i].K5_6);
-      K.getsub(5*3, 7*3, ekmatrix[i].K5_7);
-
-      K.getsub(6*3, 0*3, ekmatrix[i].K6_0);
-      K.getsub(6*3, 1*3, ekmatrix[i].K6_1);
-      K.getsub(6*3, 2*3, ekmatrix[i].K6_2);
-      K.getsub(6*3, 3*3, ekmatrix[i].K6_3);
-      K.getsub(6*3, 4*3, ekmatrix[i].K6_4);
-      K.getsub(6*3, 5*3, ekmatrix[i].K6_5);
-      K.getsub(6*3, 6*3, ekmatrix[i].K6_6);
-      K.getsub(6*3, 7*3, ekmatrix[i].K6_7);
-
-      K.getsub(7*3, 0*3, ekmatrix[i].K7_0);
-      K.getsub(7*3, 1*3, ekmatrix[i].K7_1);
-      K.getsub(7*3, 2*3, ekmatrix[i].K7_2);
-      K.getsub(7*3, 3*3, ekmatrix[i].K7_3);
-      K.getsub(7*3, 4*3, ekmatrix[i].K7_4);
-      K.getsub(7*3, 5*3, ekmatrix[i].K7_5);
-      K.getsub(7*3, 6*3, ekmatrix[i].K7_6);
-      K.getsub(7*3, 7*3, ekmatrix[i].K7_7);
-
     }
 
-    void initPtrData(Main* m)
+    void initPtrData(Main* /*m*/)
     {
-        m->d_gatherPt.beginEdit()->setNames({"1","4","8"});
-        m->d_gatherPt.beginEdit()->setSelectedItem("8");
-        m->d_gatherPt.endEdit();
-
-        m->d_gatherBsize.beginEdit()->setNames({"32","64","128","256"});
-        m->d_gatherBsize.beginEdit()->setSelectedItem("256");
-        m->d_gatherBsize.endEdit();
     }
 
     static void reinit(Main* m);
