@@ -79,7 +79,7 @@ public:
     template<class T2>
     void operator=(const T2& v)
     {
-        vref = &v;
+        *vref = v;
     }
 };
 
