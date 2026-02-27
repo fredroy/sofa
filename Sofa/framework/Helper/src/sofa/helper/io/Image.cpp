@@ -162,6 +162,7 @@ Image::Image(const Image& rhs)
 
 Image& Image::operator=(const Image& rhs)
 {
+    if (this == &rhs) return *this;
     clear();
     init(rhs.width,rhs.height,rhs.depth,rhs.mipmaps,rhs.dataType,rhs.channelFormat);
     memcpy(data,rhs.data,getImageSize());
