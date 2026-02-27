@@ -169,12 +169,12 @@ inline bool opAddMulJTM_TBloc(linearalgebra::BaseMatrix* out, linearalgebra::Bas
                             for (int k = 0; k < JblocRsize; k++)
                             {
                                 tempBlockData(i,j) += (MelementType)JblocData(k,i) * MblocData(k,j);
-                                out->add(offsetRow + JblocRsize*JBColIndex+i, offsetCol + MblocCsize*MBColIndex+j, tempBlockData(i,j));
-                                msg_info_when(_debug, "CRSMultiMatrixAccessor") << " (i." << offsetRow + JblocRsize * JBColIndex + i << ","
-                                    << "j." << offsetCol + MblocCsize * MBColIndex + j << ")"
-                                    << "    JBRowIndex:" << JBRowIndex << " JBColIndex:" << JBColIndex
-                                    << "      i:" << i << " j:" << j << "  k:" << k;
                             }
+                            out->add(offsetRow + JblocRsize*JBColIndex+i, offsetCol + MblocCsize*MBColIndex+j, tempBlockData(i,j));
+                            msg_info_when(_debug, "CRSMultiMatrixAccessor") << " (i." << offsetRow + JblocRsize * JBColIndex + i << ","
+                                << "j." << offsetCol + MblocCsize * MBColIndex + j << ")"
+                                << "    JBRowIndex:" << JBRowIndex << " JBColIndex:" << JBColIndex
+                                << "      i:" << i << " j:" << j;
                         }
                     }
                 }
