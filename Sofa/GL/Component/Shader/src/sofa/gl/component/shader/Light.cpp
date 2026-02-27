@@ -22,7 +22,7 @@
 #include <sofa/gl/component/shader/Light.h>
 #include <sofa/core/visual/VisualParams.h>
 #include <sofa/gl/component/shader/LightManager.h>
-#include <sofa/gl/glu.h>
+#include <sofa/gl/CoreProfileRenderer.h>
 #include <sofa/core/ObjectFactory.h>
 #include <sofa/simulation/fwd.h>
 #include <sofa/simulation/Simulation.h>
@@ -641,24 +641,20 @@ void PositionalLight::drawLight(const core::visual::VisualParams* vparams)
 }
 
 void PositionalLight::drawSource(const core::visual::VisualParams* /*vparams*/)
-{  
+{
     const auto& bbox = this->getContext()->getRootContext()->f_bbox.getValue();
     float scale = (float)((bbox.maxBBox() - bbox.minBBox()).norm());
     scale *= 0.01f;
 
-    GLUquadric* quad = gluNewQuadric();
     const auto& pos = d_position.getValue();
     const auto& col = d_color.getValue();
 
-    glDisable(GL_LIGHTING);
-    glColor3fv((float*)col.data());
-
-    glPushMatrix();
-    glTranslated(pos[0], pos[1], pos[2]);
-    gluSphere(quad, 1.0f*scale, 16, 16);
-    glPopMatrix();
-
-    glEnable(GL_LIGHTING);
+    const float color[4] = { (float)col[0], (float)col[1], (float)col[2], (float)col[3] };
+    std::vector<sofa::gl::CoreProfileRenderer::Vertex> verts;
+    sofa::gl::CoreProfileRenderer::generateSphereTriangles(verts,
+        (float)pos[0], (float)pos[1], (float)pos[2],
+        scale, scale, scale, color, 16, 16);
+    sofa::gl::CoreProfileRenderer::renderTriangles(verts, true);
 }
 
 void PositionalLight::draw(const core::visual::VisualParams* vparams)

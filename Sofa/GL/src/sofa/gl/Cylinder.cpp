@@ -21,9 +21,7 @@
 ******************************************************************************/
 #include <sofa/gl/Cylinder.h>
 
-#if SOFA_GL_NO_FIXED_PIPELINE
 #include <sofa/gl/CoreProfileRenderer.h>
-#endif
 
 #include <cassert>
 #include <algorithm>
@@ -39,76 +37,6 @@ const int Cylinder::quadricDiscretisation = 16;
 //GLuint Cylinder::displayList;
 //GLUquadricObj *Cylinder::quadratic = nullptr;
 std::map < std::pair<std::pair<float,float>,float>, Cylinder* > Cylinder::CylinderMap;
-
-#if !SOFA_GL_NO_FIXED_PIPELINE
-
-void Cylinder::initDraw()
-{
-    if (quadratic!=nullptr) return;
-
-    quadratic=gluNewQuadric();
-    gluQuadricNormals(quadratic, GLU_SMOOTH);
-    gluQuadricTexture(quadratic, GL_TRUE);
-
-    displayList=glGenLists(1);
-
-    glNewList(displayList, GL_COMPILE);
-
-    glColor3f(1,1,0);
-
-    if (length[0] > 0.0)
-    {
-        glRotatef(90,0,1,0);
-        glTranslated(0,0,-length[0]/2);
-        gluSphere(quadratic,length[0]/15,quadricDiscretisation,quadricDiscretisation/2);
-        gluCylinder(quadratic,length[0]/15,length[0]/15,length[0],quadricDiscretisation,quadricDiscretisation);
-        glTranslated(0,0,length[0]);
-        gluSphere(quadratic,length[0]/15,quadricDiscretisation,quadricDiscretisation/2);
-        glTranslated(0,0,-length[0]/2);
-        glRotatef(-90,0,1,0);
-    }
-    if (length[1] > 0.0)
-    {
-        glRotatef(90,1,0,0);
-        glTranslated(0,0,-length[1]/2);
-        gluSphere(quadratic,length[1]/15,quadricDiscretisation,quadricDiscretisation/2);
-        gluCylinder(quadratic,length[1]/15,length[1]/15,length[1],quadricDiscretisation,quadricDiscretisation);
-        glTranslated(0,0,length[1]);
-        gluSphere(quadratic,length[1]/15,quadricDiscretisation,quadricDiscretisation/2);
-        glTranslated(0,0,-length[1]/2);
-        glRotatef(-90,1,0,0);
-
-    }
-    if (length[2] > 0.0)
-    {
-        glTranslated(0,0,-length[2]/2);
-        gluSphere(quadratic,length[2]/15,quadricDiscretisation,quadricDiscretisation/2);
-        gluCylinder(quadratic,length[2]/15,length[2]/15,length[2],quadricDiscretisation,quadricDiscretisation);
-        glTranslated(0,0,length[2]);
-        gluSphere(quadratic,length[2]/15,quadricDiscretisation,quadricDiscretisation/2);
-        glTranslated(0,0,-length[2]/2);
-    }
-
-	glEndList();
-}
-
-void Cylinder::draw()
-{
-    initDraw();
-
-    glPushMatrix();
-    glPushAttrib(GL_ENABLE_BIT);
-
-    glEnable(GL_LIGHTING);
-    glEnable(GL_COLOR_MATERIAL);
-    glMultMatrixd(matTransOpenGL);
-    glCallList(displayList);
-
-    glPopAttrib();
-    glPopMatrix();
-}
-
-#else // SOFA_GL_NO_FIXED_PIPELINE
 
 void Cylinder::initDraw()
 {
@@ -163,8 +91,6 @@ void Cylinder::draw()
     CoreProfileRenderer::renderTriangles(m_cachedVerts, true, modelMat);
 }
 
-#endif // SOFA_GL_NO_FIXED_PIPELINE
-
 void Cylinder::update(const double *mat)
 {
     std::copy(mat,mat+16, matTransOpenGL);
@@ -203,81 +129,53 @@ void Cylinder::update(const Vec3& center, const Quaternion& orient)
 
 Cylinder::Cylinder(SReal len)
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
-    quadratic = nullptr;
-#endif
     length = Vec3(len,len,len);
     update(Vec3(0_sreal,0_sreal,0_sreal),  Quaternion(1_sreal,0_sreal,0_sreal,0_sreal));
 }
 
 Cylinder::Cylinder(const Vec3& len)
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
-    quadratic = nullptr;
-#endif
     length = len;
     update(Vec3(0_sreal,0_sreal,0_sreal),  Quaternion(1_sreal,0_sreal,0_sreal,0_sreal));
 }
 
 Cylinder::Cylinder(const Vec3& center, const Quaternion& orient, const Vec3& len)
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
-    quadratic = nullptr;
-#endif
     length = len;
     update(center, orient);
 }
 
 Cylinder::Cylinder(const Vec3& center, const double orient[4][4], const Vec3& len)
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
-    quadratic = nullptr;
-#endif
     length = len;
     update(center, orient);
 }
 
 Cylinder::Cylinder(const double *mat, const Vec3& len)
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
-    quadratic = nullptr;
-#endif
     length = len;
     update(mat);
 }
 
 Cylinder::Cylinder(const Vec3& center, const Quaternion& orient, SReal len)
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
-    quadratic = nullptr;
-#endif
     length = Vec3(len,len,len);
     update(center, orient);
 }
 Cylinder::Cylinder(const Vec3& center, const double orient[4][4], SReal len)
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
-    quadratic = nullptr;
-#endif
     length = Vec3(len,len,len);
     update(center, orient);
 }
 
 Cylinder::Cylinder(const double *mat, SReal len)
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
-    quadratic = nullptr;
-#endif
     length = Vec3(len,len,len);
     update(mat);
 }
 
 Cylinder::~Cylinder()
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
-    if (quadratic != nullptr)
-        gluDeleteQuadric(quadratic);
-#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 Cylinder* Cylinder::get(const Vec3& len)
@@ -287,52 +185,6 @@ Cylinder* Cylinder::get(const Vec3& len)
         a = new Cylinder(len);
     return a;
 }
-
-#if !SOFA_GL_NO_FIXED_PIPELINE
-
-void Cylinder::draw(const Vec3& center, const Quaternion& orient, const Vec3& len)
-{
-    Cylinder* a = get(len);
-    a->update(center, orient);
-    a->draw();
-}
-
-void Cylinder::draw(const Vec3& center, const double orient[4][4], const Vec3& len)
-{
-    Cylinder* a = get(len);
-    a->update(center, orient);
-    a->draw();
-}
-
-void Cylinder::draw(const double *mat, const Vec3& len)
-{
-    Cylinder* a = get(len);
-    a->update(mat);
-    a->draw();
-}
-
-void Cylinder::draw(const Vec3& center, const Quaternion& orient, SReal len)
-{
-    Cylinder* a = get(Vec3(len,len,len));
-    a->update(center, orient);
-    a->draw();
-}
-
-void Cylinder::draw(const Vec3& center, const double orient[4][4], SReal len)
-{
-    Cylinder* a = get(Vec3(len,len,len));
-    a->update(center, orient);
-    a->draw();
-}
-
-void Cylinder::draw(const double *mat, SReal len)
-{
-    Cylinder* a = get(Vec3(len,len,len));
-    a->update(mat);
-    a->draw();
-}
-
-#else // SOFA_GL_NO_FIXED_PIPELINE
 
 void Cylinder::draw(const Vec3& center, const Quaternion& orient, const Vec3& len)
 {
@@ -375,7 +227,5 @@ void Cylinder::draw(const double* mat, SReal len)
     a->update(mat);
     a->draw();
 }
-
-#endif // SOFA_GL_NO_FIXED_PIPELINE
 
 } // namespace sofa::gl

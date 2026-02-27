@@ -27,9 +27,9 @@
 #include <sofa/helper/visual/Transformation.h>
 #include <sofa/gl/template.h>
 #include <sofa/type/fixed_array.h>
-#include <sofa/gl/glu.h>
 #include <sofa/component/visual/VisualStyle.h>
 #include <sofa/helper/narrow_cast.h>
+#include <cmath>
 
 namespace sofa::gl::component::rendering2d
 {
@@ -182,7 +182,17 @@ void OglViewport::preDrawScene(core::visual::VisualParams* vp)
         glMatrixMode(GL_PROJECTION);
         glPushMatrix();
         glLoadIdentity();
-        gluPerspective(p_fovy.getValue(),ratio,zNear, zFar);
+        {
+            const double fovy = p_fovy.getValue();
+            const double f = 1.0 / tan(fovy * M_PI / 360.0);
+            double perspMat[16] = {0};
+            perspMat[0] = f / ratio;
+            perspMat[5] = f;
+            perspMat[10] = (zFar + zNear) / (zNear - zFar);
+            perspMat[11] = -1.0;
+            perspMat[14] = (2.0 * zFar * zNear) / (zNear - zFar);
+            glMultMatrixd(perspMat);
+        }
 
         glMatrixMode(GL_MODELVIEW);
         glPushMatrix();
@@ -332,7 +342,17 @@ void OglViewport::renderToViewport(core::visual::VisualParams* vp)
         glMatrixMode(GL_PROJECTION);
         glPushMatrix();
         glLoadIdentity();
-        gluPerspective(p_fovy.getValue(),ratio,zNear, zFar);
+        {
+            const double fovy = p_fovy.getValue();
+            const double f = 1.0 / tan(fovy * M_PI / 360.0);
+            double perspMat[16] = {0};
+            perspMat[0] = f / ratio;
+            perspMat[5] = f;
+            perspMat[10] = (zFar + zNear) / (zNear - zFar);
+            perspMat[11] = -1.0;
+            perspMat[14] = (2.0 * zFar * zNear) / (zNear - zFar);
+            glMultMatrixd(perspMat);
+        }
 
         glMatrixMode(GL_MODELVIEW);
         glPushMatrix();

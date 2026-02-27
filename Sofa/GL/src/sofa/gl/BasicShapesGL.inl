@@ -142,45 +142,18 @@ void BasicShapesGL_Sphere<VertexType>::generateBuffer(const SphereDescription &d
 template<class VertexType>
 void BasicShapesGL_Sphere<VertexType>::internalDraw(const GLBuffers &buffer, const VertexType& center, const float& radius)
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
-    glPushMatrix();
-    gl::glTranslate(center[0], center[1], center[2]);
-    glScalef(radius, radius, radius);
-
-    glDrawElements(GL_QUADS, GLsizei(buffer.indicesSize), GL_UNSIGNED_INT, nullptr);
-
-    glPopMatrix();
-#else
     (void)buffer; (void)center; (void)radius;
-#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 template<class VertexType>
 void BasicShapesGL_Sphere<VertexType>::beforeDraw(const GLBuffers& buffer)
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
-    glMatrixMode(GL_MODELVIEW);
-
-    glBindBuffer(GL_ARRAY_BUFFER, buffer.VBO);
-    glVertexPointer(3, GL_FLOAT, 0, nullptr);
-    glNormalPointer(GL_FLOAT, 0, reinterpret_cast<void*>(buffer.verticesBufferSize) );
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_NORMAL_ARRAY);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffer.IBO);
-#else
     (void)buffer;
-#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 template<class VertexType>
 void BasicShapesGL_Sphere<VertexType>::afterDraw(const GLBuffers &/* buffer */)
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_NORMAL_ARRAY);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 template<class VertexType>
@@ -400,45 +373,16 @@ void BasicShapesGL_FakeSphere<VertexType>::generateBuffer(const std::vector<Vert
 template<class VertexType>
 void BasicShapesGL_FakeSphere<VertexType>::beforeDraw()
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
-    glMatrixMode(GL_MODELVIEW);
-
-    glBindBuffer(GL_ARRAY_BUFFER, m_radiusBuffer.VBO);
-    glVertexAttribPointer(m_radiusBuffer.location, 1, GL_FLOAT, GL_FALSE, 0, nullptr);
-    glEnableVertexAttribArray(m_radiusBuffer.location);
-
-    glBindBuffer(GL_ARRAY_BUFFER, m_buffer.VBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_buffer.IBO);
-    glVertexPointer(3, GL_FLOAT, 0, nullptr);
-    glTexCoordPointer(2, GL_FLOAT, 0, reinterpret_cast<void*>(m_buffer.verticesBufferSize)) ;
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 template<class VertexType>
 void BasicShapesGL_FakeSphere<VertexType>::internalDraw()
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
-    m_shader->TurnOn();
-
-    glPushMatrix();
-    glDrawElements(GL_QUADS, (GLsizei)m_buffer.indicesSize, GL_UNSIGNED_INT, nullptr);
-    glPopMatrix();
-    m_shader->TurnOff();
-#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 template<class VertexType>
 void BasicShapesGL_FakeSphere<VertexType>::afterDraw()
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-    glDisableVertexAttribArray(m_radiusBuffer.location);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 template<class VertexType>

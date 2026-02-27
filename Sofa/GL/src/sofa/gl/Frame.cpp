@@ -22,9 +22,7 @@
 #include <sofa/gl/Frame.h>
 
 #include <sofa/gl/gl.h>
-#if SOFA_GL_NO_FIXED_PIPELINE
 #include <sofa/gl/CoreProfileRenderer.h>
-#endif
 
 #include <sofa/type/Vec.h>
 #include <sofa/type/Mat.h>
@@ -337,66 +335,6 @@ struct CoordinateFrame
     }
 };
 
-#if !SOFA_GL_NO_FIXED_PIPELINE
-
-// Render the complete coordinate frame
-void render_coordinate_frame(const CoordinateFrame& frame, const type::Vec3& center, const type::Quat<SReal>& orient, const type::Vec3&, const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ)
-{
-    glPushAttrib(GL_LIGHTING_BIT);
-    glEnable(GL_LIGHTING);
-    glEnable(GL_COLOR_MATERIAL);
-
-    // Get mesh components
-    const auto& mesh_components = frame.get_mesh_components();
-
-    // Colors for each axis: Red, Red, Green, Green, Blue, Blue
-    const sofa::type::RGBAColor colors[6] = {
-        colorX, // X-cylinder (red)
-        colorX, // X-arrowhead (red)
-        colorY, // Y-cylinder (green)
-        colorY, // Y-arrowhead (green)
-        colorZ, // Z-cylinder (blue)
-        colorZ  // Z-arrowhead (blue)
-    };
-
-    sofa::type::Vec3 rotAxis;
-    double phi{};
-    orient.quatToAxis(rotAxis, phi);
-
-    glMatrixMode(GL_MODELVIEW);
-    glPushMatrix();
-    glTranslated(center.x(), center.y(), center.z());
-    glRotated(phi * 180.0 / M_PI, 
-        rotAxis.x(),
-        rotAxis.y(),
-        rotAxis.z());
-
-    // macOS seems to not allow unbinding vertex array (in compat mode at least)
-#ifndef __APPLE__
-    glBindVertexArray(0);
-#endif
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_NORMAL_ARRAY);
-    constexpr auto gltype = (std::is_same<SReal, double>::value)?GL_DOUBLE:GL_FLOAT;
-    for (int i = 0; i < 6; ++i)
-    {
-        const auto& comp = mesh_components[i];
-        glColor4d(colors[i][0], colors[i][1], colors[i][2], colors[i][3]);
-        glVertexPointer(3, gltype, 0, comp.vertices);
-        glNormalPointer(gltype, 0, comp.triangles);
-
-        glDrawElements(GL_TRIANGLES, comp.triangle_count*3, GL_UNSIGNED_INT, comp.triangles);
-    }
-
-    glDisableClientState(GL_NORMAL_ARRAY);
-    glDisableClientState(GL_VERTEX_ARRAY);
-
-    glPopMatrix();
-    glPopAttrib();
-}
-
-#else // SOFA_GL_NO_FIXED_PIPELINE
-
 void render_coordinate_frame(const CoordinateFrame& frame, const type::Vec3& center, const type::Quat<SReal>& orient, const type::Vec3&, const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ)
 {
     const auto& mesh_components = frame.get_mesh_components();
@@ -461,8 +399,6 @@ void render_coordinate_frame(const CoordinateFrame& frame, const type::Vec3& cen
     }
 }
 
-#endif // SOFA_GL_NO_FIXED_PIPELINE
-
 std::unordered_map < type::Vec3, CoordinateFrame > cacheFrame;
 void Frame::draw(const type::Vec3& center, const Quaternion& orient, const type::Vec3& len, const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ )
 {
@@ -492,11 +428,7 @@ void Frame::draw(const type::Vec3& center, const Quaternion& orient, const type:
     }
 
     const auto& frame = cacheFrame.at(len);
-#if !SOFA_GL_NO_FIXED_PIPELINE
     render_coordinate_frame(frame, center, orient, len, colorX, colorY, colorZ);
-#else // SOFA_GL_NO_FIXED_PIPELINE
-    render_coordinate_frame(frame, center, orient, len, colorX, colorY, colorZ);
-#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 void Frame::draw(const type::Vec3& center, const double orient[4][4], const type::Vec3& len, const type::RGBAColor& colorX, const type::RGBAColor& colorY, const type::RGBAColor& colorZ)

@@ -55,13 +55,8 @@ static unsigned int typeTable[helper::io::Image::COUNT_OF_DATA_TYPES] =
 
 static unsigned int formatTable[helper::io::Image::COUNT_OF_CHANNEL_FORMATS] =
 {
-#if SOFA_GL_NO_FIXED_PIPELINE
     GL_RED,             // L (core profile: GL_LUMINANCE removed)
     GL_RG,              // LA (core profile: GL_LUMINANCE_ALPHA removed)
-#else
-    GL_LUMINANCE,       // L
-    GL_LUMINANCE_ALPHA, // LA
-#endif
     GL_RED,             // R
 #if defined(GL_VERSION_3_0)
     GL_RG,              // RG
@@ -80,13 +75,8 @@ static unsigned int internalFormatTable[helper::io::Image::COUNT_OF_DATA_TYPES][
 {
     // UNORM8
     {
-#if SOFA_GL_NO_FIXED_PIPELINE
         GL_R8,                  // L (core profile)
         GL_RG8,                 // LA (core profile)
-#else
-        GL_LUMINANCE8,          // L
-        GL_LUMINANCE8_ALPHA8,   // LA
-#endif
 #if defined(GL_VERSION_3_0)
         GL_R8,                  // R
         GL_RG8,                 // RG
@@ -100,13 +90,8 @@ static unsigned int internalFormatTable[helper::io::Image::COUNT_OF_DATA_TYPES][
     },
     // UNORM16
     {
-#if SOFA_GL_NO_FIXED_PIPELINE
         GL_R16,                 // L (core profile)
         GL_RG16,                // LA (core profile)
-#else
-        GL_LUMINANCE16,         // L
-        GL_LUMINANCE16_ALPHA16, // LA
-#endif
 #if defined(GL_VERSION_3_0)
         GL_R16,          // R
         GL_RG16,         // RG
@@ -120,15 +105,8 @@ static unsigned int internalFormatTable[helper::io::Image::COUNT_OF_DATA_TYPES][
     },
     // UINT32
     {
-#if SOFA_GL_NO_FIXED_PIPELINE
         GL_R32UI,                   // L (core profile)
         GL_RG32UI,                  // LA (core profile)
-#elif defined(GL_EXT_texture_integer)
-        GL_LUMINANCE32UI_EXT,       // L
-        GL_LUMINANCE_ALPHA32UI_EXT, // LA
-#else
-        0, 0,
-#endif
 #if defined(GL_VERSION_3_0)
         GL_R32UI,                   // R
         GL_RG32UI,                  // RG
@@ -140,15 +118,8 @@ static unsigned int internalFormatTable[helper::io::Image::COUNT_OF_DATA_TYPES][
     },
     // HALF
     {
-#if SOFA_GL_NO_FIXED_PIPELINE
         GL_R16F,                    // L (core profile)
         GL_RG16F,                   // LA (core profile)
-#elif defined(GL_ARB_texture_float)
-        GL_LUMINANCE16F_ARB,        // L
-        GL_LUMINANCE_ALPHA16F_ARB,  // LA
-#else
-        0, 0,
-#endif
 #if defined(GL_VERSION_3_0)
         GL_R16F,                    // R
         GL_RG16F,                   // RG
@@ -160,15 +131,8 @@ static unsigned int internalFormatTable[helper::io::Image::COUNT_OF_DATA_TYPES][
     },
     // FLOAT
     {
-#if SOFA_GL_NO_FIXED_PIPELINE
         GL_R32F,                    // L (core profile)
         GL_RG32F,                   // LA (core profile)
-#elif defined(GL_ARB_texture_float)
-        GL_LUMINANCE32F_ARB,        // L
-        GL_LUMINANCE_ALPHA32F_ARB,  // LA
-#else
-        0, 0,
-#endif
 #if defined(GL_VERSION_3_0)
         GL_R32F,                    // R
         GL_RG32F,                   // RG
@@ -180,15 +144,8 @@ static unsigned int internalFormatTable[helper::io::Image::COUNT_OF_DATA_TYPES][
     },
     // UCOMPRESSED
     {
-#if SOFA_GL_NO_FIXED_PIPELINE
         GL_COMPRESSED_RED_RGTC1,                    // L (core profile)
         GL_COMPRESSED_RG_RGTC2,                     // LA (core profile)
-#elif defined(GL_EXT_texture_compression_latc)
-        GL_COMPRESSED_LUMINANCE_LATC1_EXT,          // L
-        GL_COMPRESSED_LUMINANCE_ALPHA_LATC2_EXT,    // LA
-#else
-        0, 0,
-#endif
 #if defined(GL_VERSION_3_0)
         GL_COMPRESSED_RED_RGTC1,                    // R
         GL_COMPRESSED_RG_RGTC2,                     // RG
@@ -207,13 +164,8 @@ static unsigned int internalFormatTableSRGB[helper::io::Image::COUNT_OF_DATA_TYP
 #if defined(GL_EXT_texture_sRGB)
     // UNORM8
     {
-#if SOFA_GL_NO_FIXED_PIPELINE
         GL_R8,                       // L (core profile, no sRGB single-channel)
         GL_SRGB8_ALPHA8_EXT,         // LA (core profile, approximate)
-#else
-        GL_SLUMINANCE8_EXT,          // L
-        GL_SLUMINANCE8_ALPHA8_EXT,   // LA
-#endif
         0, 0,                        // R, RG
         GL_SRGB8_EXT,                // RGB
         GL_SRGB8_ALPHA8_EXT,         // RGBA
@@ -389,19 +341,6 @@ void Texture::init()
     switch (image->getDataType())
     {
     case helper::io::Image::UINT32:
-#if !SOFA_GL_NO_FIXED_PIPELINE
-        if (image->getChannelFormat() <= helper::io::Image::LA)
-        {
-#if defined(GLEW_EXT_texture_integer)
-            if (!GLEW_EXT_texture_integer)
-#endif
-            {
-                 msg_error("Texture") << "Cannot load a texture, GL_EXT_texture_integer is unsupported.";
-                return;
-            }
-        }
-        else
-#endif
 #if defined(GLEW_VERSION_3_0)
             if (!GLEW_VERSION_3_0)
 #endif
@@ -422,19 +361,6 @@ void Texture::init()
         /* Pass through (no break!) */
         [[fallthrough]];
     case helper::io::Image::FLOAT:
-#if !SOFA_GL_NO_FIXED_PIPELINE
-        if (image->getChannelFormat() <= helper::io::Image::LA)
-        {
-#if defined(GLEW_ARB_texture_float)
-            if (!GLEW_ARB_texture_float)
-#endif
-            {
-                msg_error("Texture") << "Cannot load a texture, GLEW_ARB_texture_float is unsupported." ;
-                return;
-            }
-        }
-        else
-#endif
 #if defined(GLEW_VERSION_3_0)
             if (!GLEW_VERSION_3_0)
 #endif
@@ -449,18 +375,7 @@ void Texture::init()
         {
         case helper::io::Image::L:
         case helper::io::Image::LA:
-#if !SOFA_GL_NO_FIXED_PIPELINE
-#if defined(GLEW_EXT_texture_compression_latc)
-            if (!GLEW_EXT_texture_compression_latc)
-#endif
-            {
-                 msg_error("Texture") << " Cannot load a texture, GL_EXT_texture_compression_latc is unsupported." ;
-                return;
-            }
-            break;
-#else
             [[fallthrough]];
-#endif
 
         case helper::io::Image::R:
         case helper::io::Image::RG:
@@ -558,7 +473,6 @@ void Texture::init()
     if (generateMipmaps)
         glGenerateMipmap(target);
 
-#if SOFA_GL_NO_FIXED_PIPELINE
     // On core profile, GL_RED/GL_RG don't replicate to RGB like GL_LUMINANCE did.
     // Set swizzle masks to emulate luminance behavior.
     {
@@ -576,7 +490,6 @@ void Texture::init()
             glTexParameteriv(target, GL_TEXTURE_SWIZZLE_RGBA, swizzle);
         }
     }
-#endif
 }
 
 void Texture::bind(void)

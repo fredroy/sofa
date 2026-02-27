@@ -25,10 +25,8 @@
 #include <sofa/gl/CoreProfileRenderer.h>
 
 #include <sofa/gl/gl.h>
-#if !SOFA_GL_NO_FIXED_PIPELINE
 #include <sofa/gl/Axis.h>
 #include <sofa/gl/Cylinder.h>
-#endif // SOFA_GL_NO_FIXED_PIPELINE
 #include <sofa/helper/logging/Messaging.h>
 #include <sofa/type/Mat.h>
 #include <cmath>
@@ -1332,10 +1330,8 @@ void DrawToolGL::resetMaterial()
 
 void DrawToolGL::clear()
 {
-#if !SOFA_GL_NO_FIXED_PIPELINE
     gl::Axis::clear();
     gl::Cylinder::clear();
-#endif // SOFA_GL_NO_FIXED_PIPELINE
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -28,7 +28,6 @@
 #include <sstream>
 
 #include <sofa/gl/gl.h>
-#include <sofa/gl/glu.h>
 #include <sofa/type/fixed_array.h>
 #include <sofa/gl/Texture.h>
 

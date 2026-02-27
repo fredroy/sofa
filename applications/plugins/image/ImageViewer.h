@@ -43,7 +43,11 @@
 
 #if IMAGE_HAVE_SOFA_GL == 1
 #include <sofa/gl/Texture.h>
-#include <sofa/gl/glu.h>
+#ifdef __APPLE__
+#include <OpenGL/glu.h>
+#else
+#include <GL/glu.h>
+#endif
 #endif // IMAGE_HAVE_SOFA_GL == 1
 
 namespace sofa

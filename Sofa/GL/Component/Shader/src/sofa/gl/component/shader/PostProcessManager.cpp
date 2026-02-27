@@ -20,9 +20,26 @@
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
 #include <sofa/gl/component/shader/PostProcessManager.h>
+#include <sofa/gl/gl.h>
 #include <sofa/simulation/VisualVisitor.h>
 #include <sofa/core/ObjectFactory.h>
+#include <cmath>
 
+namespace
+{
+// Build perspective projection matrix (replaces gluPerspective)
+void loadPerspectiveMatrix(double fovy, double aspect, double zNear, double zFar)
+{
+    const double f = 1.0 / std::tan(fovy * M_PI / 360.0);
+    double m[16] = {};
+    m[0]  = f / aspect;
+    m[5]  = f;
+    m[10] = (zFar + zNear) / (zNear - zFar);
+    m[11] = -1.0;
+    m[14] = 2.0 * zFar * zNear / (zNear - zFar);
+    glMultMatrixd(m);
+}
+}
 
 namespace sofa::gl::component::shader
 {
@@ -106,7 +123,7 @@ void PostProcessManager::preDrawScene(VisualParams* vp)
         glMatrixMode(GL_PROJECTION);
         glPushMatrix();
         glLoadIdentity();
-        gluPerspective(60.0,1.0, zNear.getValue(), zFar.getValue());
+        loadPerspectiveMatrix(60.0, 1.0, zNear.getValue(), zFar.getValue());
 
         glMatrixMode(GL_MODELVIEW);
         vp->pass() = VisualParams::Std;
@@ -120,7 +137,7 @@ void PostProcessManager::preDrawScene(VisualParams* vp)
         glPopMatrix();
         glMatrixMode(GL_MODELVIEW);
 
-        gluPerspective(60.0,1.0, vp->zNear(), vp->zFar());
+        loadPerspectiveMatrix(60.0, 1.0, vp->zNear(), vp->zFar());
         glViewport(viewport[0],viewport[1],viewport[2],viewport[3]);
 
         fbo->stop();

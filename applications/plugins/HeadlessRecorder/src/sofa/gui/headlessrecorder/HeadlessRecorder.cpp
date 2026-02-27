@@ -32,6 +32,8 @@ using sofa::helper::system::SetDirectory;
 
 #include <sofa/gui/common/ArgumentParser.h>
 #include <sofa/component/visual/InteractiveCamera.h>
+#include <sofa/gl/gl.h>
+#include <cmath>
 #include <thread>
 #include <chrono>
 
@@ -484,7 +486,20 @@ void HeadlessRecorder::calcProjection()
     //zBackground = -vparams->zFar() + offset;
 
     if (currentCamera->getCameraType() == core::visual::VisualParams::PERSPECTIVE_TYPE)
-        gluPerspective(currentCamera->getFieldOfView(), (double) s_width / (double) s_height, vparams->zNear(), vparams->zFar());
+    {
+        const double fovy = currentCamera->getFieldOfView();
+        const double aspect = (double) s_width / (double) s_height;
+        const double zn = vparams->zNear();
+        const double zf = vparams->zFar();
+        const double f = 1.0 / std::tan(fovy * M_PI / 360.0);
+        double m[16] = {};
+        m[0]  = f / aspect;
+        m[5]  = f;
+        m[10] = (zf + zn) / (zn - zf);
+        m[11] = -1.0;
+        m[14] = 2.0 * zf * zn / (zn - zf);
+        glMultMatrixd(m);
+    }
     else
     {
         float ratio = static_cast<float>( vparams->zFar() / (vparams->zNear() * 20) );

@@ -8,15 +8,6 @@ endif()
 
 set(SOFAGLSRC_ROOT "src/sofa/gl")
 
-# When enabled, all legacy fixed-function pipeline calls (display lists, immediate mode,
-# glPushAttrib, GLU quadrics, etc.) are compiled out and replaced with no-ops.
-# Required for OpenGL core profile contexts (mandatory on macOS, optional elsewhere).
-if(APPLE)
-    option(SOFA_GL_NO_FIXED_PIPELINE "Disable legacy fixed-function GL calls (required for core profile)" ON)
-else()
-    option(SOFA_GL_NO_FIXED_PIPELINE "Disable legacy fixed-function GL calls (required for core profile)" OFF)
-endif()
-
 sofa_find_package(OpenGL REQUIRED BOTH_SCOPES)
 sofa_find_package(GLEW BOTH_SCOPES REQUIRED)
 sofa_find_package(Sofa.Helper REQUIRED)
@@ -26,7 +17,6 @@ set(HEADER_FILES
     ${SOFAGLSRC_ROOT}/config.h.in
     ${SOFAGLSRC_ROOT}/initSofa.GL.h
     ${SOFAGLSRC_ROOT}/gl.h
-    ${SOFAGLSRC_ROOT}/glu.h
     ${SOFAGLSRC_ROOT}/Capture.h
     ${SOFAGLSRC_ROOT}/RAII.h
     ${SOFAGLSRC_ROOT}/template.h
@@ -79,15 +69,11 @@ endif()
 add_library(${PROJECT_NAME} SHARED ${HEADER_FILES} ${SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME} PUBLIC Sofa.Helper Sofa.DefaultType)
 
-if(TARGET OpenGL::GL AND TARGET OpenGL::GLU) # Imported targets defined since CMake 3.8
-    target_link_libraries(${PROJECT_NAME} PUBLIC OpenGL::GL OpenGL::GLU)
+if(TARGET OpenGL::GL) # Imported target defined since CMake 3.8
+    target_link_libraries(${PROJECT_NAME} PUBLIC OpenGL::GL)
 else()
     target_link_libraries(${PROJECT_NAME} PUBLIC ${OPENGL_LIBRARIES})
     target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC ${OPENGL_INCLUDE_DIR})
-endif()
-if(CMAKE_SYSTEM_NAME STREQUAL Linux AND SOFA_BUILD_RELEASE_PACKAGE AND OPENGL_GLU_FOUND)
-    # Add GLU to Linux binaries
-    sofa_install_libraries(PATHS ${OPENGL_glu_LIBRARY})
 endif()
 
 target_link_libraries(${PROJECT_NAME} PUBLIC GLEW::GLEW)

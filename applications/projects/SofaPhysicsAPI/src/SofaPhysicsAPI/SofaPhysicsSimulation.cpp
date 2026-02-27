@@ -23,7 +23,6 @@
 #include "SofaPhysicsSimulation.h"
 
 #include <sofa/gl/gl.h>
-#include <sofa/gl/glu.h>
 #include <sofa/helper/io/Image.h>
 #include <sofa/gl/RAII.h>
 
@@ -1129,9 +1128,20 @@ void SofaPhysicsSimulation::calcProjection()
 
     if (currentCamera->getCameraType() == sofa::core::visual::VisualParams::PERSPECTIVE_TYPE)
     {
-        gluPerspective(currentCamera->getFieldOfView(),
-                       (double) width / (double) height,
-                       vparams->zNear(),vparams->zFar());
+        {
+            const double fovy = currentCamera->getFieldOfView();
+            const double aspect = (double) width / (double) height;
+            const double zn = vparams->zNear();
+            const double zf = vparams->zFar();
+            const double f = 1.0 / std::tan(fovy * M_PI / 360.0);
+            double m[16] = {};
+            m[0]  = f / aspect;
+            m[5]  = f;
+            m[10] = (zf + zn) / (zn - zf);
+            m[11] = -1.0;
+            m[14] = 2.0 * zf * zn / (zn - zf);
+            glMultMatrixd(m);
+        }
     }
     else
     {
