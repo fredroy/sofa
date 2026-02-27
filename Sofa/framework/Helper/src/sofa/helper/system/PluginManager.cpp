@@ -311,7 +311,7 @@ void PluginManager::removeOnPluginCleanupCallbacks(const std::string& key)
 std::string PluginManager::GetPluginNameFromPath(const std::string& pluginPath)
 {
     const auto filename = sofa::helper::system::SetDirectory::GetFileName(pluginPath.c_str());
-    const std::string::size_type pos = filename.find_last_of("." + DynamicLibrary::extension);
+    const std::string::size_type pos = filename.rfind("." + DynamicLibrary::extension);
     if (pos != std::string::npos)
     {
         return filename.substr(0,pos);
