@@ -92,7 +92,13 @@ Transformation& Transformation::operator=(const Transformation& transform)
 //----------------------------------------------------------------------------
 void Transformation::InvertTransRotMatrix(SReal matrix[4][4])
 {
-    SReal	tmp;
+    // Save original translation before transposing rotation
+    const SReal tx = matrix[3][0];
+    const SReal ty = matrix[3][1];
+    const SReal tz = matrix[3][2];
+
+    // Transpose rotation part (R -> R^T)
+    SReal tmp;
 
     tmp = matrix[0][1];
     matrix[0][1] = matrix[1][0];
@@ -106,9 +112,10 @@ void Transformation::InvertTransRotMatrix(SReal matrix[4][4])
     matrix[1][2] = matrix[2][1];
     matrix[2][1] = tmp;
 
-    matrix[3][0] = -matrix[3][0];
-    matrix[3][1] = -matrix[3][1];
-    matrix[3][2] = -matrix[3][2];
+    // Compute inverse translation: -t * R^T (R^T is now in matrix[0..2][0..2])
+    matrix[3][0] = -(tx * matrix[0][0] + ty * matrix[1][0] + tz * matrix[2][0]);
+    matrix[3][1] = -(tx * matrix[0][1] + ty * matrix[1][1] + tz * matrix[2][1]);
+    matrix[3][2] = -(tx * matrix[0][2] + ty * matrix[1][2] + tz * matrix[2][2]);
 }
 
 
