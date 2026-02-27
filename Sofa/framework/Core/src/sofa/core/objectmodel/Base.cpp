@@ -434,7 +434,7 @@ bool Base::parseField( const std::string& attribute, const std::string& value)
             {
                 BaseData* data = nullptr;
 
-                PathResolver::FindBaseDataFromPath(dataVec[d] , value);
+                data = PathResolver::FindBaseDataFromPath(dataVec[d] , value);
 
                 if (data != nullptr && dynamic_cast<EmptyData*>(data) != nullptr)
                 {
