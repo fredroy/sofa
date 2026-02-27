@@ -106,7 +106,7 @@ public:
         m_firstMessage = MainLoggingMessageHandler::activate() ;
     }
 
-    ~LogMessage() {}
+    ~LogMessage() { MainLoggingMessageHandler::deactivate(); }
 
     //TODO(dmarchal): Thread safetines issue !!
     std::vector<Message>::const_iterator begin()
