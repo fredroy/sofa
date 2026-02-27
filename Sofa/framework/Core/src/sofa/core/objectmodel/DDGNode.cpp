@@ -157,7 +157,7 @@ void DDGNode::doAddInput(DDGNode* n)
 
 void DDGNode::doDelInput(DDGNode* n)
 {
-    inputs.erase(std::remove(inputs.begin(), inputs.end(), n));
+    inputs.erase(std::remove(inputs.begin(), inputs.end(), n), inputs.end());
 }
 
 void DDGNode::doAddOutput(DDGNode* n)
@@ -167,7 +167,7 @@ void DDGNode::doAddOutput(DDGNode* n)
 
 void DDGNode::doDelOutput(DDGNode* n)
 {
-    outputs.erase(std::remove(outputs.begin(), outputs.end(), n));
+    outputs.erase(std::remove(outputs.begin(), outputs.end(), n), outputs.end());
 }
 
 
