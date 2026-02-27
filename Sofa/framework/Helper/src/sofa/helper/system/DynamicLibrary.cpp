@@ -70,7 +70,7 @@ DynamicLibrary::Handle DynamicLibrary::load(const std::string& filename)
 {
 # if defined(WIN32)
     const std::string p = FileSystem::cleanPath(filename, FileSystem::BACKSLASH);
-    void *handle = ::LoadLibraryA(filename.c_str());
+    void *handle = ::LoadLibraryA(p.c_str());
     if (handle == nullptr)
     {
         // Retry with altered search path
