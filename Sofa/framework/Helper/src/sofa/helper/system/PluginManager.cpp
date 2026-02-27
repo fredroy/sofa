@@ -252,12 +252,13 @@ PluginManager::PluginLoadStatus PluginManager::loadPluginByPath(const std::strin
 
     p.dynamicLibrary = d;
     m_pluginMap[pluginPath] = p;
-    p.initExternalModule();
+    auto& pluginEntry = m_pluginMap[pluginPath];
+    pluginEntry.initExternalModule();
 
     // check if the plugin is initialized (if it can report this information)
-    if (getPluginEntry(p.moduleIsInitialized, d))
+    if (getPluginEntry(pluginEntry.moduleIsInitialized, d))
     {
-        if (!p.moduleIsInitialized())
+        if (!pluginEntry.moduleIsInitialized())
         {
             const std::string msg = pluginPath + " reported an error while trying to initialize. This plugin will not be loaded.";
             msg_error("PluginManager") << msg;
@@ -274,11 +275,11 @@ PluginManager::PluginLoadStatus PluginManager::loadPluginByPath(const std::strin
     {
         if(callback)
         {
-            callback(pluginPath, p);
+            callback(pluginPath, pluginEntry);
         }
     }
 
-    if (const auto unloadedIt = m_unloadedPlugins.find(p.getModuleName());
+    if (const auto unloadedIt = m_unloadedPlugins.find(pluginEntry.getModuleName());
         unloadedIt != m_unloadedPlugins.end())
     {
         m_unloadedPlugins.erase(unloadedIt);
