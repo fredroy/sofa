@@ -188,8 +188,8 @@ void MeshOBJ::readOBJ (std::istream &stream, const std::string &filename)
                 }
 
                 vIndices.push_back(vtn[0]);
-                nIndices.push_back(vtn[1]);
-                tIndices.push_back(vtn[2]);
+                tIndices.push_back(vtn[1]);
+                nIndices.push_back(vtn[2]);
             }
 
             vertNormTexIndices.push_back (vIndices);
