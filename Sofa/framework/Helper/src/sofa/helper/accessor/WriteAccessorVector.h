@@ -74,7 +74,7 @@ public:
     void resize(Size s) { vref->resize(s); }
     void resize(Size s, const value_type& value) { vref->resize(s, value); }
     
-    iterator insert(const_iterator pos, const T& value) { return vref->insert(pos, value); }
+    iterator insert(const_iterator pos, const value_type& value) { return vref->insert(pos, value); }
     iterator erase(iterator pos) { return vref->erase(pos); }
     iterator erase(const_iterator pos) { return vref->erase(pos); }
 
