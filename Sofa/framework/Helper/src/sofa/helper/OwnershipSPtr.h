@@ -56,7 +56,7 @@ public:
     ~OwnershipSPtr() { if( ownership ) delete t; }
 
     /// copy operator is stealing the ownership if 'other' had it
-    void operator=(const OwnershipSPtr<T>& other) { t=other.t; ownership=other.ownership; other.ownership=false; }
+    void operator=(const OwnershipSPtr<T>& other) { if(ownership) delete t; t=other.t; ownership=other.ownership; other.ownership=false; }
 
     /// get a const ref to the pointed data
     const T& operator*() const { return *t; }
