@@ -303,6 +303,16 @@ void AdvancedTimer::end(IdTimer id)
     if (dataT.timerOutputType == GUI || dataT.timerOutputType == LJSON || dataT.timerOutputType == JSON)
     {
         dataT.clear();
+        curTimer.pop();
+        if (curTimer.empty())
+        {
+            setCurRecords(nullptr);
+        }
+        else
+        {
+            TimerData& data = timers[curTimer.top()];
+            setCurRecords((data.interval == 0) ? nullptr : &(data.records));
+        }
         return;
     }
 
