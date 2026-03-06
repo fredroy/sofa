@@ -169,6 +169,15 @@ void NNCGConstraintSolver::doSolve(GenericConstraintProblem * problem , SReal ti
         }
     }
 
+    // Final GS sweep to ensure the output is a valid GS iterate
+    {
+        bool finalConstraintsVerified = true;
+        error = 0.0;
+        gaussSeidel_increment(true, dfree, force, w, tol, d, dimension,
+            finalConstraintsVerified, error, problem->constraintsResolutions, tabErrors);
+        iterCount++;
+    }
+
     problem->result_output(this, force, error, iterCount, convergence);
 }
 
