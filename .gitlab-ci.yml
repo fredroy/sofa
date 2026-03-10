@@ -30,8 +30,8 @@ build-sofa:
     - echo "----- Fetch external plugin(s)"
     - mkdir -p ${SOFA_EXTERNAL_PLUGINS_DIR}
     - cd ${SOFA_EXTERNAL_PLUGINS_DIR}
-    - git clone https://github.com/InfinyTech3D/InfinyToolkit
-    - echo "cmake_minimum_required(VERSION 3.12)" > CMakeLists.txt
+    - git clone https://github.com/fredroy/InfinyToolkit
+    - echo "cmake_minimum_required(VERSION 3.22)" > CMakeLists.txt
     - echo "find_package(Sofa.Config)" >> CMakeLists.txt
     - echo "sofa_add_subdirectory(plugin InfinyToolkit InfinyToolkit)" >> CMakeLists.txt
 
