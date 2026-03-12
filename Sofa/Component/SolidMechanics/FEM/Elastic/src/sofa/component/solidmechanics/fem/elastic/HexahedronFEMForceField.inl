@@ -54,6 +54,7 @@ HexahedronFEMForceField<DataTypes>::HexahedronFEMForceField()
     , d_updateStiffnessMatrix(initData(&d_updateStiffnessMatrix, false, "updateStiffnessMatrix", ""))
     , d_gatherPt(initData(&d_gatherPt, "gatherPt", "number of dof accumulated per threads during the gather operation (Only use in GPU version)"))
     , d_gatherBsize(initData(&d_gatherBsize, "gatherBsize", "number of dof accumulated per threads during the gather operation (Only use in GPU version)"))
+    , d_halfPrecisionStiffness(initData(&d_halfPrecisionStiffness, false, "halfPrecisionStiffness", "Store element stiffness matrices in half precision (FP16) for reduced GPU memory bandwidth (GPU only)"))
     , d_drawing(initData(&d_drawing, true, "drawing", "draw the forcefield if true"))
     , d_drawPercentageOffset(initData(&d_drawPercentageOffset, (Real)0.15, "drawPercentageOffset", "size of the hexa"))
     , needUpdateTopology(false)
@@ -250,7 +251,7 @@ void HexahedronFEMForceField<DataTypes>::addDForce (const core::MechanicalParams
 {
     WDataRefVecDeriv _df = v;
     RDataRefVecCoord _dx = x;
-    Real kFactor = (Real)sofa::core::mechanicalparams::kFactorIncludingRayleighDamping(mparams, this->rayleighStiffness.getValue());
+    const Real kFactor = (Real)sofa::core::mechanicalparams::kFactorIncludingRayleighDamping(mparams, this->rayleighStiffness.getValue());
 
     if (_df.size() != _dx.size())
         _df.resize(_dx.size());
@@ -263,24 +264,53 @@ void HexahedronFEMForceField<DataTypes>::addDForce (const core::MechanicalParams
 
     for(it = indexedElements->begin() ; it != indexedElements->end() ; ++it, ++i)
     {
+        const Transformation& R = _rotations[i];
+        const Element& elem = *it;
+        const ElementStiffness& K = elementStiffnesses[i];
 
+        // Gather and rotate: X_w = R * dx[node_w], inlined to avoid temporaries
         Displacement X(sofa::type::NOINIT);
-
         for (int w = 0; w < 8; ++w)
         {
-            const Coord x_2 = _rotations[i] * _dx[(*it)[w]];
-
-            X[w*3] = x_2[0];
-            X[w*3+1] = x_2[1];
-            X[w*3+2] = x_2[2];
+            const Coord& dx_w = _dx[elem[w]];
+            const int wi = w * 3;
+            X[wi  ] = R[0][0]*dx_w[0] + R[0][1]*dx_w[1] + R[0][2]*dx_w[2];
+            X[wi+1] = R[1][0]*dx_w[0] + R[1][1]*dx_w[1] + R[1][2]*dx_w[2];
+            X[wi+2] = R[2][0]*dx_w[0] + R[2][1]*dx_w[1] + R[2][2]*dx_w[2];
         }
 
+        // Block-structured matrix-vector product exploiting 3x3 block structure
+        // of the 24x24 stiffness matrix (8 nodes x 3 DOFs).
+        // Three independent accumulators per block row for better ILP.
         Displacement F(sofa::type::NOINIT);
-        computeForce(F, X, elementStiffnesses[i] );
+        for (int a = 0; a < 8; ++a)
+        {
+            const int ai = a * 3;
+            Real f0 = Real(0), f1 = Real(0), f2 = Real(0);
+            for (int b = 0; b < 8; ++b)
+            {
+                const int bi = b * 3;
+                const Real x0 = X[bi], x1 = X[bi+1], x2 = X[bi+2];
+                f0 += K[ai  ][bi]*x0 + K[ai  ][bi+1]*x1 + K[ai  ][bi+2]*x2;
+                f1 += K[ai+1][bi]*x0 + K[ai+1][bi+1]*x1 + K[ai+1][bi+2]*x2;
+                f2 += K[ai+2][bi]*x0 + K[ai+2][bi+1]*x1 + K[ai+2][bi+2]*x2;
+            }
+            F[ai  ] = f0;
+            F[ai+1] = f1;
+            F[ai+2] = f2;
+        }
 
+        // Scatter with inverse rotation and kFactor: df[node_w] -= R^T * (F_w * kFactor)
         for (int w = 0; w < 8; ++w)
         {
-            _df[(*it)[w]] -= _rotations[i].multTranspose(Deriv(F[w*3], F[w*3+1], F[w*3+2])) * kFactor;
+            const int wi = w * 3;
+            const Real f0 = F[wi  ] * kFactor;
+            const Real f1 = F[wi+1] * kFactor;
+            const Real f2 = F[wi+2] * kFactor;
+            auto& df_w = _df[elem[w]];
+            df_w[0] -= R[0][0]*f0 + R[1][0]*f1 + R[2][0]*f2;
+            df_w[1] -= R[0][1]*f0 + R[1][1]*f1 + R[2][1]*f2;
+            df_w[2] -= R[0][2]*f0 + R[1][2]*f1 + R[2][2]*f2;
         }
     }
 }

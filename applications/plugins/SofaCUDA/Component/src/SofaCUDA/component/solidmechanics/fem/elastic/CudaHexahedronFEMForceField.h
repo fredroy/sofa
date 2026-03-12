@@ -23,6 +23,7 @@
 
 #include <sofa/gpu/cuda/CudaTypes.h>
 #include <sofa/component/solidmechanics/fem/elastic/HexahedronFEMForceField.h>
+#include <cstring>
 
 namespace sofa::gpu::cuda
 {
@@ -96,6 +97,7 @@ public:
     };
 
     gpu::cuda::CudaVector<Real> ekmatrixData;
+    gpu::cuda::CudaVector<uint16_t> ekmatrixDataHalf;
     gpu::cuda::CudaVector<GPUElementState> state;
     gpu::cuda::CudaVector<GPUElementState> initState;
     gpu::cuda::CudaVector<int> rotationIdx;
@@ -103,13 +105,28 @@ public:
     int nbElement; ///< number of elements
     int vertex0; ///< index of the first vertex connected to an element
     int nbVertex; ///< number of vertices to process to compute all elements
+    bool halfPrecisionStiffness{false}; ///< use FP16 for K storage
 
     HexahedronFEMForceFieldInternalData() : nbElement(0), vertex0(0), nbVertex(0) {}
 
-    void init(int nbe, int v0, int nbv)
+    /// Portable float-to-half conversion (IEEE 754)
+    static uint16_t floatToHalf(float value)
+    {
+        uint32_t f;
+        std::memcpy(&f, &value, sizeof(f));
+        const uint32_t sign = (f >> 16) & 0x8000;
+        const int32_t  exp  = (int32_t)((f >> 23) & 0xFF) - 127 + 15;
+        const uint32_t man  = f & 0x007FFFFF;
+        if (exp <= 0) return (uint16_t)sign;
+        if (exp >= 31) return (uint16_t)(sign | 0x7C00);
+        return (uint16_t)(sign | (exp << 10) | (man >> 13));
+    }
+
+    void init(int nbe, int v0, int nbv, bool halfPrecision)
     {
         elems.clear();
         ekmatrixData.clear();
+        ekmatrixDataHalf.clear();
         state.clear();
         initState.clear();
         rotationIdx.clear();
@@ -117,10 +134,14 @@ public:
         nbElement = nbe;
         vertex0 = v0;
         nbVertex = nbv;
+        halfPrecisionStiffness = halfPrecision;
 
         const int numGroups = (nbe+BSIZE-1)/BSIZE;
         elems.resize(numGroups);
-        ekmatrixData.resize(numGroups * KMATRIX_GROUP_SIZE);
+        if (halfPrecisionStiffness)
+            ekmatrixDataHalf.resize(numGroups * KMATRIX_GROUP_SIZE);
+        else
+            ekmatrixData.resize(numGroups * KMATRIX_GROUP_SIZE);
         state.resize(numGroups);
     }
 
@@ -153,7 +174,6 @@ public:
     {
       const int g = i / BSIZE;
       const int li = i % BSIZE;
-      Real* groupBase = &ekmatrixData[g * KMATRIX_GROUP_SIZE];
       for (int r = 0; r < 8; r++)
         for (int c = r; c < 8; c++)
         {
@@ -162,7 +182,13 @@ public:
           const int bi = 8*r - r*(r-1)/2 + (c - r);
           for (int j = 0; j < 3; j++)
             for (int k = 0; k < 3; k++)
-              groupBase[(bi*9 + j*3 + k) * BSIZE + li] = block[j][k];
+            {
+              const int idx = g * KMATRIX_GROUP_SIZE + (bi*9 + j*3 + k) * BSIZE + li;
+              if (halfPrecisionStiffness)
+                ekmatrixDataHalf[idx] = floatToHalf(block[j][k]);
+              else
+                ekmatrixData[idx] = block[j][k];
+            }
         }
     }
 

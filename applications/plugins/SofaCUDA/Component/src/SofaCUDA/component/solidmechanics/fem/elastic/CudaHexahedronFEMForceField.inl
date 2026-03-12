@@ -35,6 +35,9 @@ void HexahedronFEMForceFieldCuda3f_addDForce(unsigned int nbElem, const void* el
 void HexahedronFEMForceFieldCuda3f_getRotations(unsigned int nbElem, unsigned int nbVertex, const void* initState, const void* state, const void* rotationIdx, void* rotations);
 void HexahedronFEMForceFieldCuda3f_getElementRotations(unsigned int nbElem, const void* rotationsAos, void* rotations);
 
+void HexahedronFEMForceFieldCuda3f_addForce_half(unsigned int nbElem, const void* elems, void* state, const void* kmatrix, void* f, const void* x);
+void HexahedronFEMForceFieldCuda3f_addDForce_half(unsigned int nbElem, const void* elems, const void* state, const void* kmatrix, void* df, const void* dx, double kFactor);
+
 } // extern "C"
 
 template<>
@@ -45,6 +48,10 @@ public:
     {   HexahedronFEMForceFieldCuda3f_addForce(nbElem, elems, state, kmatrix, f, x); }
     static void addDForce(unsigned int nbElem, const void* elems, const void* state, const void* kmatrix, void* df, const void* dx, double kFactor)
     {   HexahedronFEMForceFieldCuda3f_addDForce(nbElem, elems, state, kmatrix, df, dx, kFactor); }
+    static void addForceHalf(unsigned int nbElem, const void* elems, void* state, const void* kmatrix, void* f, const void* x)
+    {   HexahedronFEMForceFieldCuda3f_addForce_half(nbElem, elems, state, kmatrix, f, x); }
+    static void addDForceHalf(unsigned int nbElem, const void* elems, const void* state, const void* kmatrix, void* df, const void* dx, double kFactor)
+    {   HexahedronFEMForceFieldCuda3f_addDForce_half(nbElem, elems, state, kmatrix, df, dx, kFactor); }
     static void getRotations(unsigned int nbElem, unsigned int nbVertex, const void* initState, const void* state, const void* rotationIdx, void* rotations)
     {   HexahedronFEMForceFieldCuda3f_getRotations(nbElem, nbVertex, initState, state, rotationIdx, rotations); }
     static void getElementRotations(unsigned int nbElem, const void* rotationsAos, void* rotations)
@@ -107,7 +114,7 @@ void HexahedronFEMForceFieldInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDer
       v0 = nelems.begin()->first;
       nbv = nelems.rbegin()->first - v0 + 1;
   }
-  data.init(activeElems.size(), v0, nbv);
+  data.init(activeElems.size(), v0, nbv, m->d_halfPrecisionStiffness.getValue());
 
   for (unsigned int i=0;i<activeElems.size();i++)
   {
@@ -128,13 +135,22 @@ void HexahedronFEMForceFieldInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDer
   Data& data = *m->data;
 
     f.resize(x.size());
-    Kernels::addForce(
-        data.size(),
-        data.elems.deviceRead(),
-        data.state.deviceWrite(),
-        data.ekmatrixData.deviceRead(),
-        (      Deriv*)f.deviceWrite() + data.vertex0,
-        (const Coord*)x.deviceRead()  + data.vertex0);
+    if (data.halfPrecisionStiffness)
+        Kernels::addForceHalf(
+            data.size(),
+            data.elems.deviceRead(),
+            data.state.deviceWrite(),
+            data.ekmatrixDataHalf.deviceRead(),
+            (      Deriv*)f.deviceWrite() + data.vertex0,
+            (const Coord*)x.deviceRead()  + data.vertex0);
+    else
+        Kernels::addForce(
+            data.size(),
+            data.elems.deviceRead(),
+            data.state.deviceWrite(),
+            data.ekmatrixData.deviceRead(),
+            (      Deriv*)f.deviceWrite() + data.vertex0,
+            (const Coord*)x.deviceRead()  + data.vertex0);
 } // addForce
 
 template<class TCoord, class TDeriv, class TReal>
@@ -143,14 +159,24 @@ void HexahedronFEMForceFieldInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDer
     Data& data = *m->data;
     df.resize(dx.size());
 
-    Kernels::addDForce(
-        data.size(),
-        data.elems.deviceRead(),
-        data.state.deviceRead(),
-        data.ekmatrixData.deviceRead(),
-        (      Deriv*)df.deviceWrite() + data.vertex0,
-        (const Deriv*)dx.deviceRead()  + data.vertex0,
-         kFactor);
+    if (data.halfPrecisionStiffness)
+        Kernels::addDForceHalf(
+            data.size(),
+            data.elems.deviceRead(),
+            data.state.deviceRead(),
+            data.ekmatrixDataHalf.deviceRead(),
+            (      Deriv*)df.deviceWrite() + data.vertex0,
+            (const Deriv*)dx.deviceRead()  + data.vertex0,
+             kFactor);
+    else
+        Kernels::addDForce(
+            data.size(),
+            data.elems.deviceRead(),
+            data.state.deviceRead(),
+            data.ekmatrixData.deviceRead(),
+            (      Deriv*)df.deviceWrite() + data.vertex0,
+            (const Deriv*)dx.deviceRead()  + data.vertex0,
+             kFactor);
 
 } // addDForce
 

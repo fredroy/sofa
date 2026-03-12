@@ -22,6 +22,7 @@
 #include <sofa/gpu/cuda/CudaCommon.h>
 #include <sofa/gpu/cuda/CudaMath.h>
 #include <cuda.h>
+#include <cuda_fp16.h>
 #include <sofa/gpu/cuda/mycuda.h>
 
 #if defined(__cplusplus)
@@ -60,17 +61,11 @@ public:
 };
 
 /// Symmetric element stiffness matrix: upper triangle + diagonal (36 blocks).
-/// BSIZE-interleaved: one struct per group of BSIZE elements.
-/// data[value_index][lane] where value_index = blockIdx*9 + mat_value (0..323),
-/// lane = elem % BSIZE.  Threads with consecutive lanes access consecutive
-/// addresses — perfect coalescing.
-template<class real>
-class GPUKMatrix
-{
-public:
-    static constexpr int NBLOCKS = 36;
-    real data[NBLOCKS * 9][BSIZE];
-};
+/// BSIZE-interleaved layout (flat array): [value_index * BSIZE + lane]
+/// where value_index = blockIdx*9 + mat_value (0..323), lane = elem % BSIZE.
+/// Group size = KMATRIX_NBLOCKS * 9 * BSIZE values per group.
+static constexpr int KMATRIX_NBLOCKS = 36;
+static constexpr int KMATRIX_GROUP_SIZE = KMATRIX_NBLOCKS * 9 * BSIZE;
 
 /// Block index mapping for the symmetric K matrix (upper triangle, row by row).
 /// blockIdx(r, c) = 8*r - r*(r-1)/2 + (c - r) for r <= c.
@@ -85,23 +80,30 @@ enum KBlockIdx {
     KB_D7  = 35
 };
 
+/// Overloaded __ldg helpers that always return float.
+/// For float storage, __ldg returns float directly.
+/// For __half storage, __ldg returns __half which is converted to float.
+__device__ __forceinline__ float ldg_f(const float* p)  { return __ldg(p); }
+__device__ __forceinline__ float ldg_f(const __half* p)  { return __half2float(__ldg(p)); }
+
 /// Load a 3x3 block from the BSIZE-interleaved K matrix layout using __ldg.
-/// kbase points to data[0][lane] for the current thread's lane within its group.
-template<typename real>
+/// kbase points to the first value for this thread's lane within its group.
+/// KReal can be float (FP32 storage) or __half (FP16 storage).
+template<typename KReal>
 __device__ __forceinline__
-matrix3<real> loadKBlock(const real* __restrict__ kbase, int blockIdx)
+matrix3<float> loadKBlock(const KReal* __restrict__ kbase, int blockIdx)
 {
-    const real* p = kbase + blockIdx * 9 * BSIZE;
-    matrix3<real> m;
-    m.x.x = __ldg(p); p += BSIZE;
-    m.x.y = __ldg(p); p += BSIZE;
-    m.x.z = __ldg(p); p += BSIZE;
-    m.y.x = __ldg(p); p += BSIZE;
-    m.y.y = __ldg(p); p += BSIZE;
-    m.y.z = __ldg(p); p += BSIZE;
-    m.z.x = __ldg(p); p += BSIZE;
-    m.z.y = __ldg(p); p += BSIZE;
-    m.z.z = __ldg(p);
+    const KReal* p = kbase + blockIdx * 9 * BSIZE;
+    matrix3<float> m;
+    m.x.x = ldg_f(p); p += BSIZE;
+    m.x.y = ldg_f(p); p += BSIZE;
+    m.x.z = ldg_f(p); p += BSIZE;
+    m.y.x = ldg_f(p); p += BSIZE;
+    m.y.y = ldg_f(p); p += BSIZE;
+    m.y.z = ldg_f(p); p += BSIZE;
+    m.z.x = ldg_f(p); p += BSIZE;
+    m.z.y = ldg_f(p); p += BSIZE;
+    m.z.z = ldg_f(p);
     return m;
 }
 
@@ -111,6 +113,9 @@ extern "C"
     void HexahedronFEMForceFieldCuda3f_addDForce(unsigned int nbElem, const void* elems, const void* state, const void* kmatrix, void* df, const void* dx, double kFactor);
     void HexahedronFEMForceFieldCuda3f_getRotations(unsigned int nbElem, unsigned int nbVertex, const void* initState, const void* state, const void* rotationIdx, void* rotations);
     void HexahedronFEMForceFieldCuda3f_getElementRotations(unsigned int nbElem, const void* rotationsAos, void* rotations);
+
+    void HexahedronFEMForceFieldCuda3f_addForce_half(unsigned int nbElem, const void* elems, void* state, const void* kmatrix, void* f, const void* x);
+    void HexahedronFEMForceFieldCuda3f_addDForce_half(unsigned int nbElem, const void* elems, const void* state, const void* kmatrix, void* df, const void* dx, double kFactor);
 }
 
 //////////////////////
@@ -138,13 +143,13 @@ void atomicAddVec3(CudaVec3<real>* out, int idx, CudaVec3<real> v)
     atomicAdd(&out[idx].z, v.z);
 }
 
-template<typename real>
+template<typename real, typename KReal>
 __global__ void __launch_bounds__(BLOCK_SIZE)
 calcForce_kernel(
     int nbElem,
     const GPUElement<real>* __restrict__ elems,
     real* __restrict__ stateRotations,
-    const GPUKMatrix<real>* __restrict__ kmatrix,
+    const KReal* __restrict__ kmatrixData,
     const CudaVec3<real>* __restrict__ x,
     CudaVec3<real>* f)
 {
@@ -230,8 +235,8 @@ calcForce_kernel(
     // Exploit K matrix symmetry: K[i][j] = transpose(K[j][i]).
     // Load only the 36 upper-triangle blocks (44% less bandwidth)
     // and accumulate all 8 vertex forces simultaneously.
-    // kbase points to data[0][li] for this thread's lane within its BSIZE group.
-    const real* kbase = &(kmatrix + (elem / BSIZE))->data[0][li];
+    // kbase points to the first value for this thread's lane within its BSIZE group.
+    const KReal* kbase = kmatrixData + (elem / BSIZE) * KMATRIX_GROUP_SIZE + li;
     matrix3<real> K;
 
     // Diagonal contributions: f[i] = K[i][i] * d[i]
@@ -300,13 +305,13 @@ calcForce_kernel(
     atomicAddVec3(f, vj, Rt.mulT(fJ));
 }
 
-template<typename real>
+template<typename real, typename KReal>
 __global__ void __launch_bounds__(BLOCK_SIZE)
 calcDForce_kernel(
     int nbElem,
     const GPUElement<real>* __restrict__ elems,
     const real* __restrict__ stateRotations,
-    const GPUKMatrix<real>* __restrict__ kmatrix,
+    const KReal* __restrict__ kmatrixData,
     const CudaVec3<real>* __restrict__ dx,
     CudaVec3<real>* df,
     real fact)
@@ -344,7 +349,7 @@ calcDForce_kernel(
     CudaVec3<real> dJ = Rt * loadPos(dx, vj);
 
     // Symmetric K*d computation with pre-negated factor
-    const real* kbase = &(kmatrix + (elem / BSIZE))->data[0][li];
+    const KReal* kbase = kmatrixData + (elem / BSIZE) * KMATRIX_GROUP_SIZE + li;
     const real nfact = -fact;
     matrix3<real> K;
 
@@ -470,11 +475,11 @@ void HexahedronFEMForceFieldCuda3f_addForce(unsigned int nbElem, const void* ele
 {
     dim3 grid((nbElem + BLOCK_SIZE - 1) / BLOCK_SIZE);
     dim3 threads(BLOCK_SIZE);
-    calcForce_kernel<float><<<grid, threads>>>(
+    calcForce_kernel<float, float><<<grid, threads>>>(
         nbElem,
         (const GPUElement<float>*)elems,
         (float*)state,
-        (const GPUKMatrix<float>*)kmatrix,
+        (const float*)kmatrix,
         (const CudaVec3<float>*)x,
         (CudaVec3<float>*)f);
     mycudaDebugError("calcForce_kernel<float>");
@@ -484,11 +489,11 @@ void HexahedronFEMForceFieldCuda3f_addDForce(unsigned int nbElem, const void* el
 {
     dim3 grid((nbElem + BLOCK_SIZE - 1) / BLOCK_SIZE);
     dim3 threads(BLOCK_SIZE);
-    calcDForce_kernel<float><<<grid, threads>>>(
+    calcDForce_kernel<float, float><<<grid, threads>>>(
         nbElem,
         (const GPUElement<float>*)elems,
         (const float*)state,
-        (const GPUKMatrix<float>*)kmatrix,
+        (const float*)kmatrix,
         (const CudaVec3<float>*)dx,
         (CudaVec3<float>*)df,
         (float)kFactor);
@@ -509,6 +514,35 @@ void HexahedronFEMForceFieldCuda3f_getElementRotations(unsigned int nbElem, cons
     dim3 threads(BLOCK_SIZE);
     getElementRotations_kernel<float><<<grid, threads>>>(nbElem, (const float*)rotationsAos, (float*)rotations);
     mycudaDebugError("getElementRotations_kernel<float>");
+}
+
+void HexahedronFEMForceFieldCuda3f_addForce_half(unsigned int nbElem, const void* elems, void* state, const void* kmatrix, void* f, const void* x)
+{
+    dim3 grid((nbElem + BLOCK_SIZE - 1) / BLOCK_SIZE);
+    dim3 threads(BLOCK_SIZE);
+    calcForce_kernel<float, __half><<<grid, threads>>>(
+        nbElem,
+        (const GPUElement<float>*)elems,
+        (float*)state,
+        (const __half*)kmatrix,
+        (const CudaVec3<float>*)x,
+        (CudaVec3<float>*)f);
+    mycudaDebugError("calcForce_kernel<float,__half>");
+}
+
+void HexahedronFEMForceFieldCuda3f_addDForce_half(unsigned int nbElem, const void* elems, const void* state, const void* kmatrix, void* df, const void* dx, double kFactor)
+{
+    dim3 grid((nbElem + BLOCK_SIZE - 1) / BLOCK_SIZE);
+    dim3 threads(BLOCK_SIZE);
+    calcDForce_kernel<float, __half><<<grid, threads>>>(
+        nbElem,
+        (const GPUElement<float>*)elems,
+        (const float*)state,
+        (const __half*)kmatrix,
+        (const CudaVec3<float>*)dx,
+        (CudaVec3<float>*)df,
+        (float)kFactor);
+    mycudaDebugError("calcDForce_kernel<float,__half>");
 }
 
 #if defined(__cplusplus)

@@ -123,6 +123,7 @@ public:
     Data<bool> d_updateStiffnessMatrix;
     Data< sofa::helper::OptionsGroup > d_gatherPt; ///< number of dof accumulated per threads during the gather operation (Only use in GPU version)
     Data< sofa::helper::OptionsGroup > d_gatherBsize; ///< number of dof accumulated per threads during the gather operation (Only use in GPU version)
+    Data<bool> d_halfPrecisionStiffness; ///< Store element stiffness matrices in half precision (FP16) for reduced GPU memory bandwidth (GPU only)
     Data<bool> d_drawing; ///< draw the forcefield if true
     Data<Real> d_drawPercentageOffset; ///< size of the hexa
     bool needUpdateTopology;
