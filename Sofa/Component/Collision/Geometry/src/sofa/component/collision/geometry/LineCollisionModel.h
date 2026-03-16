@@ -129,6 +129,8 @@ public:
     void handleTopologyChange() override;
 
     bool canCollideWithElement(sofa::Index index, CollisionModel* model2, sofa::Index index2) override;
+    
+    void handleEvent(sofa::core::objectmodel::Event* event) override;
 
     core::behavior::MechanicalState<DataTypes>* getMechanicalState() { return mstate; }
 
@@ -165,9 +167,12 @@ public:
 
     /// Link to be set to the topology container in the component graph.
     SingleLink<LineCollisionModel<DataTypes>, sofa::core::topology::BaseMeshTopology, BaseLink::FLAG_STOREPATH | BaseLink::FLAG_STRONGLINK> l_topology;
-
+    
+    bool checkStateHasChanged() const;
+    
 protected:
     core::behavior::MechanicalState<DataTypes>* mstate;
+    int m_positionCounter{-1};
     Topology* topology;
     PointCollisionModel<sofa::defaulttype::Vec3Types>* mpoints;
     int meshRevision;

@@ -144,6 +144,7 @@ public:
 
 protected:
     core::behavior::MechanicalState<DataTypes>* m_mstate; ///< Pointer to the corresponding MechanicalState
+    int m_positionCounter{-1};
     sofa::core::topology::BaseMeshTopology* m_topology; ///< Pointer to the corresponding Topology
 
     VecDeriv m_normals; ///< Vector of normal direction per triangle.
@@ -184,6 +185,8 @@ public:
     void draw(const core::visual::VisualParams*, sofa::Index index) override;
 
     bool canCollideWithElement(sofa::Index index, CollisionModel* model2, sofa::Index index2) override;
+    
+    void handleEvent(sofa::core::objectmodel::Event* event) override;
 
     core::behavior::MechanicalState<DataTypes>* getMechanicalState() { return m_mstate; }
     const core::behavior::MechanicalState<DataTypes>* getMechanicalState() const { return m_mstate; }
@@ -216,6 +219,8 @@ public:
     {
         return l_topology.get();
     }
+    
+    bool checkStateHasChanged() const;
 };
 
 template<class DataTypes>

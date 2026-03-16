@@ -88,15 +88,18 @@ public:
     // -- CollisionModel interface
 
     void resize(sofa::Size size) override;
-
     void computeBoundingTree(int maxDepth=0) override;
-
     void computeContinuousBoundingTree(SReal dt, ContinuousIntersectionTypeFlag continuousIntersectionFlag = ContinuousIntersectionTypeFlag::Inertia, int maxDepth=0) override;
-
     void draw(const core::visual::VisualParams*, sofa::Index index) override;
-
     bool canCollideWithElement(sofa::Index index, CollisionModel* model2, sofa::Index index2) override;
-
+    void computeBBox(const core::ExecParams* params, bool onlyVisible) override;
+    sofa::core::topology::BaseMeshTopology* getCollisionTopology() override
+    {
+        return l_topology.get();
+    }
+    
+    void handleEvent(sofa::core::objectmodel::Event* event) override;
+    
     core::behavior::MechanicalState<DataTypes>* getMechanicalState() { return mstate; }
 
     Deriv getNormal(sofa::Index index){ return (normals.size()) ? normals[index] : Deriv();}
@@ -119,17 +122,14 @@ public:
         return sofa::core::objectmodel::BaseComponent::canCreate(obj, context, arg);
     }
 
-    void computeBBox(const core::ExecParams* params, bool onlyVisible) override;
     void updateNormals();
-
-    sofa::core::topology::BaseMeshTopology* getCollisionTopology() override
-    {
-        return l_topology.get();
-    }
+    
+    bool checkStateHasChanged() const;
 
 protected:
 
     core::behavior::MechanicalState<DataTypes>* mstate;
+    int m_positionCounter{-1};
 
     Data<bool> d_computeNormals; ///< activate computation of normal vectors (required for some collision detection algorithms)
     Data<bool> d_displayFreePosition; ///< Display Collision Model Points free position(in green)

@@ -29,6 +29,7 @@
 #include <sofa/simulation/Node.h>
 #include <sofa/core/topology/TopologyChange.h>
 #include <vector>
+#include <sofa/simulation/AnimateEndEvent.h>
 
 namespace sofa::component::collision::geometry
 {
@@ -43,6 +44,8 @@ LineCollisionModel<DataTypes>::LineCollisionModel()
     , mstate(nullptr), topology(nullptr), meshRevision(-1)
 {
     enum_type = LINE_TYPE;
+        
+    this->f_listening.setValue(true);
 }
 
 
@@ -463,7 +466,7 @@ void LineCollisionModel<DataTypes>::computeBoundingTree(int maxDepth)
     CubeCollisionModel* cubeModel = createPrevious<CubeCollisionModel>();
     updateFromTopology();
     if (needsUpdate) cubeModel->resize(0);
-    if (!isMoving() && !cubeModel->empty() && !needsUpdate) return; // No need to recompute BBox if immobile
+    if (!isMoving() && !checkStateHasChanged() && !cubeModel->empty() && !needsUpdate) return; // No need to recompute BBox if immobile
 
     needsUpdate = false;
 
@@ -500,7 +503,7 @@ void LineCollisionModel<DataTypes>::computeContinuousBoundingTree(SReal dt, Cont
     CubeCollisionModel* cubeModel = createPrevious<CubeCollisionModel>();
     updateFromTopology();
     if (needsUpdate) cubeModel->resize(0);
-    if (!isMoving() && !cubeModel->empty() && !needsUpdate) return; // No need to recompute BBox if immobile
+    if (!isMoving() && !checkStateHasChanged() && !cubeModel->empty() && !needsUpdate) return; // No need to recompute BBox if immobile
 
     needsUpdate=false;
     type::Vec3 minElem, maxElem;
@@ -568,6 +571,9 @@ void LineCollisionModel<DataTypes>::computeBBox(const core::ExecParams* params, 
     if( onlyVisible && !sofa::core::visual::VisualParams::defaultInstance()->displayFlags().getShowCollisionModels())
         return;
 
+    if(!checkStateHasChanged())
+        return;
+    
     const auto& positions = this->mstate->read(core::vec_id::read_access::position)->getValue();
     type::BoundingBox bbox;
 
@@ -582,6 +588,27 @@ void LineCollisionModel<DataTypes>::computeBBox(const core::ExecParams* params, 
     }
 
     this->f_bbox.setValue(bbox);
+}
+
+template<class DataTypes>
+bool LineCollisionModel<DataTypes>::checkStateHasChanged() const
+{
+    if(!mstate)
+        return false;
+    
+    const auto* posData = mstate->read(core::vec_id::read_access::position);
+    return m_positionCounter == posData->getCounter();
+}
+
+template<class DataTypes>
+void LineCollisionModel<DataTypes>::handleEvent(sofa::core::objectmodel::Event* event)
+{
+    if(sofa::simulation::AnimateEndEvent::checkEventType(event))
+    {
+        const auto* posData = mstate->read(core::vec_id::read_access::position);
+        m_positionCounter = posData->getCounter();
+    }
+    
 }
 
 template<class DataTypes>

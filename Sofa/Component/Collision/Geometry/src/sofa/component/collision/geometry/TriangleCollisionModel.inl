@@ -29,6 +29,7 @@
 #include <sofa/simulation/Node.h>
 #include <sofa/core/topology/TopologyChange.h>
 #include <vector>
+#include <sofa/simulation/AnimateEndEvent.h>
 
 namespace sofa::component::collision::geometry
 {
@@ -47,6 +48,8 @@ TriangleCollisionModel<DataTypes>::TriangleCollisionModel()
 {
     m_triangles = &m_internalTriangles;
     enum_type = TRIANGLE_TYPE;
+        
+    this->f_listening.setValue(true);
 }
 
 template<class DataTypes>
@@ -113,6 +116,9 @@ void TriangleCollisionModel<DataTypes>::init()
 template<class DataTypes>
 void TriangleCollisionModel<DataTypes>::updateNormals()
 {
+    if (!checkStateHasChanged())
+        return;
+    
     for (sofa::Size i=0; i<size; i++)
     {
         Element t(this,i);
@@ -225,7 +231,7 @@ void TriangleCollisionModel<DataTypes>::computeBoundingTree(int maxDepth)
     if (m_needsUpdate && !cubeModel->empty())
         cubeModel->resize(0);
 
-    if (!isMoving() && !cubeModel->empty() && !m_needsUpdate)
+    if (!isMoving() && !checkStateHasChanged() && !cubeModel->empty() && !m_needsUpdate)
         return; // No need to recompute BBox if immobile nor if mesh didn't change.
 
     // set to false to avoid excessive loop
@@ -285,7 +291,7 @@ void TriangleCollisionModel<DataTypes>::computeContinuousBoundingTree(SReal dt, 
         updateFromTopology();
 
     if (m_needsUpdate) cubeModel->resize(0);
-    if (!isMoving() && !cubeModel->empty() && !m_needsUpdate) return; // No need to recompute BBox if immobile nor if mesh didn't change.
+    if (!isMoving() && !checkStateHasChanged() && !cubeModel->empty() && !m_needsUpdate) return; // No need to recompute BBox if immobile nor if mesh didn't change.
 
     m_needsUpdate=false;
     type::Vec3 minElem, maxElem;
@@ -379,6 +385,9 @@ void TriangleCollisionModel<DataTypes>::computeBBox(const core::ExecParams* para
 
     if( onlyVisible && !sofa::core::visual::VisualParams::defaultInstance()->displayFlags().getShowCollisionModels())
         return;
+    
+    if(!checkStateHasChanged())
+        return;
 
     // check first that topology didn't changed
     if (m_topology->getRevision() != m_topologyRevision)
@@ -460,6 +469,27 @@ void TriangleCollisionModel<DataTypes>::drawCollisionModel(const core::visual::V
 
         vparams->drawTool()->drawLines(points, 1, sofa::type::RGBAColor::white());
     }
+}
+
+template<class DataTypes>
+bool TriangleCollisionModel<DataTypes>::checkStateHasChanged() const
+{
+    if(!m_mstate)
+        return false;
+    
+    const auto* posData = m_mstate->read(core::vec_id::read_access::position);
+    return m_positionCounter == posData->getCounter();
+}
+
+template<class DataTypes>
+void TriangleCollisionModel<DataTypes>::handleEvent(sofa::core::objectmodel::Event* event)
+{
+    if(sofa::simulation::AnimateEndEvent::checkEventType(event))
+    {
+        const auto* posData = m_mstate->read(core::vec_id::read_access::position);
+        m_positionCounter = posData->getCounter();
+    }
+    
 }
 
 template<class DataTypes>

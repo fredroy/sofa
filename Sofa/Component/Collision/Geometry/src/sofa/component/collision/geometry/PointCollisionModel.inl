@@ -28,6 +28,7 @@
 #include <sofa/core/topology/BaseMeshTopology.h>
 #include <sofa/simulation/Node.h>
 #include <sofa/component/collision/geometry/CubeCollisionModel.h>
+#include <sofa/simulation/AnimateEndEvent.h>
 
 namespace sofa::component::collision::geometry
 {
@@ -41,6 +42,8 @@ PointCollisionModel<DataTypes>::PointCollisionModel()
     , l_topology(initLink("topology", "link to the topology container"))
 {
     enum_type = POINT_TYPE;
+        
+    this->f_listening.setValue(true);
 }
 
 template<class DataTypes>
@@ -123,9 +126,10 @@ void PointCollisionModel<DataTypes>::computeBoundingTree(int maxDepth)
         updated = true;
     }
     if (updated) cubeModel->resize(0);
-    if (!isMoving() && !cubeModel->empty() && !updated) return; // No need to recompute BBox if immobile
+    if (!isMoving() && !checkStateHasChanged() && !cubeModel->empty() && !updated) return; // No need to recompute Bounding Tree if immobile
 
-    if (d_computeNormals.getValue()) updateNormals();
+    if (d_computeNormals.getValue())
+        updateNormals();
 
     cubeModel->resize(size);
     if (!empty())
@@ -153,9 +157,11 @@ void PointCollisionModel<DataTypes>::computeContinuousBoundingTree(SReal dt, Con
         resize(npoints);
         updated = true;
     }
-    if (!isMoving() && !cubeModel->empty() && !updated) return; // No need to recompute BBox if immobile
+    
+    if (!isMoving() && !checkStateHasChanged() && !cubeModel->empty() && !updated) return; // No need to recompute Bounding Tree if immobile
 
-    if (d_computeNormals.getValue()) updateNormals();
+    if (d_computeNormals.getValue())
+        updateNormals();
 
     type::Vec3 minElem, maxElem;
 
@@ -190,6 +196,9 @@ void PointCollisionModel<DataTypes>::computeContinuousBoundingTree(SReal dt, Con
 template<class DataTypes>
 void PointCollisionModel<DataTypes>::updateNormals()
 {
+    if(!checkStateHasChanged())
+        return;
+    
     const VecCoord& x = this->mstate->read(core::vec_id::read_access::position)->getValue();
     auto n = x.size();
     normals.resize(n);
@@ -296,6 +305,9 @@ void PointCollisionModel<DataTypes>::computeBBox(const core::ExecParams* params,
 
     if( onlyVisible && !sofa::core::visual::VisualParams::defaultInstance()->displayFlags().getShowCollisionModels())
         return;
+    
+    if(!checkStateHasChanged())
+        return;
 
     const auto npoints = mstate->getSize();
     if (npoints != size)
@@ -376,6 +388,27 @@ void PointCollisionModel<DataTypes>::drawCollisionModel(const core::visual::Visu
     {
         vparams->drawTool()->setPolygonMode(0, false);
     }
+}
+
+template<class DataTypes>
+bool PointCollisionModel<DataTypes>::checkStateHasChanged() const
+{
+    if(!mstate)
+        return false;
+    
+    const auto* posData = mstate->read(core::vec_id::read_access::position);
+    return m_positionCounter == posData->getCounter();
+}
+
+template<class DataTypes>
+void PointCollisionModel<DataTypes>::handleEvent(sofa::core::objectmodel::Event* event)
+{
+    if(sofa::simulation::AnimateEndEvent::checkEventType(event))
+    {
+        const auto* posData = mstate->read(core::vec_id::read_access::position);
+        m_positionCounter = posData->getCounter();
+    }
+    
 }
 
 
