@@ -116,9 +116,9 @@ void TriangleCollisionModel<DataTypes>::updateNormals()
     for (sofa::Size i=0; i<size; i++)
     {
         Element t(this,i);
-        const type::Vec3& pt1 = t.p1();
-        const type::Vec3& pt2 = t.p2();
-        const type::Vec3& pt3 = t.p3();
+        const auto& pt1 = t.p1();
+        const auto& pt2 = t.p2();
+        const auto& pt3 = t.p3();
 
         t.n() = cross(pt2-pt1,pt3-pt1);
         t.n().normalize();
@@ -244,9 +244,9 @@ void TriangleCollisionModel<DataTypes>::computeBoundingTree(int maxDepth)
         {
             Element t(this,i);
 
-            const type::Vec3& pt1 = x[t.p1Index()];
-            const type::Vec3& pt2 = x[t.p2Index()];
-            const type::Vec3& pt3 = x[t.p3Index()];
+            const auto& pt1 = x[t.p1Index()];
+            const auto& pt2 = x[t.p2Index()];
+            const auto& pt3 = x[t.p3Index()];
 
             for (int c = 0; c < 3; c++)
             {
@@ -267,7 +267,7 @@ void TriangleCollisionModel<DataTypes>::computeBoundingTree(int maxDepth)
             }
 
             if(d_useCurvature.getValue())
-                cubeModel->setParentOf(i, minElem, maxElem, t.n()); // define the bounding box of the current triangle
+                cubeModel->setParentOf(i, minElem, maxElem, sofa::type::toVec3(t.n())); // define the bounding box of the current triangle
             else
                 cubeModel->setParentOf(i, minElem, maxElem);
         }
@@ -329,7 +329,7 @@ void TriangleCollisionModel<DataTypes>::computeContinuousBoundingTree(SReal dt, 
             t.n().normalize();
 
             if(d_useCurvature.getValue())
-                cubeModel->setParentOf(i, minElem, maxElem, t.n(), acos(cross(pt2v-pt1v,pt3v-pt1v).normalized() * t.n()));
+                cubeModel->setParentOf(i, minElem, maxElem, sofa::type::toVec3(t.n()), acos(cross(pt2v-pt1v,pt3v-pt1v).normalized() * t.n()));
             else
                 cubeModel->setParentOf(i, minElem, maxElem);
         }
@@ -391,7 +391,7 @@ void TriangleCollisionModel<DataTypes>::computeBBox(const core::ExecParams* para
     {
         for(const auto ptindex : triangle)
         {
-            bbox.include(positions[ptindex]);
+            bbox.include(sofa::type::toVec3(positions[ptindex]));
         }
     }
 
@@ -406,7 +406,7 @@ void TriangleCollisionModel<DataTypes>::draw(const core::visual::VisualParams* v
 
     vparams->drawTool()->setPolygonMode(0,vparams->displayFlags().getShowWireFrame());
     vparams->drawTool()->setLightingEnabled(true);
-    vparams->drawTool()->drawTriangle( t.p1(), t.p2(), t.p3(), t.n() );
+    vparams->drawTool()->drawTriangle( sofa::type::toVec3(t.p1()),sofa::type::toVec3(t.p2()), sofa::type::toVec3(t.p3()), sofa::type::toVec3(t.n()) );
     vparams->drawTool()->setLightingEnabled(false);
 }
 
@@ -433,10 +433,10 @@ void TriangleCollisionModel<DataTypes>::drawCollisionModel(const core::visual::V
     for (sofa::Size i = 0; i < size; i++)
     {
         Element t(this, i);
-        normals.push_back(t.n());
-        points.push_back(t.p1());
-        points.push_back(t.p2());
-        points.push_back(t.p3());
+        normals.push_back(sofa::type::toVec3(t.n()));
+        points.push_back(sofa::type::toVec3(t.p1()));
+        points.push_back(sofa::type::toVec3(t.p2()));
+        points.push_back(sofa::type::toVec3(t.p3()));
         indices.push_back(type::Vec<3, int>(index, index + 1, index + 2));
         index += 3;
     }
@@ -454,7 +454,7 @@ void TriangleCollisionModel<DataTypes>::drawCollisionModel(const core::visual::V
         for (sofa::Size i = 0; i < size; i++)
         {
             Element t(this, i);
-            points.push_back((t.p1() + t.p2() + t.p3()) / 3.0);
+            points.push_back(sofa::type::toVec3(t.p1() + t.p2() + t.p3()) / 3.0);
             points.push_back(points.back() + t.n());
         }
 

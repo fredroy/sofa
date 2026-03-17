@@ -222,17 +222,18 @@ void SphereROI<DataTypes>::roiDraw(const core::visual::VisualParams* vparams)
 
     for (unsigned int i=0; i<c.size() && i<r.size(); ++i)
     {
-        drawcenters.push_back(c[i]);
+        const auto civec3 = sofa::type::toVec3(c[i]);
+        drawcenters.push_back(civec3);
         drawradii.push_back(float(r[i]));
             
         if (edgeAngle > 0)
         {
-            vparams->drawTool()->drawCone(c[i], c[i] + direction*(cosEdgeAngle * r[i]), 0, sinEdgeAngle *((float)r[i]), color);
+            vparams->drawTool()->drawCone(civec3, civec3 + direction*(cosEdgeAngle * r[i]), 0, sinEdgeAngle *((float)r[i]), color);
         }
 
         if (triAngle > 0)
         {
-            vparams->drawTool()->drawCone(c[i], c[i] + normal*(cosTriangleAngle * r[i]), 0, sinTriangleAngle *((float)r[i]), color);
+            vparams->drawTool()->drawCone(civec3, civec3 + normal*(cosTriangleAngle * r[i]), 0, sinTriangleAngle *((float)r[i]), color);
         }
     }
 

@@ -49,7 +49,7 @@ typename BarycentricMapperEdgeSetTopology<In, Out>::Index BarycentricMapperEdgeS
     const Edge& elem = this->m_fromTopology->getEdge ( edgeIndex );
     const typename In::Coord p0 = ( *points ) [elem[0]];
     const typename In::Coord pA = ( *points ) [elem[1]] - p0;
-    typename In::Coord pos = Out::getCPos(p) - p0;
+    const auto pos = sofa::type::toVecN<typename In::Coord>(Out::getCPos(p) - p0);
     baryCoords[0] = dot ( pA,pos ) /dot ( pA,pA );
     return this->addPointInLine ( edgeIndex, baryCoords );
 }
@@ -78,7 +78,7 @@ void BarycentricMapperEdgeSetTopology<In,Out>::computeBase(Mat3x3& base, const t
 template <class In, class Out>
 void BarycentricMapperEdgeSetTopology<In,Out>::computeCenter(Vec3& center, const typename In::VecCoord& in, const Edge& element)
 {
-    center = (in[element[0]]+in[element[1]])*0.5;
+    center = sofa::type::toVec3(in[element[0]]+in[element[1]])*0.5;
 }
 
 template <class In, class Out>

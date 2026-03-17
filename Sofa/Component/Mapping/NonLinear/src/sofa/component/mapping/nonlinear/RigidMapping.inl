@@ -209,7 +209,8 @@ void RigidMapping<TIn, TOut>::reinit()
 template <class TIn, class TOut>
 void RigidMapping<TIn, TOut>::getGlobalToLocalCoords(OutCoord& result, const InCoord& xFrom, const OutCoord& xTo)
 {
-    result = xFrom.inverseRotate(Out::getCPos(xTo) - In::getCPos(xFrom));
+    const auto xtoFromPos = sofa::type::toVecN<typename InCoord::Pos>(Out::getCPos(xTo) - In::getCPos(xFrom));
+    result = sofa::type::toVecN<OutCoord>(xFrom.inverseRotate(xtoFromPos));
 }
 
 

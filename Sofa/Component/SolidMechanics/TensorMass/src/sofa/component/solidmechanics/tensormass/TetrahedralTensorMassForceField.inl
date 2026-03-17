@@ -512,9 +512,9 @@ void TetrahedralTensorMassForceField<DataTypes>::draw(const core::visual::Visual
         int b = m_topology->getTriangle(i)[1];
         int c = m_topology->getTriangle(i)[2];
 
-        vertices.push_back(sofa::type::Vec3(x[a]));
-        vertices.push_back(sofa::type::Vec3(x[b]));
-        vertices.push_back(sofa::type::Vec3(x[c]));
+        vertices.push_back(sofa::type::toVec3(x[a]));
+        vertices.push_back(sofa::type::toVec3(x[b]));
+        vertices.push_back(sofa::type::toVec3(x[c]));
     }
     vparams->drawTool()->drawTriangles(vertices,color);
 

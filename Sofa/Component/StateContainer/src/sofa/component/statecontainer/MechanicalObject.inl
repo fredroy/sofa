@@ -699,7 +699,7 @@ void MechanicalObject<DataTypes>::applyRotation (const type::Quat<SReal> q)
     {
         sofa::type::Vec<3,Real> pos;
         DataTypes::get(pos[0], pos[1], pos[2], x_wA[i]);
-        sofa::type::Vec<3,Real> newposition = q.rotate(pos);
+        const auto newposition = sofa::type::toVecN<sofa::type::Vec<3,Real>>(q.rotate(pos));
         DataTypes::set(x_wA[i], newposition[0], newposition[1], newposition[2]);
     }
 }

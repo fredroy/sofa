@@ -408,9 +408,9 @@ int MeshNewProximityIntersection::computeIntersection(collision::geometry::Trian
     const SReal alarmDist = currentIntersection->getAlarmDistance() + e1.getContactDistance() + e2.getContactDistance() + e2.r();
     const SReal dist2 = alarmDist*alarmDist;
 
-    const type::Vec3 AB = e1.p2() - e1.p1();
-    const type::Vec3 AC = e1.p3() - e1.p1();
-    const type::Vec3 AQ = e2.center() - e1.p1();
+    const auto AB = e1.p2() - e1.p1();
+    const auto AC = e1.p3() - e1.p1();
+    const auto AQ = e2.center() - e1.p1();
     type::Matrix2 A;
     type::Vec2 b;
     A(0,0) = AB*AB;

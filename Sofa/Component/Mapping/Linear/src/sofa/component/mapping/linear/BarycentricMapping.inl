@@ -356,7 +356,7 @@ void BarycentricMapping<TIn, TOut>::draw(const core::visual::VisualParams* vpara
     std::vector< Vec3 > points;
     for ( unsigned int i=0; i<out.size(); i++ )
     {
-        points.push_back ( OutDataTypes::getCPos(out[i]) );
+        points.push_back ( sofa::type::toVec3(OutDataTypes::getCPos(out[i])) );
     }
     vparams->drawTool()->drawPoints ( points, 7, sofa::type::RGBAColor::yellow());
 

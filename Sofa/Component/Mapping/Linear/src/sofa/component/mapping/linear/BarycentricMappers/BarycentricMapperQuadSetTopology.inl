@@ -54,7 +54,7 @@ BarycentricMapperQuadSetTopology<In,Out>::createPointInQuad ( const typename Out
     const typename In::Coord p0 = ( *points ) [elem[0]];
     const typename In::Coord pA = ( *points ) [elem[1]] - p0;
     const typename In::Coord pB = ( *points ) [elem[3]] - p0;
-    typename In::Coord pos = Out::getCPos(p) - p0;
+    const auto pos = sofa::type::toVecN<typename In::Coord>(Out::getCPos(p) - p0);
     sofa::type::Mat<3,3,typename In::Real> m,mt,base;
     m[0] = pA;
     m[1] = pB;

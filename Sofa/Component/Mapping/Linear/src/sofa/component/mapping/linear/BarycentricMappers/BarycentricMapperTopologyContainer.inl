@@ -104,7 +104,8 @@ void BarycentricMapperTopologyContainer<In,Out,MappingDataType,Element>::compute
     for(unsigned int i=0; i<elements.size(); i++)
     {
         Element element = elements[i];
-        Vec3 min=in[element[0]], max=in[element[0]];
+        Vec3 min=sofa::type::toVec3(in[element[0]]);
+        Vec3 max=sofa::type::toVec3(in[element[0]]);
 
         for(unsigned int j=0; j<element.size(); j++)
         {
@@ -139,10 +140,11 @@ void BarycentricMapperTopologyContainer<In,Out,MappingDataType,Element>::init ( 
     for ( unsigned int i=0; i<out.size(); i++ )
     {
         const auto& outPos = Out::getCPos(out[i]);
+        const auto outPosVec3 = sofa::type::toVec3(outPos);
         NearestParams nearestParams;
 
         // Search nearest element in grid cell
-        Vec3i gridIds = getGridIndices(outPos);
+        Vec3i gridIds = getGridIndices(outPosVec3);
         Key key(gridIds[0],gridIds[1],gridIds[2]);
 
         auto it_entries = m_hashTable.find(key);
@@ -150,8 +152,8 @@ void BarycentricMapperTopologyContainer<In,Out,MappingDataType,Element>::init ( 
         {
             for(auto entry : it_entries->second)
             {
-                const auto& inPos = in[elements[entry][0]];
-                checkDistanceFromElement(entry, outPos, inPos, nearestParams);
+                const auto inPos = sofa::type::toVec3(in[elements[entry][0]]);
+                checkDistanceFromElement(entry, outPosVec3, inPos, nearestParams);
             }
         }
 
@@ -159,8 +161,8 @@ void BarycentricMapperTopologyContainer<In,Out,MappingDataType,Element>::init ( 
         {
             for ( unsigned int e = 0; e < elements.size(); e++ )
             {
-                const auto& inPos = in[elements[e][0]];
-                checkDistanceFromElement(e, outPos, inPos, nearestParams);
+                const auto inPos = sofa::type::toVec3(in[elements[e][0]]);
+                checkDistanceFromElement(e, outPosVec3, inPos, nearestParams);
             }
             addPointInElement(nearestParams.elementId, nearestParams.baryCoords.ptr());
         }
@@ -179,8 +181,8 @@ void BarycentricMapperTopologyContainer<In,Out,MappingDataType,Element>::init ( 
                         {
                             for(auto entry : it_entries->second)
                             {
-                                Vec3 inPos = in[elements[entry][0]];
-                                checkDistanceFromElement(entry, outPos, inPos, nearestParams);
+                                Vec3 inPos = sofa::type::toVec3(in[elements[entry][0]]);
+                                checkDistanceFromElement(entry, outPosVec3, inPos, nearestParams);
                             }
                         }
                     }
@@ -253,7 +255,7 @@ void BarycentricMapperTopologyContainer<In,Out,MappingDataType,Element>::applyJT
             for ( ; colIt != colItEnd; ++colIt)
             {
                 unsigned indexIn = colIt.index();
-                InDeriv data = InDeriv(Out::getDPos(colIt.val()));
+                InDeriv data = sofa::type::toVecN<InDeriv>(Out::getDPos(colIt.val()));
 
                 const Element& element = elements[map[indexIn].in_index];
                 
@@ -329,13 +331,20 @@ void BarycentricMapperTopologyContainer<In,Out,MappingDataType,Element>::applyJ 
     {
         const Index index = map[i].in_index;
         const Element& element = elements[index];
-
         const auto baryCoef = getBarycentricCoefficients(map[i].baryCoords);
-        InDeriv inPos{0.,0.,0.};
+        InDeriv inPos{};
+
         for (unsigned int j=0; j<Element::NumberOfNodes; j++)
             inPos += in[element[j]] * baryCoef[j];
 
-        Out::setDPos(out[i] , inPos);
+        if constexpr(sofa::type::isRigidType<Out>)
+        {
+            Out::setDPos(out[i], sofa::type::toVecN<typename OutDeriv::Pos>(inPos));
+        }
+        else
+        {
+            Out::setDPos(out[i] , sofa::type::toVecN<OutDeriv>(inPos));
+        }
     }
 }
 
@@ -367,11 +376,18 @@ void BarycentricMapperTopologyContainer<In,Out,MappingDataType,Element>::apply (
         const Element& element = elements[index];
 
         const auto baryCoef = getBarycentricCoefficients(map[i].baryCoords);
-        InDeriv inPos{0.,0.,0.};
+        typename In::Coord inPos{};
         for (unsigned int j=0; j< Element::NumberOfNodes; j++)
             inPos += in[element[j]] * baryCoef[j];
 
-        Out::setCPos(out[i] , inPos);
+        if constexpr(sofa::type::isRigidType<Out>)
+        {
+            Out::setCPos(out[i], sofa::type::toVecN<typename Out::Coord::Pos>(inPos));
+        }
+        else
+        {
+            Out::setCPos(out[i] , sofa::type::toVecN<typename Out::Coord>(inPos));
+        }
     }
 }
 
@@ -397,8 +413,8 @@ void BarycentricMapperTopologyContainer<In,Out,MappingDataType,Element>::draw  (
             {
                 if ( baryCoef[j]<=-0.0001 || baryCoef[j]>=0.0001 )
                 {
-                    points.push_back ( Out::getCPos(out[i]) );
-                    points.push_back ( in[element[j]] );
+                    points.push_back ( sofa::type::toVec3(Out::getCPos(out[i])) );
+                    points.push_back ( sofa::type::toVec3(in[element[j]]) );
                 }
             }
         }

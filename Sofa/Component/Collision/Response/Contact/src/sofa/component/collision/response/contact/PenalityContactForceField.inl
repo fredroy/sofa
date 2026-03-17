@@ -286,27 +286,32 @@ void PenalityContactForceField<DataTypes>::draw(const core::visual::VisualParams
     for (sofa::Index i=0; i<cc.size(); i++)
     {
         const Contact& c = cc[i];
-        Real d = c.dist - (p2[c.m2]-p1[c.m1])*c.norm;
+        const Real d = c.dist - (p2[c.m2]-p1[c.m1])*c.norm;
+        const type::Vec3 p1vec3 = sofa::type::toVec3(p1[c.m1]);
+        const type::Vec3 p2vec3 = sofa::type::toVec3(p2[c.m2]);
+
         if (c.age > 10) //c.spen > c.mu_s * c.ks * 0.99)
+        {
             if (d > 0)
             {
-                points[0].push_back(p1[c.m1]);
-                points[0].push_back(p2[c.m2]);
+                points[0].push_back(p1vec3);
+                points[0].push_back(p2vec3);
             }
             else
             {
-                points[1].push_back(p1[c.m1]);
-                points[1].push_back(p2[c.m2]);
+                points[1].push_back(p1vec3);
+                points[1].push_back(p2vec3);
             }
+        }
         else if (d > 0)
         {
-            points[2].push_back(p1[c.m1]);
-            points[2].push_back(p2[c.m2]);
+            points[2].push_back(p1vec3);
+            points[2].push_back(p2vec3);
         }
         else
         {
-            points[3].push_back(p1[c.m1]);
-            points[3].push_back(p2[c.m2]);
+            points[3].push_back(p1vec3);
+            points[3].push_back(p2vec3);
         }
     }
     vparams->drawTool()->drawLines(points[0], 1, RGBAColor::magenta());
@@ -321,13 +326,15 @@ void PenalityContactForceField<DataTypes>::draw(const core::visual::VisualParams
         for (unsigned int i=0; i<cc.size(); i++)
         {
             const Contact& c = cc[i];
-            Coord p = p1[c.m1] - c.norm;
-            pointsN.push_back(p1[c.m1]);
+            const type::Vec3 p1vec3 = sofa::type::toVec3(p1[c.m1]);
+            const type::Vec3 p2vec3 = sofa::type::toVec3(p2[c.m2]);
+
+            type::Vec3 p = p1vec3 - c.norm;
+            pointsN.push_back(p1vec3);
             pointsN.push_back(p);
 
-
-            p = p2[c.m2] + c.norm;
-            pointsN.push_back(p2[c.m2]);
+            p = p2vec3 - c.norm;
+            pointsN.push_back(p2vec3);
             pointsN.push_back(p);
         }
         vparams->drawTool()->drawLines(pointsN, 1, RGBAColor::yellow());

@@ -92,7 +92,7 @@ void BarycentricMapperMeshTopology<In,Out>::init ( const typename Out::VecCoord&
             {
                 lengthEdges.push_back ( ( in[edges[e][1]]-in[edges[e][0]] ).norm() );
 
-                Vec3 V12 = ( in[edges[e][1]]-in[edges[e][0]] ); V12.normalize();
+                Vec3 V12 = sofa::type::toVec3( in[edges[e][1]]-in[edges[e][0]] ); V12.normalize();
                 unitaryVectors.push_back ( V12 );
             }
 
@@ -104,7 +104,7 @@ void BarycentricMapperMeshTopology<In,Out>::init ( const typename Out::VecCoord&
                     SReal lengthEdge = lengthEdges[e];
                     Vec3 V12 =unitaryVectors[e];
 
-                    coef = ( V12 ) * Vec3 ( Out::getCPos(out[i])-in[edges[e][0]] ) /lengthEdge;
+                    coef = ( V12 ) * sofa::type::toVec3 ( Out::getCPos(out[i])-in[edges[e][0]] ) /lengthEdge;
                     if ( coef >= 0 && coef <= 1 ) {addPointInLine ( e,&coef );  break; }
                 }
                 //If no good coefficient has been found, we add to the last element
@@ -127,7 +127,7 @@ void BarycentricMapperMeshTopology<In,Out>::init ( const typename Out::VecCoord&
                 const bool canInvert = bases[t].invert ( mt );
                 assert(canInvert);
                 SOFA_UNUSED(canInvert);
-                centers[t] = ( in[triangles[t][0]]+in[triangles[t][1]]+in[triangles[t][2]] ) /3;
+                centers[t] = sofa::type::toVec3( in[triangles[t][0]]+in[triangles[t][1]]+in[triangles[t][2]] ) /3;
             }
             for ( std::size_t q = 0; q < quads.size(); q++ )
             {
@@ -139,7 +139,7 @@ void BarycentricMapperMeshTopology<In,Out>::init ( const typename Out::VecCoord&
                 const bool canInvert = bases[nbTriangles+q].invert ( mt );
                 assert(canInvert);
                 SOFA_UNUSED(canInvert);
-                centers[nbTriangles+q] = ( in[quads[q][0]]+in[quads[q][1]]+in[quads[q][2]]+in[quads[q][3]] ) *0.25;
+                centers[nbTriangles+q] = sofa::type::toVec3( in[quads[q][0]]+in[quads[q][1]]+in[quads[q][2]]+in[quads[q][3]] ) *0.25;
             }
             for ( std::size_t i=0; i<out.size(); i++ )
             {
@@ -149,14 +149,14 @@ void BarycentricMapperMeshTopology<In,Out>::init ( const typename Out::VecCoord&
                 SReal distance = 1e10;
                 for ( Index t = 0; t < triangles.size(); t++ )
                 {
-                    const auto v = bases[t] * ( outPos - in[triangles[t][0]] );
+                    const auto v = bases[t] * sofa::type::toVec3( outPos - in[triangles[t][0]] );
                     SReal d = std::max ( std::max (SReal(-v[0]), SReal(-v[1]) ),std::max ( SReal( ( v[2]<0?-v[2]:v[2] )-0.01), SReal(v[0]+v[1]-1 )));
                     if ( d>0 ) d = ( outPos-centers[t] ).norm2();
                     if ( d<distance ) { coefs = v; distance = d; index = (t); }
                 }
                 for ( Index q = 0; q < quads.size(); q++ )
                 {
-                    const auto v = bases[nbTriangles+q] * ( outPos - in[quads[q][0]] );
+                    const auto v = bases[nbTriangles+q] * sofa::type::toVec3( outPos - in[quads[q][0]] );
                     SReal d = std::max ( std::max (SReal(-v[0]), SReal(-v[1])),std::max ( std::max (SReal(v[1]-1), SReal(v[0]-1)),std::max (SReal(v[2]-0.01), SReal(-v[2]-0.01) ) ) );
                     if ( d>0 ) d = ( outPos-centers[nbTriangles+q] ).norm2();
                     if ( d<distance ) { coefs = v; distance = d; index = nbTriangles+q; }
@@ -184,7 +184,7 @@ void BarycentricMapperMeshTopology<In,Out>::init ( const typename Out::VecCoord&
             const bool canInvert = bases[t].invert ( mt );
             assert(canInvert);
             SOFA_UNUSED(canInvert);
-            centers[t] = ( in[tetras[t][0]]+in[tetras[t][1]]+in[tetras[t][2]]+in[tetras[t][3]] ) *0.25;
+            centers[t] = sofa::type::toVec3( in[tetras[t][0]]+in[tetras[t][1]]+in[tetras[t][2]]+in[tetras[t][3]] ) *0.25;
         }
         for ( std::size_t h = 0; h < hexas.size(); h++ )
         {
@@ -196,7 +196,7 @@ void BarycentricMapperMeshTopology<In,Out>::init ( const typename Out::VecCoord&
             const bool canInvert = bases[nbTetras+h].invert ( mt );
             assert(canInvert);
             SOFA_UNUSED(canInvert);
-            centers[nbTetras+h] = ( in[hexas[h][0]]+in[hexas[h][1]]+in[hexas[h][2]]+in[hexas[h][3]]+in[hexas[h][4]]+in[hexas[h][5]]+in[hexas[h][6]]+in[hexas[h][7]] ) *0.125;
+            centers[nbTetras+h] = sofa::type::toVec3( in[hexas[h][0]]+in[hexas[h][1]]+in[hexas[h][2]]+in[hexas[h][3]]+in[hexas[h][4]]+in[hexas[h][5]]+in[hexas[h][6]]+in[hexas[h][7]] ) *0.125;
         }
         for ( std::size_t i=0; i<out.size(); i++ )
         {
@@ -206,14 +206,14 @@ void BarycentricMapperMeshTopology<In,Out>::init ( const typename Out::VecCoord&
             double distance = 1e10;
             for (Index t = 0; t < tetras.size(); t++ )
             {
-                const auto v = bases[t] * ( pos - in[tetras[t][0]] );
+                const auto v = bases[t] * sofa::type::toVec3( pos - in[tetras[t][0]] );
                 SReal d = std::max ( std::max ( SReal(-v[0]), SReal(-v[1]) ),std::max (SReal(-v[2]), SReal(v[0]+v[1]+v[2]-1) ) );
                 if ( d>0 ) d = ( pos-centers[t] ).norm2();
                 if ( d<distance ) { coefs = v; distance = d; index = (t); }
             }
             for (Index h = 0; h < hexas.size(); h++ )
             {
-                const auto v = bases[nbTetras+h] * ( pos - in[hexas[h][0]] );
+                const auto v = bases[nbTetras+h] * sofa::type::toVec3( pos - in[hexas[h][0]] );
                 SReal d = std::max ( std::max (SReal(-v[0]), SReal(-v[1]) ),std::max ( std::max (SReal(-v[2]), SReal(v[0]-1) ),std::max (SReal(v[1]-1), SReal(v[2]-1) ) ) );
                 if ( d>0 ) d = ( pos-centers[nbTetras+h] ).norm2();
                 if ( d<distance ) { coefs = v; distance = d; index = (nbTetras+h); }
@@ -338,7 +338,7 @@ BarycentricMapperMeshTopology<In,Out>::createPointInLine ( const typename Out::C
     const Edge& elem = this->m_fromTopology->getLine ( lineIndex );
     const typename In::Coord p0 = ( *points ) [elem[0]];
     const typename In::Coord pA = ( *points ) [elem[1]] - p0;
-    typename In::Coord pos = Out::getCPos(p) - p0;
+    const auto pos = sofa::type::toVecN<typename In::Coord>(Out::getCPos(p) - p0);
 
     const SReal L2 = pA.norm2(); 
     if (L2 < std::numeric_limits<SReal>::epsilon()) // in case of null length edge, avoid division by 0
@@ -360,7 +360,7 @@ BarycentricMapperMeshTopology<In,Out>::createPointInTriangle ( const typename Ou
     const typename In::Coord & p1 = ( *points ) [elem[0]];
     const typename In::Coord & p2 = ( *points ) [elem[1]];
     const typename In::Coord & p3 = ( *points ) [elem[2]];
-    const typename In::Coord & to_be_projected = Out::getCPos(p);
+    const typename In::Coord to_be_projected = sofa::type::toVecN<typename In::Coord>(Out::getCPos(p));
 
     const typename In::Coord AB = p2-p1;
     const typename In::Coord AC = p3-p1;
@@ -441,7 +441,7 @@ BarycentricMapperMeshTopology<In,Out>::createPointInQuad ( const typename Out::C
     const typename In::Coord p0 = ( *points ) [elem[0]];
     const typename In::Coord pA = ( *points ) [elem[1]] - p0;
     const typename In::Coord pB = ( *points ) [elem[3]] - p0;
-    typename In::Coord pos = Out::getCPos(p) - p0;
+    const auto pos = sofa::type::toVecN<typename In::Coord>(Out::getCPos(p) - p0);
     sofa::type::Mat<3,3,typename In::Real> m,mt,base;
     m[0] = pA;
     m[1] = pB;
@@ -490,7 +490,7 @@ void BarycentricMapperMeshTopology<In,Out>::applyJT ( typename In::MatrixDeriv& 
             for ( ; colIt != colItEnd; ++colIt)
             {
                 indexIn = colIt.index();
-                InDeriv data = (InDeriv) Out::getDPos(colIt.val());
+                const InDeriv data = sofa::type::toVecN<InDeriv>(Out::getDPos(colIt.val()));
 
                 // 1D elements
                 if ( indexIn < i1d )
@@ -591,8 +591,8 @@ void BarycentricMapperMeshTopology<In,Out>::draw  (const core::visual::VisualPar
                 {
                     if ( f[j]<=-0.0001 || f[j]>=0.0001 )
                     {
-                        points.push_back ( Out::getCPos(out[i+i0]) );
-                        points.push_back ( in[line[j]] );
+                        points.push_back ( sofa::type::toVec3(Out::getCPos(out[i+i0]) ));
+                        points.push_back ( sofa::type::toVec3(in[line[j]] ));
                     }
                 }
             }
@@ -615,8 +615,8 @@ void BarycentricMapperMeshTopology<In,Out>::draw  (const core::visual::VisualPar
                 {
                     if ( f[j]<=-0.0001 || f[j]>=0.0001 )
                     {
-                        points.push_back ( Out::getCPos(out[i+i0]) );
-                        points.push_back ( in[triangle[j]] );
+                        points.push_back ( sofa::type::toVec3(Out::getCPos(out[i+i0]) ));
+                        points.push_back ( sofa::type::toVec3(in[triangle[j]]) );
                     }
                 }
             }
@@ -632,8 +632,8 @@ void BarycentricMapperMeshTopology<In,Out>::draw  (const core::visual::VisualPar
                 {
                     if ( f[j]<=-0.0001 || f[j]>=0.0001 )
                     {
-                        points.push_back ( Out::getCPos(out[i+i0]) );
-                        points.push_back ( in[quad[j]] );
+                        points.push_back ( sofa::type::toVec3(Out::getCPos(out[i+i0]) ));
+                        points.push_back ( sofa::type::toVec3(in[quad[j]] ));
                     }
                 }
             }
@@ -661,8 +661,8 @@ void BarycentricMapperMeshTopology<In,Out>::draw  (const core::visual::VisualPar
                 {
                     if ( f[j]<=-0.0001 || f[j]>=0.0001 )
                     {
-                        points.push_back ( Out::getCPos(out[i+i0]) );
-                        points.push_back ( in[tetra[j]] );
+                        points.push_back ( sofa::type::toVec3(Out::getCPos(out[i+i0]) ));
+                        points.push_back ( sofa::type::toVec3(in[tetra[j]] ));
                     }
                 }
             }
@@ -687,8 +687,8 @@ void BarycentricMapperMeshTopology<In,Out>::draw  (const core::visual::VisualPar
                 {
                     if ( f[j]<=-0.0001 || f[j]>=0.0001 )
                     {
-                        points.push_back ( Out::getCPos(out[i+i0]) );
-                        points.push_back ( in[cube[j]] );
+                        points.push_back ( sofa::type::toVec3(Out::getCPos(out[i+i0]) ));
+                        points.push_back ( sofa::type::toVec3(in[cube[j]] ));
                     }
                 }
             }
@@ -917,6 +917,18 @@ void BarycentricMapperMeshTopology<In,Out>::applyJ ( typename Out::VecDeriv& out
     const size_t idxStart2=sizeMap1d+sizeMap2d;
     const size_t idxStart3=sizeMap1d+sizeMap2d+sizeMap3d;
 
+    constexpr auto toOutDPos = [](const typename In::Deriv& inderiv)
+    {
+        if constexpr (sofa::type::isRigidType<Out>)
+        {
+            return sofa::type::toVecN<typename Out::Deriv::Pos>(inderiv);
+        }
+        else
+        {
+            return sofa::type::toVecN<typename Out::Deriv>(inderiv);
+        }
+    };
+
     for( size_t i=0 ; i<out.size() ; ++i)
     {
         // 1D elements
@@ -926,8 +938,8 @@ void BarycentricMapperMeshTopology<In,Out>::applyJ ( typename Out::VecDeriv& out
             const Index index = m_map1d[i].in_index;
             {
                 const Edge& line = lines[index];
-                Out::setDPos(out[i] , in[line[0]] * ( 1-fx )
-                        + in[line[1]] * fx );
+                Out::setDPos(out[i] , toOutDPos(in[line[0]] * ( 1-fx )
+                        + in[line[1]] * fx ));
             }
         }
         // 2D elements
@@ -943,17 +955,17 @@ void BarycentricMapperMeshTopology<In,Out>::applyJ ( typename Out::VecDeriv& out
             if ( index<c0 )
             {
                 const Triangle& triangle = triangles[index];
-                Out::setDPos(out[i] , in[triangle[0]] * ( 1-fx-fy )
+                Out::setDPos(out[i] , toOutDPos(in[triangle[0]] * ( 1-fx-fy )
                         + in[triangle[1]] * fx
-                        + in[triangle[2]] * fy );
+                        + in[triangle[2]] * fy ));
             }
             else
             {
                 const Quad& quad = quads[index-c0];
-                Out::setDPos(out[i] , in[quad[0]] * ( ( 1-fx ) * ( 1-fy ) )
+                Out::setDPos(out[i] , toOutDPos(in[quad[0]] * ( ( 1-fx ) * ( 1-fy ) )
                         + in[quad[1]] * ( ( fx ) * ( 1-fy ) )
                         + in[quad[3]] * ( ( 1-fx ) * ( fy ) )
-                        + in[quad[2]] * ( ( fx ) * ( fy ) ) );
+                        + in[quad[2]] * ( ( fx ) * ( fy ) ) ));
             }
         }
         // 3D elements
@@ -968,23 +980,23 @@ void BarycentricMapperMeshTopology<In,Out>::applyJ ( typename Out::VecDeriv& out
             if ( index<c0 )
             {
                 const Tetra& tetra = tetrahedra[index];
-                Out::setDPos(out[i] , in[tetra[0]] * ( 1-fx-fy-fz )
+                Out::setDPos(out[i] , toOutDPos(in[tetra[0]] * ( 1-fx-fy-fz )
                         + in[tetra[1]] * fx
                         + in[tetra[2]] * fy
-                        + in[tetra[3]] * fz );
+                        + in[tetra[3]] * fz ));
             }
             else
             {
                 const Hexa& cube = cubes[index-c0];
 
-                Out::setDPos(out[i] , in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
+                Out::setDPos(out[i] , toOutDPos(in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
                         + in[cube[1]] * ( ( fx ) * ( 1-fy ) * ( 1-fz ) )
                         + in[cube[3]] * ( ( 1-fx ) * ( fy ) * ( 1-fz ) )
                         + in[cube[2]] * ( ( fx ) * ( fy ) * ( 1-fz ) )
                         + in[cube[4]] * ( ( 1-fx ) * ( 1-fy ) * ( fz ) )
                         + in[cube[5]] * ( ( fx ) * ( 1-fy ) * ( fz ) )
                         + in[cube[7]] * ( ( 1-fx ) * ( fy ) * ( fz ) )
-                        + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) );
+                        + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) ));
             }
         }
     }
@@ -1010,6 +1022,18 @@ void BarycentricMapperMeshTopology<In,Out>::apply ( typename Out::VecCoord& out,
     const SeqTetrahedra& tetrahedra = this->m_fromTopology->getTetrahedra();
     const SeqHexahedra& cubes = this->m_fromTopology->getHexahedra();
 
+    constexpr auto toOutCPos = [](const typename In::Coord& incoord)
+    {
+        if constexpr (sofa::type::isRigidType<Out>)
+        {
+            return sofa::type::toVecN<typename Out::Coord::Pos>(incoord);
+        }
+        else
+        {
+            return sofa::type::toVecN<typename Out::Coord>(incoord);
+        }
+    };
+
     // 1D elements
     {
         for ( std::size_t i=0; i<m_map1d.size(); i++ )
@@ -1018,8 +1042,8 @@ void BarycentricMapperMeshTopology<In,Out>::apply ( typename Out::VecCoord& out,
             const Index index = m_map1d[i].in_index;
             {
                 const Edge& line = lines[index];
-                Out::setCPos(out[i] , in[line[0]] * ( 1-fx )
-                        + in[line[1]] * fx );
+                Out::setCPos(out[i] , toOutCPos(in[line[0]] * ( 1-fx )
+                        + in[line[1]] * fx ));
             }
         }
     }
@@ -1035,19 +1059,19 @@ void BarycentricMapperMeshTopology<In,Out>::apply ( typename Out::VecCoord& out,
             if ( index<c0 )
             {
                 const Triangle& triangle = triangles[index];
-                Out::setCPos(out[i+i0] , in[triangle[0]] * ( 1-fx-fy )
+                Out::setCPos(out[i+i0] , toOutCPos(in[triangle[0]] * ( 1-fx-fy )
                         + in[triangle[1]] * fx
-                        + in[triangle[2]] * fy );
+                        + in[triangle[2]] * fy ));
             }
             else
             {
                 if (quads.size())
                 {
                     const Quad& quad = quads[index-c0];
-                    Out::setCPos(out[i+i0] , in[quad[0]] * ( ( 1-fx ) * ( 1-fy ) )
+                    Out::setCPos(out[i+i0] , toOutCPos(in[quad[0]] * ( ( 1-fx ) * ( 1-fy ) )
                             + in[quad[1]] * ( ( fx ) * ( 1-fy ) )
                             + in[quad[3]] * ( ( 1-fx ) * ( fy ) )
-                            + in[quad[2]] * ( ( fx ) * ( fy ) ) );
+                            + in[quad[2]] * ( ( fx ) * ( fy ) ) ));
                 }
             }
         }
@@ -1065,23 +1089,23 @@ void BarycentricMapperMeshTopology<In,Out>::apply ( typename Out::VecCoord& out,
             if ( index<c0 )
             {
                 const Tetra& tetra = tetrahedra[index];
-                Out::setCPos(out[i+i0] , in[tetra[0]] * ( 1-fx-fy-fz )
+                Out::setCPos(out[i+i0] , toOutCPos(in[tetra[0]] * ( 1-fx-fy-fz )
                         + in[tetra[1]] * fx
                         + in[tetra[2]] * fy
-                        + in[tetra[3]] * fz );
+                        + in[tetra[3]] * fz ));
             }
             else
             {
                 const Hexa& cube = cubes[index-c0];
 
-                Out::setCPos(out[i+i0] , in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
+                Out::setCPos(out[i+i0] , toOutCPos(in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
                         + in[cube[1]] * ( ( fx ) * ( 1-fy ) * ( 1-fz ) )
                         + in[cube[3]] * ( ( 1-fx ) * ( fy ) * ( 1-fz ) )
                         + in[cube[2]] * ( ( fx ) * ( fy ) * ( 1-fz ) )
                         + in[cube[4]] * ( ( 1-fx ) * ( 1-fy ) * ( fz ) )
                         + in[cube[5]] * ( ( fx ) * ( 1-fy ) * ( fz ) )
                         + in[cube[7]] * ( ( 1-fx ) * ( fy ) * ( fz ) )
-                        + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) );
+                        + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) ));
             }
         }
     }

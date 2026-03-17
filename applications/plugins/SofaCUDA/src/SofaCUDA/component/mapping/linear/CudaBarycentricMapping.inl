@@ -231,11 +231,11 @@ void BarycentricMapperSparseGridTopology<gpu::cuda::CudaVectorTypes<VecIn,VecIn,
     for (unsigned int i=0; i<out.size(); i++)
     {
         type::Vec3 coefs;
-        int cube = topology->findCube(type::Vec3(out[i]), coefs[0], coefs[1], coefs[2]);
+        int cube = topology->findCube(type::toVec3(out[i]), coefs[0], coefs[1], coefs[2]);
         if (cube==-1)
         {
             ++outside;
-            cube = topology->findNearestCube(type::Vec3(out[i]), coefs[0], coefs[1], coefs[2]);
+            cube = topology->findNearestCube(type::toVec3(out[i]), coefs[0], coefs[1], coefs[2]);
         }
         type::Vec<3,SReal> baryCoords = coefs;
         addPointInCube(cube, baryCoords.ptr());

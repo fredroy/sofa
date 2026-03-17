@@ -36,7 +36,7 @@ bool RayDiscreteIntersection::testIntersection(collision::geometry::Ray & ray1, 
     SOFA_UNUSED(currentIntersection);
 
     // Center of the sphere
-    const type::Vec3 sph2Pos(sph2.center());
+    const type::Vec3 sph2Pos = sofa::type::toVec3(sph2.center());
     // Radius of the sphere
     const SReal radius1 = sph2.r();
 
@@ -56,7 +56,7 @@ int RayDiscreteIntersection::computeIntersection(collision::geometry::Ray& ray1,
     SOFA_UNUSED(currentIntersection);
 
     // Center of the sphere
-    const type::Vec3 sph2Pos(sph2.center());
+    const type::Vec3 sph2Pos = sofa::type::toVec3(sph2.center());
     // Radius of the sphere
     const SReal radius1 = sph2.r();
 

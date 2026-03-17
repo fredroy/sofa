@@ -863,7 +863,7 @@ void PrecomputedConstraintCorrection< DataTypes >::draw(const core::visual::Visu
 
         sofa::type::Quat<SReal> q;
         q.fromMatrix(RotMat);
-        vparams->drawTool()->drawFrame(DataTypes::getCPos(x[i]), q, sofa::type::Vec3f(this->d_debugViewFrameScale.getValue(), this->d_debugViewFrameScale.getValue(), this->d_debugViewFrameScale.getValue()));
+        vparams->drawTool()->drawFrame(sofa::type::toVec3(DataTypes::getCPos(x[i])), q, sofa::type::Vec3f(this->d_debugViewFrameScale.getValue(), this->d_debugViewFrameScale.getValue(), this->d_debugViewFrameScale.getValue()));
 
     }
 

@@ -60,7 +60,7 @@ BarycentricMapperTriangleSetTopology<In,Out>::createPointInTriangle ( const type
     const typename In::Coord p0 = ( *points ) [elem[0]];
     const typename In::Coord pA = ( *points ) [elem[1]] - p0;
     const typename In::Coord pB = ( *points ) [elem[2]] - p0;
-    typename In::Coord pos = Out::getCPos(p) - p0;
+    auto pos = sofa::type::toVecN<typename In::Coord>(Out::getCPos(p) - p0);
     // First project to plane
     typename In::Coord normal = cross ( pA, pB );
     Real norm2 = normal.norm2();
@@ -87,8 +87,8 @@ template <class In, class Out>
 void BarycentricMapperTriangleSetTopology<In,Out>::computeBase(Mat3x3& base, const typename In::VecCoord& in, const Triangle& element)
 {
     Mat3x3 mt;
-    base[0] = in[element[1]]-in[element[0]];
-    base[1] = in[element[2]]-in[element[0]];
+    base[0] = sofa::type::toVec3(in[element[1]]-in[element[0]]);
+    base[1] = sofa::type::toVec3(in[element[2]]-in[element[0]]);
     base[2] = cross(base[0],base[1]);
     mt.transpose(base);
     const bool canInvert = base.invert(mt);
@@ -99,7 +99,7 @@ void BarycentricMapperTriangleSetTopology<In,Out>::computeBase(Mat3x3& base, con
 template <class In, class Out>
 void BarycentricMapperTriangleSetTopology<In,Out>::computeCenter(Vec3& center, const typename In::VecCoord& in, const Triangle& element)
 {
-    center = (in[element[0]]+in[element[1]]+in[element[2]])/3;
+    center = sofa::type::toVec3(in[element[0]]+in[element[1]]+in[element[2]])/3;
 }
 
 template <class In, class Out>

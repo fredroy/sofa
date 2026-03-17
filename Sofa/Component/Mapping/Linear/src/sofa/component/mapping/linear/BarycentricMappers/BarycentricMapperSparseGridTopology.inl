@@ -89,11 +89,12 @@ void BarycentricMapperSparseGridTopology<In,Out>::init ( const typename Out::Vec
     {
         for ( unsigned int i=0; i<out.size(); i++ )
         {
-            sofa::type::Vec3 coefs;
-            Index cube = m_fromTopology->findCube ( Out::getCPos(out[i]), coefs[0], coefs[1], coefs[2] );
+            sofa::type::Vec3 coefs(sofa::type::NOINIT);
+            const auto outvec3 = sofa::type::toVec3(Out::getCPos(out[i]));
+            Index cube = m_fromTopology->findCube ( outvec3, coefs[0], coefs[1], coefs[2] );
             if ( cube==sofa::InvalidID )
             {
-                cube = m_fromTopology->findNearestCube ( Out::getCPos(out[i]), coefs[0], coefs[1], coefs[2] );
+                cube = m_fromTopology->findNearestCube ( outvec3, coefs[0], coefs[1], coefs[2] );
             }
 
             this->addPointInCube ( cube, coefs.ptr() );
@@ -133,8 +134,8 @@ void BarycentricMapperSparseGridTopology<In,Out>::draw  (const VisualParams* vpa
         {
             if ( f[j]<=-0.0001 || f[j]>=0.0001 )
             {
-                points.push_back ( Out::getCPos(out[i]) );
-                points.push_back ( in[cube[j]] );
+                points.push_back ( sofa::type::toVec3(Out::getCPos(out[i])) );
+                points.push_back ( sofa::type::toVec3(in[cube[j]]) );
             }
         }
     }
@@ -230,7 +231,7 @@ void BarycentricMapperSparseGridTopology<In,Out>::applyJT ( typename In::MatrixD
             for ( ; colIt != colItEnd; ++colIt)
             {
                 unsigned indexIn = colIt.index();
-                InDeriv data = (InDeriv) Out::getDPos(colIt.val());
+                InDeriv data = sofa::type::toVecN<InDeriv>(Out::getDPos(colIt.val()));
 
                 assert(this->m_map[indexIn].in_index < hexahedra.size());
                 const topology::container::grid::SparseGridTopology::Hexa& cube = hexahedra[this->m_map[indexIn].in_index];
@@ -289,14 +290,14 @@ void BarycentricMapperSparseGridTopology<In,Out>::applyJ ( typename Out::VecDeri
         const Real fx = m_map[index].baryCoords[0];
         const Real fy = m_map[index].baryCoords[1];
         const Real fz = m_map[index].baryCoords[2];
-        Out::setDPos(out[index] , in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
+        Out::setDPos(out[index] , sofa::type::toVecN<typename Out::DPos>(in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
                 + in[cube[1]] * ( ( fx ) * ( 1-fy ) * ( 1-fz ) )
                 + in[cube[3]] * ( ( 1-fx ) * ( fy ) * ( 1-fz ) )
                 + in[cube[2]] * ( ( fx ) * ( fy ) * ( 1-fz ) )
                 + in[cube[4]] * ( ( 1-fx ) * ( 1-fy ) * ( fz ) )
                 + in[cube[5]] * ( ( fx ) * ( 1-fy ) * ( fz ) )
                 + in[cube[7]] * ( ( 1-fx ) * ( fy ) * ( fz ) )
-                + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) );
+                + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) ));
     }
 
 }
@@ -326,14 +327,14 @@ void BarycentricMapperSparseGridTopology<In,Out>::apply ( typename Out::VecCoord
         const Real fy = it->baryCoords[1];
         const Real fz = it->baryCoords[2];
 
-        Out::setCPos(out[i] , in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
+        Out::setCPos(out[i] , sofa::type::toVecN<typename Out::CPos>(in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
                 + in[cube[1]] * ( ( fx ) * ( 1-fy ) * ( 1-fz ) )
                 + in[cube[3]] * ( ( 1-fx ) * ( fy ) * ( 1-fz ) )
                 + in[cube[2]] * ( ( fx ) * ( fy ) * ( 1-fz ) )
                 + in[cube[4]] * ( ( 1-fx ) * ( 1-fy ) * ( fz ) )
                 + in[cube[5]] * ( ( fx ) * ( 1-fy ) * ( fz ) )
                 + in[cube[7]] * ( ( 1-fx ) * ( fy ) * ( fz ) )
-                + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) );
+                + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) ));
 
         ++it;
         ++i;

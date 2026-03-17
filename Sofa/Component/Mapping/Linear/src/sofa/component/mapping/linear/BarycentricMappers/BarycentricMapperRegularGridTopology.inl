@@ -81,9 +81,9 @@ void BarycentricMapperRegularGridTopology<In,Out>::init ( const typename Out::Ve
         for ( unsigned int i=0; i<out.size(); i++ )
         {
             sofa::type::Vec3 coefs;
-            Index cube = m_fromTopology->findCube ( Vec3 ( Out::getCPos(out[i]) ), coefs[0], coefs[1], coefs[2] );
+            Index cube = m_fromTopology->findCube ( sofa::type::toVec3( Out::getCPos(out[i]) ), coefs[0], coefs[1], coefs[2] );
             if ( cube==sofa::InvalidID )
-                cube = m_fromTopology->findNearestCube ( Vec3 ( Out::getCPos(out[i]) ), coefs[0], coefs[1], coefs[2] );
+                cube = m_fromTopology->findNearestCube ( sofa::type::toVec3( Out::getCPos(out[i]) ), coefs[0], coefs[1], coefs[2] );
 
             this->addPointInCube ( cube, coefs.ptr() );
         }
@@ -110,14 +110,14 @@ void BarycentricMapperRegularGridTopology<In,Out>::apply ( typename Out::VecCoor
         const Real fx = m_map[i].baryCoords[0];
         const Real fy = m_map[i].baryCoords[1];
         const Real fz = m_map[i].baryCoords[2];
-        Out::setCPos(out[i] , in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
+        Out::setCPos(out[i] , sofa::type::toVecN<typename Out::CPos>(in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
                 + in[cube[1]] * ( ( fx ) * ( 1-fy ) * ( 1-fz ) )
                 + in[cube[3]] * ( ( 1-fx ) * ( fy ) * ( 1-fz ) )
                 + in[cube[2]] * ( ( fx ) * ( fy ) * ( 1-fz ) )
                 + in[cube[4]] * ( ( 1-fx ) * ( 1-fy ) * ( fz ) )
                 + in[cube[5]] * ( ( fx ) * ( 1-fy ) * ( fz ) )
                 + in[cube[7]] * ( ( 1-fx ) * ( fy ) * ( fz ) )
-                + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) );
+                + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) ));
     }
 }
 
@@ -134,14 +134,14 @@ void BarycentricMapperRegularGridTopology<In,Out>::applyJ ( typename Out::VecDer
         const Real fx = m_map[index].baryCoords[0];
         const Real fy = m_map[index].baryCoords[1];
         const Real fz = m_map[index].baryCoords[2];
-        Out::setDPos(out[index] , in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
+        Out::setDPos(out[index] , sofa::type::toVecN<typename Out::DPos>(in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
                 + in[cube[1]] * ( ( fx ) * ( 1-fy ) * ( 1-fz ) )
                 + in[cube[3]] * ( ( 1-fx ) * ( fy ) * ( 1-fz ) )
                 + in[cube[2]] * ( ( fx ) * ( fy ) * ( 1-fz ) )
                 + in[cube[4]] * ( ( 1-fx ) * ( 1-fy ) * ( fz ) )
                 + in[cube[5]] * ( ( fx ) * ( 1-fy ) * ( fz ) )
                 + in[cube[7]] * ( ( 1-fx ) * ( fy ) * ( fz ) )
-                + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) );
+                + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) ));
     }
 }
 
@@ -244,8 +244,8 @@ void BarycentricMapperRegularGridTopology<In,Out>::draw  (const core::visual::Vi
         {
             if ( f[j]<=-0.0001 || f[j]>=0.0001 )
             {
-                points.push_back ( Out::getCPos(out[i]) );
-                points.push_back ( in[cube[j]] );
+                points.push_back ( sofa::type::toVec3(Out::getCPos(out[i]) ));
+                points.push_back ( sofa::type::toVec3(in[cube[j]] ));
             }
         }
     }
@@ -269,7 +269,7 @@ void BarycentricMapperRegularGridTopology<In,Out>::applyJT ( typename In::Matrix
             for ( ; colIt != colItEnd; ++colIt)
             {
                 unsigned int indexIn = colIt.index();
-                InDeriv data = (InDeriv) Out::getDPos(colIt.val());
+                const InDeriv data = sofa::type::toVecN<InDeriv>(Out::getDPos(colIt.val()));
 
                 const topology::container::grid::RegularGridTopology::Hexa cube = this->m_fromTopology->getHexaCopy ( this->m_map[indexIn].in_index );
 

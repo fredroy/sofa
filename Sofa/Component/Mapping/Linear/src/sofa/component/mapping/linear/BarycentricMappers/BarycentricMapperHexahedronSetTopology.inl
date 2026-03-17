@@ -111,9 +111,9 @@ template <class In, class Out>
 void BarycentricMapperHexahedronSetTopology<In,Out>::computeBase(Mat3x3& base, const typename In::VecCoord& in, const Hexahedron& element)
 {
     Mat3x3 matrixTranspose;
-    base[0] = in[element[1]]-in[element[0]];
-    base[1] = in[element[3]]-in[element[0]];
-    base[2] = in[element[4]]-in[element[0]];
+    base[0] = sofa::type::toVec3(in[element[1]]-in[element[0]]);
+    base[1] = sofa::type::toVec3(in[element[3]]-in[element[0]]);
+    base[2] = sofa::type::toVec3(in[element[4]]-in[element[0]]);
     matrixTranspose.transpose(base);
     const bool canInvert = base.invert(matrixTranspose);
     assert(canInvert);
@@ -124,7 +124,7 @@ void BarycentricMapperHexahedronSetTopology<In,Out>::computeBase(Mat3x3& base, c
 template <class In, class Out>
 void BarycentricMapperHexahedronSetTopology<In,Out>::computeCenter(Vec3& center, const typename In::VecCoord& in, const Hexahedron &element)
 {
-    center = ( in[element[0]]+in[element[1]]+in[element[2]]+in[element[3]]+in[element[4]]+in[element[5]]+in[element[6]]+in[element[7]] ) *0.125;
+    center = sofa::type::toVec3( in[element[0]]+in[element[1]]+in[element[2]]+in[element[3]]+in[element[4]]+in[element[5]]+in[element[6]]+in[element[7]] ) *0.125;
 }
 
 
@@ -202,8 +202,8 @@ void BarycentricMapperHexahedronSetTopology<In,Out>::handleTopologyChange(core::
                             else
                             {
                                 const typename MechanicalStateT::VecCoord& outXto0 = (mState->read(core::vec_id::read_access::restPosition)->getValue());
-                                const decltype(inRestPos[0])& outRestPos = Out::getCPos(outXto0[j]); //decltype stuff is to force the same type of coordinates between in and out
-                                index = sofa::topology::getClosestHexahedronIndex(inRestPos, m_fromTopology->getHexahedra(), outRestPos, coefs, distance);
+                                const auto outRestPosWithInType = sofa::type::toVecN<typename In::Coord>(Out::getCPos(outXto0[j]));
+                                index = sofa::topology::getClosestHexahedronIndex(inRestPos, m_fromTopology->getHexahedra(), outRestPosWithInType, coefs, distance);
                             }
                         }
                         else
@@ -321,14 +321,14 @@ void BarycentricMapperHexahedronSetTopology<In,Out>::applyOnePoint( const Index&
     const Real fz = d_map.getValue()[hexaPointId].baryCoords[2];
     const Index index = d_map.getValue()[hexaPointId].in_index;
     const Hexahedron& cube = cubes[index];
-    Out::setCPos(out[hexaPointId] , in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
+    Out::setCPos(out[hexaPointId] , sofa::type::toVecN<typename Out::CPos>(in[cube[0]] * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) )
             + in[cube[1]] * ( ( fx ) * ( 1-fy ) * ( 1-fz ) )
             + in[cube[3]] * ( ( 1-fx ) * ( fy ) * ( 1-fz ) )
             + in[cube[2]] * ( ( fx ) * ( fy ) * ( 1-fz ) )
             + in[cube[4]] * ( ( 1-fx ) * ( 1-fy ) * ( fz ) )
             + in[cube[5]] * ( ( fx ) * ( 1-fy ) * ( fz ) )
             + in[cube[7]] * ( ( 1-fx ) * ( fy ) * ( fz ) )
-            + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) );
+            + in[cube[6]] * ( ( fx ) * ( fy ) * ( fz ) ) ));
 }
 
 
