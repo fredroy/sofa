@@ -817,6 +817,13 @@ template <sofa::Size OutSize, typename OutReal, sofa::Size InSize, typename InRe
 requires (std::is_convertible_v<InReal, OutReal>)
 constexpr auto toVecN(const sofa::type::Vec<InSize, InReal>& in, const OutReal filler = static_cast<OutReal>(0)) -> sofa::type::Vec<OutSize, OutReal>
 {
+    // first, check if in and out types are the same -> nothing to be done
+    // with reasonable optimization, it should be treated like no-op (hopefully)
+    if constexpr (std::is_same_v<sofa::type::Vec<InSize, InReal>, sofa::type::Vec<OutSize, OutReal>>)
+    {
+        return in;
+    }
+
     sofa::type::Vec<OutSize, OutReal> out(type::NOINIT);
     std::copy(in.begin(), in.begin() + std::min(InSize, OutSize), out.begin());
 
