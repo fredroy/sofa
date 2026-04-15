@@ -69,6 +69,7 @@ extern void registerBarycentricMapping_3f1(sofa::core::ObjectFactory* factory);
 extern void registerBarycentricMapping_3f1_f(sofa::core::ObjectFactory* factory);
 extern void registerBarycentricMapping_3f1_3f(sofa::core::ObjectFactory* factory);
 extern void registerBarycentricMapping_3f1_d(sofa::core::ObjectFactory* factory);
+extern void registerCudaBarycentricMappingBridge(sofa::core::ObjectFactory* factory);
 extern void registerBeamLinearMapping(sofa::core::ObjectFactory* factory);
 extern void registerIdentityMapping(sofa::core::ObjectFactory* factory);
 extern void registerSubsetMapping(sofa::core::ObjectFactory* factory);
@@ -211,6 +212,7 @@ void registerObjects(sofa::core::ObjectFactory* factory)
     registerBarycentricMapping_3f1_f(factory);
     registerBarycentricMapping_3f1_3f(factory);
     registerBarycentricMapping_3f1_d(factory);
+    registerCudaBarycentricMappingBridge(factory);
     registerBeamLinearMapping(factory);
     registerIdentityMapping(factory);
     registerSubsetMapping(factory);

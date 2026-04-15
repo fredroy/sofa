@@ -18,6 +18,8 @@ set(HEADER_FILES
     ### Mappings
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mapping/linear/CudaBarycentricMapping.h
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mapping/linear/CudaBarycentricMapping.inl
+    ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mapping/linear/CudaBarycentricMappingBridge.h
+    ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mapping/linear/CudaBarycentricMappingBridge.inl
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mapping/linear/CudaBarycentricMappingRigid.h
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mapping/linear/CudaBeamLinearMapping.h
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mapping/linear/CudaIdentityMapping.h
@@ -99,6 +101,7 @@ set(SOURCE_FILES
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mapping/linear/CudaBarycentricMapping-3f1.cpp
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mapping/linear/CudaBarycentricMapping-f.cpp
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mapping/linear/CudaBarycentricMapping.cpp
+    ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mapping/linear/CudaBarycentricMappingBridge.cpp
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mapping/linear/CudaBarycentricMappingRigid.cpp
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mapping/linear/CudaIdentityMapping.cpp
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mapping/nonlinear/CudaRigidMapping.cpp
