@@ -265,11 +265,12 @@ void CudaVisualModel<TDataTypes>::updateNormals()
     if (!l_topology || this->getSize() == 0) return;
 
     const VecCoord& x = this->m_positions.getValue();
-    fnormals.resize(nbElement);
 
-    // Resize vertex normals using the inherited m_vnormals from CudaVisualState
+    fnormals.fastResize(nbElement);
+
+    // Resize vertex normals - use fastResize to avoid unnecessary initialization
     helper::WriteOnlyAccessor<Data<VecDeriv>> vnormalsAccessor = this->m_vnormals;
-    vnormalsAccessor.resize(x.size());
+    vnormalsAccessor.wref().fastResize(x.size());
 
     if (triangles.size() > 0)
         Kernels::calcTNormals(
@@ -312,7 +313,12 @@ template<class TDataTypes>
 void CudaVisualModel<TDataTypes>::doUpdateVisual(const core::visual::VisualParams* vparams)
 {
     SOFA_UNUSED(vparams);
-    updateTopologyAndNormals();
+    // Only update if topology changed or positions were modified (e.g., by a mapping)
+    if (needUpdateTopology || this->modified)
+    {
+        updateTopologyAndNormals();
+        this->modified = false;
+    }
 }
 
 template<class TDataTypes>
