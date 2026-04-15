@@ -320,7 +320,7 @@ void CudaVisualModel< TDataTypes >::drawShadow(const core::visual::VisualParams*
 template<class TDataTypes>
 void CudaVisualModel< TDataTypes >::internalDraw(const core::visual::VisualParams* vparams)
 {
-#if SOFACUDA_HAVE_SOFA_GL == 1
+#if SOFACUDA_CORE_HAVE_SOFA_GL == 1
     if (!vparams->displayFlags().getShowVisualModels()) return;
 
     if (!topology || !state || !state->getSize()) return;
@@ -449,7 +449,7 @@ void CudaVisualModel< TDataTypes >::internalDraw(const core::visual::VisualParam
         }
     }
 
-#endif // SOFACUDA_HAVE_SOFA_GL == 1
+#endif // SOFACUDA_CORE_HAVE_SOFA_GL == 1
 }
 
 template<class TDataTypes>

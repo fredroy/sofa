@@ -66,7 +66,7 @@ void CudaPointCollisionModel::init()
 
 void CudaPointCollisionModel::draw(const core::visual::VisualParams* , Index index)
 {
-#if SOFACUDA_HAVE_SOFA_GL == 1
+#if SOFACUDA_CORE_HAVE_SOFA_GL == 1
     const int gsize = groupSize.getValue();
     CudaPoint t(this,index);
     glBegin(GL_POINTS);
@@ -78,12 +78,12 @@ void CudaPointCollisionModel::draw(const core::visual::VisualParams* , Index ind
         glVertex3fv(x[i0+p].ptr());
     }
     glEnd();
-#endif // SOFACUDA_HAVE_SOFA_GL == 1
+#endif // SOFACUDA_CORE_HAVE_SOFA_GL == 1
 }
 
 void CudaPointCollisionModel::drawCollisionModel(const core::visual::VisualParams* vparams)
 {
-#if SOFACUDA_HAVE_SOFA_GL == 1
+#if SOFACUDA_CORE_HAVE_SOFA_GL == 1
     if (vparams->displayFlags().getShowWireFrame()) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     glDisable(GL_LIGHTING);
@@ -100,7 +100,7 @@ void CudaPointCollisionModel::drawCollisionModel(const core::visual::VisualParam
     glPointSize(1);
     if (vparams->displayFlags().getShowWireFrame()) glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-#endif // SOFACUDA_HAVE_SOFA_GL == 1
+#endif // SOFACUDA_CORE_HAVE_SOFA_GL == 1
 }
 
 using sofa::component::collision::geometry::CubeCollisionModel;

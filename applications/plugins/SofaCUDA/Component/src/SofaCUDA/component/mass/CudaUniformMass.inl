@@ -213,7 +213,7 @@ SReal UniformMass<gpu::cuda::CudaRigid3fTypes>::getElementMass(sofa::Index) cons
 template <>
 void UniformMass<gpu::cuda::CudaRigid3fTypes>::draw(const core::visual::VisualParams* vparams)
 {
-#if SOFACUDA_HAVE_SOFA_GL == 1
+#if SOFACUDA_CORE_HAVE_SOFA_GL == 1
     if (!vparams->displayFlags().getShowBehaviorModels())
         return;
     const VecCoord& x = mstate->read(core::vec_id::read_access::position)->getValue();
@@ -237,7 +237,7 @@ void UniformMass<gpu::cuda::CudaRigid3fTypes>::draw(const core::visual::VisualPa
     {
         sofa::gl::Axis::draw(x[i].getCenter(), x[i].getOrientation(), len, sofa::type::RGBAColor::red(), sofa::type::RGBAColor::green(), sofa::type::RGBAColor::blue());
     }
-#endif // SOFACUDA_HAVE_SOFA_GL == 1
+#endif // SOFACUDA_CORE_HAVE_SOFA_GL == 1
 }
 
 
