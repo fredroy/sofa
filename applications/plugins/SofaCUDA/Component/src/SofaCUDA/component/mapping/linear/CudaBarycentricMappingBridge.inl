@@ -26,7 +26,8 @@
 #include <sofa/core/Mapping.inl>
 #include <sofa/helper/accessor.h>
 
-#include <cstring> // memset
+#include <cstring> // memset, memcpy
+#include <type_traits>
 
 namespace sofa::component::mapping::linear
 {
@@ -34,29 +35,47 @@ namespace sofa::component::mapping::linear
 namespace
 {
 
-/// Upload a CPU vector of Vec3 (potentially double) to a GPU CudaVector of Vec3f
+/// Upload a CPU vector of Vec3 to a GPU CudaVector of Vec3f.
+/// Uses memcpy when the element types match (float), otherwise converts element-wise.
 template <class GpuVec, class CpuVec>
 void toGpu(GpuVec& gpu, const CpuVec& cpu)
 {
     gpu.fastResize(cpu.size());
-    auto* dst = gpu.hostWrite();
-    for (std::size_t i = 0; i < cpu.size(); ++i)
-        for (int d = 0; d < 3; ++d)
-            dst[i][d] = static_cast<float>(cpu[i][d]);
+    if constexpr (std::is_same_v<typename CpuVec::value_type, typename GpuVec::value_type>)
+    {
+        std::memcpy(gpu.hostWrite(), cpu.data(),
+                    cpu.size() * sizeof(typename GpuVec::value_type));
+    }
+    else
+    {
+        auto* dst = gpu.hostWrite();
+        for (std::size_t i = 0; i < cpu.size(); ++i)
+            for (int d = 0; d < 3; ++d)
+                dst[i][d] = static_cast<float>(cpu[i][d]);
+    }
 }
 
-/// Download a GPU CudaVector of Vec3f to a CPU vector of Vec3, overwriting
+/// Download a GPU CudaVector of Vec3f to a CPU vector of Vec3, overwriting.
+/// Uses memcpy when the element types match (float), otherwise converts element-wise.
 template <class CpuVec, class GpuVec>
 void fromGpu(CpuVec& cpu, const GpuVec& gpu)
 {
     cpu.resize(gpu.size());
-    const auto* src = gpu.hostRead();
-    for (std::size_t i = 0; i < gpu.size(); ++i)
-        for (int d = 0; d < 3; ++d)
-            cpu[i][d] = src[i][d];
+    if constexpr (std::is_same_v<typename CpuVec::value_type, typename GpuVec::value_type>)
+    {
+        std::memcpy(cpu.data(), gpu.hostRead(),
+                    gpu.size() * sizeof(typename GpuVec::value_type));
+    }
+    else
+    {
+        const auto* src = gpu.hostRead();
+        for (std::size_t i = 0; i < gpu.size(); ++i)
+            for (int d = 0; d < 3; ++d)
+                cpu[i][d] = src[i][d];
+    }
 }
 
-/// Download a GPU CudaVector of Vec3f and accumulate (+=) into a CPU vector
+/// Download a GPU CudaVector of Vec3f and accumulate (+=) into a CPU vector.
 template <class CpuVec, class GpuVec>
 void accumulateFromGpu(CpuVec& cpu, const GpuVec& gpu)
 {
@@ -65,16 +84,6 @@ void accumulateFromGpu(CpuVec& cpu, const GpuVec& gpu)
     for (std::size_t i = 0; i < n; ++i)
         for (int d = 0; d < 3; ++d)
             cpu[i][d] += src[i][d];
-}
-
-/// Zero-initialize a GPU vector on the host side.
-/// The zeros will be synced to device when deviceWrite() is called
-/// (vector_device::deviceWriteAt calls copyToDevice before invalidating host).
-template <class GpuVec>
-void zeroGpu(GpuVec& gpu, std::size_t size)
-{
-    gpu.fastResize(size);
-    std::memset(gpu.hostWrite(), 0, size * sizeof(typename GpuVec::value_type));
 }
 
 } // anonymous namespace
@@ -122,6 +131,9 @@ void CudaBarycentricMappingBridge<TIn, TOut>::init()
 
     m_gpuMapper->init(gpuOutPos, gpuInPos);
 
+    // Pre-build the transpose map so applyJT doesn't pay for it on first call
+    m_gpuMapper->ensureTransposeMap();
+
     msg_info() << "CudaBarycentricMappingBridge initialized: "
                << outPos.size() << " mapped points, " << inPos.size() << " source points";
 }
@@ -138,13 +150,13 @@ void CudaBarycentricMappingBridge<TIn, TOut>::apply(
     const auto& in = dIn.getValue();
     auto out = sofa::helper::getWriteOnlyAccessor(dOut);
 
-    // CPU → GPU (double → float)
+    // CPU → GPU (double → float, or memcpy if float)
     toGpu(m_gpuIn, in);
 
     // GPU kernel: out = J * in (assignment)
     m_gpuMapper->apply(m_gpuOut, m_gpuIn);
 
-    // GPU → CPU (float → double)
+    // GPU → CPU (float → double, or memcpy if float)
     fromGpu(out.wref(), m_gpuOut);
 }
 
@@ -174,19 +186,28 @@ void CudaBarycentricMappingBridge<TIn, TOut>::applyJT(
     SOFA_UNUSED(mparams);
     if (!m_gpuMapper) return;
 
+    const std::size_t inSize = m_gpuMapper->getInputSize();
+    const std::size_t maxNOut = m_gpuMapper->getMaxNOut();
+    if (inSize == 0 || maxNOut == 0) return;
+
     const auto& in = dIn.getValue();
     auto out = sofa::helper::getWriteAccessor(dOut); // read-write: existing forces
 
     // Upload mapped-side forces to GPU
     toGpu(m_gpuOut, in);
 
-    // Zero-initialize accumulation buffer on host.
-    // deviceWrite() inside the mapper's applyJT will call copyToDevice(),
-    // syncing the zeros to device before the += kernel runs.
-    zeroGpu(m_gpuIn, out.size());
+    // Allocate output buffer. Use the assignment kernel (=) directly with the
+    // transpose map, avoiding the need to zero-fill + sync + use the += kernel.
+    m_gpuIn.fastResize(inSize);
 
-    // GPU kernel: gpuIn += J^T * gpuOut
-    m_gpuMapper->applyJT(m_gpuIn, m_gpuOut);
+    // Call the assignment kernel with the transpose map data.
+    // MeshMapperCuda3f_apply uses = (not +=), so no zero-initialization needed.
+    gpu::cuda::MeshMapperCuda3f_apply(
+        static_cast<unsigned int>(inSize),
+        static_cast<unsigned int>(maxNOut),
+        m_gpuMapper->getTransposeMapData().deviceRead(),
+        m_gpuIn.deviceWrite(),
+        m_gpuOut.deviceRead());
 
     // Accumulate GPU result into CPU output
     accumulateFromGpu(out.wref(), m_gpuIn);

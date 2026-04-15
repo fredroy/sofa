@@ -217,6 +217,15 @@ public:
     void draw(const core::visual::VisualParams*,const typename Out::VecCoord& out, const typename In::VecCoord& in);
     void resize( core::State<Out>* toModel );
 
+    /// Accessors for direct kernel calls (used by CudaBarycentricMappingBridge)
+    std::size_t getMappedSize() const { return size; }
+    std::size_t getMaxNIn() const { return maxNIn; }
+    std::size_t getInputSize() const { return insize; }
+    std::size_t getMaxNOut() const { return maxNOut; }
+    void ensureTransposeMap() { calcMapT(); }
+    const gpu::cuda::CudaVector< MapData >& getForwardMapData() const { return map; }
+    const gpu::cuda::CudaVector< MapData >& getTransposeMapData() const { return mapT; }
+
     inline friend std::istream& operator >> ( std::istream& in, BarycentricMapperMeshTopology<In, Out> &b )
     {
         in >> b.map;
