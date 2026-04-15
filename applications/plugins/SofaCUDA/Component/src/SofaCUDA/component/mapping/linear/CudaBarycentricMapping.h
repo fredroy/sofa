@@ -27,6 +27,10 @@
 #include <sofa/component/mapping/linear/BarycentricMappers/BarycentricMapperSparseGridTopology.h>
 #include <sofa/component/mapping/linear/BarycentricMappers/BarycentricMapperMeshTopology.h>
 #include <sofa/component/mapping/linear/BarycentricMappers/BarycentricMapperTetrahedronSetTopology.h>
+#include <sofa/component/mapping/linear/BarycentricMappers/BarycentricMapperHexahedronSetTopology.h>
+#include <sofa/component/mapping/linear/BarycentricMappers/BarycentricMapperTriangleSetTopology.h>
+#include <sofa/component/mapping/linear/BarycentricMappers/BarycentricMapperQuadSetTopology.h>
+#include <sofa/component/mapping/linear/BarycentricMappers/BarycentricMapperEdgeSetTopology.h>
 #include <sofa/component/topology/container/grid/RegularGridTopology.h>
 #include <sofa/component/topology/container/grid/SparseGridTopology.h>
 #include <sofa/core/behavior/MechanicalState.h>
@@ -257,6 +261,254 @@ public:
 
     Index addPointInTetra(const Index index, const SReal* baryCoords) {
         return internalMapper.addPointInTetra(index,baryCoords);
+    }
+
+    void init(const typename Out::VecCoord& out, const typename In::VecCoord& in) {
+        internalMapper.init(out,in);
+    }
+
+    void apply( typename Out::VecCoord& out, const typename In::VecCoord& in ) {
+        internalMapper.apply(out,in);
+    }
+
+    void applyJ( typename Out::VecDeriv& out, const typename In::VecDeriv& in ) {
+        internalMapper.applyJ(out,in);
+    }
+
+    void applyJT( typename In::VecDeriv& out, const typename Out::VecDeriv& in ) {
+        internalMapper.applyJT(out,in);
+    }
+
+    void applyJT( typename In::MatrixDeriv& out, const typename Out::MatrixDeriv& in ) {
+        internalMapper.applyJT(out,in);
+    }
+
+    void draw(const core::visual::VisualParams* vp,const typename Out::VecCoord& out, const typename In::VecCoord& in) {
+        internalMapper.draw(vp,out,in);
+    }
+
+    void resize( core::State<Out>* toModel ) {
+        internalMapper.resize(toModel);
+    }
+};
+
+
+/// Class allowing barycentric mapping computation on a HexahedronSetTopology in CUDA
+template<class VecIn, class VecOut>
+class BarycentricMapperHexahedronSetTopology< gpu::cuda::CudaVectorTypes<VecIn,VecIn,float>, gpu::cuda::CudaVectorTypes<VecOut,VecOut,float> > : public TopologyBarycentricMapper< gpu::cuda::CudaVectorTypes<VecIn,VecIn,float>, gpu::cuda::CudaVectorTypes<VecOut,VecOut,float> >
+{
+public:
+    typedef gpu::cuda::CudaVectorTypes<VecIn,VecIn,float> In;
+    typedef gpu::cuda::CudaVectorTypes<VecOut,VecOut,float> Out;
+    typedef TopologyBarycentricMapper<In,Out> Inherit;
+
+    typedef typename Inherit::Real Real;
+    typedef typename In::VecCoord VecCoord;
+
+    BarycentricMapperMeshTopology< In, Out > internalMapper;
+
+    using Index = sofa::Index;
+
+public:
+    BarycentricMapperHexahedronSetTopology(sofa::core::topology::BaseMeshTopology* fromTopology, sofa::core::topology::BaseMeshTopology* _toTopology)
+        : Inherit(fromTopology, _toTopology),
+          internalMapper(fromTopology,_toTopology)
+    {}
+
+    virtual ~BarycentricMapperHexahedronSetTopology() {}
+
+    void clear(std::size_t reserve=0) {
+        internalMapper.clear(reserve);
+    }
+
+    Index addPointInCube(const Index index, const SReal* baryCoords) {
+        return internalMapper.addPointInCube(index,baryCoords);
+    }
+
+    void init(const typename Out::VecCoord& out, const typename In::VecCoord& in) {
+        internalMapper.init(out,in);
+    }
+
+    void apply( typename Out::VecCoord& out, const typename In::VecCoord& in ) {
+        internalMapper.apply(out,in);
+    }
+
+    void applyJ( typename Out::VecDeriv& out, const typename In::VecDeriv& in ) {
+        internalMapper.applyJ(out,in);
+    }
+
+    void applyJT( typename In::VecDeriv& out, const typename Out::VecDeriv& in ) {
+        internalMapper.applyJT(out,in);
+    }
+
+    void applyJT( typename In::MatrixDeriv& out, const typename Out::MatrixDeriv& in ) {
+        internalMapper.applyJT(out,in);
+    }
+
+    void draw(const core::visual::VisualParams* vp,const typename Out::VecCoord& out, const typename In::VecCoord& in) {
+        internalMapper.draw(vp,out,in);
+    }
+
+    void resize( core::State<Out>* toModel ) {
+        internalMapper.resize(toModel);
+    }
+};
+
+
+/// Class allowing barycentric mapping computation on a TriangleSetTopology in CUDA
+template<class VecIn, class VecOut>
+class BarycentricMapperTriangleSetTopology< gpu::cuda::CudaVectorTypes<VecIn,VecIn,float>, gpu::cuda::CudaVectorTypes<VecOut,VecOut,float> > : public TopologyBarycentricMapper< gpu::cuda::CudaVectorTypes<VecIn,VecIn,float>, gpu::cuda::CudaVectorTypes<VecOut,VecOut,float> >
+{
+public:
+    typedef gpu::cuda::CudaVectorTypes<VecIn,VecIn,float> In;
+    typedef gpu::cuda::CudaVectorTypes<VecOut,VecOut,float> Out;
+    typedef TopologyBarycentricMapper<In,Out> Inherit;
+
+    typedef typename Inherit::Real Real;
+    typedef typename In::VecCoord VecCoord;
+
+    BarycentricMapperMeshTopology< In, Out > internalMapper;
+
+    using Index = sofa::Index;
+
+public:
+    BarycentricMapperTriangleSetTopology(sofa::core::topology::BaseMeshTopology* fromTopology, sofa::core::topology::BaseMeshTopology* _toTopology)
+        : Inherit(fromTopology, _toTopology),
+          internalMapper(fromTopology,_toTopology)
+    {}
+
+    virtual ~BarycentricMapperTriangleSetTopology() {}
+
+    void clear(std::size_t reserve=0) {
+        internalMapper.clear(reserve);
+    }
+
+    Index addPointInTriangle(const Index index, const SReal* baryCoords) {
+        return internalMapper.addPointInTriangle(index,baryCoords);
+    }
+
+    void init(const typename Out::VecCoord& out, const typename In::VecCoord& in) {
+        internalMapper.init(out,in);
+    }
+
+    void apply( typename Out::VecCoord& out, const typename In::VecCoord& in ) {
+        internalMapper.apply(out,in);
+    }
+
+    void applyJ( typename Out::VecDeriv& out, const typename In::VecDeriv& in ) {
+        internalMapper.applyJ(out,in);
+    }
+
+    void applyJT( typename In::VecDeriv& out, const typename Out::VecDeriv& in ) {
+        internalMapper.applyJT(out,in);
+    }
+
+    void applyJT( typename In::MatrixDeriv& out, const typename Out::MatrixDeriv& in ) {
+        internalMapper.applyJT(out,in);
+    }
+
+    void draw(const core::visual::VisualParams* vp,const typename Out::VecCoord& out, const typename In::VecCoord& in) {
+        internalMapper.draw(vp,out,in);
+    }
+
+    void resize( core::State<Out>* toModel ) {
+        internalMapper.resize(toModel);
+    }
+};
+
+
+/// Class allowing barycentric mapping computation on a QuadSetTopology in CUDA
+template<class VecIn, class VecOut>
+class BarycentricMapperQuadSetTopology< gpu::cuda::CudaVectorTypes<VecIn,VecIn,float>, gpu::cuda::CudaVectorTypes<VecOut,VecOut,float> > : public TopologyBarycentricMapper< gpu::cuda::CudaVectorTypes<VecIn,VecIn,float>, gpu::cuda::CudaVectorTypes<VecOut,VecOut,float> >
+{
+public:
+    typedef gpu::cuda::CudaVectorTypes<VecIn,VecIn,float> In;
+    typedef gpu::cuda::CudaVectorTypes<VecOut,VecOut,float> Out;
+    typedef TopologyBarycentricMapper<In,Out> Inherit;
+
+    typedef typename Inherit::Real Real;
+    typedef typename In::VecCoord VecCoord;
+
+    BarycentricMapperMeshTopology< In, Out > internalMapper;
+
+    using Index = sofa::Index;
+
+public:
+    BarycentricMapperQuadSetTopology(sofa::core::topology::BaseMeshTopology* fromTopology, sofa::core::topology::BaseMeshTopology* _toTopology)
+        : Inherit(fromTopology, _toTopology),
+          internalMapper(fromTopology,_toTopology)
+    {}
+
+    virtual ~BarycentricMapperQuadSetTopology() {}
+
+    void clear(std::size_t reserve=0) {
+        internalMapper.clear(reserve);
+    }
+
+    Index addPointInQuad(const Index index, const SReal* baryCoords) {
+        return internalMapper.addPointInQuad(index,baryCoords);
+    }
+
+    void init(const typename Out::VecCoord& out, const typename In::VecCoord& in) {
+        internalMapper.init(out,in);
+    }
+
+    void apply( typename Out::VecCoord& out, const typename In::VecCoord& in ) {
+        internalMapper.apply(out,in);
+    }
+
+    void applyJ( typename Out::VecDeriv& out, const typename In::VecDeriv& in ) {
+        internalMapper.applyJ(out,in);
+    }
+
+    void applyJT( typename In::VecDeriv& out, const typename Out::VecDeriv& in ) {
+        internalMapper.applyJT(out,in);
+    }
+
+    void applyJT( typename In::MatrixDeriv& out, const typename Out::MatrixDeriv& in ) {
+        internalMapper.applyJT(out,in);
+    }
+
+    void draw(const core::visual::VisualParams* vp,const typename Out::VecCoord& out, const typename In::VecCoord& in) {
+        internalMapper.draw(vp,out,in);
+    }
+
+    void resize( core::State<Out>* toModel ) {
+        internalMapper.resize(toModel);
+    }
+};
+
+
+/// Class allowing barycentric mapping computation on an EdgeSetTopology in CUDA
+template<class VecIn, class VecOut>
+class BarycentricMapperEdgeSetTopology< gpu::cuda::CudaVectorTypes<VecIn,VecIn,float>, gpu::cuda::CudaVectorTypes<VecOut,VecOut,float> > : public TopologyBarycentricMapper< gpu::cuda::CudaVectorTypes<VecIn,VecIn,float>, gpu::cuda::CudaVectorTypes<VecOut,VecOut,float> >
+{
+public:
+    typedef gpu::cuda::CudaVectorTypes<VecIn,VecIn,float> In;
+    typedef gpu::cuda::CudaVectorTypes<VecOut,VecOut,float> Out;
+    typedef TopologyBarycentricMapper<In,Out> Inherit;
+
+    typedef typename Inherit::Real Real;
+    typedef typename In::VecCoord VecCoord;
+
+    BarycentricMapperMeshTopology< In, Out > internalMapper;
+
+    using Index = sofa::Index;
+
+public:
+    BarycentricMapperEdgeSetTopology(sofa::core::topology::BaseMeshTopology* fromTopology, sofa::core::topology::BaseMeshTopology* _toTopology)
+        : Inherit(fromTopology, _toTopology),
+          internalMapper(fromTopology,_toTopology)
+    {}
+
+    virtual ~BarycentricMapperEdgeSetTopology() {}
+
+    void clear(std::size_t reserve=0) {
+        internalMapper.clear(reserve);
+    }
+
+    Index addPointInLine(const Index index, const SReal* baryCoords) {
+        return internalMapper.addPointInLine(index,baryCoords);
     }
 
     void init(const typename Out::VecCoord& out, const typename In::VecCoord& in) {
