@@ -23,8 +23,8 @@
 
 #include <sofa/core/visual/VisualModel.h>
 #include <sofa/core/topology/BaseMeshTopology.h>
-#include <sofa/core/State.h>
 #include <sofa/core/topology/TopologyChange.h>
+#include <SofaCUDA/component/visual/CudaVisualState.h>
 #include <sofa/gpu/cuda/CudaTypes.h>
 
 namespace sofa
@@ -43,12 +43,21 @@ class CudaKernelsCudaVisualModel;
 namespace component::visualmodel
 {
 
+/**
+ * @brief CUDA-accelerated visual model for rendering meshes.
+ *
+ * This class inherits from both VisualModel and CudaVisualState, making it a State
+ * that can be targeted by mappings (similar to OglModel/VisualModelImpl).
+ *
+ * The model stores its own positions which can be written to by mappings, and uses
+ * CUDA kernels to compute normals on the GPU.
+ */
 template <class TDataTypes>
-class CudaVisualModel : public core::visual::VisualModel
+class CudaVisualModel : public core::visual::VisualModel, public CudaVisualState<TDataTypes>
 {
 public:
-    SOFA_CLASS(SOFA_TEMPLATE(CudaVisualModel, TDataTypes), VisualModel);
-    //typedef gpu::cuda::CudaVectorTypes<TCoord,TDeriv,TReal> DataTypes;
+    SOFA_CLASS2(SOFA_TEMPLATE(CudaVisualModel, TDataTypes), core::visual::VisualModel, SOFA_TEMPLATE(CudaVisualState, TDataTypes));
+
     typedef TDataTypes DataTypes;
     typedef typename DataTypes::VecCoord VecCoord;
     typedef typename DataTypes::VecDeriv VecDeriv;
@@ -62,16 +71,13 @@ public:
     typedef core::topology::BaseMeshTopology::Quad Quad;
     typedef core::topology::BaseMeshTopology::SeqQuads SeqQuads;
 
-    typedef core::State<DataTypes> TState;
-
     typedef gpu::cuda::CudaKernelsCudaVisualModel<DataTypes> Kernels;
 
     bool needUpdateTopology;
     gpu::cuda::CudaVector<Triangle> triangles;
     gpu::cuda::CudaVector<Quad> quads;
 
-    VecCoord fnormals;
-    VecCoord vnormals;
+    VecCoord fnormals; ///< Face normals (triangles then quads)
 
     int nbElement; ///< number of elements
     int nbVertex; ///< number of vertices to process to compute all elements
@@ -93,31 +99,49 @@ public:
         , matDiffuse  ( initData( &matDiffuse,   type::Vec4f(0.8f,0.8f,0.8f,1.0f), "diffuse",   "material diffuse color and alpha") )
         , matSpecular ( initData( &matSpecular,  type::Vec4f(1.0f,1.0f,1.0f,0.0f), "specular",  "material specular color") )
         , matEmissive ( initData( &matEmissive,  type::Vec4f(0.0f,0.0f,0.0f,0.0f), "emissive",  "material emissive color") )
-        , matShininess( initData( &matShininess, 45.0f,                                   "shininess", "material specular shininess") )
+        , matShininess( initData( &matShininess, 45.0f,                            "shininess", "material specular shininess") )
         , useVBO( initData( &useVBO, false, "useVBO", "true to activate Vertex Buffer Object") )
         , computeNormals( initData( &computeNormals, false, "computeNormals", "true to compute smooth normals") )
-        , state(initLink("state", "State used by this component"))
-        , topology(initLink("topology", "Topology used by this component"))
+        , l_topology(initLink("topology", "Topology used by this component"))
     {}
 
-    virtual void init() override;
-    virtual void reinit() override;
+    void init() override;
+    void reinit() override;
     virtual void internalDraw(const core::visual::VisualParams* vparams);
-    virtual void doDrawVisual(const core::visual::VisualParams*) override;
-    virtual void drawTransparent(const core::visual::VisualParams*) override;
-    virtual void drawShadow(const core::visual::VisualParams*) override;
-    virtual void doUpdateVisual(const core::visual::VisualParams* vparams) override;
+    void doDrawVisual(const core::visual::VisualParams*) override;
+    void drawTransparent(const core::visual::VisualParams*) override;
+    void drawShadow(const core::visual::VisualParams*) override;
+    void doUpdateVisual(const core::visual::VisualParams* vparams) override;
     virtual void updateTopology();
     virtual void updateNormals();
     virtual void updateTopologyAndNormals();
-    virtual void handleTopologyChange() override;
+    void handleTopologyChange() override;
 
-    virtual void computeBBox(const core::ExecParams* params, bool=false) override;
+    void computeBBox(const core::ExecParams* params, bool=false) override;
+
+    /// Insert this object in the given node, also adding it to the appropriate state container
+    bool insertInNode(core::objectmodel::BaseNode* node) override
+    {
+        Inherit1::insertInNode(node);
+        Inherit2::insertInNode(node);
+        return true;
+    }
+
+    /// Remove this object from the given node, also removing it from the state container if applicable
+    bool removeInNode(core::objectmodel::BaseNode* node) override
+    {
+        Inherit1::removeInNode(node);
+        Inherit2::removeInNode(node);
+        return true;
+    }
+
+    /// Returns the sofa template name
+    static std::string GetCustomTemplateName()
+    {
+        return DataTypes::Name();
+    }
 
 protected:
-
-
-
     void initV(int nbe, int nbv, int nbelemperv)
     {
         nbElement = nbe;
@@ -139,9 +163,7 @@ protected:
               ] = index+1;
     }
 
-
-    SingleLink<CudaVisualModel<DataTypes>, TState, BaseLink::FLAG_STRONGLINK> state;
-    SingleLink<CudaVisualModel<DataTypes>, core::topology::BaseMeshTopology, BaseLink::FLAG_STRONGLINK> topology;
+    SingleLink<CudaVisualModel<DataTypes>, core::topology::BaseMeshTopology, BaseLink::FLAG_STRONGLINK> l_topology;
 };
 
 } // namespace component::visualmodel

@@ -81,6 +81,7 @@ set(HEADER_FILES
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/collision/response/contact/CudaPenalityContactForceField.inl
 
     ### Visual
+    ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/visual/CudaVisualState.h
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/visual/CudaVisualModel.h
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/visual/CudaVisualModel.inl
 )

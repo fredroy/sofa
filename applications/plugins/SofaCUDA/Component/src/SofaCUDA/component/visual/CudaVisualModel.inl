@@ -117,49 +117,49 @@ namespace component::visualmodel
 using namespace gpu::cuda;
 
 template<class TDataTypes>
-void CudaVisualModel< TDataTypes >::init()
+void CudaVisualModel<TDataTypes>::init()
 {
     Inherit1::init();
+    Inherit2::init();
 
-    if (!state)
+    if (!l_topology)
     {
-        TState* getState;
-        this->getContext()->get(getState);
-        state.set(getState);
+        l_topology = this->getContext()->getMeshTopology();
     }
-    if (!topology)
+
+    // Initialize positions from topology if available
+    if (l_topology && this->m_positions.getValue().empty())
     {
-        topology = this->getContext()->getMeshTopology();
+        const auto nbPoints = l_topology->getNbPoints();
+        if (nbPoints > 0)
+        {
+            this->resize(nbPoints);
+        }
     }
+
     updateTopologyAndNormals();
 }
 
 template<class TDataTypes>
-void CudaVisualModel< TDataTypes >::reinit()
+void CudaVisualModel<TDataTypes>::reinit()
 {
     updateTopologyAndNormals();
 }
 
 template<class TDataTypes>
-void CudaVisualModel< TDataTypes >::handleTopologyChange()
+void CudaVisualModel<TDataTypes>::handleTopologyChange()
 {
-    std::list<const core::topology::TopologyChange *>::const_iterator itBegin=topology->beginChange();
-    const std::list<const core::topology::TopologyChange *>::const_iterator itEnd=topology->endChange();
+    if (!l_topology) return;
 
-    while( itBegin != itEnd )
+    std::list<const core::topology::TopologyChange *>::const_iterator itBegin = l_topology->beginChange();
+    const std::list<const core::topology::TopologyChange *>::const_iterator itEnd = l_topology->endChange();
+
+    while (itBegin != itEnd)
     {
         const core::topology::TopologyChangeType changeType = (*itBegin)->getChangeType();
 
-        switch( changeType )
+        switch (changeType)
         {
-
-// 		case core::topology::TRIANGLESADDED:
-// 			{
-// 			  printf("TRIANGLESADDED\n");
-// 				needUpdateTopology = true;
-// 				break;
-// 			}
-
         case core::topology::TRIANGLESREMOVED:
         {
             needUpdateTopology = true;
@@ -185,78 +185,92 @@ void CudaVisualModel< TDataTypes >::handleTopologyChange()
 }
 
 template<class TDataTypes>
-void CudaVisualModel< TDataTypes >::updateTopology()
+void CudaVisualModel<TDataTypes>::updateTopology()
 {
-    if (!topology || !state) return;
+    if (!l_topology) return;
     if (!needUpdateTopology) return;
     needUpdateTopology = false;
+
     {
-        const SeqTriangles& t = topology->getTriangles();
+        const SeqTriangles& t = l_topology->getTriangles();
         triangles.clear();
         if (!t.empty())
         {
             triangles.fastResize(t.size());
-            std::copy ( t.begin(), t.end(), triangles.hostWrite() );
+            std::copy(t.begin(), t.end(), triangles.hostWrite());
         }
     }
     {
-        const SeqQuads& q = topology->getQuads();
+        const SeqQuads& q = l_topology->getQuads();
         quads.clear();
         if (!q.empty())
         {
             quads.fastResize(q.size());
-            std::copy ( q.begin(), q.end(), quads.hostWrite() );
+            std::copy(q.begin(), q.end(), quads.hostWrite());
         }
     }
+
     const Triangle* tptr = triangles.hostRead();
-    const Quad*     qptr = quads.hostRead();
+    const Quad* qptr = quads.hostRead();
     std::map<int,int> nelems;
-    for (unsigned int i=0; i<triangles.size(); i++)
+
+    for (unsigned int i = 0; i < triangles.size(); i++)
     {
         const Triangle& e = tptr[i];
-        for (unsigned int j=0; j<e.size(); j++)
+        for (unsigned int j = 0; j < e.size(); j++)
             ++nelems[e[j]];
     }
-    for (unsigned int i=0; i<quads.size(); i++)
+    for (unsigned int i = 0; i < quads.size(); i++)
     {
         const Quad& e = qptr[i];
-        for (unsigned int j=0; j<e.size(); j++)
+        for (unsigned int j = 0; j < e.size(); j++)
             ++nelems[e[j]];
     }
+
     int nmax = 0;
     for (std::map<int,int>::const_iterator it = nelems.begin(); it != nelems.end(); ++it)
         if (it->second > nmax)
             nmax = it->second;
+
     int nbv = 0;
     if (!nelems.empty())
         nbv = nelems.rbegin()->first + 1;
-    msg_info() << "CUDA CudaVisualModel: "<<triangles.size()<<" triangles, "<<quads.size()<<" quads, "<<nbv<<"/"<<state->getSize()<<" attached points, max "<<nmax<<" elements per point.";
-    initV(triangles.size()+quads.size(), nbv, nmax);
+
+    msg_info() << "CUDA CudaVisualModel: " << triangles.size() << " triangles, "
+               << quads.size() << " quads, " << nbv << "/" << this->getSize()
+               << " attached points, max " << nmax << " elements per point.";
+
+    initV(triangles.size() + quads.size(), nbv, nmax);
 
     nelems.clear();
-    for (unsigned int i=0; i<triangles.size(); i++)
+    for (unsigned int i = 0; i < triangles.size(); i++)
     {
         const Triangle& e = tptr[i];
-        for (unsigned int j=0; j<e.size(); j++)
+        for (unsigned int j = 0; j < e.size(); j++)
             setV(e[j], nelems[e[j]]++, i);
     }
     const int i0 = triangles.size();
-    for (unsigned int i=0; i<quads.size(); i++)
+    for (unsigned int i = 0; i < quads.size(); i++)
     {
         const Quad& e = qptr[i];
-        for (unsigned int j=0; j<e.size(); j++)
-            setV(e[j], nelems[e[j]]++, i0+i);
+        for (unsigned int j = 0; j < e.size(); j++)
+            setV(e[j], nelems[e[j]]++, i0 + i);
     }
 }
 
 
 template<class TDataTypes>
-void CudaVisualModel< TDataTypes >::updateNormals()
+void CudaVisualModel<TDataTypes>::updateNormals()
 {
-    if (!topology || !state || !state->getSize()) return;
-    const VecCoord& x = state->read(core::vec_id::read_access::position)->getValue();
+    if (!l_topology || this->getSize() == 0) return;
+
+    const VecCoord& x = this->m_positions.getValue();
     fnormals.resize(nbElement);
-    vnormals.resize(x.size());
+
+    // Resize vertex normals using the inherited m_vnormals from CudaVisualState
+    helper::WriteOnlyAccessor<Data<VecDeriv>> vnormalsAccessor = this->m_vnormals;
+    vnormalsAccessor.resize(x.size());
+
     if (triangles.size() > 0)
         Kernels::calcTNormals(
             triangles.size(),
@@ -264,6 +278,7 @@ void CudaVisualModel< TDataTypes >::updateNormals()
             triangles.deviceRead(),
             fnormals.deviceWrite(),
             x.deviceRead());
+
     if (quads.size() > 0)
         Kernels::calcQNormals(
             quads.size(),
@@ -271,19 +286,22 @@ void CudaVisualModel< TDataTypes >::updateNormals()
             quads.deviceRead(),
             fnormals.deviceWriteAt(triangles.size()),
             x.deviceRead());
+
     if (nbVertex > 0)
+    {
         Kernels::calcVNormals(
             nbElement,
             nbVertex,
             nbElementPerVertex,
             velems.deviceRead(),
-            vnormals.deviceWrite(),
+            vnormalsAccessor.wref().deviceWrite(),
             fnormals.deviceRead(),
             x.deviceRead());
+    }
 }
 
 template<class TDataTypes>
-void CudaVisualModel< TDataTypes >::updateTopologyAndNormals()
+void CudaVisualModel<TDataTypes>::updateTopologyAndNormals()
 {
     updateTopology();
     if (computeNormals.getValue())
@@ -291,39 +309,40 @@ void CudaVisualModel< TDataTypes >::updateTopologyAndNormals()
 }
 
 template<class TDataTypes>
-void CudaVisualModel< TDataTypes >::doUpdateVisual(const core::visual::VisualParams* vparams)
+void CudaVisualModel<TDataTypes>::doUpdateVisual(const core::visual::VisualParams* vparams)
 {
+    SOFA_UNUSED(vparams);
     updateTopologyAndNormals();
 }
 
 template<class TDataTypes>
-void CudaVisualModel< TDataTypes >::doDrawVisual(const core::visual::VisualParams* vparams)
+void CudaVisualModel<TDataTypes>::doDrawVisual(const core::visual::VisualParams* vparams)
 {
     const bool transparent = (matDiffuse.getValue()[3] < 1.0);
     if (!transparent) internalDraw(vparams);
 }
 
 template<class TDataTypes>
-void CudaVisualModel< TDataTypes >::drawTransparent(const core::visual::VisualParams* vparams)
+void CudaVisualModel<TDataTypes>::drawTransparent(const core::visual::VisualParams* vparams)
 {
     const bool transparent = (matDiffuse.getValue()[3] < 1.0);
     if (transparent) internalDraw(vparams);
 }
 
 template<class TDataTypes>
-void CudaVisualModel< TDataTypes >::drawShadow(const core::visual::VisualParams* vparams)
+void CudaVisualModel<TDataTypes>::drawShadow(const core::visual::VisualParams* vparams)
 {
     const bool transparent = (matDiffuse.getValue()[3] < 1.0);
-    if (!transparent /* && getCastShadow() */ ) internalDraw(vparams);
+    if (!transparent /* && getCastShadow() */) internalDraw(vparams);
 }
 
 template<class TDataTypes>
-void CudaVisualModel< TDataTypes >::internalDraw(const core::visual::VisualParams* vparams)
+void CudaVisualModel<TDataTypes>::internalDraw(const core::visual::VisualParams* vparams)
 {
 #if SOFACUDA_CORE_HAVE_SOFA_GL == 1
     if (!vparams->displayFlags().getShowVisualModels()) return;
 
-    if (!topology || !state || !state->getSize()) return;
+    if (!l_topology || this->getSize() == 0) return;
 
     if (vparams->displayFlags().getShowWireFrame())
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -332,7 +351,6 @@ void CudaVisualModel< TDataTypes >::internalDraw(const core::visual::VisualParam
 
     const bool transparent = (matDiffuse.getValue()[3] < 1.0);
 
-    //Enable<GL_BLEND> blending;
     glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
     type::Vec4f ambient = matAmbient.getValue();
@@ -354,11 +372,11 @@ void CudaVisualModel< TDataTypes >::internalDraw(const core::visual::VisualParam
         emissive[3] = 0;
     }
 
-    glMaterialfv (GL_FRONT_AND_BACK, GL_AMBIENT, ambient.ptr());
-    glMaterialfv (GL_FRONT_AND_BACK, GL_DIFFUSE, diffuse.ptr());
-    glMaterialfv (GL_FRONT_AND_BACK, GL_SPECULAR, specular.ptr());
-    glMaterialfv (GL_FRONT_AND_BACK, GL_EMISSION, emissive.ptr());
-    glMaterialf (GL_FRONT_AND_BACK, GL_SHININESS, shininess);
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient.ptr());
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, diffuse.ptr());
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specular.ptr());
+    glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, emissive.ptr());
+    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
 
     if (transparent)
     {
@@ -367,29 +385,33 @@ void CudaVisualModel< TDataTypes >::internalDraw(const core::visual::VisualParam
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     }
 
-    const VecCoord& x = state->read(core::vec_id::read_access::position)->getValue();
+    // Need non-const access for bufferRead() which may sync GPU data
+    helper::ReadAccessor<Data<VecCoord>> xAccessor(this->m_positions);
+    const VecCoord& x = xAccessor.ref();
 
     bool vbo = useVBO.getValue();
 
-    const GLuint vbo_x = vbo ? x.bufferRead(true) : 0;
+    const GLuint vbo_x = vbo ? const_cast<VecCoord&>(x).bufferRead(true) : 0;
     if (vbo_x)
     {
         glBindBuffer(GL_ARRAY_BUFFER, vbo_x);
-        glVertexPointer (3, (sizeof(Real)==sizeof(double))?GL_DOUBLE:GL_FLOAT, sizeof(Coord), NULL);
+        glVertexPointer(3, (sizeof(Real) == sizeof(double)) ? GL_DOUBLE : GL_FLOAT, sizeof(Coord), NULL);
     }
     else
-        glVertexPointer (3, (sizeof(Real)==sizeof(double))?GL_DOUBLE:GL_FLOAT, sizeof(Coord), x.hostRead());
+        glVertexPointer(3, (sizeof(Real) == sizeof(double)) ? GL_DOUBLE : GL_FLOAT, sizeof(Coord), x.hostRead());
 
     if (computeNormals.getValue())
     {
-        const GLuint vbo_n = vbo ? vnormals.bufferRead(true) : 0;
+        helper::ReadAccessor<Data<VecDeriv>> vnormalsAccessor(this->m_vnormals);
+        const VecDeriv& vnormals = vnormalsAccessor.ref();
+        const GLuint vbo_n = vbo ? const_cast<VecDeriv&>(vnormals).bufferRead(true) : 0;
         if (vbo_n)
         {
             glBindBuffer(GL_ARRAY_BUFFER, vbo_n);
-            glNormalPointer ((sizeof(Real)==sizeof(double))?GL_DOUBLE:GL_FLOAT, sizeof(Coord), NULL);
+            glNormalPointer((sizeof(Real) == sizeof(double)) ? GL_DOUBLE : GL_FLOAT, sizeof(Coord), NULL);
         }
         else
-            glNormalPointer ((sizeof(Real)==sizeof(double))?GL_DOUBLE:GL_FLOAT, sizeof(Coord), vnormals.hostRead());
+            glNormalPointer((sizeof(Real) == sizeof(double)) ? GL_DOUBLE : GL_FLOAT, sizeof(Coord), vnormals.hostRead());
         glEnableClientState(GL_NORMAL_ARRAY);
     }
     glEnableClientState(GL_VERTEX_ARRAY);
@@ -424,6 +446,7 @@ void CudaVisualModel< TDataTypes >::internalDraw(const core::visual::VisualParam
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     }
     glDisableClientState(GL_NORMAL_ARRAY);
+    glDisableClientState(GL_VERTEX_ARRAY);
     glDisable(GL_LIGHTING);
 
     if (transparent)
@@ -431,19 +454,19 @@ void CudaVisualModel< TDataTypes >::internalDraw(const core::visual::VisualParam
         glDisable(GL_BLEND);
         glDepthMask(GL_TRUE);
     }
-    glDisable(GL_LIGHTING);
 
     if (vparams->displayFlags().getShowWireFrame())
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
     if (vparams->displayFlags().getShowNormals())
     {
-        glColor3f (1.0, 1.0, 1.0);
+        helper::ReadAccessor<Data<VecDeriv>> vnormalsShow(this->m_vnormals);
+        glColor3f(1.0, 1.0, 1.0);
         for (unsigned int i = 0; i < x.size(); i++)
         {
             glBegin(GL_LINES);
             sofa::gl::glVertexT(x[i]);
-            Coord p = x[i] + vnormals[i]*0.01;
+            Coord p = x[i] + vnormalsShow[i] * 0.01;
             sofa::gl::glVertexT(p);
             glEnd();
         }
@@ -453,27 +476,28 @@ void CudaVisualModel< TDataTypes >::internalDraw(const core::visual::VisualParam
 }
 
 template<class TDataTypes>
-void CudaVisualModel< TDataTypes >::computeBBox(const core::ExecParams* params, bool)
+void CudaVisualModel<TDataTypes>::computeBBox(const core::ExecParams* params, bool)
 {
     SOFA_UNUSED(params);
 
-    if (!state)
+    if (this->getSize() == 0)
         return;
 
-    const VecCoord& x = state->read(core::vec_id::read_access::position)->getValue();
+    const VecCoord& x = this->m_positions.getValue();
 
-    SReal minBBox[3] = {std::numeric_limits<Real>::max(),std::numeric_limits<Real>::max(),std::numeric_limits<Real>::max()};
-    SReal maxBBox[3] = {-std::numeric_limits<Real>::max(),-std::numeric_limits<Real>::max(),-std::numeric_limits<Real>::max()};
+    SReal minBBox[3] = {std::numeric_limits<Real>::max(), std::numeric_limits<Real>::max(), std::numeric_limits<Real>::max()};
+    SReal maxBBox[3] = {-std::numeric_limits<Real>::max(), -std::numeric_limits<Real>::max(), -std::numeric_limits<Real>::max()};
+
     for (unsigned int i = 0; i < x.size(); i++)
     {
         const Coord& p = x[i];
-        for (int c=0; c<3; c++)
+        for (int c = 0; c < 3; c++)
         {
             if (p[c] > maxBBox[c]) maxBBox[c] = p[c];
             if (p[c] < minBBox[c]) minBBox[c] = p[c];
         }
     }
-    this->f_bbox.setValue(sofa::type::TBoundingBox<SReal>(minBBox,maxBBox));
+    this->f_bbox.setValue(sofa::type::TBoundingBox<SReal>(minBBox, maxBBox));
 }
 
 
@@ -481,4 +505,3 @@ void CudaVisualModel< TDataTypes >::computeBBox(const core::ExecParams* params, 
 
 
 } // namespace sofa
-
