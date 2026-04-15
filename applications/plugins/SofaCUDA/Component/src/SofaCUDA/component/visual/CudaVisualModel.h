@@ -101,7 +101,7 @@ public:
         , matEmissive ( initData( &matEmissive,  type::Vec4f(0.0f,0.0f,0.0f,0.0f), "emissive",  "material emissive color") )
         , matShininess( initData( &matShininess, 45.0f,                            "shininess", "material specular shininess") )
         , useVBO( initData( &useVBO, false, "useVBO", "true to activate Vertex Buffer Object") )
-        , computeNormals( initData( &computeNormals, false, "computeNormals", "true to compute smooth normals") )
+        , computeNormals( initData( &computeNormals, true, "computeNormals", "true to compute smooth normals") )
         , l_topology(initLink("topology", "Topology used by this component"))
     {}
 
