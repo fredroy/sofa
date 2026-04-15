@@ -20,7 +20,7 @@
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
 #include <sofa/gpu/cuda/CudaTypes.h>
-#include "CudaVisualModel.inl"
+#include <SofaCUDA/component/visual/CudaVisualModel.inl>
 #include <sofa/core/ObjectFactory.h>
 
 

@@ -19,10 +19,9 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#ifndef SOFA_GPU_CUDA_CUDAVISUALMODEL_INL
-#define SOFA_GPU_CUDA_CUDAVISUALMODEL_INL
+#pragma once
 
-#include "CudaVisualModel.h"
+#include <SofaCUDA/component/visual/CudaVisualModel.h>
 #include <sofa/core/visual/VisualParams.h>
 #include <sofa/gl/template.h>
 
@@ -368,10 +367,7 @@ void CudaVisualModel< TDataTypes >::internalDraw(const core::visual::VisualParam
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     }
 
-    //TODO: Const ? Read-Only ?
-    //VecCoord& x = *state->getX();
-    Data<VecCoord>* d_x = state->write(core::vec_id::write_access::position);
-    VecCoord& x = *d_x->beginEdit();
+    const VecCoord& x = state->read(core::vec_id::read_access::position)->getValue();
 
     bool vbo = useVBO.getValue();
 
@@ -453,7 +449,6 @@ void CudaVisualModel< TDataTypes >::internalDraw(const core::visual::VisualParam
         }
     }
 
-    d_x->endEdit();
 #endif // SOFACUDA_HAVE_SOFA_GL == 1
 }
 
@@ -465,7 +460,7 @@ void CudaVisualModel< TDataTypes >::computeBBox(const core::ExecParams* params, 
     if (!state)
         return;
 
-    const VecCoord& x = state->write(core::vec_id::write_access::position)->getValue();
+    const VecCoord& x = state->read(core::vec_id::read_access::position)->getValue();
 
     SReal minBBox[3] = {std::numeric_limits<Real>::max(),std::numeric_limits<Real>::max(),std::numeric_limits<Real>::max()};
     SReal maxBBox[3] = {-std::numeric_limits<Real>::max(),-std::numeric_limits<Real>::max(),-std::numeric_limits<Real>::max()};
@@ -487,4 +482,3 @@ void CudaVisualModel< TDataTypes >::computeBBox(const core::ExecParams* params, 
 
 } // namespace sofa
 
-#endif

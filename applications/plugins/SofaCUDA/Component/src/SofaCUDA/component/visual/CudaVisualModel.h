@@ -19,8 +19,7 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#ifndef SOFA_GPU_CUDA_CUDAVISUALMODEL_H
-#define SOFA_GPU_CUDA_CUDAVISUALMODEL_H
+#pragma once
 
 #include <sofa/core/visual/VisualModel.h>
 #include <sofa/core/topology/BaseMeshTopology.h>
@@ -149,5 +148,3 @@ protected:
 
 
 } // namespace sofa
-
-#endif
