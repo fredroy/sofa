@@ -93,6 +93,7 @@ public:
     Data<bool> useVBO; ///< true to activate Vertex Buffer Object
     Data<bool> computeNormals; ///< true to compute smooth normals
 
+
     CudaVisualModel()
         : needUpdateTopology(true), nbElement(0), nbVertex(0), nbElementPerVertex(0)
         , matAmbient  ( initData( &matAmbient,   type::Vec4f(0.1f,0.1f,0.1f,0.0f), "ambient",   "material ambient color") )

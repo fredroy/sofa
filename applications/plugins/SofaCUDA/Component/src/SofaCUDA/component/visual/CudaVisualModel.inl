@@ -352,42 +352,24 @@ void CudaVisualModel<TDataTypes>::internalDraw(const core::visual::VisualParams*
 {
 #if SOFACUDA_CORE_HAVE_SOFA_GL == 1
     if (!vparams->displayFlags().getShowVisualModels()) return;
-
     if (!l_topology || this->getSize() == 0) return;
 
-    if (vparams->displayFlags().getShowWireFrame())
+    const bool wireframe = vparams->displayFlags().getShowWireFrame();
+    if (wireframe)
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-    vparams->drawTool()->enableLighting();
-
-    const bool transparent = (matDiffuse.getValue()[3] < 1.0);
-
+    glEnable(GL_LIGHTING);
     glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
-    glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-    type::Vec4f ambient = matAmbient.getValue();
-    type::Vec4f diffuse = matDiffuse.getValue();
-    type::Vec4f specular = matSpecular.getValue();
-    type::Vec4f emissive = matEmissive.getValue();
-    float shininess = matShininess.getValue();
 
-    if (shininess == 0.0f)
-    {
-        specular.clear();
-        shininess = 1;
-    }
+    const type::Vec4f& diffuse = matDiffuse.getValue();
+    const bool transparent = (diffuse[3] < 1.0f);
 
-    if (transparent)
-    {
-        ambient[3] = 0;
-        specular[3] = 0;
-        emissive[3] = 0;
-    }
-
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient.ptr());
+    // Set material properties
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, matAmbient.getValue().ptr());
     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, diffuse.ptr());
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specular.ptr());
-    glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, emissive.ptr());
-    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, matSpecular.getValue().ptr());
+    glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, matEmissive.getValue().ptr());
+    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, matShininess.getValue());
 
     if (transparent)
     {
@@ -396,23 +378,30 @@ void CudaVisualModel<TDataTypes>::internalDraw(const core::visual::VisualParams*
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     }
 
-    // Access positions - we only read, so use getValue() and const_cast for bufferRead()
-    // bufferRead() doesn't modify data, it just creates/updates the GL buffer from GPU data
+    const bool vbo = useVBO.getValue();
+    const bool useNormals = computeNormals.getValue();
+
+    // Access data without triggering CPU sync
     const VecCoord& xConst = this->m_positions.getValue();
     VecCoord& x = const_cast<VecCoord&>(xConst);
 
-    bool vbo = useVBO.getValue();
+    // Determine GL type once
+    constexpr GLenum glType = (sizeof(Real) == sizeof(double)) ? GL_DOUBLE : GL_FLOAT;
 
+    // Set up vertex array - bufferRead syncs GPU data to GL buffer
     const GLuint vbo_x = vbo ? x.bufferRead(true) : 0;
     if (vbo_x)
     {
         glBindBuffer(GL_ARRAY_BUFFER, vbo_x);
-        glVertexPointer(3, (sizeof(Real) == sizeof(double)) ? GL_DOUBLE : GL_FLOAT, sizeof(Coord), NULL);
+        glVertexPointer(3, glType, sizeof(Coord), nullptr);
     }
     else
-        glVertexPointer(3, (sizeof(Real) == sizeof(double)) ? GL_DOUBLE : GL_FLOAT, sizeof(Coord), x.hostRead());
+    {
+        glVertexPointer(3, glType, sizeof(Coord), x.hostRead());
+    }
 
-    if (computeNormals.getValue())
+    // Set up normal array
+    if (useNormals)
     {
         const VecDeriv& vnormalsConst = this->m_vnormals.getValue();
         VecDeriv& vnormals = const_cast<VecDeriv&>(vnormalsConst);
@@ -420,38 +409,47 @@ void CudaVisualModel<TDataTypes>::internalDraw(const core::visual::VisualParams*
         if (vbo_n)
         {
             glBindBuffer(GL_ARRAY_BUFFER, vbo_n);
-            glNormalPointer((sizeof(Real) == sizeof(double)) ? GL_DOUBLE : GL_FLOAT, sizeof(Coord), NULL);
+            glNormalPointer(glType, sizeof(Deriv), nullptr);
         }
         else
-            glNormalPointer((sizeof(Real) == sizeof(double)) ? GL_DOUBLE : GL_FLOAT, sizeof(Coord), vnormals.hostRead());
+        {
+            glNormalPointer(glType, sizeof(Deriv), vnormals.hostRead());
+        }
         glEnableClientState(GL_NORMAL_ARRAY);
     }
     glEnableClientState(GL_VERTEX_ARRAY);
 
+    // Draw triangles
     if (triangles.size() > 0)
     {
         const GLuint vbo_t = vbo ? triangles.bufferRead(true) : 0;
         if (vbo_t)
         {
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbo_t);
-            glDrawElements(GL_TRIANGLES, triangles.size() * 3, GL_UNSIGNED_INT, NULL);
+            glDrawElements(GL_TRIANGLES, triangles.size() * 3, GL_UNSIGNED_INT, nullptr);
         }
         else
+        {
             glDrawElements(GL_TRIANGLES, triangles.size() * 3, GL_UNSIGNED_INT, triangles.hostRead());
+        }
     }
 
+    // Draw quads
     if (quads.size() > 0)
     {
         const GLuint vbo_q = vbo ? quads.bufferRead(true) : 0;
         if (vbo_q)
         {
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbo_q);
-            glDrawElements(GL_QUADS, quads.size() * 4, GL_UNSIGNED_INT, NULL);
+            glDrawElements(GL_QUADS, quads.size() * 4, GL_UNSIGNED_INT, nullptr);
         }
         else
+        {
             glDrawElements(GL_QUADS, quads.size() * 4, GL_UNSIGNED_INT, quads.hostRead());
+        }
     }
 
+    // Cleanup state
     if (vbo)
     {
         glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -467,12 +465,12 @@ void CudaVisualModel<TDataTypes>::internalDraw(const core::visual::VisualParams*
         glDepthMask(GL_TRUE);
     }
 
-    if (vparams->displayFlags().getShowWireFrame())
+    if (wireframe)
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
     if (vparams->displayFlags().getShowNormals())
     {
-        // ShowNormals requires CPU access - this is a debug feature so sync is acceptable
+        // ShowNormals requires CPU access - debug feature, sync acceptable
         const VecDeriv& vnormals = this->m_vnormals.getValue();
         glColor3f(1.0, 1.0, 1.0);
         for (unsigned int i = 0; i < x.size(); i++)
@@ -484,7 +482,6 @@ void CudaVisualModel<TDataTypes>::internalDraw(const core::visual::VisualParams*
             glEnd();
         }
     }
-
 
 #endif // SOFACUDA_CORE_HAVE_SOFA_GL == 1
 }
