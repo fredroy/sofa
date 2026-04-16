@@ -149,8 +149,9 @@ protected:
         nbElementPerVertex = nbelemperv;
         const int nbloc = (nbVertex+BSIZE-1)/BSIZE;
         velems.resize(nbloc*nbElementPerVertex*BSIZE);
-        for (unsigned int i=0; i<velems.size(); i++)
-            velems[i] = 0;
+        // Use hostWrite() once to get pointer, then zero efficiently
+        int* velemsPtr = velems.hostWrite();
+        std::fill(velemsPtr, velemsPtr + velems.size(), 0);
     }
 
     void setV(int vertex, int num, int index)

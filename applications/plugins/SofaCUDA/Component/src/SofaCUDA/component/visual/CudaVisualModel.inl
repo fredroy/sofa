@@ -264,8 +264,10 @@ void CudaVisualModel<TDataTypes>::updateNormals()
 {
     if (!l_topology || this->getSize() == 0) return;
 
-    // Access positions directly for device operations (avoid CPU sync)
-    VecCoord& x = *this->m_positions.beginEdit();
+    // Access positions - we only read, so use getValue() and const_cast for deviceRead()
+    // deviceRead() doesn't modify data, it just ensures GPU copy is valid
+    const VecCoord& xConst = this->m_positions.getValue();
+    VecCoord& x = const_cast<VecCoord&>(xConst);
 
     fnormals.fastResize(nbElement);
 
@@ -301,7 +303,6 @@ void CudaVisualModel<TDataTypes>::updateNormals()
             x.deviceRead());
     }
 
-    this->m_positions.endEdit();
     this->m_vnormals.endEdit();
 }
 
@@ -395,9 +396,10 @@ void CudaVisualModel<TDataTypes>::internalDraw(const core::visual::VisualParams*
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     }
 
-    // Access positions directly via beginEdit to avoid ReadAccessor which calls hostRead()
-    // VBO rendering uses bufferRead() which keeps data on GPU
-    VecCoord& x = *this->m_positions.beginEdit();
+    // Access positions - we only read, so use getValue() and const_cast for bufferRead()
+    // bufferRead() doesn't modify data, it just creates/updates the GL buffer from GPU data
+    const VecCoord& xConst = this->m_positions.getValue();
+    VecCoord& x = const_cast<VecCoord&>(xConst);
 
     bool vbo = useVBO.getValue();
 
@@ -412,7 +414,8 @@ void CudaVisualModel<TDataTypes>::internalDraw(const core::visual::VisualParams*
 
     if (computeNormals.getValue())
     {
-        VecDeriv& vnormals = *this->m_vnormals.beginEdit();
+        const VecDeriv& vnormalsConst = this->m_vnormals.getValue();
+        VecDeriv& vnormals = const_cast<VecDeriv&>(vnormalsConst);
         const GLuint vbo_n = vbo ? vnormals.bufferRead(true) : 0;
         if (vbo_n)
         {
@@ -422,7 +425,6 @@ void CudaVisualModel<TDataTypes>::internalDraw(const core::visual::VisualParams*
         else
             glNormalPointer((sizeof(Real) == sizeof(double)) ? GL_DOUBLE : GL_FLOAT, sizeof(Coord), vnormals.hostRead());
         glEnableClientState(GL_NORMAL_ARRAY);
-        this->m_vnormals.endEdit();
     }
     glEnableClientState(GL_VERTEX_ARRAY);
 
@@ -483,7 +485,6 @@ void CudaVisualModel<TDataTypes>::internalDraw(const core::visual::VisualParams*
         }
     }
 
-    this->m_positions.endEdit();
 
 #endif // SOFACUDA_CORE_HAVE_SOFA_GL == 1
 }
