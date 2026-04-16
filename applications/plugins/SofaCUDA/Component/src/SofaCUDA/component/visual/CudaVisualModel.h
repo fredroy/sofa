@@ -77,14 +77,6 @@ public:
     gpu::cuda::CudaVector<Triangle> triangles;
     gpu::cuda::CudaVector<Quad> quads;
 
-    VecCoord fnormals; ///< Face normals (triangles then quads)
-
-    int nbElement; ///< number of elements
-    int nbVertex; ///< number of vertices to process to compute all elements
-    int nbElementPerVertex; ///< max number of elements connected to a vertex
-    /// Index of elements attached to each points (layout per block of NBLOC vertices, with first element of each vertex, then second element, etc)
-    gpu::cuda::CudaVector<int> velems;
-
     Data<type::Vec4f> matAmbient; ///< material ambient color
     Data<type::Vec4f> matDiffuse; ///< material diffuse color and alpha
     Data<type::Vec4f> matSpecular; ///< material specular color
@@ -95,7 +87,7 @@ public:
 
 
     CudaVisualModel()
-        : needUpdateTopology(true), nbElement(0), nbVertex(0), nbElementPerVertex(0)
+        : needUpdateTopology(true)
         , matAmbient  ( initData( &matAmbient,   type::Vec4f(0.1f,0.1f,0.1f,0.0f), "ambient",   "material ambient color") )
         , matDiffuse  ( initData( &matDiffuse,   type::Vec4f(0.8f,0.8f,0.8f,1.0f), "diffuse",   "material diffuse color and alpha") )
         , matSpecular ( initData( &matSpecular,  type::Vec4f(1.0f,1.0f,1.0f,0.0f), "specular",  "material specular color") )
@@ -143,28 +135,6 @@ public:
     }
 
 protected:
-    void initV(int nbe, int nbv, int nbelemperv)
-    {
-        nbElement = nbe;
-        nbVertex = nbv;
-        nbElementPerVertex = nbelemperv;
-        const int nbloc = (nbVertex+BSIZE-1)/BSIZE;
-        velems.resize(nbloc*nbElementPerVertex*BSIZE);
-        // Use hostWrite() once to get pointer, then zero efficiently
-        int* velemsPtr = velems.hostWrite();
-        std::fill(velemsPtr, velemsPtr + velems.size(), 0);
-    }
-
-    void setV(int vertex, int num, int index)
-    {
-        const int block = vertex/BSIZE;
-        const int b_x  = vertex%BSIZE;
-        velems[ block*BSIZE*nbElementPerVertex // start of the block
-                + num*BSIZE                     // offset to the element
-                + b_x                           // offset to the vertex
-              ] = index+1;
-    }
-
     SingleLink<CudaVisualModel<DataTypes>, core::topology::BaseMeshTopology, BaseLink::FLAG_STRONGLINK> l_topology;
 };
 

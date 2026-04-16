@@ -37,20 +37,24 @@ extern "C"
     void CudaVisualModelCuda3f_calcTNormals(unsigned int nbElem, unsigned int nbVertex, const void* elems, void* fnormals, const void* x);
     void CudaVisualModelCuda3f_calcQNormals(unsigned int nbElem, unsigned int nbVertex, const void* elems, void* fnormals, const void* x);
     void CudaVisualModelCuda3f_calcVNormals(unsigned int nbElem, unsigned int nbVertex, unsigned int nbElemPerVertex, const void* velems, void* vnormals, const void* fnormals, const void* x);
+    void CudaVisualModelCuda3f_calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex, const void* triangles, const void* quads, void* vnormals, const void* x);
 
     void CudaVisualModelCuda3f1_calcTNormals(unsigned int nbElem, unsigned int nbVertex, const void* elems, void* fnormals, const void* x);
     void CudaVisualModelCuda3f1_calcQNormals(unsigned int nbElem, unsigned int nbVertex, const void* elems, void* fnormals, const void* x);
     void CudaVisualModelCuda3f1_calcVNormals(unsigned int nbElem, unsigned int nbVertex, unsigned int nbElemPerVertex, const void* velems, void* vnormals, const void* fnormals, const void* x);
+    void CudaVisualModelCuda3f1_calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex, const void* triangles, const void* quads, void* vnormals, const void* x);
 
 #ifdef SOFA_GPU_CUDA_DOUBLE
 
     void CudaVisualModelCuda3d_calcTNormals(unsigned int nbElem, unsigned int nbVertex, const void* elems, void* fnormals, const void* x);
     void CudaVisualModelCuda3d_calcQNormals(unsigned int nbElem, unsigned int nbVertex, const void* elems, void* fnormals, const void* x);
     void CudaVisualModelCuda3d_calcVNormals(unsigned int nbElem, unsigned int nbVertex, unsigned int nbElemPerVertex, const void* velems, void* vnormals, const void* fnormals, const void* x);
+    void CudaVisualModelCuda3d_calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex, const void* triangles, const void* quads, void* vnormals, const void* x);
 
     void CudaVisualModelCuda3d1_calcTNormals(unsigned int nbElem, unsigned int nbVertex, const void* elems, void* fnormals, const void* x);
     void CudaVisualModelCuda3d1_calcQNormals(unsigned int nbElem, unsigned int nbVertex, const void* elems, void* fnormals, const void* x);
     void CudaVisualModelCuda3d1_calcVNormals(unsigned int nbElem, unsigned int nbVertex, unsigned int nbElemPerVertex, const void* velems, void* vnormals, const void* fnormals, const void* x);
+    void CudaVisualModelCuda3d1_calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex, const void* triangles, const void* quads, void* vnormals, const void* x);
 
 #endif // SOFA_GPU_CUDA_DOUBLE
 
@@ -66,6 +70,8 @@ public:
     {   CudaVisualModelCuda3f_calcQNormals(nbElem, nbVertex, elems, fnormals, x); }
     static void calcVNormals(unsigned int nbElem, unsigned int nbVertex, unsigned int nbElemPerVertex, const void* velems, void* vnormals, const void* fnormals, const void* x)
     {   CudaVisualModelCuda3f_calcVNormals(nbElem, nbVertex, nbElemPerVertex, velems, vnormals, fnormals, x); }
+    static void calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex, const void* triangles, const void* quads, void* vnormals, const void* x)
+    {   CudaVisualModelCuda3f_calcNormalsAtomic(nbTriangles, nbQuads, nbVertex, triangles, quads, vnormals, x); }
 };
 
 template<>
@@ -78,6 +84,8 @@ public:
     {   CudaVisualModelCuda3f1_calcQNormals(nbElem, nbVertex, elems, fnormals, x); }
     static void calcVNormals(unsigned int nbElem, unsigned int nbVertex, unsigned int nbElemPerVertex, const void* velems, void* vnormals, const void* fnormals, const void* x)
     {   CudaVisualModelCuda3f1_calcVNormals(nbElem, nbVertex, nbElemPerVertex, velems, vnormals, fnormals, x); }
+    static void calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex, const void* triangles, const void* quads, void* vnormals, const void* x)
+    {   CudaVisualModelCuda3f1_calcNormalsAtomic(nbTriangles, nbQuads, nbVertex, triangles, quads, vnormals, x); }
 };
 
 #ifdef SOFA_GPU_CUDA_DOUBLE
@@ -92,6 +100,8 @@ public:
     {   CudaVisualModelCuda3d_calcQNormals(nbElem, nbVertex, elems, fnormals, x); }
     static void calcVNormals(unsigned int nbElem, unsigned int nbVertex, unsigned int nbElemPerVertex, const void* velems, void* vnormals, const void* fnormals, const void* x)
     {   CudaVisualModelCuda3d_calcVNormals(nbElem, nbVertex, nbElemPerVertex, velems, vnormals, fnormals, x); }
+    static void calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex, const void* triangles, const void* quads, void* vnormals, const void* x)
+    {   CudaVisualModelCuda3d_calcNormalsAtomic(nbTriangles, nbQuads, nbVertex, triangles, quads, vnormals, x); }
 };
 
 template<>
@@ -104,6 +114,8 @@ public:
     {   CudaVisualModelCuda3d1_calcQNormals(nbElem, nbVertex, elems, fnormals, x); }
     static void calcVNormals(unsigned int nbElem, unsigned int nbVertex, unsigned int nbElemPerVertex, const void* velems, void* vnormals, const void* fnormals, const void* x)
     {   CudaVisualModelCuda3d1_calcVNormals(nbElem, nbVertex, nbElemPerVertex, velems, vnormals, fnormals, x); }
+    static void calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex, const void* triangles, const void* quads, void* vnormals, const void* x)
+    {   CudaVisualModelCuda3d1_calcNormalsAtomic(nbTriangles, nbQuads, nbVertex, triangles, quads, vnormals, x); }
 };
 
 #endif // SOFA_GPU_CUDA_DOUBLE
@@ -210,52 +222,8 @@ void CudaVisualModel<TDataTypes>::updateTopology()
         }
     }
 
-    const Triangle* tptr = triangles.hostRead();
-    const Quad* qptr = quads.hostRead();
-    std::map<int,int> nelems;
-
-    for (unsigned int i = 0; i < triangles.size(); i++)
-    {
-        const Triangle& e = tptr[i];
-        for (unsigned int j = 0; j < e.size(); j++)
-            ++nelems[e[j]];
-    }
-    for (unsigned int i = 0; i < quads.size(); i++)
-    {
-        const Quad& e = qptr[i];
-        for (unsigned int j = 0; j < e.size(); j++)
-            ++nelems[e[j]];
-    }
-
-    int nmax = 0;
-    for (std::map<int,int>::const_iterator it = nelems.begin(); it != nelems.end(); ++it)
-        if (it->second > nmax)
-            nmax = it->second;
-
-    int nbv = 0;
-    if (!nelems.empty())
-        nbv = nelems.rbegin()->first + 1;
-
     msg_info() << "CUDA CudaVisualModel: " << triangles.size() << " triangles, "
-               << quads.size() << " quads, " << nbv << "/" << this->getSize()
-               << " attached points, max " << nmax << " elements per point.";
-
-    initV(triangles.size() + quads.size(), nbv, nmax);
-
-    nelems.clear();
-    for (unsigned int i = 0; i < triangles.size(); i++)
-    {
-        const Triangle& e = tptr[i];
-        for (unsigned int j = 0; j < e.size(); j++)
-            setV(e[j], nelems[e[j]]++, i);
-    }
-    const int i0 = triangles.size();
-    for (unsigned int i = 0; i < quads.size(); i++)
-    {
-        const Quad& e = qptr[i];
-        for (unsigned int j = 0; j < e.size(); j++)
-            setV(e[j], nelems[e[j]]++, i0 + i);
-    }
+               << quads.size() << " quads, " << this->getSize() << " vertices.";
 }
 
 
@@ -269,39 +237,19 @@ void CudaVisualModel<TDataTypes>::updateNormals()
     const VecCoord& xConst = this->m_positions.getValue();
     VecCoord& x = const_cast<VecCoord&>(xConst);
 
-    fnormals.fastResize(nbElement);
-
     // Resize vertex normals - use fastResize to avoid unnecessary initialization
     VecDeriv& vnormals = *this->m_vnormals.beginEdit();
     vnormals.fastResize(x.size());
 
-    if (triangles.size() > 0)
-        Kernels::calcTNormals(
-            triangles.size(),
-            nbVertex,
-            triangles.deviceRead(),
-            fnormals.deviceWrite(),
-            x.deviceRead());
-
-    if (quads.size() > 0)
-        Kernels::calcQNormals(
-            quads.size(),
-            nbVertex,
-            quads.deviceRead(),
-            fnormals.deviceWriteAt(triangles.size()),
-            x.deviceRead());
-
-    if (nbVertex > 0)
-    {
-        Kernels::calcVNormals(
-            nbElement,
-            nbVertex,
-            nbElementPerVertex,
-            velems.deviceRead(),
-            vnormals.deviceWrite(),
-            fnormals.deviceRead(),
-            x.deviceRead());
-    }
+    // Use atomic-based normal computation: simpler, no velems/fnormals needed
+    Kernels::calcNormalsAtomic(
+        triangles.size(),
+        quads.size(),
+        x.size(),
+        triangles.size() > 0 ? triangles.deviceRead() : nullptr,
+        quads.size() > 0 ? quads.deviceRead() : nullptr,
+        vnormals.deviceWrite(),
+        x.deviceRead());
 
     this->m_vnormals.endEdit();
 }

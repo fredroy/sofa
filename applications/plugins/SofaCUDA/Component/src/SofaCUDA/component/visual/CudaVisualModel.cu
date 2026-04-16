@@ -33,6 +33,12 @@ extern "C"
     void CudaVisualModelCuda3f1_calcQNormals(unsigned int nbElem, unsigned int nbVertex, const void* elems, void* fnormals, const void* x);
     void CudaVisualModelCuda3f1_calcVNormals(unsigned int nbElem, unsigned int nbVertex, unsigned int nbElemPerVertex, const void* velems, void* vnormals, const void* fnormals, const void* x);
 
+    // New atomic-based normal computation (simpler, no velems needed)
+    void CudaVisualModelCuda3f_calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex,
+                                                  const void* triangles, const void* quads, void* vnormals, const void* x);
+    void CudaVisualModelCuda3f1_calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex,
+                                                   const void* triangles, const void* quads, void* vnormals, const void* x);
+
 #ifdef SOFA_GPU_CUDA_DOUBLE
 
     void CudaVisualModelCuda3d_calcTNormals(unsigned int nbElem, unsigned int nbVertex, const void* elems, void* fnormals, const void* x);
@@ -42,6 +48,11 @@ extern "C"
     void CudaVisualModelCuda3d1_calcTNormals(unsigned int nbElem, unsigned int nbVertex, const void* elems, void* fnormals, const void* x);
     void CudaVisualModelCuda3d1_calcQNormals(unsigned int nbElem, unsigned int nbVertex, const void* elems, void* fnormals, const void* x);
     void CudaVisualModelCuda3d1_calcVNormals(unsigned int nbElem, unsigned int nbVertex, unsigned int nbElemPerVertex, const void* velems, void* vnormals, const void* fnormals, const void* x);
+
+    void CudaVisualModelCuda3d_calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex,
+                                                  const void* triangles, const void* quads, void* vnormals, const void* x);
+    void CudaVisualModelCuda3d1_calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex,
+                                                   const void* triangles, const void* quads, void* vnormals, const void* x);
 
 #endif // SOFA_GPU_CUDA_DOUBLE
 }
@@ -381,6 +392,211 @@ __global__ void CudaVisualModelCuda3t1_calcVNormals_kernel(int nbVertex, unsigne
 }
 
 //////////////////////
+// Atomic-based normal computation kernels
+//////////////////////
+
+// Scatter triangle normals to vertices using atomics (Vec3 layout)
+template<typename real, class TIn>
+__global__ void CudaVisualModel_scatterTriangleNormals_kernel(
+    int nbTriangles,
+    const int* __restrict__ triangles,
+    real* __restrict__ vnormals,
+    const TIn* __restrict__ x)
+{
+    const int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    if (tid >= nbTriangles) return;
+
+    // Load triangle indices
+    const int i0 = triangles[tid * 3 + 0];
+    const int i1 = triangles[tid * 3 + 1];
+    const int i2 = triangles[tid * 3 + 2];
+
+    // Load positions
+    CudaVec3<real> A = CudaCudaVisualModelTextures<real, TIn>::getX(i0, x);
+    CudaVec3<real> B = CudaCudaVisualModelTextures<real, TIn>::getX(i1, x);
+    CudaVec3<real> C = CudaCudaVisualModelTextures<real, TIn>::getX(i2, x);
+
+    // Compute face normal (unnormalized - will normalize later)
+    B -= A;
+    C -= A;
+    CudaVec3<real> N = cross(B, C);
+
+    // Atomically add to each vertex's normal
+    atomicAdd(&vnormals[i0 * 3 + 0], N.x);
+    atomicAdd(&vnormals[i0 * 3 + 1], N.y);
+    atomicAdd(&vnormals[i0 * 3 + 2], N.z);
+
+    atomicAdd(&vnormals[i1 * 3 + 0], N.x);
+    atomicAdd(&vnormals[i1 * 3 + 1], N.y);
+    atomicAdd(&vnormals[i1 * 3 + 2], N.z);
+
+    atomicAdd(&vnormals[i2 * 3 + 0], N.x);
+    atomicAdd(&vnormals[i2 * 3 + 1], N.y);
+    atomicAdd(&vnormals[i2 * 3 + 2], N.z);
+}
+
+// Scatter quad normals to vertices using atomics (Vec3 layout)
+template<typename real, class TIn>
+__global__ void CudaVisualModel_scatterQuadNormals_kernel(
+    int nbQuads,
+    const int* __restrict__ quads,
+    real* __restrict__ vnormals,
+    const TIn* __restrict__ x)
+{
+    const int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    if (tid >= nbQuads) return;
+
+    // Load quad indices
+    const int i0 = quads[tid * 4 + 0];
+    const int i1 = quads[tid * 4 + 1];
+    const int i2 = quads[tid * 4 + 2];
+    const int i3 = quads[tid * 4 + 3];
+
+    // Load positions
+    CudaVec3<real> A = CudaCudaVisualModelTextures<real, TIn>::getX(i0, x);
+    CudaVec3<real> B = CudaCudaVisualModelTextures<real, TIn>::getX(i1, x);
+    CudaVec3<real> C = CudaCudaVisualModelTextures<real, TIn>::getX(i2, x);
+    CudaVec3<real> D = CudaCudaVisualModelTextures<real, TIn>::getX(i3, x);
+
+    // Compute face normal using diagonals
+    C -= A;
+    D -= B;
+    CudaVec3<real> N = cross(C, D);
+
+    // Atomically add to each vertex's normal
+    atomicAdd(&vnormals[i0 * 3 + 0], N.x);
+    atomicAdd(&vnormals[i0 * 3 + 1], N.y);
+    atomicAdd(&vnormals[i0 * 3 + 2], N.z);
+
+    atomicAdd(&vnormals[i1 * 3 + 0], N.x);
+    atomicAdd(&vnormals[i1 * 3 + 1], N.y);
+    atomicAdd(&vnormals[i1 * 3 + 2], N.z);
+
+    atomicAdd(&vnormals[i2 * 3 + 0], N.x);
+    atomicAdd(&vnormals[i2 * 3 + 1], N.y);
+    atomicAdd(&vnormals[i2 * 3 + 2], N.z);
+
+    atomicAdd(&vnormals[i3 * 3 + 0], N.x);
+    atomicAdd(&vnormals[i3 * 3 + 1], N.y);
+    atomicAdd(&vnormals[i3 * 3 + 2], N.z);
+}
+
+// Normalize accumulated normals (Vec3 layout)
+template<typename real>
+__global__ void CudaVisualModel_normalizeNormals_kernel(int nbVertex, real* __restrict__ vnormals)
+{
+    const int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    if (tid >= nbVertex) return;
+
+    const int idx = tid * 3;
+    real nx = vnormals[idx + 0];
+    real ny = vnormals[idx + 1];
+    real nz = vnormals[idx + 2];
+
+    real n2 = nx * nx + ny * ny + nz * nz;
+    real invLen = (n2 > 0) ? rsqrt(n2) : 0;
+
+    vnormals[idx + 0] = nx * invLen;
+    vnormals[idx + 1] = ny * invLen;
+    vnormals[idx + 2] = nz * invLen;
+}
+
+// Scatter triangle normals to vertices using atomics (Vec4 layout)
+template<typename real, class TIn>
+__global__ void CudaVisualModel_scatterTriangleNormals4_kernel(
+    int nbTriangles,
+    const int* __restrict__ triangles,
+    CudaVec4<real>* __restrict__ vnormals,
+    const TIn* __restrict__ x)
+{
+    const int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    if (tid >= nbTriangles) return;
+
+    const int i0 = triangles[tid * 3 + 0];
+    const int i1 = triangles[tid * 3 + 1];
+    const int i2 = triangles[tid * 3 + 2];
+
+    CudaVec3<real> A = CudaCudaVisualModelTextures<real, TIn>::getX(i0, x);
+    CudaVec3<real> B = CudaCudaVisualModelTextures<real, TIn>::getX(i1, x);
+    CudaVec3<real> C = CudaCudaVisualModelTextures<real, TIn>::getX(i2, x);
+
+    B -= A;
+    C -= A;
+    CudaVec3<real> N = cross(B, C);
+
+    // For Vec4 layout, we need to cast to float* for atomicAdd
+    real* vn = (real*)vnormals;
+    atomicAdd(&vn[i0 * 4 + 0], N.x);
+    atomicAdd(&vn[i0 * 4 + 1], N.y);
+    atomicAdd(&vn[i0 * 4 + 2], N.z);
+
+    atomicAdd(&vn[i1 * 4 + 0], N.x);
+    atomicAdd(&vn[i1 * 4 + 1], N.y);
+    atomicAdd(&vn[i1 * 4 + 2], N.z);
+
+    atomicAdd(&vn[i2 * 4 + 0], N.x);
+    atomicAdd(&vn[i2 * 4 + 1], N.y);
+    atomicAdd(&vn[i2 * 4 + 2], N.z);
+}
+
+// Scatter quad normals to vertices using atomics (Vec4 layout)
+template<typename real, class TIn>
+__global__ void CudaVisualModel_scatterQuadNormals4_kernel(
+    int nbQuads,
+    const int* __restrict__ quads,
+    CudaVec4<real>* __restrict__ vnormals,
+    const TIn* __restrict__ x)
+{
+    const int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    if (tid >= nbQuads) return;
+
+    const int i0 = quads[tid * 4 + 0];
+    const int i1 = quads[tid * 4 + 1];
+    const int i2 = quads[tid * 4 + 2];
+    const int i3 = quads[tid * 4 + 3];
+
+    CudaVec3<real> A = CudaCudaVisualModelTextures<real, TIn>::getX(i0, x);
+    CudaVec3<real> B = CudaCudaVisualModelTextures<real, TIn>::getX(i1, x);
+    CudaVec3<real> C = CudaCudaVisualModelTextures<real, TIn>::getX(i2, x);
+    CudaVec3<real> D = CudaCudaVisualModelTextures<real, TIn>::getX(i3, x);
+
+    C -= A;
+    D -= B;
+    CudaVec3<real> N = cross(C, D);
+
+    real* vn = (real*)vnormals;
+    atomicAdd(&vn[i0 * 4 + 0], N.x);
+    atomicAdd(&vn[i0 * 4 + 1], N.y);
+    atomicAdd(&vn[i0 * 4 + 2], N.z);
+
+    atomicAdd(&vn[i1 * 4 + 0], N.x);
+    atomicAdd(&vn[i1 * 4 + 1], N.y);
+    atomicAdd(&vn[i1 * 4 + 2], N.z);
+
+    atomicAdd(&vn[i2 * 4 + 0], N.x);
+    atomicAdd(&vn[i2 * 4 + 1], N.y);
+    atomicAdd(&vn[i2 * 4 + 2], N.z);
+
+    atomicAdd(&vn[i3 * 4 + 0], N.x);
+    atomicAdd(&vn[i3 * 4 + 1], N.y);
+    atomicAdd(&vn[i3 * 4 + 2], N.z);
+}
+
+// Normalize accumulated normals (Vec4 layout)
+template<typename real>
+__global__ void CudaVisualModel_normalizeNormals4_kernel(int nbVertex, CudaVec4<real>* __restrict__ vnormals)
+{
+    const int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    if (tid >= nbVertex) return;
+
+    CudaVec4<real> n = vnormals[tid];
+    real n2 = n.x * n.x + n.y * n.y + n.z * n.z;
+    real invLen = (n2 > 0) ? rsqrt(n2) : 0;
+
+    vnormals[tid] = CudaVec4<real>::make(n.x * invLen, n.y * invLen, n.z * invLen, 0);
+}
+
+//////////////////////
 // CPU-side methods //
 //////////////////////
 
@@ -430,6 +646,77 @@ void CudaVisualModelCuda3f1_calcVNormals(unsigned int nbElem, unsigned int nbVer
     {CudaVisualModelCuda3t1_calcVNormals_kernel<float, CudaVec4<float> ><<< grid2, threads2 >>>(nbVertex, nbElemPerVertex, (const int*)velems, (CudaVec4<float>*)vnormals, (const CudaVec4<float>*)fnormals); mycudaDebugError("CudaVisualModelCuda3t1_calcVNormals_kernel<float, CudaVec4<float> >");}
 }
 
+// Atomic-based normal computation for Vec3 layout
+void CudaVisualModelCuda3f_calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex,
+                                              const void* triangles, const void* quads, void* vnormals, const void* x)
+{
+    // Zero-initialize normals
+    cudaMemsetAsync(vnormals, 0, nbVertex * 3 * sizeof(float));
+
+    dim3 threads(BSIZE, 1);
+
+    // Scatter triangle normals
+    if (nbTriangles > 0)
+    {
+        dim3 gridT((nbTriangles + BSIZE - 1) / BSIZE, 1);
+        CudaVisualModel_scatterTriangleNormals_kernel<float, CudaVec3<float> ><<<gridT, threads>>>(
+            nbTriangles, (const int*)triangles, (float*)vnormals, (const CudaVec3<float>*)x);
+        mycudaDebugError("CudaVisualModel_scatterTriangleNormals_kernel");
+    }
+
+    // Scatter quad normals
+    if (nbQuads > 0)
+    {
+        dim3 gridQ((nbQuads + BSIZE - 1) / BSIZE, 1);
+        CudaVisualModel_scatterQuadNormals_kernel<float, CudaVec3<float> ><<<gridQ, threads>>>(
+            nbQuads, (const int*)quads, (float*)vnormals, (const CudaVec3<float>*)x);
+        mycudaDebugError("CudaVisualModel_scatterQuadNormals_kernel");
+    }
+
+    // Normalize
+    if (nbVertex > 0)
+    {
+        dim3 gridN((nbVertex + BSIZE - 1) / BSIZE, 1);
+        CudaVisualModel_normalizeNormals_kernel<float><<<gridN, threads>>>(nbVertex, (float*)vnormals);
+        mycudaDebugError("CudaVisualModel_normalizeNormals_kernel");
+    }
+}
+
+// Atomic-based normal computation for Vec4 layout
+void CudaVisualModelCuda3f1_calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex,
+                                               const void* triangles, const void* quads, void* vnormals, const void* x)
+{
+    // Zero-initialize normals
+    cudaMemsetAsync(vnormals, 0, nbVertex * 4 * sizeof(float));
+
+    dim3 threads(BSIZE, 1);
+
+    // Scatter triangle normals
+    if (nbTriangles > 0)
+    {
+        dim3 gridT((nbTriangles + BSIZE - 1) / BSIZE, 1);
+        CudaVisualModel_scatterTriangleNormals4_kernel<float, CudaVec4<float> ><<<gridT, threads>>>(
+            nbTriangles, (const int*)triangles, (CudaVec4<float>*)vnormals, (const CudaVec4<float>*)x);
+        mycudaDebugError("CudaVisualModel_scatterTriangleNormals4_kernel");
+    }
+
+    // Scatter quad normals
+    if (nbQuads > 0)
+    {
+        dim3 gridQ((nbQuads + BSIZE - 1) / BSIZE, 1);
+        CudaVisualModel_scatterQuadNormals4_kernel<float, CudaVec4<float> ><<<gridQ, threads>>>(
+            nbQuads, (const int*)quads, (CudaVec4<float>*)vnormals, (const CudaVec4<float>*)x);
+        mycudaDebugError("CudaVisualModel_scatterQuadNormals4_kernel");
+    }
+
+    // Normalize
+    if (nbVertex > 0)
+    {
+        dim3 gridN((nbVertex + BSIZE - 1) / BSIZE, 1);
+        CudaVisualModel_normalizeNormals4_kernel<float><<<gridN, threads>>>(nbVertex, (CudaVec4<float>*)vnormals);
+        mycudaDebugError("CudaVisualModel_normalizeNormals4_kernel");
+    }
+}
 
 #ifdef SOFA_GPU_CUDA_DOUBLE
 
@@ -477,6 +764,70 @@ void CudaVisualModelCuda3d1_calcVNormals(unsigned int nbElem, unsigned int nbVer
     dim3 threads2(BSIZE,1);
     dim3 grid2((nbVertex+BSIZE-1)/BSIZE,1);
     {CudaVisualModelCuda3t1_calcVNormals_kernel<double, CudaVec4<double> ><<< grid2, threads2 >>>(nbVertex, nbElemPerVertex, (const int*)velems, (CudaVec4<double>*)vnormals, (const CudaVec4<double>*)fnormals); mycudaDebugError("CudaVisualModelCuda3t1_calcVNormals_kernel<double, CudaVec4<double> >");}
+}
+
+// Atomic-based normal computation for Vec3 layout (double)
+void CudaVisualModelCuda3d_calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex,
+                                              const void* triangles, const void* quads, void* vnormals, const void* x)
+{
+    cudaMemsetAsync(vnormals, 0, nbVertex * 3 * sizeof(double));
+
+    dim3 threads(BSIZE, 1);
+
+    if (nbTriangles > 0)
+    {
+        dim3 gridT((nbTriangles + BSIZE - 1) / BSIZE, 1);
+        CudaVisualModel_scatterTriangleNormals_kernel<double, CudaVec3<double> ><<<gridT, threads>>>(
+            nbTriangles, (const int*)triangles, (double*)vnormals, (const CudaVec3<double>*)x);
+        mycudaDebugError("CudaVisualModel_scatterTriangleNormals_kernel<double>");
+    }
+
+    if (nbQuads > 0)
+    {
+        dim3 gridQ((nbQuads + BSIZE - 1) / BSIZE, 1);
+        CudaVisualModel_scatterQuadNormals_kernel<double, CudaVec3<double> ><<<gridQ, threads>>>(
+            nbQuads, (const int*)quads, (double*)vnormals, (const CudaVec3<double>*)x);
+        mycudaDebugError("CudaVisualModel_scatterQuadNormals_kernel<double>");
+    }
+
+    if (nbVertex > 0)
+    {
+        dim3 gridN((nbVertex + BSIZE - 1) / BSIZE, 1);
+        CudaVisualModel_normalizeNormals_kernel<double><<<gridN, threads>>>(nbVertex, (double*)vnormals);
+        mycudaDebugError("CudaVisualModel_normalizeNormals_kernel<double>");
+    }
+}
+
+// Atomic-based normal computation for Vec4 layout (double)
+void CudaVisualModelCuda3d1_calcNormalsAtomic(unsigned int nbTriangles, unsigned int nbQuads, unsigned int nbVertex,
+                                               const void* triangles, const void* quads, void* vnormals, const void* x)
+{
+    cudaMemsetAsync(vnormals, 0, nbVertex * 4 * sizeof(double));
+
+    dim3 threads(BSIZE, 1);
+
+    if (nbTriangles > 0)
+    {
+        dim3 gridT((nbTriangles + BSIZE - 1) / BSIZE, 1);
+        CudaVisualModel_scatterTriangleNormals4_kernel<double, CudaVec4<double> ><<<gridT, threads>>>(
+            nbTriangles, (const int*)triangles, (CudaVec4<double>*)vnormals, (const CudaVec4<double>*)x);
+        mycudaDebugError("CudaVisualModel_scatterTriangleNormals4_kernel<double>");
+    }
+
+    if (nbQuads > 0)
+    {
+        dim3 gridQ((nbQuads + BSIZE - 1) / BSIZE, 1);
+        CudaVisualModel_scatterQuadNormals4_kernel<double, CudaVec4<double> ><<<gridQ, threads>>>(
+            nbQuads, (const int*)quads, (CudaVec4<double>*)vnormals, (const CudaVec4<double>*)x);
+        mycudaDebugError("CudaVisualModel_scatterQuadNormals4_kernel<double>");
+    }
+
+    if (nbVertex > 0)
+    {
+        dim3 gridN((nbVertex + BSIZE - 1) / BSIZE, 1);
+        CudaVisualModel_normalizeNormals4_kernel<double><<<gridN, threads>>>(nbVertex, (CudaVec4<double>*)vnormals);
+        mycudaDebugError("CudaVisualModel_normalizeNormals4_kernel<double>");
+    }
 }
 
 #endif // SOFA_GPU_CUDA_DOUBLE
