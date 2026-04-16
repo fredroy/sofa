@@ -176,95 +176,95 @@ public:
 #endif
 
 template<typename real, class TIn>
-__global__ void CudaVisualModelCuda3t_calcTNormals_kernel(int nbElem, const int* elems, real* fnormals, const TIn* x)
+__global__ void CudaVisualModelCuda3t_calcTNormals_kernel(int nbElem, const int* __restrict__ elems, real* __restrict__ fnormals, const TIn* __restrict__ x)
 {
-    int index0 = blockIdx.x * BSIZE; //blockDim.x;
-    int index1 = threadIdx.x;
-    int index = index0+index1;
-    int index3 = index1 * 3;
-    int iext = index0 * 3 + index1;
+    const int index0 = blockIdx.x * BSIZE;
+    const int index1 = threadIdx.x;
+    const int index = index0 + index1;
+    const int index3 = index1 * 3;
+    const int iext = index0 * 3 + index1;
 
-    __shared__  union
+    __shared__ union
     {
         int itemp[3*BSIZE];
         real rtemp[3*BSIZE];
     } s;
 
-    s.itemp[index1] = elems[iext];
-    s.itemp[index1+BSIZE] = elems[iext+BSIZE];
-    s.itemp[index1+2*BSIZE] = elems[iext+2*BSIZE];
+    s.itemp[index1          ] = elems[iext          ];
+    s.itemp[index1 +   BSIZE] = elems[iext +   BSIZE];
+    s.itemp[index1 + 2*BSIZE] = elems[iext + 2*BSIZE];
 
     __syncthreads();
 
-    CudaVec3<real> N = CudaVec3<real>::make(0,0,0);
+    CudaVec3<real> N = CudaVec3<real>::make(0, 0, 0);
     if (index < nbElem)
     {
-        CudaVec3<real> A = CudaCudaVisualModelTextures<real,TIn>::getX(s.itemp[index3+0], x);
-        CudaVec3<real> B = CudaCudaVisualModelTextures<real,TIn>::getX(s.itemp[index3+1], x);
-        CudaVec3<real> C = CudaCudaVisualModelTextures<real,TIn>::getX(s.itemp[index3+2], x);
+        CudaVec3<real> A = CudaCudaVisualModelTextures<real,TIn>::getX(s.itemp[index3    ], x);
+        CudaVec3<real> B = CudaCudaVisualModelTextures<real,TIn>::getX(s.itemp[index3 + 1], x);
+        CudaVec3<real> C = CudaCudaVisualModelTextures<real,TIn>::getX(s.itemp[index3 + 2], x);
         B -= A;
         C -= A;
-        N = cross(B,C);
+        N = cross(B, C);
         N *= invnorm(N);
     }
 
     if (sizeof(real) != sizeof(int)) __syncthreads();
 
-    s.rtemp[index3+0] = N.x;
-    s.rtemp[index3+1] = N.y;
-    s.rtemp[index3+2] = N.z;
+    s.rtemp[index3    ] = N.x;
+    s.rtemp[index3 + 1] = N.y;
+    s.rtemp[index3 + 2] = N.z;
 
     __syncthreads();
 
-    fnormals[iext] = s.rtemp[index1];
-    fnormals[iext+BSIZE] = s.rtemp[index1+BSIZE];
-    fnormals[iext+2*BSIZE] = s.rtemp[index1+2*BSIZE];
+    fnormals[iext          ] = s.rtemp[index1          ];
+    fnormals[iext +   BSIZE] = s.rtemp[index1 +   BSIZE];
+    fnormals[iext + 2*BSIZE] = s.rtemp[index1 + 2*BSIZE];
 }
 
 template<typename real, class TIn>
-__global__ void CudaVisualModelCuda3t1_calcTNormals_kernel(int nbElem, const int* elems, CudaVec4<real>* fnormals, const TIn* x)
+__global__ void CudaVisualModelCuda3t1_calcTNormals_kernel(int nbElem, const int* __restrict__ elems, CudaVec4<real>* __restrict__ fnormals, const TIn* __restrict__ x)
 {
-    int index0 = blockIdx.x * BSIZE; //blockDim.x;
-    int index1 = threadIdx.x;
-    int index = index0+index1;
-    int index3 = index1 * 3;
-    int iext = index0 * 3 + index1;
+    const int index0 = blockIdx.x * BSIZE;
+    const int index1 = threadIdx.x;
+    const int index = index0 + index1;
+    const int index3 = index1 * 3;
+    const int iext = index0 * 3 + index1;
 
     __shared__ int itemp[3*BSIZE];
 
-    itemp[index1] = elems[iext];
-    itemp[index1+BSIZE] = elems[iext+BSIZE];
-    itemp[index1+2*BSIZE] = elems[iext+2*BSIZE];
+    itemp[index1          ] = elems[iext          ];
+    itemp[index1 +   BSIZE] = elems[iext +   BSIZE];
+    itemp[index1 + 2*BSIZE] = elems[iext + 2*BSIZE];
 
     __syncthreads();
 
-    CudaVec3<real> N = CudaVec3<real>::make(0,0,0);
+    CudaVec3<real> N = CudaVec3<real>::make(0, 0, 0);
     if (index < nbElem)
     {
-        CudaVec3<real> A = CudaCudaVisualModelTextures<real,TIn>::getX(itemp[index3+0], x);
-        CudaVec3<real> B = CudaCudaVisualModelTextures<real,TIn>::getX(itemp[index3+1], x);
-        CudaVec3<real> C = CudaCudaVisualModelTextures<real,TIn>::getX(itemp[index3+2], x);
+        CudaVec3<real> A = CudaCudaVisualModelTextures<real,TIn>::getX(itemp[index3    ], x);
+        CudaVec3<real> B = CudaCudaVisualModelTextures<real,TIn>::getX(itemp[index3 + 1], x);
+        CudaVec3<real> C = CudaCudaVisualModelTextures<real,TIn>::getX(itemp[index3 + 2], x);
         B -= A;
         C -= A;
-        N = cross(B,C);
+        N = cross(B, C);
         N *= invnorm(N);
     }
 
-    fnormals[index] = CudaVec4<real>::make(N,0.0f);
+    fnormals[index] = CudaVec4<real>::make(N, 0.0f);
 }
 
 template<typename real, class TIn>
-__global__ void CudaVisualModelCuda3t_calcQNormals_kernel(int nbElem, const int4* elems, real* fnormals, const TIn* x)
+__global__ void CudaVisualModelCuda3t_calcQNormals_kernel(int nbElem, const int4* __restrict__ elems, real* __restrict__ fnormals, const TIn* __restrict__ x)
 {
-    int index0 = blockIdx.x * BSIZE; //blockDim.x;
-    int index1 = threadIdx.x;
-    int index = index0+index1;
-    int index3 = index1 * 3;
-    int iext = index0 * 3 + index1;
+    const int index0 = blockIdx.x * BSIZE;
+    const int index1 = threadIdx.x;
+    const int index = index0 + index1;
+    const int index3 = index1 * 3;
+    const int iext = index0 * 3 + index1;
 
     __shared__ real rtemp[3*BSIZE];
 
-    CudaVec3<real> N = CudaVec3<real>::make(0,0,0);
+    CudaVec3<real> N = CudaVec3<real>::make(0, 0, 0);
     if (index < nbElem)
     {
         int4 itemp = elems[index];
@@ -274,114 +274,110 @@ __global__ void CudaVisualModelCuda3t_calcQNormals_kernel(int nbElem, const int4
         CudaVec3<real> D = CudaCudaVisualModelTextures<real,TIn>::getX(itemp.w, x);
         C -= A;
         D -= B;
-        N = cross(C,D);
+        N = cross(C, D);
         N *= invnorm(N);
     }
 
-    rtemp[index3+0] = N.x;
-    rtemp[index3+1] = N.y;
-    rtemp[index3+2] = N.z;
+    rtemp[index3    ] = N.x;
+    rtemp[index3 + 1] = N.y;
+    rtemp[index3 + 2] = N.z;
 
     __syncthreads();
 
-    fnormals[iext] = rtemp[index1];
-    fnormals[iext+BSIZE] = rtemp[index1+BSIZE];
-    fnormals[iext+2*BSIZE] = rtemp[index1+2*BSIZE];
+    fnormals[iext          ] = rtemp[index1          ];
+    fnormals[iext +   BSIZE] = rtemp[index1 +   BSIZE];
+    fnormals[iext + 2*BSIZE] = rtemp[index1 + 2*BSIZE];
 }
 
 template<typename real, class TIn>
-__global__ void CudaVisualModelCuda3t1_calcQNormals_kernel(int nbElem, const int4* elems, CudaVec4<real>* fnormals, const TIn* x)
+__global__ void CudaVisualModelCuda3t1_calcQNormals_kernel(int nbElem, const int4* __restrict__ elems, CudaVec4<real>* __restrict__ fnormals, const TIn* __restrict__ x)
 {
-    int index0 = blockIdx.x * BSIZE; //blockDim.x;
-    int index1 = threadIdx.x;
-    int index = index0+index1;
-
-    CudaVec3<real> N = CudaVec3<real>::make(0,0,0);
-    if (index < nbElem)
-    {
-        int4 itemp = elems[index];
-        CudaVec3<real> A = CudaCudaVisualModelTextures<real,TIn>::getX(itemp.x, x);
-        CudaVec3<real> B = CudaCudaVisualModelTextures<real,TIn>::getX(itemp.y, x);
-        CudaVec3<real> C = CudaCudaVisualModelTextures<real,TIn>::getX(itemp.z, x);
-        CudaVec3<real> D = CudaCudaVisualModelTextures<real,TIn>::getX(itemp.w, x);
-        C -= A;
-        D -= B;
-        N = cross(C,D);
-        N *= invnorm(N);
-    }
-
-    fnormals[index] = CudaVec4<real>::make(N,0.0f);
-}
-
-template<typename real, class TIn>
-__global__ void CudaVisualModelCuda3t_calcVNormals_kernel(int nbVertex, unsigned int nbElemPerVertex, const int* velems, real* vnormals, const TIn* fnormals)
-{
-    int index0 = blockIdx.x * BSIZE; //blockDim.x;
-    int index1 = threadIdx.x;
-    int index3 = index1 * 3; //3*index1;
-
-    __shared__  real temp[3*BSIZE];
-
-    int iext = index0 * 3 + index1;
-
-    CudaVec3<real> n = CudaVec3<real>::make(0.0f,0.0f,0.0f);
-
-    velems += index0 * nbElemPerVertex + index1;
-
-    if (index0+index1 < nbVertex)
-    {
-        for (int s = 0; s < nbElemPerVertex; s++)
-        {
-            int i = *velems -1;
-            velems+=BSIZE;
-            if (i != -1)
-            {
-                n += CudaCudaVisualModelTextures<real,TIn>::getN(i,fnormals);
-            }
-        }
-        real invn = invnorm(n);
-        if (invn < 100000.0)
-            n *= invn;
-    }
-
-    temp[index3  ] = n.x;
-    temp[index3+1] = n.y;
-    temp[index3+2] = n.z;
-
-    __syncthreads();
-
-    vnormals[iext        ] = temp[index1        ];
-    vnormals[iext+  BSIZE] = temp[index1+  BSIZE];
-    vnormals[iext+2*BSIZE] = temp[index1+2*BSIZE];
-}
-
-template<typename real, class TIn>
-__global__ void CudaVisualModelCuda3t1_calcVNormals_kernel(int nbVertex, unsigned int nbElemPerVertex, const int* velems, CudaVec4<real>* vnormals, const TIn* fnormals)
-{
-    const int index0 = blockIdx.x * BSIZE; //blockDim.x;
+    const int index0 = blockIdx.x * BSIZE;
     const int index1 = threadIdx.x;
     const int index = index0 + index1;
 
-    CudaVec3<real> n = CudaVec3<real>::make(0.0f,0.0f,0.0f);
+    CudaVec3<real> N = CudaVec3<real>::make(0, 0, 0);
+    if (index < nbElem)
+    {
+        int4 itemp = elems[index];
+        CudaVec3<real> A = CudaCudaVisualModelTextures<real,TIn>::getX(itemp.x, x);
+        CudaVec3<real> B = CudaCudaVisualModelTextures<real,TIn>::getX(itemp.y, x);
+        CudaVec3<real> C = CudaCudaVisualModelTextures<real,TIn>::getX(itemp.z, x);
+        CudaVec3<real> D = CudaCudaVisualModelTextures<real,TIn>::getX(itemp.w, x);
+        C -= A;
+        D -= B;
+        N = cross(C, D);
+        N *= invnorm(N);
+    }
 
-    velems += index0 * nbElemPerVertex + index1;
+    fnormals[index] = CudaVec4<real>::make(N, 0.0f);
+}
+
+template<typename real, class TIn>
+__global__ void CudaVisualModelCuda3t_calcVNormals_kernel(int nbVertex, unsigned int nbElemPerVertex, const int* __restrict__ velems, real* __restrict__ vnormals, const TIn* __restrict__ fnormals)
+{
+    const int index0 = blockIdx.x * BSIZE;
+    const int index1 = threadIdx.x;
+    const int index = index0 + index1;
+    const int index3 = index1 * 3;
+    const int iext = index0 * 3 + index1;
+
+    __shared__ real temp[3*BSIZE];
+
+    CudaVec3<real> n = CudaVec3<real>::make(0.0f, 0.0f, 0.0f);
 
     if (index < nbVertex)
     {
-        for (int s = 0; s < nbElemPerVertex; s++)
+        const int* vptr = velems + index0 * nbElemPerVertex + index1;
+        for (unsigned int s = 0; s < nbElemPerVertex; s++)
         {
-            int i = *velems -1;
-            velems+=BSIZE;
-            if (i != -1)
+            int i = vptr[s * BSIZE] - 1;
+            if (i >= 0)
             {
-                n += CudaCudaVisualModelTextures<real,TIn>::getN(i,fnormals);
+                n += CudaCudaVisualModelTextures<real,TIn>::getN(i, fnormals);
             }
         }
         real invn = invnorm(n);
-        if (invn < 100000.0)
+        if (invn < 100000.0f)
             n *= invn;
     }
-    vnormals[index] = CudaVec4<real>::make(n,0.0f);
+
+    temp[index3    ] = n.x;
+    temp[index3 + 1] = n.y;
+    temp[index3 + 2] = n.z;
+
+    __syncthreads();
+
+    vnormals[iext          ] = temp[index1          ];
+    vnormals[iext +   BSIZE] = temp[index1 +   BSIZE];
+    vnormals[iext + 2*BSIZE] = temp[index1 + 2*BSIZE];
+}
+
+template<typename real, class TIn>
+__global__ void CudaVisualModelCuda3t1_calcVNormals_kernel(int nbVertex, unsigned int nbElemPerVertex, const int* __restrict__ velems, CudaVec4<real>* __restrict__ vnormals, const TIn* __restrict__ fnormals)
+{
+    const int index0 = blockIdx.x * BSIZE;
+    const int index1 = threadIdx.x;
+    const int index = index0 + index1;
+
+    CudaVec3<real> n = CudaVec3<real>::make(0.0f, 0.0f, 0.0f);
+
+    if (index < nbVertex)
+    {
+        const int* vptr = velems + index0 * nbElemPerVertex + index1;
+        for (unsigned int s = 0; s < nbElemPerVertex; s++)
+        {
+            int i = vptr[s * BSIZE] - 1;
+            if (i >= 0)
+            {
+                n += CudaCudaVisualModelTextures<real,TIn>::getN(i, fnormals);
+            }
+        }
+        real invn = invnorm(n);
+        if (invn < 100000.0f)
+            n *= invn;
+    }
+    vnormals[index] = CudaVec4<real>::make(n, 0.0f);
 }
 
 //////////////////////

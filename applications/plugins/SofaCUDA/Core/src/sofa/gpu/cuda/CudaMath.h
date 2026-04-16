@@ -343,9 +343,8 @@ __device__ real norm(CudaVec3<real> a)
 template<class real>
 __device__ real invnorm(CudaVec3<real> a)
 {
-    if (norm2(a) > 0.0)
-        return rsqrt(norm2(a));
-    return 0.0;
+    real n2 = norm2(a);
+    return (n2 > 0.0) ? rsqrt(n2) : 0.0;
 }
 
 template<class real>
@@ -357,9 +356,8 @@ __device__ real norm2(CudaVec4<real> a)
 template<class real>
 __device__ real invnorm(CudaVec4<real> a)
 {
-    if (norm2(a) > 0.0)
-        return rsqrt(norm2(a));
-    return 0.0;
+    real n2 = norm2(a);
+    return (n2 > 0.0) ? rsqrt(n2) : 0.0;
 }
 
 template<class real>
