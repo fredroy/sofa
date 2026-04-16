@@ -395,13 +395,13 @@ void CudaVisualModel<TDataTypes>::internalDraw(const core::visual::VisualParams*
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     }
 
-    // Need non-const access for bufferRead() which may sync GPU data
-    helper::ReadAccessor<Data<VecCoord>> xAccessor(this->m_positions);
-    const VecCoord& x = xAccessor.ref();
+    // Access positions directly via beginEdit to avoid ReadAccessor which calls hostRead()
+    // VBO rendering uses bufferRead() which keeps data on GPU
+    VecCoord& x = *this->m_positions.beginEdit();
 
     bool vbo = useVBO.getValue();
 
-    const GLuint vbo_x = vbo ? const_cast<VecCoord&>(x).bufferRead(true) : 0;
+    const GLuint vbo_x = vbo ? x.bufferRead(true) : 0;
     if (vbo_x)
     {
         glBindBuffer(GL_ARRAY_BUFFER, vbo_x);
@@ -412,9 +412,8 @@ void CudaVisualModel<TDataTypes>::internalDraw(const core::visual::VisualParams*
 
     if (computeNormals.getValue())
     {
-        helper::ReadAccessor<Data<VecDeriv>> vnormalsAccessor(this->m_vnormals);
-        const VecDeriv& vnormals = vnormalsAccessor.ref();
-        const GLuint vbo_n = vbo ? const_cast<VecDeriv&>(vnormals).bufferRead(true) : 0;
+        VecDeriv& vnormals = *this->m_vnormals.beginEdit();
+        const GLuint vbo_n = vbo ? vnormals.bufferRead(true) : 0;
         if (vbo_n)
         {
             glBindBuffer(GL_ARRAY_BUFFER, vbo_n);
@@ -423,6 +422,7 @@ void CudaVisualModel<TDataTypes>::internalDraw(const core::visual::VisualParams*
         else
             glNormalPointer((sizeof(Real) == sizeof(double)) ? GL_DOUBLE : GL_FLOAT, sizeof(Coord), vnormals.hostRead());
         glEnableClientState(GL_NORMAL_ARRAY);
+        this->m_vnormals.endEdit();
     }
     glEnableClientState(GL_VERTEX_ARRAY);
 
@@ -470,17 +470,20 @@ void CudaVisualModel<TDataTypes>::internalDraw(const core::visual::VisualParams*
 
     if (vparams->displayFlags().getShowNormals())
     {
-        helper::ReadAccessor<Data<VecDeriv>> vnormalsShow(this->m_vnormals);
+        // ShowNormals requires CPU access - this is a debug feature so sync is acceptable
+        const VecDeriv& vnormals = this->m_vnormals.getValue();
         glColor3f(1.0, 1.0, 1.0);
         for (unsigned int i = 0; i < x.size(); i++)
         {
             glBegin(GL_LINES);
             sofa::gl::glVertexT(x[i]);
-            Coord p = x[i] + vnormalsShow[i] * 0.01;
+            Coord p = x[i] + vnormals[i] * 0.01;
             sofa::gl::glVertexT(p);
             glEnd();
         }
     }
+
+    this->m_positions.endEdit();
 
 #endif // SOFACUDA_CORE_HAVE_SOFA_GL == 1
 }
