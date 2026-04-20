@@ -252,6 +252,51 @@ void BarycentricMapperMeshTopology<CudaVec3fTypes,CudaVec3fTypes>::resize( core:
 
 ////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
+// CUDA-specific overrides for BarycentricMapping to avoid unnecessary GPU-CPU sync
+//
+// The base BarycentricMapping::applyJ/applyJT methods use WriteAccessor which
+// triggers hostWrite() -> copyToHost() causing a GPU-CPU sync. This is wasteful
+// for CUDA types since the mapper immediately calls deviceWrite() on the output.
+// These specializations directly access the Data values without the accessor pattern.
+//
+// Note: apply() already uses beginWriteOnly() without WriteAccessor, so no override needed.
+
+template<>
+void BarycentricMapping<CudaVec3fTypes, CudaVec3fTypes>::applyJ(
+    const core::MechanicalParams* mparams,
+    Data<Out::VecDeriv>& out,
+    const Data<In::VecDeriv>& in)
+{
+    SOFA_UNUSED(mparams);
+
+    if (d_mapper != nullptr)
+    {
+        // Direct access without WriteAccessor to avoid GPU-CPU sync
+        Out::VecDeriv& outVec = *out.beginWriteOnly();
+        d_mapper->applyJ(outVec, in.getValue());
+        out.endEdit();
+    }
+}
+
+template<>
+void BarycentricMapping<CudaVec3fTypes, CudaVec3fTypes>::applyJT(
+    const core::MechanicalParams* mparams,
+    Data<In::VecDeriv>& out,
+    const Data<Out::VecDeriv>& in)
+{
+    SOFA_UNUSED(mparams);
+
+    if (d_mapper != nullptr)
+    {
+        // Direct access without WriteAccessor to avoid GPU-CPU sync
+        In::VecDeriv& outVec = *out.beginWriteOnly();
+        d_mapper->applyJT(outVec, in.getValue());
+        out.endEdit();
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 // Spread the instantiations over multiple files for more efficient and lightweight compilation
 
 // Instantiations involving only CudaVec3fTypes

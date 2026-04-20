@@ -410,6 +410,80 @@ void BarycentricMapperMeshTopology<CudaVec3fTypes,CudaVec3f1Types>::resize( core
 
 ////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
+// CUDA-specific overrides for BarycentricMapping to avoid unnecessary GPU-CPU sync
+//
+// The base BarycentricMapping::applyJ/applyJT methods use WriteAccessor which
+// triggers hostWrite() -> copyToHost() causing a GPU-CPU sync. This is wasteful
+// for CUDA types since the mapper immediately calls deviceWrite() on the output.
+
+// CudaVec3f1Types -> CudaVec3fTypes
+template<>
+void BarycentricMapping<CudaVec3f1Types, CudaVec3fTypes>::applyJ(
+    const core::MechanicalParams* mparams,
+    Data<Out::VecDeriv>& out,
+    const Data<In::VecDeriv>& in)
+{
+    SOFA_UNUSED(mparams);
+
+    if (d_mapper != nullptr)
+    {
+        Out::VecDeriv& outVec = *out.beginWriteOnly();
+        d_mapper->applyJ(outVec, in.getValue());
+        out.endEdit();
+    }
+}
+
+template<>
+void BarycentricMapping<CudaVec3f1Types, CudaVec3fTypes>::applyJT(
+    const core::MechanicalParams* mparams,
+    Data<In::VecDeriv>& out,
+    const Data<Out::VecDeriv>& in)
+{
+    SOFA_UNUSED(mparams);
+
+    if (d_mapper != nullptr)
+    {
+        In::VecDeriv& outVec = *out.beginWriteOnly();
+        d_mapper->applyJT(outVec, in.getValue());
+        out.endEdit();
+    }
+}
+
+// CudaVec3fTypes -> CudaVec3f1Types
+template<>
+void BarycentricMapping<CudaVec3fTypes, CudaVec3f1Types>::applyJ(
+    const core::MechanicalParams* mparams,
+    Data<Out::VecDeriv>& out,
+    const Data<In::VecDeriv>& in)
+{
+    SOFA_UNUSED(mparams);
+
+    if (d_mapper != nullptr)
+    {
+        Out::VecDeriv& outVec = *out.beginWriteOnly();
+        d_mapper->applyJ(outVec, in.getValue());
+        out.endEdit();
+    }
+}
+
+template<>
+void BarycentricMapping<CudaVec3fTypes, CudaVec3f1Types>::applyJT(
+    const core::MechanicalParams* mparams,
+    Data<In::VecDeriv>& out,
+    const Data<Out::VecDeriv>& in)
+{
+    SOFA_UNUSED(mparams);
+
+    if (d_mapper != nullptr)
+    {
+        In::VecDeriv& outVec = *out.beginWriteOnly();
+        d_mapper->applyJT(outVec, in.getValue());
+        out.endEdit();
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 // Spread the instantiations over multiple files for more efficient and lightweight compilation
 
 // instantiations involving CudaVec3f1Types with CudaVec3fTypes
