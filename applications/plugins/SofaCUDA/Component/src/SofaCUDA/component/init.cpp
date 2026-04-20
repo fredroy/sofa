@@ -23,6 +23,7 @@
 
 #include <SofaCUDA/component/init.h>
 #include <SofaCUDA/core/init.h>
+#include <SofaCUDA/core/config.h>
 #include <sofa/core/ObjectFactory.h>
 #include <sofa/helper/system/PluginManager.h>
 
@@ -127,6 +128,11 @@ extern void registerHexahedronSetGeometryAlgorithms(sofa::core::ObjectFactory* f
 // component::solidmechanics::tled
 extern void registerTetrahedronTLEDForceField(sofa::core::ObjectFactory* factory);
 extern void registerHexahedronTLEDForceField(sofa::core::ObjectFactory* factory);
+
+// component::linearsolver::iterative
+#ifdef SOFA_GPU_CUBLAS
+extern void registerCudaCGLinearSolver(sofa::core::ObjectFactory* factory);
+#endif
 
 } // namespace sofa::gpu::cuda
 
@@ -243,6 +249,10 @@ void registerObjects(sofa::core::ObjectFactory* factory)
     registerQuadSetGeometryAlgorithms(factory);
     registerTetrahedronSetGeometryAlgorithms(factory);
     registerHexahedronSetGeometryAlgorithms(factory);
+
+#ifdef SOFA_GPU_CUBLAS
+    registerCudaCGLinearSolver(factory);
+#endif
 }
 
 } // namespace sofacuda::component

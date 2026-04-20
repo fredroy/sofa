@@ -83,6 +83,9 @@ set(HEADER_FILES
     ### Visual
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/visual/CudaVisualModel.h
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/visual/CudaVisualModel.inl
+
+    ### LinearSolver
+    ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/linearsolver/iterative/CudaCGLinearSolver.h
 )
 
 set(SOURCE_FILES
@@ -160,9 +163,11 @@ set(SOURCE_FILES
     ### Topology
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/topology/container/dynamic/CudaSetTopology.cpp
 
-    ### Visual 
+    ### Visual
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/visual/CudaVisualModel.cpp
-  
+
+    ### LinearSolver
+    ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/linearsolver/iterative/CudaCGLinearSolver.cpp
 )
 
 set(CUDA_SOURCES
@@ -226,6 +231,7 @@ sofa_find_package(Sofa.Component.Mapping.NonLinear REQUIRED)
 sofa_find_package(Sofa.Component.Engine.Select REQUIRED)
 sofa_find_package(Sofa.Component.Engine.Transform REQUIRED)
 sofa_find_package(Sofa.Component.MechanicalLoad REQUIRED)
+sofa_find_package(Sofa.Component.LinearSolver.Iterative REQUIRED)
 
 add_library(${PROJECT_NAME} SHARED ${HEADER_FILES} ${SOURCE_FILES} ${CUDA_SOURCES})
 
@@ -246,6 +252,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
     Sofa.Component.Engine.Select
     Sofa.Component.Engine.Transform
     Sofa.Component.MechanicalLoad
+    Sofa.Component.LinearSolver.Iterative
 )
 
 # see (I guess) https://github.com/sofa-framework/sofa/blob/314b95cbfba411bf8431486ea75b7c67c0bbcc76/Sofa/framework/Config/cmake/SofaMacrosInstall.cmake#L695

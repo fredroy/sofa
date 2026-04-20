@@ -23,6 +23,8 @@
 
 #include <sofa/config.h>
 
+#include <SofaCUDA/core/config.h>
+
 #ifdef SOFA_BUILD_SOFACUDA_COMPONENT
 #  define SOFACUDA_COMPONENT_API SOFA_EXPORT_DYNAMIC_LIBRARY
 #else
