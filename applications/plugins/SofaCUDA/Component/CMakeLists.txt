@@ -91,6 +91,7 @@ set(HEADER_FILES
     ### Preconditioners
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/linearsolver/preconditioner/CudaPreconditioner.h
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/linearsolver/preconditioner/CudaJacobiPreconditioner.h
+    ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/linearsolver/preconditioner/CudaBlockJacobiPreconditioner.h
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/linearsolver/preconditioner/CudaIC0Preconditioner.h
 )
 
@@ -178,6 +179,7 @@ set(SOURCE_FILES
 
     ### Preconditioners
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/linearsolver/preconditioner/CudaJacobiPreconditioner.cpp
+    ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/linearsolver/preconditioner/CudaBlockJacobiPreconditioner.cpp
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/linearsolver/preconditioner/CudaIC0Preconditioner.cpp
 )
 
@@ -225,6 +227,7 @@ set(CUDA_SOURCES
 
     ### Preconditioners
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/linearsolver/preconditioner/CudaJacobiPreconditioner.cu
+    ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/linearsolver/preconditioner/CudaBlockJacobiPreconditioner.cu
 )
 
 find_package(Sofa.Config REQUIRED)

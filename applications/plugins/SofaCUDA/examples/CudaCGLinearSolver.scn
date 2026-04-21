@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<Node name="root" dt="0.02" gravity="0 -10 0">
+    <RequiredPlugin pluginName="Sofa.Component.Constraint.Projective"/> <!-- Needed to use components [FixedProjectiveConstraint] -->
+    <RequiredPlugin pluginName="Sofa.Component.LinearSolver.Iterative"/> <!-- Needed to use components [CGLinearSolver] -->
+    <RequiredPlugin pluginName="Sofa.Component.Mass"/> <!-- Needed to use components [UniformMass] -->
+    <RequiredPlugin pluginName="Sofa.Component.ODESolver.Backward"/> <!-- Needed to use components [EulerImplicitSolver] -->
+    <RequiredPlugin pluginName="Sofa.Component.SolidMechanics.FEM.Elastic"/> <!-- Needed to use components [HexahedronFEMForceField] -->
+    <RequiredPlugin pluginName="Sofa.Component.StateContainer"/> <!-- Needed to use components [MechanicalObject] -->
+    <RequiredPlugin pluginName="Sofa.Component.Topology.Container.Grid"/> <!-- Needed to use components [RegularGridTopology] -->
+    <RequiredPlugin pluginName="Sofa.Component.Visual"/> <!-- Needed to use components [VisualStyle] -->
+    <RequiredPlugin pluginName="Sofa.Component.Engine.Select"/>
+    <RequiredPlugin pluginName="SofaCUDA"/> 
+    <RequiredPlugin pluginName="SofaCUDALinearSolver"/> 
+    <VisualStyle displayFlags="showBehaviorModels showForceFields" />
+    <DefaultAnimationLoop/>
+    
+    <Node name="gpu">
+        <EulerImplicitSolver name="eulerimplicit_odesolver" printLog="false"  rayleighStiffness="0.1" rayleighMass="0.1" />
+        <!-- <CudaCGLinearSolver iterations="100" tolerance="1e-6" threshold="1e-6" warmStart="1" /> -->
+        <!-- <CGLinearSolver iterations="100" tolerance="1e-6" threshold="1e-6" warmStart="1" /> -->
+        <CudaIC0Preconditioner template="CompressedRowSparseMatrixd,FullVector" name="precond"/>
+        <CudaPCGLinearSolver template="CompressedRowSparseMatrixd" iterations="500" threshold="1e-6" tolerance="1e-6"
+                           preconditioner="@precond" printLog="true"/>
+
+        <MechanicalObject template="CudaVec3f"/>
+        <UniformMass name="mass" totalMass="320" />
+        <RegularGridTopology name="grid" nx="16" ny="16" nz="76" xmin="-9" xmax="-6" ymin="0" ymax="3" zmin="0" zmax="19" />
+        <BoxROI name="box" box="-10 -1 -0.0001  -5 4 0.0001"/>
+        <FixedProjectiveConstraint indices="@box.indices" />
+        <HexahedronFEMForceField template="CudaVec3f" name="FEM" youngModulus="400000" poissonRatio="0.3" method="large" />
+    </Node>
+
+<!--     <Node name="cpu">
+        <EulerImplicitSolver name="eulerimplicit_odesolver" printLog="false"  rayleighStiffness="0.1" rayleighMass="0.1" />
+        <CGLinearSolver iterations="100" tolerance="1e-6" threshold="1e-6" warmStart="1" />
+
+        <MechanicalObject template="Vec3d"/>
+        <UniformMass name="mass" totalMass="320" />
+        <RegularGridTopology name="grid" nx="16" ny="16" nz="76" xmin="-9" xmax="-6" ymin="0" ymax="3" zmin="0" zmax="19" />
+        <BoxROI name="box" box="-10 -1 -0.0001  -5 4 0.0001"/>
+        <FixedProjectiveConstraint indices="@box.indices" />
+        <HexahedronFEMForceField template="Vec3d" name="FEM" youngModulus="4000" poissonRatio="0.3" method="large" />
+    </Node> -->
+</Node>
