@@ -84,14 +84,15 @@ void CudaCGLinearSolver<TMatrix, TVector>::init()
 }
 
 template<class TMatrix, class TVector>
-void CudaCGLinearSolver<TMatrix, TVector>::allocateCudaResources(int nRows, int nCols, int nnz)
+void CudaCGLinearSolver<TMatrix, TVector>::allocateCudaResourcesCSR(int nRows, int nCols, int nnz)
 {
     if (m_cudaData.allocated &&
+        !m_cudaData.useBSR &&
         m_cudaData.nRows == nRows &&
         m_cudaData.nCols == nCols &&
         m_cudaData.nnz == nnz)
     {
-        return; // Already allocated with correct size
+        return;
     }
 
     freeCudaResources();
@@ -99,11 +100,13 @@ void CudaCGLinearSolver<TMatrix, TVector>::allocateCudaResources(int nRows, int 
     m_cudaData.nRows = nRows;
     m_cudaData.nCols = nCols;
     m_cudaData.nnz = nnz;
+    m_cudaData.blockDim = 1;
+    m_cudaData.useBSR = false;
 
     // Allocate CSR matrix data
-    mycudaMalloc(&m_cudaData.d_csrVal, nnz * sizeof(Real));
-    mycudaMalloc(&m_cudaData.d_csrRowPtr, (nRows + 1) * sizeof(int));
-    mycudaMalloc(&m_cudaData.d_csrColInd, nnz * sizeof(int));
+    mycudaMalloc(&m_cudaData.d_bsrVal, nnz * sizeof(Real));
+    mycudaMalloc(&m_cudaData.d_bsrRowPtr, (nRows + 1) * sizeof(int));
+    mycudaMalloc(&m_cudaData.d_bsrColInd, nnz * sizeof(int));
 
     // Allocate vectors
     mycudaMalloc(&m_cudaData.d_x, nCols * sizeof(Real));
@@ -112,11 +115,11 @@ void CudaCGLinearSolver<TMatrix, TVector>::allocateCudaResources(int nRows, int 
     mycudaMalloc(&m_cudaData.d_p, nCols * sizeof(Real));
     mycudaMalloc(&m_cudaData.d_Ap, nRows * sizeof(Real));
 
-    // Create cuSPARSE matrix descriptor
+    // Create cuSPARSE CSR matrix descriptor
     cudaDataType valueType = (sizeof(Real) == sizeof(float)) ? CUDA_R_32F : CUDA_R_64F;
 
     cusparseCreateCsr(&m_cudaData.matA, nRows, nCols, nnz,
-                      m_cudaData.d_csrRowPtr, m_cudaData.d_csrColInd, m_cudaData.d_csrVal,
+                      m_cudaData.d_bsrRowPtr, m_cudaData.d_bsrColInd, m_cudaData.d_bsrVal,
                       CUSPARSE_INDEX_32I, CUSPARSE_INDEX_32I,
                       CUSPARSE_INDEX_BASE_ZERO, valueType);
 
@@ -140,6 +143,77 @@ void CudaCGLinearSolver<TMatrix, TVector>::allocateCudaResources(int nRows, int 
 }
 
 template<class TMatrix, class TVector>
+void CudaCGLinearSolver<TMatrix, TVector>::allocateCudaResourcesBSR(int nBlockRows, int nBlockCols, int nnzBlocks, int blockDim)
+{
+    const int nRows = nBlockRows * blockDim;
+    const int nCols = nBlockCols * blockDim;
+    const int nnzValues = nnzBlocks * blockDim * blockDim;
+
+    if (m_cudaData.allocated &&
+        m_cudaData.useBSR &&
+        m_cudaData.nBlockRows == nBlockRows &&
+        m_cudaData.nBlockCols == nBlockCols &&
+        m_cudaData.nnz == nnzBlocks &&
+        m_cudaData.blockDim == blockDim)
+    {
+        return;
+    }
+
+    freeCudaResources();
+
+    m_cudaData.nRows = nRows;
+    m_cudaData.nCols = nCols;
+    m_cudaData.nBlockRows = nBlockRows;
+    m_cudaData.nBlockCols = nBlockCols;
+    m_cudaData.nnz = nnzBlocks;
+    m_cudaData.blockDim = blockDim;
+    m_cudaData.useBSR = true;
+
+    // Allocate BSR matrix data
+    mycudaMalloc(&m_cudaData.d_bsrVal, nnzValues * sizeof(Real));
+    mycudaMalloc(&m_cudaData.d_bsrRowPtr, (nBlockRows + 1) * sizeof(int));
+    mycudaMalloc(&m_cudaData.d_bsrColInd, nnzBlocks * sizeof(int));
+
+    // Allocate vectors (scalar size)
+    mycudaMalloc(&m_cudaData.d_x, nCols * sizeof(Real));
+    mycudaMalloc(&m_cudaData.d_b, nRows * sizeof(Real));
+    mycudaMalloc(&m_cudaData.d_r, nRows * sizeof(Real));
+    mycudaMalloc(&m_cudaData.d_p, nCols * sizeof(Real));
+    mycudaMalloc(&m_cudaData.d_Ap, nRows * sizeof(Real));
+
+    // Create cuSPARSE BSR matrix descriptor
+    cudaDataType valueType = (sizeof(Real) == sizeof(float)) ? CUDA_R_32F : CUDA_R_64F;
+
+    cusparseCreateBsr(&m_cudaData.matA, nBlockRows, nBlockCols, nnzBlocks,
+                      blockDim, blockDim,
+                      m_cudaData.d_bsrRowPtr, m_cudaData.d_bsrColInd, m_cudaData.d_bsrVal,
+                      CUSPARSE_INDEX_32I, CUSPARSE_INDEX_32I,
+                      CUSPARSE_INDEX_BASE_ZERO, valueType, CUSPARSE_ORDER_ROW);
+
+    // Create dense vector descriptors (scalar size)
+    cusparseCreateDnVec(&m_cudaData.vecX, nCols, m_cudaData.d_p, valueType);
+    cusparseCreateDnVec(&m_cudaData.vecY, nRows, m_cudaData.d_Ap, valueType);
+
+    // Determine buffer size for SpMV
+    Real alpha = 1.0;
+    Real beta = 0.0;
+    cusparseSpMV_bufferSize(getCusparseCtx(), CUSPARSE_OPERATION_NON_TRANSPOSE,
+                            &alpha, m_cudaData.matA, m_cudaData.vecX, &beta, m_cudaData.vecY,
+                            valueType, CUSPARSE_SPMV_ALG_DEFAULT, &m_cudaData.bufferSize);
+
+    if (m_cudaData.bufferSize > 0)
+    {
+        mycudaMalloc(&m_cudaData.d_buffer, m_cudaData.bufferSize);
+    }
+
+    m_cudaData.allocated = true;
+
+    msg_info() << "Using BSR format: " << nBlockRows << "x" << nBlockCols
+               << " blocks of " << blockDim << "x" << blockDim
+               << ", " << nnzBlocks << " non-zero blocks";
+}
+
+template<class TMatrix, class TVector>
 void CudaCGLinearSolver<TMatrix, TVector>::freeCudaResources()
 {
     if (!m_cudaData.allocated) return;
@@ -148,9 +222,9 @@ void CudaCGLinearSolver<TMatrix, TVector>::freeCudaResources()
     if (m_cudaData.vecX) cusparseDestroyDnVec(m_cudaData.vecX);
     if (m_cudaData.vecY) cusparseDestroyDnVec(m_cudaData.vecY);
 
-    if (m_cudaData.d_csrVal) mycudaFree(m_cudaData.d_csrVal);
-    if (m_cudaData.d_csrRowPtr) mycudaFree(m_cudaData.d_csrRowPtr);
-    if (m_cudaData.d_csrColInd) mycudaFree(m_cudaData.d_csrColInd);
+    if (m_cudaData.d_bsrVal) mycudaFree(m_cudaData.d_bsrVal);
+    if (m_cudaData.d_bsrRowPtr) mycudaFree(m_cudaData.d_bsrRowPtr);
+    if (m_cudaData.d_bsrColInd) mycudaFree(m_cudaData.d_bsrColInd);
     if (m_cudaData.d_x) mycudaFree(m_cudaData.d_x);
     if (m_cudaData.d_b) mycudaFree(m_cudaData.d_b);
     if (m_cudaData.d_r) mycudaFree(m_cudaData.d_r);
@@ -164,93 +238,142 @@ void CudaCGLinearSolver<TMatrix, TVector>::freeCudaResources()
 template<class TMatrix, class TVector>
 void CudaCGLinearSolver<TMatrix, TVector>::uploadMatrix(const Matrix& A)
 {
-    // Get compressed row data from the matrix
-    // CompressedRowSparseMatrix stores data in CSR format (block CSR)
     const auto& rowBegin = A.getRowBegin();
     const auto& colsIndex = A.getColsIndex();
     const auto& colsValue = A.getColsValue();
 
-    // Extract CSR data from CompressedRowSparseMatrix
-    // The matrix is stored as blocks, we need to extract scalar values
     using Block = typename Matrix::Block;
     constexpr int BlockRows = Matrix::NL;
     constexpr int BlockCols = Matrix::NC;
 
     const int blockRows = static_cast<int>(A.nBlockRow);
     const int blockCols = static_cast<int>(A.nBlockCol);
-    const int scalarRows = blockRows * BlockRows;
-    const int scalarCols = blockCols * BlockCols;
 
-    // Build scalar CSR from block CSR
-    std::vector<Real> values;
-    std::vector<int> rowPtr;
-    std::vector<int> colIdx;
+    // Use BSR format for 3x3 blocks (common in Vec3 FEM)
+    constexpr bool useBSR = (BlockRows == 3 && BlockCols == 3);
 
-    rowPtr.reserve(scalarRows + 1);
-    rowPtr.push_back(0);
-
-    for (int br = 0; br < blockRows; ++br)
+    if constexpr (useBSR)
     {
-        for (int lr = 0; lr < BlockRows; ++lr)
-        {
-            // Collect all entries for this scalar row
-            std::vector<std::pair<int, Real>> rowEntries;
+        // BSR format: keep blocks as-is, just need row pointers and column indices
+        std::vector<Real> bsrValues;
+        std::vector<int> bsrRowPtr;
+        std::vector<int> bsrColIdx;
 
-            // Iterate over blocks in this block row
+        bsrRowPtr.reserve(blockRows + 1);
+        bsrRowPtr.push_back(0);
+
+        for (int br = 0; br < blockRows; ++br)
+        {
+            // Collect blocks for this row, sorted by column
+            std::vector<std::pair<int, const Block*>> rowBlocks;
+
             for (auto idx = rowBegin[br]; idx < rowBegin[br + 1]; ++idx)
             {
                 const int bc = static_cast<int>(colsIndex[idx]);
-                const Block& block = colsValue[idx];
-
-                for (int lc = 0; lc < BlockCols; ++lc)
-                {
-                    const int scalarCol = bc * BlockCols + lc;
-                    Real val;
-                    if constexpr (BlockRows == 1 && BlockCols == 1)
-                    {
-                        val = static_cast<Real>(block);
-                    }
-                    else
-                    {
-                        val = static_cast<Real>(block(lr, lc));
-                    }
-
-                    if (val != Real(0))
-                    {
-                        rowEntries.emplace_back(scalarCol, val);
-                    }
-                }
+                rowBlocks.emplace_back(bc, &colsValue[idx]);
             }
 
-            // Sort by column index (required for CSR format by cuSPARSE)
-            std::sort(rowEntries.begin(), rowEntries.end(),
+            // Sort by column index
+            std::sort(rowBlocks.begin(), rowBlocks.end(),
                 [](const auto& a, const auto& b) { return a.first < b.first; });
 
-            for (const auto& entry : rowEntries)
+            for (const auto& [bc, blockPtr] : rowBlocks)
             {
-                colIdx.push_back(entry.first);
-                values.push_back(entry.second);
+                bsrColIdx.push_back(bc);
+
+                // Store block values in row-major order
+                const Block& block = *blockPtr;
+                for (int i = 0; i < 3; ++i)
+                    for (int j = 0; j < 3; ++j)
+                        bsrValues.push_back(static_cast<Real>(block(i, j)));
             }
 
-            rowPtr.push_back(static_cast<int>(values.size()));
+            bsrRowPtr.push_back(static_cast<int>(bsrColIdx.size()));
         }
+
+        const int nnzBlocks = static_cast<int>(bsrColIdx.size());
+
+        // Allocate GPU resources for BSR
+        allocateCudaResourcesBSR(blockRows, blockCols, nnzBlocks, 3);
+
+        // Upload to GPU
+        mycudaMemcpyHostToDevice(m_cudaData.d_bsrVal, bsrValues.data(), bsrValues.size() * sizeof(Real));
+        mycudaMemcpyHostToDevice(m_cudaData.d_bsrRowPtr, bsrRowPtr.data(), (blockRows + 1) * sizeof(int));
+        mycudaMemcpyHostToDevice(m_cudaData.d_bsrColInd, bsrColIdx.data(), nnzBlocks * sizeof(int));
+
+        // For BSR, we need to update the matrix values directly
+        // The pointers are set during allocation, values are updated via memcpy above
     }
+    else
+    {
+        // CSR format for scalar or other block sizes
+        const int scalarRows = blockRows * BlockRows;
+        const int scalarCols = blockCols * BlockCols;
 
-    const int nnz = static_cast<int>(values.size());
+        std::vector<Real> values;
+        std::vector<int> rowPtr;
+        std::vector<int> colIdx;
 
-    // Allocate GPU resources if needed
-    allocateCudaResources(scalarRows, scalarCols, nnz);
+        rowPtr.reserve(scalarRows + 1);
+        rowPtr.push_back(0);
 
-    // Upload to GPU
-    mycudaMemcpyHostToDevice(m_cudaData.d_csrVal, values.data(), nnz * sizeof(Real));
-    mycudaMemcpyHostToDevice(m_cudaData.d_csrRowPtr, rowPtr.data(), (scalarRows + 1) * sizeof(int));
-    mycudaMemcpyHostToDevice(m_cudaData.d_csrColInd, colIdx.data(), nnz * sizeof(int));
+        for (int br = 0; br < blockRows; ++br)
+        {
+            for (int lr = 0; lr < BlockRows; ++lr)
+            {
+                std::vector<std::pair<int, Real>> rowEntries;
 
-    // Update cuSPARSE matrix descriptor with new data pointers
-    cusparseCsrSetPointers(m_cudaData.matA,
-                           m_cudaData.d_csrRowPtr,
-                           m_cudaData.d_csrColInd,
-                           m_cudaData.d_csrVal);
+                for (auto idx = rowBegin[br]; idx < rowBegin[br + 1]; ++idx)
+                {
+                    const int bc = static_cast<int>(colsIndex[idx]);
+                    const Block& block = colsValue[idx];
+
+                    for (int lc = 0; lc < BlockCols; ++lc)
+                    {
+                        const int scalarCol = bc * BlockCols + lc;
+                        Real val;
+                        if constexpr (BlockRows == 1 && BlockCols == 1)
+                        {
+                            val = static_cast<Real>(block);
+                        }
+                        else
+                        {
+                            val = static_cast<Real>(block(lr, lc));
+                        }
+
+                        if (val != Real(0))
+                        {
+                            rowEntries.emplace_back(scalarCol, val);
+                        }
+                    }
+                }
+
+                std::sort(rowEntries.begin(), rowEntries.end(),
+                    [](const auto& a, const auto& b) { return a.first < b.first; });
+
+                for (const auto& entry : rowEntries)
+                {
+                    colIdx.push_back(entry.first);
+                    values.push_back(entry.second);
+                }
+
+                rowPtr.push_back(static_cast<int>(values.size()));
+            }
+        }
+
+        const int nnz = static_cast<int>(values.size());
+
+        allocateCudaResourcesCSR(scalarRows, scalarCols, nnz);
+
+        mycudaMemcpyHostToDevice(m_cudaData.d_bsrVal, values.data(), nnz * sizeof(Real));
+        mycudaMemcpyHostToDevice(m_cudaData.d_bsrRowPtr, rowPtr.data(), (scalarRows + 1) * sizeof(int));
+        mycudaMemcpyHostToDevice(m_cudaData.d_bsrColInd, colIdx.data(), nnz * sizeof(int));
+
+        cusparseCsrSetPointers(m_cudaData.matA,
+                               m_cudaData.d_bsrRowPtr,
+                               m_cudaData.d_bsrColInd,
+                               m_cudaData.d_bsrVal);
+    }
 }
 
 template<class TMatrix, class TVector>
@@ -537,7 +660,8 @@ void registerCudaCGLinearSolver(sofa::core::ObjectFactory* factory)
     factory->registerObjects(
         sofa::core::ObjectRegistrationData(
             "CUDA-accelerated Conjugate Gradient linear solver for assembled sparse matrices. "
-            "Uses cuSPARSE for SpMV and cuBLAS for vector operations.")
+            "Uses cuSPARSE for SpMV and cuBLAS for vector operations. "
+            "For Vec3 FEM, use CompressedRowSparseMatrixMat3x3d for optimized BSR format.")
         .add<CudaCGLinearSolver<linearalgebra::CompressedRowSparseMatrix<SReal>,
                                 linearalgebra::FullVector<SReal>>>()
         .add<CudaCGLinearSolver<linearalgebra::CompressedRowSparseMatrix<type::Mat<3, 3, SReal>>,

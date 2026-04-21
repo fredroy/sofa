@@ -82,10 +82,10 @@ private:
     /// GPU resources for cuSPARSE
     struct CudaSparseData
     {
-        // CSR matrix data on GPU
-        void* d_csrVal = nullptr;
-        void* d_csrRowPtr = nullptr;
-        void* d_csrColInd = nullptr;
+        // BSR/CSR matrix data on GPU
+        void* d_bsrVal = nullptr;     // Block values (for BSR) or scalar values (for CSR)
+        void* d_bsrRowPtr = nullptr;  // Row pointers
+        void* d_bsrColInd = nullptr;  // Column indices
 
         // Vectors on GPU
         void* d_x = nullptr;
@@ -106,17 +106,24 @@ private:
         size_t bufferSize = 0;
 
         // Matrix dimensions
-        int nRows = 0;
-        int nCols = 0;
-        int nnz = 0;
+        int nRows = 0;        // Scalar rows
+        int nCols = 0;        // Scalar cols
+        int nnz = 0;          // Number of non-zero scalars (CSR) or blocks (BSR)
+        int blockDim = 1;     // Block dimension (1 for CSR, 3 for BSR with Vec3)
+        int nBlockRows = 0;   // Number of block rows (BSR only)
+        int nBlockCols = 0;   // Number of block cols (BSR only)
+        bool useBSR = false;  // True if using BSR format
 
         bool allocated = false;
     };
 
     CudaSparseData m_cudaData;
 
-    /// Allocate GPU resources
-    void allocateCudaResources(int nRows, int nCols, int nnz);
+    /// Allocate GPU resources for CSR format
+    void allocateCudaResourcesCSR(int nRows, int nCols, int nnz);
+
+    /// Allocate GPU resources for BSR format
+    void allocateCudaResourcesBSR(int nBlockRows, int nBlockCols, int nnzBlocks, int blockDim);
 
     /// Free GPU resources
     void freeCudaResources();
