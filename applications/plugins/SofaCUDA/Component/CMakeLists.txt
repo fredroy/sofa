@@ -66,6 +66,7 @@ set(HEADER_FILES
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mechanicalload/CudaSphereForceField.inl
 
     ### Collisions
+    ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/collision/detection/algorithm/CudaNarrowPhaseDetection.h
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/collision/geometry/CudaLineModel.h
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/collision/geometry/CudaPointModel.h
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/collision/geometry/CudaSphereModel.h
@@ -130,6 +131,7 @@ set(SOURCE_FILES
     
 
     ### Collisions
+    ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/collision/detection/algorithm/CudaNarrowPhaseDetection.cpp
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/collision/geometry/CudaLineModel.cpp
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/collision/geometry/CudaPointModel.cpp
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/collision/geometry/CudaSphereModel.cpp
@@ -197,6 +199,7 @@ set(CUDA_SOURCES
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/mechanicalload/CudaSphereForceField.cu
 
     ### Collisions
+    ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/collision/detection/algorithm/CudaNarrowPhaseDetection.cu
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/collision/response/contact/CudaPenalityContactForceField.cu
     ${SOFACUDA_COMPONENT_SOURCE_DIR}/SofaCUDA/component/collision/response/mapper/CudaContactMapper.cu
     

@@ -29,6 +29,9 @@
 namespace sofa::gpu::cuda
 {
 
+// component::collision::detection::algorithm
+extern void registerCudaNarrowPhaseDetection(sofa::core::ObjectFactory* factory);
+
 // component::collision::geometry
 extern void registerLineCollisionModel(sofa::core::ObjectFactory* factory);
 extern void registerPointCollisionModel(sofa::core::ObjectFactory* factory);
@@ -186,6 +189,7 @@ void registerObjects(sofa::core::ObjectFactory* factory)
 {
     using namespace sofa::gpu::cuda;
 
+    registerCudaNarrowPhaseDetection(factory);
     registerLineCollisionModel(factory);
     registerPointCollisionModel(factory);
     registerSphereCollisionModel(factory);
