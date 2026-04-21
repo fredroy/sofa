@@ -31,6 +31,8 @@
 #include <sofa/gpu/cuda/mycuda.h>
 
 #include <algorithm>
+#include <vector>
+#include <cmath>
 
 namespace sofa::gpu::cuda
 {
@@ -73,9 +75,7 @@ void CudaIC0Preconditioner<TMatrix, TVector>::allocateCudaResources(int nRows, i
     mycudaMalloc(&m_cudaData.d_csrRowPtr, (nRows + 1) * sizeof(int));
     mycudaMalloc(&m_cudaData.d_csrColInd, nnz * sizeof(int));
 
-    // Allocate temporary vectors
-    mycudaMalloc(&m_cudaData.d_r, nRows * sizeof(Real));
-    mycudaMalloc(&m_cudaData.d_z, nRows * sizeof(Real));
+    // Allocate temporary vector
     mycudaMalloc(&m_cudaData.d_tmp, nRows * sizeof(Real));
 
     m_cudaData.allocated = true;
@@ -94,19 +94,20 @@ void CudaIC0Preconditioner<TMatrix, TVector>::freeCudaResources()
 
     // Destroy matrix/vector descriptors
     if (m_cudaData.matL) cusparseDestroySpMat(m_cudaData.matL);
-    if (m_cudaData.matLt) cusparseDestroySpMat(m_cudaData.matLt);
     if (m_cudaData.vecR) cusparseDestroyDnVec(m_cudaData.vecR);
     if (m_cudaData.vecTmp) cusparseDestroyDnVec(m_cudaData.vecTmp);
     if (m_cudaData.vecZ) cusparseDestroyDnVec(m_cudaData.vecZ);
+
+    // Destroy IC0 resources
+    if (m_cudaData.descrA) cusparseDestroyMatDescr(m_cudaData.descrA);
+    if (m_cudaData.ic02Info) cusparseDestroyCsric02Info(m_cudaData.ic02Info);
+    if (m_cudaData.d_ic02Buffer) mycudaFree(m_cudaData.d_ic02Buffer);
 
     // Free GPU memory
     if (m_cudaData.d_csrVal) mycudaFree(m_cudaData.d_csrVal);
     if (m_cudaData.d_csrRowPtr) mycudaFree(m_cudaData.d_csrRowPtr);
     if (m_cudaData.d_csrColInd) mycudaFree(m_cudaData.d_csrColInd);
-    if (m_cudaData.d_r) mycudaFree(m_cudaData.d_r);
-    if (m_cudaData.d_z) mycudaFree(m_cudaData.d_z);
     if (m_cudaData.d_tmp) mycudaFree(m_cudaData.d_tmp);
-    if (m_cudaData.d_buffer) mycudaFree(m_cudaData.d_buffer);
     if (m_cudaData.d_bufferL) mycudaFree(m_cudaData.d_bufferL);
     if (m_cudaData.d_bufferLt) mycudaFree(m_cudaData.d_bufferLt);
 
@@ -114,7 +115,7 @@ void CudaIC0Preconditioner<TMatrix, TVector>::freeCudaResources()
 }
 
 template<class TMatrix, class TVector>
-void CudaIC0Preconditioner<TMatrix, TVector>::uploadMatrix(const Matrix& M)
+void CudaIC0Preconditioner<TMatrix, TVector>::uploadMatrixAndFactorize(const Matrix& M)
 {
     using Block = typename Matrix::Block;
     constexpr int BlockRows = Matrix::NL;
@@ -127,7 +128,7 @@ void CudaIC0Preconditioner<TMatrix, TVector>::uploadMatrix(const Matrix& M)
     const int blockRows = static_cast<int>(M.nBlockRow);
     const int scalarRows = blockRows * BlockRows;
 
-    // Build scalar CSR from block CSR
+    // Build scalar CSR from block CSR - only lower triangular part for IC0
     std::vector<Real> values;
     std::vector<int> rowPtr;
     std::vector<int> colIdx;
@@ -139,7 +140,9 @@ void CudaIC0Preconditioner<TMatrix, TVector>::uploadMatrix(const Matrix& M)
     {
         for (int lr = 0; lr < BlockRows; ++lr)
         {
-            // Collect all entries for this scalar row
+            const int scalarRow = br * BlockRows + lr;
+
+            // Collect entries for this scalar row (only lower triangular: col <= row)
             std::vector<std::pair<int, Real>> rowEntries;
 
             for (auto idx = rowBegin[br]; idx < rowBegin[br + 1]; ++idx)
@@ -150,6 +153,10 @@ void CudaIC0Preconditioner<TMatrix, TVector>::uploadMatrix(const Matrix& M)
                 for (int lc = 0; lc < BlockCols; ++lc)
                 {
                     const int scalarCol = bc * BlockCols + lc;
+
+                    // Only include lower triangular entries (col <= row)
+                    if (scalarCol > scalarRow) continue;
+
                     Real val;
                     if constexpr (BlockRows == 1 && BlockCols == 1)
                     {
@@ -167,7 +174,7 @@ void CudaIC0Preconditioner<TMatrix, TVector>::uploadMatrix(const Matrix& M)
                 }
             }
 
-            // Sort by column index (required for CSR)
+            // Sort by column index (required for CSR format by cuSPARSE)
             std::sort(rowEntries.begin(), rowEntries.end(),
                 [](const auto& a, const auto& b) { return a.first < b.first; });
 
@@ -182,6 +189,7 @@ void CudaIC0Preconditioner<TMatrix, TVector>::uploadMatrix(const Matrix& M)
     }
 
     const int nnz = static_cast<int>(values.size());
+    const int n = scalarRows;
 
     // Allocate GPU resources
     allocateCudaResources(scalarRows, nnz);
@@ -190,23 +198,135 @@ void CudaIC0Preconditioner<TMatrix, TVector>::uploadMatrix(const Matrix& M)
     mycudaMemcpyHostToDevice(m_cudaData.d_csrVal, values.data(), nnz * sizeof(Real));
     mycudaMemcpyHostToDevice(m_cudaData.d_csrRowPtr, rowPtr.data(), (scalarRows + 1) * sizeof(int));
     mycudaMemcpyHostToDevice(m_cudaData.d_csrColInd, colIdx.data(), nnz * sizeof(int));
-}
-
-template<class TMatrix, class TVector>
-void CudaIC0Preconditioner<TMatrix, TVector>::invert(Matrix& M)
-{
-    sofa::helper::AdvancedTimer::stepBegin("CudaIC0-Factorize");
-
-    uploadMatrix(M);
 
     cusparseHandle_t handle = getCusparseCtx();
-    const int n = m_cudaData.nRows;
-    const int nnz = m_cudaData.nnz;
+    cusparseStatus_t status;
+
+    // ========== Perform IC0 factorization using legacy API ==========
+
+    // Create/recreate IC0 resources
+    if (m_cudaData.descrA) { cusparseDestroyMatDescr(m_cudaData.descrA); m_cudaData.descrA = nullptr; }
+    if (m_cudaData.ic02Info) { cusparseDestroyCsric02Info(m_cudaData.ic02Info); m_cudaData.ic02Info = nullptr; }
+    if (m_cudaData.d_ic02Buffer) { mycudaFree(m_cudaData.d_ic02Buffer); m_cudaData.d_ic02Buffer = nullptr; }
+
+    cusparseCreateMatDescr(&m_cudaData.descrA);
+    cusparseSetMatType(m_cudaData.descrA, CUSPARSE_MATRIX_TYPE_GENERAL);
+    cusparseSetMatIndexBase(m_cudaData.descrA, CUSPARSE_INDEX_BASE_ZERO);
+    cusparseSetMatFillMode(m_cudaData.descrA, CUSPARSE_FILL_MODE_LOWER);
+    cusparseSetMatDiagType(m_cudaData.descrA, CUSPARSE_DIAG_TYPE_NON_UNIT);
+
+    cusparseCreateCsric02Info(&m_cudaData.ic02Info);
+
+    // Get buffer size for IC0
+    int bufferSizeInt = 0;
+    if constexpr (sizeof(Real) == sizeof(float))
+    {
+        cusparseScsric02_bufferSize(handle, n, nnz, m_cudaData.descrA,
+            static_cast<float*>(m_cudaData.d_csrVal),
+            static_cast<int*>(m_cudaData.d_csrRowPtr),
+            static_cast<int*>(m_cudaData.d_csrColInd),
+            m_cudaData.ic02Info, &bufferSizeInt);
+    }
+    else
+    {
+        cusparseDcsric02_bufferSize(handle, n, nnz, m_cudaData.descrA,
+            static_cast<double*>(m_cudaData.d_csrVal),
+            static_cast<int*>(m_cudaData.d_csrRowPtr),
+            static_cast<int*>(m_cudaData.d_csrColInd),
+            m_cudaData.ic02Info, &bufferSizeInt);
+    }
+
+    m_cudaData.ic02BufferSize = static_cast<size_t>(bufferSizeInt);
+    if (m_cudaData.ic02BufferSize > 0)
+        mycudaMalloc(&m_cudaData.d_ic02Buffer, m_cudaData.ic02BufferSize);
+
+    // Analyze sparsity pattern for IC0
+    if constexpr (sizeof(Real) == sizeof(float))
+    {
+        status = cusparseScsric02_analysis(handle, n, nnz, m_cudaData.descrA,
+            static_cast<float*>(m_cudaData.d_csrVal),
+            static_cast<int*>(m_cudaData.d_csrRowPtr),
+            static_cast<int*>(m_cudaData.d_csrColInd),
+            m_cudaData.ic02Info,
+            CUSPARSE_SOLVE_POLICY_USE_LEVEL,
+            m_cudaData.d_ic02Buffer);
+    }
+    else
+    {
+        status = cusparseDcsric02_analysis(handle, n, nnz, m_cudaData.descrA,
+            static_cast<double*>(m_cudaData.d_csrVal),
+            static_cast<int*>(m_cudaData.d_csrRowPtr),
+            static_cast<int*>(m_cudaData.d_csrColInd),
+            m_cudaData.ic02Info,
+            CUSPARSE_SOLVE_POLICY_USE_LEVEL,
+            m_cudaData.d_ic02Buffer);
+    }
+
+    if (status != CUSPARSE_STATUS_SUCCESS)
+    {
+        msg_error() << "csric02_analysis failed with status: " << status;
+        return;
+    }
+
+    // Check for zero pivot (matrix not SPD or has zero on diagonal)
+    int structural_zero = -1;
+    cusparseXcsric02_zeroPivot(handle, m_cudaData.ic02Info, &structural_zero);
+    if (structural_zero >= 0)
+    {
+        msg_warning() << "IC0: structural zero at row " << structural_zero;
+    }
+
+    // Perform the actual IC0 factorization (modifies d_csrVal in-place)
+    if constexpr (sizeof(Real) == sizeof(float))
+    {
+        status = cusparseScsric02(handle, n, nnz, m_cudaData.descrA,
+            static_cast<float*>(m_cudaData.d_csrVal),
+            static_cast<int*>(m_cudaData.d_csrRowPtr),
+            static_cast<int*>(m_cudaData.d_csrColInd),
+            m_cudaData.ic02Info,
+            CUSPARSE_SOLVE_POLICY_USE_LEVEL,
+            m_cudaData.d_ic02Buffer);
+    }
+    else
+    {
+        status = cusparseDcsric02(handle, n, nnz, m_cudaData.descrA,
+            static_cast<double*>(m_cudaData.d_csrVal),
+            static_cast<int*>(m_cudaData.d_csrRowPtr),
+            static_cast<int*>(m_cudaData.d_csrColInd),
+            m_cudaData.ic02Info,
+            CUSPARSE_SOLVE_POLICY_USE_LEVEL,
+            m_cudaData.d_ic02Buffer);
+    }
+
+    if (status != CUSPARSE_STATUS_SUCCESS)
+    {
+        msg_error() << "csric02 factorization failed with status: " << status;
+        return;
+    }
+
+    // Check for numerical zero pivot
+    int numerical_zero = -1;
+    cusparseXcsric02_zeroPivot(handle, m_cudaData.ic02Info, &numerical_zero);
+    if (numerical_zero >= 0)
+    {
+        msg_warning() << "IC0: numerical zero at row " << numerical_zero << " (matrix may not be SPD)";
+    }
+
+    // ========== Set up SpSV for triangular solves using factored L ==========
 
     cudaDataType valueType = (sizeof(Real) == sizeof(float)) ? CUDA_R_32F : CUDA_R_64F;
 
-    // Create sparse matrix descriptor for L (lower triangular)
-    if (m_cudaData.matL) cusparseDestroySpMat(m_cudaData.matL);
+    // Destroy old descriptors if they exist
+    if (m_cudaData.spsvDescrL) { cusparseSpSV_destroyDescr(m_cudaData.spsvDescrL); m_cudaData.spsvDescrL = nullptr; }
+    if (m_cudaData.spsvDescrLt) { cusparseSpSV_destroyDescr(m_cudaData.spsvDescrLt); m_cudaData.spsvDescrLt = nullptr; }
+    if (m_cudaData.matL) { cusparseDestroySpMat(m_cudaData.matL); m_cudaData.matL = nullptr; }
+    if (m_cudaData.vecR) { cusparseDestroyDnVec(m_cudaData.vecR); m_cudaData.vecR = nullptr; }
+    if (m_cudaData.vecTmp) { cusparseDestroyDnVec(m_cudaData.vecTmp); m_cudaData.vecTmp = nullptr; }
+    if (m_cudaData.vecZ) { cusparseDestroyDnVec(m_cudaData.vecZ); m_cudaData.vecZ = nullptr; }
+    if (m_cudaData.d_bufferL) { mycudaFree(m_cudaData.d_bufferL); m_cudaData.d_bufferL = nullptr; }
+    if (m_cudaData.d_bufferLt) { mycudaFree(m_cudaData.d_bufferLt); m_cudaData.d_bufferLt = nullptr; }
+
+    // Create sparse matrix descriptor for L (now contains factored values)
     cusparseCreateCsr(&m_cudaData.matL, n, n, nnz,
                       m_cudaData.d_csrRowPtr, m_cudaData.d_csrColInd, m_cudaData.d_csrVal,
                       CUSPARSE_INDEX_32I, CUSPARSE_INDEX_32I,
@@ -221,119 +341,96 @@ void CudaIC0Preconditioner<TMatrix, TVector>::invert(Matrix& M)
     cusparseSpMatSetAttribute(m_cudaData.matL, CUSPARSE_SPMAT_DIAG_TYPE,
                               &diagType, sizeof(cusparseDiagType_t));
 
-    // Create another descriptor for L^T (upper triangular for transpose solve)
-    if (m_cudaData.matLt) cusparseDestroySpMat(m_cudaData.matLt);
-    cusparseCreateCsr(&m_cudaData.matLt, n, n, nnz,
-                      m_cudaData.d_csrRowPtr, m_cudaData.d_csrColInd, m_cudaData.d_csrVal,
-                      CUSPARSE_INDEX_32I, CUSPARSE_INDEX_32I,
-                      CUSPARSE_INDEX_BASE_ZERO, valueType);
+    // Allocate temporary device memory for vector descriptors
+    void* d_dummyR = nullptr;
+    void* d_dummyZ = nullptr;
+    mycudaMalloc(&d_dummyR, n * sizeof(Real));
+    mycudaMalloc(&d_dummyZ, n * sizeof(Real));
 
-    cusparseSpMatSetAttribute(m_cudaData.matLt, CUSPARSE_SPMAT_FILL_MODE,
-                              &fillMode, sizeof(cusparseFillMode_t));
-    cusparseSpMatSetAttribute(m_cudaData.matLt, CUSPARSE_SPMAT_DIAG_TYPE,
-                              &diagType, sizeof(cusparseDiagType_t));
-
-    // Create dense vector descriptors
-    if (m_cudaData.vecR) cusparseDestroyDnVec(m_cudaData.vecR);
-    if (m_cudaData.vecTmp) cusparseDestroyDnVec(m_cudaData.vecTmp);
-    if (m_cudaData.vecZ) cusparseDestroyDnVec(m_cudaData.vecZ);
-
-    cusparseCreateDnVec(&m_cudaData.vecR, n, m_cudaData.d_r, valueType);
+    // Create dense vector descriptors (with dummy pointers for now)
+    cusparseCreateDnVec(&m_cudaData.vecR, n, d_dummyR, valueType);
     cusparseCreateDnVec(&m_cudaData.vecTmp, n, m_cudaData.d_tmp, valueType);
-    cusparseCreateDnVec(&m_cudaData.vecZ, n, m_cudaData.d_z, valueType);
-
-    // Note: Full IC0 factorization would use cusolver or require older deprecated APIs
-    // For now, we use the matrix as-is and perform triangular solves
-
-    // Note: cusparseSpIC0 is the modern API but may not be available in all CUDA versions
-    // For now, we'll use a simple Jacobi-like diagonal scaling as fallback
-    // The full IC0 implementation requires cusolver or older cuSPARSE API
-
-    // For CUDA 12+, we need to use cusolverSp for IC0 factorization
-    // As a simplified implementation, we'll just copy the matrix and perform
-    // the triangular solves treating it as already factorized (identity preconditioner behavior)
-
-    msg_warning() << "IC0 factorization using modern cuSPARSE API is not fully implemented. "
-                  << "Using matrix as-is for triangular solves (reduced effectiveness).";
+    cusparseCreateDnVec(&m_cudaData.vecZ, n, d_dummyZ, valueType);
 
     // Create SpSV descriptors for triangular solves
-    if (m_cudaData.spsvDescrL) cusparseSpSV_destroyDescr(m_cudaData.spsvDescrL);
-    if (m_cudaData.spsvDescrLt) cusparseSpSV_destroyDescr(m_cudaData.spsvDescrLt);
-
     cusparseSpSV_createDescr(&m_cudaData.spsvDescrL);
     cusparseSpSV_createDescr(&m_cudaData.spsvDescrLt);
 
     Real alpha = Real(1.0);
 
-    // Get buffer sizes for SpSV
+    // Get buffer sizes for SpSV (L * tmp = r)
     cusparseSpSV_bufferSize(handle, CUSPARSE_OPERATION_NON_TRANSPOSE,
                             &alpha, m_cudaData.matL, m_cudaData.vecR, m_cudaData.vecTmp,
                             valueType, CUSPARSE_SPSV_ALG_DEFAULT, m_cudaData.spsvDescrL,
                             &m_cudaData.bufferSizeL);
 
+    // Get buffer sizes for SpSV (L^T * z = tmp)
     cusparseSpSV_bufferSize(handle, CUSPARSE_OPERATION_TRANSPOSE,
-                            &alpha, m_cudaData.matLt, m_cudaData.vecTmp, m_cudaData.vecZ,
+                            &alpha, m_cudaData.matL, m_cudaData.vecTmp, m_cudaData.vecZ,
                             valueType, CUSPARSE_SPSV_ALG_DEFAULT, m_cudaData.spsvDescrLt,
                             &m_cudaData.bufferSizeLt);
 
     // Allocate buffers
-    if (m_cudaData.d_bufferL) mycudaFree(m_cudaData.d_bufferL);
-    if (m_cudaData.d_bufferLt) mycudaFree(m_cudaData.d_bufferLt);
-
     if (m_cudaData.bufferSizeL > 0)
         mycudaMalloc(&m_cudaData.d_bufferL, m_cudaData.bufferSizeL);
     if (m_cudaData.bufferSizeLt > 0)
         mycudaMalloc(&m_cudaData.d_bufferLt, m_cudaData.bufferSizeLt);
 
-    // Perform analysis for SpSV
-    cusparseSpSV_analysis(handle, CUSPARSE_OPERATION_NON_TRANSPOSE,
+    // Perform analysis for SpSV (this analyzes the sparsity pattern)
+    status = cusparseSpSV_analysis(handle, CUSPARSE_OPERATION_NON_TRANSPOSE,
                           &alpha, m_cudaData.matL, m_cudaData.vecR, m_cudaData.vecTmp,
                           valueType, CUSPARSE_SPSV_ALG_DEFAULT, m_cudaData.spsvDescrL,
                           m_cudaData.d_bufferL);
 
-    cusparseSpSV_analysis(handle, CUSPARSE_OPERATION_TRANSPOSE,
-                          &alpha, m_cudaData.matLt, m_cudaData.vecTmp, m_cudaData.vecZ,
+    if (status != CUSPARSE_STATUS_SUCCESS)
+    {
+        msg_error() << "cusparseSpSV_analysis (L) failed with status: " << status;
+    }
+
+    status = cusparseSpSV_analysis(handle, CUSPARSE_OPERATION_TRANSPOSE,
+                          &alpha, m_cudaData.matL, m_cudaData.vecTmp, m_cudaData.vecZ,
                           valueType, CUSPARSE_SPSV_ALG_DEFAULT, m_cudaData.spsvDescrLt,
                           m_cudaData.d_bufferLt);
+
+    if (status != CUSPARSE_STATUS_SUCCESS)
+    {
+        msg_error() << "cusparseSpSV_analysis (L^T) failed with status: " << status;
+    }
+
+    // Free dummy vectors
+    mycudaFree(d_dummyR);
+    mycudaFree(d_dummyZ);
 
     m_cudaData.analysisComplete = true;
     m_cudaData.factorized = true;
 
+    msg_info() << "IC0 preconditioner built: size=" << n << ", nnz=" << nnz;
+}
+
+template<class TMatrix, class TVector>
+void CudaIC0Preconditioner<TMatrix, TVector>::invert(Matrix& M)
+{
+    sofa::helper::AdvancedTimer::stepBegin("CudaIC0-Factorize");
+    uploadMatrixAndFactorize(M);
     sofa::helper::AdvancedTimer::stepEnd("CudaIC0-Factorize");
 }
 
 template<class TMatrix, class TVector>
-void CudaIC0Preconditioner<TMatrix, TVector>::solve(Matrix& /*M*/, Vector& z, Vector& r)
+void CudaIC0Preconditioner<TMatrix, TVector>::solveOnGPU(void* d_z, const void* d_r, int n)
 {
-    if (!m_cudaData.factorized)
+    if (!m_cudaData.factorized || !m_cudaData.analysisComplete)
     {
-        msg_error() << "Preconditioner not factorized. Call invert() first.";
+        msg_error() << "IC0 preconditioner not ready";
+        return;
+    }
+
+    if (n != m_cudaData.nRows)
+    {
+        msg_error() << "Size mismatch: expected " << m_cudaData.nRows << ", got " << n;
         return;
     }
 
     sofa::helper::AdvancedTimer::stepBegin("CudaIC0-Solve");
-
-    const int n = m_cudaData.nRows;
-
-    // Upload r to GPU
-    mycudaMemcpyHostToDevice(m_cudaData.d_r, r.ptr(), n * sizeof(Real));
-
-    // Solve on GPU
-    solveOnGPU(m_cudaData.d_z, m_cudaData.d_r, n);
-
-    // Download z from GPU
-    mycudaMemcpyDeviceToHost(z.ptr(), m_cudaData.d_z, n * sizeof(Real));
-
-    sofa::helper::AdvancedTimer::stepEnd("CudaIC0-Solve");
-}
-
-template<class TMatrix, class TVector>
-void CudaIC0Preconditioner<TMatrix, TVector>::solveOnGPU(void* d_z, const void* d_r, int /*n*/)
-{
-    if (!m_cudaData.factorized || !m_cudaData.analysisComplete)
-    {
-        return;
-    }
 
     cusparseHandle_t handle = getCusparseCtx();
     cudaDataType valueType = (sizeof(Real) == sizeof(float)) ? CUDA_R_32F : CUDA_R_64F;
@@ -344,14 +441,27 @@ void CudaIC0Preconditioner<TMatrix, TVector>::solveOnGPU(void* d_z, const void* 
     cusparseDnVecSetValues(m_cudaData.vecZ, d_z);
 
     // Solve L * tmp = r
-    cusparseSpSV_solve(handle, CUSPARSE_OPERATION_NON_TRANSPOSE,
+    cusparseStatus_t status;
+    status = cusparseSpSV_solve(handle, CUSPARSE_OPERATION_NON_TRANSPOSE,
                        &alpha, m_cudaData.matL, m_cudaData.vecR, m_cudaData.vecTmp,
                        valueType, CUSPARSE_SPSV_ALG_DEFAULT, m_cudaData.spsvDescrL);
 
+    if (status != CUSPARSE_STATUS_SUCCESS)
+    {
+        msg_error() << "cusparseSpSV_solve (L) failed with status: " << status;
+    }
+
     // Solve L^T * z = tmp
-    cusparseSpSV_solve(handle, CUSPARSE_OPERATION_TRANSPOSE,
-                       &alpha, m_cudaData.matLt, m_cudaData.vecTmp, m_cudaData.vecZ,
+    status = cusparseSpSV_solve(handle, CUSPARSE_OPERATION_TRANSPOSE,
+                       &alpha, m_cudaData.matL, m_cudaData.vecTmp, m_cudaData.vecZ,
                        valueType, CUSPARSE_SPSV_ALG_DEFAULT, m_cudaData.spsvDescrLt);
+
+    if (status != CUSPARSE_STATUS_SUCCESS)
+    {
+        msg_error() << "cusparseSpSV_solve (L^T) failed with status: " << status;
+    }
+
+    sofa::helper::AdvancedTimer::stepEnd("CudaIC0-Solve");
 }
 
 template<class TMatrix, class TVector>
@@ -382,8 +492,8 @@ void registerCudaIC0Preconditioner(sofa::core::ObjectFactory* factory)
     factory->registerObjects(
         sofa::core::ObjectRegistrationData(
             "CUDA-accelerated Incomplete Cholesky (IC0) preconditioner using cuSPARSE. "
-            "Suitable for symmetric positive definite matrices. "
-            "Solves L * L^T * z = r where L is the incomplete Cholesky factor.")
+            "Uses the lower triangular part of the matrix for L * L^T factorization. "
+            "Suitable for symmetric positive definite matrices.")
         .add<CudaIC0Preconditioner<linearalgebra::CompressedRowSparseMatrix<SReal>,
                                     linearalgebra::FullVector<SReal>>>()
         .add<CudaIC0Preconditioner<linearalgebra::CompressedRowSparseMatrix<type::Mat<3, 3, SReal>>,

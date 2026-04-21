@@ -26,7 +26,7 @@
 
 #ifdef SOFA_GPU_CUBLAS
 
-#include <sofa/component/linearsolver/iterative/MatrixLinearSolver.h>
+#include <sofa/core/objectmodel/BaseComponent.h>
 #include <sofa/linearalgebra/CompressedRowSparseMatrix.h>
 #include <sofa/linearalgebra/FullVector.h>
 #include <SofaCUDA/component/linearsolver/preconditioner/CudaPreconditioner.h>
@@ -50,18 +50,21 @@ namespace sofa::gpu::cuda
  *
  * Usage: Link this preconditioner to a CudaPCGLinearSolver via the
  * 'preconditioner' link.
+ *
+ * Note: This is NOT a linear solver itself - it only provides preconditioning
+ * functionality to be used by CudaPCGLinearSolver.
  */
 template<class TMatrix, class TVector>
-class CudaIC0Preconditioner : public sofa::component::linearsolver::MatrixLinearSolver<TMatrix, TVector>,
+class CudaIC0Preconditioner : public sofa::core::objectmodel::BaseObject,
                                public CudaPreconditionerBase
 {
 public:
     SOFA_CLASS(SOFA_TEMPLATE2(CudaIC0Preconditioner, TMatrix, TVector),
-               SOFA_TEMPLATE2(sofa::component::linearsolver::MatrixLinearSolver, TMatrix, TVector));
+               sofa::core::objectmodel::BaseObject);
 
     typedef TMatrix Matrix;
     typedef TVector Vector;
-    typedef sofa::component::linearsolver::MatrixLinearSolver<TMatrix, TVector> Inherit;
+    typedef sofa::core::objectmodel::BaseObject Inherit;
     typedef typename TVector::Real Real;
 
 protected:
@@ -72,10 +75,7 @@ public:
     void init() override;
 
     /// Build the preconditioner (compute IC0 factorization)
-    void invert(Matrix& M) override;
-
-    /// Apply the preconditioner: solve L * L^T * z = r
-    void solve(Matrix& M, Vector& z, Vector& r) override;
+    void invert(Matrix& M);
 
     /// Apply the preconditioner directly on GPU buffers: solve L * L^T * d_z = d_r
     /// This avoids CPU-GPU transfers when called from CudaPCGLinearSolver
@@ -96,13 +96,10 @@ private:
         void* d_csrColInd = nullptr;
 
         // Temporary vectors
-        void* d_r = nullptr;
-        void* d_z = nullptr;
         void* d_tmp = nullptr;
 
         // cuSPARSE descriptors for generic API
         cusparseSpMatDescr_t matL = nullptr;      // Lower triangular L
-        cusparseSpMatDescr_t matLt = nullptr;     // L^T (for transpose solve)
         cusparseDnVecDescr_t vecR = nullptr;      // Input vector
         cusparseDnVecDescr_t vecTmp = nullptr;    // Temporary vector
         cusparseDnVecDescr_t vecZ = nullptr;      // Output vector
@@ -112,12 +109,16 @@ private:
         cusparseSpSVDescr_t spsvDescrLt = nullptr;
 
         // Buffer for operations
-        void* d_buffer = nullptr;
         void* d_bufferL = nullptr;
         void* d_bufferLt = nullptr;
-        size_t bufferSize = 0;
         size_t bufferSizeL = 0;
         size_t bufferSizeLt = 0;
+
+        // IC0 factorization (legacy API, still functional in CUDA 12+)
+        cusparseMatDescr_t descrA = nullptr;
+        csric02Info_t ic02Info = nullptr;
+        void* d_ic02Buffer = nullptr;
+        size_t ic02BufferSize = 0;
 
         // Matrix dimensions
         int nRows = 0;
@@ -132,7 +133,7 @@ private:
 
     void allocateCudaResources(int nRows, int nnz);
     void freeCudaResources();
-    void uploadMatrix(const Matrix& M);
+    void uploadMatrixAndFactorize(const Matrix& M);
 };
 
 #if !defined(SOFACUDA_CUDAIC0PRECONDITIONER_CPP)
