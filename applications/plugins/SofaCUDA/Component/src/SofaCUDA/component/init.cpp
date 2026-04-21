@@ -132,6 +132,13 @@ extern void registerHexahedronTLEDForceField(sofa::core::ObjectFactory* factory)
 // component::linearsolver::iterative
 #ifdef SOFA_GPU_CUBLAS
 extern void registerCudaCGLinearSolver(sofa::core::ObjectFactory* factory);
+extern void registerCudaPCGLinearSolver(sofa::core::ObjectFactory* factory);
+#endif
+
+// component::linearsolver::preconditioner
+#ifdef SOFA_GPU_CUBLAS
+extern void registerCudaJacobiPreconditioner(sofa::core::ObjectFactory* factory);
+extern void registerCudaIC0Preconditioner(sofa::core::ObjectFactory* factory);
 #endif
 
 } // namespace sofa::gpu::cuda
@@ -252,6 +259,9 @@ void registerObjects(sofa::core::ObjectFactory* factory)
 
 #ifdef SOFA_GPU_CUBLAS
     registerCudaCGLinearSolver(factory);
+    registerCudaPCGLinearSolver(factory);
+    registerCudaJacobiPreconditioner(factory);
+    registerCudaIC0Preconditioner(factory);
 #endif
 }
 

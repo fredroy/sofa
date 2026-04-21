@@ -19,13 +19,13 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#define SOFACUDA_CUDACGLINEARSOLVER_CPP
+#define SOFACUDA_CUDAPCGLINEARSOLVER_CPP
 
 #include <SofaCUDA/component/config.h>
 
 #ifdef SOFA_GPU_CUBLAS
 
-#include <SofaCUDA/component/linearsolver/iterative/CudaCGLinearSolver.h>
+#include <SofaCUDA/component/linearsolver/iterative/CudaPCGLinearSolver.h>
 #include <sofa/core/ObjectFactory.h>
 #include <sofa/helper/AdvancedTimer.h>
 #include <sofa/gpu/cuda/mycuda.h>
@@ -37,7 +37,7 @@ namespace sofa::gpu::cuda
 {
 
 template<class TMatrix, class TVector>
-CudaCGLinearSolver<TMatrix, TVector>::CudaCGLinearSolver()
+CudaPCGLinearSolver<TMatrix, TVector>::CudaPCGLinearSolver()
     : d_maxIter(initData(&d_maxIter, 25u, "iterations",
         "Maximum number of iterations after which the iterative descent of the Conjugate Gradient must stop"))
     , d_tolerance(initData(&d_tolerance, (Real)1e-5, "tolerance",
@@ -46,7 +46,11 @@ CudaCGLinearSolver<TMatrix, TVector>::CudaCGLinearSolver()
         "Minimum value of the denominator (pT A p) in the conjugate Gradient solution"))
     , d_warmStart(initData(&d_warmStart, false, "warmStart",
         "Use previous solution as initial solution"))
+    , d_usePreconditioner(initData(&d_usePreconditioner, true, "usePreconditioner",
+        "Use the linked preconditioner"))
     , d_graph(initData(&d_graph, "graph", "Graph of residuals at each iteration"))
+    , l_preconditioner(initLink("preconditioner",
+        "Link towards the linear solver used to precondition the conjugate gradient"))
 {
     d_graph.setWidget("graph");
     d_maxIter.setRequired(true);
@@ -55,13 +59,13 @@ CudaCGLinearSolver<TMatrix, TVector>::CudaCGLinearSolver()
 }
 
 template<class TMatrix, class TVector>
-CudaCGLinearSolver<TMatrix, TVector>::~CudaCGLinearSolver()
+CudaPCGLinearSolver<TMatrix, TVector>::~CudaPCGLinearSolver()
 {
     freeCudaResources();
 }
 
 template<class TMatrix, class TVector>
-void CudaCGLinearSolver<TMatrix, TVector>::init()
+void CudaPCGLinearSolver<TMatrix, TVector>::init()
 {
     Inherit::init();
 
@@ -76,22 +80,48 @@ void CudaCGLinearSolver<TMatrix, TVector>::init()
         d_smallDenominatorThreshold.setValue(1e-5);
     }
 
+    if (l_preconditioner.empty())
+    {
+        msg_info() << "No preconditioner linked. The solver will behave as a standard CG solver. "
+                   << "Link a CUDA preconditioner (e.g., CudaJacobiPreconditioner, CudaIC0Preconditioner) "
+                   << "via the 'preconditioner' link for better convergence.";
+    }
+    else if (l_preconditioner.get() == nullptr)
+    {
+        msg_error() << "No preconditioner found at path: " << l_preconditioner.getLinkedPath();
+        this->d_componentState.setValue(sofa::core::objectmodel::ComponentState::Invalid);
+        return;
+    }
+    else
+    {
+        auto* cudaPrecond = dynamic_cast<CudaPreconditionerBase*>(l_preconditioner.get());
+        if (cudaPrecond)
+        {
+            msg_info() << "Using CUDA preconditioner: " << l_preconditioner->getName();
+        }
+        else
+        {
+            msg_warning() << "Linked preconditioner '" << l_preconditioner->getName()
+                          << "' is not a CUDA preconditioner. It will be ignored. "
+                          << "Use CudaJacobiPreconditioner or CudaIC0Preconditioner for GPU acceleration.";
+        }
+    }
+
     m_timeStepCount = 0;
     m_equilibriumReached = false;
 
-    // Initialize CUDA
     mycudaInit();
 }
 
 template<class TMatrix, class TVector>
-void CudaCGLinearSolver<TMatrix, TVector>::allocateCudaResources(int nRows, int nCols, int nnz)
+void CudaPCGLinearSolver<TMatrix, TVector>::allocateCudaResources(int nRows, int nCols, int nnz)
 {
     if (m_cudaData.allocated &&
         m_cudaData.nRows == nRows &&
         m_cudaData.nCols == nCols &&
         m_cudaData.nnz == nnz)
     {
-        return; // Already allocated with correct size
+        return;
     }
 
     freeCudaResources();
@@ -109,6 +139,7 @@ void CudaCGLinearSolver<TMatrix, TVector>::allocateCudaResources(int nRows, int 
     mycudaMalloc(&m_cudaData.d_x, nCols * sizeof(Real));
     mycudaMalloc(&m_cudaData.d_b, nRows * sizeof(Real));
     mycudaMalloc(&m_cudaData.d_r, nRows * sizeof(Real));
+    mycudaMalloc(&m_cudaData.d_z, nRows * sizeof(Real));  // preconditioned residual
     mycudaMalloc(&m_cudaData.d_p, nCols * sizeof(Real));
     mycudaMalloc(&m_cudaData.d_Ap, nRows * sizeof(Real));
 
@@ -124,23 +155,12 @@ void CudaCGLinearSolver<TMatrix, TVector>::allocateCudaResources(int nRows, int 
     cusparseCreateDnVec(&m_cudaData.vecX, nCols, m_cudaData.d_p, valueType);
     cusparseCreateDnVec(&m_cudaData.vecY, nRows, m_cudaData.d_Ap, valueType);
 
-    // Determine buffer size for SpMV
-    Real alpha = 1.0;
-    Real beta = 0.0;
-    cusparseSpMV_bufferSize(getCusparseCtx(), CUSPARSE_OPERATION_NON_TRANSPOSE,
-                            &alpha, m_cudaData.matA, m_cudaData.vecX, &beta, m_cudaData.vecY,
-                            valueType, CUSPARSE_SPMV_ALG_DEFAULT, &m_cudaData.bufferSize);
-
-    if (m_cudaData.bufferSize > 0)
-    {
-        mycudaMalloc(&m_cudaData.d_buffer, m_cudaData.bufferSize);
-    }
-
     m_cudaData.allocated = true;
+    m_cudaData.bufferSize = 0;  // Will be computed after matrix data is uploaded
 }
 
 template<class TMatrix, class TVector>
-void CudaCGLinearSolver<TMatrix, TVector>::freeCudaResources()
+void CudaPCGLinearSolver<TMatrix, TVector>::freeCudaResources()
 {
     if (!m_cudaData.allocated) return;
 
@@ -154,6 +174,7 @@ void CudaCGLinearSolver<TMatrix, TVector>::freeCudaResources()
     if (m_cudaData.d_x) mycudaFree(m_cudaData.d_x);
     if (m_cudaData.d_b) mycudaFree(m_cudaData.d_b);
     if (m_cudaData.d_r) mycudaFree(m_cudaData.d_r);
+    if (m_cudaData.d_z) mycudaFree(m_cudaData.d_z);
     if (m_cudaData.d_p) mycudaFree(m_cudaData.d_p);
     if (m_cudaData.d_Ap) mycudaFree(m_cudaData.d_Ap);
     if (m_cudaData.d_buffer) mycudaFree(m_cudaData.d_buffer);
@@ -162,16 +183,12 @@ void CudaCGLinearSolver<TMatrix, TVector>::freeCudaResources()
 }
 
 template<class TMatrix, class TVector>
-void CudaCGLinearSolver<TMatrix, TVector>::uploadMatrix(const Matrix& A)
+void CudaPCGLinearSolver<TMatrix, TVector>::uploadMatrix(const Matrix& A)
 {
-    // Get compressed row data from the matrix
-    // CompressedRowSparseMatrix stores data in CSR format (block CSR)
     const auto& rowBegin = A.getRowBegin();
     const auto& colsIndex = A.getColsIndex();
     const auto& colsValue = A.getColsValue();
 
-    // Extract CSR data from CompressedRowSparseMatrix
-    // The matrix is stored as blocks, we need to extract scalar values
     using Block = typename Matrix::Block;
     constexpr int BlockRows = Matrix::NL;
     constexpr int BlockCols = Matrix::NC;
@@ -196,7 +213,6 @@ void CudaCGLinearSolver<TMatrix, TVector>::uploadMatrix(const Matrix& A)
             // Collect all entries for this scalar row
             std::vector<std::pair<int, Real>> rowEntries;
 
-            // Iterate over blocks in this block row
             for (auto idx = rowBegin[br]; idx < rowBegin[br + 1]; ++idx)
             {
                 const int bc = static_cast<int>(colsIndex[idx]);
@@ -238,72 +254,109 @@ void CudaCGLinearSolver<TMatrix, TVector>::uploadMatrix(const Matrix& A)
 
     const int nnz = static_cast<int>(values.size());
 
-    // Allocate GPU resources if needed
+    const bool needsRealloc = !m_cudaData.allocated ||
+                              m_cudaData.nRows != scalarRows ||
+                              m_cudaData.nCols != scalarCols ||
+                              m_cudaData.nnz != nnz;
+
     allocateCudaResources(scalarRows, scalarCols, nnz);
 
-    // Upload to GPU
     mycudaMemcpyHostToDevice(m_cudaData.d_csrVal, values.data(), nnz * sizeof(Real));
     mycudaMemcpyHostToDevice(m_cudaData.d_csrRowPtr, rowPtr.data(), (scalarRows + 1) * sizeof(int));
     mycudaMemcpyHostToDevice(m_cudaData.d_csrColInd, colIdx.data(), nnz * sizeof(int));
 
-    // Update cuSPARSE matrix descriptor with new data pointers
     cusparseCsrSetPointers(m_cudaData.matA,
                            m_cudaData.d_csrRowPtr,
                            m_cudaData.d_csrColInd,
                            m_cudaData.d_csrVal);
+
+    // Compute SpMV buffer size after matrix data is uploaded (only on reallocation)
+    if (needsRealloc)
+    {
+        cudaDataType valueType = (sizeof(Real) == sizeof(float)) ? CUDA_R_32F : CUDA_R_64F;
+        Real alpha = 1.0;
+        Real beta = 0.0;
+
+        if (m_cudaData.d_buffer)
+        {
+            mycudaFree(m_cudaData.d_buffer);
+            m_cudaData.d_buffer = nullptr;
+        }
+
+        cusparseSpMV_bufferSize(getCusparseCtx(), CUSPARSE_OPERATION_NON_TRANSPOSE,
+                                &alpha, m_cudaData.matA, m_cudaData.vecX, &beta, m_cudaData.vecY,
+                                valueType, CUSPARSE_SPMV_ALG_DEFAULT, &m_cudaData.bufferSize);
+
+        if (m_cudaData.bufferSize > 0)
+        {
+            mycudaMalloc(&m_cudaData.d_buffer, m_cudaData.bufferSize);
+        }
+    }
 }
 
 template<class TMatrix, class TVector>
-void CudaCGLinearSolver<TMatrix, TVector>::uploadVector(const Vector& src, void* d_dst)
+void CudaPCGLinearSolver<TMatrix, TVector>::uploadVector(const Vector& src, void* d_dst)
 {
     mycudaMemcpyHostToDevice(d_dst, src.ptr(), src.size() * sizeof(Real));
 }
 
 template<class TMatrix, class TVector>
-void CudaCGLinearSolver<TMatrix, TVector>::downloadVector(void* d_src, Vector& dst)
+void CudaPCGLinearSolver<TMatrix, TVector>::downloadVector(void* d_src, Vector& dst)
 {
     mycudaMemcpyDeviceToHost(dst.ptr(), d_src, dst.size() * sizeof(Real));
 }
 
 template<class TMatrix, class TVector>
-void CudaCGLinearSolver<TMatrix, TVector>::sparseMatVec(void* d_x, void* d_y)
+void CudaPCGLinearSolver<TMatrix, TVector>::sparseMatVec(void* d_x, void* d_y)
 {
     Real alpha = 1.0;
     Real beta = 0.0;
     cudaDataType valueType = (sizeof(Real) == sizeof(float)) ? CUDA_R_32F : CUDA_R_64F;
 
-    // Update vector descriptors with current pointers
     cusparseDnVecSetValues(m_cudaData.vecX, d_x);
     cusparseDnVecSetValues(m_cudaData.vecY, d_y);
 
-    cusparseSpMV(getCusparseCtx(), CUSPARSE_OPERATION_NON_TRANSPOSE,
+    cusparseStatus_t status = cusparseSpMV(getCusparseCtx(), CUSPARSE_OPERATION_NON_TRANSPOSE,
                  &alpha, m_cudaData.matA, m_cudaData.vecX, &beta, m_cudaData.vecY,
                  valueType, CUSPARSE_SPMV_ALG_DEFAULT, m_cudaData.d_buffer);
+
+    if (status != CUSPARSE_STATUS_SUCCESS)
+    {
+        msg_error() << "cusparseSpMV failed with status: " << status;
+    }
 }
 
 template<class TMatrix, class TVector>
-typename CudaCGLinearSolver<TMatrix, TVector>::Real
-CudaCGLinearSolver<TMatrix, TVector>::gpuDot(void* d_a, void* d_b, int n)
+typename CudaPCGLinearSolver<TMatrix, TVector>::Real
+CudaPCGLinearSolver<TMatrix, TVector>::gpuDot(void* d_a, void* d_b, int n)
 {
     Real result = 0.0;
     cublasHandle_t handle = getCublasCtx();
+    cublasStatus_t status;
 
     if constexpr (sizeof(Real) == sizeof(float))
     {
-        cublasSdot(handle, n, static_cast<const float*>(d_a), 1,
-                   static_cast<const float*>(d_b), 1, reinterpret_cast<float*>(&result));
+        float fresult = 0.0f;
+        status = cublasSdot(handle, n, static_cast<const float*>(d_a), 1,
+                   static_cast<const float*>(d_b), 1, &fresult);
+        result = static_cast<Real>(fresult);
     }
     else
     {
-        cublasDdot(handle, n, static_cast<const double*>(d_a), 1,
+        status = cublasDdot(handle, n, static_cast<const double*>(d_a), 1,
                    static_cast<const double*>(d_b), 1, &result);
+    }
+
+    if (status != CUBLAS_STATUS_SUCCESS)
+    {
+        msg_error() << "cublasDot failed with status: " << status;
     }
 
     return result;
 }
 
 template<class TMatrix, class TVector>
-void CudaCGLinearSolver<TMatrix, TVector>::gpuAxpy(Real alpha, void* d_x, void* d_y, int n)
+void CudaPCGLinearSolver<TMatrix, TVector>::gpuAxpy(Real alpha, void* d_x, void* d_y, int n)
 {
     cublasHandle_t handle = getCublasCtx();
 
@@ -321,7 +374,7 @@ void CudaCGLinearSolver<TMatrix, TVector>::gpuAxpy(Real alpha, void* d_x, void* 
 }
 
 template<class TMatrix, class TVector>
-void CudaCGLinearSolver<TMatrix, TVector>::gpuCopy(void* d_src, void* d_dst, int n)
+void CudaPCGLinearSolver<TMatrix, TVector>::gpuCopy(void* d_src, void* d_dst, int n)
 {
     cublasHandle_t handle = getCublasCtx();
 
@@ -338,7 +391,7 @@ void CudaCGLinearSolver<TMatrix, TVector>::gpuCopy(void* d_src, void* d_dst, int
 }
 
 template<class TMatrix, class TVector>
-void CudaCGLinearSolver<TMatrix, TVector>::gpuScale(Real alpha, void* d_x, int n)
+void CudaPCGLinearSolver<TMatrix, TVector>::gpuScale(Real alpha, void* d_x, int n)
 {
     cublasHandle_t handle = getCublasCtx();
 
@@ -354,24 +407,49 @@ void CudaCGLinearSolver<TMatrix, TVector>::gpuScale(Real alpha, void* d_x, int n
 }
 
 template<class TMatrix, class TVector>
-void CudaCGLinearSolver<TMatrix, TVector>::solve(Matrix& A, Vector& x, Vector& b)
+void CudaPCGLinearSolver<TMatrix, TVector>::solve(Matrix& A, Vector& x, Vector& b)
 {
-    sofa::helper::AdvancedTimer::stepBegin("CudaCG-Solve");
+    sofa::helper::AdvancedTimer::stepBegin("CudaPCG-Solve");
 
     const int n = static_cast<int>(b.size());
 
-    msg_info() << "b = " << b;
+    msg_info() << "CudaPCG::solve called, n=" << n;
 
     // Upload matrix to GPU
     uploadMatrix(A);
 
+    // Check if preconditioner is available and should be used
+    const bool usePrecond = d_usePreconditioner.getValue() && l_preconditioner.get() != nullptr;
+
+    // Check if preconditioner supports GPU-native solve (no CPU-GPU transfers)
+    CudaPreconditionerBase* cudaPrecond = nullptr;
+    if (usePrecond)
+    {
+        cudaPrecond = dynamic_cast<CudaPreconditionerBase*>(l_preconditioner.get());
+    }
+
+    if (usePrecond)
+    {
+        // Build preconditioner
+        sofa::helper::AdvancedTimer::stepBegin("CudaPCG-BuildPreconditioner");
+        if (cudaPrecond)
+        {
+            // Use the CUDA preconditioner interface
+            cudaPrecond->updatePreconditioner(&A);
+        }
+        sofa::helper::AdvancedTimer::stepEnd("CudaPCG-BuildPreconditioner");
+    }
+
+    const bool useGPUPrecond = cudaPrecond != nullptr && cudaPrecond->isReadyForGPU();
+
+
     // Initialize graph for residuals
+    m_newtonIter++;
     std::map<std::string, sofa::type::vector<Real>>& graph = *d_graph.beginEdit();
-    sofa::type::vector<Real>& graph_error = graph[std::string("Error")];
+    char name[256];
+    sprintf(name, "Error %d", m_newtonIter);
+    sofa::type::vector<Real>& graph_error = graph[std::string(name)];
     graph_error.clear();
-    graph_error.push_back(1);
-    sofa::type::vector<Real>& graph_den = graph[std::string("Denominator")];
-    graph_den.clear();
 
     // Upload vectors to GPU
     uploadVector(b, m_cudaData.d_b);
@@ -380,18 +458,17 @@ void CudaCGLinearSolver<TMatrix, TVector>::solve(Matrix& A, Vector& x, Vector& b
     unsigned nb_iter = 0;
     const char* endcond = "iterations";
 
-    // Compute initial residual r depending on warmStart option
+    // Compute initial residual
     if (d_warmStart.getValue())
     {
         uploadVector(x, m_cudaData.d_x);
+        sparseMatVec(m_cudaData.d_x, m_cudaData.d_r);
         // r = b - A*x
-        sparseMatVec(m_cudaData.d_x, m_cudaData.d_r);  // r = A*x
-        gpuScale(Real(-1.0), m_cudaData.d_r, n);       // r = -A*x
-        gpuAxpy(Real(1.0), m_cudaData.d_b, m_cudaData.d_r, n);  // r = b - A*x
+        gpuScale(Real(-1.0), m_cudaData.d_r, n);
+        gpuAxpy(Real(1.0), m_cudaData.d_b, m_cudaData.d_r, n);
     }
     else
     {
-        // x = 0, r = b
         mycudaMemset(m_cudaData.d_x, 0, n * sizeof(Real));
         gpuCopy(m_cudaData.d_b, m_cudaData.d_r, n);
     }
@@ -399,26 +476,39 @@ void CudaCGLinearSolver<TMatrix, TVector>::solve(Matrix& A, Vector& x, Vector& b
     // Compute norm of b
     const Real normb = std::sqrt(gpuDot(m_cudaData.d_b, m_cudaData.d_b, n));
 
-    // Check if forces in LHS vector are non-zero
+    graph_error.push_back(Real(1.0));
+
     if (normb != 0.0)
     {
+        // Initial preconditioner application: z = M^{-1} * r
+        if (useGPUPrecond)
+        {
+            cudaPrecond->solveOnGPU(m_cudaData.d_z, m_cudaData.d_r, n);
+        }
+        else
+        {
+            gpuCopy(m_cudaData.d_r, m_cudaData.d_z, n);
+        }
+
+        // Initial rho = r^T * z
+        rho = gpuDot(m_cudaData.d_r, m_cudaData.d_z, n);
+
+        // p = z
+        gpuCopy(m_cudaData.d_z, m_cudaData.d_p, n);
+
         for (nb_iter = 1; nb_iter <= d_maxIter.getValue(); ++nb_iter)
         {
-            // Compute rho = r . r
-            rho = gpuDot(m_cudaData.d_r, m_cudaData.d_r, n);
-
-            // Compute error
-            const Real normr = std::sqrt(rho);
+            // Compute error = |r| / |b|
+            const Real normr = std::sqrt(gpuDot(m_cudaData.d_r, m_cudaData.d_r, n));
             const Real err = normr / normb;
             graph_error.push_back(err);
 
-            // Check tolerance criterion
+            // Check tolerance: |r|/|b| <= tolerance
             if (err <= d_tolerance.getValue())
             {
                 if (nb_iter == 1 && m_timeStepCount == 0)
                 {
-                    msg_warning() << "tolerance reached at first iteration of CG, "
-                                  << "check the 'tolerance' data field";
+                    msg_warning() << "tolerance reached at first iteration of PCG";
                 }
                 else
                 {
@@ -437,71 +527,61 @@ void CudaCGLinearSolver<TMatrix, TVector>::solve(Matrix& A, Vector& x, Vector& b
                 }
             }
 
-            // Compute p
-            if (nb_iter == 1)
-            {
-                // p = r
-                gpuCopy(m_cudaData.d_r, m_cudaData.d_p, n);
-            }
-            else
-            {
-                // beta = rho / rho_1
-                beta = rho / rho_1;
-                // p = r + beta * p
-                gpuScale(beta, m_cudaData.d_p, n);
-                gpuAxpy(Real(1.0), m_cudaData.d_r, m_cudaData.d_p, n);
-            }
-
             // Compute Ap = A * p
             sparseMatVec(m_cudaData.d_p, m_cudaData.d_Ap);
 
-            // Compute denominator: den = p . Ap
+            // Compute denominator: den = p^T * Ap
             const Real den = gpuDot(m_cudaData.d_p, m_cudaData.d_Ap, n);
-            graph_den.push_back(den);
 
-            if (den != 0.0)
-            {
-                // Check threshold criterion
-                if (std::fabs(den) <= d_smallDenominatorThreshold.getValue())
-                {
-                    if (nb_iter == 1 && m_timeStepCount == 0)
-                    {
-                        msg_warning() << "denominator threshold reached at first iteration of CG, "
-                                      << "check the 'threshold' data field";
-                    }
-                    else
-                    {
-                        if (nb_iter == 1 && !m_equilibriumReached)
-                        {
-                            msg_info() << "Equilibrium reached regarding threshold";
-                            m_equilibriumReached = true;
-                        }
-                        if (nb_iter > 1)
-                        {
-                            m_equilibriumReached = false;
-                        }
-                        endcond = "threshold";
-                        msg_info() << "den = " << den << ", threshold = " << d_smallDenominatorThreshold.getValue();
-                        break;
-                    }
-                }
-
-                // Compute alpha = rho / den
-                alpha = rho / den;
-
-                // Update x: x = x + alpha * p
-                gpuAxpy(alpha, m_cudaData.d_p, m_cudaData.d_x, n);
-
-                // Update r: r = r - alpha * Ap
-                gpuAxpy(-alpha, m_cudaData.d_Ap, m_cudaData.d_r, n);
-            }
-            else
+            if (den == 0.0)
             {
                 msg_warning() << "den = 0.0, breaking iterations";
                 break;
             }
 
+            if (std::fabs(den) <= d_smallDenominatorThreshold.getValue())
+            {
+                if (nb_iter == 1 && m_timeStepCount == 0)
+                {
+                    msg_warning() << "denominator threshold reached at first iteration of PCG";
+                }
+                else
+                {
+                    endcond = "threshold";
+                    msg_info() << "den = " << den << ", threshold = " << d_smallDenominatorThreshold.getValue();
+                    break;
+                }
+            }
+
+            // alpha = rho / den
+            alpha = rho / den;
+
+            // x = x + alpha * p
+            gpuAxpy(alpha, m_cudaData.d_p, m_cudaData.d_x, n);
+
+            // r = r - alpha * Ap
+            gpuAxpy(-alpha, m_cudaData.d_Ap, m_cudaData.d_r, n);
+
+            // z = M^{-1} * r
+            if (useGPUPrecond)
+            {
+                cudaPrecond->solveOnGPU(m_cudaData.d_z, m_cudaData.d_r, n);
+            }
+            else
+            {
+                gpuCopy(m_cudaData.d_r, m_cudaData.d_z, n);
+            }
+
+            // rho_new = r^T * z
             rho_1 = rho;
+            rho = gpuDot(m_cudaData.d_r, m_cudaData.d_z, n);
+
+            // beta = rho_new / rho_old
+            beta = rho / rho_1;
+
+            // p = z + beta * p
+            gpuScale(beta, m_cudaData.d_p, n);
+            gpuAxpy(Real(1.0), m_cudaData.d_z, m_cudaData.d_p, n);
         }
     }
     else
@@ -515,33 +595,34 @@ void CudaCGLinearSolver<TMatrix, TVector>::solve(Matrix& A, Vector& x, Vector& b
     d_graph.endEdit();
     m_timeStepCount++;
 
-    sofa::helper::AdvancedTimer::valSet("CudaCG iterations", nb_iter);
-    sofa::helper::AdvancedTimer::stepEnd("CudaCG-Solve");
+    sofa::helper::AdvancedTimer::valSet("CudaPCG iterations", nb_iter);
+    sofa::helper::AdvancedTimer::stepEnd("CudaPCG-Solve");
 
     msg_info() << "solve, nbiter = " << nb_iter << " stop because of " << endcond;
     msg_info() << "solve, solution = " << x;
 }
 
 // Explicit template instantiations
-template class SOFACUDA_COMPONENT_API CudaCGLinearSolver<
+template class SOFACUDA_COMPONENT_API CudaPCGLinearSolver<
     linearalgebra::CompressedRowSparseMatrix<SReal>,
     linearalgebra::FullVector<SReal>>;
 
-template class SOFACUDA_COMPONENT_API CudaCGLinearSolver<
+template class SOFACUDA_COMPONENT_API CudaPCGLinearSolver<
     linearalgebra::CompressedRowSparseMatrix<type::Mat<3, 3, SReal>>,
     linearalgebra::FullVector<SReal>>;
 
 // Component registration
-void registerCudaCGLinearSolver(sofa::core::ObjectFactory* factory)
+void registerCudaPCGLinearSolver(sofa::core::ObjectFactory* factory)
 {
     factory->registerObjects(
         sofa::core::ObjectRegistrationData(
-            "CUDA-accelerated Conjugate Gradient linear solver for assembled sparse matrices. "
-            "Uses cuSPARSE for SpMV and cuBLAS for vector operations.")
-        .add<CudaCGLinearSolver<linearalgebra::CompressedRowSparseMatrix<SReal>,
-                                linearalgebra::FullVector<SReal>>>()
-        .add<CudaCGLinearSolver<linearalgebra::CompressedRowSparseMatrix<type::Mat<3, 3, SReal>>,
-                                linearalgebra::FullVector<SReal>>>()
+            "CUDA-accelerated Preconditioned Conjugate Gradient linear solver. "
+            "Uses cuSPARSE for SpMV and cuBLAS for vector operations. "
+            "Link a preconditioner (CudaJacobiPreconditioner or CudaIC0Preconditioner) for better convergence.")
+        .add<CudaPCGLinearSolver<linearalgebra::CompressedRowSparseMatrix<SReal>,
+                                  linearalgebra::FullVector<SReal>>>()
+        .add<CudaPCGLinearSolver<linearalgebra::CompressedRowSparseMatrix<type::Mat<3, 3, SReal>>,
+                                  linearalgebra::FullVector<SReal>>>()
     );
 }
 
