@@ -25,26 +25,12 @@
 
 enum { NARROW_BSIZE = 64 };
 
-struct NarrowPhasePairData
-{
-    const CudaVec3<float>* positions1;
-    const CudaVec3<float>* positions2;
-    const int* triangles1;
-    const int* edges1;
-    const CudaVec3<float>* normals1;
-    const int* triangles2;
-    const int* edges2;
-    const CudaVec3<float>* normals2;
-    float alarmDist2;
-};
-
 struct NarrowPhaseTestEntry
 {
     int type;
     int elem1;
     int elem2;
     int flags;
-    int pairIndex;
 };
 
 enum NarrowPhaseTestType
@@ -76,9 +62,24 @@ extern "C"
     void CudaNarrowPhaseDetection_doTests(
         unsigned int nbTests,
         const void* tests,
-        unsigned int nbPairs,
-        const void* pairData,
+        const void* positions1,
+        const void* positions2,
+        const void* triangles1,
+        const void* edges1,
+        const void* triangles2,
+        const void* edges2,
+        float alarmDist2,
         void* results);
+}
+
+__device__ CudaVec3<float> computeTriNormal(CudaVec3<float> p1, CudaVec3<float> p2, CudaVec3<float> p3)
+{
+    CudaVec3<float> ab = p2 - p1;
+    CudaVec3<float> ac = p3 - p1;
+    CudaVec3<float> n = cross(ab, ac);
+    float len = norm(n);
+    if (len > 1e-15f) n = n * (1.0f / len);
+    return n;
 }
 
 __device__ int doIntersectionTrianglePoint_device(
@@ -313,24 +314,19 @@ __device__ int doIntersectionPointPoint_device(
 __global__ void CudaNarrowPhaseDetection_doTests_kernel(
     unsigned int nbTests,
     const NarrowPhaseTestEntry* tests,
-    const NarrowPhasePairData* pairData,
+    const CudaVec3<float>* positions1,
+    const CudaVec3<float>* positions2,
+    const int* triangles1,
+    const int* edges1,
+    const int* triangles2,
+    const int* edges2,
+    float alarmDist2,
     NarrowPhaseResult* results)
 {
     unsigned int tid = blockIdx.x * blockDim.x + threadIdx.x;
     if (tid >= nbTests) return;
 
     NarrowPhaseTestEntry test = tests[tid];
-    NarrowPhasePairData pair = pairData[test.pairIndex];
-
-    const CudaVec3<float>* positions1 = pair.positions1;
-    const CudaVec3<float>* positions2 = pair.positions2;
-    const int* triangles1 = pair.triangles1;
-    const int* edges1 = pair.edges1;
-    const CudaVec3<float>* normals1 = pair.normals1;
-    const int* triangles2 = pair.triangles2;
-    const int* edges2 = pair.edges2;
-    float alarmDist2 = pair.alarmDist2;
-
     NarrowPhaseResult res;
     res.valid = 0;
     res.elem1 = test.elem1;
@@ -351,7 +347,7 @@ __global__ void CudaNarrowPhaseDetection_doTests_kernel(
         CudaVec3<float> p1 = positions1[v0];
         CudaVec3<float> p2 = positions1[v1];
         CudaVec3<float> p3 = positions1[v2];
-        CudaVec3<float> n  = normals1[triIdx];
+        CudaVec3<float> n  = computeTriNormal(p1, p2, p3);
         CudaVec3<float> q  = positions2[ptIdx];
         res.valid = doIntersectionTrianglePoint_device(alarmDist2, test.flags, p1, p2, p3, n, q, cP, cQ, cN, cD);
         break;
@@ -369,7 +365,7 @@ __global__ void CudaNarrowPhaseDetection_doTests_kernel(
         CudaVec3<float> p1 = positions1[v0];
         CudaVec3<float> p2 = positions1[v1];
         CudaVec3<float> p3 = positions1[v2];
-        CudaVec3<float> n  = normals1[triIdx1];
+        CudaVec3<float> n  = computeTriNormal(p1, p2, p3);
         CudaVec3<float> q  = positions2[ptIdx];
         res.valid = doIntersectionTrianglePoint_device(alarmDist2, triFlags, p1, p2, p3, n, q, cP, cQ, cN, cD);
         break;
@@ -387,7 +383,7 @@ __global__ void CudaNarrowPhaseDetection_doTests_kernel(
         CudaVec3<float> p1 = positions1[v0];
         CudaVec3<float> p2 = positions1[v1];
         CudaVec3<float> p3 = positions1[v2];
-        CudaVec3<float> n  = normals1[triIdx];
+        CudaVec3<float> n  = computeTriNormal(p1, p2, p3);
         CudaVec3<float> q  = positions2[ptIdx];
         res.valid = doIntersectionTrianglePoint_device(alarmDist2, triFlags, p1, p2, p3, n, q, cP, cQ, cN, cD);
         break;
@@ -405,11 +401,7 @@ __global__ void CudaNarrowPhaseDetection_doTests_kernel(
         CudaVec3<float> p1 = positions2[v0];
         CudaVec3<float> p2 = positions2[v1];
         CudaVec3<float> p3 = positions2[v2];
-        CudaVec3<float> ab = p2 - p1;
-        CudaVec3<float> ac = p3 - p1;
-        CudaVec3<float> n = cross(ab, ac);
-        float len = norm(n);
-        if (len > 1e-15f) n = n * (1.0f / len);
+        CudaVec3<float> n  = computeTriNormal(p1, p2, p3);
         CudaVec3<float> q  = positions1[ptIdx];
         res.valid = doIntersectionTrianglePoint_device(alarmDist2, triFlags, p1, p2, p3, n, q, cP, cQ, cN, cD);
         break;
@@ -427,11 +419,7 @@ __global__ void CudaNarrowPhaseDetection_doTests_kernel(
         CudaVec3<float> p1 = positions2[v0];
         CudaVec3<float> p2 = positions2[v1];
         CudaVec3<float> p3 = positions2[v2];
-        CudaVec3<float> ab = p2 - p1;
-        CudaVec3<float> ac = p3 - p1;
-        CudaVec3<float> n = cross(ab, ac);
-        float len = norm(n);
-        if (len > 1e-15f) n = n * (1.0f / len);
+        CudaVec3<float> n  = computeTriNormal(p1, p2, p3);
         CudaVec3<float> q  = positions1[ptIdx];
         res.valid = doIntersectionTrianglePoint_device(alarmDist2, triFlags, p1, p2, p3, n, q, cP, cQ, cN, cD);
         break;
@@ -493,8 +481,13 @@ __global__ void CudaNarrowPhaseDetection_doTests_kernel(
 void CudaNarrowPhaseDetection_doTests(
     unsigned int nbTests,
     const void* tests,
-    unsigned int nbPairs,
-    const void* pairData,
+    const void* positions1,
+    const void* positions2,
+    const void* triangles1,
+    const void* edges1,
+    const void* triangles2,
+    const void* edges2,
+    float alarmDist2,
     void* results)
 {
     if (nbTests == 0) return;
@@ -503,7 +496,13 @@ void CudaNarrowPhaseDetection_doTests(
     CudaNarrowPhaseDetection_doTests_kernel<<<grid, threads>>>(
         nbTests,
         (const NarrowPhaseTestEntry*)tests,
-        (const NarrowPhasePairData*)pairData,
+        (const CudaVec3<float>*)positions1,
+        (const CudaVec3<float>*)positions2,
+        (const int*)triangles1,
+        (const int*)edges1,
+        (const int*)triangles2,
+        (const int*)edges2,
+        alarmDist2,
         (NarrowPhaseResult*)results);
     mycudaDebugError("CudaNarrowPhaseDetection_doTests_kernel");
 }

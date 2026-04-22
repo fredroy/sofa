@@ -28,26 +28,12 @@
 namespace sofa::gpu::cuda
 {
 
-struct NarrowPhasePairData
-{
-    const void* positions1;
-    const void* positions2;
-    const void* triangles1;
-    const void* edges1;
-    const void* normals1;
-    const void* triangles2;
-    const void* edges2;
-    const void* normals2;
-    float alarmDist2;
-};
-
 struct NarrowPhaseTestEntry
 {
     int type;
     int elem1;
     int elem2;
     int flags;
-    int pairIndex;
 };
 
 enum NarrowPhaseTestType
@@ -89,22 +75,15 @@ public:
     void addCollisionPair(
         const std::pair<core::CollisionModel*, core::CollisionModel*>& cmPair) override;
 
-    void addCollisionPairs(
-        const sofa::type::vector<std::pair<core::CollisionModel*, core::CollisionModel*>>& v) override;
-
 protected:
-    bool isMeshBasedPair(core::CollisionModel* cm1, core::CollisionModel* cm2) const;
 
-    void collectLeafTests(
-        core::CollisionModel* cm1, core::CollisionModel* cm2,
-        core::CollisionModel* finest1, core::CollisionModel* finest2,
-        int kind1, int kind2,
-        bool selfCollision,
-        std::vector<NarrowPhaseTestEntry>& testList);
+    void collectTestsAndRunGPU(
+        const std::pair<core::CollisionModel*, core::CollisionModel*>& cmPair);
+
+    bool isMeshBasedPair(core::CollisionModel* cm1, core::CollisionModel* cm2) const;
 
     CudaVector<NarrowPhaseTestEntry> d_tests;
     CudaVector<NarrowPhaseResult>    d_results;
-    CudaVector<NarrowPhasePairData>  d_pairData;
 };
 
 } // namespace sofa::gpu::cuda

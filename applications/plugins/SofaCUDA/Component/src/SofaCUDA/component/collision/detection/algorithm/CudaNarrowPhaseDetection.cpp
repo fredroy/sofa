@@ -30,16 +30,19 @@
 
 #include <queue>
 #include <stack>
-#include <map>
-#include <memory>
 
 extern "C"
 {
     void CudaNarrowPhaseDetection_doTests(
         unsigned int nbTests,
         const void* tests,
-        unsigned int nbPairs,
-        const void* pairData,
+        const void* positions1,
+        const void* positions2,
+        const void* triangles1,
+        const void* edges1,
+        const void* triangles2,
+        const void* edges2,
+        float alarmDist2,
         void* results);
 }
 
@@ -97,124 +100,86 @@ int getTriangleFlags(core::CollisionModel* cm, int idx)
     return 0x3F;
 }
 
-struct GpuMeshPtrs
-{
-    const void* positions = nullptr;
-    const void* triangles = nullptr;
-    const void* edges     = nullptr;
-    const void* normals   = nullptr;
-
-    CudaVector<float> ownedPositions;
-    CudaVector<int>   ownedTriangles;
-    CudaVector<int>   ownedEdges;
-    CudaVector<float> ownedNormals;
-};
-
+// Returns device pointer to positions. For CudaVec3Types, zero-copy from MechanicalState.
+// For Vec3Types, copies into tmpBuf and returns device pointer.
 template <typename DataTypes>
-bool tryFillGpuPtrs(core::CollisionModel* cm, GpuMeshPtrs& ptrs)
+const void* tryGetPositionsDevice(core::CollisionModel* cm, CudaVector<float>& tmpBuf)
 {
     auto* triModel = dynamic_cast<TriangleCollisionModel<DataTypes>*>(cm);
     auto* lineModel = dynamic_cast<LineCollisionModel<DataTypes>*>(cm);
     auto* pointModel = dynamic_cast<PointCollisionModel<DataTypes>*>(cm);
 
     core::behavior::MechanicalState<DataTypes>* mstate = nullptr;
-    if (triModel)
-        mstate = dynamic_cast<core::behavior::MechanicalState<DataTypes>*>(triModel->getContext()->getMechanicalState());
-    else if (lineModel)
-        mstate = dynamic_cast<core::behavior::MechanicalState<DataTypes>*>(lineModel->getContext()->getMechanicalState());
-    else if (pointModel)
-        mstate = dynamic_cast<core::behavior::MechanicalState<DataTypes>*>(pointModel->getContext()->getMechanicalState());
+    if (triModel) mstate = dynamic_cast<core::behavior::MechanicalState<DataTypes>*>(triModel->getContext()->getMechanicalState());
+    else if (lineModel) mstate = dynamic_cast<core::behavior::MechanicalState<DataTypes>*>(lineModel->getContext()->getMechanicalState());
+    else if (pointModel) mstate = dynamic_cast<core::behavior::MechanicalState<DataTypes>*>(pointModel->getContext()->getMechanicalState());
+    if (!mstate) return nullptr;
 
-    if (!mstate) return false;
-
-    const auto& posData = mstate->read(core::vec_id::read_access::position)->getValue();
+    const auto& pos = mstate->read(core::vec_id::read_access::position)->getValue();
 
     if constexpr (std::is_same_v<DataTypes, CudaVec3Types>)
     {
-        ptrs.positions = posData.deviceRead();
+        return pos.deviceRead();
     }
     else
     {
-        unsigned int nVerts = (unsigned int)posData.size();
-        ptrs.ownedPositions.resize(nVerts * 3);
-        auto* w = ptrs.ownedPositions.hostWrite();
-        for (unsigned int i = 0; i < nVerts; ++i)
+        unsigned int n = (unsigned int)pos.size();
+        tmpBuf.resize(n * 3);
+        auto* w = tmpBuf.hostWrite();
+        for (unsigned int i = 0; i < n; ++i)
         {
-            w[i * 3 + 0] = (float)posData[i][0];
-            w[i * 3 + 1] = (float)posData[i][1];
-            w[i * 3 + 2] = (float)posData[i][2];
+            w[i * 3 + 0] = (float)pos[i][0];
+            w[i * 3 + 1] = (float)pos[i][1];
+            w[i * 3 + 2] = (float)pos[i][2];
         }
-        ptrs.positions = ptrs.ownedPositions.deviceRead();
+        return tmpBuf.deviceRead();
     }
+}
 
-    if (triModel)
+const void* getPositionsDevice(core::CollisionModel* cm, CudaVector<float>& tmpBuf)
+{
+    auto* p = tryGetPositionsDevice<CudaVec3Types>(cm, tmpBuf);
+    if (p) return p;
+    return tryGetPositionsDevice<sofa::defaulttype::Vec3Types>(cm, tmpBuf);
+}
+
+void uploadTriangles(core::CollisionModel* cm, CudaVector<int>& buf)
+{
+    auto* m = dynamic_cast<TriModel*>(cm);
+    if (!m) m = reinterpret_cast<TriModel*>(dynamic_cast<CudaTriModel*>(cm));
+    // Both TriModel and CudaTriModel derive from TriangleCollisionModel which has getTriangles()
+    const sofa::core::topology::BaseMeshTopology::SeqTriangles* tris = nullptr;
+    if (auto* t = dynamic_cast<TriModel*>(cm)) tris = &t->getTriangles();
+    else if (auto* t = dynamic_cast<CudaTriModel*>(cm)) tris = &t->getTriangles();
+    if (!tris || tris->empty()) return;
+    unsigned int n = (unsigned int)tris->size();
+    buf.resize(n * 3);
+    auto* w = buf.hostWrite();
+    for (unsigned int i = 0; i < n; ++i)
     {
-        const auto& tris = triModel->getTriangles();
-        unsigned int nTris = (unsigned int)tris.size();
-        ptrs.ownedTriangles.resize(nTris * 3);
-        {
-            auto* w = ptrs.ownedTriangles.hostWrite();
-            for (unsigned int i = 0; i < nTris; ++i)
-            {
-                w[i * 3 + 0] = (int)tris[i][0];
-                w[i * 3 + 1] = (int)tris[i][1];
-                w[i * 3 + 2] = (int)tris[i][2];
-            }
-        }
-        ptrs.triangles = ptrs.ownedTriangles.deviceRead();
-
-        const auto& normals = triModel->getNormals();
-        unsigned int nNormals = std::min((unsigned int)normals.size(), nTris);
-        ptrs.ownedNormals.resize(nTris * 3);
-        {
-            auto* w = ptrs.ownedNormals.hostWrite();
-            for (unsigned int i = 0; i < nNormals; ++i)
-            {
-                w[i * 3 + 0] = (float)normals[i][0];
-                w[i * 3 + 1] = (float)normals[i][1];
-                w[i * 3 + 2] = (float)normals[i][2];
-            }
-        }
-        ptrs.normals = ptrs.ownedNormals.deviceRead();
+        w[i * 3 + 0] = (int)(*tris)[i][0];
+        w[i * 3 + 1] = (int)(*tris)[i][1];
+        w[i * 3 + 2] = (int)(*tris)[i][2];
     }
+}
 
+void uploadEdges(core::CollisionModel* cm, CudaVector<int>& buf)
+{
     auto* topo = cm->getCollisionTopology();
-    if (topo)
+    if (!topo) return;
+    const auto& edges = topo->getEdges();
+    if (edges.empty()) return;
+    unsigned int n = (unsigned int)edges.size();
+    buf.resize(n * 2);
+    auto* w = buf.hostWrite();
+    for (unsigned int i = 0; i < n; ++i)
     {
-        const auto& edges = topo->getEdges();
-        unsigned int nEdges = (unsigned int)edges.size();
-        if (nEdges > 0)
-        {
-            ptrs.ownedEdges.resize(nEdges * 2);
-            {
-                auto* w = ptrs.ownedEdges.hostWrite();
-                for (unsigned int i = 0; i < nEdges; ++i)
-                {
-                    w[i * 2 + 0] = (int)edges[i][0];
-                    w[i * 2 + 1] = (int)edges[i][1];
-                }
-            }
-            ptrs.edges = ptrs.ownedEdges.deviceRead();
-        }
+        w[i * 2 + 0] = (int)edges[i][0];
+        w[i * 2 + 1] = (int)edges[i][1];
     }
-    return true;
 }
 
-bool fillGpuPtrs(core::CollisionModel* cm, GpuMeshPtrs& ptrs)
-{
-    if (tryFillGpuPtrs<CudaVec3Types>(cm, ptrs)) return true;
-    return tryFillGpuPtrs<sofa::defaulttype::Vec3Types>(cm, ptrs);
-}
-
-struct PairContext
-{
-    core::CollisionModel* finest1;
-    core::CollisionModel* finest2;
-    sofa::core::collision::DetectionOutputVector** outputs;
-    float contactDist;
-    unsigned int testBegin;
-    unsigned int testEnd;
-};
+struct TestInfo { int type; int elem1; int elem2; int flags; bool swapResult; };
 
 } // anonymous namespace
 
@@ -226,15 +191,60 @@ bool CudaNarrowPhaseDetection::isMeshBasedPair(
 }
 
 
-void CudaNarrowPhaseDetection::collectLeafTests(
-    core::CollisionModel* cm1, core::CollisionModel* cm2,
-    core::CollisionModel* finest1, core::CollisionModel* finest2,
-    int kind1, int kind2,
-    bool selfCollision,
-    std::vector<NarrowPhaseTestEntry>& testList)
+void CudaNarrowPhaseDetection::addCollisionPair(
+    const std::pair<core::CollisionModel*, core::CollisionModel*>& cmPair)
 {
-    using CollisionIteratorRange = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>;
-    using TestPair = std::pair<CollisionIteratorRange, CollisionIteratorRange>;
+    core::CollisionModel* cm1 = cmPair.first;
+    core::CollisionModel* cm2 = cmPair.second;
+
+    if (!cm1->isSimulated() && !cm2->isSimulated())
+        return;
+    if (cm1->empty() || cm2->empty())
+        return;
+
+    if (isMeshBasedPair(cm1->getLast(), cm2->getLast()))
+        collectTestsAndRunGPU(cmPair);
+    else
+        BVHNarrowPhase::addCollisionPair(cmPair);
+}
+
+
+void CudaNarrowPhaseDetection::collectTestsAndRunGPU(
+    const std::pair<core::CollisionModel*, core::CollisionModel*>& cmPair)
+{
+    core::CollisionModel* cm1 = cmPair.first;
+    core::CollisionModel* cm2 = cmPair.second;
+
+    core::CollisionModel* finest1 = cm1->getLast();
+    core::CollisionModel* finest2 = cm2->getLast();
+
+    const bool selfCollision = isSelfCollision(finest1, finest2);
+
+    bool swapModels = false;
+    core::collision::ElementIntersector* finestIntersector =
+        intersectionMethod->findIntersector(finest1, finest2, swapModels);
+    if (!finestIntersector) return;
+
+    if (swapModels)
+    {
+        std::swap(cm1, cm2);
+        std::swap(finest1, finest2);
+    }
+
+    sofa::core::collision::DetectionOutputVector*& outputs =
+        this->getDetectionOutputs(finest1, finest2);
+    finestIntersector->beginIntersect(finest1, finest2, outputs);
+
+    const ModelKind kind1 = classifyModel(finest1);
+    const ModelKind kind2 = classifyModel(finest2);
+
+    const float alarmDist  = (float)(intersectionMethod->getAlarmDistance() + finest1->getContactDistance() + finest2->getContactDistance());
+    const float contactDist = (float)(intersectionMethod->getContactDistance() + finest1->getContactDistance() + finest2->getContactDistance());
+    const float alarmDist2 = alarmDist * alarmDist;
+
+    // BVH traversal to collect leaf tests
+    std::vector<TestInfo> testList;
+    testList.reserve(4096);
 
     core::CollisionModel* bvhFinest1 = finest1;
     core::CollisionModel* bvhFinest2 = finest2;
@@ -243,6 +253,9 @@ void CudaNarrowPhaseDetection::collectLeafTests(
         bvhFinest1 = nullptr;
         bvhFinest2 = nullptr;
     }
+
+    using CollisionIteratorRange = std::pair<core::CollisionElementIterator, core::CollisionElementIterator>;
+    using TestPair = std::pair<CollisionIteratorRange, CollisionIteratorRange>;
 
     std::queue<TestPair> externalCells;
     initializeExternalCells(cm1, cm2, externalCells);
@@ -302,56 +315,56 @@ void CudaNarrowPhaseDetection::collectLeafTests(
 
                         if (kind1 == MODEL_TRIANGLE && kind2 == MODEL_POINT)
                         {
-                            testList.push_back({TEST_TRIANGLE_POINT, idx1, idx2, getTriangleFlags(finest1, idx1), 0});
+                            testList.push_back({TEST_TRIANGLE_POINT, idx1, idx2, getTriangleFlags(finest1, idx1), false});
                         }
                         else if (kind1 == MODEL_POINT && kind2 == MODEL_TRIANGLE)
                         {
-                            testList.push_back({TEST_TRIANGLE_POINT, idx2, idx1, getTriangleFlags(finest2, idx2), 0});
+                            testList.push_back({TEST_TRIANGLE_POINT, idx2, idx1, getTriangleFlags(finest2, idx2), true});
                         }
                         else if (kind1 == MODEL_LINE && kind2 == MODEL_POINT)
                         {
-                            testList.push_back({TEST_LINE_POINT, idx1, idx2, 0, 0});
+                            testList.push_back({TEST_LINE_POINT, idx1, idx2, 0, false});
                         }
                         else if (kind1 == MODEL_POINT && kind2 == MODEL_LINE)
                         {
-                            testList.push_back({TEST_LINE_POINT, idx2, idx1, 0, 0});
+                            testList.push_back({TEST_LINE_POINT, idx2, idx1, 0, true});
                         }
                         else if (kind1 == MODEL_LINE && kind2 == MODEL_LINE)
                         {
-                            testList.push_back({TEST_LINE_LINE, idx1, idx2, 0, 0});
+                            testList.push_back({TEST_LINE_LINE, idx1, idx2, 0, false});
                         }
                         else if (kind1 == MODEL_POINT && kind2 == MODEL_POINT)
                         {
-                            testList.push_back({TEST_POINT_POINT, idx1, idx2, 0, 0});
+                            testList.push_back({TEST_POINT_POINT, idx1, idx2, 0, false});
                         }
                         else if (kind1 == MODEL_TRIANGLE && kind2 == MODEL_TRIANGLE)
                         {
                             int f1 = getTriangleFlags(finest1, idx1);
                             int f2 = getTriangleFlags(finest2, idx2);
                             if (f2 & (1<<0))
-                                testList.push_back({TEST_TRIANGLE_TRIVERTEX, idx1, idx2, (f1 << 2) | 0, 0});
+                                testList.push_back({TEST_TRIANGLE_TRIVERTEX, idx1, idx2, (f1 << 2) | 0, false});
                             if (f2 & (1<<1))
-                                testList.push_back({TEST_TRIANGLE_TRIVERTEX, idx1, idx2, (f1 << 2) | 1, 0});
+                                testList.push_back({TEST_TRIANGLE_TRIVERTEX, idx1, idx2, (f1 << 2) | 1, false});
                             if (f2 & (1<<2))
-                                testList.push_back({TEST_TRIANGLE_TRIVERTEX, idx1, idx2, (f1 << 2) | 2, 0});
+                                testList.push_back({TEST_TRIANGLE_TRIVERTEX, idx1, idx2, (f1 << 2) | 2, false});
                             if (f1 & (1<<0))
-                                testList.push_back({TEST_TRIANGLE_TRIVERTEX_SWAP, idx2, idx1, (f2 << 2) | 0, 0});
+                                testList.push_back({TEST_TRIANGLE_TRIVERTEX_SWAP, idx2, idx1, (f2 << 2) | 0, true});
                             if (f1 & (1<<1))
-                                testList.push_back({TEST_TRIANGLE_TRIVERTEX_SWAP, idx2, idx1, (f2 << 2) | 1, 0});
+                                testList.push_back({TEST_TRIANGLE_TRIVERTEX_SWAP, idx2, idx1, (f2 << 2) | 1, true});
                             if (f1 & (1<<2))
-                                testList.push_back({TEST_TRIANGLE_TRIVERTEX_SWAP, idx2, idx1, (f2 << 2) | 2, 0});
+                                testList.push_back({TEST_TRIANGLE_TRIVERTEX_SWAP, idx2, idx1, (f2 << 2) | 2, true});
                         }
                         else if (kind1 == MODEL_TRIANGLE && kind2 == MODEL_LINE)
                         {
                             int f1 = getTriangleFlags(finest1, idx1);
-                            testList.push_back({TEST_TRIANGLE_EDGEVERTEX, idx1, idx2, (f1 << 1) | 0, 0});
-                            testList.push_back({TEST_TRIANGLE_EDGEVERTEX, idx1, idx2, (f1 << 1) | 1, 0});
+                            testList.push_back({TEST_TRIANGLE_EDGEVERTEX, idx1, idx2, (f1 << 1) | 0, false});
+                            testList.push_back({TEST_TRIANGLE_EDGEVERTEX, idx1, idx2, (f1 << 1) | 1, false});
                         }
                         else if (kind1 == MODEL_LINE && kind2 == MODEL_TRIANGLE)
                         {
                             int f2 = getTriangleFlags(finest2, idx2);
-                            testList.push_back({TEST_TRIANGLE_EDGEVERTEX_SWAP, idx2, idx1, (f2 << 1) | 0, 0});
-                            testList.push_back({TEST_TRIANGLE_EDGEVERTEX_SWAP, idx2, idx1, (f2 << 1) | 1, 0});
+                            testList.push_back({TEST_TRIANGLE_EDGEVERTEX_SWAP, idx2, idx1, (f2 << 1) | 0, true});
+                            testList.push_back({TEST_TRIANGLE_EDGEVERTEX_SWAP, idx2, idx1, (f2 << 1) | 1, true});
                         }
                     }
                 }
@@ -411,155 +424,44 @@ void CudaNarrowPhaseDetection::collectLeafTests(
             }
         }
     }
-}
 
-
-void CudaNarrowPhaseDetection::addCollisionPair(
-    const std::pair<core::CollisionModel*, core::CollisionModel*>& cmPair)
-{
-    sofa::type::vector<std::pair<core::CollisionModel*, core::CollisionModel*>> v;
-    v.push_back(cmPair);
-    addCollisionPairs(v);
-}
-
-
-void CudaNarrowPhaseDetection::addCollisionPairs(
-    const sofa::type::vector<std::pair<core::CollisionModel*, core::CollisionModel*>>& v)
-{
-    std::vector<NarrowPhaseTestEntry> allTests;
-    allTests.reserve(16384);
-
-    std::vector<PairContext> gpuPairs;
-    gpuPairs.reserve(v.size());
-
-    std::map<core::CollisionModel*, std::shared_ptr<GpuMeshPtrs>> meshCache;
-
-    for (const auto& cmPair : v)
-    {
-        core::CollisionModel* cm1 = cmPair.first;
-        core::CollisionModel* cm2 = cmPair.second;
-
-        if (!cm1->isSimulated() && !cm2->isSimulated())
-            continue;
-        if (cm1->empty() || cm2->empty())
-            continue;
-
-        if (!isMeshBasedPair(cm1->getLast(), cm2->getLast()))
-        {
-            BVHNarrowPhase::addCollisionPair(cmPair);
-            continue;
-        }
-
-        core::CollisionModel* finest1 = cm1->getLast();
-        core::CollisionModel* finest2 = cm2->getLast();
-
-        const bool selfCollision = isSelfCollision(finest1, finest2);
-
-        bool swapModels = false;
-        core::collision::ElementIntersector* finestIntersector =
-            intersectionMethod->findIntersector(finest1, finest2, swapModels);
-        if (!finestIntersector) continue;
-
-        if (swapModels)
-        {
-            std::swap(cm1, cm2);
-            std::swap(finest1, finest2);
-        }
-
-        sofa::core::collision::DetectionOutputVector*& outputs =
-            this->getDetectionOutputs(finest1, finest2);
-        finestIntersector->beginIntersect(finest1, finest2, outputs);
-
-        const ModelKind kind1 = classifyModel(finest1);
-        const ModelKind kind2 = classifyModel(finest2);
-
-        const float contactDist = (float)(intersectionMethod->getContactDistance() + finest1->getContactDistance() + finest2->getContactDistance());
-
-        unsigned int testBegin = (unsigned int)allTests.size();
-        collectLeafTests(cm1, cm2, finest1, finest2, kind1, kind2,
-                         selfCollision, allTests);
-        unsigned int testEnd = (unsigned int)allTests.size();
-
-        if (testEnd == testBegin)
-            continue;
-
-        auto getOrCreate = [&](core::CollisionModel* cm) -> std::shared_ptr<GpuMeshPtrs> {
-            auto it = meshCache.find(cm);
-            if (it != meshCache.end()) return it->second;
-            auto data = std::make_shared<GpuMeshPtrs>();
-            if (!fillGpuPtrs(cm, *data))
-                return nullptr;
-            meshCache[cm] = data;
-            return data;
-        };
-
-        auto mesh1 = getOrCreate(finest1);
-        auto mesh2 = getOrCreate(finest2);
-        if (!mesh1 || !mesh2)
-        {
-            allTests.resize(testBegin);
-            BVHNarrowPhase::addCollisionPair(cmPair);
-            continue;
-        }
-
-        PairContext ctx;
-        ctx.finest1 = finest1;
-        ctx.finest2 = finest2;
-        ctx.outputs = &outputs;
-        ctx.contactDist = contactDist;
-        ctx.testBegin = testBegin;
-        ctx.testEnd = testEnd;
-        gpuPairs.push_back(ctx);
-    }
-
-    if (allTests.empty())
+    if (testList.empty())
         return;
 
-    if (allTests.size() < d_gpuTestThreshold.getValue())
+    if (testList.size() < d_gpuTestThreshold.getValue())
     {
-        for (const auto& ctx : gpuPairs)
-            BVHNarrowPhase::addCollisionPair({ctx.finest1->getFirst(), ctx.finest2->getFirst()});
+        BVHNarrowPhase::addCollisionPair(cmPair);
         return;
     }
 
-    // Build per-pair GPU data array
-    unsigned int nbPairs = (unsigned int)gpuPairs.size();
-    d_pairData.resize(nbPairs);
+    // Get device pointers for positions (zero-copy for CudaVec3Types)
+    CudaVector<float> tmpPos1, tmpPos2;
+    const void* devPos1 = getPositionsDevice(finest1, tmpPos1);
+    const void* devPos2 = getPositionsDevice(finest2, tmpPos2);
+    if (!devPos1 || !devPos2)
     {
-        auto* w = d_pairData.hostWrite();
-        for (unsigned int p = 0; p < nbPairs; ++p)
-        {
-            auto& ctx = gpuPairs[p];
-            auto& m1 = *meshCache[ctx.finest1];
-            auto& m2 = *meshCache[ctx.finest2];
-
-            auto& pd = w[p];
-            pd.positions1 = m1.positions;
-            pd.positions2 = m2.positions;
-            pd.triangles1 = m1.triangles;
-            pd.edges1     = m1.edges;
-            pd.normals1   = m1.normals;
-            pd.triangles2 = m2.triangles;
-            pd.edges2     = m2.edges;
-            pd.normals2   = m2.normals;
-
-            const float alarmDist = (float)(intersectionMethod->getAlarmDistance() + ctx.finest1->getContactDistance() + ctx.finest2->getContactDistance());
-            pd.alarmDist2 = alarmDist * alarmDist;
-        }
+        BVHNarrowPhase::addCollisionPair(cmPair);
+        return;
     }
 
-    // Upload all tests with pairIndex
-    unsigned int nbTests = (unsigned int)allTests.size();
+    // Upload topology (triangles/edges) — static data
+    CudaVector<int> gpuTri1, gpuTri2, gpuEdge1, gpuEdge2;
+    uploadTriangles(finest1, gpuTri1);
+    uploadTriangles(finest2, gpuTri2);
+    uploadEdges(finest1, gpuEdge1);
+    uploadEdges(finest2, gpuEdge2);
+
+    // Upload test entries
+    unsigned int nbTests = (unsigned int)testList.size();
     d_tests.resize(nbTests);
     {
         auto* w = d_tests.hostWrite();
-        for (unsigned int p = 0; p < nbPairs; ++p)
+        for (unsigned int i = 0; i < nbTests; ++i)
         {
-            for (unsigned int t = gpuPairs[p].testBegin; t < gpuPairs[p].testEnd; ++t)
-            {
-                w[t] = allTests[t];
-                w[t].pairIndex = (int)p;
-            }
+            w[i].type  = testList[i].type;
+            w[i].elem1 = testList[i].elem1;
+            w[i].elem2 = testList[i].elem2;
+            w[i].flags = testList[i].flags;
         }
     }
 
@@ -568,52 +470,51 @@ void CudaNarrowPhaseDetection::addCollisionPairs(
     CudaNarrowPhaseDetection_doTests(
         nbTests,
         d_tests.deviceRead(),
-        nbPairs,
-        d_pairData.deviceRead(),
+        devPos1,
+        devPos2,
+        gpuTri1.empty() ? nullptr : gpuTri1.deviceRead(),
+        gpuEdge1.empty() ? nullptr : gpuEdge1.deviceRead(),
+        gpuTri2.empty() ? nullptr : gpuTri2.deviceRead(),
+        gpuEdge2.empty() ? nullptr : gpuEdge2.deviceRead(),
+        alarmDist2,
         d_results.deviceWrite());
 
+    // Read results and fill outputs
     const auto* results = d_results.hostRead();
+    auto* typedOutputs = dynamic_cast<sofa::type::vector<sofa::core::collision::DetectionOutput>*>(outputs);
+    if (!typedOutputs)
+        return;
 
-    for (unsigned int p = 0; p < nbPairs; ++p)
+    for (unsigned int i = 0; i < nbTests; ++i)
     {
-        auto& ctx = gpuPairs[p];
-        auto* typedOutputs = dynamic_cast<sofa::type::vector<sofa::core::collision::DetectionOutput>*>(*ctx.outputs);
-        if (!typedOutputs)
-            continue;
+        if (!results[i].valid) continue;
 
-        for (unsigned int i = ctx.testBegin; i < ctx.testEnd; ++i)
+        const auto& r = results[i];
+        const bool isSwap = testList[i].swapResult;
+
+        sofa::core::collision::DetectionOutput det;
+        det.value = (double)r.distance - (double)contactDist;
+
+        if (isSwap)
         {
-            if (!results[i].valid) continue;
-
-            const auto& r = results[i];
-            const int testType = allTests[i].type;
-            const bool isSwap = (testType == TEST_TRIANGLE_TRIVERTEX_SWAP ||
-                                 testType == TEST_TRIANGLE_EDGEVERTEX_SWAP);
-
-            sofa::core::collision::DetectionOutput det;
-            det.value = (double)r.distance - (double)ctx.contactDist;
-
-            if (isSwap)
-            {
-                det.point[0] = sofa::type::Vec3(r.point1[0], r.point1[1], r.point1[2]);
-                det.point[1] = sofa::type::Vec3(r.point0[0], r.point0[1], r.point0[2]);
-                det.normal = sofa::type::Vec3(-r.normal[0], -r.normal[1], -r.normal[2]);
-                det.elem.first  = core::CollisionElementIterator(ctx.finest1, r.elem2);
-                det.elem.second = core::CollisionElementIterator(ctx.finest2, r.elem1);
-                det.id = r.elem1;
-            }
-            else
-            {
-                det.point[0] = sofa::type::Vec3(r.point0[0], r.point0[1], r.point0[2]);
-                det.point[1] = sofa::type::Vec3(r.point1[0], r.point1[1], r.point1[2]);
-                det.normal = sofa::type::Vec3(r.normal[0], r.normal[1], r.normal[2]);
-                det.elem.first  = core::CollisionElementIterator(ctx.finest1, r.elem1);
-                det.elem.second = core::CollisionElementIterator(ctx.finest2, r.elem2);
-                det.id = r.elem2;
-            }
-
-            typedOutputs->push_back(det);
+            det.point[0] = sofa::type::Vec3(r.point1[0], r.point1[1], r.point1[2]);
+            det.point[1] = sofa::type::Vec3(r.point0[0], r.point0[1], r.point0[2]);
+            det.normal = sofa::type::Vec3(-r.normal[0], -r.normal[1], -r.normal[2]);
+            det.elem.first  = core::CollisionElementIterator(finest1, r.elem2);
+            det.elem.second = core::CollisionElementIterator(finest2, r.elem1);
+            det.id = r.elem1;
         }
+        else
+        {
+            det.point[0] = sofa::type::Vec3(r.point0[0], r.point0[1], r.point0[2]);
+            det.point[1] = sofa::type::Vec3(r.point1[0], r.point1[1], r.point1[2]);
+            det.normal = sofa::type::Vec3(r.normal[0], r.normal[1], r.normal[2]);
+            det.elem.first  = core::CollisionElementIterator(finest1, r.elem1);
+            det.elem.second = core::CollisionElementIterator(finest2, r.elem2);
+            det.id = r.elem2;
+        }
+
+        typedOutputs->push_back(det);
     }
 }
 
