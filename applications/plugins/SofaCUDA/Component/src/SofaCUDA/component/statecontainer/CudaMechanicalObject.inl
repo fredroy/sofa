@@ -1452,32 +1452,30 @@ void MechanicalObjectInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDeriv,TRea
         const VecCoord& vSrc = m->read(core::ConstVecCoordId(src))->getValue();
 
         const unsigned int coordDim = DataTypeInfo<Coord>::size();
-        const unsigned int nbEntries = dest->size()/coordDim;
 
-        for (unsigned int i=0; i<nbEntries; ++i)
+        for (unsigned int i=0; i<vSrc.size(); ++i)
             for (unsigned int j=0; j<coordDim; ++j)
             {
                 Real tmp;
-                DataTypeInfo<Coord>::getValue(vSrc[offset + i],j,tmp);
-                dest->set(i * coordDim + j, tmp);
+                DataTypeInfo<Coord>::getValue(vSrc[i],j,tmp);
+                dest->set(offset + i * coordDim + j, tmp);
             }
-        // offset += vSrc.size() * coordDim;
+        offset += vSrc.size() * coordDim;
     }
     else
     {
         const VecDeriv& vSrc = m->read(core::ConstVecDerivId(src))->getValue();
 
         const unsigned int derivDim = DataTypeInfo<Deriv>::size();
-        const unsigned int nbEntries = dest->size()/derivDim;
 
-        for (unsigned int i=0; i<nbEntries; i++)
+        for (unsigned int i=0; i<vSrc.size(); i++)
             for (unsigned int j=0; j<derivDim; j++)
             {
                 Real tmp;
-                DataTypeInfo<Deriv>::getValue(vSrc[i + offset],j,tmp);
-                dest->set(i * derivDim + j, tmp);
+                DataTypeInfo<Deriv>::getValue(vSrc[i],j,tmp);
+                dest->set(offset + i * derivDim + j, tmp);
             }
-        // offset += vSrc.size() * derivDim;
+        offset += vSrc.size() * derivDim;
     }
 }
 
@@ -1492,7 +1490,7 @@ void MechanicalObjectInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDeriv,TRea
         dest->invalidateHost();
         Kernels::vAssign(nbEntries, dest->deviceWrite(), va.deviceRead(offset*elemDim));
 
-// 		offset += va->size() * elemDim;
+        offset += va.size() * elemDim;
     }
     else
     {
@@ -1502,7 +1500,7 @@ void MechanicalObjectInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDeriv,TRea
         dest->invalidateHost();
         Kernels::vAssign(nbEntries, dest->deviceWrite(), ((Real *) va.deviceRead())+(offset*elemDim));
 
-// 		offset += va->size() * elemDim;
+        offset += va.size() * elemDim;
     }
 }
 
@@ -1519,13 +1517,13 @@ void MechanicalObjectInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDeriv,TRea
 
         for (unsigned int i=0; i<vDest->size(); i++)
         {
-            for (unsigned int j=0; j<3; j++)
+            for (unsigned int j=0; j<coordDim; j++)
             {
                 DataTypeInfo<Coord>::setValue((*vDest)[i],j, src->element(offset + i * coordDim + j));
             }
         }
 
-// 		offset += vDest->size() * coordDim;
+        offset += vDest->size() * coordDim;
         d_vDest->endEdit();
     }
     else
@@ -1541,7 +1539,7 @@ void MechanicalObjectInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDeriv,TRea
                 DataTypeInfo<Deriv>::setValue((*vDest)[i], j, src->element(offset + i * derivDim + j));
             }
         }
-// 		offset += vDest->size() * derivDim;
+        offset += vDest->size() * derivDim;
         d_vDest->endEdit();
     }
 }
@@ -1558,7 +1556,7 @@ void MechanicalObjectInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDeriv,TRea
         vDest->invalidateHost();
         Kernels::vAssign(nbEntries, vDest->deviceWriteAt(offset*elemDim), src->deviceRead() );
 
-// 		offset += vDest->size() * elemDim;
+        offset += vDest->size() * elemDim;
         d_vDest->endEdit();
     }
     else
@@ -1570,7 +1568,7 @@ void MechanicalObjectInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDeriv,TRea
         vDest->invalidateHost();
         Kernels::vAssign(nbEntries, vDest->deviceWriteAt(offset*elemDim), src->deviceRead());
 
-// 		offset += vDest->size() * elemDim;
+        offset += vDest->size() * elemDim;
         d_vDest->endEdit();
     }
 }
@@ -1593,7 +1591,7 @@ void MechanicalObjectInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDeriv,TRea
                 DataTypeInfo<Coord>::setValue((*vDest)[i], j, tmp + src->element(offset + i * coordDim + j));
             }
         }
-// 		offset += vDest->size() * coordDim;
+        offset += vDest->size() * coordDim;
         d_vDest->endEdit();
     }
     else
@@ -1611,7 +1609,7 @@ void MechanicalObjectInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDeriv,TRea
                 DataTypeInfo<Deriv>::setValue((*vDest)[i], j, tmp + src->element(offset + i * derivDim + j));
             }
         }
-// 		offset += vDest->size() * derivDim;
+        offset += vDest->size() * derivDim;
         d_vDest->endEdit();
     }
 };
@@ -2143,32 +2141,30 @@ void MechanicalObjectInternalData< gpu::cuda::CudaRigidTypes<N, real> >::copyToB
         const VecCoord& vSrc = m->read(core::ConstVecCoordId(src))->getValue();
 
         const unsigned int coordDim = DataTypeInfo<Coord>::size();
-        const unsigned int nbEntries = dest->size()/coordDim;
 
-        for (unsigned int i=0; i<nbEntries; ++i)
+        for (unsigned int i=0; i<vSrc.size(); ++i)
             for (unsigned int j=0; j<coordDim; ++j)
             {
                 Real tmp;
-                DataTypeInfo<Coord>::getValue(vSrc[offset + i],j,tmp);
-                dest->set(i * coordDim + j, tmp);
+                DataTypeInfo<Coord>::getValue(vSrc[i],j,tmp);
+                dest->set(offset + i * coordDim + j, tmp);
             }
-        // offset += vSrc.size() * coordDim;
+        offset += vSrc.size() * coordDim;
     }
     else
     {
         const VecDeriv& vSrc = m->read(core::ConstVecDerivId(src))->getValue();
 
         const unsigned int derivDim = DataTypeInfo<Deriv>::size();
-        const unsigned int nbEntries = dest->size()/derivDim;
 
-        for (unsigned int i=0; i<nbEntries; i++)
+        for (unsigned int i=0; i<vSrc.size(); i++)
             for (unsigned int j=0; j<derivDim; j++)
             {
                 Real tmp;
-                DataTypeInfo<Deriv>::getValue(vSrc[i + offset],j,tmp);
-                dest->set(i * derivDim + j, tmp);
+                DataTypeInfo<Deriv>::getValue(vSrc[i],j,tmp);
+                dest->set(offset + i * derivDim + j, tmp);
             }
-        // offset += vSrc.size() * derivDim;
+        offset += vSrc.size() * derivDim;
     }
 }
 
@@ -2183,7 +2179,7 @@ void MechanicalObjectInternalData< gpu::cuda::CudaRigidTypes<N, real> >::copyToC
 
         Kernels::vAssignCoord(nbEntries, dest->deviceWrite(), va.deviceRead(offset*elemDim));
 
-// 		offset += va->size() * elemDim;
+        offset += va.size() * elemDim;
     }
     else
     {
@@ -2193,7 +2189,7 @@ void MechanicalObjectInternalData< gpu::cuda::CudaRigidTypes<N, real> >::copyToC
 
         Kernels::vAssignDeriv(nbEntries, dest->deviceWrite(), va.deviceRead(offset*elemDim));
 
-// 		offset += va->size() * elemDim;
+        offset += va.size() * elemDim;
     }
 }
 
@@ -2209,13 +2205,13 @@ void MechanicalObjectInternalData< gpu::cuda::CudaRigidTypes<N, real> >::copyFro
 
         for (unsigned int i=0; i<vDest->size(); i++)
         {
-            for (unsigned int j=0; j<3; j++)
+            for (unsigned int j=0; j<coordDim; j++)
             {
                 DataTypeInfo<Coord>::setValue((*vDest)[i],j,src->element(offset + i * coordDim + j));
             }
         }
 
-// 	offset += vDest->size() * coordDim;
+        offset += vDest->size() * coordDim;
         d_vDest->endEdit();
     }
     else
@@ -2231,7 +2227,7 @@ void MechanicalObjectInternalData< gpu::cuda::CudaRigidTypes<N, real> >::copyFro
                 DataTypeInfo<Deriv>::setValue((*vDest)[i], j, src->element(offset + i * derivDim + j));
             }
         }
-// 	offset += vDest->size() * derivDim;
+        offset += vDest->size() * derivDim;
         d_vDest->endEdit();
     }
 }
@@ -2248,7 +2244,7 @@ void MechanicalObjectInternalData< gpu::cuda::CudaRigidTypes<N, real> >::copyFro
 
         Kernels::vAssignCoord(nbEntries, vDest->deviceWriteAt(offset*elemDim), src->deviceRead() );
 
-// 		offset += vDest->size() * elemDim;
+        offset += vDest->size() * elemDim;
         d_vDest->endEdit();
     }
     else
@@ -2260,7 +2256,7 @@ void MechanicalObjectInternalData< gpu::cuda::CudaRigidTypes<N, real> >::copyFro
 
         Kernels::vAssignDeriv(nbEntries, vDest->deviceWriteAt(offset*elemDim), src->deviceRead());
 
-// 		offset += vDest->size() * elemDim;
+        offset += vDest->size() * elemDim;
         d_vDest->endEdit();
     }
 }
