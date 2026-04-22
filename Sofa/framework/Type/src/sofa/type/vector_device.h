@@ -349,6 +349,7 @@ public:
                 DEBUG_OUT_V(SPACEN << "MemoryManager::memsetDevice " << deviceAllocSize[d] << std::endl);
                 allocate(d); /// make sure the size is correct device is not valid so it only resize if necessary
                 MemoryManager::memsetDevice(d, devicePointer[d], v, vectorSize * sizeof(T));
+                deviceVectorSize[d] = vectorSize;
                 deviceIsValid |= 1 << d;
             }
         }
@@ -505,6 +506,7 @@ public:
         if (vectorSize > 0)
             hostIsValid = false;
         deviceIsValid = 1 << gpu;
+        deviceVectorSize[gpu] = vectorSize;
         return MemoryManager::deviceOffset(devicePointer[gpu], i);
     }
 
