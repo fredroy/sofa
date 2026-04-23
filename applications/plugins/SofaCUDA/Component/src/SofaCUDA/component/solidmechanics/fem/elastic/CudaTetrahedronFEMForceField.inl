@@ -556,6 +556,48 @@ void TetrahedronFEMForceFieldInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDe
 }
 
 template<class TCoord, class TDeriv, class TReal>
+void TetrahedronFEMForceFieldInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDeriv,TReal> >::buildStiffnessMatrix(Main* m, core::behavior::StiffnessMatrix* matrix)
+{
+    Data& data = m->data;
+    const VecElement& elems = *m->_indexedElements;
+
+    helper::ReadAccessor< gpu::cuda::CudaVector<GPUElementState> > state = data.state;
+
+    typename Main::StiffnessMatrix JKJt, RJKJtRt;
+    sofa::type::Mat<3, 3, Real> localMatrix(type::NOINIT);
+
+    constexpr auto S = Main::DataTypes::deriv_total_size;
+    constexpr auto N = Element::size();
+
+    auto dfdx = matrix->getForceDerivativeIn(m->mstate)
+                       .withRespectToPositionsIn(m->mstate);
+
+    typename Main::Transformation Rot;
+    for (int ei = 0; ei < data.nbElement; ++ei)
+    {
+        const Element& e = elems[ei];
+
+        const int blockIdx = ei / BSIZE;
+        const int threadIdx = ei % BSIZE;
+
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++)
+                Rot[j][i] = state[blockIdx].Rt[i][j][threadIdx];
+
+        m->computeStiffnessMatrix(JKJt, RJKJtRt, m->materialsStiffnesses[ei], m->strainDisplacements[ei], Rot);
+
+        for (sofa::Index n1 = 0; n1 < N; n1++)
+        {
+            for (sofa::Index n2 = 0; n2 < N; n2++)
+            {
+                RJKJtRt.getsub(S * n1, S * n2, localMatrix);
+                dfdx(e[n1] * S, e[n2] * S) += -localMatrix;
+            }
+        }
+    }
+}
+
+template<class TCoord, class TDeriv, class TReal>
 void TetrahedronFEMForceFieldInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDeriv,TReal> >::getRotations(Main* m, VecReal& rotations)
 {
     Data& data = m->data;
@@ -644,7 +686,9 @@ void TetrahedronFEMForceFieldInternalData< gpu::cuda::CudaVectorTypes<TCoord,TDe
     d_df.endEdit(); \
 } \
     template<> inline void TetrahedronFEMForceField< T >::addKToMatrix(sofa::linearalgebra::BaseMatrix* mat, SReal kFactor, unsigned int& offset) \
-{ data.addKToMatrix(this, mat, kFactor, offset); }
+{ data.addKToMatrix(this, mat, kFactor, offset); } \
+    template<> inline void TetrahedronFEMForceField< T >::buildStiffnessMatrix(core::behavior::StiffnessMatrix* matrix) \
+{ data.buildStiffnessMatrix(this, matrix); }
 
 
 CudaTetrahedronFEMForceField_ImplMethods(gpu::cuda::CudaVec3fTypes)
