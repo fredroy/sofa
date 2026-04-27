@@ -32,8 +32,6 @@
 #include <cmath>
 #include <map>
 
-#include <sofa/gl/shaders/drawToolGL.cppglsl>
-
 namespace sofa::gl
 {
 
@@ -100,9 +98,6 @@ DrawToolGL::DrawToolGL()
 
 DrawToolGL::~DrawToolGL()
 {
-    if (m_vao) glDeleteVertexArrays(1, &m_vao);
-    if (m_vbo) glDeleteBuffers(1, &m_vbo);
-    if (m_shaderProgram) glDeleteProgram(m_shaderProgram);
 }
 
 void DrawToolGL::init()
@@ -118,12 +113,10 @@ void DrawToolGL::setProjectionMatrix(const double* mat16)
 
 void DrawToolGL::setModelViewMatrix(const double* mat16)
 {
-    // Replace the current top of the modelview stack
     Mat16f mv;
     for (int i = 0; i < 16; ++i)
         mv[i] = static_cast<float>(mat16[i]);
 
-    // Clear the stack and push the new base
     while (m_modelViewStack.size() > 1)
         m_modelViewStack.pop();
     m_modelViewStack.top() = mv;
@@ -154,198 +147,11 @@ void DrawToolGL::setLightSpecular(float r, float g, float b, float a)
     CoreProfileRenderer::setLightSpecular(r, g, b, a);
 }
 
-static GLuint compileShaderStage(GLenum type, const std::string& source)
-{
-    const GLuint shader = glCreateShader(type);
-    const char* src = source.c_str();
-    glShaderSource(shader, 1, &src, nullptr);
-    glCompileShader(shader);
-
-    GLint compiled = 0;
-    glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
-    if (!compiled)
-    {
-        GLint logLen = 0;
-        glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &logLen);
-        if (logLen > 1)
-        {
-            std::string log(logLen, '\0');
-            glGetShaderInfoLog(shader, logLen, nullptr, log.data());
-            msg_error("DrawToolGL") << "Shader compile error:\n" << log;
-        }
-        glDeleteShader(shader);
-        return 0;
-    }
-    return shader;
-}
-
-void DrawToolGL::initModernGL()
-{
-    if (m_shaderReady) return;
-
-    // Compile vertex shader
-    const GLuint vs = compileShaderStage(GL_VERTEX_SHADER, drawToolGL_VertexShader);
-    if (!vs) return;
-
-    // Compile fragment shader
-    const GLuint fs = compileShaderStage(GL_FRAGMENT_SHADER, drawToolGL_FragmentShader);
-    if (!fs) { glDeleteShader(vs); return; }
-
-    // Link program
-    m_shaderProgram = glCreateProgram();
-    glAttachShader(m_shaderProgram, vs);
-    glAttachShader(m_shaderProgram, fs);
-    glLinkProgram(m_shaderProgram);
-
-    // Shaders can be detached and deleted after linking
-    glDetachShader(m_shaderProgram, vs);
-    glDetachShader(m_shaderProgram, fs);
-    glDeleteShader(vs);
-    glDeleteShader(fs);
-
-    GLint linked = 0;
-    glGetProgramiv(m_shaderProgram, GL_LINK_STATUS, &linked);
-    if (!linked)
-    {
-        GLint logLen = 0;
-        glGetProgramiv(m_shaderProgram, GL_INFO_LOG_LENGTH, &logLen);
-        if (logLen > 1)
-        {
-            std::string log(logLen, '\0');
-            glGetProgramInfoLog(m_shaderProgram, logLen, nullptr, log.data());
-            msg_error("DrawToolGL") << "Shader link error:\n" << log;
-        }
-        glDeleteProgram(m_shaderProgram);
-        m_shaderProgram = 0;
-        return;
-    }
-
-    // Cache uniform locations
-    m_locModelViewMatrix  = glGetUniformLocation(m_shaderProgram, "u_modelViewMatrix");
-    m_locProjectionMatrix = glGetUniformLocation(m_shaderProgram, "u_projectionMatrix");
-    m_locNormalMatrix     = glGetUniformLocation(m_shaderProgram, "u_normalMatrix");
-    m_locLightingEnabled  = glGetUniformLocation(m_shaderProgram, "u_lightingEnabled");
-    m_locLightPosition    = glGetUniformLocation(m_shaderProgram, "u_lightPosition");
-    m_locLightAmbient     = glGetUniformLocation(m_shaderProgram, "u_lightAmbient");
-    m_locLightDiffuse     = glGetUniformLocation(m_shaderProgram, "u_lightDiffuse");
-    m_locLightSpecular    = glGetUniformLocation(m_shaderProgram, "u_lightSpecular");
-    m_locShininess        = glGetUniformLocation(m_shaderProgram, "u_shininess");
-
-    // Create VAO
-    glGenVertexArrays(1, &m_vao);
-    glBindVertexArray(m_vao);
-
-    // Create VBO
-    glGenBuffers(1, &m_vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-
-    // Setup vertex attribute layout for DrawVertex (40 bytes)
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(DrawVertex),
-                          reinterpret_cast<void*>(offsetof(DrawVertex, position)));
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(DrawVertex),
-                          reinterpret_cast<void*>(offsetof(DrawVertex, normal)));
-    glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(DrawVertex),
-                          reinterpret_cast<void*>(offsetof(DrawVertex, color)));
-
-    glBindVertexArray(0);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-    m_shaderReady = true;
-}
-
-void DrawToolGL::computeNormalMatrix(const float* mv, float* nm)
-{
-    const float a00 = mv[0], a01 = mv[4], a02 = mv[8];
-    const float a10 = mv[1], a11 = mv[5], a12 = mv[9];
-    const float a20 = mv[2], a21 = mv[6], a22 = mv[10];
-
-    const float det = a00 * (a11 * a22 - a12 * a21)
-                    - a01 * (a10 * a22 - a12 * a20)
-                    + a02 * (a10 * a21 - a11 * a20);
-
-    if (std::fabs(det) < 1e-12f)
-    {
-        nm[0] = 1; nm[1] = 0; nm[2] = 0;
-        nm[3] = 0; nm[4] = 1; nm[5] = 0;
-        nm[6] = 0; nm[7] = 0; nm[8] = 1;
-        return;
-    }
-
-    const float invDet = 1.0f / det;
-
-    nm[0] = (a11 * a22 - a12 * a21) * invDet;
-    nm[1] = (a12 * a20 - a10 * a22) * invDet;
-    nm[2] = (a10 * a21 - a11 * a20) * invDet;
-    nm[3] = (a02 * a21 - a01 * a22) * invDet;
-    nm[4] = (a00 * a22 - a02 * a20) * invDet;
-    nm[5] = (a20 * a01 - a00 * a21) * invDet;
-    nm[6] = (a01 * a12 - a02 * a11) * invDet;
-    nm[7] = (a02 * a10 - a00 * a12) * invDet;
-    nm[8] = (a00 * a11 - a01 * a10) * invDet;
-}
-
-void DrawToolGL::uploadMatrices()
-{
-    const auto& mv = currentModelView();
-    float normalMatrix[9];
-    computeNormalMatrix(mv.data(), normalMatrix);
-
-    glUniformMatrix4fv(m_locModelViewMatrix, 1, GL_FALSE, mv.data());
-    glUniformMatrix4fv(m_locProjectionMatrix, 1, GL_FALSE, m_projectionMatrix.data());
-    glUniformMatrix3fv(m_locNormalMatrix, 1, GL_TRUE, normalMatrix);
-}
-
-void DrawToolGL::uploadLightState()
-{
-    glUniform4f(m_locLightPosition, m_lightPos[0], m_lightPos[1], m_lightPos[2], m_lightPos[3]);
-    glUniform4f(m_locLightAmbient, m_lightAmb[0], m_lightAmb[1], m_lightAmb[2], m_lightAmb[3]);
-    glUniform4f(m_locLightDiffuse, m_lightDif[0], m_lightDif[1], m_lightDif[2], m_lightDif[3]);
-    glUniform4f(m_locLightSpecular, m_lightSpec[0], m_lightSpec[1], m_lightSpec[2], m_lightSpec[3]);
-}
-
 void DrawToolGL::flushVertexBuffer(GLenum mode, bool lighting)
 {
     if (m_vertexBuffer.empty()) return;
 
-    initModernGL();
-    if (!m_shaderReady) return;
-
-    const GLsizeiptr requiredSize = static_cast<GLsizeiptr>(m_vertexBuffer.size() * sizeof(DrawVertex));
-
-    glBindVertexArray(m_vao);
-    glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-
-    if (requiredSize > m_vboCapacity)
-    {
-        m_vboCapacity = requiredSize * 2;
-        glBufferData(GL_ARRAY_BUFFER, m_vboCapacity, nullptr, GL_STREAM_DRAW);
-    }
-    else
-    {
-        glBufferData(GL_ARRAY_BUFFER, m_vboCapacity, nullptr, GL_STREAM_DRAW);
-    }
-    glBufferSubData(GL_ARRAY_BUFFER, 0, requiredSize, m_vertexBuffer.data());
-
-    glUseProgram(m_shaderProgram);
-
-    uploadMatrices();
-
-    glUniform1i(m_locLightingEnabled, lighting ? 1 : 0);
-    if (lighting)
-    {
-        uploadLightState();
-        glUniform1f(m_locShininess, 20.0f);
-    }
-
-    glDrawArrays(mode, 0, static_cast<GLsizei>(m_vertexBuffer.size()));
-
-    glUseProgram(0);
-
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindVertexArray(0);
+    CoreProfileRenderer::renderWithModelView(m_vertexBuffer, mode, lighting, currentModelView().data());
 
     m_vertexBuffer.clear();
 }
@@ -419,11 +225,22 @@ void DrawToolGL::generateSphereTriangles(const Vec3& center, float rx, float ry,
 
     m_vertexBuffer.reserve(m_vertexBuffer.size() + rings * sectors * 6);
 
+    const float cx = static_cast<float>(center[0]);
+    const float cy = static_cast<float>(center[1]);
+    const float cz = static_cast<float>(center[2]);
+
+    auto pushSphereVert = [&](float px, float py, float pz)
+    {
+        float nnx = px / rx, nny = py / ry, nnz = pz / rz;
+        float nLen = std::sqrt(nnx*nnx + nny*nny + nnz*nnz);
+        if (nLen > 0) { nnx /= nLen; nny /= nLen; nnz /= nLen; }
+        pushVertex(cx + rx * px, cy + ry * py, cz + rz * pz, nnx, nny, nnz, color);
+    };
+
     for (unsigned int r = 0; r < rings - 1; ++r)
     {
         for (unsigned int s = 0; s < sectors - 1; ++s)
         {
-            // Four corners of the quad on the sphere
             float y0 = -std::cos(M_PI * r * R);
             float y1 = -std::cos(M_PI * (r + 1) * R);
             float yr0 = std::sin(M_PI * r * R);
@@ -438,18 +255,13 @@ void DrawToolGL::generateSphereTriangles(const Vec3& center, float rx, float ry,
             float x11 = std::cos(2.0f * M_PI * (s + 1) * S) * yr1;
             float z11 = std::sin(2.0f * M_PI * (s + 1) * S) * yr1;
 
-            float cx = static_cast<float>(center[0]);
-            float cy = static_cast<float>(center[1]);
-            float cz = static_cast<float>(center[2]);
+            pushSphereVert(x00, y0, z00);
+            pushSphereVert(x10, y1, z10);
+            pushSphereVert(x11, y1, z11);
 
-            // Two triangles per quad
-            pushVertex(cx + rx * x00, cy + ry * y0, cz + rz * z00, x00, y0, z00, color);
-            pushVertex(cx + rx * x10, cy + ry * y1, cz + rz * z10, x10, y1, z10, color);
-            pushVertex(cx + rx * x11, cy + ry * y1, cz + rz * z11, x11, y1, z11, color);
-
-            pushVertex(cx + rx * x00, cy + ry * y0, cz + rz * z00, x00, y0, z00, color);
-            pushVertex(cx + rx * x11, cy + ry * y1, cz + rz * z11, x11, y1, z11, color);
-            pushVertex(cx + rx * x01, cy + ry * y0, cz + rz * z01, x01, y0, z01, color);
+            pushSphereVert(x00, y0, z00);
+            pushSphereVert(x11, y1, z11);
+            pushSphereVert(x01, y0, z01);
         }
     }
 }

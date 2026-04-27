@@ -311,6 +311,55 @@ void CoreProfileRenderer::renderLines(const std::vector<Vertex>& vertices, const
     render(vertices, GL_LINES, false, modelMatrix);
 }
 
+void CoreProfileRenderer::renderWithModelView(const std::vector<Vertex>& vertices, GLenum mode, bool lighting, const float modelViewMatrix[16])
+{
+    if (vertices.empty()) return;
+
+    init();
+    if (!s_shaderReady) return;
+
+    float normalMatrix[9];
+    computeNormalMatrix(modelViewMatrix, normalMatrix);
+
+    const GLsizeiptr requiredSize = static_cast<GLsizeiptr>(vertices.size() * sizeof(Vertex));
+
+    glBindVertexArray(s_vao);
+    glBindBuffer(GL_ARRAY_BUFFER, s_vbo);
+
+    if (requiredSize > s_vboCapacity)
+    {
+        s_vboCapacity = requiredSize * 2;
+        glBufferData(GL_ARRAY_BUFFER, s_vboCapacity, nullptr, GL_STREAM_DRAW);
+    }
+    else
+    {
+        glBufferData(GL_ARRAY_BUFFER, s_vboCapacity, nullptr, GL_STREAM_DRAW);
+    }
+    glBufferSubData(GL_ARRAY_BUFFER, 0, requiredSize, vertices.data());
+
+    glUseProgram(s_shaderProgram);
+
+    glUniformMatrix4fv(s_locModelViewMatrix, 1, GL_FALSE, modelViewMatrix);
+    glUniformMatrix4fv(s_locProjectionMatrix, 1, GL_FALSE, s_projectionMatrix);
+    glUniformMatrix3fv(s_locNormalMatrix, 1, GL_TRUE, normalMatrix);
+
+    glUniform1i(s_locLightingEnabled, lighting ? 1 : 0);
+    if (lighting)
+    {
+        glUniform4f(s_locLightPosition, s_lightPos[0], s_lightPos[1], s_lightPos[2], s_lightPos[3]);
+        glUniform4f(s_locLightAmbient, s_lightAmb[0], s_lightAmb[1], s_lightAmb[2], s_lightAmb[3]);
+        glUniform4f(s_locLightDiffuse, s_lightDif[0], s_lightDif[1], s_lightDif[2], s_lightDif[3]);
+        glUniform4f(s_locLightSpecular, s_lightSpec[0], s_lightSpec[1], s_lightSpec[2], s_lightSpec[3]);
+        glUniform1f(s_locShininess, 20.0f);
+    }
+
+    glDrawArrays(mode, 0, static_cast<GLsizei>(vertices.size()));
+
+    glUseProgram(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Geometry generators
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -343,22 +392,25 @@ void CoreProfileRenderer::generateSphereTriangles(std::vector<Vertex>& out,
             const float x11 = std::cos(2.0f * static_cast<float>(M_PI) * (s + 1) * S) * yr1;
             const float z11 = std::sin(2.0f * static_cast<float>(M_PI) * (s + 1) * S) * yr1;
 
-            auto pushVert = [&](float px, float py, float pz, float nx, float ny, float nz)
+            auto pushVert = [&](float px, float py, float pz)
             {
                 Vertex v;
                 v.position[0] = cx + rx * px; v.position[1] = cy + ry * py; v.position[2] = cz + rz * pz;
-                v.normal[0] = nx; v.normal[1] = ny; v.normal[2] = nz;
+                float nnx = px / rx, nny = py / ry, nnz = pz / rz;
+                float nLen = std::sqrt(nnx*nnx + nny*nny + nnz*nnz);
+                if (nLen > 0) { nnx /= nLen; nny /= nLen; nnz /= nLen; }
+                v.normal[0] = nnx; v.normal[1] = nny; v.normal[2] = nnz;
                 v.color[0] = color[0]; v.color[1] = color[1]; v.color[2] = color[2]; v.color[3] = color[3];
                 out.push_back(v);
             };
 
-            pushVert(x00, y0, z00, x00, y0, z00);
-            pushVert(x10, y1, z10, x10, y1, z10);
-            pushVert(x11, y1, z11, x11, y1, z11);
+            pushVert(x00, y0, z00);
+            pushVert(x10, y1, z10);
+            pushVert(x11, y1, z11);
 
-            pushVert(x00, y0, z00, x00, y0, z00);
-            pushVert(x11, y1, z11, x11, y1, z11);
-            pushVert(x01, y0, z01, x01, y0, z01);
+            pushVert(x00, y0, z00);
+            pushVert(x11, y1, z11);
+            pushVert(x01, y0, z01);
         }
     }
 }

@@ -105,20 +105,18 @@ void Axis::draw(const type::RGBAColor& colorX, const type::RGBAColor& colorY, co
 {
     initDraw();
 
-    // Convert double model matrix to float
     float modelMat[16];
     for (int i = 0; i < 16; ++i)
         modelMat[i] = static_cast<float>(matTransOpenGL[i]);
 
-    auto renderAxisWithColor = [&](const std::vector<CoreProfileRenderer::Vertex>& cached, const type::RGBAColor& col)
+    auto renderAxisWithColor = [&](std::vector<CoreProfileRenderer::Vertex>& verts, const type::RGBAColor& col)
     {
-        if (cached.empty()) return;
-        std::vector<CoreProfileRenderer::Vertex> colored = cached;
-        for (auto& v : colored)
+        if (verts.empty()) return;
+        for (auto& v : verts)
         {
             v.color[0] = col[0]; v.color[1] = col[1]; v.color[2] = col[2]; v.color[3] = col[3];
         }
-        CoreProfileRenderer::renderTriangles(colored, true, modelMat);
+        CoreProfileRenderer::renderTriangles(verts, true, modelMat);
     };
 
     renderAxisWithColor(m_xAxisVerts, colorX);

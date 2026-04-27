@@ -46,9 +46,12 @@ public:
     static void setLightDiffuse(float r, float g, float b, float a);
     static void setLightSpecular(float r, float g, float b, float a);
 
-    // Rendering
+    // Rendering (modelMatrix is multiplied by the view matrix internally)
     static void renderTriangles(const std::vector<Vertex>& vertices, bool lighting, const float modelMatrix[16] = nullptr);
     static void renderLines(const std::vector<Vertex>& vertices, const float modelMatrix[16] = nullptr);
+
+    // Rendering with an explicit modelview matrix (no view multiplication)
+    static void renderWithModelView(const std::vector<Vertex>& vertices, GLenum mode, bool lighting, const float modelViewMatrix[16]);
 
     // Geometry generators (fill vectors, do not render)
     static void generateSphereTriangles(std::vector<Vertex>& out,

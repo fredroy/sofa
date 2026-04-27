@@ -25,6 +25,7 @@
 
 #include <sofa/type/RGBAColor.h>
 #include <sofa/gl/gl.h>
+#include <sofa/gl/CoreProfileRenderer.h>
 
 #include <vector>
 #include <stack>
@@ -39,12 +40,7 @@ class SOFA_GL_API DrawToolGL : public helper::visual::DrawTool
 public:
     typedef sofa::type::Quat<SReal> Quaternion;
 
-    struct DrawVertex
-    {
-        float position[3];  // offset 0,  12 bytes
-        float normal[3];    // offset 12, 12 bytes
-        float color[4];     // offset 24, 16 bytes
-    }; // total: 40 bytes
+    using DrawVertex = CoreProfileRenderer::Vertex;
 
     DrawToolGL();
     virtual ~DrawToolGL() override;
@@ -209,25 +205,8 @@ protected:
     int  mPolygonMode;      //0: no cull, 1 front (CULL_CLOCKWISE), 2 back (CULL_ANTICLOCKWISE)
     bool mWireFrameEnabled;
 
-    // Modern GL infrastructure
-    GLuint m_vao = 0;
-    GLuint m_vbo = 0;
-    GLsizeiptr m_vboCapacity = 0;
+    // Vertex buffer (fed to CoreProfileRenderer)
     std::vector<DrawVertex> m_vertexBuffer;
-
-    GLuint m_shaderProgram = 0;
-    bool m_shaderReady = false;
-
-    // Cached uniform locations
-    GLint m_locModelViewMatrix = -1;
-    GLint m_locProjectionMatrix = -1;
-    GLint m_locNormalMatrix = -1;
-    GLint m_locLightingEnabled = -1;
-    GLint m_locLightPosition = -1;
-    GLint m_locLightAmbient = -1;
-    GLint m_locLightDiffuse = -1;
-    GLint m_locLightSpecular = -1;
-    GLint m_locShininess = -1;
 
     // Internal matrix stack (replaces legacy GL matrix stack)
     using Mat16f = std::array<float, 16>;
@@ -253,11 +232,7 @@ protected:
     };
     SavedGLState m_savedState {};
 
-    void initModernGL();
     void flushVertexBuffer(GLenum mode, bool enableLighting = true);
-    void uploadMatrices();
-    void uploadLightState();
-    static void computeNormalMatrix(const float* modelview, float* normalMatrix3x3);
 
     void pushVertex(const type::Vec3& pos, const type::Vec3& normal, const type::RGBAColor& color);
     void pushVertex(float px, float py, float pz, float nx, float ny, float nz, const type::RGBAColor& color);
