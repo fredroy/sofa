@@ -26,7 +26,7 @@
 #include <sofa/linearalgebra/FullVector.h>
 #include <sofa/linearalgebra/MatrixExpr.h>
 
-#include <map>
+#include <sofa/type/ankerl/unordered_dense.h>
 
 //////////////////// FORWARD DEFINITION ////////////////////////////////////////////////////////////
 namespace sofa::linearalgebra 
@@ -51,8 +51,8 @@ class SparseMatrix : public linearalgebra::BaseMatrix
 {
 public:
     typedef T Real;
-    typedef std::map<Index,Real> Line;
-    typedef std::map<Index,Line> Data;
+    typedef ankerl::unordered_dense::map<Index,Real> Line;
+    typedef ankerl::unordered_dense::map<Index,Line> Data;
     typedef typename Line::iterator LElementIterator;
     typedef typename Line::const_iterator LElementConstIterator;
     typedef typename Data::iterator LineIterator;
