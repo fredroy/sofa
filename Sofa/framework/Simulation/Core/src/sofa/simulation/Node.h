@@ -32,6 +32,13 @@
 #include <string>
 #include <stack>
 
+#include <boost/version.hpp>
+#if BOOST_VERSION > 108000
+#include <boost/unordered/unordered_flat_map.hpp>
+#else
+#include <map>
+#endif
+
 namespace sofa::simulation
 {
 
@@ -689,8 +696,12 @@ private:
         VisitedStatus status;
     };
 
-    /// map structure to store a traversal flag for each Node
+    /// map structure to store a traversal flag for each DAGNode
+#if BOOST_VERSION > 108000
+    typedef boost::unordered_flat_map<Node*, StatusStruct> StatusMap;
+#else
     typedef std::map<Node*,StatusStruct> StatusMap;
+#endif
 
     /// list of Node*
     typedef std::list<Node*> NodeList;
