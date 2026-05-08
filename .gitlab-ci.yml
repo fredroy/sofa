@@ -24,7 +24,7 @@ cache:
     - ${SOFA_BUILD_DIR}
 
 build-sofa:
-  image: registry.gitlab.com/lnr_sw/sofalnrobotics/ubuntu_2204 # custom-made docker image for building sofa (bin,deps,etc)
+  image: registry.gitlab.com/lnr_sw/sofalnrobotics/ubuntu_2404 # custom-made docker image for building sofa (bin,deps,etc)
   stage: build
   script:
     - echo "----- Fetch external plugin(s)"
