@@ -78,7 +78,11 @@ trigger_plugins_pipeline:
   image: curlimages/curl:latest
   script:
     - |
-      curl --request POST "https://gitlab.com/api/v4/projects/${BEAMADAPTER_PROJECT_ID}/trigger/pipeline?token=${BEAMDAPTER_TRIGGER_TOKEN}&ref=${BEAMDAPTER_TRIGGER_BRANCH}"
+      curl --request POST \
+           --form token=${BEAMDAPTER_TRIGGER_TOKEN} \
+           --form ref=${BEAMDAPTER_TRIGGER_BRANCH} \
+           --form "variables[SOFA_PACKAGE_VERSION]=${CI_COMMIT_REF_NAME}" \
+           "https://gitlab.com/api/v4/projects/${BEAMADAPTER_PROJECT_ID}/trigger/pipeline"
 
 #release_job:
 #  stage: release
