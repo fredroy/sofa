@@ -154,15 +154,11 @@ void DefaultTaskScheduler::stop()
                 continue;
             }
 
-            // cpu busy wait
-            while (!workerThread->isFinished())
-            {
-                std::this_thread::yield();
-                std::this_thread::sleep_for(std::chrono::milliseconds(1));
-            }
-
-            // free memory
-            // cpu busy wait: thread.joint call
+            // ~WorkerThread joins the underlying std::thread, so deleting
+            // here blocks until the worker has actually exited its run()
+            // loop. The previous code polled an isFinished() flag with a
+            // 1ms sleep before deleting; the polling didn't add safety
+            // and burned CPU during shutdown.
             delete workerThread;
             workerThread = nullptr;
         }
