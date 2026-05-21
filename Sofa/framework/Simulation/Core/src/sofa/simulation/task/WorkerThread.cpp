@@ -81,8 +81,10 @@ void WorkerThread::run(void)
         );
 #endif
 
-    //workerThreadIndex = this;
-    //TaskSchedulerDefault::_threads[std::this_thread::get_id()] = this;
+    // Register this WorkerThread in the per-thread slot so
+    // DefaultTaskScheduler::getCurrent() can find it without searching a
+    // map. Cleared on thread exit below.
+    DefaultTaskScheduler::setCurrentWorkerForThisThread(this);
 
     // main loop
     while (!m_taskScheduler->isClosing())
@@ -101,6 +103,7 @@ void WorkerThread::run(void)
         }
     }
 
+    DefaultTaskScheduler::setCurrentWorkerForThisThread(nullptr);
     m_finished.store(true, std::memory_order_relaxed);
 }
 
@@ -249,11 +252,9 @@ bool WorkerThread::addTask(Task *task)
 
 bool WorkerThread::stealTask(Task **task)
 {
-    // Iterate the immutable m_workers vector instead of the _threads map.
     // m_workers is built in DefaultTaskScheduler::start() and cleared in
     // stop(), both of which run when no workers are active, so concurrent
-    // reads here see a stable contents. This avoids the unsynchronized
-    // std::map iteration the previous code did during normal operation.
+    // reads here see a stable contents.
     auto tryStealFrom = [this, task](WorkerThread* otherThread) -> bool
     {
         if (otherThread == nullptr || otherThread == this)

@@ -29,7 +29,6 @@
 #include <thread>
 #include <condition_variable>
 #include <memory>
-#include <map>
 #include <string>
 #include <mutex>
 #include <atomic>
@@ -65,6 +64,13 @@ public:
     void stop() final;
 
     WorkerThread* getCurrent();
+
+    /// Called by each WorkerThread on entry to run() (and by the scheduler
+    /// constructor for the main thread) to register itself so that
+    /// getCurrent() can return it via a thread_local without searching a
+    /// map. Pass nullptr on thread exit.
+    static void setCurrentWorkerForThisThread(WorkerThread* worker);
+
     unsigned int getThreadCount(void)  const final { return m_threadCount; }
     const char* getCurrentThreadName() override final;
     int getCurrentThreadType() override final;
@@ -88,29 +94,23 @@ private:
     void	wakeUpWorkers();
             
     WorkerThread* getCurrentThread();
-            
-    WorkerThread* getWorkerThread(const std::thread::id id);
 
-            
     static const std::string _name;
-
-    std::map< std::thread::id, WorkerThread*> _threads;
 
     /// Snapshot of the worker threads (excluding the main thread) populated
     /// at start() and cleared at stop(). Iterated by WorkerThread::stealTask
     /// without synchronization: it is only mutated when no workers are
     /// running, so concurrent reads from the worker pool see a stable
-    /// vector. Compared with iterating the _threads map this also avoids
-    /// the per-iteration "skip if main thread" check.
+    /// vector.
     std::vector<WorkerThread*> m_workers;
 
-    /// Convenience pointer to the WorkerThread of the thread that
-    /// constructed the scheduler. The main thread is the typical producer
-    /// in SOFA's parallelForEachRange pattern (addTask runs on it and
-    /// tasks land in its m_tasks queue), so worker threads must be able
-    /// to steal from it; otherwise the parallel sweep degenerates to
-    /// running every task on the producing thread.
-    /// Owned by _threads; this field is just a cached lookup.
+    /// The WorkerThread of the thread that constructed the scheduler.
+    /// The main thread is the typical producer in SOFA's
+    /// parallelForEachRange pattern (addTask runs on it and tasks land in
+    /// its m_tasks queue), so worker threads must be able to steal from
+    /// it; otherwise the parallel sweep degenerates to running every
+    /// task on the producing thread.
+    /// Owned by this scheduler. Survives stop()/start() cycles.
     WorkerThread* m_mainThread { nullptr };
 
     std::atomic<const Task::Status*> m_mainTaskStatus;

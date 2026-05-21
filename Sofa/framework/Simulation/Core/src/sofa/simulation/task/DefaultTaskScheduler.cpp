@@ -53,6 +53,28 @@ DefaultTaskScheduler* DefaultTaskScheduler::create()
     return new DefaultTaskScheduler();
 }
 
+// Per-thread pointer to the WorkerThread that "is" this thread. Set by
+// each WorkerThread on entry to run(), and by the scheduler constructor
+// for the main thread. Looked up by getCurrent() to avoid an
+// unsynchronized std::map lookup on the hot path.
+//
+// Caveat: the value is process-global (one slot per OS thread, shared
+// across all DefaultTaskScheduler instances). In practice SOFA only
+// instantiates one scheduler at a time via MainTaskSchedulerFactory. If
+// two distinct DefaultTaskSchedulers were created on the same thread,
+// the most recent constructor would overwrite the previous main-thread
+// registration. The previous std::map design had similar surprises and
+// any defensive solution would re-introduce per-call lookup cost.
+namespace
+{
+thread_local WorkerThread* t_currentWorker = nullptr;
+}
+
+void DefaultTaskScheduler::setCurrentWorkerForThisThread(WorkerThread* worker)
+{
+    t_currentWorker = worker;
+}
+
 DefaultTaskScheduler::DefaultTaskScheduler()
 : TaskScheduler()
 {
@@ -60,11 +82,11 @@ DefaultTaskScheduler::DefaultTaskScheduler()
     m_threadCount = 0;
     m_isClosing.store(false, std::memory_order_relaxed);
 
-    // init global static thread local var
-    {
-        m_mainThread = new WorkerThread(this, 0, "Main  ");
-        _threads[std::this_thread::get_id()] = m_mainThread;
-    }
+    // The thread that constructs the scheduler becomes its "main" worker
+    // thread. The WorkerThread is owned by this scheduler and survives
+    // stop()/start() cycles; only worker pool members are recreated.
+    m_mainThread = new WorkerThread(this, 0, "Main  ");
+    setCurrentWorkerForThisThread(m_mainThread);
 }
 
 DefaultTaskScheduler::~DefaultTaskScheduler()
@@ -73,16 +95,14 @@ DefaultTaskScheduler::~DefaultTaskScheduler()
     {
         stop();
     }
-}
-
-WorkerThread* DefaultTaskScheduler::getWorkerThread(const std::thread::id id)
-{
-    const auto thread =_threads.find(id);
-    if (thread == _threads.end() )
+    // Drop the thread_local registration only if it still points at our
+    // main worker (a different scheduler may have taken over since).
+    if (t_currentWorker == m_mainThread)
     {
-        return nullptr;
+        setCurrentWorkerForThisThread(nullptr);
     }
-    return thread->second;
+    delete m_mainThread;
+    m_mainThread = nullptr;
 }
 
 Task::Allocator* DefaultTaskScheduler::getTaskAllocator()
@@ -127,7 +147,6 @@ void DefaultTaskScheduler::start(const unsigned int NbThread )
     {
         WorkerThread* thread = new WorkerThread(this, int(i));
         thread->create_and_attach(this);
-        _threads[thread->getId()] = thread;
         m_workers.push_back(thread);
         thread->start(this);
     }
@@ -163,11 +182,6 @@ void DefaultTaskScheduler::stop()
 
         m_threadCount = 1;
         m_workerThreadCount = 1;
-
-        const auto mainThreadIt = _threads.find(std::this_thread::get_id());
-        WorkerThread* mainThread = mainThreadIt->second;
-        _threads.clear();
-        _threads[std::this_thread::get_id()] = mainThread;
     }
 
     return;
@@ -175,7 +189,13 @@ void DefaultTaskScheduler::stop()
 
 WorkerThread* DefaultTaskScheduler::getCurrent()
 {
-    return getWorkerThread(std::this_thread::get_id());
+    // Hot-path lookup: the calling thread either is a worker that
+    // registered itself in WorkerThread::run, or it's the main thread
+    // that the scheduler constructor registered. If neither, t_currentWorker
+    // is nullptr (e.g. a user-spawned std::thread calling addTask) and the
+    // caller will get a clear nullptr that signals "this thread is not
+    // associated with the scheduler".
+    return t_currentWorker;
 }
 
 const char* DefaultTaskScheduler::getCurrentThreadName()
