@@ -4,6 +4,7 @@ project(Sofa.Simulation.Core_test)
 
 set(SOURCE_FILES
     Colors_test.cpp
+    CpuTaskStatusVisibility_test.cpp
     MappingGraph_test.cpp
     ParallelForEach_test.cpp
     PushTaskRace_test.cpp
