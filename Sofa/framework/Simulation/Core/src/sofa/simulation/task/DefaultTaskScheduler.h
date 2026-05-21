@@ -104,6 +104,15 @@ private:
     /// the per-iteration "skip if main thread" check.
     std::vector<WorkerThread*> m_workers;
 
+    /// Convenience pointer to the WorkerThread of the thread that
+    /// constructed the scheduler. The main thread is the typical producer
+    /// in SOFA's parallelForEachRange pattern (addTask runs on it and
+    /// tasks land in its m_tasks queue), so worker threads must be able
+    /// to steal from it; otherwise the parallel sweep degenerates to
+    /// running every task on the producing thread.
+    /// Owned by _threads; this field is just a cached lookup.
+    WorkerThread* m_mainThread { nullptr };
+
     std::atomic<const Task::Status*> m_mainTaskStatus;
     void setMainTaskStatus(const Task::Status* mainTaskStatus);
     bool testMainTaskStatus(const Task::Status*);

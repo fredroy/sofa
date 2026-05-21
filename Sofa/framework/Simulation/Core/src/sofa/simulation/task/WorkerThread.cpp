@@ -254,18 +254,36 @@ bool WorkerThread::stealTask(Task **task)
     // stop(), both of which run when no workers are active, so concurrent
     // reads here see a stable contents. This avoids the unsynchronized
     // std::map iteration the previous code did during normal operation.
-    for (WorkerThread* otherThread : m_taskScheduler->m_workers)
+    auto tryStealFrom = [this, task](WorkerThread* otherThread) -> bool
     {
-        if (otherThread == this)
+        if (otherThread == nullptr || otherThread == this)
         {
-            continue;
+            return false;
         }
-
         simulation::ScopedLock lock(otherThread->m_taskMutex);
         if (!otherThread->m_tasks.empty())
         {
             *task = otherThread->m_tasks.front();
             otherThread->m_tasks.pop_front();
+            return true;
+        }
+        return false;
+    };
+
+    // The main thread is the typical producer in SOFA's parallelForEachRange
+    // pattern: addTask() runs on it and the tasks land in m_mainThread's
+    // queue. Workers must therefore steal from the main thread, not just
+    // from each other, otherwise the parallel sweep degenerates to running
+    // every task on the producing thread.
+    if (tryStealFrom(m_taskScheduler->m_mainThread))
+    {
+        return true;
+    }
+
+    for (WorkerThread* otherThread : m_taskScheduler->m_workers)
+    {
+        if (tryStealFrom(otherThread))
+        {
             return true;
         }
     }
