@@ -84,8 +84,6 @@ private:
 
     bool isClosing() const { return m_isClosing.load(std::memory_order_relaxed); }
             
-    void	WaitForWorkersToBeReady();
-            
     void	wakeUpWorkers();
             
     WorkerThread* getCurrentThread();
