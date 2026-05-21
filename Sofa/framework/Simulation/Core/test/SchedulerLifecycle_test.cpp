@@ -116,4 +116,36 @@ TEST(SchedulerLifecycle, DoubleStopIsHarmless)
     scheduler->stop();
 }
 
+// Stress test for the _threads / stealTask interaction. Many init/dispatch/stop
+// cycles in a row exercise the path where a worker thread iterates the
+// _threads map for stealing while another thread tears the scheduler down.
+// On the original code _threads is mutated by start()/stop() without
+// synchronization while workers iterate it for stealing; the race window is
+// narrow but real. After the fix (stealTask iterates an immutable
+// m_workers vector), this test still passes; without the fix it would
+// flag under TSan and could occasionally crash.
+TEST(SchedulerLifecycle, RepeatedInitStopWithDispatch)
+{
+    constexpr int kCycles = 500;
+    constexpr int kTasksPerCycle = 32;
+
+    auto* scheduler = simulation::MainTaskSchedulerFactory::createInRegistry(
+        simulation::DefaultTaskScheduler::name());
+    ASSERT_NE(scheduler, nullptr);
+
+    scheduler->init(0);
+    if (scheduler->getThreadCount() < 2)
+    {
+        GTEST_SKIP() << "scheduler has fewer than 2 threads; nothing to verify";
+    }
+    scheduler->stop();
+
+    for (int c = 0; c < kCycles; ++c)
+    {
+        scheduler->init(0);
+        dispatchOneTrivialBurst(*scheduler, kTasksPerCycle);
+        scheduler->stop();
+    }
+}
+
 } // namespace sofa
