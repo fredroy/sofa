@@ -7,6 +7,7 @@ set(SOURCE_FILES
     MappingGraph_test.cpp
     ParallelForEach_test.cpp
     RequiredPlugin_test.cpp
+    TaskAllocator_test.cpp
     SceneCheckRegistry_test.cpp
     Simulation_test.cpp
     ParallelSparseMatrixProduct_test.cpp
