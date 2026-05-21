@@ -56,9 +56,9 @@ DefaultTaskScheduler* DefaultTaskScheduler::create()
 DefaultTaskScheduler::DefaultTaskScheduler()
 : TaskScheduler()
 {
-    m_isInitialized = false;
+    m_isInitialized.store(false, std::memory_order_relaxed);
     m_threadCount = 0;
-    m_isClosing = false;
+    m_isClosing.store(false, std::memory_order_relaxed);
 
     // init global static thread local var
     {
@@ -68,7 +68,7 @@ DefaultTaskScheduler::DefaultTaskScheduler()
 
 DefaultTaskScheduler::~DefaultTaskScheduler()
 {
-    if ( m_isInitialized )
+    if (isInitialized())
     {
         stop();
     }
@@ -92,7 +92,7 @@ Task::Allocator* DefaultTaskScheduler::getTaskAllocator()
 
 void DefaultTaskScheduler::init(const unsigned int NbThread )
 {
-    if ( m_isInitialized )
+    if (isInitialized())
     {
         if ( (NbThread == m_threadCount) || (NbThread==0 && m_threadCount==GetHardwareThreadsCount()) )
         {
@@ -108,7 +108,7 @@ void DefaultTaskScheduler::start(const unsigned int NbThread )
 {
     stop();
 
-    m_isClosing = false;
+    m_isClosing.store(false, std::memory_order_relaxed);
     m_workerThreadsIdle = true;
     m_mainTaskStatus	= nullptr;
 
@@ -130,21 +130,21 @@ void DefaultTaskScheduler::start(const unsigned int NbThread )
     }
 
     m_workerThreadCount = m_threadCount;
-    m_isInitialized = true;
+    m_isInitialized.store(true, std::memory_order_relaxed);
 }
 
 
 
 void DefaultTaskScheduler::stop()
 {
-    m_isClosing = true;
+    m_isClosing.store(true, std::memory_order_relaxed);
 
-    if ( m_isInitialized )
+    if (isInitialized())
     {
         // wait for all
         WaitForWorkersToBeReady();
         wakeUpWorkers();
-        m_isInitialized = false;
+        m_isInitialized.store(false, std::memory_order_relaxed);
 
         for (auto [threadId, workerThread] : _threads)
         {

@@ -80,9 +80,9 @@ public:
 
 private:
             
-    bool isInitialized() const { return m_isInitialized; }
-            
-    bool isClosing() const { return m_isClosing; }
+    bool isInitialized() const { return m_isInitialized.load(std::memory_order_relaxed); }
+
+    bool isClosing() const { return m_isClosing.load(std::memory_order_relaxed); }
             
     void	WaitForWorkersToBeReady();
             
@@ -120,13 +120,19 @@ private:
      */
     void start(unsigned int NbThread);
             
-    bool m_isInitialized;
+    // Lifecycle flags read by worker threads (run() polls isClosing()) and
+    // written by start()/stop() on the main thread. Atomic to satisfy the
+    // C++ memory model contract; relaxed ordering is sufficient because
+    // they coordinate liveness, not data publication (the actual data
+    // synchronization goes through m_wakeUpMutex / m_wakeUpEvent and
+    // m_taskMutex inside WorkerThread).
+    std::atomic<bool> m_isInitialized;
 
     unsigned m_workerThreadCount;
-            
+
     std::atomic<bool> m_workerThreadsIdle;
-            
-    bool m_isClosing;
+
+    std::atomic<bool> m_isClosing;
             
     unsigned m_threadCount;
             
