@@ -249,25 +249,25 @@ bool WorkerThread::addTask(Task *task)
 
 bool WorkerThread::stealTask(Task **task)
 {
-    for (const auto it : m_taskScheduler->_threads)
+    // Iterate the immutable m_workers vector instead of the _threads map.
+    // m_workers is built in DefaultTaskScheduler::start() and cleared in
+    // stop(), both of which run when no workers are active, so concurrent
+    // reads here see a stable contents. This avoids the unsynchronized
+    // std::map iteration the previous code did during normal operation.
+    for (WorkerThread* otherThread : m_taskScheduler->m_workers)
     {
-        // if this is the main thread continue
-        if (std::this_thread::get_id() == it.first)
+        if (otherThread == this)
         {
             continue;
         }
 
-        WorkerThread *otherThread = it.second;
+        simulation::ScopedLock lock(otherThread->m_taskMutex);
+        if (!otherThread->m_tasks.empty())
         {
-            simulation::ScopedLock lock(otherThread->m_taskMutex);
-            if (!otherThread->m_tasks.empty())
-            {
-                *task = otherThread->m_tasks.front();
-                otherThread->m_tasks.pop_front();
-                return true;
-            }
+            *task = otherThread->m_tasks.front();
+            otherThread->m_tasks.pop_front();
+            return true;
         }
-
     }
 
     return false;

@@ -30,9 +30,10 @@
 #include <condition_variable>
 #include <memory>
 #include <map>
-#include <string> 
+#include <string>
 #include <mutex>
 #include <atomic>
+#include <vector>
 
 
 namespace sofa::simulation
@@ -94,6 +95,14 @@ private:
     static const std::string _name;
 
     std::map< std::thread::id, WorkerThread*> _threads;
+
+    /// Snapshot of the worker threads (excluding the main thread) populated
+    /// at start() and cleared at stop(). Iterated by WorkerThread::stealTask
+    /// without synchronization: it is only mutated when no workers are
+    /// running, so concurrent reads from the worker pool see a stable
+    /// vector. Compared with iterating the _threads map this also avoids
+    /// the per-iteration "skip if main thread" check.
+    std::vector<WorkerThread*> m_workers;
 
     std::atomic<const Task::Status*> m_mainTaskStatus;
     void setMainTaskStatus(const Task::Status* mainTaskStatus);

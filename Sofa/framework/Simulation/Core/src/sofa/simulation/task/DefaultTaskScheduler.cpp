@@ -121,11 +121,13 @@ void DefaultTaskScheduler::start(const unsigned int NbThread )
     }
 
     /* start worker threads */
+    m_workers.reserve(m_threadCount > 0 ? m_threadCount - 1 : 0);
     for( unsigned int i=1; i<m_threadCount; ++i)
     {
         WorkerThread* thread = new WorkerThread(this, int(i));
         thread->create_and_attach(this);
         _threads[thread->getId()] = thread;
+        m_workers.push_back(thread);
         thread->start(this);
     }
 
@@ -147,22 +149,16 @@ void DefaultTaskScheduler::stop()
         wakeUpWorkers();
         m_isInitialized.store(false, std::memory_order_relaxed);
 
-        for (auto [threadId, workerThread] : _threads)
+        // ~WorkerThread joins the underlying std::thread, so deleting
+        // each worker here blocks until that worker has actually exited
+        // its run() loop. Iterate m_workers (which contains only the
+        // worker threads, never the main thread) so we don't have to
+        // skip-the-main-thread inside the loop.
+        for (WorkerThread* worker : m_workers)
         {
-            // if this is the main thread continue
-            if (std::this_thread::get_id() == threadId)
-            {
-                continue;
-            }
-
-            // ~WorkerThread joins the underlying std::thread, so deleting
-            // here blocks until the worker has actually exited its run()
-            // loop. The previous code polled an isFinished() flag with a
-            // 1ms sleep before deleting; the polling didn't add safety
-            // and burned CPU during shutdown.
-            delete workerThread;
-            workerThread = nullptr;
+            delete worker;
         }
+        m_workers.clear();
 
         m_threadCount = 1;
         m_workerThreadCount = 1;
