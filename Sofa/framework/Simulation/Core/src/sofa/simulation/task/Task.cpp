@@ -23,7 +23,7 @@
 
 namespace sofa::simulation
 {
-Task::Allocator* Task::_allocator = nullptr;
+std::atomic<Task::Allocator*> Task::_allocator { nullptr };
 
 Task::Task(int scheduledThread)
 : m_scheduledThread(scheduledThread)
@@ -33,17 +33,35 @@ Task::Task(int scheduledThread)
 
 void *Task::operator new(std::size_t sz)
 {
-    return _allocator->allocate(sz);
+    // The allocator is set lazily by the scheduler factory. Until that
+    // happens (or if a code path constructs Tasks before any scheduler is
+    // looked up) we fall back to the global allocator instead of
+    // dereferencing nullptr.
+    if (Task::Allocator* a = _allocator.load(std::memory_order_acquire))
+    {
+        return a->allocate(sz);
+    }
+    return ::operator new(sz);
 }
 
 void Task::operator delete(void *ptr)
 {
-    _allocator->free(ptr, 0);
+    if (Task::Allocator* a = _allocator.load(std::memory_order_acquire))
+    {
+        a->free(ptr, 0);
+        return;
+    }
+    ::operator delete(ptr);
 }
 
 void Task::operator delete(void *ptr, std::size_t sz)
 {
-    _allocator->free(ptr, sz);
+    if (Task::Allocator* a = _allocator.load(std::memory_order_acquire))
+    {
+        a->free(ptr, sz);
+        return;
+    }
+    ::operator delete(ptr);
 }
 
 int Task::getScheduledThread() const
@@ -53,12 +71,12 @@ int Task::getScheduledThread() const
 
 Task::Allocator *Task::getAllocator()
 {
-    return _allocator;
+    return _allocator.load(std::memory_order_acquire);
 }
 
 void Task::setAllocator(Task::Allocator *allocator)
 {
-    _allocator = allocator;
+    _allocator.store(allocator, std::memory_order_release);
 }
 
 } // namespace sofa

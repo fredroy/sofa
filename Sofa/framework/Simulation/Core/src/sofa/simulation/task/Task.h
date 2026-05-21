@@ -23,6 +23,7 @@
 
 #include <sofa/simulation/config.h>
 
+#include <atomic>
 #include <cstddef>
 
 namespace sofa::simulation
@@ -99,8 +100,12 @@ public:
     int m_id;
             
 private:
-            
-    static Task::Allocator * _allocator;
+
+    /// Process-global allocator pointer. Atomic so concurrent operator
+    /// new/delete on worker threads do not race with setAllocator on the
+    /// main thread. May be null; in that case operator new and operator
+    /// delete fall back to ::operator new / ::operator delete.
+    static std::atomic<Task::Allocator*> _allocator;
 };
 
 } // namespace sofa::simulation
