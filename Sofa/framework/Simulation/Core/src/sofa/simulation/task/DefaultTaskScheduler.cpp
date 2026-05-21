@@ -141,8 +141,9 @@ void DefaultTaskScheduler::stop()
 
     if (isInitialized())
     {
-        // wait for all
-        WaitForWorkersToBeReady();
+        // Wake every worker so they observe m_isClosing == true and exit
+        // their run() loop. The wake itself sets m_workerThreadsIdle to
+        // false under m_wakeUpMutex.
         wakeUpWorkers();
         m_isInitialized.store(false, std::memory_order_relaxed);
 
@@ -211,11 +212,6 @@ void DefaultTaskScheduler::wakeUpWorkers()
         m_workerThreadsIdle = false;
     }
     m_wakeUpEvent.notify_all();
-}
-
-void DefaultTaskScheduler::WaitForWorkersToBeReady()
-{
-    m_workerThreadsIdle = true;
 }
 
 void DefaultTaskScheduler::setMainTaskStatus(const Task::Status* mainTaskStatus)
