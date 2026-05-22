@@ -14,9 +14,18 @@ variables:
   PACKAGE_REGISTRY_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/sofa_LNR/${PACKAGE_VERSION}"
   SOFA_INSTALL_ARCHIVE_FILENAME: sofa_LNR-ubuntu.tgz
   SOFA_INSTALL_ARCHIVE_PATH: ${SOFA_WORKING_DIR}/${SOFA_INSTALL_ARCHIVE_FILENAME}
-  BEAMADAPTER_PROJECT_ID: 39525328  # ID of LNR_SW/BeamAdapter, TODO query request to get the ID instead of a fixed value ?
+  BEAMADAPTER_PROJECT_ID: 39525328  # ID of LNR_SW/BeamAdapter
   BEAMDAPTER_TRIGGER_TOKEN: glptt-c5cd1db5ebf1e8e5168c269768c4823eddc09031
   BEAMDAPTER_TRIGGER_BRANCH: dev_integration
+  LNROBOPLUGIN_PROJECT_ID: 39657357  # ID of LNR_SW/LNRoboPlugin
+  LNROBOPLUGIN_TRIGGER_TOKEN: glptt-5Lbe-pCaxUKR_fzyJ2c7
+  LNROBOPLUGIN_TRIGGER_BRANCH: dev_integration
+  LNROBOPLUGIN_PROJECT_ID: 39657357  # ID of LNR_SW/LNRoboPlugin
+  LNROBOPLUGIN_TRIGGER_TOKEN: glptt-5Lbe-pCaxUKR_fzyJ2c7
+  LNROBOPLUGIN_TRIGGER_BRANCH: dev_integration
+  ENCLOSEDCOLLISIONPLUGIN_PROJECT_ID: 77308379  # ID of LNR_SW/EnclosedCollisionPlugin
+  ENCLOSEDCOLLISIONPLUGIN_TRIGGER_TOKEN: glptt-kZTvGea3gewkzRTh6naq
+  ENCLOSEDCOLLISIONPLUGIN_TRIGGER_BRANCH: dev_integration
 
 cache:
   key: one-key-to-rule-them-all # always keep accross all pipelines, branches...
@@ -77,12 +86,27 @@ trigger_plugins_pipeline:
   stage: trigger_plugins
   image: curlimages/curl:latest
   script:
+    # Trigger BeamAdapter pipeline
     - |
       curl --request POST \
            --form token=${BEAMDAPTER_TRIGGER_TOKEN} \
            --form ref=${BEAMDAPTER_TRIGGER_BRANCH} \
            --form "variables[SOFA_PACKAGE_VERSION]=${CI_COMMIT_REF_NAME}" \
            "https://gitlab.com/api/v4/projects/${BEAMADAPTER_PROJECT_ID}/trigger/pipeline"
+    # Trigger LNRoboPlugin pipeline
+    - |
+      curl --request POST \
+           --form token=${LNROBOPLUGIN_TRIGGER_TOKEN} \
+           --form ref=${LNROBOPLUGIN_TRIGGER_BRANCH} \
+           --form "variables[SOFA_PACKAGE_VERSION]=${CI_COMMIT_REF_NAME}" \
+           "https://gitlab.com/api/v4/projects/${LNROBOPLUGIN_PROJECT_ID}/trigger/pipeline"
+    # Trigger EnclosedCollisionPlugin pipeline
+    - |
+      curl --request POST \
+           --form token=${ENCLOSEDCOLLISIONPLUGIN_TRIGGER_TOKEN} \
+           --form ref=${ENCLOSEDCOLLISIONPLUGIN_TRIGGER_BRANCH} \
+           --form "variables[SOFA_PACKAGE_VERSION]=${CI_COMMIT_REF_NAME}" \
+           "https://gitlab.com/api/v4/projects/${ENCLOSEDCOLLISIONPLUGIN_PROJECT_ID}/trigger/pipeline"
 
 #release_job:
 #  stage: release
