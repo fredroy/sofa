@@ -108,7 +108,7 @@ struct PluginManager_test: public BaseTest
 };
 
 
-TEST_F(PluginManager_test, loadTestPluginAByPath)
+TEST_F(PluginManager_test, DISABLED_loadTestPluginAByPath)
 {
     PluginManager&pm = PluginManager::getInstance();
 

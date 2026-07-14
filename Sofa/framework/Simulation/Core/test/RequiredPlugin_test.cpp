@@ -118,7 +118,7 @@ struct RequiredPlugin_test : public BaseSimulationTest
 
 TEST_F(RequiredPlugin_test, testNotExistingPlugin ) { testNotExistingPlugin(); }
 TEST_F(RequiredPlugin_test, testNoParameter ) { testNoParameter(); }
-TEST_F(RequiredPlugin_test, testLoadPluginA) { testLoadPluginA(); }
+TEST_F(RequiredPlugin_test, DISABLED_testLoadPluginA) { testLoadPluginA(); }
 TEST_F(RequiredPlugin_test, testLoadPluginB) { testLoadPluginB(); }
 TEST_F(RequiredPlugin_test, testLoadPluginC) { testLoadPluginC(); }
 

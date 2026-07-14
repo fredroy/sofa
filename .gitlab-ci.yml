@@ -1,6 +1,7 @@
 
 stages:          # List of stages for jobs, and their order of execution
   - build
+  - test
   - upload
   - release
   - trigger_plugins
@@ -32,7 +33,7 @@ cache:
   paths:
     - ${SOFA_BUILD_DIR}
 
-build-sofa:
+build_sofa:
   image: registry.gitlab.com/lnr_sw/sofalnrobotics/ubuntu_2404 # custom-made docker image for building sofa (bin,deps,etc)
   stage: build
   script:
@@ -51,7 +52,7 @@ build-sofa:
     - echo "----- Configure SOFA"
     - cmake -G Ninja -DCMAKE_BUILD_TYPE=Release 
                      -DCMAKE_CXX_FLAGS_RELEASE="-O3 -DNDEBUG" -DCMAKE_INSTALL_PREFIX="${SOFA_ROOT}" 
-                     -DSOFA_BUILD_TESTS=OFF -DSOFA_ENABLE_LEGACY_HEADERS=OFF -DSOFA_WITH_DEVTOOLS=OFF 
+                     -DSOFA_BUILD_TESTS=ON -DSOFA_ENABLE_LEGACY_HEADERS=OFF -DSOFA_WITH_DEVTOOLS=OFF 
                      -DSOFA_WITH_OPENGL=ON
                      -DLIBRARY_SOFA_GUI=OFF -DLIBRARY_SOFA_GUI_QT=OFF -DPLUGIN_SOFA_GUI_QT=OFF -DCOLLECTION_SOFAGUI=OFF
                      -DPLUGIN_SOFAGLFW=OFF -DPLUGIN_SOFAIMGUI=OFF -DSOFA_FETCH_SOFAGLFW=ON
@@ -74,6 +75,13 @@ build-sofa:
       -  ${SOFA_INSTALL_ARCHIVE_PATH}
     untracked: false
     expire_in: 1 days
+
+unit_test_sofa:
+  image: registry.gitlab.com/lnr_sw/sofalnrobotics/ubuntu_2404 
+  stage: test
+  script:
+    - cd ${SOFA_BUILD_DIR}/bin
+    - for i in `ls *_test` ; do echo "Executing $i" ; ./$i ; done
 
 upload_sofa:
   stage: upload

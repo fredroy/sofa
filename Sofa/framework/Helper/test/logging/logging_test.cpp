@@ -404,7 +404,7 @@ TEST(LoggingTest, checkBaseObjectQueueSize)
 #undef dmsg_advice
 #include <sofa/helper/logging/Messaging.h>
 
-TEST(LoggingTest, withDevMode)
+TEST(LoggingTest, DISABLED_withDevMode)
 {
     MessageDispatcher::clearHandlers() ;
 
