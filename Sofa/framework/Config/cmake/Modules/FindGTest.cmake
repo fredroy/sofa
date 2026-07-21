@@ -191,6 +191,20 @@ find_package(GTest QUIET NO_MODULE)
 if(GTest_FOUND)
     FIND_PACKAGE_HANDLE_STANDARD_ARGS(GTest HANDLE_COMPONENTS CONFIG_MODE)
 
+    # Upstream GTestConfig.cmake provides the namespaced GTest::gtest /
+    # GTest::gtest_main targets. However SOFA's own exported GTest package
+    # (created via sofa_create_package_with_targets) exports the plain,
+    # non-namespaced 'gtest' / 'gtest_main' targets. When such a package is
+    # found (e.g. on reconfigure against a populated install tree), make sure
+    # the canonical namespaced targets still exist so that consumers can always
+    # link against GTest::gtest, exactly as with the fetched googletest.
+    if(NOT TARGET GTest::gtest AND TARGET gtest)
+        add_library(GTest::gtest ALIAS gtest)
+    endif()
+    if(NOT TARGET GTest::gtest_main AND TARGET gtest_main)
+        add_library(GTest::gtest_main ALIAS gtest_main)
+    endif()
+
     set(GTEST_LIBRARIES      GTest::gtest)
     set(GTEST_MAIN_LIBRARIES GTest::gtest_main)
 
