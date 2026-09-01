@@ -191,20 +191,69 @@ public:
         }
     };
 
+    /// Binary search for val in the strictly increasing sub-range [lo,hi] of v.
+    static bool bisect(const VecIndex& v, Index lo, Index hi, Index val, Index& result)
+    {
+        for(;;)
+        {
+            const Index candidate = lo + ((hi - lo) >> 1);
+            const Index i = v[candidate];
+            if (i == val) { result = candidate; return true; }
+            if (i < val)  lo = candidate + 1;
+            else          hi = candidate - 1;
+            if (lo > hi) return false;
+        }
+    }
+
+    /**
+    * \brief Search val into the sorted array v, restricted to the range 'in'.
+    * @param result : in/out parameter, used both as the caller position hint and the found position
+    * @return true if val is part of the range
+    **/
     static bool sortedFind(const VecIndex& v, Range in, Index val, Index& result)
     {
         if (in.empty()) return false;
-        Index candidate = (result >= in.begin() && result < in.end()) ? result : ((in.begin() + in.end()) >> 1);
-        for(;;)
+
+        const Index low = in.begin();
+        const Index high = in.end() - 1;
+
+        /// Endpoints are the most queried positions and allow to reject out of range values at once.
+        const Index lowValue = v[low];
+        if (val == lowValue) { result = low; return true; }
+        if (val < lowValue) return false;
+
+        const Index highValue = v[high];
+        if (val == highValue) { result = high; return true; }
+        if (val > highValue) return false;
+
+        Index lo = low + 1;
+        Index hi = high - 1;
+
+        /// The caller hint, when valid, is used to start the search close to the expected position.
+        if (result > lo && result < hi)
         {
-            Index i = v[candidate];
-            if (i == val) { result = candidate; return true; }
-            if (i < val)  in.setBegin(candidate+1);
-            else          in.setEnd(candidate);
-            if (in.empty()) break;
-            candidate = (in.begin() + in.end()) >> 1;
+            const Index pivot = result;
+            const Index pivotValue = v[pivot];
+            if (pivotValue == val) { result = pivot; return true; }
+
+            /// Gallop away from the hint until val is bracketed, then bisect the bracketed window.
+            if (pivotValue < val)
+            {
+                Index step = 1;
+                while (pivot + step < hi && v[pivot + step] < val) { step *= 2; }
+                lo = pivot + (step >> 1) + 1;
+                if (pivot + step < hi) hi = pivot + step;
+            }
+            else
+            {
+                Index step = 1;
+                while (pivot - step > lo && v[pivot - step] > val) { step *= 2; }
+                hi = pivot - (step >> 1) - 1;
+                if (pivot - step > lo) lo = pivot - step;
+            }
         }
-        return false;
+
+        return bisect(v, lo, hi, val, result);
     }
 
     static bool sortedFind(const VecIndex& v, Index val, Index& result)
@@ -1060,7 +1109,7 @@ public:
 
         for (Index rowId = static_cast<Index>(rowIndex.size())-1; rowId >=0 ; --rowId)
         {
-            Range rowRange(rowBegin[rowId], rowBegin[rowId+1]);
+            const Range rowRange(rowBegin[rowId], rowBegin[rowId+1]);
 
             Index colId = 0;
             if (findColInRange(rowRange, j, colId)) /// Means col exist in this line
