@@ -278,6 +278,11 @@ public :
     /// This is to avoid compressCRS costly method when no change into matrix size occurs.
     bool skipCompressZero;
 
+    /// Highest column index held by the compressed arrays, only meaningful for the AutoSize policies.
+    Index maxColIndex;
+    /// When false, maxColIndex is unknown and getMaxColIndex() has to look through the rows again.
+    bool maxColIndexUpToDate;
+
     /// Temporary vectors used during compression
     VecIndex oldRowIndex;
     VecIndex oldRowBegin;
@@ -286,12 +291,14 @@ public :
 
     CompressedRowSparseMatrixGeneric()
         : nBlockRow(0), nBlockCol(0), skipCompressZero(true)
+        , maxColIndex(0), maxColIndexUpToDate(true)
     {
     }
 
     CompressedRowSparseMatrixGeneric(Index nbBlockRow, Index nbBlockCol)
         : nBlockRow(nbBlockRow), nBlockCol(nbBlockCol)
         , skipCompressZero(true)
+        , maxColIndex(0), maxColIndexUpToDate(true)
     {
     }
 
@@ -339,6 +346,8 @@ public :
         {
             nBlockRow = nbBRow;
             nBlockCol = nbBCol;
+            maxColIndex = 0;
+            maxColIndexUpToDate = true;
             rowIndex.clear();
             rowBegin.clear();
             colsIndex.clear();
@@ -365,6 +374,7 @@ protected:
             {
                 colsIndex.push_back(colId);
                 colsValue.push_back(bvalue);
+                registerRegisteredCol(colId);
                 added = true;
             }
         }
@@ -372,9 +382,19 @@ protected:
         {
             colsIndex.push_back(colId);
             colsValue.push_back(bvalue);
+            registerRegisteredCol(colId);
             added = true;
         }
         return added;
+    }
+
+    /// Keeps maxColIndex exact while it is known to be up to date, blocks are registered in increasing order.
+    void registerRegisteredCol(Index colId)
+    {
+        if constexpr (Policy::AutoSize)
+        {
+            if (maxColIndexUpToDate && colId > maxColIndex) maxColIndex = colId;
+        }
     }
 
     /**
@@ -412,6 +432,8 @@ protected:
     **/
     void fullyCompressBtemp()
     {
+        if constexpr (Policy::AutoSize) { maxColIndex = 0; maxColIndexUpToDate = true; }
+
         rowIndex.clear();
         rowBegin.clear();
         colsIndex.clear();
@@ -468,15 +490,19 @@ protected:
     template< typename = typename std::enable_if< Policy::AutoSize> >
     Index getMaxColIndex()
     {
-        Index maxColIndex = 0;
+        if (maxColIndexUpToDate) return maxColIndex;
+
+        Index knownMaxColIndex = 0;
         for (Index rowId = 0; rowId < static_cast<Index>(rowIndex.size()); rowId++)
         {
             /// a registered row may hold no block, in which case rowBegin[rowId+1] - 1
             /// would address the previous row's last column
             if (rowBegin[rowId] == rowBegin[rowId+1]) continue;
             Index lastColIndex = colsIndex[rowBegin[rowId+1] - 1];
-            if (lastColIndex > maxColIndex) maxColIndex = lastColIndex;
+            if (lastColIndex > knownMaxColIndex) knownMaxColIndex = lastColIndex;
         }
+        maxColIndex = knownMaxColIndex;
+        maxColIndexUpToDate = true;
         return maxColIndex;
     }
 
@@ -580,6 +606,7 @@ protected:
         else
         {
             const std::size_t nnzRow  = std::size_t(rowRange.size());
+            const Index oldLastColOfRow = (nnzRow == 0) ? Index(0) : colsIndex[rowRange.end() - 1];
 
             colsValue.erase(rowRange.begin(colsValue), rowRange.end(colsValue));
             colsIndex.erase(rowRange.begin(colsIndex), rowRange.end(colsIndex));
@@ -590,6 +617,12 @@ protected:
             }
             rowBegin.erase(rowBegin.begin()+rowId);
             rowIndex.erase(rowIndex.begin()+rowId);
+            if constexpr (Policy::AutoSize)
+            {
+                /// The removed row was the only one possibly holding the highest column index.
+                if (nnzRow > 0 && oldLastColOfRow >= maxColIndex) maxColIndexUpToDate = false;
+            }
+
             const bool lastRowRemoved = rowIndex.empty();
             nBlockRow = lastRowRemoved ? 0 : rowIndex.back()+1;
             if (lastRowRemoved)
@@ -659,6 +692,8 @@ protected:
         oldRowBegin.swap(rowBegin);
         oldColsIndex.swap(colsIndex);
         oldColsValue.swap(colsValue);
+
+        if constexpr (Policy::AutoSize) { maxColIndex = 0; maxColIndexUpToDate = true; }
 
         /// New Matrix status with new block added by btemp will be stored here
         rowIndex.clear();
@@ -815,6 +850,12 @@ protected:
         }
         if (static_cast<Index>(rowIndex.size()) != outRows || static_cast<Index>(colsIndex.size()) != outValues)
         {
+            if constexpr (Policy::AutoSize)
+            {
+                /// The kept blocks stay sorted, so the last one holds the highest column index.
+                maxColIndex = (outValues > 0) ? colsIndex[outValues - 1] : Index(0);
+                maxColIndexUpToDate = true;
+            }
             rowBegin[outRows] = outValues;
             rowIndex.resize(outRows);
             rowBegin.resize(outRows+1);
@@ -832,6 +873,8 @@ public:
         t = nBlockCol; nBlockCol = m.nBlockCol; m.nBlockCol = t;
         bool b;
         b = skipCompressZero; skipCompressZero = m.skipCompressZero; m.skipCompressZero = b;
+        b = maxColIndexUpToDate; maxColIndexUpToDate = m.maxColIndexUpToDate; m.maxColIndexUpToDate = b;
+        t = maxColIndex; maxColIndex = m.maxColIndex; m.maxColIndex = t;
         rowIndex.swap(m.rowIndex);
         rowBegin.swap(m.rowBegin);
         colsIndex.swap(m.colsIndex);
@@ -876,6 +919,7 @@ public:
             rowBegin[i] += base;
         for (Index i=0; i<(Index)colsIndex.size(); ++i)
             colsIndex[i] += base;
+        maxColIndex += base;
     }
 
 // protected:
@@ -927,6 +971,7 @@ public:
                 {
                     nBlockRow = i + 1;
                     if (j > nBlockCol) nBlockCol = j + 1;
+                    registerRegisteredCol(j);
                 }
                 return &colsValue.back();
             }
@@ -946,6 +991,7 @@ public:
                     if constexpr (Policy::AutoSize)
                     {
                         if (j > nBlockCol) nBlockCol = j + 1;
+                        registerRegisteredCol(j);
                     }
                     return &colsValue.back();
                 }
@@ -1145,6 +1191,11 @@ public:
                 }
             }
 
+            if constexpr (Policy::AutoSize)
+            {
+                if (j >= maxColIndex) maxColIndexUpToDate = false;
+            }
+
             if (static_cast<Index>(rowIndex.size()) != outRows || static_cast<Index>(colsValue.size()) != outValues)
             {
                 rowBegin[outRows] = outValues;
@@ -1229,6 +1280,8 @@ public:
             nBlockRow = 0;
             nBlockCol = 0;
             skipCompressZero = true;
+            maxColIndex = 0;
+            maxColIndexUpToDate = true;
         }
 
         btemp.clear();
