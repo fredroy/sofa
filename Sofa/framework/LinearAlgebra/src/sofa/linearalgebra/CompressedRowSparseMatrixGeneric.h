@@ -630,6 +630,15 @@ public:
         skipCompressZero = true;
     }
 
+    /// Compresses when the policy requires it, to be called before reading the compressed arrays.
+    /// Reading does not modify the matrix: compressing only reveals the blocks already written in
+    /// btemp. The cast is grouped here rather than spread over the readers, and it documents what
+    /// const methods paying this cost must know: compress() is not thread safe, so neither are they.
+    void ensureCompressed() const
+    {
+        if constexpr (Policy::AutoCompress) const_cast<Matrix*>(this)->compress();
+    }
+
 protected:
     /**
     * \brief Clear matrix and compute new triplet's arrays by combining old ones and btemp(VecIndexedBlock) array
@@ -878,11 +887,9 @@ public:
     **/
     const Block& block(Index i, Index j) const
     {
-        static Block empty;
+        static const Block empty{};
 
-        /// \warning this violates the const-ness of the method !
-        /// But if AutoCompress policy is activated, we neeed to be sure not missing btemp registered value.
-        if constexpr (Policy::AutoCompress) const_cast<Matrix*>(this)->compress();
+        ensureCompressed();
 
         if (rowIndex.empty() || i > rowIndex.back()) return empty; /// Matrix is empty or index is upper than registered lines
         if constexpr (Policy::AutoSize) if (j > nBlockCol) return empty; /// Matrix is auto sized so requested column could not exist
@@ -1450,11 +1457,8 @@ public:
 
         assert( colBSize() == m.rowBSize() );
 
-        if constexpr (Policy::AutoCompress)
-        {
-            const_cast<Matrix*>(this)->compress(); /// \warning this violates the const-ness of the method !
-            (const_cast<CompressedRowSparseMatrixGeneric<MB,MP>*>(&m))->compress();  /// \warning this violates the const-ness of the parameter
-        }
+        ensureCompressed();
+        m.ensureCompressed();
 
         res.resizeBlock( this->nBlockRow, m.nBlockCol );  // clear and resize the result
 
@@ -1517,11 +1521,8 @@ public:
 
         assert( rowBSize() == m.rowBSize() );
 
-        if constexpr (Policy::AutoCompress)
-        {
-            const_cast<Matrix*>(this)->compress();  /// \warning this violates the const-ness of the method
-            (const_cast<CompressedRowSparseMatrixGeneric<MB,MP>*>(&m))->compress();  /// \warning this violates the const-ness of the parameter
-        }
+        ensureCompressed();
+        m.ensureCompressed();
 
 
         res.resizeBlock( this->nBlockCol, m.nBlockCol );  // clear and resize the result
