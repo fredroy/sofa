@@ -1107,34 +1107,66 @@ public:
             return;
         }
 
-        for (Index rowId = static_cast<Index>(rowIndex.size())-1; rowId >=0 ; --rowId)
+        if constexpr (Policy::ClearByZeros)
         {
-            const Range rowRange(rowBegin[rowId], rowBegin[rowId+1]);
-
-            Index colId = 0;
-            if (findColInRange(rowRange, j, colId)) /// Means col exist in this line
+            for (Index rowId = 0; rowId < static_cast<Index>(rowIndex.size()); ++rowId)
             {
-                if constexpr (Policy::ClearByZeros)
+                const Range rowRange(rowBegin[rowId], rowBegin[rowId+1]);
+
+                Index colId = 0;
+                if (findColInRange(rowRange, j, colId)) colsValue[colId] = Block();
+            }
+        }
+        else
+        {
+            /// Every remaining block is moved once, so the whole column disappears in one pass instead of
+            /// shifting the trailing blocks and re-biasing all the following rows for each removed block.
+            Index outValues = 0;
+            Index outRows = 0;
+            bool removedRow = false;
+
+            for (Index rowId = 0; rowId < static_cast<Index>(rowIndex.size()); ++rowId)
+            {
+                const Index rowBeginId = rowBegin[rowId];
+                const Index rowEndId = rowBegin[rowId + 1];
+                const Index outRowBeginId = outValues;
+
+                for (Index p = rowBeginId; p != rowEndId; ++p)
                 {
-                    colsValue[colId] = Block();
+                    if (colsIndex[p] == j) continue;
+                    if (p != outValues)
+                    {
+                        colsValue[outValues] = colsValue[p];
+                        colsIndex[outValues] = colsIndex[p];
+                    }
+                    ++outValues;
+                }
+
+                /// A row that lost its last block is dropped, keeping it registered would make it empty.
+                if (outValues != outRowBeginId)
+                {
+                    if (rowId != outRows) rowIndex[outRows] = rowIndex[rowId];
+                    rowBegin[outRows] = outRowBeginId;
+                    ++outRows;
                 }
                 else
                 {
-                    if constexpr (Policy::AutoCompress)
-                    {
-                        /// In this case, line was containing only this column, directly clearing is faster than putting to zero and compressing.
-                        if (rowRange.second - 1 == rowRange.first)
-                        {
-                            deleteRow(rowId);
-                            continue;
-                        }
-                    }
+                    removedRow = true;
+                }
+            }
 
-                    for (auto it = std::next(rowBegin.begin(), rowId + 1); it != rowBegin.end(); it++)
-                        *it -= 1;
+            if (static_cast<Index>(rowIndex.size()) != outRows || static_cast<Index>(colsValue.size()) != outValues)
+            {
+                rowBegin[outRows] = outValues;
+                rowIndex.resize(outRows);
+                rowBegin.resize(outRows + 1);
+                colsIndex.resize(outValues);
+                colsValue.resize(outValues);
 
-                    colsIndex.erase(std::next(colsIndex.begin(), colId));
-                    colsValue.erase(std::next(colsValue.begin(), colId));
+                if (removedRow)
+                {
+                    nBlockRow = rowIndex.empty() ? 0 : rowIndex.back() + 1;
+                    if constexpr (Policy::AutoSize) nBlockCol = getMaxColIndex() + 1;
                 }
             }
         }
