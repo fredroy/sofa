@@ -133,7 +133,7 @@ public:
     {
         Index l,c;
         Block value;
-        IndexedBlock() {}
+        IndexedBlock() : l(0), c(0), value() {}
         IndexedBlock(Index i, Index j) : l(i), c(j) {}
         IndexedBlock(Index i, Index j, const Block& v) : l(i), c(j), value(v) {}
         bool operator < (const IndexedBlock& b) const
@@ -356,7 +356,7 @@ protected:
     * @param bvalue : Block value to add
     * @return true if col has been added
     **/
-    bool registerNewCol(Index& colId, TBlock& bvalue)
+    bool registerNewCol(Index& colId, const TBlock& bvalue)
     {
         bool added = false;
         if constexpr (Policy::CompressZeros)
@@ -417,6 +417,8 @@ protected:
         colsIndex.clear();
         colsValue.clear();
 
+        rowIndex.reserve(btemp.size());
+        rowBegin.reserve(btemp.size() + 1);
         colsIndex.reserve(btemp.size());
         colsValue.reserve(btemp.size());
 
@@ -454,8 +456,7 @@ protected:
     {
         if (btemp.empty() || btemp.back().l != i || btemp.back().c != j)
         {
-            btemp.push_back(IndexedBlock(i,j));
-            traits::clear(btemp.back().value);
+            btemp.emplace_back(i, j, Block());
         }
         return &btemp.back().value;
     }
@@ -970,15 +971,7 @@ public:
                     return &colsValue[colId];
                 }
             }
-            if (create)
-            {
-                if (btemp.empty() || btemp.back().l != i || btemp.back().c != j)
-                {
-                    btemp.push_back(IndexedBlock(i,j));
-                    traits::clear(btemp.back().value);
-                }
-                return &btemp.back().value;
-            }
+            if (create) return insertBtemp(i,j);
             return nullptr;
         }
     }
@@ -1012,15 +1005,7 @@ public:
             }
         }
 
-        if (create)
-        {
-            if (btemp.empty() || btemp.back().l != i || btemp.back().c != j)
-            {
-                btemp.push_back(IndexedBlock(i,j));
-                traits::clear(btemp.back().value);
-            }
-            return &btemp.back().value;
-        }
+        if (create) return insertBtemp(i,j);
         return nullptr;
     }
 
