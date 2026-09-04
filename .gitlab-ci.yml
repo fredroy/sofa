@@ -21,9 +21,6 @@ variables:
   LNROBOPLUGIN_PROJECT_ID: 39657357  # ID of LNR_SW/LNRoboPlugin
   LNROBOPLUGIN_TRIGGER_TOKEN: glptt-5Lbe-pCaxUKR_fzyJ2c7
   LNROBOPLUGIN_TRIGGER_BRANCH: dev_integration
-  LNROBOPLUGIN_PROJECT_ID: 39657357  # ID of LNR_SW/LNRoboPlugin
-  LNROBOPLUGIN_TRIGGER_TOKEN: glptt-5Lbe-pCaxUKR_fzyJ2c7
-  LNROBOPLUGIN_TRIGGER_BRANCH: dev_integration
   ENCLOSEDCOLLISIONPLUGIN_PROJECT_ID: 77308379  # ID of LNR_SW/EnclosedCollisionPlugin
   ENCLOSEDCOLLISIONPLUGIN_TRIGGER_TOKEN: glptt-kZTvGea3gewkzRTh6naq
   ENCLOSEDCOLLISIONPLUGIN_TRIGGER_BRANCH: dev_integration
@@ -40,10 +37,12 @@ build_sofa:
     - echo "----- Fetch external plugin(s)"
     - mkdir -p ${SOFA_EXTERNAL_PLUGINS_DIR}
     - cd ${SOFA_EXTERNAL_PLUGINS_DIR}
-    - git clone https://github.com/fredroy/InfinyToolkit
+    - git clone --depth 1 https://github.com/fredroy/InfinyToolkit InfinyToolkit
+    - git clone --depth 1 https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/lnr_sw/VirtualXRay VirtualXRay
     - echo "cmake_minimum_required(VERSION 3.22)" > CMakeLists.txt
     - echo "find_package(Sofa.Config)" >> CMakeLists.txt
     - echo "sofa_add_subdirectory(plugin InfinyToolkit InfinyToolkit)" >> CMakeLists.txt
+    - echo "sofa_add_subdirectory(plugin VirtualXRay VirtualXRay)" >> CMakeLists.txt
 
     - mkdir -p ${SOFA_BUILD_DIR}
     - cd ${SOFA_BUILD_DIR}
@@ -61,9 +60,10 @@ build_sofa:
                      -DSOFA_FETCH_REGRESSION=ON -DAPPLICATION_REGRESSION_TEST=ON
                      -DSOFA_FETCH_SOFAPYTHON3=ON -DPLUGIN_SOFAPYTHON3=ON
                      -DSOFA_EXTERNAL_DIRECTORIES=${SOFA_EXTERNAL_PLUGINS_DIR}
-                     -DPLUGIN_INFINYTOOLKIT=ON
+                     -DPLUGIN_INFINYTOOLKIT=ON -DPLUGIN_VIRTUALXRAY=ON
                      -B${SOFA_BUILD_DIR} -S${CI_PROJECT_DIR}
     - echo "----- Build SOFA"
+    - ninja xcom
     - ninja
     - echo "----- Install SOFA"
     - ninja install
