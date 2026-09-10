@@ -815,6 +815,7 @@ protected:
         if constexpr (!Policy::CompressZeros) return;
         Index outValues = 0;
         Index outRows = 0;
+        Index knownMaxColIndex = 0;
         for (Index r = 0; r < static_cast<Index>(rowIndex.size()); ++r)
         {
             Index row = rowIndex[r];
@@ -846,14 +847,21 @@ protected:
                     rowBegin[outRows] = outRBegin;
                 }
                 ++outRows;
+
+                if constexpr (Policy::AutoSize)
+                {
+                    /// Within a row the kept columns stay sorted, so its last kept entry is this row's max;
+                    /// the row order itself is not, so every surviving row's max must be compared.
+                    const Index lastColOfRow = colsIndex[outValues - 1];
+                    if (lastColOfRow > knownMaxColIndex) knownMaxColIndex = lastColOfRow;
+                }
             }
         }
         if (static_cast<Index>(rowIndex.size()) != outRows || static_cast<Index>(colsIndex.size()) != outValues)
         {
             if constexpr (Policy::AutoSize)
             {
-                /// The kept blocks stay sorted, so the last one holds the highest column index.
-                maxColIndex = (outValues > 0) ? colsIndex[outValues - 1] : Index(0);
+                maxColIndex = knownMaxColIndex;
                 maxColIndexUpToDate = true;
             }
             rowBegin[outRows] = outValues;
