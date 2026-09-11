@@ -59,8 +59,8 @@ option(SOFA_NO_UPDATE_BBOX "Compile Sofa with the SOFA_NO_UPDATE_BBOX macro defi
 option(SOFA_DUMP_VISITOR_INFO "Compile Sofa with the SOFA_DUMP_VISITOR_INFO macro defined." OFF)
 if(MSVC)
     option(SOFA_VECTORIZE "(deprecated) Enable the use of SSE2 instructions by the compiler (Only available for MSVC)." OFF)
-    option(SOFA_ENABLE_SIMD "Enable the use of SIMD instructions by the compiler (AVX/AVX2 for msvc, march=native for gcc/clang)." OFF)
 endif()
+option(SOFA_ENABLE_SIMD "Enable the use of SIMD instructions by the compiler (AVX/AVX2, detected from the build machine's CPU, for MSVC; -march=native for GCC/Clang)." OFF)
 option(SOFA_ENABLE_FAST_MATH "Enable floating-point model to fast (theoretically faster but can bring unexpected results/bugs)." OFF)
 
 ### SOFA_DEV_TOOL
@@ -175,6 +175,11 @@ if(${CMAKE_CXX_COMPILER_ID} MATCHES "GNU" OR ${CMAKE_CXX_COMPILER_ID} MATCHES "C
     if(SOFA_ENABLE_MEMORY_SANITIZER)
         list(APPEND SOFACONFIG_COMPILE_OPTIONS "-fsanitize=address;-fno-omit-frame-pointer")
         list(APPEND SOFACONFIG_LINK_OPTIONS "-fsanitize=address")
+    endif()
+
+    # SIMD flags: use the build machine's native CPU instruction set.
+    if(SOFA_ENABLE_SIMD)
+        list(APPEND SOFACONFIG_COMPILE_OPTIONS "-march=native")
     endif()
 endif()
 
