@@ -21,7 +21,7 @@
 ******************************************************************************/
 #include <sofa/core/ObjectFactory.h>
 using sofa::core::ObjectFactory;
-using sofa::core::RegisterObject;
+using sofa::core::ObjectRegistrationData;
 
 #include <sofa/testing/BaseTest.h>
 using sofa::testing::BaseTest ;
@@ -43,14 +43,14 @@ public:
     SOFA_CLASS(SOFA_TEMPLATE(TestObject2, Type), sofa::core::objectmodel::BaseComponent);
 };
 
-int A = RegisterObject("Dummy test object.")
-        .add< TestObject<int> >();
-int B1 = RegisterObject("Dummy test object.")
-        .add< TestObject<double> >();
-int B2 = RegisterObject("Dummy test object.")
-        .add< TestObject<long> >();
-int B3 = RegisterObject("Dummy test object.")
-        .add< TestObject2<int> >();
+[[maybe_unused]] const int A = ObjectRegistrationData("Dummy test object.")
+        .add< TestObject<int> >().commitTo(ObjectFactory::getInstance());
+[[maybe_unused]] const int B1 = ObjectRegistrationData("Dummy test object.")
+        .add< TestObject<double> >().commitTo(ObjectFactory::getInstance());
+[[maybe_unused]] const int B2 = ObjectRegistrationData("Dummy test object.")
+        .add< TestObject<long> >().commitTo(ObjectFactory::getInstance());
+[[maybe_unused]] const int B3 = ObjectRegistrationData("Dummy test object.")
+        .add< TestObject2<int> >().commitTo(ObjectFactory::getInstance());
 
 class ObjectFactory_test: public BaseTest
 {
@@ -58,8 +58,8 @@ public:
     void testDuplicatedRegistration()
     {       
         EXPECT_MSG_EMIT(Warning);
-        const int C = RegisterObject("Already registered object.")
-                    .add< TestObject<long> >();
+        const bool C = ObjectRegistrationData("Already registered object.")
+                    .add< TestObject<long> >().commitTo(ObjectFactory::getInstance());
         SOFA_UNUSED(C);
     }
 

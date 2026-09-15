@@ -19,7 +19,6 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#define SOFA_SIMULATION_CORE_MECHANICALGETNONDIAGONALMASSESCOUNTVISITOR_CPP
 #include <sofa/simulation/mechanicalvisitor/MechanicalGetNonDiagonalMassesCountVisitor.h>
 #include <sofa/core/behavior/BaseMass.h>
 

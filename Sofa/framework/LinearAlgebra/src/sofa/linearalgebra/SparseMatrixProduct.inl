@@ -43,6 +43,7 @@ struct IndexedValue
     IndexedValue(AnyScalar s) : value(s) {}
 
     IndexedValue(const IndexedValue& other) = default;
+    IndexedValue& operator=(const IndexedValue& other) = default;
 
     operator Scalar() const
     {
@@ -208,13 +209,13 @@ struct EigenOptions<const Eigen::Map<T, Options, StrideType>>
 template<class T>
 struct EigenOptions<Eigen::Transpose<T>>
 {
-    static constexpr auto value = (EigenOptions_v<T> == Eigen::RowMajor) ? Eigen::ColMajor : Eigen::RowMajor;
+    static constexpr auto value = (static_cast<int>(EigenOptions_v<T>) == static_cast<int>(Eigen::RowMajor)) ? Eigen::ColMajor : Eigen::RowMajor;
 };
 
 template<class T>
 struct EigenOptions<const Eigen::Transpose<T>>
 {
-    static constexpr auto value = (EigenOptions_v<T> == Eigen::RowMajor) ? Eigen::ColMajor : Eigen::RowMajor;
+    static constexpr auto value = (static_cast<int>(EigenOptions_v<T>) == static_cast<int>(Eigen::RowMajor)) ? Eigen::ColMajor : Eigen::RowMajor;
 };
 
 template<class Lhs, class Rhs, class ResultType>

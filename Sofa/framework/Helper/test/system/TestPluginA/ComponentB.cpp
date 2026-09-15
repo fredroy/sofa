@@ -41,12 +41,11 @@ ComponentB<T>::~ComponentB()
 {
 }
 
-int ComponentBClass = sofa::core::RegisterObject("Component B")
+[[maybe_unused]] int ComponentBClass = sofa::core::ObjectRegistrationData("Component B")
     .add< ComponentB<double> >()
     .add< ComponentB<sofa::defaulttype::Vec2Types> >()
     .add< ComponentB<sofa::defaulttype::Rigid3Types> >()
-
-;
+    .commitTo(sofa::core::ObjectFactory::getInstance());
 
 template class SOFA_TESTPLUGINA_API ComponentB<double>; 
 template class SOFA_TESTPLUGINA_API ComponentB<sofa::defaulttype::Vec2Types>;

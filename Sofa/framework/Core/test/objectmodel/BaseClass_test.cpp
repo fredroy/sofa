@@ -20,7 +20,6 @@
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
 #include <sofa/core/objectmodel/BaseComponent.h>
-using sofa::core::objectmodel::BaseObject ;
 using sofa::core::objectmodel::Base ;
 
 #include <sofa/helper/NameDecoder.h>
@@ -129,10 +128,10 @@ public:
     SOFA_CLASS(SOFA_TEMPLATE(OuterClass, TDataType1), sofa::core::objectmodel::BaseComponent);
 
     template<class TDataType2>
-    class InnerClass : public BaseObject
+    class InnerClass : public sofa::core::objectmodel::BaseComponent
     {
     public:
-        SOFA_CLASS(SOFA_TEMPLATE(InnerClass, TDataType2), BaseObject);
+        SOFA_CLASS(SOFA_TEMPLATE(InnerClass, TDataType2), sofa::core::objectmodel::BaseComponent);
     };
 };
 

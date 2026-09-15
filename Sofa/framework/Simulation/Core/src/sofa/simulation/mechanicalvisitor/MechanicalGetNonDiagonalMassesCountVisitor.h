@@ -24,7 +24,7 @@
 #include <sofa/simulation/config.h>
 #include <sofa/simulation/MechanicalVisitor.h>
 
-#if !defined(SOFA_SIMULATION_CORE_MECHANICALGETNONDIAGONALMASSESCOUNTVISITOR_CPP)
+#if !defined(SOFA_BUILD_SOFA_SIMULATION_CORE)
 SOFA_HEADER_DEPRECATED_NOT_REPLACED("v26.12", "v27.12")
 #endif
 

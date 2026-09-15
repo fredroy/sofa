@@ -61,7 +61,7 @@ typedef ::testing::Types<
             sofa::linearalgebra::CompressedRowSparseMatrixConstraint<sofa::defaulttype::Rigid3Types::Deriv, CRSConstraintTestPolicy>
             > SparseMatrixTestTypes;
 
-TYPED_TEST_CASE(SparseMatrixTest, SparseMatrixTestTypes);
+TYPED_TEST_SUITE(SparseMatrixTest, SparseMatrixTestTypes);
 
 namespace TestHelpers
 {
@@ -1981,7 +1981,7 @@ typedef ::testing::Types<
     sofa::linearalgebra::CompressedRowSparseMatrixConstraint<sofa::defaulttype::Rigid3Types::Deriv, CRSConstraintTestPolicy>
 > CompressedRowSparseMatrixConstraintTestTypes;
 
-TYPED_TEST_CASE(CompressedRowSparseMatrixConstraintTest, CompressedRowSparseMatrixConstraintTestTypes);
+TYPED_TEST_SUITE(CompressedRowSparseMatrixConstraintTest, CompressedRowSparseMatrixConstraintTestTypes);
 
 
 TYPED_TEST(CompressedRowSparseMatrixConstraintTest, checkRowDeletionUntilMatrixIsEmpty)

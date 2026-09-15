@@ -69,7 +69,7 @@ struct RequiredPlugin_test : public BaseSimulationTest
 
     void testLoadPluginA()
     {
-        EXPECT_MSG_EMIT(Warning); // TestPluginA registers implicitly its components
+        EXPECT_MSG_NOEMIT(Warning); // TestPluginA registers its components explicitly
 
         std::stringstream scene;
         scene << "<?xml version='1.0'?>"
