@@ -41,7 +41,7 @@ TEST(ObjectFactoryJson, oneObject)
 {
     core::ObjectFactory o;
 
-    EXPECT_EQ(core::RegisterObject("foo")
+    EXPECT_EQ(core::ObjectRegistrationData("foo")
         .add< simulation::DefaultAnimationLoop >().commitTo(&o), 1);
 
     const auto dump = core::ObjectFactoryJson::dump(&o);
@@ -53,14 +53,14 @@ template<class T>
 class DummyComponent : public core::objectmodel::BaseComponent
 {
 public:
-    SOFA_CLASS(DummyComponent<T>, BaseObject);
+    SOFA_CLASS(DummyComponent<T>, core::objectmodel::BaseComponent);
 };
 
 TEST(ObjectFactoryJson, oneTemplatedObject)
 {
     core::ObjectFactory o;
 
-    EXPECT_EQ(core::RegisterObject("foo")
+    EXPECT_EQ(core::ObjectRegistrationData("foo")
         .add< DummyComponent<sofa::defaulttype::Vec3fTypes> >().commitTo(&o), 1);
 
     const auto dump = core::ObjectFactoryJson::dump(&o);

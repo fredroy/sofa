@@ -129,11 +129,9 @@ TEST_F(PluginManager_test, loadTestPluginAByPath)
         << std::endl;
     }
     {
-        EXPECT_MSG_NOEMIT(Error);
-        // Plugin A still uses the deprecated registration mechanism
-        // and is expected to throw a warning when loaded
-        EXPECT_MSG_EMIT(Warning);
-        
+        EXPECT_MSG_NOEMIT(Error, Warning);
+        // Plugin A now uses the explicit registration mechanism
+        // and is not expected to throw a warning when loaded
         ASSERT_EQ(pm.loadPluginByPath(pluginPath), PluginManager::PluginLoadStatus::SUCCESS);
     }
     {

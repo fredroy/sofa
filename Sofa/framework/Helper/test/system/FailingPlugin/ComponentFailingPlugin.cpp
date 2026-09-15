@@ -37,7 +37,7 @@ ComponentFailingPlugin::~ComponentFailingPlugin()
 }
 
 
-int ComponentFailingPluginClass = core::RegisterObject("ComponentFailingPlugin").add< ComponentFailingPlugin >();
+[[maybe_unused]] int ComponentFailingPluginClass = core::ObjectRegistrationData("ComponentFailingPlugin").add< ComponentFailingPlugin >().commitTo(core::ObjectFactory::getInstance());
 
 
 } // namespace sofa::test

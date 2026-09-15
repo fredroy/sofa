@@ -37,7 +37,7 @@ ComponentA::~ComponentA()
 }
 
 
-int ComponentAClass = core::RegisterObject("Component A").add< ComponentA >();
+[[maybe_unused]] int ComponentAClass = core::ObjectRegistrationData("Component A").add< ComponentA >().commitTo(core::ObjectFactory::getInstance());
 
 
 } // namespace sofa::test

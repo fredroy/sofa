@@ -110,7 +110,7 @@ public:
 #define SOFA_CLASS(T,Parent) \
     typedef T MyType;                                               \
     typedef ::sofa::core::objectmodel::TClass< T, Parent > MyClass; \
-    typedef Parent Inherit1; \
+    typedef Parent Inherit1 [[maybe_unused]]; \
     using Parent::initData; \
     SOFA_CLASS_DECL
 
@@ -118,7 +118,7 @@ public:
 #define SOFA_ABSTRACT_CLASS(T,Parent) \
     typedef T MyType;                                               \
     typedef ::sofa::core::objectmodel::TClass< T, Parent > MyClass; \
-    typedef Parent Inherit1; \
+    typedef Parent Inherit1 [[maybe_unused]]; \
     using Parent::initData; \
     SOFA_ABSTRACT_CLASS_DECL
 
@@ -126,8 +126,8 @@ public:
 #define SOFA_CLASS2(T,Parent1,Parent2) \
     typedef T MyType;                                               \
     typedef ::sofa::core::objectmodel::TClass< T, ::sofa::core::objectmodel::Parents<Parent1, Parent2> > MyClass; \
-    typedef Parent1 Inherit1; \
-    typedef Parent2 Inherit2; \
+    typedef Parent1 Inherit1 [[maybe_unused]]; \
+    typedef Parent2 Inherit2 [[maybe_unused]]; \
     using ::sofa::core::objectmodel::Base::initData; \
     SOFA_CLASS_DECL
 
@@ -135,8 +135,8 @@ public:
 #define SOFA_ABSTRACT_CLASS2(T,Parent1,Parent2) \
     typedef T MyType;                                               \
     typedef ::sofa::core::objectmodel::TClass< T, ::sofa::core::objectmodel::Parents<Parent1, Parent2> > MyClass; \
-    typedef Parent1 Inherit1; \
-    typedef Parent2 Inherit2; \
+    typedef Parent1 Inherit1 [[maybe_unused]]; \
+    typedef Parent2 Inherit2 [[maybe_unused]]; \
     using ::sofa::core::objectmodel::Base::initData; \
     SOFA_ABSTRACT_CLASS_DECL
 
@@ -144,9 +144,9 @@ public:
 #define SOFA_CLASS3(T,Parent1,Parent2,Parent3) \
     typedef T MyType;                                               \
     typedef ::sofa::core::objectmodel::TClass< T, ::sofa::core::objectmodel::Parents<Parent1, Parent2, Parent3> > MyClass; \
-    typedef Parent1 Inherit1; \
-    typedef Parent2 Inherit2; \
-    typedef Parent3 Inherit3; \
+    typedef Parent1 Inherit1 [[maybe_unused]]; \
+    typedef Parent2 Inherit2 [[maybe_unused]]; \
+    typedef Parent3 Inherit3 [[maybe_unused]]; \
     using ::sofa::core::objectmodel::Base::initData; \
     SOFA_CLASS_DECL
 
@@ -154,9 +154,9 @@ public:
 #define SOFA_ABSTRACT_CLASS3(T,Parent1,Parent2,Parent3) \
     typedef T MyType;                                               \
     typedef ::sofa::core::objectmodel::TClass< T, ::sofa::core::objectmodel::Parents<Parent1, Parent2, Parent3> > MyClass; \
-    typedef Parent1 Inherit1; \
-    typedef Parent2 Inherit2; \
-    typedef Parent3 Inherit3; \
+    typedef Parent1 Inherit1 [[maybe_unused]]; \
+    typedef Parent2 Inherit2 [[maybe_unused]]; \
+    typedef Parent3 Inherit3 [[maybe_unused]]; \
     using ::sofa::core::objectmodel::Base::initData; \
     SOFA_ABSTRACT_CLASS_DECL
 
@@ -164,10 +164,10 @@ public:
 #define SOFA_CLASS4(T,Parent1,Parent2,Parent3,Parent4) \
     typedef T MyType;                                               \
     typedef ::sofa::core::objectmodel::TClass< T, ::sofa::core::objectmodel::Parents<Parent1, Parent2, Parent3, Parent4> > MyClass; \
-    typedef Parent1 Inherit1; \
-    typedef Parent2 Inherit2; \
-    typedef Parent3 Inherit3; \
-    typedef Parent4 Inherit4; \
+    typedef Parent1 Inherit1 [[maybe_unused]]; \
+    typedef Parent2 Inherit2 [[maybe_unused]]; \
+    typedef Parent3 Inherit3 [[maybe_unused]]; \
+    typedef Parent4 Inherit4 [[maybe_unused]]; \
     using ::sofa::core::objectmodel::Base::initData; \
     SOFA_CLASS_DECL
 
@@ -175,10 +175,10 @@ public:
 #define SOFA_ABSTRACT_CLASS4(T,Parent1,Parent2,Parent3,Parent4) \
     typedef T MyType;                                               \
     typedef ::sofa::core::objectmodel::TClass< T, ::sofa::core::objectmodel::Parents<Parent1, Parent2, Parent3, Parent4> > MyClass; \
-    typedef Parent1 Inherit1; \
-    typedef Parent2 Inherit2; \
-    typedef Parent3 Inherit3; \
-    typedef Parent4 Inherit4; \
+    typedef Parent1 Inherit1 [[maybe_unused]]; \
+    typedef Parent2 Inherit2 [[maybe_unused]]; \
+    typedef Parent3 Inherit3 [[maybe_unused]]; \
+    typedef Parent4 Inherit4 [[maybe_unused]]; \
     using ::sofa::core::objectmodel::Base::initData; \
     SOFA_ABSTRACT_CLASS_DECL
 
@@ -186,11 +186,11 @@ public:
 #define SOFA_CLASS5(T,Parent1,Parent2,Parent3,Parent4,Parent5) \
     typedef T MyType;                                               \
     typedef ::sofa::core::objectmodel::TClass< T, ::sofa::core::objectmodel::Parents<Parent1, Parent2, Parent3, Parent4, Parent5> > MyClass; \
-    typedef Parent1 Inherit1; \
-    typedef Parent2 Inherit2; \
-    typedef Parent3 Inherit3; \
-    typedef Parent4 Inherit4; \
-    typedef Parent5 Inherit5; \
+    typedef Parent1 Inherit1 [[maybe_unused]]; \
+    typedef Parent2 Inherit2 [[maybe_unused]]; \
+    typedef Parent3 Inherit3 [[maybe_unused]]; \
+    typedef Parent4 Inherit4 [[maybe_unused]]; \
+    typedef Parent5 Inherit5 [[maybe_unused]]; \
     using ::sofa::core::objectmodel::Base::initData; \
     SOFA_CLASS_DECL
 
@@ -198,11 +198,11 @@ public:
 #define SOFA_ABSTRACT_CLASS5(T,Parent1,Parent2,Parent3,Parent4,Parent5) \
     typedef T MyType;                                               \
     typedef ::sofa::core::objectmodel::TClass< T, ::sofa::core::objectmodel::Parents<Parent1, Parent2, Parent3, Parent4, Parent5> > MyClass; \
-    typedef Parent1 Inherit1; \
-    typedef Parent2 Inherit2; \
-    typedef Parent3 Inherit3; \
-    typedef Parent4 Inherit4; \
-    typedef Parent5 Inherit5; \
+    typedef Parent1 Inherit1 [[maybe_unused]]; \
+    typedef Parent2 Inherit2 [[maybe_unused]]; \
+    typedef Parent3 Inherit3 [[maybe_unused]]; \
+    typedef Parent4 Inherit4 [[maybe_unused]]; \
+    typedef Parent5 Inherit5 [[maybe_unused]]; \
     using ::sofa::core::objectmodel::Base::initData; \
     SOFA_ABSTRACT_CLASS_DECL
 
@@ -210,12 +210,12 @@ public:
 #define SOFA_CLASS6(T,Parent1,Parent2,Parent3,Parent4,Parent5,Parent6) \
     typedef T MyType;                                               \
     typedef ::sofa::core::objectmodel::TClass< T, ::sofa::core::objectmodel::Parents<Parent1, Parent2, Parent3, Parent4, Parent5, Parent6> > MyClass; \
-    typedef Parent1 Inherit1; \
-    typedef Parent2 Inherit2; \
-    typedef Parent3 Inherit3; \
-    typedef Parent4 Inherit4; \
-    typedef Parent5 Inherit5; \
-    typedef Parent6 Inherit6; \
+    typedef Parent1 Inherit1 [[maybe_unused]]; \
+    typedef Parent2 Inherit2 [[maybe_unused]]; \
+    typedef Parent3 Inherit3 [[maybe_unused]]; \
+    typedef Parent4 Inherit4 [[maybe_unused]]; \
+    typedef Parent5 Inherit5 [[maybe_unused]]; \
+    typedef Parent6 Inherit6 [[maybe_unused]]; \
     using ::sofa::core::objectmodel::Base::initData; \
     SOFA_CLASS_DECL
 
@@ -223,22 +223,22 @@ public:
 #define SOFA_ABSTRACT_CLASS6(T,Parent1,Parent2,Parent3,Parent4,Parent5,Parent6) \
     typedef T MyType;                                               \
     typedef ::sofa::core::objectmodel::TClass< T, ::sofa::core::objectmodel::Parents<Parent1, Parent2, Parent3, Parent4, Parent5, Parent6> > MyClass; \
-    typedef Parent1 Inherit1; \
-    typedef Parent2 Inherit2; \
-    typedef Parent3 Inherit3; \
-    typedef Parent4 Inherit4; \
-    typedef Parent5 Inherit5; \
-    typedef Parent6 Inherit6; \
+    typedef Parent1 Inherit1 [[maybe_unused]]; \
+    typedef Parent2 Inherit2 [[maybe_unused]]; \
+    typedef Parent3 Inherit3 [[maybe_unused]]; \
+    typedef Parent4 Inherit4 [[maybe_unused]]; \
+    typedef Parent5 Inherit5 [[maybe_unused]]; \
+    typedef Parent6 Inherit6 [[maybe_unused]]; \
     using ::sofa::core::objectmodel::Base::initData; \
     SOFA_ABSTRACT_CLASS_DECL
 
 // Do not use this macro directly, use SOFA_ABSTRACT_CLASS instead
 #define SOFA_ABSTRACT_CLASS_DECL                                        \
-    using BaseObject SOFA_ATTRIBUTE_DEPRECATED("v26.06", "v29.06", "BaseObject has been renamed to BaseComponent") = sofa::core::objectmodel::BaseComponent; /*this alias allows the transition from BaseObject to BaseComponent.*/ \
-    typedef MyType* Ptr;                                                \
+    using BaseObject [[maybe_unused]] SOFA_ATTRIBUTE_DEPRECATED("v26.06", "v29.06", "BaseObject has been renamed to BaseComponent") = sofa::core::objectmodel::BaseComponent; /*this alias allows the transition from BaseObject to BaseComponent.*/ \
+    typedef MyType* Ptr [[maybe_unused]];                               \
     friend class sofa::core::objectmodel::BaseClassNameHelper;          \
     static std::string GetDefaultTemplateName(){ return sofa::core::objectmodel::BaseClassNameHelper::DefaultTypeTemplateName<MyType>::Get(); } \
-    using SPtr = sofa::core::sptr<MyType>;                              \
+    using SPtr [[maybe_unused]] = sofa::core::sptr<MyType>;             \
     static const ::sofa::core::objectmodel::BaseClass* GetClass() { return MyClass::get(); }   \
     virtual const ::sofa::core::objectmodel::BaseClass* getClass() const override \
 { return GetClass(); }                                              \
