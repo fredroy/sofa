@@ -27,7 +27,7 @@
 #include <sofa/helper/AdvancedTimer.h>
 #include <sofa/helper/ScopedAdvancedTimer.h>
 #include <sofa/helper/map.h>
-#include <sofa/simulation/AnimateBeginEvent.h>
+#include <sofa/simulation/events/AnimateBeginEvent.h>
 
 #include <cmath>
 
@@ -184,7 +184,7 @@ void PCGLinearSolver<TMatrix,TVector>::solve (Matrix& M, Vector& x, Vector& b)
 
     newton_iter++;
     char name[256];
-    sprintf(name,"Error %d",newton_iter);
+    snprintf(name, sizeof(name), "Error %d", newton_iter);
     sofa::type::vector<Real>& graph_error = graph[std::string(name)];
 
     const core::ExecParams* params = core::execparams::defaultInstance();
