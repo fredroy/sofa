@@ -28,7 +28,9 @@ CpuTaskStatus::CpuTaskStatus(): m_busy(0)
 
 bool CpuTaskStatus::isBusy() const
 {
-    return (m_busy.load(std::memory_order_relaxed) > 0);
+    // acquire: a thread that observes the counter at zero must see every write the tasks made
+    // before their release decrement in setBusy(false)
+    return (m_busy.load(std::memory_order_acquire) > 0);
 }
 
 int CpuTaskStatus::setBusy(bool busy)
@@ -39,7 +41,10 @@ int CpuTaskStatus::setBusy(bool busy)
     }
     else
     {
-        return m_busy.fetch_sub(1, std::memory_order_relaxed);
+        // release: publishes the task's writes to whoever observes the counter reaching zero.
+        // acq_rel rather than release so that the last decrement also sees the writes of the
+        // other tasks (same pattern as a shared_ptr reference count).
+        return m_busy.fetch_sub(1, std::memory_order_acq_rel);
     }
 }
 }
