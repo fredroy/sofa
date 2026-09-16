@@ -69,6 +69,10 @@ void ParallelTetrahedronFEMForceField<DataTypes>::addDForceGeneric(VecDeriv& df,
     Real kFactor, const VecElement& indexedElements, Function f)
 {
     std::mutex mutex;
+    // Each task accumulates into a full-size thread-local vector and reduces it under the mutex:
+    // that per-task cost is proportional to the whole system, not to the range, so keep exactly
+    // one range per thread (see defaultRangesPerThread).
+    constexpr unsigned int rangesPerThread = 1;
     sofa::simulation::parallelForEachRange(*m_taskScheduler, indexedElements.begin(), indexedElements.end(),
            [&indexedElements, this, kFactor, &dx, &df, &f, &mutex](const auto& range)
            {
@@ -95,7 +99,7 @@ void ParallelTetrahedronFEMForceField<DataTypes>::addDForceGeneric(VecDeriv& df,
                {
                    *it++ += d;
                }
-           });
+           }, rangesPerThread);
 }
 
 template <class DataTypes>

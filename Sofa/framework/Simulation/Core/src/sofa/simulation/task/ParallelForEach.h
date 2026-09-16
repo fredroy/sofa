@@ -26,8 +26,24 @@
 #include <sofa/simulation/task/CpuTaskStatus.h>
 #include <sofa/type/vector_T.h>
 
+#include <algorithm>
+#include <vector>
+
 namespace sofa::simulation
 {
+
+/**
+ * Default number of ranges generated per scheduler thread by parallelForEachRange.
+ *
+ * With exactly one range per thread, the slowest thread (preempted by the OS, or running on
+ * an efficiency core) delays the whole parallel section. Several ranges per thread let the
+ * work-stealing scheduler rebalance: a slow thread simply processes fewer ranges. Measured on
+ * an Apple M3 Max with 10 threads, a compute-bound loop went from 3.5x to 8.6x speed-up when
+ * moving from 1 to 4 ranges per thread. The cost is one extra task per additional range
+ * (about a microsecond each), so callers whose per-range work has a fixed cost proportional to
+ * the whole problem (e.g. a per-task full-vector reduction) should pass 1.
+ */
+inline constexpr unsigned int defaultRangesPerThread = 4;
 
 /**
  * Represents an iterable sequence in a container
@@ -141,6 +157,93 @@ UnaryFunction forEachRange(InputIt first, InputIt last, UnaryFunction f)
     return f;
 }
 
+namespace detail
+{
+
+/**
+ * Node of a binary tree of ranges, used as a task by parallelForEachRange.
+ *
+ * Leaves apply the function object to their range. An internal node covers the union of its
+ * children's ranges: when it runs, it queues its right child on the current thread and
+ * descends into its left child inline, down to a leaf. This is the divide-and-conquer
+ * pattern of Cilk/TBB: the thread that starts the section only queues log2(n) tasks, and every
+ * thief that steals a subtree splits it in its own queue, so no single queue becomes a
+ * bottleneck when many threads fetch small ranges at once.
+ *
+ * All nodes are built up-front in a container owned by the caller for the duration of the
+ * section: no allocation while the section runs, and the scheduler must not free the tasks
+ * (MemoryAlloc::Stack). The function object is referenced, not copied.
+ */
+template<class InputIt, class UnaryFunction>
+class RangeTask final : public Task
+{
+public:
+    RangeTask(TaskScheduler& scheduler, Task::Status& status, const Range<InputIt>& range, UnaryFunction& f)
+        : Task(-1)
+        , m_scheduler(&scheduler)
+        , m_status(&status)
+        , m_range(range)
+        , m_function(&f)
+    {}
+
+    void setChildren(RangeTask* left, RangeTask* right)
+    {
+        m_left = left;
+        m_right = right;
+    }
+
+    MemoryAlloc run() final
+    {
+        RangeTask* node = this;
+        while (node->m_left != nullptr)
+        {
+            m_scheduler->addTask(node->m_right);
+            node = node->m_left;
+        }
+        (*m_function)(node->m_range);
+        return MemoryAlloc::Stack;
+    }
+
+    Task::Status* getStatus() const final { return m_status; }
+
+private:
+    TaskScheduler* m_scheduler;
+    Task::Status* m_status;
+    Range<InputIt> m_range;
+    UnaryFunction* m_function;
+    RangeTask* m_left { nullptr };
+    RangeTask* m_right { nullptr };
+};
+
+/**
+ * Builds the tree of RangeTask over the leaf ranges [firstLeaf, lastLeaf) and returns its root.
+ * Nodes are appended to @p nodes, which must have enough capacity for 2 * nbLeaves - 1 nodes
+ * so that pointers stay valid.
+ */
+template<class InputIt, class UnaryFunction>
+RangeTask<InputIt, UnaryFunction>* buildRangeTree(
+    std::vector<RangeTask<InputIt, UnaryFunction>>& nodes,
+    const sofa::type::vector<Range<InputIt>>& leaves, const std::size_t firstLeaf, const std::size_t lastLeaf,
+    TaskScheduler& scheduler, Task::Status& status, UnaryFunction& f)
+{
+    if (lastLeaf - firstLeaf == 1)
+    {
+        nodes.emplace_back(scheduler, status, leaves[firstLeaf], f);
+        return &nodes.back();
+    }
+
+    const std::size_t middle = firstLeaf + (lastLeaf - firstLeaf) / 2;
+    nodes.emplace_back(scheduler, status, Range<InputIt>(leaves[firstLeaf].start, leaves[lastLeaf - 1].end), f);
+    RangeTask<InputIt, UnaryFunction>* node = &nodes.back();
+
+    RangeTask<InputIt, UnaryFunction>* left = buildRangeTree(nodes, leaves, firstLeaf, middle, scheduler, status, f);
+    RangeTask<InputIt, UnaryFunction>* right = buildRangeTree(nodes, leaves, middle, lastLeaf, scheduler, status, f);
+    node->setChildren(left, right);
+    return node;
+}
+
+}
+
 /**
  * Applies in parallel the given function object f to a list of ranges generated from [first, last)
  *
@@ -149,10 +252,12 @@ UnaryFunction forEachRange(InputIt first, InputIt last, UnaryFunction f)
  * The signature does not need to have const &.
  *
  * A task scheduler must be provided and correctly initialized. The number of generated ranges
- * depends on the threads available in the task scheduler.
+ * is the number of threads of the task scheduler multiplied by @p rangesPerThread (clamped to
+ * the number of elements). See @ref defaultRangesPerThread for the rationale.
  */
 template<class InputIt, class UnaryFunction>
-UnaryFunction parallelForEachRange(TaskScheduler& taskScheduler, InputIt first, InputIt last, UnaryFunction f)
+UnaryFunction parallelForEachRange(TaskScheduler& taskScheduler, InputIt first, InputIt last, UnaryFunction f,
+                                   const unsigned int rangesPerThread = defaultRangesPerThread)
 {
     if (first != last)
     {
@@ -163,18 +268,19 @@ UnaryFunction parallelForEachRange(TaskScheduler& taskScheduler, InputIt first, 
             return forEachRange(first, last, f);
         }
 
+        const unsigned int nbRanges = taskSchedulerThreadCount * std::max(1u, rangesPerThread);
+        const auto ranges = makeRangesForLoop<InputIt>(first, last, nbRanges);
+
         CpuTaskStatus status;
 
-        const auto ranges = makeRangesForLoop<InputIt>(first, last, taskSchedulerThreadCount);
+        // Tree of stack-like tasks over the ranges, allocated at once: no per-task heap
+        // allocation nor type erasure. Only the root is queued here; internal nodes queue
+        // their right child when they run (see detail::RangeTask).
+        std::vector<detail::RangeTask<InputIt, UnaryFunction>> tasks;
+        tasks.reserve(2 * ranges.size() - 1);
+        auto* root = detail::buildRangeTree(tasks, ranges, 0, ranges.size(), taskScheduler, status, f);
 
-        for (const Range<InputIt>& r : ranges)
-        {
-            taskScheduler.addTask(status, [&r, &f]()
-            {
-                f(r);
-            });
-        }
-
+        taskScheduler.addTask(root);
         taskScheduler.workUntilDone(&status);
     }
     return f;
@@ -185,13 +291,14 @@ UnaryFunction parallelForEachRange(TaskScheduler& taskScheduler, InputIt first, 
  * range [first, last), in parallel.
  */
 template<class InputIt, class UnaryFunction>
-UnaryFunction parallelForEach(TaskScheduler& taskScheduler, InputIt first, InputIt last, UnaryFunction f)
+UnaryFunction parallelForEach(TaskScheduler& taskScheduler, InputIt first, InputIt last, UnaryFunction f,
+                              const unsigned int rangesPerThread = defaultRangesPerThread)
 {
     parallelForEachRange(taskScheduler, first, last,
         [&f](const Range<InputIt>& r)
         {
             forEach(r.start, r.end, f);
-        });
+        }, rangesPerThread);
     return f;
 }
 
@@ -205,11 +312,12 @@ enum class ForEachExecutionPolicy : bool
 template<class InputIt, class UnaryFunction>
 UnaryFunction forEachRange(const ForEachExecutionPolicy execution, TaskScheduler& taskScheduler,
                       InputIt first,
-                      InputIt last, UnaryFunction f)
+                      InputIt last, UnaryFunction f,
+                      const unsigned int rangesPerThread = defaultRangesPerThread)
 {
     if (execution == ForEachExecutionPolicy::PARALLEL)
     {
-        return parallelForEachRange(taskScheduler, first, last, f);
+        return parallelForEachRange(taskScheduler, first, last, f, rangesPerThread);
     }
     return forEachRange(first, last, f);
 }
@@ -217,11 +325,12 @@ UnaryFunction forEachRange(const ForEachExecutionPolicy execution, TaskScheduler
 template<class InputIt, class UnaryFunction>
 UnaryFunction forEach(const ForEachExecutionPolicy execution, TaskScheduler& taskScheduler,
                       InputIt first,
-                      InputIt last, UnaryFunction f)
+                      InputIt last, UnaryFunction f,
+                      const unsigned int rangesPerThread = defaultRangesPerThread)
 {
     if (execution == ForEachExecutionPolicy::PARALLEL)
     {
-        return parallelForEach(taskScheduler, first, last, f);
+        return parallelForEach(taskScheduler, first, last, f, rangesPerThread);
     }
     return forEach(first, last, f);
 }

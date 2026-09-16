@@ -25,6 +25,7 @@
 #include <sofa/simulation/task/ParallelForEach.h>
 #include <sofa/testing/TestMessageHandler.h>
 
+#include <atomic>
 #include <numeric>
 
 
@@ -217,6 +218,46 @@ TEST(ParallelForEachRange, incrementVectorLambda)
     for (std::size_t i = 0; i < integers.size(); ++i)
     {
         EXPECT_EQ(integers[i], i + 1);
+    }
+}
+
+// Every element must be visited exactly once whatever the number of ranges per thread, and the
+// number of ranges must follow threads * rangesPerThread, clamped to the number of elements.
+TEST(ParallelForEachRange, rangesPerThread)
+{
+    simulation::TaskScheduler* scheduler = simulation::MainTaskSchedulerFactory::createInRegistry();
+    scheduler->init(4);
+    ASSERT_EQ(scheduler->getThreadCount(), 4u);
+
+    for (const unsigned int rangesPerThread : { 0u, 1u, 4u, 16u, 1000u })
+    {
+        std::vector<int> integers = makeTestData(1024);
+        std::atomic<unsigned int> nbRanges { 0 };
+
+        simulation::parallelForEachRange(*scheduler, integers.begin(), integers.end(),
+            [&nbRanges](const auto& range)
+            {
+                nbRanges.fetch_add(1);
+                for (auto it = range.start; it != range.end; ++it)
+                {
+                    ++(*it);
+                }
+            }, rangesPerThread);
+
+        const unsigned int expectedRanges = std::min(1024u, 4u * std::max(1u, rangesPerThread));
+        EXPECT_EQ(nbRanges.load(), expectedRanges) << "rangesPerThread = " << rangesPerThread;
+        for (std::size_t i = 0; i < integers.size(); ++i)
+        {
+            EXPECT_EQ(integers[i], i + 1) << "rangesPerThread = " << rangesPerThread;
+        }
+    }
+
+    // default: defaultRangesPerThread ranges per thread
+    {
+        std::atomic<unsigned int> nbRanges { 0 };
+        simulation::parallelForEachRange(*scheduler, static_cast<std::size_t>(0), std::size_t(1024),
+            [&nbRanges](const auto&) { nbRanges.fetch_add(1); });
+        EXPECT_EQ(nbRanges.load(), 4u * simulation::defaultRangesPerThread);
     }
 }
 
