@@ -21,6 +21,7 @@ set(SOURCE_FILES
     io/XspLoader_test.cpp
     logging/logging_test.cpp
     narrow_cast_test.cpp
+    system/Cpu_test.cpp
     system/FileMonitor_test.cpp
     system/FileRepository_test.cpp
     system/FileSystem_test.cpp

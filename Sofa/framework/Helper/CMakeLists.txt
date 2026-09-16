@@ -102,6 +102,7 @@ set(HEADER_FILES
     ${SRC_ROOT}/rmath.h
     ${SRC_ROOT}/set.h
     ${SRC_ROOT}/fwd.h
+    ${SRC_ROOT}/system/Cpu.h
     ${SRC_ROOT}/system/DynamicLibrary.h
     ${SRC_ROOT}/system/FileSystem.h
     ${SRC_ROOT}/system/Locale.h
@@ -177,6 +178,7 @@ set(SOURCE_FILES
     ${SRC_ROOT}/io/TriangleLoader.cpp
     ${SRC_ROOT}/io/XspLoader.cpp
     ${SRC_ROOT}/kdTree.cpp
+    ${SRC_ROOT}/system/Cpu.cpp
     ${SRC_ROOT}/system/DynamicLibrary.cpp
     ${SRC_ROOT}/system/FileSystem.cpp
     ${SRC_ROOT}/system/Locale.cpp

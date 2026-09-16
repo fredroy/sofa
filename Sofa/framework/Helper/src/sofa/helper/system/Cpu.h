@@ -21,60 +21,30 @@
 ******************************************************************************/
 #pragma once
 
-#include <sofa/config.h>
+#include <sofa/helper/config.h>
 
-#include <sofa/simulation/task/Task.h>
-
-#include <string> 
-#include <functional>
-
-namespace sofa::simulation
+namespace sofa::helper::system
 {
 
-/**
- * Base class for a task scheduler
- *
- * The API allows to:
- * - initialize the scheduler with a number of dedicated threads
- * - add a task to the scheduler
- * - wait until all tasks are done etc.
- */
-class SOFA_SIMULATION_CORE_API TaskScheduler
-{
-public:
-    virtual ~TaskScheduler() = default;
+/// @brief Number of logical processors (hardware threads) available to the process.
+/// Never returns 0: falls back to 1 when the value cannot be determined.
+SOFA_HELPER_API unsigned getLogicalCoreCount();
 
-    /**
-     * Return the number of physical performance cores on the system: SMT siblings and
-     * efficiency cores are not counted. This is the default number of threads used by a
-     * scheduler initialized with 0 threads. Falls back to the physical core count, then to
-     * the logical processor count, when the information is unavailable. Never 0.
-     */
-    static unsigned GetHardwareThreadsCount();
+/// @brief Number of physical CPU cores on the system, i.e. not counting SMT
+/// (hyper-threading) siblings.
+///
+/// Uses the OS topology information (sysctl on macOS, sysfs on Linux, the
+/// processor-relationship API on Windows). When the physical count cannot be
+/// determined, the logical count is returned instead. Never returns 0.
+SOFA_HELPER_API unsigned getPhysicalCoreCount();
 
-    // interface
-    virtual void init(const unsigned int nbThread = 0) = 0;
-            
-    virtual void stop(void) = 0;
-            
-    virtual unsigned int getThreadCount(void) const = 0;
+/// @brief Number of physical cores belonging to the fastest core type of the CPU.
+///
+/// On heterogeneous CPUs (Apple silicon, ARM big.LITTLE, Intel P/E cores) this
+/// excludes the efficiency cores, which is the right count for work split into
+/// equal chunks: a chunk landing on a slow core would otherwise delay the whole
+/// parallel section. On homogeneous CPUs, or when the information is
+/// unavailable, this equals getPhysicalCoreCount(). Never returns 0.
+SOFA_HELPER_API unsigned getPerformanceCoreCount();
 
-    virtual const char* getCurrentThreadName() = 0;
-
-    virtual int getCurrentThreadType() = 0;
-
-    // queue task if there is space, and run it otherwise
-    virtual bool addTask(Task* task) = 0;
-
-    virtual bool addTask(Task::Status& status, const std::function<void()>& task);
-
-    virtual void workUntilDone(Task::Status* status) = 0;
-
-    virtual Task::Allocator* getTaskAllocator() = 0;
-
-protected:
-
-    friend class Task;
-};
-
-} // namespace sofa::simulation
+}

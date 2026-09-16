@@ -24,13 +24,21 @@
 #include <sofa/simulation/task/MainTaskSchedulerFactory.h>
 #include <sofa/simulation/task/MainTaskSchedulerRegistry.h>
 
-#include <thread>
+#include <sofa/helper/system/Cpu.h>
 
 namespace sofa::simulation
 {
 unsigned TaskScheduler::GetHardwareThreadsCount()
 {
-    return std::thread::hardware_concurrency() / 2;
+    // Performance cores only:
+    // - SMT siblings are excluded because the parallel loops in SOFA are
+    //   memory-bound and gain nothing from hyper-threading.
+    // - Efficiency cores are excluded because parallelForEach splits the work
+    //   into one equal chunk per thread: a chunk running on a slow core delays
+    //   the whole section. Measured on an Apple M3 Max (10P + 4E), 14 threads
+    //   were 1.6x to 3.5x slower than 10 on FEM scenes.
+    // Never returns 0.
+    return sofa::helper::system::getPerformanceCoreCount();
 }
 
 bool TaskScheduler::addTask(Task::Status& status, const std::function<void()>& task)

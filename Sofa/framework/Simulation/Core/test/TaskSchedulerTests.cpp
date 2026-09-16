@@ -26,8 +26,23 @@
 #include <sofa/simulation/task/DefaultTaskScheduler.h>
 #include <sofa/testing/BaseTest.h>
 
+#include <thread>
+
 namespace sofa
 {
+    // The default thread count must be usable as-is by DefaultTaskScheduler::start():
+    // at least 1 (otherwise no worker is created) and never more than the hardware
+    // can run concurrently.
+    TEST(TaskSchedulerTests, HardwareThreadsCount)
+    {
+        const unsigned count = simulation::TaskScheduler::GetHardwareThreadsCount();
+        EXPECT_GE(count, 1u);
+        if (std::thread::hardware_concurrency() > 0)
+        {
+            EXPECT_LE(count, std::thread::hardware_concurrency());
+        }
+    }
+
     // compute the Fibonacci number for input N
     static int64_t Fibonacci(int64_t N, int nbThread = 0)
     {

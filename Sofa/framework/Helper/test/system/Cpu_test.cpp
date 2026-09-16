@@ -19,62 +19,40 @@
 *                                                                             *
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
-#pragma once
+#include <gtest/gtest.h>
+#include <sofa/helper/system/Cpu.h>
 
-#include <sofa/config.h>
+#include <thread>
 
-#include <sofa/simulation/task/Task.h>
-
-#include <string> 
-#include <functional>
-
-namespace sofa::simulation
+namespace sofa
 {
 
-/**
- * Base class for a task scheduler
- *
- * The API allows to:
- * - initialize the scheduler with a number of dedicated threads
- * - add a task to the scheduler
- * - wait until all tasks are done etc.
- */
-class SOFA_SIMULATION_CORE_API TaskScheduler
+TEST(Cpu, logicalCoreCount)
 {
-public:
-    virtual ~TaskScheduler() = default;
+    const unsigned logical = helper::system::getLogicalCoreCount();
+    EXPECT_GE(logical, 1u);
+    if (std::thread::hardware_concurrency() > 0)
+    {
+        EXPECT_EQ(logical, std::thread::hardware_concurrency());
+    }
+}
 
-    /**
-     * Return the number of physical performance cores on the system: SMT siblings and
-     * efficiency cores are not counted. This is the default number of threads used by a
-     * scheduler initialized with 0 threads. Falls back to the physical core count, then to
-     * the logical processor count, when the information is unavailable. Never 0.
-     */
-    static unsigned GetHardwareThreadsCount();
+TEST(Cpu, physicalCoreCount)
+{
+    const unsigned physical = helper::system::getPhysicalCoreCount();
+    const unsigned logical = helper::system::getLogicalCoreCount();
 
-    // interface
-    virtual void init(const unsigned int nbThread = 0) = 0;
-            
-    virtual void stop(void) = 0;
-            
-    virtual unsigned int getThreadCount(void) const = 0;
+    EXPECT_GE(physical, 1u);
+    EXPECT_LE(physical, logical);
+}
 
-    virtual const char* getCurrentThreadName() = 0;
+TEST(Cpu, performanceCoreCount)
+{
+    const unsigned performance = helper::system::getPerformanceCoreCount();
+    const unsigned physical = helper::system::getPhysicalCoreCount();
 
-    virtual int getCurrentThreadType() = 0;
+    EXPECT_GE(performance, 1u);
+    EXPECT_LE(performance, physical);
+}
 
-    // queue task if there is space, and run it otherwise
-    virtual bool addTask(Task* task) = 0;
-
-    virtual bool addTask(Task::Status& status, const std::function<void()>& task);
-
-    virtual void workUntilDone(Task::Status* status) = 0;
-
-    virtual Task::Allocator* getTaskAllocator() = 0;
-
-protected:
-
-    friend class Task;
-};
-
-} // namespace sofa::simulation
+} // namespace sofa
