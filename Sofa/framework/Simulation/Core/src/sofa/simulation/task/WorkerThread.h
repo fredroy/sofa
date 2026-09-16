@@ -59,7 +59,7 @@ public:
 
     const std::deque<Task*>* getTasksQueue() { return &m_tasks; }
 
-    std::uint64_t getTaskCount() { return m_tasks.size(); }
+    std::uint64_t getTaskCount() const { return static_cast<std::uint64_t>(m_taskCount.load(std::memory_order_relaxed)); }
 
 private:
 
@@ -75,8 +75,11 @@ private:
     // pop task from queue
     bool popTask(Task** ppTask);
 
-    // steal and queue some task from another thread
+    // steal a task from another thread's queue
     bool stealTask(Task** task);
+
+    /// Per-thread pseudo-random number (xorshift32), used to pick the first victim to steal from
+    unsigned nextRandom();
 
     /// Run queued and stolen tasks until none is available (or status is no longer busy).
     /// @return true if at least one task was executed
@@ -102,9 +105,18 @@ private:
 
     const int m_type;
 
+    /// Position of this thread in DefaultTaskScheduler::m_workers (0 is the main thread)
+    const unsigned m_index;
+
+    unsigned m_randomState;
+
     simulation::SpinLock m_taskMutex;
 
     std::deque<Task*> m_tasks;
+
+    /// Mirror of m_tasks.size(), maintained under m_taskMutex. Read without the lock by
+    /// thieves and by the owner to skip empty queues without any lock traffic.
+    std::atomic<int> m_taskCount { 0 };
 
     std::thread  m_stdThread;
 

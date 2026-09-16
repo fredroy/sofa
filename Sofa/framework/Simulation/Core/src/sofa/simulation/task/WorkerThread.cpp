@@ -34,8 +34,21 @@
 namespace sofa::simulation
 {
 
+namespace
+{
+/// Idle iterations (see WorkerThread::backoff) a worker stays awake between two parallel
+/// sections before parking on the scheduler's condition variable. Matches the end of the
+/// yield phase of backoff(): roughly a millisecond of yielding.
+constexpr unsigned parkAfterIdleIterations = 1024;
+}
+
 WorkerThread::WorkerThread(DefaultTaskScheduler *const &taskScheduler, const int index, const std::string &name)
-        : m_name(name + std::to_string(index)), m_type(0), m_tasks(), m_taskScheduler(taskScheduler)
+        : m_name(name + std::to_string(index))
+        , m_type(0)
+        , m_index(static_cast<unsigned>(index))
+        , m_randomState(0x9E3779B9u * (static_cast<unsigned>(index) + 1u) | 1u) // non-zero seed, different per thread
+        , m_tasks()
+        , m_taskScheduler(taskScheduler)
 {
     assert(taskScheduler);
     m_finished.store(false, std::memory_order_relaxed);
@@ -92,20 +105,26 @@ void WorkerThread::run(void)
         Idle();
 
         unsigned idleIterations = 0;
-        while (!m_taskScheduler->testMainTaskStatus(nullptr))
+        while (!m_taskScheduler->isClosing())
         {
-            if (doWork(nullptr))
+            if (m_taskScheduler->testMainTaskStatus(nullptr))
+            {
+                // No parallel section in progress. Stay awake for a short grace period so
+                // that back-to-back sections do not pay a condition-variable wake-up for
+                // every worker each time; park only after a real idle period.
+                if (idleIterations >= parkAfterIdleIterations)
+                {
+                    break;
+                }
+                backoff(idleIterations++);
+            }
+            else if (doWork(nullptr))
             {
                 idleIterations = 0;
             }
             else
             {
                 backoff(idleIterations++);
-            }
-
-            if (m_taskScheduler->isClosing())
-            {
-                break;
             }
         }
     }
@@ -222,14 +241,22 @@ void WorkerThread::workUntilDone(Task::Status *status)
 
 bool WorkerThread::popTask(Task **task)
 {
+    *task = nullptr;
+
+    // Fast path: nothing to pop, no need to take the lock
+    if (m_taskCount.load(std::memory_order_relaxed) == 0)
+    {
+        return false;
+    }
+
     simulation::ScopedLock lock(m_taskMutex);
     if (!m_tasks.empty())
     {
         *task = m_tasks.back();
         m_tasks.pop_back();
+        m_taskCount.store(static_cast<int>(m_tasks.size()), std::memory_order_relaxed);
         return true;
     }
-    *task = nullptr;
     return false;
 }
 
@@ -257,6 +284,7 @@ bool WorkerThread::pushTask(Task *task)
         const int taskId = statusForMain->setBusy(true);
         task->m_id = taskId;
         m_tasks.push_back(task);
+        m_taskCount.store(static_cast<int>(m_tasks.size()), std::memory_order_relaxed);
     }
 
 
@@ -282,27 +310,60 @@ bool WorkerThread::addTask(Task *task)
     return false;
 }
 
+unsigned WorkerThread::nextRandom()
+{
+    unsigned x = m_randomState;
+    x ^= x << 13;
+    x ^= x >> 17;
+    x ^= x << 5;
+    m_randomState = x;
+    return x;
+}
+
 bool WorkerThread::stealTask(Task **task)
 {
-    for (const auto& [id, otherThread] : m_taskScheduler->_threads)
+    *task = nullptr;
+
+    const auto& workers = m_taskScheduler->m_workers;
+    const std::size_t nbWorkers = workers.size();
+    if (nbWorkers < 2)
     {
-        // if this is the main thread continue
-        if (std::this_thread::get_id() == id)
+        return false;
+    }
+
+    // Start from a random victim so that concurrent thieves spread over the queues instead
+    // of all hammering the first one, then walk the ring.
+    const std::size_t first = nextRandom() % nbWorkers;
+    for (std::size_t k = 0; k < nbWorkers; ++k)
+    {
+        WorkerThread* victim = workers[(first + k) % nbWorkers];
+        if (victim == this)
         {
             continue;
         }
 
-        //WorkerThread *otherThread = it.second;
+        // Skip visibly empty queues without touching their lock
+        if (victim->m_taskCount.load(std::memory_order_relaxed) == 0)
         {
-            simulation::ScopedLock lock(otherThread->m_taskMutex);
-            if (!otherThread->m_tasks.empty())
-            {
-                *task = otherThread->m_tasks.front();
-                otherThread->m_tasks.pop_front();
-                return true;
-            }
+            continue;
         }
 
+        // The owner (or another thief) is using this queue right now: try the next one
+        // rather than spinning on its lock.
+        if (!victim->m_taskMutex.try_lock())
+        {
+            continue;
+        }
+
+        if (!victim->m_tasks.empty())
+        {
+            *task = victim->m_tasks.front();
+            victim->m_tasks.pop_front();
+            victim->m_taskCount.store(static_cast<int>(victim->m_tasks.size()), std::memory_order_relaxed);
+            victim->m_taskMutex.unlock();
+            return true;
+        }
+        victim->m_taskMutex.unlock();
     }
 
     return false;

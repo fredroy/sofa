@@ -25,49 +25,72 @@
 #include <mutex>
 #include <atomic>
 
+#if defined(__x86_64__) || defined(_M_X64) || defined(__i386__) || defined(_M_IX86)
+#include <immintrin.h>
+#elif defined(_M_ARM64)
+#include <intrin.h>
+#endif
+
 namespace sofa::simulation
 {
 
-class SpinLock
+/// Hint to the CPU that the current thread is in a spin-wait loop
+inline void cpuRelax() noexcept
 {
-    enum
-    {
-        CACHE_LINE = 64
-    };
-            
+#if defined(__x86_64__) || defined(_M_X64) || defined(__i386__) || defined(_M_IX86)
+    _mm_pause();
+#elif defined(_M_ARM64)
+    __yield();
+#elif defined(__aarch64__) || defined(__arm__)
+    asm volatile("yield" ::: "memory");
+#endif
+}
+
+/**
+ * Test-and-test-and-set spin lock.
+ *
+ * Waiting threads spin on a plain load and only attempt the atomic exchange once the lock
+ * looks free, so contended waiting does not keep invalidating the owner's cache line.
+ * The lock occupies its own cache line to avoid false sharing with neighbouring members.
+ */
+class alignas(64) SpinLock
+{
 public:
-            
-    SpinLock()
-    :m_flag()
-    {}
-            
-    ~SpinLock()
-    {
-        unlock();
-    }
-            
+
+    SpinLock() = default;
+
+    SpinLock(const SpinLock&) = delete;
+    SpinLock& operator=(const SpinLock&) = delete;
+
     bool try_lock()
     {
-        return !m_flag.test_and_set( std::memory_order_acquire );
+        return !m_locked.load(std::memory_order_relaxed)
+            && !m_locked.exchange(true, std::memory_order_acquire);
     }
-            
+
     void lock()
     {
-        while( m_flag.test_and_set(std::memory_order_acquire) )
+        for (;;)
         {
-            // cpu busy wait
-            //std::this_thread::yield();
+            if (!m_locked.exchange(true, std::memory_order_acquire))
+            {
+                return;
+            }
+            while (m_locked.load(std::memory_order_relaxed))
+            {
+                cpuRelax();
+            }
         }
     }
-            
+
     void unlock()
     {
-        m_flag.clear( std::memory_order_release );
+        m_locked.store(false, std::memory_order_release);
     }
-            
+
 private:
-            
-    std::atomic_flag m_flag;
+
+    std::atomic<bool> m_locked { false };
 };
         
         

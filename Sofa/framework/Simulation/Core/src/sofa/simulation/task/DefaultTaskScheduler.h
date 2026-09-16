@@ -30,9 +30,10 @@
 #include <condition_variable>
 #include <memory>
 #include <map>
-#include <string> 
+#include <string>
 #include <mutex>
 #include <atomic>
+#include <vector>
 
 
 namespace sofa::simulation
@@ -96,6 +97,10 @@ private:
     static const std::string _name;
 
     std::map< std::thread::id, WorkerThread*> _threads;
+
+    /// All threads of the pool indexed by WorkerThread::m_index (0 is the main thread).
+    /// Only modified in start() and stop(), read concurrently by thieves in WorkerThread::stealTask.
+    std::vector<WorkerThread*> m_workers;
 
     std::atomic<const Task::Status*> m_mainTaskStatus;
     void setMainTaskStatus(const Task::Status* mainTaskStatus);

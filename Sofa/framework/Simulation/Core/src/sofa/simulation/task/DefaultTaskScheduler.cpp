@@ -62,7 +62,9 @@ DefaultTaskScheduler::DefaultTaskScheduler()
 
     // init global static thread local var
     {
-        _threads[std::this_thread::get_id()] = new WorkerThread(this, 0, "Main  ");// new WorkerThread(this, 0, "Main  ");
+        WorkerThread* mainThread = new WorkerThread(this, 0, "Main  ");
+        _threads[std::this_thread::get_id()] = mainThread;
+        m_workers.push_back(mainThread);
     }
 }
 
@@ -120,10 +122,17 @@ void DefaultTaskScheduler::start(const unsigned int NbThread )
         m_threadCount = NbThread;
     }
 
+    /* create the worker objects first so that m_workers is complete before any thread runs */
+    m_workers.resize(1); // keep the main thread
+    for( unsigned int i=1; i<m_threadCount; ++i)
+    {
+        m_workers.push_back(new WorkerThread(this, int(i)));
+    }
+
     /* start worker threads */
     for( unsigned int i=1; i<m_threadCount; ++i)
     {
-        WorkerThread* thread = new WorkerThread(this, int(i));
+        WorkerThread* thread = m_workers[i];
         thread->create_and_attach(this);
         _threads[thread->getId()] = thread;
         thread->start(this);
@@ -174,6 +183,7 @@ void DefaultTaskScheduler::stop()
         WorkerThread* mainThread = mainThreadIt->second;
         _threads.clear();
         _threads[std::this_thread::get_id()] = mainThread;
+        m_workers.assign(1, mainThread);
     }
 
     return;
