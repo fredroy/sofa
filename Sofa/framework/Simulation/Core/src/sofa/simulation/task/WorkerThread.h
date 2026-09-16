@@ -78,7 +78,12 @@ private:
     // steal and queue some task from another thread
     bool stealTask(Task** task);
 
-    void doWork(Task::Status* status);
+    /// Run queued and stolen tasks until none is available (or status is no longer busy).
+    /// @return true if at least one task was executed
+    bool doWork(Task::Status* status);
+
+    /// Called after an iteration that found no task: spin, then yield, then sleep
+    static void backoff(unsigned idleIterations);
 
     // thread main loop
     void run(void);

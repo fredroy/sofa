@@ -24,6 +24,8 @@
 
 #include <cassert>
 #include <mutex>
+#include <chrono>
+#include <thread>
 
 #ifdef WIN32
 #include <processthreadsapi.h>
@@ -89,10 +91,17 @@ void WorkerThread::run(void)
     {
         Idle();
 
+        unsigned idleIterations = 0;
         while (!m_taskScheduler->testMainTaskStatus(nullptr))
         {
-
-            doWork(nullptr);
+            if (doWork(nullptr))
+            {
+                idleIterations = 0;
+            }
+            else
+            {
+                backoff(idleIterations++);
+            }
 
             if (m_taskScheduler->isClosing())
             {
@@ -116,9 +125,10 @@ void WorkerThread::Idle()
         [&] { return !m_taskScheduler->m_workerThreadsIdle; });
 }
 
-void WorkerThread::doWork(Task::Status *status)
+bool WorkerThread::doWork(Task::Status *status)
 {
-    for (;;)// do
+    bool didWork = false;
+    for (;;)
     {
         Task *task;
 
@@ -126,25 +136,42 @@ void WorkerThread::doWork(Task::Status *status)
         {
             // run task in the queue
             runTask(task);
-
+            didWork = true;
 
             if (status && !status->isBusy())
-                return;
+                return didWork;
         }
 
         // check if main work is finished
         if (m_taskScheduler->testMainTaskStatus(nullptr))
-            return;
+            return didWork;
 
         if (!stealTask(&task))
-            return;
+            return didWork;
 
         // run the stolen task
         runTask(task);
+        didWork = true;
+    }
+}
 
-    } //;;while (stealTasks());
+void WorkerThread::backoff(const unsigned idleIterations)
+{
+    // Pure spinning keeps a core busy for nothing and, when every core hosts a
+    // spinning thread, steals CPU time from the threads that actually have work.
+    constexpr unsigned spinIterations = 64;
+    constexpr unsigned yieldIterations = 1024;
 
-
+    if (idleIterations < spinIterations)
+    {
+        return;
+    }
+    if (idleIterations < yieldIterations)
+    {
+        std::this_thread::yield();
+        return;
+    }
+    std::this_thread::sleep_for(std::chrono::microseconds(50));
 }
 
 void WorkerThread::runTask(Task *task)
@@ -172,9 +199,17 @@ void WorkerThread::runTask(Task *task)
 
 void WorkerThread::workUntilDone(Task::Status *status)
 {
+    unsigned idleIterations = 0;
     while (status->isBusy())
     {
-        doWork(status);
+        if (doWork(status))
+        {
+            idleIterations = 0;
+        }
+        else
+        {
+            backoff(idleIterations++);
+        }
     }
 
     if (m_taskScheduler->testMainTaskStatus(status))
