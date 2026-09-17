@@ -111,7 +111,7 @@ void DefaultTaskScheduler::start(const unsigned int NbThread )
     stop();
 
     m_isClosing = false;
-    m_workerThreadsIdle = true;
+    m_parkedCount = 0;
     m_mainTaskStatus	= nullptr;
 
     // default number of thread: only physical cores. no advantage from hyperthreading.
@@ -150,9 +150,8 @@ void DefaultTaskScheduler::stop()
 
     if ( m_isInitialized )
     {
-        // wait for all
-        WaitForWorkersToBeReady();
-        wakeUpWorkers();
+        // release parked workers so that they observe m_isClosing and exit
+        wakeAllParkedWorkers();
         m_isInitialized = false;
 
         for (auto [threadId, workerThread] : _threads)
@@ -218,28 +217,54 @@ void DefaultTaskScheduler::workUntilDone(Task::Status* status)
     thread->workUntilDone(status);
 }
 
-void DefaultTaskScheduler::wakeUpWorkers()
+bool DefaultTaskScheduler::wakeOneParkedWorker()
 {
+    const std::size_t nbWorkers = m_workers.size();
+    const unsigned first = m_wakeCursor.fetch_add(1, std::memory_order_relaxed);
+    for (std::size_t k = 0; k < nbWorkers; ++k)
     {
-        std::lock_guard guard(m_wakeUpMutex);
-        m_workerThreadsIdle = false;
+        WorkerThread* worker = m_workers[(first + k) % nbWorkers];
+        if (!worker->m_parked.load(std::memory_order_relaxed))
+        {
+            continue;
+        }
+        // Claim the worker: only one waker can flip the flag
+        if (worker->m_parked.exchange(false, std::memory_order_seq_cst))
+        {
+            m_parkedCount.fetch_sub(1, std::memory_order_seq_cst);
+            worker->m_parkEpoch.fetch_add(1, std::memory_order_release);
+            worker->m_parkEpoch.notify_one();
+            return true;
+        }
     }
-    m_wakeUpEvent.notify_all();
+    return false;
 }
 
-void DefaultTaskScheduler::WaitForWorkersToBeReady()
+unsigned DefaultTaskScheduler::wakeParkedWorkers(const unsigned count)
 {
-    m_workerThreadsIdle = true;
+    unsigned woken = 0;
+    while (woken < count && wakeOneParkedWorker())
+    {
+        ++woken;
+    }
+    return woken;
+}
+
+void DefaultTaskScheduler::wakeAllParkedWorkers()
+{
+    while (wakeOneParkedWorker()) {}
 }
 
 void DefaultTaskScheduler::setMainTaskStatus(const Task::Status* mainTaskStatus)
 {
-    m_mainTaskStatus.store(mainTaskStatus, std::memory_order_relaxed);
+    // seq_cst: paired with the parked-count check in WorkerThread::pushTask and the
+    // status re-check in WorkerThread::park (Dekker-style handshake, no lost wake-up)
+    m_mainTaskStatus.store(mainTaskStatus, std::memory_order_seq_cst);
 }
 
 bool DefaultTaskScheduler::testMainTaskStatus(const Task::Status* status)
 {
-    return m_mainTaskStatus.load(std::memory_order_relaxed) == status;
+    return m_mainTaskStatus.load(std::memory_order_seq_cst) == status;
 }
 
 } // namespace sofa::simulation

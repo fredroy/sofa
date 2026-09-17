@@ -15,6 +15,7 @@ set(SOURCE_FILES
     Simulation_test.cpp
     ParallelSparseMatrixProduct_test.cpp
     TaskSchedulerFactory_test.cpp
+    TaskSchedulerParking_test.cpp
     TaskSchedulerTestTasks.cpp
     TaskSchedulerTestTasks.h
     TaskSchedulerTests.cpp

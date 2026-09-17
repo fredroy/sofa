@@ -91,8 +91,8 @@ private:
     // thread main loop
     void run(void);
 
-    //void	ThreadProc(void);
-    void	Idle(void);
+    /// Block until a parallel section starts (or the scheduler closes). See DefaultTaskScheduler::wakeOneParkedWorker.
+    void park();
 
     bool isFinished() const;
 
@@ -126,6 +126,14 @@ private:
 
     // The following members may be accessed by _multiple_ threads at the same time:
     std::atomic<bool>	m_finished;
+
+    /// True while this thread is parked (blocked in park()). A waker claims the thread by
+    /// resetting it to false, so each parked thread is woken by exactly one waker.
+    std::atomic<bool> m_parked { false };
+
+    /// Incremented by the waker before notifying; park() waits for it to change, so a wake-up
+    /// issued before the thread actually blocks is never lost.
+    std::atomic<unsigned> m_parkEpoch { 0 };
 
     friend class DefaultTaskScheduler;
 };

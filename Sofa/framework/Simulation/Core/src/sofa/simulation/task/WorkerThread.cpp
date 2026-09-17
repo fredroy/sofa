@@ -36,10 +36,29 @@ namespace sofa::simulation
 
 namespace
 {
-/// Idle iterations (see WorkerThread::backoff) a worker stays awake between two parallel
-/// sections before parking on the scheduler's condition variable. Matches the end of the
-/// yield phase of backoff(): roughly a millisecond of yielding.
-constexpr unsigned parkAfterIdleIterations = 1024;
+// Idle policy of a worker that finds no task, by number of consecutive empty iterations:
+//   [0, spinIterations)               pure spin: the next task is probably microseconds away
+//   [spinIterations, yieldIterations) yield: give the core to threads that have work
+//   [yieldIterations, parkAfter...)   doze: short sleeps (disabled by default, see below)
+//   then                              park: block until a section starts (WorkerThread::park)
+//
+// Dozing (dozeIterations > 0) makes workers poll every dozeSleep instead of parking, so the
+// first section after an idle gap does not pay for waking cores from deep idle: on an Apple
+// M3 Max a 135 us compute section run 3 ms after the previous one took 350 us (p90 1.1 ms)
+// when parking right after the yield phase, 200 us (p90 230 us) with 10 ms of dozing. But it
+// is a net loss on real scenes: an interactive scene with about 10 ms of serial constraint
+// solving per step ran 4 to 7% slower with dozing, every phase included, because nine
+// workers waking every 50 us disturb the thread doing the serial work. Parking right after
+// the yield phase is therefore the default; the knob is kept for latency-critical setups.
+constexpr unsigned spinIterations = 64;
+constexpr unsigned yieldIterations = 1024;
+constexpr auto dozeSleep = std::chrono::microseconds(50);
+constexpr unsigned dozeIterations = 0;
+constexpr unsigned parkAfterIdleIterations = yieldIterations + dozeIterations;
+
+/// Number of parked workers each waker (section owner or freshly woken worker) wakes in turn.
+/// 2 gives a binary wake-up tree: the pool is fully awake after log2(N) wake-up latencies.
+constexpr unsigned wakeFanOut = 2;
 }
 
 WorkerThread::WorkerThread(DefaultTaskScheduler *const &taskScheduler, const int index, const std::string &name)
@@ -102,16 +121,14 @@ void WorkerThread::run(void)
     // main loop
     while (!m_taskScheduler->isClosing())
     {
-        Idle();
-
         unsigned idleIterations = 0;
         while (!m_taskScheduler->isClosing())
         {
             if (m_taskScheduler->testMainTaskStatus(nullptr))
             {
-                // No parallel section in progress. Stay awake for a short grace period so
-                // that back-to-back sections do not pay a condition-variable wake-up for
-                // every worker each time; park only after a real idle period.
+                // No parallel section in progress. Stay awake (spin, yield, then doze) so
+                // that the next section does not pay a wake-up; park only after a real idle
+                // period. See the idle policy at the top of this file.
                 if (idleIterations >= parkAfterIdleIterations)
                 {
                     break;
@@ -127,6 +144,19 @@ void WorkerThread::run(void)
                 backoff(idleIterations++);
             }
         }
+
+        if (!m_taskScheduler->isClosing())
+        {
+            park();
+
+            // Just woken for a section: propagate the wake-up to a couple of parked workers
+            // so that the whole pool wakes in logarithmic depth without involving the owner
+            if (!m_taskScheduler->testMainTaskStatus(nullptr)
+                && m_taskScheduler->m_parkedCount.load(std::memory_order_seq_cst) > 0)
+            {
+                m_taskScheduler->wakeParkedWorkers(wakeFanOut);
+            }
+        }
     }
 
     m_finished.store(true, std::memory_order_relaxed);
@@ -137,11 +167,30 @@ const std::thread::id WorkerThread::getId() const
     return m_stdThread.get_id();
 }
 
-void WorkerThread::Idle()
+void WorkerThread::park()
 {
-    std::unique_lock lock(m_taskScheduler->m_wakeUpMutex);
-    m_taskScheduler->m_wakeUpEvent.wait(lock,
-        [&] { return !m_taskScheduler->m_workerThreadsIdle; });
+    const unsigned epoch = m_parkEpoch.load(std::memory_order_acquire);
+
+    // Publish "parked" first, then re-check the condition. A pusher does the reverse: it
+    // publishes the section (main task status) first, then checks the parked count. With
+    // sequentially consistent operations on both sides, at least one of the two sees the
+    // other's write, so a section that starts right now either is seen here or wakes us.
+    m_parked.store(true, std::memory_order_seq_cst);
+    m_taskScheduler->m_parkedCount.fetch_add(1, std::memory_order_seq_cst);
+
+    if (!m_taskScheduler->testMainTaskStatus(nullptr) || m_taskScheduler->isClosing())
+    {
+        // Un-park ourselves, unless a waker already claimed us (it then also fixed the count)
+        if (m_parked.exchange(false, std::memory_order_seq_cst))
+        {
+            m_taskScheduler->m_parkedCount.fetch_sub(1, std::memory_order_seq_cst);
+        }
+        return;
+    }
+
+    // Blocks until a waker increments the epoch (futex / ulock underneath). If that already
+    // happened between the checks above and this call, returns immediately.
+    m_parkEpoch.wait(epoch, std::memory_order_acquire);
 }
 
 bool WorkerThread::doWork(Task::Status *status)
@@ -178,9 +227,7 @@ void WorkerThread::backoff(const unsigned idleIterations)
 {
     // Pure spinning keeps a core busy for nothing and, when every core hosts a
     // spinning thread, steals CPU time from the threads that actually have work.
-    constexpr unsigned spinIterations = 64;
-    constexpr unsigned yieldIterations = 1024;
-
+    // See the idle policy described at the top of this file.
     if (idleIterations < spinIterations)
     {
         return;
@@ -190,7 +237,7 @@ void WorkerThread::backoff(const unsigned idleIterations)
         std::this_thread::yield();
         return;
     }
-    std::this_thread::sleep_for(std::chrono::microseconds(50));
+    std::this_thread::sleep_for(dozeSleep);
 }
 
 void WorkerThread::runTask(Task *task)
@@ -233,8 +280,8 @@ void WorkerThread::workUntilDone(Task::Status *status)
 
     if (m_taskScheduler->testMainTaskStatus(status))
     {
+        // End of the section: workers finish their grace period and park by themselves
         m_taskScheduler->setMainTaskStatus(nullptr);
-        m_taskScheduler->m_workerThreadsIdle = true;
     }
 }
 
@@ -290,8 +337,16 @@ bool WorkerThread::pushTask(Task *task)
 
     if (m_taskScheduler->testMainTaskStatus(nullptr))
     {
+        // First task of a parallel section: publish the section before looking for parked
+        // workers (see WorkerThread::park for the ordering argument), then wake a couple of
+        // them. The woken workers wake the others (see run()), so the section owner pays at
+        // most two wake-up system calls and the fan-out runs on the workers. Workers never
+        // park while a section is active, so later pushes have nobody to wake.
         m_taskScheduler->setMainTaskStatus(statusForMain);
-        m_taskScheduler->wakeUpWorkers();
+        if (m_taskScheduler->m_parkedCount.load(std::memory_order_seq_cst) > 0)
+        {
+            m_taskScheduler->wakeParkedWorkers(wakeFanOut);
+        }
     }
 
     return true;

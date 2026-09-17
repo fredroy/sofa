@@ -27,7 +27,6 @@
 
 // default
 #include <thread>
-#include <condition_variable>
 #include <memory>
 #include <map>
 #include <string>
@@ -85,9 +84,14 @@ private:
             
     bool isClosing() const { return m_isClosing; }
             
-    void	WaitForWorkersToBeReady();
-            
-    void	wakeUpWorkers();
+    /// Wake one parked worker, if any. @return false if no worker was parked
+    bool wakeOneParkedWorker();
+
+    /// Wake up to @p count parked workers. @return the number of workers woken
+    unsigned wakeParkedWorkers(unsigned count);
+
+    /// Wake every parked worker (used when closing)
+    void wakeAllParkedWorkers();
             
     WorkerThread* getCurrentThread();
             
@@ -106,10 +110,13 @@ private:
     void setMainTaskStatus(const Task::Status* mainTaskStatus);
     bool testMainTaskStatus(const Task::Status*);
             
-    std::mutex  m_wakeUpMutex;
-            
-    std::condition_variable m_wakeUpEvent;
-            
+    /// Number of workers currently parked (blocked in WorkerThread::park)
+    std::atomic<unsigned> m_parkedCount { 0 };
+
+    /// Where the next search for a parked worker starts, so that successive wake-ups do not
+    /// all scan from the first worker
+    std::atomic<unsigned> m_wakeCursor { 0 };
+
     DefaultTaskScheduler();
             
     DefaultTaskScheduler(const DefaultTaskScheduler&) = delete;
@@ -128,10 +135,8 @@ private:
     bool m_isInitialized;
 
     unsigned m_workerThreadCount;
-            
-    std::atomic<bool> m_workerThreadsIdle;
-            
-    bool m_isClosing;
+
+    std::atomic<bool> m_isClosing;
             
     unsigned m_threadCount;
             
