@@ -22,6 +22,7 @@
 #pragma once
 
 #include <sofa/component/solidmechanics/fem/hyperelastic/material/HyperelasticMaterial.h>
+#include <sofa/helper/logging/Messaging.h>
 
 namespace sofa::component::solidmechanics::fem::hyperelastic::material
 {
@@ -47,6 +48,8 @@ public:
      * The regularized origin barrier is removed according to "Kim, Theodore,
      * and David Eberle. "Dynamic deformables: implementation and production
      * practicalities (now with code!)." ACM SIGGRAPH 2022 Courses. 2022. 1-259."
+     * The constant energy of the rest state, mu^2 / (2 (lambda + mu)), is
+     * subtracted so that the energy is zero at rest.
      */
     Real getStrainEnergy(StrainInformation<DataTypes>* sinfo,
                          const MaterialParameters<DataTypes>& param) override
@@ -65,7 +68,8 @@ public:
         const Real J = sinfo->J;
 
         return static_cast<Real>(0.5) *
-            (mu * (I_C - 3) + (lambda + mu) * std::pow(J - alpha, 2));
+            (mu * (I_C - 3) + (lambda + mu) * std::pow(J - alpha, 2)
+             - mu * mu / (lambda + mu));
     }
 
     /**
@@ -81,7 +85,7 @@ public:
 
         // Inverse of C
         MatrixSym C_1;
-        invertMatrix(C_1, C);
+        computeInverse(C, C_1);
 
         //Lamé constants
         const Real mu = param.parameterArray[0];
@@ -114,7 +118,7 @@ public:
 
         // inverse of the right Cauchy-Green deformation tensor
         MatrixSym inverse_C;
-        sofa::type::invertMatrix(inverse_C, sinfo->deformationTensor);
+        computeInverse(sinfo->deformationTensor, inverse_C);
 
         // trace(C^-1 * H)
         Real trHC = inputTensor[0] * inverse_C[0] + inputTensor[2] * inverse_C[2] + inputTensor[5] * inverse_C[5]
@@ -125,7 +129,7 @@ public:
         MatrixSym Firstmatrix;
         MatrixSym::Mat2Sym(inverse_C * (inputTensor * inverse_C), Firstmatrix);
 
-        outputTensor = 0.5_sreal * (lambda + mu) * (Firstmatrix * (-2 * J * (J - alpha))
+        outputTensor = static_cast<Real>(0.5) * (lambda + mu) * (Firstmatrix * (-2 * J * (J - alpha))
             + inverse_C * (J * (2 * J - alpha) * trHC));
     }
 
@@ -140,7 +144,7 @@ public:
         const Real alpha = 1 + mu / (lambda + mu);
 
         MatrixSym inverse_C;
-        invertMatrix(inverse_C, sinfo->deformationTensor);
+        computeInverse(sinfo->deformationTensor, inverse_C);
 
         MatrixSym CC;
         CC = inverse_C;
@@ -196,6 +200,26 @@ public:
     }
 
 private:
+    /**
+     * Inverse of the right Cauchy-Green deformation tensor.
+     * C is singular for a flat element (J = 0). The volumetric term of the
+     * stress cannot be expressed with C^-1 in this case: C^-1 is set to zero,
+     * which drops this term, and a warning is emitted (once per material).
+     */
+    void computeInverse(const MatrixSym& C, MatrixSym& inverse_C)
+    {
+        if (!sofa::type::invertMatrix(inverse_C, C))
+        {
+            inverse_C.clear();
+            msg_warning_when(!m_hasWarnedSingularC, Name.data())
+                << "The right Cauchy-Green deformation tensor is singular (flat element, J = 0). "
+                   "The volumetric stress of this element is ignored. Further occurrences will not be reported.";
+            m_hasWarnedSingularC = true;
+        }
+    }
+
+    bool m_hasWarnedSingularC { false };
+
     //identity tensor
     inline static const MatrixSym ID = []()
     {
