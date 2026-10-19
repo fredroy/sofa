@@ -334,4 +334,72 @@ TEST_F(DifferentialOperationsTest, PullbackCotangentTangentHigherOrder)
     // Total df_x = 24.0 + 4.0 = 28.0
     EXPECT_DOUBLE_EQ(helper::getReadAccessor(*moX->read(core::vec_id::read_access::force))[0][0], 28.0);
 }
+
+/**
+ * @test The differential operations only use the mechanical mappings, as the mechanical visitors: a
+ * non-mechanical mapping (e.g. towards a visual model) is updated by the mapping visitors, once per
+ * time step, not at each evaluation of the mechanical states.
+ * Graph: X --(Scale 2.0)--> Y, and X --(Scale 5.0, non-mechanical)--> V
+ */
+TEST_F(DifferentialOperationsTest, NonMechanicalMappingIsIgnored)
+{
+    core::MechanicalParams mparams(*core::ExecParams::defaultInstance());
+
+    auto nodeX = rootNode->createChild("X");
+    auto nodeY = nodeX->createChild("Y");
+    auto nodeV = nodeX->createChild("V");
+
+    const auto createState = [&](simulation::Node* node, const std::string& name)
+    {
+        auto mo = core::objectmodel::New<MechanicalObject1D>();
+        mo->setName(name);
+        mo->resize(1);
+        mo->vRealloc(&mparams, sofa::core::vec_id::write_access::dx);
+        node->addObject(mo);
+        return mo;
+    };
+    auto moX = createState(nodeX.get(), "moX");
+    auto moY = createState(nodeY.get(), "moY");
+    auto moV = createState(nodeV.get(), "moV");
+    (*moX->writePositions())[0] = Coord1D(2.0);
+
+    auto mapXY = core::objectmodel::New<ScaleMapping>(2.0);
+    mapXY->setFrom(moX.get());
+    mapXY->setTo(moY.get());
+    nodeY->addObject(mapXY);
+
+    auto mapXV = core::objectmodel::New<ScaleMapping>(5.0);
+    mapXV->setFrom(moX.get());
+    mapXV->setTo(moV.get());
+    mapXV->setNonMechanical();
+    ASSERT_FALSE(mapXV->isMechanical());
+    nodeV->addObject(mapXV);
+
+    rootNode->init(core::ExecParams::defaultInstance());
+    (*moV->writePositions())[0] = Coord1D(-1.0);
+
+    simulation::MappingGraph mappingGraph;
+    mappingGraph.build(rootNode.get());
+
+    simulation::common::DifferentialOperations::pushforwardCoord(
+        mappingGraph, mparams, core::MultiVecCoordId(core::vec_id::write_access::position));
+    EXPECT_DOUBLE_EQ((*moY->readPositions())[0][0], 4.0);
+    EXPECT_DOUBLE_EQ((*moV->readPositions())[0][0], -1.0); // not applied
+
+    helper::getWriteAccessor(*moX->write(core::vec_id::write_access::dx))[0] = Deriv1D(1.5);
+    helper::getWriteAccessor(*moV->write(core::vec_id::write_access::dx))[0] = Deriv1D(-1.0);
+    simulation::common::DifferentialOperations::pushforwardTangent(
+        mappingGraph, mparams, core::MultiVecDerivId(core::vec_id::write_access::dx));
+    EXPECT_DOUBLE_EQ(helper::getReadAccessor(*moY->read(core::vec_id::read_access::dx))[0][0], 3.0);
+    EXPECT_DOUBLE_EQ(helper::getReadAccessor(*moV->read(core::vec_id::read_access::dx))[0][0], -1.0); // not applied
+
+    // a force on the output of the non-mechanical mapping is not pulled back, even when ignoring the mapping flags
+    helper::getWriteAccessor(*moX->write(core::vec_id::write_access::force))[0] = Deriv1D(0.0);
+    helper::getWriteAccessor(*moY->write(core::vec_id::write_access::force))[0] = Deriv1D(1.0);
+    helper::getWriteAccessor(*moV->write(core::vec_id::write_access::force))[0] = Deriv1D(1.0);
+    simulation::common::DifferentialOperations::pullbackCotangent(
+        mappingGraph, mparams, core::MultiVecDerivId(core::vec_id::write_access::force), true);
+    EXPECT_DOUBLE_EQ(helper::getReadAccessor(*moX->read(core::vec_id::read_access::force))[0][0], 2.0);
 }
+
+} // namespace sofa
