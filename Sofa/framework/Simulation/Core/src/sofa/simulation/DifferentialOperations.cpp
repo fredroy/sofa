@@ -25,12 +25,19 @@
 namespace sofa::simulation::common
 {
 
+// As the mechanical visitors, the differential operations only use the mechanical mappings: the
+// non-mechanical ones (e.g. towards visual models) are updated by the mapping visitors, once per time step
+
 void DifferentialOperations::pushforwardCoord(
     const MappingGraph& mappingGraph, const core::MechanicalParams& mparams,
     core::MultiVecCoordId coordVectorId)
 {
     mappingGraph.algorithms.traverseTopDown_([&](core::BaseMapping& mapping)
     {
+        if (!mapping.isMechanical())
+        {
+            return;
+        }
         mapping.apply(&mparams, coordVectorId, coordVectorId);
     });
 }
@@ -41,6 +48,10 @@ void DifferentialOperations::pushforwardTangent(
 {
     mappingGraph.algorithms.traverseTopDown_([&](core::BaseMapping& mapping)
     {
+        if (!mapping.isMechanical())
+        {
+            return;
+        }
         mapping.applyJ(&mparams, tangentVectorId, tangentVectorId);
     });
 }
@@ -51,7 +62,7 @@ void DifferentialOperations::pullbackCotangent(
 {
     mappingGraph.algorithms.traverseBottomUp_([&](core::BaseMapping& mapping)
     {
-        if (mapping.areForcesMapped() || ignoreMappingFlag)
+        if (mapping.isMechanical() && (mapping.areForcesMapped() || ignoreMappingFlag))
         {
             mapping.applyJT(&mparams, cotangentVectorId, cotangentVectorId);
         }
@@ -65,6 +76,10 @@ void DifferentialOperations::pullbackCotangentTangent(
     mappingGraph.algorithms.traverseBottomUp_(
         [&](core::BaseMapping& mapping)
         {
+            if (!mapping.isMechanical())
+            {
+                return;
+            }
             mapping.applyJT(&mparams, cotangentTangentVectorId, cotangentTangentVectorId);
             if (mparams.kFactor() != 0)
             {
