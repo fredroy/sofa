@@ -20,6 +20,7 @@
 * Contact information: contact@sofa-framework.org                             *
 ******************************************************************************/
 #include <sofa/simulation/integrationscheme/VelocityBasedImplicitIntegrationScheme.h>
+#include <algorithm>
 #include <sofa/core/ObjectFactory.h>
 #include <sofa/core/behavior/BaseMass.h>
 #include <sofa/core/behavior/LinearSolver.h>
@@ -66,6 +67,15 @@ void VelocityBasedImplicitIntegrationScheme::doSetupIntegrationStep(const core::
     simulation::common::VectorOperations::realloc(*m_vop, m_r1, "r1", this, true);
     simulation::common::VectorOperations::realloc(*m_vop, m_acceleration, "acceleration", this, true);
     simulation::common::VectorOperations::realloc(*m_vop, m_systemUnknown, "dv", this, true);
+
+    // The mass term of the right-hand side goes through the mappings only for the masses of mapped states
+    // (the mapping graph is built for this time step)
+    {
+        sofa::type::vector<core::behavior::BaseMass*> masses;
+        this->getContext()->get<core::behavior::BaseMass>(&masses, core::objectmodel::BaseContext::SearchDown);
+        m_hasMappedMass = std::any_of(masses.begin(), masses.end(),
+                                      [this](core::behavior::BaseMass* mass) { return m_mappingGraph.hasAnyMappingInput(mass); });
+    }
 
 
     // This is only there for lagrangian based simulation, to make sure we start using the real pose
@@ -216,12 +226,17 @@ void VelocityBasedImplicitIntegrationScheme::computeRHS(bool firstIteration)
             computeAccelerationFromVelocity(*m_vop, m_acceleration, m_vResult);
 
             // Again, as for m_r1, this propagation is needed for Mapped mass.
-            m_mop->propagateDx(m_acceleration);
+            if (m_hasMappedMass)
+            {
+                m_mop->propagateDx(m_acceleration);
+            }
 
+            // Only the masses contribute to this term: without mapped masses, the mapped states have nothing
+            // to pull back
             m_mop->mparams.setV(m_acceleration);
             m_mop->addMBKv(m_mappingGraph,m_r0, core::MatricesFactors::M(-1.0),
                         core::MatricesFactors::B(0),
-                        core::MatricesFactors::K(0));
+                        core::MatricesFactors::K(0), true, m_hasMappedMass);
         }
         else
         {
@@ -229,7 +244,7 @@ void VelocityBasedImplicitIntegrationScheme::computeRHS(bool firstIteration)
             m_mop->mparams.setV(m_vResult);
             m_mop->addMBKv(m_mappingGraph,m_r0, core::MatricesFactors::M(-1.0),
                         core::MatricesFactors::B(0),
-                        core::MatricesFactors::K(0));
+                        core::MatricesFactors::K(0), true, m_hasMappedMass);
         }
 
         m_mop->mparams.setV(backV);

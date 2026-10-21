@@ -123,6 +123,10 @@ protected:
     virtual void computeAccelerationFromVelocity(sofa::simulation::common::VectorOperations & vop, sofa::core::MultiVecDerivId& result, const sofa::core::MultiVecDerivId& velocity) = 0;
     /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ **/
 
+    /// Whether a mass acts on a mapped state (updated at each time step): the mass term of the right-hand side then
+    /// needs the acceleration of the mapped states, and must be pulled back from them
+    bool m_hasMappedMass { true };
+
 };
 
 } // namespace sofa::component::integrationscheme
