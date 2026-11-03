@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!--
+The scene measures the passes of the integration schemes through the mappings.
+-->
+<Node name="root" gravity="0 -10 0" dt="0.01" bbox="-8.1 -0.3 -9.2  8.1 7 6.9">
+
+    <Node name="plugins">
+        <RequiredPlugin pluginName="Sofa.Component.Constraint.Projective"/> <!-- Needed to use components [FixedProjectiveConstraint] -->
+        <RequiredPlugin pluginName="Sofa.Component.Engine.Select"/> <!-- Needed to use components [BoxROI] -->
+        <RequiredPlugin pluginName="Sofa.Component.IntegrationScheme.Backward"/> <!-- Needed to use components [EulerImplicitIntegrationScheme] -->
+        <RequiredPlugin pluginName="Sofa.Component.IO.Mesh"/> <!-- Needed to use components [MeshOBJLoader] -->
+        <RequiredPlugin pluginName="Sofa.Component.LinearSolver.Direct"/> <!-- Needed to use components [SparseLDLSolver] -->
+        <RequiredPlugin pluginName="Sofa.Component.Mapping.Linear"/> <!-- Needed to use components [BarycentricMapping IdentityMapping] -->
+        <RequiredPlugin pluginName="Sofa.Component.Mass"/> <!-- Needed to use components [UniformMass] -->
+        <RequiredPlugin pluginName="Sofa.Component.MechanicalLoad"/> <!-- Needed to use components [ConstantForceField] -->
+        <RequiredPlugin pluginName="Sofa.Component.SolidMechanics.FEM.Elastic"/> <!-- Needed to use components [HexahedronFEMForceField] -->
+        <RequiredPlugin pluginName="Sofa.Component.StateContainer"/> <!-- Needed to use components [MechanicalObject] -->
+        <RequiredPlugin pluginName="Sofa.Component.Topology.Container.Constant"/> <!-- Needed to use components [MeshTopology] -->
+        <RequiredPlugin pluginName="Sofa.Component.Topology.Container.Grid"/> <!-- Needed to use components [SparseGridTopology] -->
+        <RequiredPlugin pluginName="Sofa.GL.Component.Rendering3D"/> <!-- Needed to use components [OglModel] -->
+    </Node>
+
+    <DefaultAnimationLoop computeBoundingBox="false" />
+
+    <Node name="raptor1">
+        <MeshOBJLoader name="loader" filename="mesh/raptor_35kp.obj" triangulate="true" translation="-6 0 0" />
+        <EulerImplicitIntegrationScheme rayleighStiffness="0.1" rayleighMass="0.1" />
+        <SparseLDLSolver template="CompressedRowSparseMatrixMat3x3d" />
+        <SparseGridTopology name="grid" n="4 6 13" position="@loader.position" triangles="@loader.triangles" />
+        <MechanicalObject name="dofs" template="Vec3" />
+        <UniformMass totalMass="1" />
+        <HexahedronFEMForceField youngModulus="500" poissonRatio="0.3" method="large" />
+        <BoxROI name="feet" box="-9 -1 -1.5  -3 0.5 1.5" doUpdate="false" drawBoxes="true"
+                computeEdges="false" computeTriangles="false" computeQuads="false" computeTetrahedra="false" computeHexahedra="false" />
+        <FixedProjectiveConstraint indices="@feet.indices" />
+
+        <Node name="surface">
+            <MeshTopology name="topology" src="@../loader" />
+            <MechanicalObject name="surface" template="Vec3" />
+            <BarycentricMapping input="@../dofs" output="@surface" />
+            <BoxROI name="head" box="-9 4 4.5  -3 8 8" doUpdate="false" drawBoxes="true"
+                    computeEdges="false" computeTriangles="false" computeQuads="false" computeTetrahedra="false" computeHexahedra="false" />
+            <ConstantForceField indices="@head.indices" totalForce="5 0 0" />
+
+            <Node name="visual">
+                <OglModel name="visual" src="@../../loader" useNormals="false" />
+                <IdentityMapping input="@../surface" output="@visual" />
+            </Node>
+        </Node>
+    </Node>
+
+    <Node name="raptor2">
+        <MeshOBJLoader name="loader" filename="mesh/raptor_35kp.obj" triangulate="true" translation="0 0 0" />
+        <EulerImplicitIntegrationScheme rayleighStiffness="0.1" rayleighMass="0.1" />
+        <SparseLDLSolver template="CompressedRowSparseMatrixMat3x3d" />
+        <SparseGridTopology name="grid" n="4 6 13" position="@loader.position" triangles="@loader.triangles" />
+        <MechanicalObject name="dofs" template="Vec3" />
+        <UniformMass totalMass="1" />
+        <HexahedronFEMForceField youngModulus="500" poissonRatio="0.3" method="large" />
+        <BoxROI name="feet" box="-3 -1 -1.5  3 0.5 1.5" doUpdate="false" drawBoxes="true"
+                computeEdges="false" computeTriangles="false" computeQuads="false" computeTetrahedra="false" computeHexahedra="false" />
+        <FixedProjectiveConstraint indices="@feet.indices" />
+
+        <Node name="surface">
+            <MeshTopology name="topology" src="@../loader" />
+            <MechanicalObject name="surface" template="Vec3" />
+            <BarycentricMapping input="@../dofs" output="@surface" />
+            <BoxROI name="head" box="-3 4 4.5  3 8 8" doUpdate="false" drawBoxes="true"
+                    computeEdges="false" computeTriangles="false" computeQuads="false" computeTetrahedra="false" computeHexahedra="false" />
+            <ConstantForceField indices="@head.indices" totalForce="5 0 0" />
+
+            <Node name="visual">
+                <OglModel name="visual" src="@../../loader" useNormals="false" />
+                <IdentityMapping input="@../surface" output="@visual" />
+            </Node>
+        </Node>
+    </Node>
+
+    <Node name="raptor3">
+        <MeshOBJLoader name="loader" filename="mesh/raptor_35kp.obj" triangulate="true" translation="6 0 0" />
+        <EulerImplicitIntegrationScheme rayleighStiffness="0.1" rayleighMass="0.1" />
+        <SparseLDLSolver template="CompressedRowSparseMatrixMat3x3d" />
+        <SparseGridTopology name="grid" n="4 6 13" position="@loader.position" triangles="@loader.triangles" />
+        <MechanicalObject name="dofs" template="Vec3" />
+        <UniformMass totalMass="1" />
+        <HexahedronFEMForceField youngModulus="500" poissonRatio="0.3" method="large" />
+        <BoxROI name="feet" box="3 -1 -1.5  9 0.5 1.5" doUpdate="false" drawBoxes="true"
+                computeEdges="false" computeTriangles="false" computeQuads="false" computeTetrahedra="false" computeHexahedra="false" />
+        <FixedProjectiveConstraint indices="@feet.indices" />
+
+        <Node name="surface">
+            <MeshTopology name="topology" src="@../loader" />
+            <MechanicalObject name="surface" template="Vec3" />
+            <BarycentricMapping input="@../dofs" output="@surface" />
+            <BoxROI name="head" box="3 4 4.5  9 8 8" doUpdate="false" drawBoxes="true"
+                    computeEdges="false" computeTriangles="false" computeQuads="false" computeTetrahedra="false" computeHexahedra="false" />
+            <ConstantForceField indices="@head.indices" totalForce="5 0 0" />
+
+            <Node name="visual">
+                <OglModel name="visual" src="@../../loader" useNormals="false" />
+                <IdentityMapping input="@../surface" output="@visual" />
+            </Node>
+        </Node>
+    </Node>
+
+</Node>
