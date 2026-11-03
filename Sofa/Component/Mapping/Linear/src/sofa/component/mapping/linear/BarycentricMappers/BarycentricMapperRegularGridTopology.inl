@@ -152,26 +152,31 @@ template <class In, class Out>
 void BarycentricMapperRegularGridTopology<In,Out>::applyJT ( typename In::VecDeriv& out, const typename Out::VecDeriv& in )
 {
     const auto& n = this->m_fromTopology->d_n.getValue();
-    for( size_t index=0 ; index<in.size() ; ++index)
+    this->withSparseApplyJT([&](const auto sparse)
     {
-        const typename Out::DPos v = Out::getDPos(in[index]);
-        const topology::container::grid::RegularGridTopology::Hexa cube = RegularGridTopology::getHexaCopy ( n, this->m_map[index].in_index );
+        for( size_t index=0 ; index<in.size() ; ++index)
+        {
+            const typename Out::DPos v = Out::getDPos(in[index]);
+            if (sparse && this->isExactlyZero(v))
+                continue;
+            const topology::container::grid::RegularGridTopology::Hexa cube = RegularGridTopology::getHexaCopy ( n, this->m_map[index].in_index );
 
-        const OutReal fx = ( OutReal ) m_map[index].baryCoords[0];
-        const OutReal fy = ( OutReal ) m_map[index].baryCoords[1];
-        const OutReal fz = ( OutReal ) m_map[index].baryCoords[2];
-        out[cube[0]] += v * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) );
-        out[cube[1]] += v * ( ( fx ) * ( 1-fy ) * ( 1-fz ) );
+            const OutReal fx = ( OutReal ) m_map[index].baryCoords[0];
+            const OutReal fy = ( OutReal ) m_map[index].baryCoords[1];
+            const OutReal fz = ( OutReal ) m_map[index].baryCoords[2];
+            out[cube[0]] += v * ( ( 1-fx ) * ( 1-fy ) * ( 1-fz ) );
+            out[cube[1]] += v * ( ( fx ) * ( 1-fy ) * ( 1-fz ) );
 
-        out[cube[3]] += v * ( ( 1-fx ) * ( fy ) * ( 1-fz ) );
-        out[cube[2]] += v * ( ( fx ) * ( fy ) * ( 1-fz ) );
+            out[cube[3]] += v * ( ( 1-fx ) * ( fy ) * ( 1-fz ) );
+            out[cube[2]] += v * ( ( fx ) * ( fy ) * ( 1-fz ) );
 
-        out[cube[4]] += v * ( ( 1-fx ) * ( 1-fy ) * ( fz ) );
-        out[cube[5]] += v * ( ( fx ) * ( 1-fy ) * ( fz ) );
+            out[cube[4]] += v * ( ( 1-fx ) * ( 1-fy ) * ( fz ) );
+            out[cube[5]] += v * ( ( fx ) * ( 1-fy ) * ( fz ) );
 
-        out[cube[7]] += v * ( ( 1-fx ) * ( fy ) * ( fz ) );
-        out[cube[6]] += v * ( ( fx ) * ( fy ) * ( fz ) );
-    }
+            out[cube[7]] += v * ( ( 1-fx ) * ( fy ) * ( fz ) );
+            out[cube[6]] += v * ( ( fx ) * ( fy ) * ( fz ) );
+        }
+    });
 
 }
 

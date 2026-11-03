@@ -25,6 +25,9 @@
 #include <sofa/core/objectmodel/BaseComponent.h>
 #include <sofa/defaulttype/VecTypes.h>
 
+#include <algorithm>
+#include <type_traits>
+
 namespace sofa::component::mapping::linear::_barycentricmapper_
 {
 
@@ -74,12 +77,35 @@ public:
     virtual void applyOnePoint( const Index& hexaId, typename Out::VecCoord& out, const typename In::VecCoord& in);
     virtual void clear( std::size_t reserve=0 ) =0;
 
+    /// If true, applyJT (vectors) skips the entries of the mapped vector which are zero (see BarycentricMapping::d_sparseApplyJT)
+    void setSparseApplyJT(bool sparse) { m_sparseApplyJT = sparse; }
+
     inline friend std::istream& operator >> ( std::istream& in, BarycentricMapper< In, Out > & ) {return in;}
     inline friend std::ostream& operator << ( std::ostream& out, const BarycentricMapper< In, Out > &  ) { return out; }
 
 
 protected:
     void addMatrixContrib(MatrixType* m, sofa::Index row, sofa::Index col, Real value);
+
+    bool m_sparseApplyJT { false };
+
+    /// Whether every coordinate of v is exactly zero (Vec::operator== compares with a tolerance: small forces are not zero)
+    template<class V>
+    static bool isExactlyZero(const V& v)
+    {
+        return std::all_of(v.begin(), v.end(), [](const auto c) { return c == 0; });
+    }
+    /// Calls loop(sparse) with sparse = std::true_type if sparseApplyJT, std::false_type otherwise: the loop of applyJT over
+    /// the mapped vector is compiled for both, and skips the entries which are exactly zero only for the first one (a test
+    /// in the loop, even never true, made the applyJT of the sparse grids 15% slower)
+    template<class Loop>
+    void withSparseApplyJT(Loop loop) const
+    {
+        if (m_sparseApplyJT)
+            loop(std::true_type{});
+        else
+            loop(std::false_type{});
+    }
 
     template< sofa::Size NC, sofa::Size NP>
     class MappingData

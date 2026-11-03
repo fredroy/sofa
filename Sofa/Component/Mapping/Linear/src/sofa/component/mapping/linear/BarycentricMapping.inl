@@ -74,6 +74,7 @@ template <class TIn, class TOut>
 BarycentricMapping<TIn, TOut>::BarycentricMapping(core::State<In>* from, core::State<Out>* to, typename Mapper::SPtr mapper)
     : Inherit1 ( from, to )
     , d_useRestPosition(core::objectmodel::Base::initData(&d_useRestPosition, false, "useRestPosition", "Use the rest position of the input and output models to initialize the mapping"))
+    , d_sparseApplyJT(core::objectmodel::Base::initData(&d_sparseApplyJT, false, "sparseApplyJT", "If true, applyJT skips the entries of the mapped vector which are zero, with the same result: worth it when most of them are zero (e.g. contact forces on a few vertices of a mapped surface), at the cost of a comparison per entry otherwise"))
     , d_mapper(initLink("mapper","Internal mapper created depending on the type of topology"), mapper)
     , d_input_topology(initLink("input_topology", "Input topology container (usually the surrounding domain)."))
     , d_output_topology(initLink("output_topology", "Output topology container (usually the immersed domain)."))
@@ -89,6 +90,7 @@ template <class TIn, class TOut>
 BarycentricMapping<TIn, TOut>::BarycentricMapping (core::State<In>* from, core::State<Out>* to, BaseMeshTopology * input_topology )
     : Inherit1 ( from, to )
     , d_useRestPosition(core::objectmodel::Base::initData(&d_useRestPosition, false, "useRestPosition", "Use the rest position of the input and output models to initialize the mapping"))
+    , d_sparseApplyJT(core::objectmodel::Base::initData(&d_sparseApplyJT, false, "sparseApplyJT", "If true, applyJT skips the entries of the mapped vector which are zero, with the same result: worth it when most of them are zero (e.g. contact forces on a few vertices of a mapped surface), at the cost of a comparison per entry otherwise"))
     , d_mapper (initLink("mapper","Internal mapper created depending on the type of topology"))
     , d_input_topology(initLink("input_topology", "Input topology container (usually the surrounding domain)."))
     , d_output_topology(initLink("output_topology", "Output topology container (usually the immersed domain)."))
@@ -323,6 +325,7 @@ void BarycentricMapping<TIn, TOut>::applyJT (const core::MechanicalParams * mpar
     if (d_mapper != nullptr)
     {
         auto outWriteAccessor = sofa::helper::getWriteAccessor(out);
+        d_mapper->setSparseApplyJT(d_sparseApplyJT.getValue());
         d_mapper->applyJT(outWriteAccessor.wref(), in.getValue());
     }
 }

@@ -303,18 +303,24 @@ void BarycentricMapperTopologyContainer<In,Out,MappingDataType,Element>::applyJT
     const auto& map = d_map.getValue();
     const type::vector<Element>& elements = getElements();
 
-    for( size_t i=0 ; i<in.size() ; ++i)
+    this->withSparseApplyJT([&](const auto sparse)
     {
-        const Index index = map[i].in_index;
-        const Element& element = elements[index];
-
-        const typename Out::DPos inPos = Out::getDPos(in[i]);
-        const auto baryCoef = getBarycentricCoefficients(map[i].baryCoords);
-        for (unsigned int j=0; j<Element::NumberOfNodes; j++)
+        for( size_t i=0 ; i<in.size() ; ++i)
         {
-            out[element[j]] += inPos * baryCoef[j];
+            const typename Out::DPos inPos = Out::getDPos(in[i]);
+            if (sparse && this->isExactlyZero(inPos))
+                continue;
+
+            const Index index = map[i].in_index;
+            const Element& element = elements[index];
+
+            const auto baryCoef = getBarycentricCoefficients(map[i].baryCoords);
+            for (unsigned int j=0; j<Element::NumberOfNodes; j++)
+            {
+                out[element[j]] += inPos * baryCoef[j];
+            }
         }
-    }
+    });
 }
 
 template <class In, class Out, class MappingDataType, class Element>
