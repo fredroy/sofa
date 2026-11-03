@@ -7,6 +7,7 @@ set(SOURCE_FILES
     EulerImplicitIntegrationSchemeDynamic_test.cpp
     EulerImplicitIntegrationSchemeStatic_test.cpp
     EulerImplicitIntegrationScheme_withDamping_test.cpp
+    EulerImplicitIntegrationSchemeMappedStates_test.cpp
     NewmarkIntegrationSchemeDynamic_test.cpp
     StaticEquilibriumIntegrationScheme_test.cpp
     SpringIntegrationSchemeDynamic_test.cpp
@@ -20,4 +21,5 @@ target_link_libraries(${PROJECT_NAME} Sofa.Testing
     Sofa.Component.IntegrationScheme.Testing
     Sofa.Component.IntegrationScheme.Backward
     Sofa.Component.LinearSolver.Direct
+    Sofa.Component.Mapping.Linear
     Sofa.Component.StateContainer)
