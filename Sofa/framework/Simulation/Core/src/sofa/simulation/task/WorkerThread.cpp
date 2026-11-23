@@ -52,7 +52,7 @@ WorkerThread::~WorkerThread()
 
 bool WorkerThread::isFinished() const
 {
-    return m_finished.load(std::memory_order_relaxed);
+    return m_finished.load(std::memory_order_acquire);
 }
 
 bool WorkerThread::start(DefaultTaskScheduler *const &taskScheduler)
@@ -101,7 +101,9 @@ void WorkerThread::run(void)
         }
     }
 
-    m_finished.store(true, std::memory_order_relaxed);
+    // Release: whoever sees the worker finished (stop() before deleting the
+    // workers) also sees its last accesses to the other workers' queues.
+    m_finished.store(true, std::memory_order_release);
 }
 
 const std::thread::id WorkerThread::getId() const

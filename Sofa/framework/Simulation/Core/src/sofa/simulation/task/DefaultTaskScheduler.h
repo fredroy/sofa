@@ -93,7 +93,7 @@ private:
             
     bool isInitialized() const { return m_isInitialized; }
             
-    bool isClosing() const { return m_isClosing; }
+    bool isClosing() const { return m_isClosing.load(std::memory_order_acquire); }
             
     void	WaitForWorkersToBeReady();
             
@@ -156,7 +156,7 @@ private:
             
     std::atomic<bool> m_workerThreadsIdle;
             
-    bool m_isClosing;
+    std::atomic<bool> m_isClosing;
             
     unsigned m_threadCount;
             
