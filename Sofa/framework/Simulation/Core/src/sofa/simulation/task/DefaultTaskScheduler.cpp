@@ -25,6 +25,9 @@
 #include <sofa/simulation/task/WorkerThread.h>
 #include <sofa/simulation/task/MainTaskSchedulerFactory.h>
 
+#include <chrono>
+#include <vector>
+
 namespace sofa::simulation
 {
 
@@ -48,6 +51,20 @@ public:
     }
 };
 
+namespace
+{
+    std::atomic<std::uint64_t> s_nextSchedulerId{1};
+
+    /// The WorkerThread of the calling thread in the scheduler it used last, to find it
+    /// without lock.
+    struct CurrentThreadCache
+    {
+        std::uint64_t schedulerId{0};
+        WorkerThread* thread{nullptr};
+    };
+    thread_local CurrentThreadCache t_currentThread;
+}
+
 DefaultTaskScheduler* DefaultTaskScheduler::create()
 {
     return new DefaultTaskScheduler();
@@ -55,15 +72,16 @@ DefaultTaskScheduler* DefaultTaskScheduler::create()
 
 DefaultTaskScheduler::DefaultTaskScheduler()
 : TaskScheduler()
+, m_id(s_nextSchedulerId.fetch_add(1))
 {
     m_isInitialized = false;
     m_threadCount = 0;
     m_isClosing = false;
 
-    // init global static thread local var
-    {
-        _threads[std::this_thread::get_id()] = new WorkerThread(this, 0, "Main  ");// new WorkerThread(this, 0, "Main  ");
-    }
+    // The creating thread
+    std::lock_guard lock(m_threadsMutex);
+    _threads[std::this_thread::get_id()] = new WorkerThread(this, 0, "Main  ");
+    publishThreadList();
 }
 
 DefaultTaskScheduler::~DefaultTaskScheduler()
@@ -72,10 +90,33 @@ DefaultTaskScheduler::~DefaultTaskScheduler()
     {
         stop();
     }
+
+    // Only the threads that are not workers are left: the creating thread and the
+    // registered ones, which own no std::thread.
+    std::lock_guard lock(m_threadsMutex);
+    for (const auto& [threadId, thread] : _threads)
+    {
+        delete thread;
+    }
+    _threads.clear();
+    m_threadList.store(nullptr);
+}
+
+void DefaultTaskScheduler::publishThreadList()
+{
+    auto list = std::make_unique<std::vector<WorkerThread*>>();
+    list->reserve(_threads.size());
+    for (const auto& [threadId, thread] : _threads)
+    {
+        list->push_back(thread);
+    }
+    m_threadList.store(list.get(), std::memory_order_release);
+    m_threadLists.push_back(std::move(list));
 }
 
 WorkerThread* DefaultTaskScheduler::getWorkerThread(const std::thread::id id)
 {
+    std::lock_guard lock(m_threadsMutex);
     const auto thread =_threads.find(id);
     if (thread == _threads.end() )
     {
@@ -124,8 +165,13 @@ void DefaultTaskScheduler::start(const unsigned int NbThread )
     for( unsigned int i=1; i<m_threadCount; ++i)
     {
         WorkerThread* thread = new WorkerThread(this, int(i));
-        thread->create_and_attach(this);
-        _threads[thread->getId()] = thread;
+        {
+            // Registered before it can look itself up (getCurrent).
+            std::lock_guard lock(m_threadsMutex);
+            thread->create_and_attach(this);
+            _threads[thread->getId()] = thread;
+            publishThreadList();
+        }
         thread->start(this);
     }
 
@@ -146,42 +192,72 @@ void DefaultTaskScheduler::stop()
         wakeUpWorkers();
         m_isInitialized = false;
 
-        for (auto [threadId, workerThread] : _threads)
+        // The workers are the threads owning a std::thread; the others (the creating
+        // thread, the registered ones) stay registered, whichever thread calls stop().
+        std::vector<WorkerThread*> workers;
         {
-            // if this is the main thread continue
-            if (std::this_thread::get_id() == threadId)
+            std::lock_guard lock(m_threadsMutex);
+            for (const auto& [threadId, thread] : _threads)
             {
-                continue;
+                if (thread->m_stdThread.joinable())
+                {
+                    workers.push_back(thread);
+                }
             }
+        }
 
+        // All of them finish before any is deleted: a running worker may still be
+        // stealing from the others.
+        for (const WorkerThread* workerThread : workers)
+        {
             // cpu busy wait
             while (!workerThread->isFinished())
             {
                 std::this_thread::yield();
                 std::this_thread::sleep_for(std::chrono::milliseconds(1));
             }
+        }
 
-            // free memory
-            // cpu busy wait: thread.joint call
+        {
+            std::lock_guard lock(m_threadsMutex);
+            for (const WorkerThread* workerThread : workers)
+            {
+                _threads.erase(workerThread->getId());
+            }
+            publishThreadList();
+        }
+
+        // free memory (joins the std::thread)
+        for (const WorkerThread* workerThread : workers)
+        {
             delete workerThread;
-            workerThread = nullptr;
         }
 
         m_threadCount = 1;
         m_workerThreadCount = 1;
-
-        const auto mainThreadIt = _threads.find(std::this_thread::get_id());
-        WorkerThread* mainThread = mainThreadIt->second;
-        _threads.clear();
-        _threads[std::this_thread::get_id()] = mainThread;
     }
-
-    return;
 }
 
 WorkerThread* DefaultTaskScheduler::getCurrent()
 {
-    return getWorkerThread(std::this_thread::get_id());
+    if (t_currentThread.schedulerId == m_id)
+    {
+        return t_currentThread.thread;
+    }
+
+    const auto threadId = std::this_thread::get_id();
+    std::lock_guard lock(m_threadsMutex);
+    auto [it, inserted] = _threads.try_emplace(threadId, nullptr);
+    if (inserted)
+    {
+        // A thread that never used the scheduler: registered, so that the workers can
+        // steal its tasks. It stays registered until the scheduler is destroyed (a later
+        // thread that gets the same id reuses it).
+        it->second = new WorkerThread(this, int(++m_registeredThreadCount), "Registered ");
+        publishThreadList();
+    }
+    t_currentThread = { m_id, it->second };
+    return it->second;
 }
 
 const char* DefaultTaskScheduler::getCurrentThreadName()

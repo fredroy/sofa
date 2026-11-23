@@ -33,6 +33,8 @@
 #include <string> 
 #include <mutex>
 #include <atomic>
+#include <cstdint>
+#include <vector>
 
 
 namespace sofa::simulation
@@ -40,6 +42,14 @@ namespace sofa::simulation
 
 class WorkerThread;
 
+/**
+ * Task scheduler with a pool of worker threads.
+ *
+ * Tasks can be added from any thread, not only from the one that created the scheduler:
+ * a thread is registered on its first use, and its tasks can be stolen by the workers
+ * like the ones of the creating thread. init() and stop() can be called from any thread
+ * too.
+ */
 class SOFA_SIMULATION_CORE_API DefaultTaskScheduler : public TaskScheduler
 {
     enum
@@ -63,6 +73,7 @@ public:
      */
     void stop() final;
 
+    /// The WorkerThread of the calling thread, registered on its first call.
     WorkerThread* getCurrent();
     unsigned int getThreadCount(void)  const final { return m_threadCount; }
     const char* getCurrentThreadName() override final;
@@ -95,7 +106,26 @@ private:
             
     static const std::string _name;
 
+    /// The workers of the pool, and the other threads that used the scheduler (the one
+    /// that created it, and the threads registered by getCurrent()), which own no
+    /// std::thread. Guarded by m_threadsMutex.
     std::map< std::thread::id, WorkerThread*> _threads;
+    std::mutex m_threadsMutex;
+
+    /// The threads of _threads, which the workers go through to steal tasks, without
+    /// lock, while other threads register: a new list is published on each change, and
+    /// the previous ones are kept until the scheduler is destroyed.
+    std::atomic<const std::vector<WorkerThread*>*> m_threadList{nullptr};
+    std::vector<std::unique_ptr<const std::vector<WorkerThread*>>> m_threadLists;
+    /// Publishes the content of _threads. With m_threadsMutex.
+    void publishThreadList();
+    const std::vector<WorkerThread*>& getThreadList() const { return *m_threadList.load(std::memory_order_acquire); }
+
+    /// Unique among the schedulers created by the process: the threads remember their
+    /// WorkerThread for this id (getCurrent).
+    const std::uint64_t m_id;
+    /// Threads registered by getCurrent(), to name them. With m_threadsMutex.
+    unsigned m_registeredThreadCount{0};
 
     std::atomic<const Task::Status*> m_mainTaskStatus;
     void setMainTaskStatus(const Task::Status* mainTaskStatus);

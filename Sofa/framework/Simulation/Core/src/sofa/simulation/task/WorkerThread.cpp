@@ -249,10 +249,11 @@ bool WorkerThread::addTask(Task *task)
 
 bool WorkerThread::stealTask(Task **task)
 {
-    for (const auto& [id, otherThread] : m_taskScheduler->_threads)
+    // Without lock: threads may be registered meanwhile (DefaultTaskScheduler::getCurrent),
+    // which publishes a new list and leaves this one valid.
+    for (WorkerThread* otherThread : m_taskScheduler->getThreadList())
     {
-        // if this is the main thread continue
-        if (std::this_thread::get_id() == id)
+        if (otherThread == this)
         {
             continue;
         }
